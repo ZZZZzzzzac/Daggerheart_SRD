@@ -101,10 +101,10 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 需要升配的信号：自建后端数据库、WebSocket 协同、服务端渲染。
 
 ### 部署方式
-本地构建 → tar+scp 直接同步到服务器
+本地构建 → commit + push 到 master → SSH 上服务器 pull
 - 运行 `./deploy.ps1`（Win）或 `./deploy.sh`（Linux）
-- 需要 `Daggerheart_VPS` 仓库同级，SSH 密钥在 `../Daggerheart_VPS/.ssh/` 中
-- 服务器上 nginx `alias /var/www/SRD/;`，文件直接部署到该目录
+- 构建产物复制到仓库根目录后一起提交，nginx `alias /var/www/SRD/;` 直接服务
+- 需要 `Daggerheart_VPS` 仓库同级（SSH 密钥路径 `../Daggerheart_VPS/.ssh/`）
 
 ### 三台 VPS
 | 服务器 | IP | 用途 |

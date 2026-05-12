@@ -45,8 +45,13 @@
           var parentLang = langParent.classList.contains('lang-zh') ? 'zh' : 'en';
           if (parentLang !== lang) return;
         }
-        // 首页：标题不在语言包装器内，直接加入
-        var text = el.textContent.trim();
+        // h1 不在语言包装器内，但其子元素有 .lang-zh/.lang-en span
+        var zhSpan, enSpan;
+        if (el.tagName === 'H1' && (zhSpan = el.querySelector('.lang-zh')) && (enSpan = el.querySelector('.lang-en'))) {
+          var text = lang === 'zh' ? zhSpan.textContent.trim() : enSpan.textContent.trim();
+        } else {
+          var text = el.textContent.trim();
+        }
         if (!text) return;
         if (!el.id) {
           el.id = 't-' + lang + '-' + el.tagName.toLowerCase() + '-' +
