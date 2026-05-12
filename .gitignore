@@ -5,3 +5,4 @@ Daggerheart-HTML-SRD-release/
 __pycache__/
 *.pyc
 hugo.exe
+.claude/
