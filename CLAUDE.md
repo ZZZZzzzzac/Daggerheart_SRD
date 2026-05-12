@@ -34,8 +34,10 @@ Daggerheart_SRD/
 ├── public/              # （生成）Hugo 最终输出，已 gitignore
 ├── config.yaml          # Hugo 配置
 ├── page-toc.yaml        # 页面结构目录
-├── build.ps1            # Windows 一键构建
+├── build.ps1            # Windows 构建
 ├── build.sh             # Linux 构建
+├── deploy.ps1           # Windows 构建 + 部署（推 release 分支）
+├── deploy.sh            # Linux 构建 + 部署（推 release 分支）
 ├── README.md
 ├── LICENSE
 ├── .gitignore
@@ -99,8 +101,10 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 需要升配的信号：自建后端数据库、WebSocket 协同、服务端渲染。
 
 ### 部署方式
-当前：本地构建 → tar + scp → 服务器解包
-迁移后计划：服务器 `git pull`（但只拉构建产物，或 CI 构建后自动推送到服务器）
+本地构建 → commit + push 到 `master` → 服务器 cron 定时 `git pull`
+- 运行 `./deploy.ps1`（Win）或 `./deploy.sh`（Linux）
+- 脚本用 `git add -f public/` 强制跟踪构建产物（`public/` 仍在 `.gitignore` 中，避免干扰日常开发）
+- 服务器上 nginx 指向 `/var/www/SRD/public/`，`update_repos.sh` 定时拉取
 
 ### 三台 VPS
 | 服务器 | IP | 用途 |

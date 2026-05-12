@@ -36,18 +36,28 @@ Daggerheart_SRD/
 ```bash
 python scripts/build_srd.py    # md → Hugo content → 静态页
 # 或一键脚本
-./build.ps1   # Windows
-./build.sh    # Linux
+./build.ps1   # Windows（仅构建）
+./build.sh    # Linux（仅构建）
 ```
 
 输出在 `public/` 目录。
+
+### 部署
+
+```bash
+./deploy.ps1   # Windows（构建 + commit + push master）
+./deploy.sh    # Linux（构建 + commit + push master）
+```
 
 ## 协作流程
 
 1. **编辑内容**：修改 `src/pages/` 下的 `zh.md`（中文）或 `en.md`（英文）
 2. **提交 PR**：在 GitHub 上创建 Pull Request
 3. **审核**：维护者 review 后合并
-4. **发布**：维护者合并后本地构建，将 `public/` 部署到服务器
+4. **发布构建产物**：维护者合并后本地运行 `./deploy.ps1`（Windows）或 `./deploy.sh`（Linux）
+   - 构建 SRD 静态页
+   - 将 `public/` 目录 commit + push 到 `master`
+   - 服务器定时任务自动 `git pull` 更新 Web 目录
 
 ### 对贡献者的要求
 

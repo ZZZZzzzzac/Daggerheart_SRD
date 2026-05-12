@@ -119,7 +119,8 @@ title: "匕首之心 HTML SRD"
                 continue
             print(f"  ✓ {generate_page(p, zt, et, cn, en)}")
 
-    # Hugo
+    # Hugo（确保项目目录在 PATH 中，以便找到 hugo.exe）
+    os.environ['PATH'] = PROJECT_DIR + os.pathsep + os.environ.get('PATH', '')
     print(f"\nHugo 构建...")
     r = subprocess.run(['hugo'], cwd=PROJECT_DIR,
                        capture_output=True, text=True,
