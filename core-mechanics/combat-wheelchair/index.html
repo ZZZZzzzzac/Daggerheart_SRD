@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><script src="/SRD/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=SRD/livereload" data-no-instant defer></script>
+  <title>战斗轮椅 | 匕首之心 HTML SRD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="匕首之心 HTML SRD">
+    <meta name="keywords" content="匕首之心,Daggerheart,SRD">
+    
+    <link href="/SRD/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/SRD/css/sticky-footer.css" rel="stylesheet">
+    <link href="/SRD/css/site.css" rel="stylesheet">
+
+    
+    
+    
+    <style>img.domain-icon { width:60px; height:60px; vertical-align:middle; margin-right:5px; border-radius:4px; }</style>
+  </head>
+  <body data-spy="scroll" data-target="#sidemenu">
+  <nav id="site-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar-header">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="/SRD/">匕首之心 HTML SRD</a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+   <li><a href="/SRD/introduction"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a></li>
+   <li><a href="/SRD/character-creation"><span class="lang-zh">创建角色</span><span class="lang-en">Character Creation</span></a></li>
+   <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心资源</span><span class="lang-en">Core Resources</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-resources/domains"><span class="lang-zh">领域</span><span class="lang-en">Domains</span></a></li>
+       <li><a href="/SRD/core-resources/classes"><span class="lang-zh">职业</span><span class="lang-en">Classes</span></a></li>
+       <li><a href="/SRD/core-resources/ancestries"><span class="lang-zh">种族</span><span class="lang-en">Ancestries</span></a></li>
+       <li><a href="/SRD/core-resources/communities"><span class="lang-zh">社群</span><span class="lang-en">Communities</span></a></li>
+     </ul>
+   </li>
+   <li class="dropdown">
+     <a href="/SRD/core-mechanics" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心机制</span><span class="lang-en">Core Mechanics</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-mechanics"><span class="lang-zh">总览</span><span class="lang-en">Overview</span></a></li>
+       <li><a href="/SRD/core-mechanics/equipment"><span class="lang-zh">装备表格</span><span class="lang-en">Equipment Tables</span></a></li>
+       <li><a href="/SRD/core-mechanics/combat-wheelchair"><span class="lang-zh">战斗轮椅</span><span class="lang-en">Combat Wheelchair</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/running-a-game"><span class="lang-zh">运作一场游戏</span><span class="lang-en">Running a Game</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/adversaries-and-environments" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">敌人与环境</span><span class="lang-en">Adversaries & Environments</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/adversaries-and-environments/adversary-mechanics"><span class="lang-zh">敌人机制介绍</span><span class="lang-en">Adversary Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/adversary-data"><span class="lang-zh">敌人数据</span><span class="lang-en">Adversary Data</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-mechanics"><span class="lang-zh">环境机制介绍</span><span class="lang-en">Environment Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-data"><span class="lang-zh">环境数据</span><span class="lang-en">Environment Data</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/campaign-frames"><span class="lang-zh">战役框架</span><span class="lang-en">Campaign Frames</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/appendix" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">附录</span><span class="lang-en">Appendix</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/appendix/domain-cards"><span class="lang-zh">领域卡查询</span><span class="lang-en">Domain Card Reference</span></a></li>
+     </ul>
+   </li>
+ </ul>
+ <ul class="nav navbar-nav navbar-right">
+   <li><a id="lang-toggle-btn" href="#"><span class="lang-zh-active">中</span> | <span class="lang-en-inactive">EN</span></a></li>
+ </ul>
+</div>
+</nav>
+
+  <div id="wrap">
+    <nav id="sidemenu">
+   <ul id="sidemenu-topnav" class="nav">
+   </ul>
+</nav>
+
+    <div class="content-area">
+      
+<h1><span class="lang-zh">战斗轮椅</span><span class="lang-en">Combat Wheelchair</span></h1>
+
+<div class="lang-zh">
+<h2>战斗轮椅</h2>
+<p><em>作者：Mark Thompson</em></p>
+<p>战斗轮椅是一套附加规则，旨在帮助你在《匕首之心》中扮演使用轮椅的角色。本节提供相关机制和叙事指导，供你参考，但你也可以自由调整设定文本，使其更契合你的角色。请尽情享受设计轮椅的乐趣，并根据你的喜好，为你的角色打造一款独一无二、量身定制的轮椅。</p>
+<h3>动作与移动</h3>
+<p>在描述你的角色如何移动时，你可以使用以下描述：</p>
+<ul>
+<li><em>“我推到门边，看看门是不是开着的。”</em></li>
+<li><em>“我把轮椅推到人群中，问问发生了什么。”</em></li>
+<li><em>“我拉下刹车，急停，然后在座位上转身，用弓对准入侵者。”</em> </li>
+</ul>
+<h3>后果</h3>
+<p>下列是一些描述你的角色使用轮椅时可能遇到的复杂情况的方式：</p>
+<ul>
+<li><em>“我拉下刹车，但没预料到地面上碎石的影响。”</em></li>
+<li><em>“我小心撞上了一块坚冰，结果整个滑了出去，超出了目标位置。”</em></li>
+<li><em>“我想要发力追击，但前轮卡在路面裂缝中，让我稍微停顿了一下。”</em>游戏主持人应避免以“破坏轮椅”或“将轮椅从游戏中移除”作为后果，除非所有在场玩家，特别是使用轮椅角色的玩家，明确表示同意。 </li>
+</ul>
+<h3>闪避值</h3>
+<p>你的角色被认为擅长操控他们的轮椅并在其中应对各种情况。因此，只有重型框架型号的轮椅会给角色的闪避值带来减值。</p>
+<h3>负重</h3>
+<p>非战斗状态下，所有轮椅都可以用一只或两只手操控。然而，当轮椅被用作武器时，根据你选择的类型，攻击时需要一只手或两只手来操控。</p>
+<p>如果你扮演一位手臂活动受限或无法使用手臂的角色，其轮椅可以通过魔法方式与角色同调。例如，你的角色可以使用心灵感应来引导轮椅移动，就像一辆伪电动轮椅。这里列出的所有规则都可以根据任何角色的需求进行调整和改编。</p>
+<h3>选择你的型号</h3>
+<p>所有战斗轮椅都会以主武器的形式装备。轮椅有三种型号可供选择：<strong>轻型</strong>、<strong>重型</strong>和<strong>奥术</strong>。建议你考虑你正在扮演的角色类型以及所属的职业，然后选择最符合该角色概念的型号。</p>
+<h3>轻型框架型号</h3>
+<p>虽然坚固，但这些轮椅的轻型框架允许轮椅以更灵活的方式随你的角色移动。这些型号最适合依赖速度和灵活性的冒险者。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位阶</th>
+<th>属性</th>
+<th>距离</th>
+<th>伤害</th>
+<th>负重</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>轻型框架轮椅</td>
+<td>1</td>
+<td>敏捷</td>
+<td>近战</td>
+<td>d8 物理</td>
+<td>单手操控</td>
+<td>快速：当你进行攻击时，你可以<strong>标记 1 压力点</strong>，以射程内另一生物为目标。</td>
+</tr>
+<tr>
+<td>改进轻型框架轮椅</td>
+<td>2</td>
+<td>敏捷</td>
+<td>近战</td>
+<td>d8+3 物理</td>
+<td>单手操控</td>
+<td>快速：当你进行攻击时，你可以<strong>标记 1 压力点</strong>，以射程内另一生物为目标。</td>
+</tr>
+<tr>
+<td>高级轻型框架轮椅</td>
+<td>3</td>
+<td>敏捷</td>
+<td>近战</td>
+<td>d8+6 物理</td>
+<td>单手操控</td>
+<td>快速：当你进行攻击时，你可以<strong>标记 1 压力点</strong>，以射程内另一生物为目标。</td>
+</tr>
+<tr>
+<td>传说轻型框架轮椅</td>
+<td>4</td>
+<td>敏捷</td>
+<td>近战</td>
+<td>d8+9 物理</td>
+<td>单手操控</td>
+<td>快速：当你进行攻击时，你可以<strong>标记 1 压力点</strong>，以射程内另一生物为目标。</td>
+</tr>
+</tbody>
+</table>
+<h3>重型框架型号</h3>
+<p>这些轮椅拥有笨重且更重的框架，使轮椅的重量能增强你的角色的攻击。这也使它们成为更大的目标。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位阶</th>
+<th>属性</th>
+<th>距离</th>
+<th>伤害</th>
+<th>负荷</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>重型框架轮椅</td>
+<td>1</td>
+<td>力量</td>
+<td>近战</td>
+<td>d12+3 物理</td>
+<td>双手操控</td>
+<td>重型：−1 闪避值。</td>
+</tr>
+<tr>
+<td>改进重型框架轮椅</td>
+<td>2</td>
+<td>力量</td>
+<td>近战</td>
+<td>d12+6 物理</td>
+<td>双手操控</td>
+<td>重型：−1 闪避值。</td>
+</tr>
+<tr>
+<td>高级重型框架轮椅</td>
+<td>3</td>
+<td>力量</td>
+<td>近战</td>
+<td>d12+9 物理</td>
+<td>双手操控</td>
+<td>重型：−1 闪避值。</td>
+</tr>
+<tr>
+<td>传说重型框架轮椅</td>
+<td>4</td>
+<td>力量</td>
+<td>近战</td>
+<td><strong>d12+12</strong> 物理</td>
+<td>双手操控</td>
+<td>重型：−1 闪避值。</td>
+</tr>
+</tbody>
+</table>
+<h3>奥术框架型号</h3>
+<p>这些轮椅的框架与你的角色及其魔法相契合，允许其通过轮椅引导法术。与其他主要魔法武器不同，奥术框架型号在进行攻击时没有指定使用的属性，而是使用你的子职业指示的施法属性。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位阶</th>
+<th>属性</th>
+<th>距离</th>
+<th>伤害</th>
+<th>负荷</th>
+<th>特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>奥术框架轮椅</td>
+<td>1</td>
+<td>施法</td>
+<td>远距</td>
+<td>d6 魔法</td>
+<td>单手操控</td>
+<td>可靠：攻击掷骰 +1。</td>
+</tr>
+<tr>
+<td>改进奥术框架轮椅</td>
+<td>2</td>
+<td>施法</td>
+<td>远距</td>
+<td>d6+3 魔法</td>
+<td>单手操控</td>
+<td>可靠：攻击掷骰 +1。</td>
+</tr>
+<tr>
+<td>高级奥术框架轮椅</td>
+<td>3</td>
+<td>施法</td>
+<td>远距</td>
+<td>d6+6 魔法</td>
+<td>单手操控</td>
+<td>可靠：攻击掷骰 +1。</td>
+</tr>
+<tr>
+<td>传说奥术框架轮椅</td>
+<td>4</td>
+<td>施法</td>
+<td>远距</td>
+<td>d6+9 魔法</td>
+<td>单手操控</td>
+<td>可靠：攻击掷骰 +1。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="lang-en">
+<h2>Combat Wheelchair</h2>
+<p><em>By Mark Thompson</em></p>
+<p>The combat wheelchair is a ruleset designed to help you play a wheelchair user in Daggerheart. This section provides mechanics and narrative guidance for you to work from, but feel free to adapt the flavor text to best suit your character. Have fun with your character's wheelchair design, and make it as unique or tailored to them as you please.</p>
+<h2>ACTION AND MOVEMENT</h2>
+<p>When describing how your character moves, you can use descriptions such as the following:</p>
+<ul>
+<li>"I roll over to the door to see if it's open."</li>
+<li>"I wheel myself over to the group to ask what's going on."</li>
+</ul>
+<p>• "I pull my brakes and skid to a halt, turning in my seat to level my bow at the intruder."</p>
+<h2>CONSEQUENCES</h2>
+<p>Here are some ways you might describe complications you encounter when your character uses their wheelchair:</p>
+<p>"I pull my brakes, but I don't think to account for the loose gravel on the ground."</p>
+<p>"I hit a patch of ice awkwardly and am sent skidding out past my target."</p>
+<p>"I go to push off in pursuit, but one of my front caster wheels snags on a crack in the pavement, stalling me for a moment."</p>
+<p>GMs should avoid breaking a character's wheelchair or otherwise removing it from play as a consequence, unless everyone at the table, especially the wheelchair user's player, gives their approval.</p>
+<h2>EVASION</h2>
+<p>Your character is assumed to be skilled in moving their wheelchair and navigating numerous situations in it. As a result, the only wheelchair that gives a penalty to a PC's Evasion is the Heavy Frame model.</p>
+<h2>BURDEN</h2>
+<p>All wheelchairs can be maneuvered using one or two hands outside of combat. However, when being used as a weapon, the chair is restricted to requiring one or two hands to perform attacks, depending on the model you've chosen. If you're playing a character who has limited to no mobility in their arms, their wheelchair can be attuned to them by magical means. For example, your character might use a psychic link to guide the chair around like a pseudo-electric wheelchair. All the rules presented here can be tailored and adapted to any character's needs.</p>
+<h2>CHOOSING YOUR MODEL</h2>
+<p>All combat wheelchairs are equipped as Primary Weapons. There are three models of wheelchair available: light, heavy, and arcane. You're encouraged to consider the type of character you're playing and the class they belong to, then choose the model that best matches that character concept.</p>
+<h3><strong>Light Frame Models</strong></h3>
+<p>Though tough, these wheelchairs have light frames that allow the chair to move with your character in more acrobatic ways. These models are best suited to adventurers who rely on speed and flexibility.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Tier</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Light-Frame<br>Wheelchair</td>
+<td>1</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Improved<br>Light-Frame<br>Wheelchair</td>
+<td>2</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+3 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Advanced<br>Light-Frame<br>Wheelchair</td>
+<td>3</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+6 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Legendary<br>Light-Frame<br>Wheelchair</td>
+<td>4</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+9 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+</tbody>
+</table>
+<h4><strong>Heavy Frame Models</strong></h4>
+<p>These wheelchairs have bulky and heavier frames, allowing the chair to lend its weight to your character's attacks. It also makes them a bigger target.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Tier</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heavy-Frame<br>Wheelchair</td>
+<td>1</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+3 phy</td>
+<td>Two-Handed</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Improved<br>Heavy-Frame<br>Wheelchair</td>
+<td>2</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+6 phy</td>
+<td>Two-Handed</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Advanced<br>Heavy-Frame<br>Wheelchair</td>
+<td>3</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+9 phy</td>
+<td>Two-Handed</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Legendary<br>Heavy-Frame<br>Wheelchair</td>
+<td>4</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+12 phy</td>
+<td>Two-Handed</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+</tbody>
+</table>
+<h4><strong>Arcane Frame Models</strong></h4>
+<p>These wheelchairs have frames that are attuned to your character and their magic, allowing them to channel their spells through the chair. Unlike other primary magic weapons, the arcane-frame model doesn't specify a trait to use when making an attack with it. Instead, you use the Spellcast trait indicated by your subclass.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Tier</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arcane-Frame<br>Wheelchair</td>
+<td>1</td>
+<td>Spellcast</td>
+<td>Far</td>
+<td>d6 mag</td>
+<td>One-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Improved<br>Arcane-Frame<br>Wheelchair</td>
+<td>2</td>
+<td>Spellcast</td>
+<td>Far</td>
+<td>d6+3 mag</td>
+<td>One-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Advanced<br>Arcane-Frame<br>Wheelchair</td>
+<td>3</td>
+<td>Spellcast</td>
+<td>Far</td>
+<td>d6+6 mag</td>
+<td>One-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Legendary<br>Arcane-Frame<br>Wheelchair</td>
+<td>4</td>
+<td>Spellcast</td>
+<td>Far</td>
+<td>d6+9 mag</td>
+<td>One-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    </div>
+  </div>
+  <div id="footer">
+<div class="container">
+   <p class="NoIndent"><span class="lang-zh">匕首之心 Daggerheart HTML SRD。本文档依据 <a href="https://www.darringtonpress.com/license">Darrington Press 社群游戏授权条款</a>，视为公共游戏内容。</span>
+   <span class="lang-en">Daggerheart HTML SRD. This document is considered Public Game Content per the <a href="https://www.darringtonpress.com/license">Darrington Press Community Gaming License</a>.</span></p>
+   <p class="NoIndent"><span class="lang-zh">© 2025 Critical Role LLC. 保留所有权利。</span><span class="lang-en">© 2025 Critical Role LLC. All rights reserved.</span></p>
+</div>
+</div>
+
+
+    
+    <script src="/SRD/jquery.js"></script>
+    
+    <script src="/SRD/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/SRD/js/lang-toggle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        
+      });
+    </script>
+  </body>
+</html>

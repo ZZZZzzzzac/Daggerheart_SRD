@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRD 在线编辑器 | 匕首之心 HTML SRD</title>
+
+  <!-- 本地资源（相对路径，匹配 Hugo 输出结构） -->
+  <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="../css/sticky-footer.css">
+
+  <!-- CodeMirror (CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css">
+
+  <!-- 编辑器专属样式 -->
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+  <!-- 顶栏（与主站风格一致） -->
+  <nav id="site-nav" class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../">匕首之心 HTML SRD</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="../introduction/"><span class="lang-zh">← 返回阅读</span><span class="lang-en">← Back to Read</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a id="token-btn" href="#">🔑 <span class="lang-zh">设置 Token</span><span class="lang-en">Set Token</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 编辑器主体 -->
+  <div id="editor-container">
+    <!-- 工具栏 -->
+    <div id="toolbar">
+      <div class="toolbar-left">
+        <select id="page-select" class="form-control input-sm">
+          <option value="">— <span class="lang-zh">选择页面</span><span class="lang-en">Select Page</span> —</option>
+        </select>
+        <span class="lang-toggle">
+          <a href="#" id="lang-zh-btn" class="lang-active">中</a>
+          <span class="lang-sep">|</span>
+          <a href="#" id="lang-en-btn" class="lang-inactive">EN</a>
+        </span>
+      </div>
+      <div class="toolbar-right">
+        <span id="save-status" class="text-muted"></span>
+        <button id="save-btn" class="btn btn-primary btn-sm" disabled>
+          💾 <span class="lang-zh">提交 PR</span><span class="lang-en">Submit PR</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 左右分栏 -->
+    <div id="split-view">
+      <div id="editor-pane">
+        <div class="pane-header"><span class="lang-zh">编辑器</span><span class="lang-en">Editor</span></div>
+        <textarea id="editor-textarea"></textarea>
+      </div>
+      <div id="preview-pane">
+        <div class="pane-header"><span class="lang-zh">预览</span><span class="lang-en">Preview</span></div>
+        <div id="preview" class="content-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 页脚（与主站一致） -->
+  <div id="footer">
+    <div class="container">
+      <p class="NoIndent">
+        <span class="lang-zh">匕首之心 Daggerheart HTML SRD。</span>
+        <span class="lang-en">Daggerheart HTML SRD.</span>
+        <span class="lang-zh">© 2025 Critical Role LLC.</span>
+        <span class="lang-en">© 2025 Critical Role LLC.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Token 设置弹窗 -->
+  <div class="modal fade" id="token-modal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">GitHub Token</h4>
+        </div>
+        <div class="modal-body">
+          <p>需要 GitHub Personal Access Token 才能提交 PR。</p>
+          <input type="password" id="token-input" class="form-control" placeholder="ghp_...">
+          <p class="help-block"><a href="https://github.com/settings/tokens" target="_blank">创建 token</a>，需勾选 <code>repo</code> 权限。</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><span class="lang-zh">取消</span><span class="lang-en">Cancel</span></button>
+          <button type="button" class="btn btn-primary" id="token-save-btn"><span class="lang-zh">保存</span><span class="lang-en">Save</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 提交 PR 弹窗 -->
+  <div class="modal fade" id="pr-modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><span class="lang-zh">提交 PR</span><span class="lang-en">Submit PR</span></h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label><span class="lang-zh">修改说明</span><span class="lang-en">Change description</span></label>
+            <textarea id="pr-description" class="form-control" rows="3" placeholder="简要描述你的修改..."></textarea>
+          </div>
+          <div id="pr-progress" style="display:none;">
+            <p><span class="lang-zh">处理中...</span><span class="lang-en">Processing...</span></p>
+            <div class="progress">
+              <div id="pr-progress-bar" class="progress-bar progress-bar-striped active" style="width:0%"></div>
+            </div>
+          </div>
+          <div id="pr-result" style="display:none;"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><span class="lang-zh">关闭</span><span class="lang-en">Close</span></button>
+          <button type="button" class="btn btn-primary" id="pr-submit-btn"><span class="lang-zh">提交</span><span class="lang-en">Submit</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 脚本 -->
+  <script src="../jquery.js"></script>
+  <script src="../bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/markdown/markdown.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/addon/mode/overlay.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/addon/edit/continuelist.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="config.token.js"></script>
+  <script src="editor.js"></script>
+</body>
+</html>

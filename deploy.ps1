@@ -1,5 +1,5 @@
 # deploy.ps1 — Daggerheart HTML SRD 构建 + 部署
-# 构建后直接同步到服务器
+# 构建后将 public/ 内容复制到仓库根，commit + push master
 # 用法: 在 PowerShell 中运行 .\deploy.ps1
 
 $ProjectDir = $PSScriptRoot
@@ -9,13 +9,21 @@ Write-Host "[1/2] 构建 SRD..." -ForegroundColor Cyan
 python scripts/build_srd.py
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-Write-Host "[2/2] 同步到服务器..." -ForegroundColor Cyan
-$SSH_KEY = Resolve-Path "$ProjectDir\..\Daggerheart_VPS\.ssh\ssh-key-2026-03-20.key"
-$SERVER = "ubuntu@151.145.76.60"
-$REMOTE_DIR = "/var/www/SRD"
+Write-Host "[2/2] 推送 master..." -ForegroundColor Cyan
 
-$remoteInit = "set -e; sudo chown ubuntu:ubuntu $REMOTE_DIR; rm -rf $REMOTE_DIR/*; cd $REMOTE_DIR; tar xzf -; sudo chown -R www-data:www-data $REMOTE_DIR; sudo chmod -R 755 $REMOTE_DIR"
+# 复制构建产物到仓库根（用 robocopy 避免小文件过多报错）
+if (-not (Test-Path "public")) {
+    Write-Host "错误: public/ 不存在" -ForegroundColor Red
+    exit 1
+}
+Get-ChildItem -Path "public" | Copy-Item -Destination $ProjectDir -Recurse -Force 2>&1 | Out-Null
 
-tar czf - -C public . | ssh -i "$SSH_KEY" $SERVER $remoteInit
-
-Write-Host "完成！" -ForegroundColor Green
+git add -A
+git diff --cached --quiet
+if ($LASTEXITCODE -ne 0) {
+    git commit -m "deploy: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
+    git push
+    Write-Host "已推送更新。" -ForegroundColor Green
+} else {
+    Write-Host "构建内容无变化，无需推送。" -ForegroundColor Yellow
+}

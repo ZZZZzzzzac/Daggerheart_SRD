@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <title>敌人机制介绍 | 匕首之心 HTML SRD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="匕首之心 HTML SRD">
+    <meta name="keywords" content="匕首之心,Daggerheart,SRD">
+    
+    <link href="/SRD/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/SRD/css/sticky-footer.css" rel="stylesheet">
+    <link href="/SRD/css/site.css" rel="stylesheet">
+
+    
+    
+    
+    <style>img.domain-icon { width:60px; height:60px; vertical-align:middle; margin-right:5px; border-radius:4px; }</style>
+  </head>
+  <body data-spy="scroll" data-target="#sidemenu">
+  <nav id="site-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar-header">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="/SRD/">匕首之心 HTML SRD</a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+   <li><a href="/SRD/introduction"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a></li>
+   <li><a href="/SRD/character-creation"><span class="lang-zh">创建角色</span><span class="lang-en">Character Creation</span></a></li>
+   <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心资源</span><span class="lang-en">Core Resources</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-resources/domains"><span class="lang-zh">领域</span><span class="lang-en">Domains</span></a></li>
+       <li><a href="/SRD/core-resources/classes"><span class="lang-zh">职业</span><span class="lang-en">Classes</span></a></li>
+       <li><a href="/SRD/core-resources/ancestries"><span class="lang-zh">种族</span><span class="lang-en">Ancestries</span></a></li>
+       <li><a href="/SRD/core-resources/communities"><span class="lang-zh">社群</span><span class="lang-en">Communities</span></a></li>
+     </ul>
+   </li>
+   <li class="dropdown">
+     <a href="/SRD/core-mechanics" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心机制</span><span class="lang-en">Core Mechanics</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-mechanics"><span class="lang-zh">总览</span><span class="lang-en">Overview</span></a></li>
+       <li><a href="/SRD/core-mechanics/equipment"><span class="lang-zh">装备表格</span><span class="lang-en">Equipment Tables</span></a></li>
+       <li><a href="/SRD/core-mechanics/combat-wheelchair"><span class="lang-zh">战斗轮椅</span><span class="lang-en">Combat Wheelchair</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/running-a-game"><span class="lang-zh">运作一场游戏</span><span class="lang-en">Running a Game</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/adversaries-and-environments" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">敌人与环境</span><span class="lang-en">Adversaries & Environments</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/adversaries-and-environments/adversary-mechanics"><span class="lang-zh">敌人机制介绍</span><span class="lang-en">Adversary Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/adversary-data"><span class="lang-zh">敌人数据</span><span class="lang-en">Adversary Data</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-mechanics"><span class="lang-zh">环境机制介绍</span><span class="lang-en">Environment Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-data"><span class="lang-zh">环境数据</span><span class="lang-en">Environment Data</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/campaign-frames"><span class="lang-zh">战役框架</span><span class="lang-en">Campaign Frames</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/appendix" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">附录</span><span class="lang-en">Appendix</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/appendix/domain-cards"><span class="lang-zh">领域卡查询</span><span class="lang-en">Domain Card Reference</span></a></li>
+     </ul>
+   </li>
+ </ul>
+ <ul class="nav navbar-nav navbar-right">
+   <li><a id="lang-toggle-btn" href="#"><span class="lang-zh-active">中</span> | <span class="lang-en-inactive">EN</span></a></li>
+ </ul>
+</div>
+</nav>
+
+  <div id="wrap">
+    <nav id="sidemenu">
+   <ul id="sidemenu-topnav" class="nav">
+   </ul>
+</nav>
+
+    <div class="content-area">
+      
+<h1><span class="lang-zh">敌人机制介绍</span><span class="lang-en">Adversary Mechanics</span></h1>
+
+<div class="lang-zh">
+<h2>敌人与环境</h2>
+<h2>使用敌人</h2>
+<h2>敌人数据块</h2>
+<p>运作敌人所需的所有信息均包含在其数据块中。敌人的数据块包括：</p>
+<h2><strong>名称</strong></h2>
+<p>每个数据块都有一个独特的<strong>名称。</strong> 作用于具有特定名称敌人的能力，适用于所有使用这类数据块的敌人，无论他们在你的故事里叫什么。</p>
+<h2><strong>TIER</strong></h2>
+<p>每个敌人都设计为与特定<strong>位阶</strong>的玩家角色对抗。若你让小队面对不同位阶的敌人，请调整其属性。</p>
+<h2>敌人类型</h2>
+<p>敌人的类型显示在其位阶旁。敌人的类型代表其在冲突中的职责。敌人类型包括：</p>
+<ul>
+<li><strong>斗士</strong> 强韧且攻击力强大。</li>
+<li><strong>集群</strong> 指多只相同的生物作为一个单位协同行动。</li>
+<li><strong>头目</strong> 指挥并召唤其他敌人。</li>
+<li><strong>杂兵</strong> 容易被打败，但数量众多时非常危险。</li>
+<li><strong>远程</strong> 在近距离接触时脆弱，但可以从远处进行高伤害攻击。</li>
+<li><strong>潜伏</strong> 机动性强，利用机会伏击对手。</li>
+<li><strong>社交</strong> 通过对话而非战斗来应对，带来独特的挑战。</li>
+<li><strong>独狼</strong> 无论是否有支援，都能对整个队伍构成强大的挑战。</li>
+<li><strong>标准</strong> 是其虚构群体中具有代表性的普通敌人。</li>
+<li><strong>辅助</strong> 增强其盟友并扰乱其对手。</li>
+</ul>
+<h2><strong>描述</strong></h2>
+<p>敌人的外观与气质概述。</p>
+<h2><strong>动机与战术</strong></h2>
+<p>敌人的建议趋向、动作与目标。</p>
+<h2><strong>难度</strong></h2>
+<p>对该敌人进行的任何掷骰的难度，除非另有说明。</p>
+<h3><em>伤害阈值，生命点和压力点</em>*</h3>
+<p>这些系统与玩家角色的运作方式相同。</p>
+<p>“阈值”后列出的数字为该敌人的重度伤害阈值和严重伤害阈值。</p>
+<h2><strong>攻击调整值</strong></h2>
+<p>当你使用敌人进行攻击时，将此加值或减值应用于你的攻击掷骰。</p>
+<h2><strong>普通攻击</strong></h2>
+<p>描述敌人对玩家角色造成伤害的主要方式。包括攻击的<strong>名称</strong>、有效<strong>攻击范围</strong>及成功时造成的<strong>伤害</strong>。使用敌人的<strong>普通攻击</strong>属于游戏主持人行动。</p>
+<h2><strong>经历（可选）</strong></h2>
+<p>游戏主持人可以<strong>花费 1 恐惧点</strong>将一个敌人的相关经历加值添加到攻击掷骰或与其对抗的难度中。</p>
+<h2><strong>经历示例</strong></h2>
+<p>你总是可以调整数据块的经历来适应你的故事。这里有一些你可以使用的经历示例：</p>
+<table>
+<thead>
+<tr>
+<th>特技</th>
+<th>空中猎杀</th>
+<th>导航</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>伏击者</td>
+<td>威吓</td>
+<td>贵族身份</td>
+</tr>
+<tr>
+<td>讨价还价</td>
+<td>侵入</td>
+<td>快速反应</td>
+</tr>
+<tr>
+<td>剑术大师</td>
+<td>敏锐感知</td>
+<td>社交名流</td>
+</tr>
+<tr>
+<td>保镖</td>
+<td>魔法知识</td>
+<td>隐匿</td>
+</tr>
+<tr>
+<td>指挥官</td>
+<td>自然之友</td>
+<td>追踪者</td>
+</tr>
+</tbody>
+</table>
+<h2><strong>特性</strong></h2>
+<p>敌人特性分为三种类型：<strong>动作</strong>、<strong>反应</strong>和<strong>被动</strong>。注意：单独追踪每个敌人的压力点。如果激活特性需要游戏主持人花费压力点，则其必须花费来自激活特性的敌人的压力点。如果特性要求花费恐惧点，游戏主持人必须在已经花费的任何恐惧点之外额外进行花费——例如，打断玩家角色并聚焦于敌人。</p>
+<ul>
+<li><strong>动作：</strong>聚焦于敌人时，其可以执行的特殊攻击或其它独特动作。</li>
+<li><strong>反应：</strong>当触发条件发生时生效的特殊效果，无论是否聚焦于敌人。</li>
+<li><strong>被动：</strong>默认保持生效且无需资源或触发条件来激活的特殊能力。</li>
+</ul>
+<h2><strong>恐惧特性</strong></h2>
+<p>需花费恐惧点以激活、影响力巨大的效果。</p>
+<h4><strong>敌人特性示例：</strong></h4>
+<h4>动作</h4>
+<p>强力一击 Haymaker - 动作:* 对邻近范围内的一个目标进行一次攻击。成功时，造成 X 点直接物理伤害。</p>
+<p>撕裂打击 Shredding Strike 动作： 对邻近范围内的一个目标进行一次攻击。成功时，造成 X 点物理伤害，且目标必须<strong>标记 1 护甲槽</strong>，但不能获得其增益（目标仍然可以使用护甲来减少伤害）。</p>
+<p>后援不断 More Where That Came From - 动作:* 召唤三名“锯齿刀喽啰”，他们出现在远距离范围处。</p>
+<h4><strong>反应</strong></h4>
+<p><strong>沉重打击 Heavy Hitter - 反应：</strong>当此敌人使用普通攻击造成伤害时，你可以<strong>花费 1 恐惧点</strong>来获得伤害掷骰的 +X 加值。</p>
+<p><strong>无间配合 Team-Up - 反应：</strong>当此敌人邻近范围内的另一个敌人对一个生物造成 X 点伤害时，你可以<strong>标记 1 压力点</strong>来对同一生物进行一次普通攻击。若命中，则合并计算伤害。 </p>
+<p><strong>乘胜追击 Momentum - 反应：</strong>当此敌人对玩家角色进行一次成功的攻击时，你<strong>获得 1 恐惧点</strong>。</p>
+<h4><strong>被动</strong></h4>
+<p><strong>集群 Horde (X) - 被动：</strong>当这组集群敌人标记了其一半或更多的生命点时，其普通攻击改为造成 X 点伤害。</p>
+<p><strong>杂兵 Minion (X) - 被动：</strong>此敌人在受到任何伤害时就会被击败。玩家角色对此敌人每造成 X 点伤害，则击败攻击范围内一个此次攻击能够命中的额外杂兵。</p>
+<p><strong>无情 Relentless (X) - 被动：</strong>每个游戏主持人轮次，此敌人可以至多被聚焦 X 次。像往常一样花费恐惧点来聚焦该敌人。</p>
+<p><strong>迟缓 Slow - 被动：</strong>当你聚焦此敌人且其数据块上没有指示物时，该敌人还不能行动。在其数据块上放置一个指示物，并描述其正在准备做的事。当你聚焦此敌人且其数据块上有指示物时，移除指示物，然后该敌人可以行动。</p>
+<p><strong>奥术形态 Arcane Form - 被动：</strong>此敌人具有魔法伤害抗性。</p>
+<p><strong>硬化甲壳 Armored Carapace - 被动：</strong>当此敌人受到物理伤害时，将其减少 X 点。</p>
+<h4><strong>恐惧特性</strong></h4>
+<p><strong>爆炸 Explosion - 行动：</strong><strong>花费 1 恐惧点</strong>爆发出一次火焰爆炸。对近距离范围内的所有目标进行一次攻击。被该敌人命中的目标受到 <strong>1d8</strong> 点魔法伤害，并被击退至远距离范围。</p>
+<h2><strong>构建平衡遭遇</strong></h2>
+<p>规划战斗时，先准备 [(3 × 参与战斗的玩家角色数量) + 2] 战斗点数，然后进行以下调整：</p>
+<ul>
+<li>如果战斗应该更简单或更短，<strong>减去 1 点</strong>。</li>
+<li>如果你使用 <strong>2</strong> 个或更多的独狼敌人，<strong>减去 2 点</strong>。</li>
+<li>如果你给所有敌人的伤害掷骰增加 +1d4（或固定 +2）（在不延长战斗时间的情况下增加挑战性），<strong>减去 2 点</strong>。</li>
+<li>如果你选择较低位阶的敌人，<strong>增加 1 点</strong>。</li>
+<li>如果你不使用任何斗士、集群、头目或独狼敌人，<strong>增加 1 点</strong>。</li>
+<li>如果战斗理应更危险或持续更长时间，<strong>增加 2 点</strong>。</li>
+</ul>
+<p>然后使用你的战斗点数，将敌人添加至遭遇中：
+花费 <strong>1</strong> 点 设置一组数量等于队伍规模的杂兵。
+花费 <strong>1</strong> 点 设置一个社交或辅助敌人。
+花费 <strong>2</strong> 点 设置一个集群、远程、潜伏或者标准敌人。
+花费 <strong>3</strong> 点 设置一个头目敌人。
+花费 <strong>4</strong> 点 设置一个斗士敌人。
+花费 <strong>5</strong> 点 设置一个独狼敌人。</p>
+<h4><strong>被击败的敌人</strong></h4>
+<p>当敌人标记最后的生命点时，即被击败：失去战斗能力、被绑缚、溃散、死亡，或由游戏桌上所有人共同决定的其他合理结果。</p>
+<h4><strong>敌人数据块基准</strong></h4>
+<table>
+<thead>
+<tr>
+<th>敌人属性</th>
+<th>位阶 <strong>1</strong></th>
+<th>位阶 <strong>2</strong></th>
+<th>位阶 <strong>3</strong></th>
+<th>位阶 <strong>4</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>攻击调整值</td>
+<td>+1</td>
+<td>+2</td>
+<td>+3</td>
+<td>+4</td>
+</tr>
+<tr>
+<td>伤害骰</td>
+<td>1d6+2 至 <strong>1d12+4</strong></td>
+<td>2d6+3 至 <strong>2d12+4</strong></td>
+<td>3d8+3 至 <strong>3d12+5</strong></td>
+<td>4d8+10 至 <strong>4d12+15</strong></td>
+</tr>
+<tr>
+<td>难度</td>
+<td>11</td>
+<td>14</td>
+<td>17</td>
+<td>20</td>
+</tr>
+<tr>
+<td>伤害阈值</td>
+<td>重度 <strong>7</strong> /严重 <strong>12</strong></td>
+<td>重度 <strong>10</strong> /严重 <strong>20</strong></td>
+<td>重度 <strong>20</strong> /严重 <strong>32</strong></td>
+<td>重度 <strong>25</strong> /严重 <strong>45</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="lang-en">
+<h2>ADVERSARIES AND ENVIRONMENTS</h2>
+<h2>USING ADVERSARIES</h2>
+<h2>ADVERSARY STAT BLOCKS</h2>
+<p>All the information required to run an adversary is contained in their stat block. An adversary's stat block includes their:</p>
+<h2><strong>NAME</strong></h2>
+<p>Each stat block has a unique <strong>name.</strong> Abilities that affect adversaries with a certain name include all adversaries who use that stat block, regardless of their in-story name.</p>
+<h2><strong>TIER</strong></h2>
+<p>Each adversary is designed to oppose PCs of a certain <strong>tier.</strong> If you confront the party with an adversary from another tier, adjust their stats.</p>
+<h2><strong>TYPE</strong></h2>
+<p>The adversary's type appears alongside their tier. An adversary's <strong>type</strong> represents the role they play in a conflict. The adversary types are:</p>
+<ul>
+<li><strong>Bruisers:</strong> tough; deliver powerful attacks.</li>
+<li><strong>Hordes:</strong> groups of identical creatures acting together as a single unit.</li>
+<li><strong>Leaders:</strong> command and summon other adversaries.</li>
+<li><strong>Minions:</strong> easily dispatched but dangerous in numbers.</li>
+<li><strong>Ranged:</strong> fragile in close encounters but deal high damage at range.</li>
+<li><strong>Skulks:</strong> maneuver and exploit opportunities to ambush opponents.</li>
+<li><strong>Socials:</strong> present challenges around conversation instead of combat.</li>
+<li><strong>Solos:</strong> present a formidable challenge to a whole party, with or without support.</li>
+<li><strong>Standards:</strong> representative of their fictional group.</li>
+<li><strong>Supports:</strong> enhance their allies and disrupt their opponents.</li>
+</ul>
+<h2><strong>DESCRIPTION</strong></h2>
+<p>A summary of the adversary's appearance and demeanor.</p>
+<h2><strong>MOTIVES &amp; TACTICS</strong></h2>
+<p>Suggusted impulses, actions and goals for the adversary.</p>
+<h2><strong>DIFFICULTY</strong></h2>
+<p>The Difficulty of any roll made against the adversary, unless otherwise noted.</p>
+<h3><strong>DAMAGE THRESHOLDS, HIT POINTS, AND STRESS</strong></h3>
+<p>These systems function the same way they do for PCs. The</p>
+<p>numbers listed after "Threshold" are the adversary's Major and Severe Thresholds.</p>
+<h2><strong>ATTACK MODIFIER</strong></h2>
+<p>When you attack with the adversary, apply this bonus or penalty to your attack roll.</p>
+<h2><strong>STANDARD ATTACK</strong></h2>
+<p>A description of the adversary's primary mode of inflicting harm on the PCs. It includes the attack's <strong>name,</strong> its effective <strong>range,</strong> and the <strong>damage</strong> it deals on a success. Using an adversary's <strong>standard attack</strong> is a GM move.</p>
+<h2><strong>EXPERIENCE (OPTIONAL)</strong></h2>
+<p>The GM can spend a Fear to add an adversary's relevant Experience to raise their attack roll or increase the Difficulty of a roll made against them.</p>
+<h3><strong>EXAMPLE EXPERIENCES:</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Acrobatics</th>
+<th>Hunt from Above</th>
+<th>Navigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ambusher</td>
+<td>Intimidation</td>
+<td>Nobility</td>
+</tr>
+<tr>
+<td>Bartering</td>
+<td>Intrusion</td>
+<td>Quick Reflexes</td>
+</tr>
+<tr>
+<td>Blademaster</td>
+<td>Keen Senses</td>
+<td>Socialite</td>
+</tr>
+<tr>
+<td>Bodyguard</td>
+<td>Magical<br>Knowledge</td>
+<td>Stealth</td>
+</tr>
+<tr>
+<td>Commander</td>
+<td>Nature's Friend</td>
+<td>Tracker</td>
+</tr>
+</tbody>
+</table>
+<h2><strong>FEATURE(S)</strong></h2>
+<p>There are three kinds of adversary features: <strong>actions, reactions,</strong> and <strong>passives.</strong> Note: each adversaries stress is tracked individually. If a feature requires the GM to spend Stress to activate it, the Stress must come from the adversary whose feature is being activate. If a feature has a Fear requirement, it must be spent in addition to any Fear already spent—for instance, to interrupt the PCs and put the spotlight on the adversary.</p>
+<ul>
+<li><strong>Actions:</strong> a special attack or other unique action that the adversary can perform when the spotlight is on them.</li>
+<li><strong>Reactions:</strong> special effects that take effect when their trigger occurs, regardless of whether the spotlight is on the adversary.</li>
+<li><strong>Passives:</strong> special abilities that remain in effect by default and require no resources or triggers to activate.</li>
+</ul>
+<h2><strong>FEAR FEATURE(S)</strong></h2>
+<p>High-impact effects that cost a Fear to activate.</p>
+<h4><strong>EXAMPLE ADVERSARY FEATURES:</strong></h4>
+<h4><strong>ACTIONS</strong></h4>
+<p><strong>Haymaker - Action:</strong> Make an attack against a target within Very Close range. On a success, deal X direct physical damage.</p>
+<p><strong>Shredding Strike - Action:</strong> Make an attack against a target within Very Close range. On a success, deal X physical damage and the target must mark an Armor Slot without gaining its benefit (they can still use armor to reduce the damage).</p>
+<p><strong>More Where That Came From - Action:</strong> Summon three Jagged Knife Lackeys, who appear at Far range.</p>
+<h4><strong>REACTIONS</strong></h4>
+<p><strong>Heavy Hitter - Reaction:</strong> When this adversary deals damage with a standard attack, you can spend a Fear to gain a +X bonus to the damage roll.</p>
+<p><strong>Team-Up - Reaction:</strong> When another adversary within Very Close range of this adversary deals X damage to a creature, you can mark a Stress to make a standard attack against that same creature. On a success, combine the damage.</p>
+<p><strong>Momentum - Reaction:</strong> When this adversary makes a successful attack against a PC, you gain a Fear.</p>
+<h4><strong>PASSIVES</strong></h4>
+<p><strong>Horde (X) - Passive:</strong> When the Horde has marked half or more of their HP, their standard attack deals X damage instead.</p>
+<p><strong>Minion (X) - Passive:</strong> This adversary is defeated when they take any damage. For every X damage a PC deals to this adversary, defeat an additional Minion within range the attack would succeed against.</p>
+<p><strong>Relentless (X) - Passive:</strong> This adversary can be spotlighted up to X times per GM turn. Spend Fear as usual to spotlight them.</p>
+<p><strong>Slow - Passive:</strong> When you spotlight this adversary and they don't have a token on their stat block, they can't act yet. Place a token on their stat block and describe what they're preparing to do. When you spotlight this adversary and they have a token on their stat block, clear the token and they can act.</p>
+<p><strong>Arcane Form - Passive:</strong> This adversary is resistant to magic damage.</p>
+<p><strong>Armored Carapace - Passive:</strong> When this adversary takes physical damage, reduce it by X.</p>
+<h4><strong>FEAR FEATURES</strong></h4>
+<p><strong>Explosion - Action:</strong> Spend a Fear to erupt in a fiery explosion. Make an attack against all targets within Close range. Targets the adversary succeeds against take 1d8 magic damage and are knocked back to Far range.</p>
+<h3>BUILDING BALANCED ENCOUNTERS</h3>
+<p>When planning a battle, start with <strong>[(3 x the number of PCs in combat) + 2] Battle Points</strong> and make the following adjustments:</p>
+<ul>
+<li><strong>-1</strong> for an easier or shorter fight</li>
+<li><strong>-2</strong> if you're using 2 or more Solo adversaries</li>
+</ul>
+<p><strong>-2</strong> if you add +1d4 (or a static +2) to all adversaries' damage rolls</p>
+<p><strong>+1</strong> if you choose an adversary from a lower tier</p>
+<p><strong>+1</strong> if you don't include any Bruisers, Hordes, Leaders, or Solos</p>
+<p><strong>+2</strong> for a harder or longer fight</p>
+<p>Then spend your Battle Points to add an adversary to the encounter:</p>
+<p><strong>Spend 1 point</strong> for each group of Minions equal to the size of the party.</p>
+<p><strong>Spend 1 point</strong> for each Social or Support adversary.</p>
+<p><strong>Spend 2 points</strong> for each Horde, Ranged, Skulk, or Standard adversary.</p>
+<p><strong>Spend 3 points</strong> for each Leader adversary.</p>
+<p><strong>Spend 4 points</strong> for each Bruiser adversary.</p>
+<p><strong>Spend 5 points</strong> for each Solo adversary.</p>
+<h4><strong>DEFEATED ADVERSARIES</strong></h4>
+<p>When an adversary marks their last Hit Point, they are defeated: incapacitated, tied up, routed, killed, or anything else the table decides makes sense.</p>
+<h4><strong>ADVERSARY STAT BLOCK BENCHMARKS</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Adversary Statistic</th>
+<th>Tier 1</th>
+<th>Tier 2</th>
+<th>Tier 3</th>
+<th>Tier 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Attack Modifier</td>
+<td>+1</td>
+<td>+2</td>
+<td>+3</td>
+<td>+4</td>
+</tr>
+<tr>
+<td>Damage Dice</td>
+<td>1d6+2 to 1d12+4</td>
+<td>2d6+3 to 2d12+4</td>
+<td>3d8+3 to 3d12+5</td>
+<td>4d8+10 to 4d12+15</td>
+</tr>
+<tr>
+<td>Difficulty</td>
+<td>11</td>
+<td>14</td>
+<td>17</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Damage Thresholds</td>
+<td>Major 7/Severe 12</td>
+<td>Major 10/Severe 20</td>
+<td>Major 20/Severe 32</td>
+<td>Major 25/Severe 45</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    </div>
+  </div>
+  <div id="footer">
+<div class="container">
+   <p class="NoIndent"><span class="lang-zh">匕首之心 Daggerheart HTML SRD。本文档依据 <a href="https://www.darringtonpress.com/license">Darrington Press 社群游戏授权条款</a>，视为公共游戏内容。</span>
+   <span class="lang-en">Daggerheart HTML SRD. This document is considered Public Game Content per the <a href="https://www.darringtonpress.com/license">Darrington Press Community Gaming License</a>.</span></p>
+   <p class="NoIndent"><span class="lang-zh">© 2025 Critical Role LLC. 保留所有权利。</span><span class="lang-en">© 2025 Critical Role LLC. All rights reserved.</span></p>
+</div>
+</div>
+
+
+    
+    <script src="/SRD/jquery.js"></script>
+    
+    <script src="/SRD/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/SRD/js/lang-toggle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        
+      });
+    </script>
+  </body>
+</html>

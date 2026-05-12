@@ -1,0 +1,5589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head><script src="/SRD/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=SRD/livereload" data-no-instant defer></script>
+  <title>装备表格 | 匕首之心 HTML SRD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="匕首之心 HTML SRD">
+    <meta name="keywords" content="匕首之心,Daggerheart,SRD">
+    
+    <link href="/SRD/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/SRD/css/sticky-footer.css" rel="stylesheet">
+    <link href="/SRD/css/site.css" rel="stylesheet">
+
+    
+    
+    
+    <style>img.domain-icon { width:60px; height:60px; vertical-align:middle; margin-right:5px; border-radius:4px; }</style>
+  </head>
+  <body data-spy="scroll" data-target="#sidemenu">
+  <nav id="site-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar-header">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="/SRD/">匕首之心 HTML SRD</a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+   <li><a href="/SRD/introduction"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a></li>
+   <li><a href="/SRD/character-creation"><span class="lang-zh">创建角色</span><span class="lang-en">Character Creation</span></a></li>
+   <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心资源</span><span class="lang-en">Core Resources</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-resources/domains"><span class="lang-zh">领域</span><span class="lang-en">Domains</span></a></li>
+       <li><a href="/SRD/core-resources/classes"><span class="lang-zh">职业</span><span class="lang-en">Classes</span></a></li>
+       <li><a href="/SRD/core-resources/ancestries"><span class="lang-zh">种族</span><span class="lang-en">Ancestries</span></a></li>
+       <li><a href="/SRD/core-resources/communities"><span class="lang-zh">社群</span><span class="lang-en">Communities</span></a></li>
+     </ul>
+   </li>
+   <li class="dropdown">
+     <a href="/SRD/core-mechanics" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心机制</span><span class="lang-en">Core Mechanics</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-mechanics"><span class="lang-zh">总览</span><span class="lang-en">Overview</span></a></li>
+       <li><a href="/SRD/core-mechanics/equipment"><span class="lang-zh">装备表格</span><span class="lang-en">Equipment Tables</span></a></li>
+       <li><a href="/SRD/core-mechanics/combat-wheelchair"><span class="lang-zh">战斗轮椅</span><span class="lang-en">Combat Wheelchair</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/running-a-game"><span class="lang-zh">运作一场游戏</span><span class="lang-en">Running a Game</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/adversaries-and-environments" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">敌人与环境</span><span class="lang-en">Adversaries & Environments</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/adversaries-and-environments/adversary-mechanics"><span class="lang-zh">敌人机制介绍</span><span class="lang-en">Adversary Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/adversary-data"><span class="lang-zh">敌人数据</span><span class="lang-en">Adversary Data</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-mechanics"><span class="lang-zh">环境机制介绍</span><span class="lang-en">Environment Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-data"><span class="lang-zh">环境数据</span><span class="lang-en">Environment Data</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/campaign-frames"><span class="lang-zh">战役框架</span><span class="lang-en">Campaign Frames</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/appendix" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">附录</span><span class="lang-en">Appendix</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/appendix/domain-cards"><span class="lang-zh">领域卡查询</span><span class="lang-en">Domain Card Reference</span></a></li>
+     </ul>
+   </li>
+ </ul>
+ <ul class="nav navbar-nav navbar-right">
+   <li><a id="lang-toggle-btn" href="#"><span class="lang-zh-active">中</span> | <span class="lang-en-inactive">EN</span></a></li>
+ </ul>
+</div>
+</nav>
+
+  <div id="wrap">
+    <nav id="sidemenu">
+   <ul id="sidemenu-topnav" class="nav">
+   </ul>
+</nav>
+
+    <div class="content-area">
+      
+<h1><span class="lang-zh">装备表格</span><span class="lang-en">Equipment Tables</span></h1>
+
+<div class="lang-zh">
+<h2>装备</h2>
+<p>要<strong>装备</strong>武器和护甲, 你需要将它们填在角色表的“装备武器”和“装备护甲”部分。若想使用武器攻击、使用护甲抵抗伤害、使用装备的特性，必须先装备它们。你不能装备比你位阶更高的武器或护甲。</p>
+<p>玩家角色可以携带两件额外武器并在角色卡的“库存武器”区域记录。</p>
+<p>在休息时，你可以随意切换库存武器和装备武器，而在其他时间你必须<strong>标记 1 压力点</strong>才能切换武器。</p>
+<p>角色一次只能装备一件护甲。在身处险境或处于压力时无法装备；其余时间，装备或卸下护甲不会产生消耗。每一护甲均有对应护甲槽。如果角色卸下其护甲，则追踪标记相应数量的护甲槽。你无法将护甲携带至物品栏中。若你的角色装备或卸下护甲，重新计算你的伤害阈值。</p>
+<h1>武器</h1>
+<p>所有武器都有位阶、属性、射程、伤害骰、伤害类型和负荷。某些武器拥有特性。</p>
+<h4><strong>类别</strong></h4>
+<p>武器的<strong>类别</strong>代表其为主武器或副武器。你的角色每次最多只能装备一件对应类别的武器。</p>
+<h4><strong>属性</strong></h4>
+<p>武器的<strong>属性</strong> 表示使用该武器进行攻击掷骰时应采用的属性。</p>
+<h4><strong>射程</strong></h4>
+<p>武器的<strong>射程</strong> 表示使用该武器攻击时，攻击者与目标之间允许的最大距离。</p>
+<h4><strong>伤害</strong></h4>
+<p>武器的<strong>伤害</strong>表示你成功攻击时所掷出伤害骰的大小；你掷出的骰子数量等同于你的熟练度。如伤害包含固定调整值，该数值会加至总伤害中，但不受熟练度影响或改变。</p>
+<h4><strong>伤害类型</strong></h4>
+<p>武器的<strong>伤害类型</strong> 表示其造成的是物理伤害还是魔法伤害。造成魔法伤害的武器仅能由具有施法属性的角色使用。</p>
+<h4><strong>负荷</strong></h4>
+<p>武器的<strong>负荷* 表示装备时占用的</strong>手的数量** 。你的角色最大负重为两只手。</p>
+<h4><strong>特性</strong></h4>
+<p>武器的<strong>特性</strong>代表在装备该武器时持续生效的特殊规则。</p>
+<p>你可以将已装备的武器投向一个邻近范围内的目标，使用灵巧属性进行攻击掷骰。成功时，造成该武器的正常伤害。投掷后，该武器不再视为已装备状态。在你取回并重新装备之前，无法使用该武器进行攻击或从其特性中获得增益。</p>
+<h2>主武器表格</h2>
+<p><em>玩家可以在角色创建时选择一件位阶 </em><em>1</em><em> 的主武器。随着角色们升级，游戏主持人可以在整个战役中提供其他武器。</em></p>
+<h4>位阶 <strong>1</strong> ( <strong>1</strong> 级)</h4>
+<h4>物理武器</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>阔剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>长剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>战斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>巨剑</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>巨型：</strong>闪避值 <strong>-1</strong> ，额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>钉头锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+1</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>战锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d12+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>重型：</strong>闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+1</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>铁头棍</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>短刀</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+1</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>刺剑</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>迅捷：</strong><strong>标记 1 压力点</strong>以额外攻击一个范围内的目标。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>戟</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+2</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>繁琐：</strong>灵巧 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>长矛</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d8+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>短弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>弩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+1</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>长弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d8+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>繁琐：</strong>灵巧 <strong>-1</strong> 。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>1</strong> ( <strong>1</strong> 级)</h4>
+<h4>魔法武器</h4>
+<p><em>所有魔法武器都需要有施法属性才能使用</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>奥术护手</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>圣斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+1</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>发光戒指</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+2</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>手持符文</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>回力剑</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>回力：</strong>当此武器在射程内被投掷后，会在完成攻击的瞬间重新出现在你手中。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>短杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+1</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>双手法杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>权杖</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>多用：</strong>这把武器也可以此方式使用 - 风度 近战 <strong>d8</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>魔杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+1</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>巨杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>2</strong> （等级 <strong>2</strong> -4）</h4>
+<h4>物理武器</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>改良阔剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+3</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良长剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良战斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良巨剑</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>巨型：</strong>闪避值 <strong>-1</strong> ，额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良钉头锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良战锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d12+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>重型：</strong>闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良铁头棍</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良短刀</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良刺剑</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+3</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>迅捷：</strong><strong>标记 1 压力点</strong>以额外攻击一个范围内的目标。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良戟</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+5</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>繁琐：</strong>灵巧 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良长矛</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良短弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良弩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良长弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>繁琐：</strong>灵巧 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>鎏金弯刀</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>拳刃</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>残暴：</strong>伤害骰每掷出一次最大值，就额外掷出一个伤害骰。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>乌洛克阔剑</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+3</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>致命：</strong>造成严重伤害时，额外造成 <strong>1</strong> 生命点的伤害。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>刃鞭</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d8+3</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>迅捷：</strong><strong>标记 1 压力点</strong>以额外攻击一个范围内的目标 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>钢铸戟</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>恐惧：</strong>成功的攻击同时会额外<strong>标记 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>战镰</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d8+5</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>火铳</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>装填：</strong>攻击后掷一个 <strong>d6</strong> ，掷出 <strong>1</strong> 时，下次攻击前你必须<strong>标记 1 压力点</strong>进行装填。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>巨弓</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>细弦弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+5</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>2</strong> （等级 <strong>2</strong> -4）</h4>
+<h4>魔法武器</h4>
+<p><em>所有魔法武器都需要有施法属性才能使用</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>改良奥术护手</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良圣斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良发光戒指</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+5</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良手持符文</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+3</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良回力剑</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+3</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>回力：</strong>当此武器在射程内被投掷后，会在完成攻击的瞬间重新出现在你手中。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良短杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良双手法杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良权杖</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>多用：</strong>这把武器也可以此方式使用 - 风度 近战 <strong>d8+3</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良魔杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良巨杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+3</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>自我之刃</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d12+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>傲慢：</strong>0 或者更低的风度才可以使用该武器。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>施法剑</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+4</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>多用：</strong>这把武器也可以此方式使用 - 知识 远距离 <strong>d6+3</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>吞噬匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>恐惧：</strong>成功攻击的同时会额外<strong>标记 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>异界之锤</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>爆发：</strong>当你在近战中击中一个生物时，每个邻近的敌人都必须进行反应掷骰（14），否则也会受到一半的伤害。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>尤塔里血弓</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>残暴：</strong>伤害骰每掷出一次最大值，就额外掷出一个伤害骰。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>长者之弓</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>伊利亚斯的权杖</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+3</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>振奋：</strong>当你成功攻击时，掷一个 <strong>d4</strong> 。掷出 <strong>4</strong> 时，<strong>清除 1 压力点</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>迷惑魔杖</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>说服：</strong>在进行风度掷骰前可<strong>标记 1 压力点</strong>以获得 <strong>+2</strong> 加值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>看守者之杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>3</strong> （等级 <strong>5</strong> -7）</h4>
+<h4>物理武器</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>高级阔剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级长剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级战斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级巨剑</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>巨型：</strong>闪避值 <strong>-1</strong> ，额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级钉头锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级战锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d12+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>重型：</strong>闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级铁头棍</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级短刀</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级刺剑</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>迅捷：</strong><strong>标记 1 压力点</strong>以额外攻击一个范围内的目标。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级戟</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+8</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>繁琐：</strong>灵巧 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级长矛</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d8+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级短弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级弩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级长弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d8+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>繁琐：</strong>灵巧 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>闪蝶之刃</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+5</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>锐翼：</strong>将你的敏捷属性值加入该武器的伤害掷骰加值中。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>勇气之剑</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d12+7</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>勇气：</strong>闪避值 -1 ，严重伤害阈值 +3 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>愤怒之锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+7</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>毁灭：</strong>在攻击掷骰之前<strong>标记 1 压力点</strong>，在进行伤害掷骰时，把你的伤害骰改为 <strong>d20</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>拉布里斯斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+7</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>保护：</strong>护甲值 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>经络短刀</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+5</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>决斗：</strong>当近距离内除了当前目标外没有其他生物时，攻击掷骰时获得优势。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>伸缩军刀</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>伸缩：</strong>刀片可以隐藏在刀柄中以避免被识别为武器。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>双连枷</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+8</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>利爪之刃</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d10+7</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>残暴：</strong>伤害骰每掷出一次最大值，就额外掷出一个伤害骰。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>黑火药左轮</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+8</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>装填：</strong>攻击后掷一个 <strong>d6</strong> ，掷出 <strong>1</strong> 时，下次攻击前你必须<strong>标记 1 压力点</strong>进行装填</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>尖刺弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+7</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>多用：</strong>这把武器也可以此方式使用 - 敏捷 近战 <strong>d10+5</strong> 。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>3</strong> （等级 <strong>5</strong> -7）</h4>
+<h4>魔法武器</h4>
+<p><em>所有魔法武器都需要有施法属性才能使用</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>高级奥术护手</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级圣斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级发光戒指</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+8</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级手持符文</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+6</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级回力剑</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>回力：</strong>当此武器在射程内被投掷后，会在完成攻击的瞬间重新出现在你手中。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级短杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级双手法杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级权杖</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>多用：</strong>这把武器也可以此方式使用 - 本能 近战 <strong>d8+4</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级魔杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级巨杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>运气之斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+8</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>幸运：</strong><strong>花费 1 压力点</strong>重骰一次失败的掷骰，并接受新的结果。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>祝福匕首</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+6</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>治愈：</strong>休息时间时，自动<strong>恢复 1 生命点</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>鬼魂之刃</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>异界：</strong>你可以选择造成物理或者魔法伤害。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>毁灭符文</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d20+4</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>苦痛：</strong>每次你使用此武器成功攻击时，你需<strong>标记 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>维多加斯特的吊坠</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d10+5</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>时间扭曲者：</strong>你可以在攻击掷骰后选择攻击目标。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>鎏金弓</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+7</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>自省：</strong>伤害掷骰中的所有 <strong>1</strong> 都视为 <strong>6</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>火焰杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+7</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>灼烧：</strong>伤害掷骰中掷出的每个 <strong>6</strong> 都使目标<strong>标记 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>法师球</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+7</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>伊尔玛里的步枪</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>装填：</strong>攻击后掷一个 <strong>d6</strong> ，掷出 <strong>1</strong> 时，下次攻击前你必须<strong>标记 1 压力点</strong>进行装填。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>4</strong> （等级 <strong>8</strong> -10）</h4>
+<h4>物理武器</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>传奇阔剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+9</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇长剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇战斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇巨剑</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>巨型：</strong>闪避值 <strong>-1</strong> ，额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇钉头锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+10</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇战锤</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d12+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>重型：</strong>闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+10</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇铁头棍</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇短刀</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+10</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇刺剑</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+9</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>迅捷：</strong><strong>标记 1 压力点</strong>以额外攻击一个范围内的目标。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇戟</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+11</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>繁琐：</strong>灵巧 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇长矛</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d8+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇短弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇弩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+10</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇长弓</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d8+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>繁琐：</strong>灵巧 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>双头剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>迅捷：</strong><strong>标记 1 压力点</strong>以额外攻击一个范围内的目标。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>冲击拳套</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+11</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>震荡：</strong>在一次成功攻击后<strong>花费 1 希望点</strong>，将目标击退至远距离。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>巨斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d12+13</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>破坏：</strong>敏捷 <strong>-1</strong> ，成功攻击后为所有邻近范围内的敌人<strong>标记 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>弧形匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+9</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>锯齿：</strong>伤害掷骰中的所有 <strong>1</strong> 都视为 <strong>8</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>延伸长柄武器</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d8+10</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>延长：</strong>你能够将范围内所有处于一条直线上的敌人同时作为你的攻击目标。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>摆动绳刃</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>捕获：</strong>在一次成功攻击后<strong>花费 1 希望点</strong>，使目标处于束缚状态或者将其拉至你的近战范围。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>弹跳斧</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+11</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>弹跳：</strong>标记任意压力点，可同时攻击范围内等量的敌人。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>安塔利弓</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+11</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>手炮</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+12</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>装填：</strong>攻击后掷一个 <strong>d6</strong> ，掷出 <strong>1</strong> 时，下次攻击前你必须<strong>标记 1 压力点</strong>进行装填。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>4</strong> （等级 <strong>8</strong> -10）</h4>
+<h4>魔法武器</h4>
+<p><em>所有魔法武器都需要有施法属性才能使用</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>传奇奥术护手</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇圣斧</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+10</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇发光戒指</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+11</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇手持符文</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇回力剑</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+9</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>回力：</strong>当此武器在射程内被投掷后，会在完成攻击的瞬间重新出现在你手中。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇短杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+10</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇双手法杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d8+12</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇权杖</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>多用：</strong>这把武器也可以此方式使用 - 本能 近战 <strong>d8+6</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇魔杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+10</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇巨杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>光焰剑</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+11</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>烧融：</strong>可以切开坚固的材质。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>虹吸拳套</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>系命：</strong>在一次成功攻击后掷一个 <strong>6</strong> ，如果掷出 <strong>6</strong> 则<strong>恢复 1 生命点</strong>或<strong>清除 1 压力点</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>迈达斯镰刀</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d10+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>贪婪：</strong>你可以花费一把金币，使你的伤害掷骰熟练值 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>漂浮碎刃</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d8+9</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>强力：</strong>额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>血杖</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d20+7</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>苦痛：</strong>每次你使用此武器攻击时，你需<strong>标记 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>蓟弓</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+13</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>可靠：</strong>你的攻击掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>埃塞克之杖</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d8+13</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>时间扭曲者：</strong>你可以在攻击掷骰后选择攻击目标。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>魔战士左轮</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+13</td>
+<td style="text-align: center;">单手</td>
+<td style="text-align: left;"><strong>装填：</strong>攻击后掷一个 <strong>6</strong> ，如果掷出 <strong>1</strong> ，下次攻击前你必须<strong>标记 1 压力点</strong>进行装填。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>融合手套</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+9</td>
+<td style="text-align: center;">双手</td>
+<td style="text-align: left;"><strong>绑定：</strong>将你的等级数添加到伤害掷骰中。</td>
+</tr>
+</tbody>
+</table>
+<h2>副武器表</h2>
+<p>创建角色时，玩家选取一项位阶 <strong>1</strong> 的副武器。随着玩家升级，游戏主持人可以在游玩中让玩家获取其他武器。</p>
+<h4>位阶 <strong>1</strong> （等级 <strong>1</strong> ）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>短剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双持：</strong>近战时主武器伤害 <strong>+2</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>圆盾</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>保护：</strong>护甲值 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>塔盾</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>壁垒：</strong><strong>+2</strong> 护甲值， <strong>-1</strong> 闪避值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>小匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双持：</strong>近战时主武器伤害 <strong>+2</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>鞭子</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>鞭笞：</strong><strong>标记 1 压力点</strong>，将所有近战范围内的敌人击退至近距离。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>抓钩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>出钩：</strong>进行一次成功的攻击后，你可以将目标拉至你的近战范围内。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>手弩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+1</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>2</strong> （等级 <strong>2</strong> -4）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>改良短剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+2</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双持：</strong>近战时主武器伤害 <strong>+3</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良圆盾</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d4+2</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>保护：</strong>护甲值 <strong>+2</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良塔盾</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d6+2</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>壁垒：</strong>护甲值 <strong>+3</strong> ，闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良小匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+2</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双持：</strong>近战时主武器伤害 <strong>+3</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良鞭子</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d6+2</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>鞭笞：</strong><strong>标记 1 压力点</strong>，将所有近战范围内的敌人击退至近距离。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良抓钩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d6+2</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>出钩：</strong>进行一次成功的攻击后，你可以将目标拉至你的近战范围内。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良手弩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+3</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>尖刺盾牌</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d6+2</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>两用：</strong>护甲值 <strong>+1</strong> ，近战时主武器伤害 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>格挡匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d6+2</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>格挡：</strong>在你被攻击时，掷出该武器的伤害骰。如果有任何与攻击者匹配的骰子，则在伤害总计之前将其移除。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>回力斧</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>回力：</strong>当此武器在射程内被投掷后，会在完成攻击的瞬间重新出现在你手中。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>3</strong> （等级 <strong>5</strong> -7）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>高级短剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双持：</strong>近战时主武器伤害 <strong>+4</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级圆盾</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d4+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>保护：</strong>护甲值 <strong>+3</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级塔盾</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>壁垒：</strong>护甲值 <strong>+4</strong> ，闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级小匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双持：</strong>近战时主武器伤害 <strong>+4</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级鞭子</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>鞭笞：</strong><strong>标记 1 压力点</strong>，将所有近战范围内的敌人击退至近距离。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级抓钩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>出钩：</strong>进行一次成功的攻击后，你可以将目标拉至你的近战范围内。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级手弩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+5</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>小盾</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d4+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>反射：</strong>面对即将到来的攻击时，你可以<strong>标记 1 护甲槽</strong>，在对抗此次攻击中你的闪避值获得等同于你可用护甲槽数量的加值。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>强力拳套</strong></td>
+<td style="text-align: center;">知识</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>充能攻击：</strong><strong>标记 1 压力点</strong>，为主武器的攻击熟练 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>弹弓</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">极远</td>
+<td style="text-align: center;">d6+4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>多用：</strong>这把武器也可以此方式使用 - 灵巧 近距离 <strong>d8+4</strong> 。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>4</strong> （等级 <strong>8</strong> -10）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">属性</th>
+<th style="text-align: center;">距离</th>
+<th style="text-align: center;">伤害</th>
+<th style="text-align: center;">负荷</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>传奇短剑</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双持：</strong>近战时主武器伤害 <strong>+5</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇圆盾</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d4+6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>保护：</strong>护甲值 <strong>+4</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇塔盾</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>壁垒：</strong>护甲值 <strong>+5</strong> ，闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇小匕首</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d8+6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双持：</strong>近战时主武器伤害 <strong>+5</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇鞭子</strong></td>
+<td style="text-align: center;">风度</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>鞭笞：</strong><strong>标记 1 压力点</strong>，将所有近战范围内的敌人击退至近距离。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇抓钩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">近距离</td>
+<td style="text-align: center;">d6+6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>出钩：</strong>进行一次成功的攻击后，你可以将目标拉至你的近战范围内。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇手弩</strong></td>
+<td style="text-align: center;">灵巧</td>
+<td style="text-align: center;">远距离</td>
+<td style="text-align: center;">d6+7</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>勇气之盾</strong></td>
+<td style="text-align: center;">敏捷</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d4+6</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>庇护：</strong>当你<strong>标记 1 护甲槽</strong>时，它将为你和所有近战范围内受到同源伤害的盟友减免伤害。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>拳爪</strong></td>
+<td style="text-align: center;">力量</td>
+<td style="text-align: center;">近战</td>
+<td style="text-align: center;">d6+8</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>双击：</strong>当你使用主武器进行一次攻击后，你可以同时使用此武器对另一名近战范围内的敌人造成伤害。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>引物碎片</strong></td>
+<td style="text-align: center;">本能</td>
+<td style="text-align: center;">邻近</td>
+<td style="text-align: center;">d4</td>
+<td style="text-align: center;">副手</td>
+<td style="text-align: left;"><strong>锁定：</strong>使用此武器对成功攻击一名敌人后，你的主武器对其的下一次攻击将自动命中。</td>
+</tr>
+</tbody>
+</table>
+<h1>护甲</h1>
+<p>每件护甲都有名称、基础伤害阈值和基础护甲值。一些护甲还具有特性。</p>
+<ul>
+<li>护甲的<strong>基础护甲值</strong>代表其提供给穿戴者的护甲槽。总护甲值等于护甲的基础护甲值加上其他额外加值。角色的护甲值无法超过 <strong>12</strong> 。</li>
+<li>护甲的<strong>基础伤害阈值</strong>会影响穿戴者的重度和严重伤害阈值。总伤害阈值等于护甲的基础伤害阈值加上角色等级再加上其他额外加值。</li>
+<li>护甲的<strong>特性</strong>只在装备时起效。</li>
+</ul>
+<p>当<strong>无甲</strong>时，角色的基础护甲值为 <strong>0</strong> , 重度伤害阈值等于角色等级，严重伤害阈值等于角色等级的两倍。</p>
+<h4>降低伤害</h4>
+<p>当你受到伤害时，你可以<strong>标记 1 护甲槽</strong>来将需要标记的生命点数量减一。当角色的护甲值为 <strong>0</strong> 时则不能标记护甲槽。如果一个效果临时增加了你的护甲值，它也会增加你同样数量的可用护甲槽，而当这个效果结束时，临时的护甲槽也将移除。</p>
+<h2>护甲表</h2>
+<h4>位阶 <strong>1</strong> （等级 <strong>1</strong> ）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">阈值</th>
+<th style="text-align: center;">护甲值</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>填充布甲</strong></td>
+<td style="text-align: center;">5 / 11</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"><strong>灵活：</strong>闪避值 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>皮甲</strong></td>
+<td style="text-align: center;">6 / 13</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>链甲</strong></td>
+<td style="text-align: center;">7 / 15</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>重型：</strong>闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>全板甲</strong></td>
+<td style="text-align: center;">8 / 17</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>极重：</strong>闪避值 <strong>-2</strong> ，敏捷 <strong>-1</strong> 。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>2</strong> （等级 <strong>2</strong> -4）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">阈值</th>
+<th style="text-align: center;">护甲值</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>改良填充布甲</strong></td>
+<td style="text-align: center;">7 / 16</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>灵活：</strong>闪避值 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良皮甲</strong></td>
+<td style="text-align: center;">9 / 20</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良链甲</strong></td>
+<td style="text-align: center;">11 / 24</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>重型：</strong>闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>改良全板甲</strong></td>
+<td style="text-align: center;">13 / 28</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>极重：</strong>闪避值 <strong>-2</strong> ，敏捷 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>埃伦德里安链甲</strong></td>
+<td style="text-align: center;">9 / 21</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>防护：</strong>受魔法伤害时，在计算伤害阈值前按护甲值减免伤害。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>掠骸护甲</strong></td>
+<td style="text-align: center;">9 / 21</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>坚韧：</strong>在标记最后一个护甲槽之前，掷一个 <strong>d6</strong> 。如果掷出 <strong>6</strong> ，则可以降低伤害一个等级而无需标记槽位。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>铁木胸甲</strong></td>
+<td style="text-align: center;">9 / 20</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>强化：</strong>当你标记最后一个护甲槽时，你的伤害阈值提升 <strong>+2</strong> ，直至你清除至少 <strong>1</strong> 个护甲槽。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>符文浮甲</strong></td>
+<td style="text-align: center;">9 / 20</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>转移：</strong>当你成为攻击目标时，可以<strong>标记 1 护甲槽</strong>，使针对你的攻击检定具有劣势。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>泰瑞斯软甲</strong></td>
+<td style="text-align: center;">8 / 18</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>安静：</strong>任何试图不被人听到的移动动作掷骰 <strong>+2</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>蔷薇野甲</strong></td>
+<td style="text-align: center;">11 / 23</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>希冀：</strong>每当你需要<strong>花费希望点</strong>时，可以改为<strong>标记护甲槽</strong>。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>3</strong> （等级 <strong>5</strong> -7）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">阈值</th>
+<th style="text-align: center;">护甲值</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>高级填充布甲</strong></td>
+<td style="text-align: center;">9 / 23</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>灵活：</strong>闪避值 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级皮甲</strong></td>
+<td style="text-align: center;">11 / 27</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级链甲</strong></td>
+<td style="text-align: center;">13 / 31</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>重型：</strong>闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>高级全板甲</strong></td>
+<td style="text-align: center;">15 / 35</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>极重：</strong>闪避值 <strong>-2</strong> ，敏捷 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>贝拉莫伊精致护甲</strong></td>
+<td style="text-align: center;">11 / 27</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>鎏金：</strong>风度 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>龙鳞护甲</strong></td>
+<td style="text-align: center;">11 / 27</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>坚不可摧：</strong>每短休一次，当你的生命点即将归零时，可以改为<strong>标记 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>尖刺护甲</strong></td>
+<td style="text-align: center;">10 / 25</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>锋利：</strong>每当你成功进行近战攻击时，伤害骰加 <strong>1d4</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>剑刃护甲</strong></td>
+<td style="text-align: center;">16 / 39</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>物理防御：</strong>你不能使用此护甲抵消魔法伤害。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>莫奈特的斗篷</strong></td>
+<td style="text-align: center;">16 / 39</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>魔法防御：</strong>你不能使用此护甲抵消物理伤害。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>强化符文</strong></td>
+<td style="text-align: center;">17 / 43</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>苦痛：</strong>每当你因受到攻击而标记 <strong>1</strong> 点或更多的护甲槽时，需<strong>标记 1 压力点</strong>。</td>
+</tr>
+</tbody>
+</table>
+<h4>位阶 <strong>4</strong> （等级 <strong>8</strong> -10）</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">名称</th>
+<th style="text-align: center;">阈值</th>
+<th style="text-align: center;">护甲值</th>
+<th style="text-align: left;">特性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>传奇填充布甲</strong></td>
+<td style="text-align: center;">11 / 32</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>灵活：</strong>闪避值 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇皮甲</strong></td>
+<td style="text-align: center;">13 / 36</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇链甲</strong></td>
+<td style="text-align: center;">15 / 40</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><strong>重型：</strong>闪避值 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>传奇全板甲</strong></td>
+<td style="text-align: center;">17 / 44</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><strong>极重：</strong>闪避值 <strong>-2</strong> ，敏捷 <strong>-1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>威能丝甲</strong></td>
+<td style="text-align: center;">13 / 36</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: left;"><strong>时缓：</strong><strong>标记 1 护甲槽</strong>，掷一个 <strong>d4</strong> ，并将结果作为闪避加值应用于对抗此次来袭攻击。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>引导护甲</strong></td>
+<td style="text-align: center;">13 / 36</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: left;"><strong>引导：</strong>当装备此护甲时，所有施法掷骰 <strong>+1</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>织烬护甲</strong></td>
+<td style="text-align: center;">13 / 36</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>燃烧：</strong>每当有敌人在近战范围内击中你时，其立即<strong>标记 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>全面强化护甲</strong></td>
+<td style="text-align: center;">15 / 40</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: left;"><strong>坚毅：</strong>当你<strong>标记 1 护甲槽</strong>时，可将攻击的严重程度降低两级而非一级。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>诚实蛋白石护甲</strong></td>
+<td style="text-align: center;">13 / 36</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: left;"><strong>求真：</strong>当任何人在近距离范围内说谎时，此护甲将会发光。</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>救世主链甲</strong></td>
+<td style="text-align: center;">18 / 48</td>
+<td style="text-align: center;">8</td>
+<td style="text-align: left;"><strong>困难：</strong>装备角色所有属性以及闪避值 <strong>-1</strong> 。</td>
+</tr>
+</tbody>
+</table>
+<h1>战利品</h1>
+<p>战利品包括团队获得的消耗品与物品。</p>
+<p>物品在售卖、丢弃或丢失前均可使用。</p>
+<p>生成随机物品时，确定你想要的稀有度，掷相应数量的 <strong>d12</strong> ，将总值与表格中的物品相匹配。</p>
+<ul>
+<li><em>常见 (1d12 或 </em><em>2d12</em>* )。</li>
+<li><em>不常见 (2d12 或 </em><em>3d12</em>* )。</li>
+<li><em>稀有 (3d12 或 </em><em>4d12</em>* )。</li>
+<li><em>传说 (4d12 或 </em><em>5d12</em>* )。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ROLL</th>
+<th style="text-align: left;">战利品</th>
+<th style="text-align: left;">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">01</td>
+<td style="text-align: left;"><strong>高级床单</strong></td>
+<td style="text-align: left;">在任何休息期间，你总是会自动<strong>清除 1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">02</td>
+<td style="text-align: left;"><strong>风笛哨</strong></td>
+<td style="text-align: left;">手工制作的哨子。每只哨子都有独特的声音，刺耳的声音在半径一英里的地方都能听到。</td>
+</tr>
+<tr>
+<td style="text-align: center;">03</td>
+<td style="text-align: left;"><strong>充能箭袋</strong></td>
+<td style="text-align: left;">当你使用此箭袋中的箭矢攻击并成功命中时，伤害掷骰获得等同于你当前位阶的加值。</td>
+</tr>
+<tr>
+<td style="text-align: center;">04</td>
+<td style="text-align: left;"><strong>阿利斯泰尔的火炬</strong></td>
+<td style="text-align: left;">一把可以随心所欲点亮的魔法火炬，它发出的光比看起来要远得多。它可以让洞穴充满光亮，让人感觉就像白天一样。</td>
+</tr>
+<tr>
+<td style="text-align: center;">05</td>
+<td style="text-align: left;"><strong>通话法球</strong></td>
+<td style="text-align: left;">一对球体，任何持有它们的生物都可以在任意距离内相互交流。</td>
+</tr>
+<tr>
+<td style="text-align: center;">06</td>
+<td style="text-align: left;"><strong>手铐</strong></td>
+<td style="text-align: left;">一副带有钥匙的可锁手铐。</td>
+</tr>
+<tr>
+<td style="text-align: center;">07</td>
+<td style="text-align: left;"><strong>奥术斗篷</strong></td>
+<td style="text-align: left;">任何拥有施法能力的使用者穿着它时都可以随意调整其颜色、纹理和尺寸的斗篷。</td>
+</tr>
+<tr>
+<td style="text-align: center;">08</td>
+<td style="text-align: left;"><strong>编织网</strong></td>
+<td style="text-align: left;">你可以用这张网进行 灵巧检定 来捕捉小型生物。被网住的目标可通过成功的 攻击检定 （DC16）挣脱。</td>
+</tr>
+<tr>
+<td style="text-align: center;">09</td>
+<td style="text-align: left;"><strong>生火罐</strong></td>
+<td style="text-align: left;">你可以倾倒此罐中奇异的液体来立即产生火焰。液体将在你完成长休后重新生成。</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><strong>悬空之杖</strong></td>
+<td style="text-align: left;">这根刻有符文的扁平短棒被激活时会立即悬停在原地。在解除激活前，短棒将不受重力影响且无法移动，始终固定在原位。</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><strong>魅力石</strong></td>
+<td style="text-align: left;">激活这颗卵石大小的宝石，可记录你所见之人的外貌。<strong>花费 1 希望点</strong>，便能以幻象形式将这副伪装神奇地复现在自己身上。</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;"><strong>空箱子</strong></td>
+<td style="text-align: left;">一个魔法箱子，即使里面有物品，看起来也是空的。主人可以在打开箱子时使用特定的单词、短语或其他触发条件来显示这些物品。</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;"><strong>伙伴箱</strong></td>
+<td style="text-align: left;">用于携带小型动物伙伴的箱子。当它们在里面时，箱子和里面的生物动物都不会受到任何伤害和负面效果。</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;"><strong>穿刺箭</strong></td>
+<td style="text-align: left;">使用弓进行攻击时，你可以使用穿刺箭将你的熟练值添加到伤害掷骰中。每次休息可使用 <strong>3</strong> 次。</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;"><strong>勇气石</strong></td>
+<td style="text-align: left;">附在盔甲上。为尚未具备以下功能的盔甲添加以下特性：坚韧：在标记最后一个护甲槽之前，掷一个 <strong>d6</strong> 。如果掷出 <strong>6</strong> ，则可以降低伤害一个等级而无需标记槽位</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;"><strong>万能钥匙</strong></td>
+<td style="text-align: left;">使尝试打开锁着的门时的灵巧掷骰具有优势</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;"><strong>奥术棱镜</strong></td>
+<td style="text-align: left;">将此棱镜置于指定位置并激活。其近距离范围内的所有盟友在施法检定上获得 <strong>+1</strong> 加值。激活期间棱镜不可移动。解除激活后，需完成一次长休才能再次启用。</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: left;"><strong>小型精力药水配方</strong></td>
+<td style="text-align: left;">花费一项休整行动和动物骨骼来制作一瓶小型精力药水。</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: left;"><strong>小型生命药水配方</strong></td>
+<td style="text-align: left;">花费一项休整行动和一瓶血液来制作一瓶小型生命药水。</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: left;"><strong>归航罗盘</strong></td>
+<td style="text-align: left;">两个罗盘无论相距多远，都只能指向对方。</td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: left;"><strong>修正者精魂</strong></td>
+<td style="text-align: left;">一只坐在你耳道弯曲处的小精魂，在战斗中低声说着有用的建议。每短休一次，你可以在攻击检定中获得一次优势。</td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td style="text-align: left;"><strong>博学守护者</strong></td>
+<td style="text-align: left;">存储最多三个敌对生物的名字。下次面对它们时，在针对它们的任何动作掷骰上获得 +1。</td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td style="text-align: left;"><strong>黑烟瓶配方</strong></td>
+<td style="text-align: left;">在休息时间，花费一次休整行动并<strong>标记 1 压力点</strong>来制作一个黑烟瓶。</td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td style="text-align: left;"><strong>血石</strong></td>
+<td style="text-align: left;">附在武器上。为尚未具备以下功能的武器添加以下特性：残暴: 伤害骰每掷出一次最大值，就额外掷出一个伤害骰。</td>
+</tr>
+<tr>
+<td style="text-align: center;">26</td>
+<td style="text-align: left;"><strong>巨石</strong></td>
+<td style="text-align: left;">附在武器上。为尚未具备以下功能的武器添加以下特性：强力: 额外掷一个伤害骰并去掉其中最小的一个。</td>
+</tr>
+<tr>
+<td style="text-align: center;">27</td>
+<td style="text-align: left;"><strong>滑翔机</strong></td>
+<td style="text-align: left;">可以通过<strong>标记 1 压力点</strong>来展开的小型降落伞。它可以让使用者从高处安全地滑翔到下面的地面。</td>
+</tr>
+<tr>
+<td style="text-align: center;">28</td>
+<td style="text-align: left;"><strong>寂静戒指</strong></td>
+<td style="text-align: left;"><strong>花费 1 希望点</strong>激活此戒指，直到你的下一次休息，你的脚步声是无声的。</td>
+</tr>
+<tr>
+<td style="text-align: center;">29</td>
+<td style="text-align: left;"><strong>镇静吊坠</strong></td>
+<td style="text-align: left;">如果你必须标记最后一个压力槽，请掷一个 <strong>d6</strong> 。如果掷出 <strong>5</strong> +，则无需标记。</td>
+</tr>
+<tr>
+<td style="text-align: center;">30</td>
+<td style="text-align: left;"><strong>双用瓶</strong></td>
+<td style="text-align: left;">可容纳两种不同液体的瓶子。侧面的小按钮可让饮用者在两种液体之间切换。</td>
+</tr>
+<tr>
+<td style="text-align: center;">31</td>
+<td style="text-align: left;"><strong>幻沙袋</strong></td>
+<td style="text-align: left;">这是一小袋沙子，可以通过 风度掷骰（DC10）将其调整为比实际重量重得多或轻得多。你还可以通过 灵巧掷骰（DC10） 将沙子吹到对手的脸上，使对手暂时处于脆弱状态。</td>
+</tr>
+<tr>
+<td style="text-align: center;">32</td>
+<td style="text-align: left;"><strong>抵抗戒指</strong></td>
+<td style="text-align: left;">每长休一次，激活这枚戒指将使成功命中你的攻击伤害减少一半。</td>
+</tr>
+<tr>
+<td style="text-align: center;">33</td>
+<td style="text-align: left;"><strong>凤凰羽毛</strong></td>
+<td style="text-align: left;">只要你拥有任意数量的凤凰羽毛，当你失去知觉并掷骰决定是否选择留下伤痕时，骰子结果总是 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">34</td>
+<td style="text-align: left;"><strong>百宝箱</strong></td>
+<td style="text-align: left;">一个只能每长休打开一次的小盒子。打开时，骰一个 <strong>d12</strong> ，如果你掷出 <strong>1</strong> -6，盒子是空的；如果你掷出 <strong>7</strong> -10，盒子里会随机出现一个常见消耗品；如果你掷出 <strong>11</strong> -12，盒子里会随机出现两个常见消耗品。</td>
+</tr>
+<tr>
+<td style="text-align: center;">35</td>
+<td style="text-align: left;"><strong>空刃护符</strong></td>
+<td style="text-align: left;">附在近战武器上，使其能够在近距离范围内攻击。每休息能激活三次。</td>
+</tr>
+<tr>
+<td style="text-align: center;">36</td>
+<td style="text-align: left;"><strong>传送点种子</strong></td>
+<td style="text-align: left;">将此种子埋入土中可在该处培育传送门。 <strong>24</strong> 小时后传送门即可使用。通过此传送门可抵达任何其他已种植传送门种子的地点。对传送门造成任意魔法伤害即可将其摧毁。</td>
+</tr>
+<tr>
+<td style="text-align: center;">37</td>
+<td style="text-align: left;"><strong>典范之链</strong></td>
+<td style="text-align: left;">花费一项休整行动，你可以对你所珍视的理想或原则进行冥想，并将你的意志集中到这根链条之中。每长休一次，你可以在进行与该原则一致的掷骰时，<strong>花费 1 希望点</strong>，使用 <strong>d20</strong> 作为你的希望骰。</td>
+</tr>
+<tr>
+<td style="text-align: center;">38</td>
+<td style="text-align: left;"><strong>匿踪护身符</strong></td>
+<td style="text-align: left;">每长休一次，激活此护符进入隐匿状态直至移动。以此法隐匿期间，即使敌人移动至通常能看见你的位置，你仍保持不可见状态。</td>
+</tr>
+<tr>
+<td style="text-align: center;">39</td>
+<td style="text-align: left;"><strong>希望守护者的小盒</strong></td>
+<td style="text-align: left;">在长休期间，若你拥有 <strong>6</strong> 希望点，可<strong>花费 1 希望点</strong>将丰沛的决心灌注于此挂坠中。当希望点归零时，可使用该挂坠立即<strong>获得 1 希望点</strong>。挂坠必须重新灌注后才能再次以此法使用。</td>
+</tr>
+<tr>
+<td style="text-align: center;">40</td>
+<td style="text-align: left;"><strong>无限袋</strong></td>
+<td style="text-align: left;">放入此袋中的物品将存储在一个独立且无限的次元中，并随时可以取出。</td>
+</tr>
+<tr>
+<td style="text-align: center;">41</td>
+<td style="text-align: left;"><strong>神行遗宝</strong></td>
+<td style="text-align: left;">敏捷 <strong>+1</strong> ，你不能同时持有其他遗宝。</td>
+</tr>
+<tr>
+<td style="text-align: center;">42</td>
+<td style="text-align: left;"><strong>强力遗宝</strong></td>
+<td style="text-align: left;">力量 <strong>+1</strong> ，你不能同时持有其他遗宝。</td>
+</tr>
+<tr>
+<td style="text-align: center;">43</td>
+<td style="text-align: left;"><strong>控制遗宝</strong></td>
+<td style="text-align: left;">灵巧 <strong>+1</strong> ，你不能同时持有其他遗宝。</td>
+</tr>
+<tr>
+<td style="text-align: center;">44</td>
+<td style="text-align: left;"><strong>调和遗宝</strong></td>
+<td style="text-align: left;">本能 <strong>+1</strong> ，你不能同时持有其他遗宝。</td>
+</tr>
+<tr>
+<td style="text-align: center;">45</td>
+<td style="text-align: left;"><strong>魅力遗宝</strong></td>
+<td style="text-align: left;">风度 <strong>+1</strong> ，你不能同时持有其他遗宝。</td>
+</tr>
+<tr>
+<td style="text-align: center;">46</td>
+<td style="text-align: left;"><strong>启迪遗宝</strong></td>
+<td style="text-align: left;">知识 <strong>+1</strong> ，你不能同时持有其他遗宝。</td>
+</tr>
+<tr>
+<td style="text-align: center;">47</td>
+<td style="text-align: left;"><strong>珩磨遗宝</strong></td>
+<td style="text-align: left;">你的一项经历 <strong>+1</strong> ，你不能同时持有其他遗宝。</td>
+</tr>
+<tr>
+<td style="text-align: center;">48</td>
+<td style="text-align: left;"><strong>闪烁飞虫吊坠</strong></td>
+<td style="text-align: left;">佩戴时，你的物理近战武器会迸发出轻盈的光彩，使你可以攻击邻近范围内的生物。</td>
+</tr>
+<tr>
+<td style="text-align: center;">49</td>
+<td style="text-align: left;"><strong>湖行者长靴</strong></td>
+<td style="text-align: left;">你可以如同在柔软地面一般行走在水面上。</td>
+</tr>
+<tr>
+<td style="text-align: center;">50</td>
+<td style="text-align: left;"><strong>粘土伙伴</strong></td>
+<td style="text-align: left;">当你将这块黏土塑造成黏土动物伙伴时，它会表现出相应动物的特性。例如黏土蜘蛛能编织黏土蛛网，黏土飞鸟则可翱翔天际。黏土伙伴在不同形态间会保留记忆与身份认同，但可以适应每一个形态的新的习性。</td>
+</tr>
+<tr>
+<td style="text-align: center;">51</td>
+<td style="text-align: left;"><strong>秘尘配方</strong></td>
+<td style="text-align: left;">在休息时，花费一项休整行动和一包金币来制作一份秘尘。</td>
+</tr>
+<tr>
+<td style="text-align: center;">52</td>
+<td style="text-align: left;"><strong>记忆碎片</strong></td>
+<td style="text-align: left;">每次长休一次，<strong>花费 2 希望点</strong>以回想一张宝库内的领域卡，而不是支付其回想费用。</td>
+</tr>
+<tr>
+<td style="text-align: center;">53</td>
+<td style="text-align: left;"><strong>欢欣宝石</strong></td>
+<td style="text-align: left;">附在武器上，允许你使用敏捷进行攻击掷骰。</td>
+</tr>
+<tr>
+<td style="text-align: center;">54</td>
+<td style="text-align: left;"><strong>威力宝石</strong></td>
+<td style="text-align: left;">附在武器上，允许你使用力量进行攻击掷骰。</td>
+</tr>
+<tr>
+<td style="text-align: center;">55</td>
+<td style="text-align: left;"><strong>精准宝石</strong></td>
+<td style="text-align: left;">附在武器上，允许你使用灵巧进行攻击掷骰。</td>
+</tr>
+<tr>
+<td style="text-align: center;">56</td>
+<td style="text-align: left;"><strong>洞察宝石</strong></td>
+<td style="text-align: left;">附在武器上，允许你使用本能进行攻击掷骰。</td>
+</tr>
+<tr>
+<td style="text-align: center;">57</td>
+<td style="text-align: left;"><strong>无畏宝石</strong></td>
+<td style="text-align: left;">附在武器上，允许你使用风度进行攻击掷骰。</td>
+</tr>
+<tr>
+<td style="text-align: center;">58</td>
+<td style="text-align: left;"><strong>睿智宝石</strong></td>
+<td style="text-align: left;">附在武器上，允许你使用知识进行攻击掷骰。</td>
+</tr>
+<tr>
+<td style="text-align: center;">59</td>
+<td style="text-align: left;"><strong>坚毅之戒</strong></td>
+<td style="text-align: left;">每场游戏一次，当游戏主持人<strong>花费 1 恐惧点</strong>时，你可以<strong>花费 4 希望点</strong>以取消因为使用恐惧而产生的效应。</td>
+</tr>
+<tr>
+<td style="text-align: center;">60</td>
+<td style="text-align: left;"><strong>团结腰带</strong></td>
+<td style="text-align: left;">每场游戏一次，你可以<strong>花费 5 希望点</strong>进行一次三名角色的接力掷骰，而不是两名。</td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
+<h1>消耗品</h1>
+<p><strong>消耗品</strong>是只能使用一次的战利品。每种消耗品每人最多可以持有五份。使用消耗品无需掷骰，除非游戏主持人或故事情节另有要求。</p>
+<p>生成随机消耗品时，确定你想要的稀有度，掷相应数量的 <strong>d12</strong> ，将总值与表格中的消耗品相匹配。</p>
+<ul>
+<li><em>常见 (1d12 或 </em><em>2d12</em>* )。</li>
+<li><em>不常见 (2d12 或 </em><em>3d12</em>* )。</li>
+<li><em>稀有 (3d12 或 </em><em>4d12</em>* )。</li>
+<li><em>传说 (4d12 或 </em><em>5d12</em>* )。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">ROLL</th>
+<th style="text-align: left;">战利品</th>
+<th style="text-align: left;">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">01</td>
+<td style="text-align: left;"><strong>神行药水</strong></td>
+<td style="text-align: left;">下一次敏捷掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">02</td>
+<td style="text-align: left;"><strong>强力药水</strong></td>
+<td style="text-align: left;">下一次力量掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">03</td>
+<td style="text-align: left;"><strong>控制药水</strong></td>
+<td style="text-align: left;">下一次灵巧掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">04</td>
+<td style="text-align: left;"><strong>调和药水</strong></td>
+<td style="text-align: left;">下一次本能掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">05</td>
+<td style="text-align: left;"><strong>魅力药水</strong></td>
+<td style="text-align: left;">下一次风度掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">06</td>
+<td style="text-align: left;"><strong>启迪药水</strong></td>
+<td style="text-align: left;">下一次知识掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">07</td>
+<td style="text-align: left;"><strong>小型生命药水</strong></td>
+<td style="text-align: left;">立刻<strong>恢复 1d4 生命点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">08</td>
+<td style="text-align: left;"><strong>小型精力药水</strong></td>
+<td style="text-align: left;">立刻<strong>清除 1d4 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">09</td>
+<td style="text-align: left;"><strong>磨牙毒液</strong></td>
+<td style="text-align: left;">附在物理武器上，在其下一次的伤害掷骰中增加 <strong>1d6</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><strong>瓦里克叶</strong></td>
+<td style="text-align: left;">服下一对，立刻<strong>获得 2 希望点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">11</td>
+<td style="text-align: left;"><strong>月滴瓶</strong></td>
+<td style="text-align: left;">直至你的下一次休息，你可以在完全黑暗的环境中看到东西。</td>
+</tr>
+<tr>
+<td style="text-align: center;">12</td>
+<td style="text-align: left;"><strong>不稳定的奥术碎片</strong></td>
+<td style="text-align: left;">使用灵巧掷骰将其投掷到远距离范围内的一群敌人，所有成功命中的敌人受到 <strong>1d20</strong> 魔法伤害。</td>
+</tr>
+<tr>
+<td style="text-align: center;">13</td>
+<td style="text-align: left;"><strong>稳定药水</strong></td>
+<td style="text-align: left;">使用后立刻执行一次额外的休整行动。</td>
+</tr>
+<tr>
+<td style="text-align: center;">14</td>
+<td style="text-align: left;"><strong>改良磨牙毒液</strong></td>
+<td style="text-align: left;">附在物理武器上，在其下一次的伤害掷骰中增加 <strong>1d8</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">15</td>
+<td style="text-align: left;"><strong>变形黏土</strong></td>
+<td style="text-align: left;"><strong>花费 1 希望点</strong>，使用者将会改变他们的容貌使其他人认不出来，直到下次休息。</td>
+</tr>
+<tr>
+<td style="text-align: center;">16</td>
+<td style="text-align: left;"><strong>黑烟瓶</strong></td>
+<td style="text-align: left;">面对即将到来的攻击时，掷骰等同于你敏捷数的 <strong>d6</strong> ，将其中最高的结果加入到你应对此次攻击的的闪避值中。</td>
+</tr>
+<tr>
+<td style="text-align: center;">17</td>
+<td style="text-align: left;"><strong>跳跃树根</strong></td>
+<td style="text-align: left;">你可以立即执行一次无需掷骰的跳跃，到远距离内的任何地方。</td>
+</tr>
+<tr>
+<td style="text-align: center;">18</td>
+<td style="text-align: left;"><strong>小憩粉</strong></td>
+<td style="text-align: left;"><strong>标记 1 压力点</strong>然后<strong>恢复 1 生命点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">19</td>
+<td style="text-align: left;"><strong>生命药水</strong></td>
+<td style="text-align: left;">立刻<strong>恢复 1d4+1 生命点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">20</td>
+<td style="text-align: left;"><strong>精力药水</strong></td>
+<td style="text-align: left;">立刻<strong>清除 1d4+1 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">21</td>
+<td style="text-align: left;"><strong>护甲缝合剂</strong></td>
+<td style="text-align: left;">使用此物品并<strong>花费 任意 希望点</strong>，<strong>修复 等量的 护甲槽</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">22</td>
+<td style="text-align: left;"><strong>鳃膏</strong></td>
+<td style="text-align: left;">涂抹在脖子处后，你可以在水下呼吸，持续时间分钟数等同于你的等级数。</td>
+</tr>
+<tr>
+<td style="text-align: center;">23</td>
+<td style="text-align: left;"><strong>复制羊皮纸</strong></td>
+<td style="text-align: left;">当你将这张羊皮纸与另一张羊皮纸接触时，它会精确复制。一旦该副本制作完成，它就变成普通的羊皮纸了。</td>
+</tr>
+<tr>
+<td style="text-align: center;">24</td>
+<td style="text-align: left;"><strong>改良奥术碎片</strong></td>
+<td style="text-align: left;">使用灵巧掷骰将其投掷到远距离范围内的一群敌人，所有成功对抗的敌人受到 <strong>2d20</strong> 魔法伤害。</td>
+</tr>
+<tr>
+<td style="text-align: center;">25</td>
+<td style="text-align: left;"><strong>强效神行药水</strong></td>
+<td style="text-align: left;">直到下一次长休或短休时，敏捷掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">26</td>
+<td style="text-align: left;"><strong>强效强力药水</strong></td>
+<td style="text-align: left;">直到下一次长休或短休时，力量掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">27</td>
+<td style="text-align: left;"><strong>强效控制药水</strong></td>
+<td style="text-align: left;">直到下一次长休或短休时，灵巧掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">28</td>
+<td style="text-align: left;"><strong>强效调和药水</strong></td>
+<td style="text-align: left;">直到下一次长休或短休时，本能掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">29</td>
+<td style="text-align: left;"><strong>强效魅力药水</strong></td>
+<td style="text-align: left;">直到下一次长休或短休时，风度掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">30</td>
+<td style="text-align: left;"><strong>强效启迪药水</strong></td>
+<td style="text-align: left;">直到下一次长休或短休时，知识掷骰 <strong>+1</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">31</td>
+<td style="text-align: left;"><strong>约尔吉之血</strong></td>
+<td style="text-align: left;">瞬移至可目视的极远范围内任意地方。</td>
+</tr>
+<tr>
+<td style="text-align: center;">32</td>
+<td style="text-align: left;"><strong>霍莫特的秘药</strong></td>
+<td style="text-align: left;">饮用后，你的下一次攻击掷骰自动关键成功。</td>
+</tr>
+<tr>
+<td style="text-align: center;">33</td>
+<td style="text-align: left;"><strong>红棘唾液</strong></td>
+<td style="text-align: left;">附在物理武器上，在其下一次的伤害掷骰中增加 <strong>1d12</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">34</td>
+<td style="text-align: left;"><strong>引导石</strong></td>
+<td style="text-align: left;">选择你宝库中的一个法术或术典，使用一次然后将其放回宝库。</td>
+</tr>
+<tr>
+<td style="text-align: center;">35</td>
+<td style="text-align: left;"><strong>秘尘</strong></td>
+<td style="text-align: left;">附在魔法武器上，在其下一次的伤害掷骰中增加 <strong>1d12</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">36</td>
+<td style="text-align: left;"><strong>酸膏</strong></td>
+<td style="text-align: left;">在明亮的闪光中侵蚀墙壁和其他表面。</td>
+</tr>
+<tr>
+<td style="text-align: center;">37</td>
+<td style="text-align: left;"><strong>希望火炬</strong></td>
+<td style="text-align: left;">使用时，近距离内的盟友每<strong>花费 1 希望点</strong>时掷一个 <strong>d6</strong> 。掷出 <strong>6</strong> 时可无需<strong>花费 1 希望点</strong>。效果持续到下一个场景。</td>
+</tr>
+<tr>
+<td style="text-align: center;">38</td>
+<td style="text-align: left;"><strong>强效奥术碎片</strong></td>
+<td style="text-align: left;">使用灵巧将其投掷到远距离范围内的一群敌人，所有成功对抗的敌人受到 <strong>4d20</strong> 魔法伤害。</td>
+</tr>
+<tr>
+<td style="text-align: center;">39</td>
+<td style="text-align: left;"><strong>羽骨</strong></td>
+<td style="text-align: left;">控制你的下坠速度，持续时间分钟数等同于你的等级数。</td>
+</tr>
+<tr>
+<td style="text-align: center;">40</td>
+<td style="text-align: left;"><strong>虚空之环</strong></td>
+<td style="text-align: left;"><strong>标记 1 压力点</strong>，创造一个延伸至远距范围的虚空区域。虚空内无法施放任何法术，区域内生物对魔法伤害免疫。</td>
+</tr>
+<tr>
+<td style="text-align: center;">41</td>
+<td style="text-align: left;"><strong>太阳树液</strong></td>
+<td style="text-align: left;">骰 <strong>1d6</strong> 。若掷出 <strong>5</strong> -6，<strong>恢复 2 生命点</strong>。若掷出 <strong>2</strong> -4，<strong>清除 3 压力点</strong>。若掷出 <strong>1</strong> ，你短暂地面对死亡并回生，获得一道伤痕。</td>
+</tr>
+<tr>
+<td style="text-align: center;">42</td>
+<td style="text-align: left;"><strong>滴牙毒药</strong></td>
+<td style="text-align: left;">对饮用此物品的生物造成 <strong>8d10</strong> 的直接伤害。</td>
+</tr>
+<tr>
+<td style="text-align: center;">43</td>
+<td style="text-align: left;"><strong>强效生命药水</strong></td>
+<td style="text-align: left;">立刻<strong>恢复 1d4+2 生命点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">44</td>
+<td style="text-align: left;"><strong>强效精力药水</strong></td>
+<td style="text-align: left;">立刻<strong>清除 1d4+2 压力点</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">45</td>
+<td style="text-align: left;"><strong>食人魔麝香</strong></td>
+<td style="text-align: left;">避免任何人使用物理或魔法手段追踪你，直至你的下一次休息。</td>
+</tr>
+<tr>
+<td style="text-align: center;">46</td>
+<td style="text-align: left;"><strong>翼芽</strong></td>
+<td style="text-align: left;">你获得一对魔法翅膀，允许你短暂地飞行，持续时间分钟数等同于你的等级数。</td>
+</tr>
+<tr>
+<td style="text-align: center;">47</td>
+<td style="text-align: left;"><strong>失落声音之罐</strong></td>
+<td style="text-align: left;">释放出一股让人耳聋的声波，持续时间分钟数等同于你的本能属性。任何在远距离范围内没有准备应对的生物受到 <strong>6d8</strong> 的魔法伤害。</td>
+</tr>
+<tr>
+<td style="text-align: center;">48</td>
+<td style="text-align: left;"><strong>龙息茶</strong></td>
+<td style="text-align: left;">使用本能掷骰，对你面前的所有近距离敌人进行火焰吐息攻击。成功时，造成熟练值*d20 物理伤害。</td>
+</tr>
+<tr>
+<td style="text-align: center;">49</td>
+<td style="text-align: left;"><strong>搭桥种子</strong></td>
+<td style="text-align: left;">一束厚重的藤蔓从你所在的地方长出，延伸至远距离范围内的一处，允许你在其上安全地攀爬或步行。藤蔓在你的下一次短休时消散。</td>
+</tr>
+<tr>
+<td style="text-align: center;">50</td>
+<td style="text-align: left;"><strong>睡眠树液</strong></td>
+<td style="text-align: left;">饮用后陷入一整晚的沉睡。醒来时消除所有压力。</td>
+</tr>
+<tr>
+<td style="text-align: center;">51</td>
+<td style="text-align: left;"><strong>舒利亚大餐</strong></td>
+<td style="text-align: left;">食用后可以恢复所有生命点与清除所有压力点，并<strong>获得 1d4 希望点</strong> 。</td>
+</tr>
+<tr>
+<td style="text-align: center;">52</td>
+<td style="text-align: left;"><strong>捆绑蜂蜜</strong></td>
+<td style="text-align: left;">将两件物品永久性地粘连在一起。</td>
+</tr>
+<tr>
+<td style="text-align: center;">53</td>
+<td style="text-align: left;"><strong>缩小药水</strong></td>
+<td style="text-align: left;">饮用者的体型会缩小至一半，敏捷 <strong>+2</strong> ，熟练 <strong>-1</strong> ，直到他选择放弃这种形态或进行下一次休息。</td>
+</tr>
+<tr>
+<td style="text-align: center;">54</td>
+<td style="text-align: left;"><strong>生长药水</strong></td>
+<td style="text-align: left;">饮用者的体型会放大至两倍，力量 <strong>+2</strong> ，熟练 <strong>+1</strong> ，直到他选择放弃这种形态或进行下一次休息。</td>
+</tr>
+<tr>
+<td style="text-align: center;">55</td>
+<td style="text-align: left;"><strong>知识石</strong></td>
+<td style="text-align: left;">如果你持有此石头时死亡，一名盟友可以从你的配置中拿取一张卡加入其配置或宝库。当盟友如此做后，石头将会粉碎。</td>
+</tr>
+<tr>
+<td style="text-align: center;">56</td>
+<td style="text-align: left;"><strong>甜蜜苔藓</strong></td>
+<td style="text-align: left;">在休息期间食用，可以<strong>恢复 1d10 生命点</strong>或<strong>清除 1d10 压力点</strong>。</td>
+</tr>
+<tr>
+<td style="text-align: center;">57</td>
+<td style="text-align: left;"><strong>目盲法球</strong></td>
+<td style="text-align: left;">创造一道明亮的闪光，使近距离范围内的所有生物处于脆弱状态，直至生物下一次失去生命点。</td>
+</tr>
+<tr>
+<td style="text-align: center;">58</td>
+<td style="text-align: left;"><strong>死亡茶</strong></td>
+<td style="text-align: left;">饮下此茶后，若你在攻击时取得关键成功，将立即杀死目标。若在下次长休前未取得攻击关键成功，你将死亡。</td>
+</tr>
+<tr>
+<td style="text-align: center;">59</td>
+<td style="text-align: left;"><strong>万寿菊之镜</strong></td>
+<td style="text-align: left;">当你受到伤害时，可<strong>花费 1 希望点</strong>完全抵消该伤害，随后镜子碎裂。</td>
+</tr>
+<tr>
+<td style="text-align: center;">60</td>
+<td style="text-align: left;"><strong>星之泪</strong></td>
+<td style="text-align: left;">使用以召唤一场流星雨，对以使用地点为圆心的极远距离内所有生物自动造成 <strong>8d20</strong> 物理伤害。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="lang-en">
+<h2>EQUIPMENT</h2>
+<p>Your <strong>equipped</strong> weapons and armor are the ones listed in the "Active Weapons" and "Active Armor" sections of your character sheet. Your character can only attack with weapons, benefit from armor, and gain features from items they have equipped. You can't equip weapons or armor with a higher tier than you.</p>
+<p>PCs can carry up to two additional weapons in the "Inventory Weapon" areas of the character sheet.</p>
+<p>You can swap an Inventory Weapon with an Active Weapon at no cost during a rest or moment of calm; otherwise, you must mark a Stress to do so.</p>
+<p>Your character can only have one Active Armor at a time. They can't equip armor while in danger or under pressure; otherwise, they can equip or unequip armor without cost. Each armor has its own Armor Slots; if your character unequips their armor, track how many of its Armor Slots are marked. You can't carry armor in your inventory. When your character equips or unequips armor, recalculate your damage thresholds.</p>
+<h1>WEAPONS</h1>
+<p>All weapons have a tier, trait, range, damage die, damage type, and burden. Some weapons also have a feature.</p>
+<h4><strong>CATEGORY</strong></h4>
+<p>A weapon's <strong>category</strong> specifies whether it is a Primary or Secondary weapon. Your character can only equip up to one weapon of each category at a time.</p>
+<h4><strong>TRAIT</strong></h4>
+<p>A weapon's <strong>trait</strong> specifies which trait to use when making an attack roll with it.</p>
+<h4><strong>RANGE</strong></h4>
+<p>A weapon's <strong>range</strong> specifies the maximum distance between the attacker and their target when attacking with it.</p>
+<h4><strong>DAMAGE</strong></h4>
+<p>A weapon's <strong>damage</strong> indicates the size of the damage dice you roll on a successful attack with it; you roll a number of dice equal to your Proficiency. If the damage includes a flat modifier, this number is added to the total damage rolled, but is not altered or affected by Proficiency.</p>
+<h4><strong>DAMAGE TYPE</strong></h4>
+<p>A weapon's <strong>damage type</strong> indicates whether it deals physical or magic damage. Weapons that deal magic damage can only be wielded by characters with a Spellcast trait.</p>
+<h4><strong>BURDEN</strong></h4>
+<p>A weapon's <strong>burden</strong> indicates how many <strong>hands</strong> it occupies when equipped. Your character's maximum burden is 2 hands.</p>
+<h4><strong>FEATURE</strong></h4>
+<p>A weapon's <strong>feature</strong> is a special rule that stays in effect while the weapon is equipped.</p>
+<p>You can throw an equipped weapon at a target within Very Close range, making the attack roll with Finesse. On a success, deal damage as usual for that weapon. Once thrown, the weapon is no longer considered equipped. Until you retrieve and re-equip it, you can't attack with it or benefit from its features.</p>
+<h2>PRIMARY WEAPON TABLES</h2>
+<p><em>Players can choose one Tier 1 primary weapon during character creation. The GM can make other weapons available throughout the campaign as the PCs level up.</em></p>
+<h4>TIER 1 (LEVEL 1)</h4>
+<h4><strong>Physical Weapons</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broadsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8 phy</td>
+<td>One-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Longsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d10+3 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Battleaxe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+3 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Greatsword</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+3 phy</td>
+<td>Two-Handed</td>
+<td>Massive: −1 to Evasion; on a successful attack, roll an<br>additional damage die and discard the lowest result.</td>
+</tr>
+<tr>
+<td>Mace</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d8+1 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Warhammer</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+3 phy</td>
+<td>Two-Handed</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+1 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Quarterstaff</td>
+<td>Instinct</td>
+<td>Melee</td>
+<td>d10+3 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Cutlass</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d8+1 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Rapier</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d8 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Halberd</td>
+<td>Strength</td>
+<td>Very Close</td>
+<td>d10+2 phy</td>
+<td>Two-Handed</td>
+<td>Cumbersome: −1 to Finesse</td>
+</tr>
+<tr>
+<td>Spear</td>
+<td>Finesse</td>
+<td>Very Close</td>
+<td>d8+3 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Shortbow</td>
+<td>Agility</td>
+<td>Far</td>
+<td>d6+3 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Crossbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+1 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Longbow</td>
+<td>Agility</td>
+<td>Very Far</td>
+<td>d8+3 phy</td>
+<td>Two-Handed</td>
+<td>Cumbersome: −1 to Finesse</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 1 (LEVEL 1)</h4>
+<h4><strong>Magic Weapons</strong></h4>
+<p><em>All magic weapons require a Spellcast trait</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arcane<br>Gauntlets</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+3 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Hallowed Axe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d8+1 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Glowing Rings</td>
+<td>Agility</td>
+<td>Very Close</td>
+<td>d10+2 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Hand Runes</td>
+<td>Instinct</td>
+<td>Very Close</td>
+<td>d10 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Returning<br>Blade</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d8 mag</td>
+<td>One-Handed</td>
+<td>Returning: When this weapon is thrown within its<br>range, it appears in your hand immediately after the<br>attack.</td>
+</tr>
+<tr>
+<td>Shortstaff</td>
+<td>Instinct</td>
+<td>Close</td>
+<td>d8+1 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Dualstaff</td>
+<td>Instinct</td>
+<td>Far</td>
+<td>d6+3 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Scepter</td>
+<td>Presence</td>
+<td>Far</td>
+<td>d6 mag</td>
+<td>Two-Handed</td>
+<td>Versatile: This weapon can also be used with these<br>statistics—Presence, Melee, d8.</td>
+</tr>
+<tr>
+<td>Wand</td>
+<td>Knowledge</td>
+<td>Far</td>
+<td>d6+1 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Greatstaff</td>
+<td>Knowledge</td>
+<td>Very Far</td>
+<td>d6 mag</td>
+<td>Two-Handed</td>
+<td>Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 2 (LEVELS 2–4)</h4>
+<h4><strong>Physical Weapons</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Improved<br>Broadsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+3 phy</td>
+<td>One-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Improved<br>Longsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d10+6 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Battleaxe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+6 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Greatsword</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+6 phy</td>
+<td>Two-Handed</td>
+<td>Massive: −1 to Evasion; on a successful attack, roll<br>an additional damage die and discard the lowest<br>result.</td>
+</tr>
+<tr>
+<td>Improved Mace</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d8+4 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Warhammer</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+6 phy</td>
+<td>Two-Handed</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Improved<br>Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+4 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Quarterstaff</td>
+<td>Instinct</td>
+<td>Melee</td>
+<td>d10+6 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Cutlass</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d8+4 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Rapier</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d8+3 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Improved<br>Halberd</td>
+<td>Strength</td>
+<td>Very Close</td>
+<td>d10+5 phy</td>
+<td>Two-Handed</td>
+<td>Cumbersome: −1 to Finesse</td>
+</tr>
+<tr>
+<td>Improved Spear</td>
+<td>Finesse</td>
+<td>Very Close</td>
+<td>d8+6 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Shortbow</td>
+<td>Agility</td>
+<td>Far</td>
+<td>d6+6 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Crossbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+4 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Longbow</td>
+<td>Agility</td>
+<td>Very Far</td>
+<td>d8+6 phy</td>
+<td>Two-Handed</td>
+<td>Cumbersome: −1 to Finesse</td>
+</tr>
+<tr>
+<td>Gilded Falchion</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+4 phy</td>
+<td>One-Handed</td>
+<td>Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.</td>
+</tr>
+<tr>
+<td>Knuckle Blades</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+6 phy</td>
+<td>Two-Handed</td>
+<td>Brutal: When you roll the maximum value on a<br>damage die, roll an additional damage die.</td>
+</tr>
+<tr>
+<td>Urok<br>Broadsword</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+3 phy</td>
+<td>One-Handed</td>
+<td>Deadly: When you deal Severe damage, the target<br>must mark an additional HP.</td>
+</tr>
+<tr>
+<td>Bladed Whip</td>
+<td>Agility</td>
+<td>Very Close</td>
+<td>d8+3 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Steelforged<br>Halberd</td>
+<td>Strength</td>
+<td>Very Close</td>
+<td>d8+4 phy</td>
+<td>Two-Handed</td>
+<td>Scary: On a successful attack, the target must mark<br>a Stress.</td>
+</tr>
+<tr>
+<td>War Scythe</td>
+<td>Finesse</td>
+<td>Very Close</td>
+<td>d8+5 phy</td>
+<td>Two-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Blunderbuss</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d8+6 phy</td>
+<td>Two-Handed</td>
+<td>Reloading: After you make an attack, roll a d6. On<br>a result of 1, you must mark a Stress to reload this<br>weapon before you can fire it again.</td>
+</tr>
+<tr>
+<td>Greatbow</td>
+<td>Strength</td>
+<td>Far</td>
+<td>d6+6 phy</td>
+<td>Two-Handed</td>
+<td>Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.</td>
+</tr>
+<tr>
+<td>Finehair Bow</td>
+<td>Agility</td>
+<td>Very Far</td>
+<td>d6+5 phy</td>
+<td>Two-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 2 (LEVELS 2–4)</h4>
+<h4><strong>Magic Weapons</strong></h4>
+<p><em>All magic weapons require a Spellcast trait</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Improved Arcane<br>Gauntlets</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+6 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Hallowed Axe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d8+4 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Glowing Rings</td>
+<td>Agility</td>
+<td>Very Close</td>
+<td>d10+5 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved Hand<br>Runes</td>
+<td>Instinct</td>
+<td>Very Close</td>
+<td>d10+3 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Returning Blade</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d8+3 mag</td>
+<td>One-Handed</td>
+<td>Returning: When this weapon is thrown within its<br>range, it appears in your hand immediately after the<br>attack.</td>
+</tr>
+<tr>
+<td>Improved<br>Shortstaff</td>
+<td>Instinct</td>
+<td>Close</td>
+<td>d8+4 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Dualstaff</td>
+<td>Instinct</td>
+<td>Far</td>
+<td>d6+6 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Scepter</td>
+<td>Presence</td>
+<td>Far</td>
+<td>d6+3 mag</td>
+<td>Two-Handed</td>
+<td>Versatile: This weapon can also be used with these<br>statistics—Presence, Melee, d8+3.</td>
+</tr>
+<tr>
+<td>Improved Wand</td>
+<td>Knowledge</td>
+<td>Far</td>
+<td>d6+4 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved<br>Greatstaff</td>
+<td>Knowledge</td>
+<td>Very Far</td>
+<td>d6+3 mag</td>
+<td>Two-Handed</td>
+<td>Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.</td>
+</tr>
+<tr>
+<td>Ego Blade</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d12+4 mag</td>
+<td>One-Handed</td>
+<td>Pompous: You must have a Presence of 0 or lower to<br>use this weapon.</td>
+</tr>
+<tr>
+<td>Casting Sword</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+4 mag</td>
+<td>Two-Handed</td>
+<td>Versatile: This weapon can also be used with these<br>statistics—Knowledge, Far, d6+3.</td>
+</tr>
+<tr>
+<td>Devouring<br>Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+4 mag</td>
+<td>One-Handed</td>
+<td>Scary: On a successful attack, the target must mark<br>a Stress.</td>
+</tr>
+<tr>
+<td>Hammer of Exota</td>
+<td>Instinct</td>
+<td>Melee</td>
+<td>d8+6 mag</td>
+<td>Two-Handed</td>
+<td>Eruptive: On a successful attack against a target<br>within Melee range, all other adversaries within Very<br>Close range must succeed on a reaction roll (14) or<br>take half damage.</td>
+</tr>
+<tr>
+<td>Yutari Bloodbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+4 mag</td>
+<td>Two-Handed</td>
+<td>Brutal: When you roll the maximum value on a<br>damage die, roll an additional damage die.</td>
+</tr>
+<tr>
+<td>Elder Bow</td>
+<td>Instinct</td>
+<td>Far</td>
+<td>d6+4 mag</td>
+<td>Two-Handed</td>
+<td>Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.</td>
+</tr>
+<tr>
+<td>Scepter of Elias</td>
+<td>Presence</td>
+<td>Far</td>
+<td>d6+3 mag</td>
+<td>One-Handed</td>
+<td>Invigorating: On a successful attack, roll a d4. On a<br>result of 4, clear a Stress.</td>
+</tr>
+<tr>
+<td>Wand of<br>Enthrallment</td>
+<td>Presence</td>
+<td>Far</td>
+<td>d6+4 mag</td>
+<td>One-Handed</td>
+<td>Persuasive: Before you make a Presence Roll, you<br>can mark a Stress to gain a +2 bonus to the result.</td>
+</tr>
+<tr>
+<td>Keeper's Staff</td>
+<td>Knowledge</td>
+<td>Far</td>
+<td>d6+4 mag</td>
+<td>Two-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 3 (LEVELS 5–7)</h4>
+<h4><strong>Physical Weapons</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advanced<br>Broadsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+6 phy</td>
+<td>One-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Advanced<br>Longsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d10+9 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Battleaxe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+9 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Greatsword</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+9 phy</td>
+<td>Two-Handed</td>
+<td>Massive: −1 to Evasion; on a successful attack, roll<br>an additional damage die and discard the lowest<br>result.</td>
+</tr>
+<tr>
+<td>Advanced<br>Mace</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d8+7 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Warhammer</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+9 phy</td>
+<td>Two-Handed</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Advanced<br>Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+7 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Quarterstaff</td>
+<td>Instinct</td>
+<td>Melee</td>
+<td>d10+9 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Cutlass</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d8+7 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Rapier</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d8+6 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Advanced<br>Halberd</td>
+<td>Strength</td>
+<td>Very Close</td>
+<td>d10+8 phy</td>
+<td>Two-Handed</td>
+<td>Cumbersome: −1 to Finesse</td>
+</tr>
+<tr>
+<td>Advanced<br>Spear</td>
+<td>Finesse</td>
+<td>Very Close</td>
+<td>d8+9 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Shortbow</td>
+<td>Agility</td>
+<td>Far</td>
+<td>d6+9 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Crossbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+7 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Longbow</td>
+<td>Agility</td>
+<td>Very Far</td>
+<td>d8+9 phy</td>
+<td>Two-Handed</td>
+<td>Cumbersome: −1 to Finesse</td>
+</tr>
+<tr>
+<td>Flickerfly Blade</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+5 phy</td>
+<td>One-Handed</td>
+<td>Sharpwing: Gain a bonus to your damage rolls equal<br>to your Agility.</td>
+</tr>
+<tr>
+<td>Bravesword</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+7 phy</td>
+<td>Two-Handed</td>
+<td>Brave: −1 to Evasion; +3 to Severe damage<br>threshold</td>
+</tr>
+<tr>
+<td>Hammer of<br>Wrath</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+7 phy</td>
+<td>Two-Handed</td>
+<td>Devastating: Before you make an attack roll, you<br>can mark a Stress to use a d20 as your damage die.</td>
+</tr>
+<tr>
+<td>Labrys Axe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+7 phy</td>
+<td>Two-Handed</td>
+<td>Protective: +1 to Armor Score</td>
+</tr>
+<tr>
+<td>Meridian<br>Cutlass</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d10+5 phy</td>
+<td>One-Handed</td>
+<td>Dueling: When there are no other creatures within<br>Close range of the target, gain advantage on your<br>attack roll against them.</td>
+</tr>
+<tr>
+<td>Retractable<br>Saber</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d10+7 phy</td>
+<td>One-Handed</td>
+<td>Retractable: The blade can be hidden in the hilt to<br>avoid detection.</td>
+</tr>
+<tr>
+<td>Double Flail</td>
+<td>Agility</td>
+<td>Very Close</td>
+<td>d10+8 phy</td>
+<td>Two-Handed</td>
+<td>Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.</td>
+</tr>
+<tr>
+<td>Talon Blades</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d10+7 phy</td>
+<td>Two-Handed</td>
+<td>Brutal: When you roll the maximum value on a<br>damage die, roll an additional damage die.</td>
+</tr>
+<tr>
+<td>Black Powder<br>Revolver</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+8 phy</td>
+<td>One-Handed</td>
+<td>Reloading: After you make an attack, roll a d6. On<br>a result of 1, you must mark a Stress to reload this<br>weapon before you can fire it again.</td>
+</tr>
+<tr>
+<td>Spiked Bow</td>
+<td>Agility</td>
+<td>Very Far</td>
+<td>d6+7 phy</td>
+<td>Two-Handed</td>
+<td>Versatile: This weapon can also be used with these<br>statistics—Agility, Melee, d10+5.</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 3 (LEVELS 5–7)</h4>
+<h4><strong>Magic Weapons</strong></h4>
+<p><em>All magic weapons require a Spellcast trait</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advanced<br>Arcane<br>Gauntlets</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+9 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Hallowed Axe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d8+7 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Glowing Rings</td>
+<td>Agility</td>
+<td>Very Close</td>
+<td>d10+8 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Hand Runes</td>
+<td>Instinct</td>
+<td>Very Close</td>
+<td>d10+6 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Returning<br>Blade</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d8+6 mag</td>
+<td>One-Handed</td>
+<td>Returning: When this weapon is thrown within its<br>range, it appears in your hand immediately after the<br>attack.</td>
+</tr>
+<tr>
+<td>Advanced<br>Shortstaff</td>
+<td>Instinct</td>
+<td>Close</td>
+<td>d8+7 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Dualstaff</td>
+<td>Instinct</td>
+<td>Far</td>
+<td>d6+9 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Scepter</td>
+<td>Presence</td>
+<td>Far</td>
+<td>d6+6 mag</td>
+<td>Two-Handed</td>
+<td>Versatile: This weapon can also be used with these<br>statistics—Presence, Melee, d8+4.</td>
+</tr>
+<tr>
+<td>Advanced<br>Wand</td>
+<td>Knowledge</td>
+<td>Far</td>
+<td>d6+7 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced<br>Greatstaff</td>
+<td>Knowledge</td>
+<td>Very Far</td>
+<td>d6+6 mag</td>
+<td>Two-Handed</td>
+<td>Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.</td>
+</tr>
+<tr>
+<td>Axe of Fortunis</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+8 mag</td>
+<td>Two-Handed</td>
+<td>Lucky: On a failed attack, you can mark a Stress to<br>reroll your attack.</td>
+</tr>
+<tr>
+<td>Blessed Anlace</td>
+<td>Instinct</td>
+<td>Melee</td>
+<td>d10+6 mag</td>
+<td>One-Handed</td>
+<td>Healing: During downtime, automatically clear a<br>Hit Point.</td>
+</tr>
+<tr>
+<td>Ghostblade</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d10+7<br>phy or mag</td>
+<td>One-Handed</td>
+<td>Otherworldly: On a successful attack, you can deal<br>physical or magic damage.</td>
+</tr>
+<tr>
+<td>Runes of<br>Ruination</td>
+<td>Knowledge</td>
+<td>Very Close</td>
+<td>d20+4 mag</td>
+<td>One-Handed</td>
+<td>Painful: Each time you make a successful attack,<br>you must mark a Stress.</td>
+</tr>
+<tr>
+<td>Widogast<br>Pendant</td>
+<td>Knowledge</td>
+<td>Close</td>
+<td>d10+5 mag</td>
+<td>One-Handed</td>
+<td>Timebending: You choose the target of your attack<br>after making your attack roll.</td>
+</tr>
+<tr>
+<td>Gilded Bow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+7 mag</td>
+<td>Two-Handed</td>
+<td>Self-Correcting: When you roll a 1 on a damage die,<br>it deals 6 damage instead.</td>
+</tr>
+<tr>
+<td>Firestaff</td>
+<td>Instinct</td>
+<td>Far</td>
+<td>d6+7 mag</td>
+<td>Two-Handed</td>
+<td>Burning: When you roll a 6 on a damage die, the<br>target must mark a Stress.</td>
+</tr>
+<tr>
+<td>Mage Orb</td>
+<td>Knowledge</td>
+<td>Far</td>
+<td>d6+7 mag</td>
+<td>One-Handed</td>
+<td>Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.</td>
+</tr>
+<tr>
+<td>Ilmari's Rifle</td>
+<td>Finesse</td>
+<td>Very Far</td>
+<td>d6+6 mag</td>
+<td>One-Handed</td>
+<td>Reloading: After you make an attack, roll a d6. On<br>a result of 1, you must mark a Stress to reload this<br>weapon before you can fire it again.</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 4 (LEVELS 8–10)</h4>
+<h4><strong>Physical Weapons</strong></h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legendary<br>Broadsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+9 phy</td>
+<td>One-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Legendary<br>Longsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d10+12 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary Battleaxe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+12 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Greatsword</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+12 phy</td>
+<td>Two-Handed</td>
+<td>Massive: −1 to Evasion; on a successful attack,<br>roll an additional damage die and discard the<br>lowest result.</td>
+</tr>
+<tr>
+<td>Legendary Mace</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d8+10 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Warhammer</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+12 phy</td>
+<td>Two-Handed</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Legendary Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+10 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Quarterstaff</td>
+<td>Instinct</td>
+<td>Melee</td>
+<td>d10+12 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary Cutlass</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d8+10 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary Rapier</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d8+9 phy</td>
+<td>One-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Legendary Halberd</td>
+<td>Strength</td>
+<td>Very Close</td>
+<td>d10+11 phy</td>
+<td>Two-Handed</td>
+<td>Cumbersome: −1 to Finesse</td>
+</tr>
+<tr>
+<td>Legendary Spear</td>
+<td>Finesse</td>
+<td>Very Close</td>
+<td>d8+12 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary Shortbow</td>
+<td>Agility</td>
+<td>Far</td>
+<td>d6+12 phy</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary Crossbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+10 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary Longbow</td>
+<td>Agility</td>
+<td>Very Far</td>
+<td>d8+12 phy</td>
+<td>Two-Handed</td>
+<td>Cumbersome: −1 to Finesse</td>
+</tr>
+<tr>
+<td>Dual-Ended Sword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d10+9 phy</td>
+<td>Two-Handed</td>
+<td>Quick: When you make an attack, you can mark a<br>Stress to target another creature within range.</td>
+</tr>
+<tr>
+<td>Impact Gauntlet</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+11 phy</td>
+<td>One-Handed</td>
+<td>Concussive: On a successful attack, you can<br>spend a Hope to knock the target back to Far<br>range.</td>
+</tr>
+<tr>
+<td>Sledge Axe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d12+13 phy</td>
+<td>Two-Handed</td>
+<td>Destructive: −1 to Agility; on a successful attack,<br>all adversaries within Very Close range must mark<br>a Stress.</td>
+</tr>
+<tr>
+<td>Curved Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+9 phy</td>
+<td>One-Handed</td>
+<td>Serrated: When you roll a 1 on a damage die, it<br>deals 8 damage instead.</td>
+</tr>
+<tr>
+<td>Extended Polearm</td>
+<td>Finesse</td>
+<td>Very Close</td>
+<td>d8+10 phy</td>
+<td>Two-Handed</td>
+<td>Long: This weapon's attack targets all adversaries<br>in a line within range.</td>
+</tr>
+<tr>
+<td>Swinging Ropeblade</td>
+<td>Presence</td>
+<td>Close</td>
+<td>d8+9 phy</td>
+<td>Two-Handed</td>
+<td>Grappling: On a successful attack, you can spend<br>a Hope to Restrain the target or pull them into<br>Melee range with you.</td>
+</tr>
+<tr>
+<td>Ricochet Axes</td>
+<td>Agility</td>
+<td>Far</td>
+<td>d6+11 phy</td>
+<td>Two-Handed</td>
+<td>Bouncing: Mark 1 or more Stress to hit that many<br>targets in range of the attack.</td>
+</tr>
+<tr>
+<td>Aantari Bow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+11 phy</td>
+<td>Two-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Hand Cannon</td>
+<td>Finesse</td>
+<td>Very Far</td>
+<td>d6+12 phy</td>
+<td>One-Handed</td>
+<td>Reloading: After you make an attack, roll a d6. On<br>a 1, you must mark a Stress to reload this weapon<br>before you can fire it again.</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 4 (LEVELS 8–10)</h4>
+<h4><strong>Magic Weapons</strong></h4>
+<p><em>All magic weapons require a Spellcast trait</em></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legendary<br>Arcane Gauntlets</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+12 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Hallowed Axe</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d8+10 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Glowing Rings</td>
+<td>Agility</td>
+<td>Very Close</td>
+<td>d10+11 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary Hand<br>Runes</td>
+<td>Instinct</td>
+<td>Very Close</td>
+<td>d10+9 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Returning Blade</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d8+9 mag</td>
+<td>One-Handed</td>
+<td>Returning: When this weapon is thrown within its<br>range, it appears in your hand immediately after<br>the attack.</td>
+</tr>
+<tr>
+<td>Legendary<br>Shortstaff</td>
+<td>Instinct</td>
+<td>Close</td>
+<td>d8+10 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Dualstaff</td>
+<td>Instinct</td>
+<td>Far</td>
+<td>d8+12 mag</td>
+<td>Two-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Scepter</td>
+<td>Presence</td>
+<td>Far</td>
+<td>d6+9 mag</td>
+<td>Two-Handed</td>
+<td>Versatile: This weapon can also be used with<br>these statistics—Presence, Melee, d8+6.</td>
+</tr>
+<tr>
+<td>Legendary Wand</td>
+<td>Knowledge</td>
+<td>Far</td>
+<td>d6+10 mag</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary<br>Greatstaff</td>
+<td>Knowledge</td>
+<td>Very Far</td>
+<td>d6+9 mag</td>
+<td>Two-Handed</td>
+<td>Powerful: On a successful attack, roll an<br>additional damage die and discard the lowest<br>result.</td>
+</tr>
+<tr>
+<td>Sword of Light &amp;<br>Flame</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d10+11 mag</td>
+<td>Two-Handed</td>
+<td>Hot: This weapon cuts through solid material.</td>
+</tr>
+<tr>
+<td>Siphoning<br>Gauntlets</td>
+<td>Presence</td>
+<td>Melee</td>
+<td>d10+9 mag</td>
+<td>Two-Handed</td>
+<td>Lifestealing: On a successful attack, roll a d6. On<br>a result of 6, clear a Hit Point or clear a Stress.</td>
+</tr>
+<tr>
+<td>Midas Scythe</td>
+<td>Knowledge</td>
+<td>Melee</td>
+<td>d10+9 mag</td>
+<td>Two-Handed</td>
+<td>Greedy: Spend a handful of gold to gain a +1<br>bonus to your Proficiency on a damage roll.</td>
+</tr>
+<tr>
+<td>Floating<br>Bladeshards</td>
+<td>Instinct</td>
+<td>Close</td>
+<td>d8+9 mag</td>
+<td>One-Handed</td>
+<td>Powerful: On a successful attack, roll an<br>additional damage die and discard the lowest<br>result.</td>
+</tr>
+<tr>
+<td>Bloodstaff</td>
+<td>Instinct</td>
+<td>Far</td>
+<td>d20+7 mag</td>
+<td>Two-Handed</td>
+<td>Painful: Each time you make a successful attack,<br>you must mark a Stress.</td>
+</tr>
+<tr>
+<td>Thistlebow</td>
+<td>Instinct</td>
+<td>Far</td>
+<td>d6+13 mag</td>
+<td>Two-Handed</td>
+<td>Reliable: +1 to attack rolls</td>
+</tr>
+<tr>
+<td>Wand of Essek</td>
+<td>Knowledge</td>
+<td>Far</td>
+<td>d8+13 mag</td>
+<td>One-Handed</td>
+<td>Timebending: You can choose the target of your<br>attack after making your attack roll.</td>
+</tr>
+<tr>
+<td>Magus Revolver</td>
+<td>Finesse</td>
+<td>Very Far</td>
+<td>d6+13 mag</td>
+<td>One-Handed</td>
+<td>Reloading: After you make an attack, roll a d6. On<br>a result of 1, you must mark a Stress to reload<br>this weapon before you can fire it again.</td>
+</tr>
+<tr>
+<td>Fusion Gloves</td>
+<td>Knowledge</td>
+<td>Very Far</td>
+<td>d6+9 mag</td>
+<td>Two-Handed</td>
+<td>Bonded: Gain a bonus to your damage rolls equal<br>to your level.</td>
+</tr>
+</tbody>
+</table>
+<h2>SECONDARY WEAPON TABLES</h2>
+<p><em>Players can choose one Tier 1 secondary weapon during character creation. The GM can make other weapons available throughout the campaign as the PCs level up.</em></p>
+<h4>TIER 1 (LEVEL 1)</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shortsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8 phy</td>
+<td>One-Handed</td>
+<td>Paired: +2 to primary weapon damage to targets within<br>Melee range</td>
+</tr>
+<tr>
+<td>Round Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d4 phy</td>
+<td>One-Handed</td>
+<td>Protective: +1 to Armor Score</td>
+</tr>
+<tr>
+<td>Tower Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d6 phy</td>
+<td>One-Handed</td>
+<td>Barrier: +2 to Armor Score; −1 to Evasion</td>
+</tr>
+<tr>
+<td>Small Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8 phy</td>
+<td>One-Handed</td>
+<td>Paired: +2 to primary weapon damage to targets within<br>Melee range</td>
+</tr>
+<tr>
+<td>Whip</td>
+<td>Presence</td>
+<td>Very Close</td>
+<td>d6 phy</td>
+<td>One-Handed</td>
+<td>Startling: Mark a Stress to crack the whip and force all<br>adversaries within Melee range back to Close range.</td>
+</tr>
+<tr>
+<td>Grappler</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d6 phy</td>
+<td>One-Handed</td>
+<td>Hooked: On a successful attack, you can pull the target<br>into Melee range.</td>
+</tr>
+<tr>
+<td>Hand<br>Crossbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+1 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 2 (LEVELS 2–4)</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Improved<br>Shortsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+2 phy</td>
+<td>One-Handed</td>
+<td>Paired: +3 to primary weapon damage to targets within<br>Melee range</td>
+</tr>
+<tr>
+<td>Improved<br>Round Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d4+2 phy</td>
+<td>One-Handed</td>
+<td>Protective: +2 to Armor Score</td>
+</tr>
+<tr>
+<td>Improved<br>Tower Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d6+2 phy</td>
+<td>One-Handed</td>
+<td>Barrier: +3 to Armor Score; −1 to Evasion</td>
+</tr>
+<tr>
+<td>Improved<br>Small Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+2 phy</td>
+<td>One-Handed</td>
+<td>Paired: +3 to primary weapon damage to targets within<br>Melee range</td>
+</tr>
+<tr>
+<td>Improved<br>Whip</td>
+<td>Presence</td>
+<td>Very Close</td>
+<td>d6+2 phy</td>
+<td>One-Handed</td>
+<td>Startling: Mark a Stress to crack the whip and force all<br>adversaries within Melee range back to Close range.</td>
+</tr>
+<tr>
+<td>Improved<br>Grappler</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d6+2 phy</td>
+<td>One-Handed</td>
+<td>Hooked: On a successful attack, you can pull the target<br>into Melee range.</td>
+</tr>
+<tr>
+<td>Improved<br>Hand<br>Crossbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+3 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Spiked Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d6+2 phy</td>
+<td>One-Handed</td>
+<td>Double Duty: +1 to Armor Score; +1 to primary weapon<br>damage within Melee range</td>
+</tr>
+<tr>
+<td>Parrying<br>Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d6+2 phy</td>
+<td>One-Handed</td>
+<td>Parry: When you are attacked, roll this weapon's damage<br>dice. If any of the attacker's damage dice rolled the same<br>value as your dice, the matching results are discarded<br>from the attacker's damage dice before the damage you<br>take is totaled.</td>
+</tr>
+<tr>
+<td>Returning Axe</td>
+<td>Agility</td>
+<td>Close</td>
+<td>d6+4 phy</td>
+<td>One-Handed</td>
+<td>Returning: When this weapon is thrown within its range, it<br>appears in your hand immediately after the attack.</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 3 (LEVELS 5–7)</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advanced<br>Shortsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+4 phy</td>
+<td>One-Handed</td>
+<td>Paired: +4 to primary weapon damage to targets within<br>Melee range</td>
+</tr>
+<tr>
+<td>Advanced<br>Round Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d4+4 phy</td>
+<td>One-Handed</td>
+<td>Protective: +3 to Armor Score</td>
+</tr>
+<tr>
+<td>Advanced<br>Tower Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d6+4 phy</td>
+<td>One-Handed</td>
+<td>Barrier: +4 to Armor Score; −1 to Evasion</td>
+</tr>
+<tr>
+<td>Advanced<br>Small Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+4 phy</td>
+<td>One-Handed</td>
+<td>Paired: +4 to primary weapon damage to targets within<br>Melee range</td>
+</tr>
+<tr>
+<td>Advanced<br>Whip</td>
+<td>Presence</td>
+<td>Very Close</td>
+<td>d6+4 phy</td>
+<td>One-Handed</td>
+<td>Startling: Mark a Stress to crack the whip and force all<br>adversaries within Melee range back to Close range.</td>
+</tr>
+<tr>
+<td>Advanced<br>Grappler</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d6+4 phy</td>
+<td>One-Handed</td>
+<td>Hooked: On a successful attack, you can pull the target<br>into Melee range.</td>
+</tr>
+<tr>
+<td>Advanced<br>Hand<br>Crossbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+5 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Buckler</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d4+4 phy</td>
+<td>One-Handed</td>
+<td>Deflecting: When you are attacked, you can mark an<br>Armor Slot to gain a bonus to your Evasion equal to your<br>available Armor Score against the attack.</td>
+</tr>
+<tr>
+<td>Powered<br>Gauntlet</td>
+<td>Knowledge</td>
+<td>Close</td>
+<td>d6+4 phy</td>
+<td>One-Handed</td>
+<td>Charged: Mark a Stress to gain a +1 bonus to your<br>Proficiency on a primary weapon attack.</td>
+</tr>
+<tr>
+<td>Hand Sling</td>
+<td>Finesse</td>
+<td>Very Far</td>
+<td>d6+4 phy</td>
+<td>One-Handed</td>
+<td>Versatile: This weapon can also be used with these<br>statistics—Finesse, Close, d8+4.</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 4 (LEVELS 8–10)</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Trait</th>
+<th>Range</th>
+<th>Damage</th>
+<th>Burden</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legendary<br>Shortsword</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d8+6 phy</td>
+<td>One-Handed</td>
+<td>Paired: +5 to primary weapon damage to targets within<br>Melee range</td>
+</tr>
+<tr>
+<td>Legendary<br>Round Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d4+6 phy</td>
+<td>One-Handed</td>
+<td>Protective: +4 to Armor Score</td>
+</tr>
+<tr>
+<td>Legendary<br>Tower Shield</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d6+6 phy</td>
+<td>One-Handed</td>
+<td>Barrier: +5 to Armor Score; −1 to Evasion.</td>
+</tr>
+<tr>
+<td>Legendary<br>Small Dagger</td>
+<td>Finesse</td>
+<td>Melee</td>
+<td>d8+6 phy</td>
+<td>One-Handed</td>
+<td>Paired: +5 to primary weapon damage to targets within<br>Melee range</td>
+</tr>
+<tr>
+<td>Legendary<br>Whip</td>
+<td>Presence</td>
+<td>Very Close</td>
+<td>d6+6 phy</td>
+<td>One-Handed</td>
+<td>Startling: Mark a Stress to crack the whip and force all<br>adversaries within Melee range back to Close range.</td>
+</tr>
+<tr>
+<td>Legendary<br>Grappler</td>
+<td>Finesse</td>
+<td>Close</td>
+<td>d6+6 phy</td>
+<td>One-Handed</td>
+<td>Hooked: On a successful attack, you can pull the target<br>into Melee range.</td>
+</tr>
+<tr>
+<td>Legendary<br>Hand<br>Crossbow</td>
+<td>Finesse</td>
+<td>Far</td>
+<td>d6+7 phy</td>
+<td>One-Handed</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Braveshield</td>
+<td>Agility</td>
+<td>Melee</td>
+<td>d4+6 phy</td>
+<td>One-Handed</td>
+<td>Sheltering: When you mark an Armor Slot, it reduces<br>damage for you and all allies within Melee range of you<br>who took the same damage.</td>
+</tr>
+<tr>
+<td>Knuckle<br>Claws</td>
+<td>Strength</td>
+<td>Melee</td>
+<td>d6+8 phy</td>
+<td>One-Handed</td>
+<td>Doubled Up: When you make an attack with your primary<br>weapon, you can deal damage to another target within<br>Melee range.</td>
+</tr>
+<tr>
+<td>Primer Shard</td>
+<td>Instinct</td>
+<td>Very Close</td>
+<td>d4 phy</td>
+<td>One-Handed</td>
+<td>Locked On: On a successful attack, your next attack<br>against the same target with your primary weapon<br>automatically succeeds.</td>
+</tr>
+</tbody>
+</table>
+<h1>ARMOR</h1>
+<p>Every armor has a name, base damage thresholds, and a base Armor Score. Some armor also has a feature.</p>
+<ul>
+<li>An armor's <strong>base armor score</strong> indicates how many Armor Slots it provides its wearer before additional bonuses are added to calculate their total Armor Score. A PC's Armor Score can't exceed 12.</li>
+<li>An armor's <strong>base thresholds</strong> determine its wearer's major and severe damage thresholds before adding bonuses to calculate their final damage thresholds.</li>
+<li>An armor's <strong>feature</strong> is a special rule that stays in effect while the armor is equipped.</li>
+</ul>
+<p>While <strong>unarmored,</strong> your character's base Armor Score is 0, their Major threshold is equal to their level, and their Severe threshold is equal to twice their level.</p>
+<h4><strong>REDUCING INCOMING DAMAGE</strong></h4>
+<p>When you take damage, you can mark one Armor Slot to reduce the number of Hit Points you would mark by one. If your character has an Armor Score of 0, you can't mark Armor Slots. If an effect temporarily increases your Armor Score, it increases your available Armor Slots by the same amount; when the effect ends, so does the availability of these Armor Slots.</p>
+<h2>ARMOR TABLES</h2>
+<h4>TIER 1 (LEVEL 1)</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Base<br>Thresholds</th>
+<th>Base<br>Score</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gambeson Armor</td>
+<td>5 / 11</td>
+<td>3</td>
+<td>Flexible: +1 to Evasion</td>
+</tr>
+<tr>
+<td>Leather Armor</td>
+<td>6 / 13</td>
+<td>3</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Chainmail Armor</td>
+<td>7 / 15</td>
+<td>4</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Full Plate Armor</td>
+<td>8 / 17</td>
+<td>4</td>
+<td>Very Heavy: −2 to Evasion; −1 to Agility</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 2 (LEVELS 2–4)</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Base<br>Thresholds</th>
+<th>Base<br>Score</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Improved Gambeson Armor</td>
+<td>7 / 16</td>
+<td>4</td>
+<td>Flexible: +1 to Evasion</td>
+</tr>
+<tr>
+<td>Improved Leather Armor</td>
+<td>9 / 20</td>
+<td>4</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Improved Chainmail Armor</td>
+<td>11 / 24</td>
+<td>5</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Improved Full Plate Armor</td>
+<td>13 / 28</td>
+<td>5</td>
+<td>Very Heavy: −2 to Evasion; −1 to Agility</td>
+</tr>
+<tr>
+<td>Elundrian Chain Armor</td>
+<td>9 / 21</td>
+<td>4</td>
+<td>Warded: You reduce incoming magic damage by your Armor Score before<br>applying it to your damage thresholds.</td>
+</tr>
+<tr>
+<td>Harrowbone Armor</td>
+<td>9 / 21</td>
+<td>4</td>
+<td>Resilient: Before you mark your last Armor Slot, roll a d6. On a result of 6,<br>reduce the severity by one threshold without marking an Armor Slot.</td>
+</tr>
+<tr>
+<td>Irontree Breastplate Armor</td>
+<td>9 / 20</td>
+<td>4</td>
+<td>Reinforced: When you mark your last Armor Slot, increase your damage<br>thresholds by +2 until you clear at least 1 Armor Slot.</td>
+</tr>
+<tr>
+<td>Runetan Floating Armor</td>
+<td>9 / 20</td>
+<td>4</td>
+<td>Shifting: When you are targeted for an attack, you can mark an Armor<br>Slot to give the attack roll against you disadvantage.</td>
+</tr>
+<tr>
+<td>Tyris Soft Armor</td>
+<td>8 / 18</td>
+<td>5</td>
+<td>Quiet: You gain a +2 bonus to rolls you make to move silently.</td>
+</tr>
+<tr>
+<td>Rosewild Armor</td>
+<td>11 / 23</td>
+<td>5</td>
+<td>Hopeful: When you would spend a Hope, you can mark an Armor Slot<br>instead.</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 3 (LEVELS 5–7)</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Base<br>Thresholds</th>
+<th>Base<br>Score</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Advanced Gambeson Armor</td>
+<td>9 / 23</td>
+<td>5</td>
+<td>Flexible: +1 to Evasion</td>
+</tr>
+<tr>
+<td>Advanced Leather Armor</td>
+<td>11 / 27</td>
+<td>5</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Advanced Chainmail Armor</td>
+<td>13 / 31</td>
+<td>6</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Advanced Full Plate Armor</td>
+<td>15 / 35</td>
+<td>6</td>
+<td>Very Heavy: −2 to Evasion; −1 to Agility</td>
+</tr>
+<tr>
+<td>Bellamoi Fine Armor</td>
+<td>11 / 27</td>
+<td>5</td>
+<td>Gilded: +1 to Presence</td>
+</tr>
+<tr>
+<td>Dragonscale Armor</td>
+<td>11 / 27</td>
+<td>5</td>
+<td>Impenetrable: Once per short rest, when you would mark your last Hit<br>Point, you can instead mark a Stress.</td>
+</tr>
+<tr>
+<td>Spiked Plate Armor</td>
+<td>10 / 25</td>
+<td>5</td>
+<td>Sharp: On a successful attack against a target within Melee range, add a<br>d4 to the damage roll.</td>
+</tr>
+<tr>
+<td>Bladefare Armor</td>
+<td>16 / 39</td>
+<td>6</td>
+<td>Physical: You can't mark an Armor Slot to reduce magic damage.</td>
+</tr>
+<tr>
+<td>Monett's Cloak</td>
+<td>16 / 39</td>
+<td>6</td>
+<td>Magic: You can't mark an Armor Slot to reduce physical damage.</td>
+</tr>
+<tr>
+<td>Runes of Fortification</td>
+<td>17 / 43</td>
+<td>6</td>
+<td>Painful: Each time you mark an Armor Slot, you must mark a Stress.</td>
+</tr>
+</tbody>
+</table>
+<h4>TIER 4 (LEVELS 8–10)</h4>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Base<br>Thresholds</th>
+<th>Base<br>Score</th>
+<th>Feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Legendary Gambeson Armor</td>
+<td>11 / 32</td>
+<td>6</td>
+<td>Flexible: +1 to Evasion</td>
+</tr>
+<tr>
+<td>Legendary Leather Armor</td>
+<td>13 / 36</td>
+<td>6</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Legendary Chainmail Armor</td>
+<td>15 / 40</td>
+<td>7</td>
+<td>Heavy: −1 to Evasion</td>
+</tr>
+<tr>
+<td>Legendary Full Plate Armor</td>
+<td>17 / 44</td>
+<td>7</td>
+<td>Very Heavy: −2 to Evasion; −1 to Agility</td>
+</tr>
+<tr>
+<td>Dunamis Silkchain</td>
+<td>13 / 36</td>
+<td>7</td>
+<td>Timeslowing: Mark an Armor Slot to roll a d4 and add its result as a bonus<br>to your Evasion against an incoming attack.</td>
+</tr>
+<tr>
+<td>Channeling Armor</td>
+<td>13 / 36</td>
+<td>5</td>
+<td>Channeling: +1 to Spellcast Rolls</td>
+</tr>
+<tr>
+<td>Emberwoven Armor</td>
+<td>13 / 36</td>
+<td>6</td>
+<td>Burning: When an adversary attacks you within Melee range, they mark<br>a Stress.</td>
+</tr>
+<tr>
+<td>Full Fortified Armor</td>
+<td>15 / 40</td>
+<td>4</td>
+<td>Fortified: When you mark an Armor Slot, you reduce the severity of an<br>attack by two thresholds instead of one.</td>
+</tr>
+<tr>
+<td>Veritas Opal Armor</td>
+<td>13 / 36</td>
+<td>6</td>
+<td>Truthseeking: This armor glows when another creature within Close<br>range tells a lie.</td>
+</tr>
+<tr>
+<td>Savior Chainmail</td>
+<td>18 / 48</td>
+<td>8</td>
+<td>Difficult: −1 to all character traits and Evasion</td>
+</tr>
+</tbody>
+</table>
+<h1>LOOT</h1>
+<p><strong>Loot</strong> comprises any consumables or reusable items the party acquires.</p>
+<p><strong>Items</strong> can be used until sold, discarded, or lost.</p>
+<p>To generate a random item, choose a rarity, roll the designated dice, and match the total to the item in the table:</p>
+<ul>
+<li>
+<p><strong>Common:</strong> 1d12 or 2d12</p>
+</li>
+<li>
+<p><strong>Rare:</strong> 3d12 or 4d12</p>
+</li>
+<li>
+<p><strong>Uncommon:</strong> 2d12 or 3d12</p>
+</li>
+<li>
+<p><strong>Legendary:</strong> 4d12 or 5d12</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ROLL</th>
+<th>Loot</th>
+<th>description</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>Premium Bedroll</td>
+<td>During downtime, you automatically clear a Stress.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>02</td>
+<td>Piper Whistle</td>
+<td>This handcrafted whistle has a distinctive sound. When you blow this whistle, its piercing tone can be heard<br>within a 1-mile radius.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>03</td>
+<td>Charging Quiver</td>
+<td>When you succeed on an attack with an arrow stored in this quiver, gain a bonus to the damage roll equal to<br>your current tier.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>04</td>
+<td>Alistair's Torch</td>
+<td>You can light this magic torch at will. The flame's light fills a much larger space than it should, enough to<br>illuminate a cave bright as day.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>05</td>
+<td>Speaking Orbs</td>
+<td>This pair of orbs allows any creatures holding them to communicate with each other across any distance.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>06</td>
+<td>Manacles</td>
+<td>This pair of locking cuffs comes with a key.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>07</td>
+<td>Arcane Cloak</td>
+<td>A creature with a Spellcast trait wearing this cloak can adjust its color, texture, and size at will.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>08</td>
+<td>Woven Net</td>
+<td>You can make a Finesse Roll using this net to trap a small creature. A trapped target can break free with a<br>successful Attack Roll (16).</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>09</td>
+<td>Fire Jar</td>
+<td>You can pour out the strange liquid contents of this jar to instantly produce fire. The contents regenerate when<br>you take a long rest.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Suspended Rod</td>
+<td>This flat rod is inscribed with runes. When you activate the rod, it is immediately suspended in place. Until the<br>rod is deactivated, it can't move, doesn't abide by the rules of gravity, and remains in place.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Glamour Stone</td>
+<td>Activate this pebble-sized stone to memorize the appearance of someone you can see. Spend a Hope to<br>magically recreate this guise on yourself as an illusion.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Empty Chest</td>
+<td>This magical chest appears empty. When you speak a specific trigger word or action and open the chest, you<br>can see the items stored within it.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Companion Case</td>
+<td>This case can fit a small animal companion. While the companion is inside, the animal and case are immune to<br>all damage and harmful effects.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Piercing Arrows</td>
+<td>Three times per rest when you succeed on an attack with one of these arrows, you can add your Proficiency to<br>the damage roll.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Valorstone</td>
+<td>You can attach this stone to armor that doesn't already have a feature. The armor gains the following feature.<br>Resilient: Before you mark your last Armor Slot, roll a d6. On a result of 6, reduce the severity by one threshold<br>without marking an Armor Slot.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>Skeleton Key</td>
+<td>When you use this key to open a locked door, you gain advantage on the Finesse Roll.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>17</td>
+<td>Arcane Prism</td>
+<td>Position this prism in a location of your choosing and activate it. All allies within Close range of it gain a +1<br>bonus to their Spellcast Rolls. While activated, the prism can't be moved. Once the prism is deactivated, it can't<br>be activated again until your next long rest.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>Minor Stamina<br>Potion Recipe</td>
+<td>As a downtime move, you can use the bone of a creature to craft a Minor Stamina Potion.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>19</td>
+<td>Minor Health<br>Potion Recipe</td>
+<td>As a downtime move, you can use a vial of blood to craft a Minor Health Potion.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>20</td>
+<td>Homing<br>Compasses</td>
+<td>These two compasses point toward each other no matter how far apart they are.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td>Corrector Sprite</td>
+<td>This tiny sprite sits in the curve of your ear canal and whispers helpful advice during combat. Once per short<br>rest, you can gain advantage on an attack roll.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>22</td>
+<td>Gecko Gloves</td>
+<td>You can climb up vertical surfaces and across ceilings.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>23</td>
+<td>Lorekeeper</td>
+<td>You can store the name and details of up to three hostile creatures inside this book. You gain a +1 bonus to<br>action rolls against those creatures.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ROLL</th>
+<th>Loot</th>
+<th>description</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>24</td>
+<td>Vial of<br>Darksmoke<br>Recipe</td>
+<td>As a downtime move, you can mark a Stress to craft a Vial of Darksmoke.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>Bloodstone</td>
+<td>You can attach this stone to a weapon that doesn't already have a feature. The weapon gains the following<br>feature.<br>Brutal: When you roll the maximum value on a damage die, roll an additional damage die.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>26</td>
+<td>Greatstone</td>
+<td>You can attach this stone to a weapon that doesn't already have a feature. The weapon gains the following<br>feature.<br>Powerful: On a successful attack, roll an additional damage die and discard the lowest result.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>Glider</td>
+<td>While falling, you can mark a Stress to deploy this small parachute and glide safely to the ground.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>28</td>
+<td>Ring of Silence</td>
+<td>Spend a Hope to activate this ring. Your footsteps are silent until your next rest.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>29</td>
+<td>Calming Pendant</td>
+<td>When you would mark your last Stress, roll a d6. On a result of 5 or higher, don't mark it.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>30</td>
+<td>Dual Flask</td>
+<td>This flask can hold two different liquids. You can swap between them by flipping a small switch on the flask's<br>side.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>31</td>
+<td>Bag of Ficklesand</td>
+<td>You can convince this small bag of sand to be much heavier or lighter with a successful Presence Roll (10).<br>Additionally, on a successful Finesse Roll (10), you can blow a bit of sand into a target's face to make them<br>temporarily Vulnerable.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>Ring of<br>Resistance</td>
+<td>Once per long rest, you can activate this ring after a successful attack against you to halve the damage.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>33</td>
+<td>Phoenix Feather</td>
+<td>If you have at least one Phoenix Feather on you when you fall unconscious, you gain a +1 bonus to the roll you<br>make to determine whether you gain a scar.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>34</td>
+<td>Box of Many<br>Goods</td>
+<td>Once per long rest, you can open this small box and roll a d12. On a result of 1–6, it's empty. On a result of<br>7–10, it contains one random common consumable. On a result of 11–12, it contains two random common<br>consumables.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>35</td>
+<td>Airblade Charm</td>
+<td>You can attach this charm to a weapon with a Melee range. Three times per rest, you can activate the charm<br>and attack a target within Close range.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>36</td>
+<td>Portal Seed</td>
+<td>You can plant this seed in the ground to grow a portal in that spot. The portal is ready to use in 24 hours. You<br>can use this portal to travel to any other location where you planted a portal seed. A portal can be destroyed by<br>dealing any amount of magic damage to it.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>37</td>
+<td>Paragon's Chain</td>
+<td>As a downtime move, you can meditate on an ideal or principle you hold dear and focus your will into this chain.<br>Once per long rest, you can spend a Hope to roll a d20 as your Hope Die for rolls that directly align with that<br>principle.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>38</td>
+<td>Elusive Amulet</td>
+<td>Once per long rest, you can activate this amulet to become Hidden until you move. While Hidden in this way, you<br>remain unseen even if an adversary moves to where they would normally see you.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>39</td>
+<td>Hopekeeper<br>Locket</td>
+<td>During a long rest, if you have 6 Hope, you can spend a Hope to imbue this locket with your bountiful resolve.<br>When you have 0 Hope, you can use the locket to immediately gain a Hope. The locket must be re-imbued<br>before it can be used this way again.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>40</td>
+<td>Infinite Bag</td>
+<td>When you store items in this bag, they are kept in a pocket dimension that never runs out of space. You can<br>retrieve an item at any time.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>41</td>
+<td>Stride Relic</td>
+<td>You gain a +1 bonus to your Agility. You can only carry one relic.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>42</td>
+<td>Bolster Relic</td>
+<td>You gain a +1 bonus to your Strength. You can only carry one relic.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>43</td>
+<td>Control Relic</td>
+<td>You gain a +1 bonus to your Finesse. You can only carry one relic.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>44</td>
+<td>Attune Relic</td>
+<td>You gain a +1 bonus to your Instinct. You can only carry one relic.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>45</td>
+<td>Charm Relic</td>
+<td>You gain a +1 bonus to your Presence. You can only carry one relic.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>46</td>
+<td>Enlighten Relic</td>
+<td>You gain a +1 bonus to your Knowledge. You can only carry one relic.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>47</td>
+<td>Honing Relic</td>
+<td>You gain a +1 bonus to an Experience of your choice. You can only carry one relic.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>48</td>
+<td>Flickerfly<br>Pendant</td>
+<td>While you carry this pendant, your weapons with a Melee range that deal physical damage have a gossamer<br>sheen and can attack targets within Very Close range.</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>49</td>
+<td>Lakestrider<br>Boots</td>
+<td>You can walk on the surface of water as if it were soft ground.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ROLL</th>
+<th>Loot</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>50</td>
+<td>Clay Companion</td>
+<td>When you sculpt this ball of clay into a clay animal companion, it behaves as that animal. For example, a clay<br>spider can spin clay webs, while a clay bird can fly. The clay companion retains memory and identity across<br>different shapes, but they can adopt new mannerisms with each form.</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Mythic Dust<br>Recipe</td>
+<td>As a downtime move, you can use a handful of fine gold dust to craft Mythic Dust.</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Shard of Memory</td>
+<td>Once per long rest, you can spend 2 Hope to recall a domain card from your vault instead of paying its Recall<br>Cost.</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Gem of Alacrity</td>
+<td>You can attach this gem to a weapon, allowing you to use your Agility when making an attack with that weapon.</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Gem of Might</td>
+<td>You can attach this gem to a weapon, allowing you to use your Strength when making an attack with that<br>weapon.</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Gem of Precision</td>
+<td>You can attach this gem to a weapon, allowing you to use your Finesse when making an attack with that<br>weapon.</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Gem of Insight</td>
+<td>You can attach this gem to a weapon, allowing you to use your Instinct when making an attack with that<br>weapon.</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Gem of Audacity</td>
+<td>You can attach this gem to a weapon, allowing you to use your Presence when making an attack with that<br>weapon.</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Gem of Sagacity</td>
+<td>You can attach this gem to a weapon, allowing you to use your Knowledge when making an attack with that<br>weapon.</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Ring of<br>Unbreakable<br>Resolve</td>
+<td>Once per session, when the GM spends a Fear, you can spend 4 Hope to cancel the effects of that spent Fear.</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Belt of Unity</td>
+<td>Once per session, you can spend 5 Hope to lead a Tag Team Roll with three PCs instead of two.</td>
+</tr>
+</tbody>
+</table>
+<h1>Consumables</h1>
+<p>Consumables are loot that can only be used once. You can hold up to five of each consumable at a time. Using a consumable doesn't require a roll unless required by the GM or the demands of the fiction.</p>
+<p>To generate a random consumable, choose a rarity, roll the designated dice, and match the total to the item in the table:</p>
+<ul>
+<li><strong>Common:</strong> 1d12 or 2d12</li>
+<li><strong>Uncommon:</strong> 2d12 or 3d12</li>
+<li><strong>Rare:</strong> 3d12 or 4d12</li>
+<li><strong>Legendary:</strong> 4d12 or 5d12</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ROLL</th>
+<th>LOOT</th>
+<th>description</th>
+<th>ROLL</th>
+<th>LOOT</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>Stride Potion</td>
+<td>You gain a +1 bonus to your next<br>Agility Roll.</td>
+<td>09</td>
+<td>Grindletooth<br>Venom</td>
+<td>You can apply this venom to a weapon<br>that deals physical damage to add a<br>d6 to your next damage roll with that<br>weapon.</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Bolster Potion</td>
+<td>You gain a +1 bonus to your next<br>Strength Roll.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>03</td>
+<td>Control Potion</td>
+<td>You gain a +1 bonus to your next</td>
+<td>10</td>
+<td>Varik Leaves</td>
+<td>You can eat these paired leaves to<br>immediately gain 2 Hope.</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Attune Potion</td>
+<td>Finesse Roll.<br>You gain a +1 bonus to your next<br>Instinct Roll.</td>
+<td>11</td>
+<td>Vial of Moondrip</td>
+<td>When you drink the contents of this<br>vial, you can see in total darkness until<br>your next rest.</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Charm Potion</td>
+<td>You gain a +1 bonus to your next<br>Presence Roll.</td>
+<td>12</td>
+<td>Unstable Arcane<br>Shard</td>
+<td>You can make a Finesse Roll to throw<br>this shard at a group of adversaries<br>within Far range. Targets you succeed<br>against take 1d20 magic damage.</td>
+</tr>
+<tr>
+<td>06</td>
+<td>Enlighten Potion</td>
+<td>You gain a +1 bonus to your next<br>Knowledge Roll.</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>07</td>
+<td>Minor Health<br>Potion</td>
+<td>Clear 1d4 HP.</td>
+<td>13</td>
+<td>Potion of<br>Stability</td>
+<td>You can drink this potion to choose<br>one additional downtime move.</td>
+</tr>
+<tr>
+<td>08</td>
+<td>Minor Stamina<br>Potion</td>
+<td>Clear 1d4 Stress.</td>
+<td>14</td>
+<td>Improved<br>Grindletooth<br>Venom</td>
+<td>You can apply this venom to a weapon<br>that deals physical damage to add a<br>d8 to your next damage roll with that<br>weapon.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ROLL</th>
+<th>LOOT</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15</td>
+<td>Morphing Clay</td>
+<td>You can spend a Hope to use this clay,<br>altering your face enough to make you<br>unrecognizable until your next rest.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Vial of<br>Darksmoke</td>
+<td>When an adversary attacks you, use<br>this vial and roll a number of d6s equal<br>to your Agility. Add the highest result<br>to your Evasion against the attack.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Jumping Root</td>
+<td>Eat this root to leap up to Far range<br>once without needing to roll.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Snap Powder</td>
+<td>Mark a Stress and clear a HP.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Health Potion</td>
+<td>Clear 1d4+1 HP.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Stamina Potion</td>
+<td>Clear 1d4+1 Stress.</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Armor Stitcher</td>
+<td>You can use this stitcher to spend any<br>number of Hope and clear that many<br>Armor Slots.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Gill Salve</td>
+<td>You can apply this salve to your neck<br>to breathe underwater for a number<br>of minutes equal to your level.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Replication<br>Parchment</td>
+<td>By touching this piece of parchment<br>to another, you can perfectly copy<br>the second parchment's contents.<br>Once used, this parchment becomes<br>mundane paper.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Improved<br>Arcane Shard</td>
+<td>You can make a Finesse Roll to throw<br>this shard at a group of adversaries<br>within Far range. Targets you succeed<br>against take 2d20 magic damage.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Major Stride<br>Potion</td>
+<td>You gain a +1 bonus to your Agility<br>until your next rest.</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Major Bolster<br>Potion</td>
+<td>You gain a +1 bonus to your Strength<br>until your next rest.</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Major Control<br>Potion</td>
+<td>You gain a +1 bonus to your Finesse<br>until your next rest.</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Major Attune<br>Potion</td>
+<td>You gain a +1 bonus to your Instinct<br>until your next rest.</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Major Charm<br>Potion</td>
+<td>You gain a +1 bonus to your Presence<br>until your next rest.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Major Enlighten<br>Potion</td>
+<td>You gain a +1 bonus to your<br>Knowledge until your next rest.</td>
+</tr>
+<tr>
+<td>31</td>
+<td>Blood of the<br>Yorgi</td>
+<td>You can drink this blood to disappear<br>from where you are and immediately<br>reappear at a point you can see within<br>Very Far range.</td>
+</tr>
+<tr>
+<td>32</td>
+<td>Homet's Secret<br>Potion</td>
+<td>After drinking this potion, the next<br>successful attack you make critically<br>succeeds.</td>
+</tr>
+<tr>
+<td>33</td>
+<td>Redthorn Saliva</td>
+<td>You can apply this saliva to a weapon<br>that deals physical damage to add a<br>d12 to your next damage roll with that<br>weapon.</td>
+</tr>
+<tr>
+<td>34</td>
+<td>Channelstone</td>
+<td>You can use this stone to take a spell<br>or grimoire from your vault, use it<br>once, and return it to your vault.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>ROLL</th>
+<th>LOOT</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>35</td>
+<td>Mythic Dust</td>
+<td>You can apply this dust to a weapon<br>that deals magic damage to add a d12<br>to your next damage roll with that<br>weapon.</td>
+</tr>
+<tr>
+<td>36</td>
+<td>Acidpaste</td>
+<td>This paste eats away walls and other<br>surfaces in bright flashes.</td>
+</tr>
+<tr>
+<td>37</td>
+<td>Hopehold Flare</td>
+<td>When you use this flare, allies within<br>Close range roll a d6 when they spend<br>a Hope. On a result of 6, they gain the<br>effect of that Hope without spending<br>it. The flare lasts until the end of the<br>scene.</td>
+</tr>
+<tr>
+<td>38</td>
+<td>Major Arcane<br>Shard</td>
+<td>You can make a Finesse Roll to throw<br>this shard at a group of adversaries<br>within Far range. Targets you succeed<br>against take 4d20 magic damage.</td>
+</tr>
+<tr>
+<td>39</td>
+<td>Featherbone</td>
+<td>You can use this bone to control your<br>falling speed for a number of minutes<br>equal to your level.</td>
+</tr>
+<tr>
+<td>40</td>
+<td>Circle of the<br>Void</td>
+<td>Mark a Stress to create a void that<br>extends up to Far range. No magic can<br>be cast inside the void, and creatures<br>within the void are immune to magic<br>damage.</td>
+</tr>
+<tr>
+<td>41</td>
+<td>Sun Tree Sap</td>
+<td>Consume this sap to roll a d6. On a<br>result of 5–6, clear 2 HP. On a result<br>of 2–4, clear 3 Stress. On a result<br>of 1, see through the veil of death and<br>return changed, gaining one scar.</td>
+</tr>
+<tr>
+<td>42</td>
+<td>Dripfang Poison</td>
+<td>A creature who consumes this poison<br>takes 8d10 direct magic damage.</td>
+</tr>
+<tr>
+<td>43</td>
+<td>Major Health<br>Potion</td>
+<td>Clear 1d4+2 HP.</td>
+</tr>
+<tr>
+<td>44</td>
+<td>Major Stamina<br>Potion</td>
+<td>Clear 1d4+2 Stress.</td>
+</tr>
+<tr>
+<td>45</td>
+<td>Ogre Musk</td>
+<td>You can use this musk to prevent<br>anyone from tracking you by mundane<br>or magical means until your next rest.</td>
+</tr>
+<tr>
+<td>46</td>
+<td>Wingsprout</td>
+<td>You gain magic wings that allow you<br>to fly for a number of minutes equal to<br>your level.</td>
+</tr>
+<tr>
+<td>47</td>
+<td>Jar of Lost<br>Voices</td>
+<td>You can open this jar to release<br>a deafening echo of voices for a<br>number of minutes equal to your<br>Instinct. Creatures within Far range<br>unprepared for the sound take 6d8<br>magic damage.</td>
+</tr>
+<tr>
+<td>48</td>
+<td>Dragonbloom<br>Tea</td>
+<td>You can drink this tea to unleash a<br>fiery breath attack. Make an Instinct<br>Roll against all adversaries in front of<br>you within Close range. Targets you<br>succeed against take d20 physical<br>damage using your Proficiency.</td>
+</tr>
+<tr>
+<td>49</td>
+<td>Bridge Seed</td>
+<td>Thick vines grow from your location<br>to a point of your choice within Far<br>range, allowing you to climb up or<br>across them. The vines dissipate on<br>your next short rest.</td>
+</tr>
+<tr>
+<td>50</td>
+<td>Sleeping Sap</td>
+<td>You can drink this potion to fall asleep for a full night's rest. You clear all Stress upon waking.</td>
+</tr>
+<tr>
+<td>51</td>
+<td>Feast of Xuria</td>
+<td>You can eat this meal to clear all HP and Stress and gain 1d4 Hope.</td>
+</tr>
+<tr>
+<td>52</td>
+<td>Bonding Honey</td>
+<td>This honey can be used to glue two objects together permanently.</td>
+</tr>
+<tr>
+<td>53</td>
+<td>Shrinking Potion</td>
+<td>You can drink this potion to halve your size until you choose to drop this form or your next rest. While in this form, you have a +2 bonus to Agility and a −1 penalty to your Proficiency.</td>
+</tr>
+<tr>
+<td>54</td>
+<td>Growing Potion</td>
+<td>You can drink this potion to double your size until you choose to drop this form or your next rest. While in this form, you have a +2 bonus to Strength and a +1 bonus to your Proficiency.</td>
+</tr>
+<tr>
+<td>55</td>
+<td>Knowledge Stone</td>
+<td>If you die while holding this stone, an ally can take a card from your loadout to place in their loadout or vault. After they take this knowledge, the stone crumbles.</td>
+</tr>
+<tr>
+<td>56</td>
+<td>Sweet Moss</td>
+<td>You can consume this moss during a rest to clear 1d10 HP or 1d10 Stress.</td>
+</tr>
+<tr>
+<td>57</td>
+<td>Blinding Orb</td>
+<td>You can activate this orb to create a flash of bright light. All targets within Close range become <em>Vulnerable</em> until they mark HP.</td>
+</tr>
+<tr>
+<td>58</td>
+<td>Death Tea</td>
+<td>After you drink this tea, you instantly kill your target when you critically succeed on an attack. If you don't critically succeed on an attack before your next long rest, you die.</td>
+</tr>
+<tr>
+<td>59</td>
+<td>Mirror of Marigold</td>
+<td>When you take damage, you can spend a Hope to negate that damage, after which the mirror shatters.</td>
+</tr>
+<tr>
+<td>60</td>
+<td>Stardrop</td>
+<td>You can use this stardrop to summon a hailstorm of comets that deals 8d20 physical damage to all targets within Very Far range.</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    </div>
+  </div>
+  <div id="footer">
+<div class="container">
+   <p class="NoIndent"><span class="lang-zh">匕首之心 Daggerheart HTML SRD。本文档依据 <a href="https://www.darringtonpress.com/license">Darrington Press 社群游戏授权条款</a>，视为公共游戏内容。</span>
+   <span class="lang-en">Daggerheart HTML SRD. This document is considered Public Game Content per the <a href="https://www.darringtonpress.com/license">Darrington Press Community Gaming License</a>.</span></p>
+   <p class="NoIndent"><span class="lang-zh">© 2025 Critical Role LLC. 保留所有权利。</span><span class="lang-en">© 2025 Critical Role LLC. All rights reserved.</span></p>
+</div>
+</div>
+
+
+    
+    <script src="/SRD/jquery.js"></script>
+    
+    <script src="/SRD/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/SRD/js/lang-toggle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        
+      });
+    </script>
+  </body>
+</html>
