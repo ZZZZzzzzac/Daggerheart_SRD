@@ -21,7 +21,9 @@ Daggerheart_SRD/
 ├── config.yaml         # Hugo 配置
 ├── page-toc.yaml       # 页面结构目录
 ├── build.ps1           # Windows 构建脚本
-└── build.sh            # Linux 构建脚本
+├── build.sh            # Linux 构建脚本
+├── deploy.ps1          # Windows 构建 + 部署脚本
+└── deploy.sh           # Linux 构建 + 部署脚本
 ```
 
 ## 构建
@@ -45,8 +47,8 @@ python scripts/build_srd.py    # md → Hugo content → 静态页
 ### 部署
 
 ```bash
-./deploy.ps1   # Windows（构建 + commit + push master）
-./deploy.sh    # Linux（构建 + commit + push master）
+./deploy.ps1   # Windows（构建 + tar+scp 同步到服务器）
+./deploy.sh    # Linux（构建 + tar+scp 同步到服务器）
 ```
 
 ## 协作流程
@@ -56,8 +58,7 @@ python scripts/build_srd.py    # md → Hugo content → 静态页
 3. **审核**：维护者 review 后合并
 4. **发布构建产物**：维护者合并后本地运行 `./deploy.ps1`（Windows）或 `./deploy.sh`（Linux）
    - 构建 SRD 静态页
-   - 将 `public/` 目录 commit + push 到 `master`
-   - 服务器定时任务自动 `git pull` 更新 Web 目录
+   - 通过 tar+scp 直接同步到服务器 Web 目录
 
 ### 对贡献者的要求
 

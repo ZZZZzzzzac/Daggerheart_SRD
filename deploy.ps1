@@ -1,6 +1,5 @@
 # deploy.ps1 — Daggerheart HTML SRD 构建 + 部署
-# 构建后把 public/ 内容 commit + push 到 master
-# 服务器 nginx 配置指向 public/ 子目录，git pull 即更新
+# 构建后直接同步到服务器
 # 用法: 在 PowerShell 中运行 .\deploy.ps1
 
 $ProjectDir = $PSScriptRoot
@@ -10,13 +9,13 @@ Write-Host "[1/2] 构建 SRD..." -ForegroundColor Cyan
 python scripts/build_srd.py
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
-Write-Host "[2/2] commit + push master..." -ForegroundColor Cyan
-git add -f public/
-git diff --cached --quiet
-if ($LASTEXITCODE -ne 0) {
-    git commit -m "deploy: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
-    git push
-    Write-Host "已推送更新。" -ForegroundColor Green
-} else {
-    Write-Host "构建内容无变化，无需推送。" -ForegroundColor Yellow
-}
+Write-Host "[2/2] 同步到服务器..." -ForegroundColor Cyan
+$SSH_KEY = Resolve-Path "$ProjectDir\..\Daggerheart_VPS\.ssh\ssh-key-2026-03-20.key"
+$SERVER = "ubuntu@151.145.76.60"
+$REMOTE_DIR = "/var/www/SRD"
+
+$remoteInit = "set -e; sudo chown ubuntu:ubuntu $REMOTE_DIR; rm -rf $REMOTE_DIR/*; cd $REMOTE_DIR; tar xzf -; sudo chown -R www-data:www-data $REMOTE_DIR; sudo chmod -R 755 $REMOTE_DIR"
+
+tar czf - -C public . | ssh -i "$SSH_KEY" $SERVER $remoteInit
+
+Write-Host "完成！" -ForegroundColor Green

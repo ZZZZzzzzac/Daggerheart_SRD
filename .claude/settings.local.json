@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/build_srd.py)",
+      "Bash(scp -i \"D:/Fish/TRPG/Daggerheart_VPS/.ssh/ssh-key-2026-03-20.key\" \"D:/Fish/TRPG/Daggerheart_VPS/daggerheart_tools/nginx_daggerheart.conf\" ubuntu@151.145.76.60:/tmp/)",
+      "Bash(ssh -i \"D:/Fish/TRPG/Daggerheart_VPS/.ssh/ssh-key-2026-03-20.key\" ubuntu@151.145.76.60 \"sudo cp /tmp/nginx_daggerheart.conf /etc/nginx/sites-available/daggerheart.conf && sudo nginx -t && sudo systemctl reload nginx && echo nginx_OK\")"
+    ]
+  }
+}
