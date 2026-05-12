@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <title>创建角色 | 匕首之心 HTML SRD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="匕首之心 HTML SRD">
+    <meta name="keywords" content="匕首之心,Daggerheart,SRD">
+    
+    <link href="/SRD/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/SRD/css/sticky-footer.css" rel="stylesheet">
+    <link href="/SRD/css/site.css" rel="stylesheet">
+
+    
+    
+    
+    <style>img.domain-icon { width:60px; height:60px; vertical-align:middle; margin-right:5px; border-radius:4px; }</style>
+  </head>
+  <body data-spy="scroll" data-target="#sidemenu">
+  <nav id="site-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar-header">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="/SRD/">匕首之心 HTML SRD</a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+   <li><a href="/SRD/introduction"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a></li>
+   <li><a href="/SRD/character-creation"><span class="lang-zh">创建角色</span><span class="lang-en">Character Creation</span></a></li>
+   <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心资源</span><span class="lang-en">Core Resources</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-resources/domains"><span class="lang-zh">领域</span><span class="lang-en">Domains</span></a></li>
+       <li><a href="/SRD/core-resources/classes"><span class="lang-zh">职业</span><span class="lang-en">Classes</span></a></li>
+       <li><a href="/SRD/core-resources/ancestries"><span class="lang-zh">种族</span><span class="lang-en">Ancestries</span></a></li>
+       <li><a href="/SRD/core-resources/communities"><span class="lang-zh">社群</span><span class="lang-en">Communities</span></a></li>
+     </ul>
+   </li>
+   <li class="dropdown">
+     <a href="/SRD/core-mechanics" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心机制</span><span class="lang-en">Core Mechanics</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-mechanics"><span class="lang-zh">总览</span><span class="lang-en">Overview</span></a></li>
+       <li><a href="/SRD/core-mechanics/equipment"><span class="lang-zh">装备表格</span><span class="lang-en">Equipment Tables</span></a></li>
+       <li><a href="/SRD/core-mechanics/combat-wheelchair"><span class="lang-zh">战斗轮椅</span><span class="lang-en">Combat Wheelchair</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/running-a-game"><span class="lang-zh">运作一场游戏</span><span class="lang-en">Running a Game</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/adversaries-and-environments" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">敌人与环境</span><span class="lang-en">Adversaries & Environments</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/adversaries-and-environments/adversary-mechanics"><span class="lang-zh">敌人机制介绍</span><span class="lang-en">Adversary Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/adversary-data"><span class="lang-zh">敌人数据</span><span class="lang-en">Adversary Data</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-mechanics"><span class="lang-zh">环境机制介绍</span><span class="lang-en">Environment Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-data"><span class="lang-zh">环境数据</span><span class="lang-en">Environment Data</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/campaign-frames"><span class="lang-zh">战役框架</span><span class="lang-en">Campaign Frames</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/appendix" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">附录</span><span class="lang-en">Appendix</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/appendix/domain-cards"><span class="lang-zh">领域卡查询</span><span class="lang-en">Domain Card Reference</span></a></li>
+     </ul>
+   </li>
+ </ul>
+ <ul class="nav navbar-nav navbar-right">
+   <li><a id="lang-toggle-btn" href="#"><span class="lang-zh-active">中</span> | <span class="lang-en-inactive">EN</span></a></li>
+ </ul>
+</div>
+</nav>
+
+  <div id="wrap">
+    <nav id="sidemenu">
+   <ul id="sidemenu-topnav" class="nav">
+   </ul>
+</nav>
+
+    <div class="content-area">
+      
+<h1><span class="lang-zh">创建角色</span><span class="lang-en">Character Creation</span></h1>
+
+<div class="lang-zh">
+<p>除非玩家们选择使用预设角色，否则每位玩家都需通过一系列引导步骤自行创建玩家角色。其中一些决定为叙事层面的选择，意味着它们仅通过扮演在游戏中体现或产生影响；另一些则为机制层面的选择，会影响他们的玩家角色能够做到的事情，以及在进行行动（Moves）或执行动作（Actions）时成功率的高低。</p>
+<p>注：你可以在创建角色流程中的任意阶段填写角色的姓名、人称代词与角色描述细节等信息。</p>
+<h2>第一步：选择一个职业与子职业。</h2>
+<p><strong>职业</strong>是以角色为基础的原型，决定了玩家角色在整个战役中可获得的职业特性和<strong>领域卡</strong>。本SRD中包含了九个职业：吟游诗人、德鲁伊、守护者、游侠、游荡者、神使、术士、战士、法师。</p>
+<ul>
+<li>选择一个职业，然后拿取对应的<strong>角色卡</strong>与<strong>角色指引</strong>的印刷材料。这些材料用于记录你角色的信息，你会在战役过程中持续地更新与参考这些材料。</li>
+<li>每个职业都从一个或多个独特的<strong>职业特性</strong>开始，详见该职业角色卡左下角。如该特性要求你进行选择，请立即完成。</li>
+<li><strong>选择一个子职业</strong> 子职业进一步细化了原型，并通过独特的<strong>子职业特性</strong>进一步强化了概念表达。每个职业包含两个子职业。选择你所选职业的其中一个子职业，并拿取其<strong>基础特性</strong>卡牌。</li>
+</ul>
+<h2>第二步：选择你的传承。</h2>
+<p>你的角色的<strong>传承</strong>由两个要素组成：<strong>种族</strong>与<strong>社群</strong>。</p>
+<ul>
+<li>角色的<strong>种族</strong>反映其血脉来源，会影响其身体特征，并赋予两个独特的<strong>种族特性</strong>。请从以下种族中选择一个并拿取其卡牌，然后将其名称填写在角色卡的传承栏中：械灵、龙人、矮人、精灵、仙灵、羊蹄人、费尔博格、孢菌人、龟人、巨人、哥布林、半身人、人类、魔裔、猫族、兽人、蛙裔、猿族。若要创建混合种族，则从一个种族中选择首条（第一个）种族特性，从另一个种族中选择次条（第二个）种族特性。</li>
+<li>角色的<strong>社群</strong>代表其文化背景或成长环境，并赋予一个<strong>社群特性</strong>。请从以下社群中选择一个并拿取其卡牌，然后将其名称填写在角色卡的传承栏中：高城之民、博识之民、结社之民、山岭之民、滨海之民、法外之民、地下之民、漂泊之民、荒野之民。</li>
+</ul>
+<h2>第三步：分配角色属性</h2>
+<p>你的角色有六项属性，代表其在身体、心智与社交方面的能力倾向：</p>
+<ul>
+<li><strong>敏捷</strong>（用于冲刺、跳跃、机动等）敏捷高意味着你步履飞快，在崎岖地形上身手敏捷，能快速应对危险。你会进行敏捷掷骰来攀爬绳索、冲刺寻找掩护，或是在屋顶间跳跃。  </li>
+<li><strong>力量</strong>（用于举起、猛击、擒抱等）力量高意味着你更擅长那些考验你体能和耐力的壮举。你会进行力量掷骰以破门而入、举起重物，或是在面对冲锋而来的敌人时岿然不动。  </li>
+<li><strong>灵巧</strong>（用于控制、隐藏、修补等）灵巧高意味着你在需要精准、隐秘或极致控制的任务中驾轻就熟。你会进行灵巧掷骰来使用精密工具、掩人耳目，或是精准打击。  </li>
+<li><strong>本能</strong>（用于感知、察觉、导航等）本能高意味着你对周围环境有着敏锐的感知和天生的直觉。你会进行本能掷骰来感知危险、注意周遭细节，或是追踪一个难以捉摸的敌人。  </li>
+<li><strong>风度</strong>（用于魅力、表演、欺瞒等）风度高意味着你拥有强大的个人魅力，能在社交场合游刃有余。你会进行风度掷骰来为自己申辩、恐吓敌人，或是吸引人群的注意力。  </li>
+<li><strong>知识</strong>（用于回想、分析、理解等）知识高意味着你洞悉他人不曾了解的信息，并懂得运用你的思维演绎和推理。你会进行知识掷骰来解读事实、洞察规律，或是记忆重要信息。</li>
+</ul>
+<p>当你“以某项属性进行掷骰”时，该属性的调整值将加入该次掷骰的总值。将以下调整值以你希望的任何顺序分配到你的角色属性上：+2、+1、+1、+0、+0、-1。</p>
+<h2>第四步：记录角色其他信息</h2>
+<ul>
+<li>角色在新战役中以 <strong>1级</strong>开始。在角色卡上方指定位置记录你的等级。</li>
+<li><strong>闪避值</strong> 代表角色躲避伤害的能力。你的初始闪避值由所属职业决定，显示在角色卡的闪避值栏正下方；请将该数值抄写到闪避值栏中。</li>
+<li><strong>生命点(HP)</strong> 是对你身体健康状态的抽象度量。你的初始生命点由职业决定，并记录在角色卡上。</li>
+<li><strong>压力点</strong> 代表你承受危险环境下心理与情绪压力，以及体力消耗的能力。每位玩家角色初始拥有 <strong>6</strong> 个压力槽。</li>
+<li><strong>希望点</strong> 是一种元货币，用于驱动特殊行动以及特定的能力或特性。所有玩家角色初始拥有 <strong>2</strong> 希望点；在角色卡的希望点栏中标记对应的数量。</li>
+</ul>
+<h2>第五步：选择你的起始装备</h2>
+<p>选择你的武器:  </p>
+<ul>
+<li>从位阶 <strong>1</strong> 武器表中选择。要么选择一把<strong>双手主武器</strong>，要么选择一把<strong>单手主武器</strong>和一把<strong>单手副武器</strong>。然后将所选武器记录在角色卡的装备武器栏中。</li>
+<li>在 <strong>1</strong> 级时，你的<strong>熟练值</strong>为 <strong>1</strong> ; 将该数值填写在角色卡的熟练度栏中, 然后将你的熟练值与所装备武器的伤害骰组合起来，记录为<strong>伤害掷骰</strong>。 <em>示例：如果你的熟练值为 </em><em>1</em><em> ，武器的伤害骰为 </em><em>d6+1</em><em> ，则你的伤害掷骰为 </em><em>1d6+1</em><em> 。熟练值仅决定你掷出的伤害骰数量，不影响任何固定伤害调整值。</em></li>
+</ul>
+<p>选择并装备位阶 <strong>1</strong> 护甲表中的一套<strong>护甲</strong>，然后将其相关信息记录在角色卡的<strong>装备护甲</strong>栏中。  </p>
+<ul>
+<li>将角色的等级加到所装备护甲的<strong>基础伤害阈值</strong>中，并将两个合计的数值分别记录在相应栏位中。创建角色时，你的等级为 <strong>1</strong> 。  </li>
+<li>在角色卡左上角的栏位中记录你 <strong>护甲值</strong> 。你的护甲值等同你装备的护甲的 <strong>基础护甲值</strong>加上你角色从其他能力、特性或效果中获得的任何永久加值。  </li>
+</ul>
+<p>将以下物品添加到角色卡的物品栏中：  </p>
+<ul>
+<li>一支火把， <strong>50</strong> 英尺长的绳索， 基本补给品和一把金币 (在你角色卡左侧的“金币栏-把”部分中标记一格)  </li>
+<li>一瓶小型治疗药剂（<strong>恢复 1d4 生命点</strong>）或一瓶小型精力药剂（<strong>清除 1d4 压力点</strong>）  </li>
+<li>一个在角色指引中列出的特定职业物品  </li>
+<li>如适用，选择任意一件承载法术的特定职业物品  </li>
+<li>任何其他经由游戏主持人允许、你希望在游戏开始时拥有的物品  </li>
+</ul>
+<h2>第六步：创作你的背景</h2>
+<p>通过回答角色指南中的<strong>背景问题</strong>，构建你角色的背景。如有需要，你可以修改或替换这些问题，使其更符合你想要扮演的角色。
+<em>注：角色背景不会产生明确的机制效果，但它会深刻影响你所扮演的角色以及游戏主持人的准备工作。在角色创建过程中，你可以根据角色背景的成形，调整先前步骤中做出的选择。若你愿意，也可以暂时保留角色过去的模糊性，待在游戏中逐步发掘其背景故事。</em></p>
+<h2>第七步：创作你的经历</h2>
+<p>经历是一个词或短语，用来概括角色因其生活历程而可能具备的特定技能、性格特质或能力集合。当你的玩家角色进行一次行动时，可以<strong>花费 1 希望点</strong>，将一个相关经历的调整值加入到该次动作或反应掷骰中。
+- 角色在创建时获得两个经历，每个具有 +2 的调整值。
+- 经历没有固定列表可供选择，但其适用范围不能过于宽泛，也不能赋予角色具体的机制性收益，如法术或特殊能力。 <em>例如，“幸运”和“多才多艺”就过于宽泛，因为几乎可以适用于任何一次掷骰；又如，“超音速飞行”和“刀枪不入”则意味着角色会具有破坏游戏平衡的特殊能力。</em></p>
+<h4>经历范例</h4>
+<ul>
+<li><strong>背景类：</strong> 刺客、铁匠、保镖、赏金猎人、皇室御厨、马戏团演员、江湖骗子、落魄国王、战地医生、大祭司、商人、贵族、海盗、政治家、逃亡者、学者、佣兵、说书人、士兵、盗贼、世界旅行者  </li>
+<li><strong>性格特征类：</strong> 和蔼可亲、身经百战、书虫、 迷人、胆小鬼、广交朋友、乐于助人、霸气外露、领导者、孤狼、忠诚、观察入微、恶作剧小鬼、巧舌如簧、惯偷、固执己见、幸存者、少不经事  </li>
+<li><strong>专长类：</strong> 杂技演员、赌徒、治疗者、发明家、魔法史学家、制图师、伪装大师、导航员、神枪手、生存专家、游荡剑客、战术家  </li>
+<li><strong>技能类：</strong> 动物语者、议价高手、精准射击、快速学习者、不可思议的力量、骗子、步履轻盈、谈判者、快手、修理、拾荒者、追踪  </li>
+<li><strong>短语类：</strong> 抓不到我、弄假直到成真、初学者的运气、坚守阵地、不负所托、我会接住你的、坚实后盾、知识就是力量、自然之友、绝不再犯、无人掉队、找个旗鼓相当的敌人、演出必须继续、这不是谈判、披着羊皮的狼  </li>
+</ul>
+<h2>第八步：选择你的领域卡</h2>
+<p>你的职业可以使用核心规则中九个领域中的两个。请从你职业对应的两个领域中选择两张卡牌，这两个领域的名称已列在你角色卡的左上角。你可以各选一个领域中的一张卡牌，或从同一个领域中选择两张卡牌，依你的喜好决定即可。</p>
+<h2>第九步：创作你的人际关系</h2>
+<p>关系是玩家角色之间的联系。按照以下步骤建立关系：</p>
+<ul>
+<li>围绕桌边，让每位玩家依次向他人介绍自己的角色——至少包括名字、人称代词、角色描述、经历，以及背景问题的回答。</li>
+<li>参考角色指南中“关系”部分提供的问题，讨论玩家角色之间可能存在的联系。</li>
+<li>向每位其他玩家的角色提出至少一个你与其之间的关系建议。接受你想探索的建议关系，拒绝那些你不愿接受的。</li>
+</ul>
+<p><em>注：玩家可以出于任何理由拒绝某个关系建议；如果不是每对玩家角色之间都有既定联系也没关系——你们总可以在游戏过程中逐步发现和发展这些关系。</em></p>
+</div>
+<div class="lang-en">
+<p>Unless their table chooses to use pre-generated characters, each player creates their own PC by making a series of guided choices. Some of these decisions are purely narrative, meaning they only appear in or affect the game through roleplaying, but others are mechanical choices that affect the things their PC is able to do and which actions they're more (or less) likely to succeed at when making moves and taking action.</p>
+<p><em>Note: You can fill in your character's name, pronouns, and Character Description details at any point of the character creation process.</em></p>
+<h2>STEP 1: Choose a Class and Subclass</h2>
+<p><strong>Classes</strong> are role-based archetypes that determine which class features and <strong>domain cards</strong> a PC gains access to throughout the campaign. There are nine classes in this SRD: Bard, Druid, Guardian, Ranger, Rogue, Seraph, Sorcerer, Warrior, Wizard.</p>
+<ul>
+<li>Select a class and take its corresponding <strong>character sheet</strong> and <strong>character guide</strong> printouts. These sheets are for recording your PC's details; you'll update and reference them throughout the campaign.</li>
+<li>Every class begins with one or more unique <strong>class feature(s),</strong> described at the bottom left of each class's character sheet. If your class feature prompts you to make a selection, do so now.</li>
+<li><strong>Choose a Subclass Subclasses</strong> further refine a class archetype and reinforce its expression by granting access to unique <strong>subclass features.</strong> Each class comprises two subclasses. Select one of your class's subclasses and take its <strong>Foundation</strong> card.</li>
+</ul>
+<h2>STEP 2: Choose Your Heritage</h2>
+<p>Your character's <strong>heritage</strong> combines two elements: <strong>ancestry</strong> and <strong>community.</strong></p>
+<ul>
+<li>A character's <strong>ancestry</strong> reflects their lineage, impacting their physicality and granting them two unique <strong>ancestry features.</strong> Take the card for one of the following ancestries, then write its name in the Heritage field of your character sheet: Clank, Drakona, Dwarf, Elf, Faerie, Faun, Firbolg, Fungril, Galapa, Giant, Goblin, Halfling, Human, Infernis, Katari, Orc, Ribbet, Simiah. To create a Mixed Ancestry, take the top (first-listed) ancestry feature from one ancestry and the bottom (second-listed) ancestry feature from another.</li>
+<li>Your character's <strong>community</strong> represents their culture or environment of origin and grants them a <strong>community feature.</strong> Take the card for one of the following communities, then write its name in the Heritage field of your character sheet: Highborne, Loreborne, Orderborne, Ridgeborne, Seaborne, Slyborne, Underborne, Wanderborne, Wildborne.</li>
+</ul>
+<h2>STEP 3: Assign Character Traits</h2>
+<p>Your character has six traits that represent their physical, mental, and social aptitude:</p>
+<ul>
+<li><strong>Agility</strong> (Use it to Sprint, Leap, Maneuver,etc.) A high Agility means you're fast on your feet, nimble on difficult terrain, and quick to react to danger. You'll make an Agility Roll to scurry up a rope, sprint to cover, or bound from rooftop to rooftop.</li>
+<li><strong>Strength</strong> (Use it to Lift, Smash, Grapple, etc.) A high Strength means you're better at feats that test your physical prowess and stamina. You'll make a Strength Roll to break through a door, lift heavy objects, or hold your ground against a charging foe.</li>
+<li><strong>Finesse</strong> (Use it to Control, Hide, Tinker, etc.) A high Finesse means you're skilled at tasks that require accuracy, stealth, or the utmost control. You'll make a Finesse Roll to use fine tools, escape notice, or strike with precision.</li>
+<li><strong>Instinct</strong> (Use it to Perceive, Sense, Navigate, etc.) A high Instinct means you have a keen sense of your surroundings and a natural intuition. You'll make an Instinct Roll to sense danger, notice details in the world around you, or track an elusive foe.</li>
+<li><strong>Presence</strong> (Use it to Charm, Perform, Deceive, etc.) A high Presence means you have a strong force of personality and a facility for social situations. You'll make a Presence Roll to plead your case, intimidate a foe, or capture the attention of a crowd.</li>
+<li><strong>Knowledge</strong> (Use it to Recall, Analyze, Comprehend, etc.) A high Knowledge means you know information others don't and understand how to apply your mind through deduction and inference. You'll make a Knowledge Roll to interpret facts, see the patterns clearly, or remember important information.</li>
+</ul>
+<p>When you "roll with a trait," that trait's modifier is added to the roll's total. Assign the modifiers +2, +1, +1, +0, +0, -1 to your character's traits in any order you wish.</p>
+<h2>STEP 4: Record Additional Character Information</h2>
+<ul>
+<li>Characters start a new campaign at <strong>Level 1.</strong> Record your level in the designated space at the top of your character sheet.</li>
+<li><strong>Evasion</strong> represents your character's ability to avoid damage. Your character's starting Evasion is determined by their class and appears directly beneath the Evasion field on your character sheet; copy this number into the Evasion field.</li>
+<li><strong>Hit Points (HP)</strong> are an abstract measure of your physical health. Your starting HP is determined by your class and is recorded on your character sheet.</li>
+<li><strong>Stress</strong> reflects your ability to withstand the mental and emotional strain of dangerous situations and physical exertion. Every PC starts with 6 Stress slots.</li>
+<li><strong>Hope</strong> is a metacurrency that fuels special moves and certain abilities or features. All PCs start with 2 Hope; mark these in the Hope field of your character sheet.</li>
+</ul>
+<h2>STEP 5: Choose Your Starting Equipment</h2>
+<h4>Choose your <strong>weapon(s):</strong></h4>
+<ul>
+<li>Select from the Tier 1 Weapon Tables. Either a <strong>twohanded primary weapon</strong> or a <strong>one-handed primary weapon and a one-handed secondary weapon.</strong>Then equip your selection by recording it in the Active Weapon field of your character sheet.</li>
+<li>At Level 1, your <strong>Proficiency</strong> is 1; write this number in the Proficiency field on your character sheet, then calculate and record your <strong>damage roll</strong> by combining your Proficiency value with your equipped weapon(s) <strong>damage dice.</strong> <em>Example: If your Proficiency is 1 and your weapon's damage dice is d6+1, your damage roll is 1d6+1. Proficiency only determines how many damage dice you roll, and does not affect any flat damage modifiers.</em></li>
+</ul>
+<p>Choose and equip one set of <strong>armor</strong> from the Tier 1 Armor Table, then record its details in the <strong>Active Armor</strong> field of your character sheet.</p>
+<ul>
+<li>Add your character's level to your equipped armor's <strong>Base Thresholds</strong> and record the total for both numbers in the corresponding fields. At character creation, your level is 1.</li>
+<li>Record your <strong>Armor Score</strong> in the field at the top left of your character sheet. Your Armor Score is equal to your equipped armor's <strong>Base Score</strong> plus any permanent bonuses your character has to their Armor Score from other abilities, features, or effects.</li>
+</ul>
+<p>Add the following items to the <strong>Inventory</strong> fields on your character sheet:</p>
+<ul>
+<li>A torch, 50 feet of rope, basic supplies, and a handful of gold (mark one box in the left-hand column of your character sheet titled "Gold &gt; Handfuls")</li>
+<li>EITHER a Minor Health Potion (clear 1d4 Hit Points) OR a Minor Stamina Potion (clear 1d4 Stress)</li>
+<li>One of the class-specific items listed on your character guide</li>
+<li>If applicable, whichever class-specific item you selected to carry your spells</li>
+<li>Any other GM-approved items you'd like to have at the start of the game</li>
+</ul>
+<h2>STEP 6: Create Your Background</h2>
+<p>Develop your character's <strong>background</strong> by answering the <strong>background questions</strong> in your character guide, modifying or replacing them if they don't fit the character you want to play.</p>
+<p><em>Note: Your background has no explicit mechanical effect, but it greatly affects the character you'll play and the prep the GM will do. Throughout character creation, you can adjust choices you made in earlier steps to better reflect this background as your character takes shape. If you wish, you can leave your character's past more ambiguous for the time being and discover their backstory through play.</em></p>
+<h2>STEP 7: Create Your Experiences</h2>
+<p>An Experience is a word or phrase used to encapsulate a specific set of skills, personality traits, or aptitudes your character has acquired over the course of their life. When your PC makes a move, they can spend a Hope to add a relevant Experience's modifier to an action or reaction roll.</p>
+<ul>
+<li>Your PC gets two Experiences at character creation, each with a +2 modifier.</li>
+<li>There's no set list of Experiences to choose from, but an Experience can't be too broadly applicable and it can't grant your character specific mechanical benefits, such as magic spells or special abilities. <em>For example, "Lucky" and "Highly Skilled" are too broad, because they could be applied to virtually any roll. Likewise, "Supersonic Flight" and "Invulnerable" imply game-breaking special abilities.</em></li>
+</ul>
+<h4>EXAMPLE EXPERIENCES</h4>
+<p><strong>Backgrounds:</strong> <em>Assassin, Blacksmith, Bodyguard, Bounty Hunter, Chef to the Royal Family, Circus Performer, Con Artist, Fallen Monarch, Field Medic, High Priestess, Merchant, Noble, Pirate, Politician, Runaway, Scholar, Sellsword, Soldier, Storyteller, Thief, World Traveler</em> </p>
+<p><strong>Characteristics:</strong> <em>Affable, Battle-Hardened, Bookworm, Charming, Cowardly, Friend to All, Helpful, Intimidating Presence, Leader, Lone Wolf, Loyal, Observant, Prankster, Silver Tongue, Sticky Fingers, Stubborn to a Fault, Survivor, Young and Naive</em></p>
+<p><strong>Specialties:</strong> <em>Acrobat, Gambler, Healer, Inventor, Magical Historian, Mapmaker, Master of Disguise, Navigator, Sharpshooter, Survivalist, Swashbuckler, Tactician</em></p>
+<p><strong>Skills:</strong> <em>Animal Whisperer, Barter, Deadly Aim, Fast Learner, Incredible Strength, Liar, Light Feet, Negotiator, Photographic Memory, Quick Hands, Repair, Scavenger, Tracker</em></p>
+<p><strong>Phrases:</strong> <em>Catch Me If You Can, Fake It Till You Make It, First Time's the Charm, Hold the Line, I Won't Let You Down, I'll Catch You, I've Got Your Back, Knowledge Is Power, Nature's Friend, Never Again, No One Left Behind, Pick on Someone Your Own Size, The Show Must Go On, This Is Not a Negotiation, Wolf in Sheep's Clothing</em></p>
+<h2>STEP 8: Choose Domain Cards</h2>
+<p>Your class has access to two of the nine Domains included in the core set. Choose two cards from your class's domains, which are listed in the upper left of your character sheet. You can take one card from each domain or two from a single domain, whichever you prefer.</p>
+<h2>STEP 9: Create Your Connections</h2>
+<p>Connections are the relationships between the PCs. To create connections, follow these steps:</p>
+<ul>
+<li>Go around the table and have each player describe their characters to one another—at a minimum, their name, pronouns, character description, experiences, and the answers to their background questions.</li>
+<li>Discuss potential connections between the PCs using the questions included in the "Connections" section of your character guide as inspiration.</li>
+<li>Suggest at least one connection between your character and each other player's PC. Accept any suggested connections you want to explore, reject any you don't.</li>
+</ul>
+<p><em>Note: A player can reject a suggested connection for any reason, and it's okay if there isn't an established connection between every pair of PCs—you can always discover and develop those relationships through play.</em></p>
+</div>
+
+    </div>
+  </div>
+  <div id="footer">
+<div class="container">
+   <p class="NoIndent"><span class="lang-zh">匕首之心 Daggerheart HTML SRD。本文档依据 <a href="https://www.darringtonpress.com/license">Darrington Press 社群游戏授权条款</a>，视为公共游戏内容。</span>
+   <span class="lang-en">Daggerheart HTML SRD. This document is considered Public Game Content per the <a href="https://www.darringtonpress.com/license">Darrington Press Community Gaming License</a>.</span></p>
+   <p class="NoIndent"><span class="lang-zh">© 2025 Critical Role LLC. 保留所有权利。</span><span class="lang-en">© 2025 Critical Role LLC. All rights reserved.</span></p>
+</div>
+</div>
+
+
+    
+    <script src="/SRD/jquery.js"></script>
+    
+    <script src="/SRD/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/SRD/js/lang-toggle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        
+      });
+    </script>
+  </body>
+</html>
