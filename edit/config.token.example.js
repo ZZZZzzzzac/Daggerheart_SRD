@@ -6,4 +6,4 @@
  * 安全提醒：此文件不入 git，但构建后会被包含在 public/ 中。
  * 前端 token 无法完全保密，请用最小权限 token 并定期轮换。
  */
-const BUILTIN_TOKEN = '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';
+const BUILTIN_TOKEN = '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';
