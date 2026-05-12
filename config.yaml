@@ -1,0 +1,8 @@
+---
+baseURL: "https://daggerheart.cn/SRD"
+title: "匕首之心 HTML SRD"
+publishDir: "public"
+disableKinds:
+  - taxonomy
+  - term
+---

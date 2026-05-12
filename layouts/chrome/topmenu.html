@@ -1,0 +1,55 @@
+<nav id="site-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar-header">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="{{ "" | relURL }}">{{ .Site.Title }}</a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+   <li><a href="{{ "introduction" | relURL }}"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a></li>
+   <li><a href="{{ "character-creation" | relURL }}"><span class="lang-zh">创建角色</span><span class="lang-en">Character Creation</span></a></li>
+   <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心资源</span><span class="lang-en">Core Resources</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="{{ "core-resources/domains" | relURL }}"><span class="lang-zh">领域</span><span class="lang-en">Domains</span></a></li>
+       <li><a href="{{ "core-resources/classes" | relURL }}"><span class="lang-zh">职业</span><span class="lang-en">Classes</span></a></li>
+       <li><a href="{{ "core-resources/ancestries" | relURL }}"><span class="lang-zh">种族</span><span class="lang-en">Ancestries</span></a></li>
+       <li><a href="{{ "core-resources/communities" | relURL }}"><span class="lang-zh">社群</span><span class="lang-en">Communities</span></a></li>
+     </ul>
+   </li>
+   <li class="dropdown">
+     <a href="{{ "core-mechanics" | relURL }}" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心机制</span><span class="lang-en">Core Mechanics</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="{{ "core-mechanics" | relURL }}"><span class="lang-zh">总览</span><span class="lang-en">Overview</span></a></li>
+       <li><a href="{{ "core-mechanics/equipment" | relURL }}"><span class="lang-zh">装备表格</span><span class="lang-en">Equipment Tables</span></a></li>
+       <li><a href="{{ "core-mechanics/combat-wheelchair" | relURL }}"><span class="lang-zh">战斗轮椅</span><span class="lang-en">Combat Wheelchair</span></a></li>
+     </ul>
+   </li>
+   <li><a href="{{ "running-a-game" | relURL }}"><span class="lang-zh">运作一场游戏</span><span class="lang-en">Running a Game</span></a></li>
+   <li class="dropdown">
+     <a href="{{ "adversaries-and-environments" | relURL }}" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">敌人与环境</span><span class="lang-en">Adversaries & Environments</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="{{ "adversaries-and-environments/adversary-mechanics" | relURL }}"><span class="lang-zh">敌人机制介绍</span><span class="lang-en">Adversary Mechanics</span></a></li>
+       <li><a href="{{ "adversaries-and-environments/adversary-data" | relURL }}"><span class="lang-zh">敌人数据</span><span class="lang-en">Adversary Data</span></a></li>
+       <li><a href="{{ "adversaries-and-environments/environment-mechanics" | relURL }}"><span class="lang-zh">环境机制介绍</span><span class="lang-en">Environment Mechanics</span></a></li>
+       <li><a href="{{ "adversaries-and-environments/environment-data" | relURL }}"><span class="lang-zh">环境数据</span><span class="lang-en">Environment Data</span></a></li>
+     </ul>
+   </li>
+   <li><a href="{{ "campaign-frames" | relURL }}"><span class="lang-zh">战役框架</span><span class="lang-en">Campaign Frames</span></a></li>
+   <li class="dropdown">
+     <a href="{{ "appendix" | relURL }}" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">附录</span><span class="lang-en">Appendix</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="{{ "appendix/domain-cards" | relURL }}"><span class="lang-zh">领域卡查询</span><span class="lang-en">Domain Card Reference</span></a></li>
+     </ul>
+   </li>
+ </ul>
+ <ul class="nav navbar-nav navbar-right">
+   <li><a id="lang-toggle-btn" href="#"><span class="lang-zh-active">中</span> | <span class="lang-en-inactive">EN</span></a></li>
+ </ul>
+</div>
+</nav>

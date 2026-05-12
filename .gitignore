@@ -1,0 +1,7 @@
+content/
+public/
+Daggerheart-HTML-SRD-release/
+*.hugo_build.lock
+__pycache__/
+*.pyc
+hugo.exe

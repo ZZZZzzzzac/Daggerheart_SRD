@@ -1,0 +1,102 @@
+# page-toc.yaml — 匕首之心 HTML SRD 页面拆分定义
+# 每页对应 Hugo content/ 下的一个子目录
+# 有 subs 的页面：从 markdown 的 ## 子标题拆分出子页
+# 无 subs 的页面：取 # 章节整章内容
+pages:
+  - path: introduction
+    title:
+      zh: "介绍"
+      en: "Introduction"
+
+  - path: character-creation
+    title:
+      zh: "创建角色"
+      en: "Character Creation"
+
+  - path: core-resources
+    title:
+      zh: "核心资源"
+      en: "Core Resources"
+    subs:
+      - path: core-resources/domains
+        heading: "领域"
+        title:
+          zh: "领域"
+          en: "Domains"
+      - path: core-resources/classes
+        heading: "职业"
+        title:
+          zh: "职业"
+          en: "Classes"
+      - path: core-resources/ancestries
+        heading: "种族"
+        title:
+          zh: "种族"
+          en: "Ancestries"
+      - path: core-resources/communities
+        heading: "社群"
+        title:
+          zh: "社群"
+          en: "Communities"
+
+  - path: core-mechanics
+    title:
+      zh: "核心机制"
+      en: "Core Mechanics"
+
+  - path: core-mechanics/equipment
+    title:
+      zh: "装备表格"
+      en: "Equipment Tables"
+
+  - path: core-mechanics/combat-wheelchair
+    title:
+      zh: "战斗轮椅"
+      en: "Combat Wheelchair"
+
+  - path: running-a-game
+    title:
+      zh: "运作一场游戏"
+      en: "Running a Game"
+
+  - path: adversaries-and-environments
+    title:
+      zh: "敌人与环境"
+      en: "Adversaries and Environments"
+    subs:
+      - path: adversaries-and-environments/adversary-mechanics
+        heading: "敌人机制介绍"
+        title:
+          zh: "敌人机制介绍"
+          en: "Adversary Mechanics"
+      - path: adversaries-and-environments/adversary-data
+        heading: "敌人数据"
+        title:
+          zh: "敌人数据"
+          en: "Adversary Data"
+      - path: adversaries-and-environments/environment-mechanics
+        heading: "环境机制介绍"
+        title:
+          zh: "环境机制介绍"
+          en: "Environment Mechanics"
+      - path: adversaries-and-environments/environment-data
+        heading: "环境数据"
+        title:
+          zh: "环境数据"
+          en: "Environment Data"
+
+  - path: campaign-frames
+    title:
+      zh: "战役框架"
+      en: "Campaign Frames"
+
+  - path: appendix
+    title:
+      zh: "附录"
+      en: "Appendix"
+    subs:
+      - path: appendix/domain-cards
+        heading: "领域卡查询"
+        title:
+          zh: "领域卡查询"
+          en: "Domain Card Reference"
