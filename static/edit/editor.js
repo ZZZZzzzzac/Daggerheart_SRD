@@ -16,18 +16,17 @@ let editor = null;    // CodeMirror 实例
 /* ── 页面列表 ── */
 async function loadPageList() {
   try {
-    const resp = await fetch(`https://api.github.com/repos/${REPO}/git/trees/${BRANCH}?recursive=1`);
+    const resp = await fetch('/SRD/api/page-list');
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const tree = await resp.json();
+    const data = await resp.json();
 
-    for (const item of tree.tree) {
-      if (!item.path.startsWith('src/pages/') || !item.path.endsWith('.md')) continue;
-      const parts = item.path.replace('src/pages/', '').split('/');
+    for (const path of data.pages) {
+      const parts = path.replace('src/pages/', '').split('/');
       const lang = parts.pop().replace('.md', '');
       const slug = parts.join('/');
 
       if (!state.pages[slug]) state.pages[slug] = {};
-      state.pages[slug][lang] = item.path;
+      state.pages[slug][lang] = path;
     }
 
     populateSelect();

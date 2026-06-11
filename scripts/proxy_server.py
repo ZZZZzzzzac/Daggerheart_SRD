@@ -99,6 +99,18 @@ def _slugify(path):
 
 
 class ProxyHandler(BaseHTTPRequestHandler):
+    def do_GET(self):
+        if self.path == "/api/page-list":
+            try:
+                tree = gh_request("GET", f"/git/trees/{BRANCH}?recursive=1")
+                pages = [item["path"] for item in tree.get("tree", [])
+                         if item["path"].startswith("src/pages/") and item["path"].endswith(".md")]
+                self._json(200, {"pages": pages})
+            except Exception as e:
+                self._json(500, {"error": str(e)})
+        else:
+            self._json(404, {"error": "Not found"})
+
     def do_POST(self):
         if self.path != "/api/submit-pr":
             self._json(404, {"error": "Not found"})
@@ -132,7 +144,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
     def do_OPTIONS(self):
         self.send_response(200)
         self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
 
