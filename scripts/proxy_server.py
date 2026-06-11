@@ -1,118 +1,130 @@
-"""proxy_server.py — GitHub API 代理，持服务端 token 代前端提交 PR。
-用法:
-    GH_TOKEN=github_pat_xxx python3 scripts/proxy_server.py
-    # 或
-    export GH_TOKEN=github_pat_xxx && python3 scripts/proxy_server.py
+"""proxy_server.py — 服务端编辑器代理
+提供端点:
+    GET  /api/page-list    — 列出 src/pages/ 下的 .md 文件
+    GET  /api/get-file     — 读取指定文件内容  (?path=src/pages/...)
+    POST /api/save         — 保存文件并重建站点  {path, content}
 
 零依赖，纯 Python 标准库。
+认证由 nginx auth_basic 处理，本服务不检查密码。
 """
 
 import json
 import time
-import urllib.request
-import urllib.error
+import subprocess
 import os
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse, parse_qs
 
-REPO = "ZZZZzzzzac/Daggerheart_SRD"
-BRANCH = "master"
-TOKEN = os.environ.get("GH_TOKEN")
-API_BASE = f"https://api.github.com/repos/{REPO}"
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
+PAGES_DIR = os.path.join(PROJECT_DIR, 'src', 'pages')
+BUILD_SCRIPT = os.path.join(SCRIPT_DIR, 'build_srd.py')
+
 LISTEN_HOST = os.environ.get("PROXY_HOST", "127.0.0.1")
 LISTEN_PORT = int(os.environ.get("PROXY_PORT", "5000"))
 
 
-def gh_request(method, path, data=None):
-    """调用 GitHub REST API，返回解析后的 JSON"""
-    url = f"{API_BASE}{path}"
-    headers = {
-        "Authorization": f"Bearer {TOKEN}",
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-    }
-    body = None
-    if data is not None:
-        body = json.dumps(data).encode("utf-8")
-        headers["Content-Type"] = "application/json"
+def list_pages():
+    """列出 src/pages/ 下所有 .md 文件（相对 PROJECT_DIR 的路径）"""
+    pages = []
+    for dirpath, dirnames, filenames in os.walk(PAGES_DIR):
+        for fn in filenames:
+            if fn.endswith('.md'):
+                rel = os.path.relpath(os.path.join(dirpath, fn), PROJECT_DIR)
+                pages.append(rel.replace('\\', '/'))
+    return sorted(pages)
 
-    req = urllib.request.Request(url, data=body, headers=headers, method=method)
+
+def _resolve_path(path):
+    """安全路径解析，返回规范化后的完整路径，非法路径返回 None"""
+    if not path.startswith('src/pages/'):
+        return None
+    full = os.path.normpath(os.path.join(PROJECT_DIR, path))
+    if not full.startswith(PAGES_DIR):
+        return None
+    return full
+
+
+def read_file(path):
+    """读取 src/pages/ 下的文件内容"""
+    full = _resolve_path(path)
+    if not full or not os.path.exists(full):
+        return None
+    with open(full, 'r', encoding='utf-8') as f:
+        return f.read()
+
+
+def save_and_build(path, content):
+    """保存文件 → 重建站点 → git 备份"""
+    full = _resolve_path(path)
+    if not full:
+        return False, "只允许编辑 src/pages/ 下的文件"
+
+    if not content.strip():
+        return False, "内容不能为空"
+
+    os.makedirs(os.path.dirname(full), exist_ok=True)
+    with open(full, 'w', encoding='utf-8') as f:
+        f.write(content)
+
     try:
-        with urllib.request.urlopen(req) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        err_body = e.read().decode("utf-8", errors="replace")
-        raise RuntimeError(f"GitHub API {method} {path} → {e.code}: {err_body}")
+        result = subprocess.run(
+            ['python3', BUILD_SCRIPT],
+            cwd=PROJECT_DIR,
+            capture_output=True, text=True, timeout=120,
+        )
+        if result.returncode != 0:
+            return False, f"构建失败:\n{result.stderr}"
+    except subprocess.TimeoutExpired:
+        return False, "构建超时（超过 120 秒）"
+    except Exception as e:
+        return False, f"构建异常: {e}"
 
+    # Git 备份（非阻塞，失败不影响）
+    try:
+        subprocess.run(['git', 'add', path], cwd=PROJECT_DIR,
+                       capture_output=True, timeout=10)
+        subprocess.run(['git', 'commit', '-m', f'编辑: {path}'],
+                       cwd=PROJECT_DIR, capture_output=True, timeout=10)
+        subprocess.run(['git', 'push'], cwd=PROJECT_DIR,
+                       capture_output=True, timeout=30)
+    except Exception:
+        pass
 
-def create_pr(file_path, content, description):
-    """完整的 GitHub PR 创建流程：分支 → blob → tree → commit → PR"""
-    branch_name = f"edit-{_slugify(file_path)}-{int(time.time())}"
-
-    ref = gh_request("GET", f"/git/refs/heads/{BRANCH}")
-    master_sha = ref["object"]["sha"]
-
-    gh_request("POST", "/git/refs", {
-        "ref": f"refs/heads/{branch_name}",
-        "sha": master_sha,
-    })
-
-    blob = gh_request("POST", "/git/blobs", {
-        "content": content,
-        "encoding": "utf-8",
-    })
-
-    commit = gh_request("GET", f"/git/commits/{master_sha}")
-
-    tree = gh_request("POST", "/git/trees", {
-        "base_tree": commit["tree"]["sha"],
-        "tree": [{
-            "path": file_path,
-            "mode": "100644",
-            "type": "blob",
-            "sha": blob["sha"],
-        }],
-    })
-
-    new_commit = gh_request("POST", "/git/commits", {
-        "message": f"编辑: {file_path}",
-        "tree": tree["sha"],
-        "parents": [master_sha],
-    })
-
-    gh_request("PATCH", f"/git/refs/heads/{branch_name}", {
-        "sha": new_commit["sha"],
-        "force": True,
-    })
-
-    pr = gh_request("POST", "/pulls", {
-        "title": f"编辑: {file_path}",
-        "head": branch_name,
-        "base": BRANCH,
-        "body": description,
-    })
-
-    return pr["html_url"]
-
-
-def _slugify(path):
-    return path.replace("/", "-").replace(".md", "")
+    return True, "保存成功，站点已更新"
 
 
 class ProxyHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-        if self.path == "/api/page-list":
+        parsed = urlparse(self.path)
+
+        if parsed.path == '/api/page-list':
             try:
-                tree = gh_request("GET", f"/git/trees/{BRANCH}?recursive=1")
-                pages = [item["path"] for item in tree.get("tree", [])
-                         if item["path"].startswith("src/pages/") and item["path"].endswith(".md")]
+                pages = list_pages()
                 self._json(200, {"pages": pages})
             except Exception as e:
                 self._json(500, {"error": str(e)})
+
+        elif parsed.path == '/api/get-file':
+            params = parse_qs(parsed.query)
+            path = params.get('path', [None])[0]
+            if not path:
+                self._json(400, {"error": "缺少 path 参数"})
+                return
+            try:
+                content = read_file(path)
+                if content is None:
+                    self._json(404, {"error": f"文件不存在或不可访问: {path}"})
+                else:
+                    self._json(200, {"content": content})
+            except Exception as e:
+                self._json(500, {"error": str(e)})
+
         else:
             self._json(404, {"error": "Not found"})
 
     def do_POST(self):
-        if self.path != "/api/submit-pr":
+        if self.path != '/api/save':
             self._json(404, {"error": "Not found"})
             return
 
@@ -125,19 +137,11 @@ class ProxyHandler(BaseHTTPRequestHandler):
 
         file_path = data.get("path", "")
         content = data.get("content", "")
-        description = data.get("description", "编辑")
-
-        if not file_path.startswith("src/pages/"):
-            self._json(403, {"error": "只允许编辑 src/pages/ 下的文件"})
-            return
-
-        if not content.strip():
-            self._json(400, {"error": "内容不能为空"})
-            return
 
         try:
-            pr_url = create_pr(file_path, content, description)
-            self._json(200, {"html_url": pr_url})
+            ok, msg = save_and_build(file_path, content)
+            self._json(200 if ok else 400,
+                       {"message": msg} if ok else {"error": msg})
         except Exception as e:
             self._json(500, {"error": str(e)})
 
@@ -161,13 +165,11 @@ class ProxyHandler(BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    if not TOKEN:
-        print("错误: 请设置 GH_TOKEN 环境变量")
-        print("用法: GH_TOKEN=github_pat_xxx python3 scripts/proxy_server.py")
-        exit(1)
-
     server = HTTPServer((LISTEN_HOST, LISTEN_PORT), ProxyHandler)
-    print(f"代理已启动: http://{LISTEN_HOST}:{LISTEN_PORT}/api/submit-pr")
+    print(f"编辑器代理已启动: http://{LISTEN_HOST}:{LISTEN_PORT}")
+    print(f"  GET  /api/page-list")
+    print(f"  GET  /api/get-file?path=...")
+    print(f"  POST /api/save")
     try:
         server.serve_forever()
     except KeyboardInterrupt:

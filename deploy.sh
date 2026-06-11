@@ -1,13 +1,17 @@
 #!/bin/bash
+# deploy.sh — Daggerheart HTML SRD 部署
+# 本地构建 + 推送代码到 GitHub（服务器不做 git pull）
+# 内容编辑走在线编辑器 /SRD/edit/，服务器自行构建
+# 代码更新（脚本/模板等）推送后，手动 SSH 到服务器 git pull
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$SCRIPT_DIR"
 
-echo "[1/3] 构建 SRD..."
+echo "[1/2] 构建 SRD..."
 python scripts/build_srd.py
 
-echo "[2/3] 推送 master..."
+echo "[2/2] 推送代码..."
 DATE=$(date "+%Y-%m-%d %H:%M")
 
 git add -A
@@ -16,20 +20,7 @@ if ! git diff --cached --quiet 2>/dev/null; then
     git push
     echo "已推送更新。"
 else
-    echo "构建内容无变化，无需推送。"
+    echo "无变化，无需推送。"
 fi
 
-echo "[3/3] 同步到服务器..."
-SSH_KEY="$SCRIPT_DIR/../Daggerheart_VPS/.ssh/ssh-key-2026-03-20.key"
-SERVER="ubuntu@151.145.76.60"
-ssh -i "$SSH_KEY" "$SERVER" "
-  cd /var/www/SRD
-  sudo chown -R ubuntu:ubuntu .
-  git pull
-  sudo chown -R www-data:www-data .
-  sudo chmod -R 755 .
-  sudo systemctl restart proxy_server
-  sudo systemctl status proxy_server --no-pager
-" && echo "服务器已更新。"
-
-echo "完成！"
+echo "完成！服务器需手动 git pull 以更新代码。"

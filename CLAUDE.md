@@ -61,9 +61,11 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 ./build.sh                     # Linux 一键
 ```
 
-### 构建决策（B 方案）
-- 构建在本机或 CI 完成，服务器只 `git pull` 不构建
-- `build_srd.py` 内部调 `hugo`，`config.yaml` 输出到 `public/`
+### 构建决策（C 方案）
+- 内容编辑通过在线编辑器 `/SRD/edit/` 完成，服务器即时构建
+- 代码更新（脚本、模板、CSS 等）本地完成后 push 到 GitHub，手动 SSH 到服务器 `git pull`
+- `public/` 不再提交 git，服务器自行生成
+- `proxy_server.py` 的 `/api/save` 端点保存后自动调 `build_srd.py` → `hugo`
 
 ## 协作流程
 
@@ -82,28 +84,45 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 
 `/SRD/edit/` 提供在线编辑功能：
 - 左边 CodeMirror 编辑 md，右边实时预览
--「保存」→ 创建 Git 分支 + commit + PR
-- 两种提交模式：
-  - **服务端代理**（默认）：前端调 `/SRD/api/submit-pr`，服务器 `proxy_server.py` 持有 GitHub token 代发 PR
-  - **用户自有 token**：在 localStorage 中设置 `gh_token`，编辑器直接用此 token 调 GitHub API
+-「保存」→ 直接写服务器文件 → 自动构建 → 即时生效
+- 编辑器页面和保存 API 由 nginx `auth_basic` 保护，需要密码才能编辑
 
 ### 代理服务器
 
 `scripts/proxy_server.py` — 零外部依赖，纯 Python stdlib HTTP 服务器：
-- 监听 `127.0.0.1:5000`，由 nginx `proxy_pass` 暴露为 `/SRD/api/submit-pr`
+- 监听 `127.0.0.1:5000`，由 nginx `proxy_pass` 暴露为 `/SRD/api/`
+- 端点：`GET /api/page-list`、`GET /api/get-file`、`POST /api/save`
+- `/api/save` 写文件到 `src/pages/` → 调 `build_srd.py` → Hugo 构建到 `public/`
 - 安全检查：只允许编辑 `src/pages/` 路径下的文件
-- Token 通过 systemd 环境变量注入，不入任何文件
+- Git 备份：可选设置 `GH_TOKEN` 环境变量，设置后每次保存自动 commit + push
 
 ### 服务端配置
 
 **systemd**：`/etc/systemd/system/proxy_server.service`
 ```
-Environment=GH_TOKEN=<fine-grained PAT>
+Environment=GH_TOKEN=<fine-grained PAT>  # 可选，不设则不做 git 备份
 ExecStart=/usr/bin/python3 /var/www/SRD/scripts/proxy_server.py
 ```
 
 **nginx**：在 `sites-enabled/daggerheart.conf` 的 `/SRD/` location 之前：
 ```nginx
+# 编辑器页面（需要密码）
+location ^~ /SRD/edit/ {
+    auth_basic "Daggerheart Editor";
+    auth_basic_user_file /etc/nginx/.htpasswd_daggerheart;
+    alias /var/www/SRD/public/edit/;
+}
+
+# 保存 API（需要密码）
+location = /SRD/api/save {
+    auth_basic "Daggerheart Editor";
+    auth_basic_user_file /etc/nginx/.htpasswd_daggerheart;
+    proxy_pass http://127.0.0.1:5000/api/save;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+
+# 其他 API（公开 — page-list 和 get-file）
 location ^~ /SRD/api/ {
     proxy_pass http://127.0.0.1:5000/api/;
     proxy_set_header Host $host;
@@ -111,10 +130,7 @@ location ^~ /SRD/api/ {
 }
 ```
 
-**部署**：`deploy.ps1` / `deploy.sh` 的最后一步会自动 `systemctl restart proxy_server`。
-
 不计划做：
-- 自建数据库保存内容（走 GitHub PR 审核流程）
 - 实时协同编辑
 - 服务端搜索（用客户端 lunr.js/flexsearch 即可）
 
@@ -131,10 +147,10 @@ location ^~ /SRD/api/ {
 需要升配的信号：自建后端数据库、WebSocket 协同、服务端渲染。
 
 ### 部署方式
-本地构建 → commit + push 到 master → SSH 上服务器 pull
-- 运行 `./deploy.ps1`（Win）或 `./deploy.sh`（Linux）
-- 构建产物落在 `public/` 目录，直接提交 git，nginx `alias /var/www/SRD/public/;` serve
-- 需要 SSH 密钥（`deploy.ps1` 默认读 `~/.ssh/ssh-key-2026-03-20.key`，可在脚本中修改路径）
+内容更新走在线编辑器，代码更新手动部署：
+- 运行 `./deploy.ps1`（Win）或 `./deploy.sh`（Linux）推送代码到 GitHub
+- SSH 到服务器手动 `git pull` 拉取代码更新
+- `public/` 不再提交 git，服务器自行构建
 
 ### 三台 VPS
 | 服务器 | IP | 用途 |
@@ -160,3 +176,17 @@ location ^~ /SRD/api/ {
 ## 授权
 
 © 2025 Critical Role LLC. Darrington Press 社群游戏授权条款，Public Game Content。
+
+## Agent skills
+
+### Issue tracker
+
+GitHub Issues（`ZZZZzzzzac/Daggerheart_SRD`）。见 `docs/agents/issue-tracker.md`。
+
+### Triage labels
+
+全部使用默认标签名。见 `docs/agents/triage-labels.md`。
+
+### Domain docs
+
+单上下文（根目录 `CONTEXT.md` + `docs/adr/`）。当前文件不存在，技能静默跳过。见 `docs/agents/domain.md`。

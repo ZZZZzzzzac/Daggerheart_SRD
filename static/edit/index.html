@@ -27,7 +27,7 @@
         <li><a href="../introduction/"><span class="lang-zh">← 返回阅读</span><span class="lang-en">← Back to Read</span></a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a id="token-btn" href="#">🔑 <span class="lang-zh">设置 Token</span><span class="lang-en">Set Token</span></a></li>
+        <li><a href="../"><span class="lang-zh">← 返回首页</span><span class="lang-en">← Home</span></a></li>
       </ul>
     </div>
   </nav>
@@ -49,7 +49,7 @@
       <div class="toolbar-right">
         <span id="save-status" class="text-muted"></span>
         <button id="save-btn" class="btn btn-primary btn-sm" disabled>
-          💾 <span class="lang-zh">提交 PR</span><span class="lang-en">Submit PR</span>
+          💾 <span class="lang-zh">保存</span><span class="lang-en">Save</span>
         </button>
       </div>
     </div>
@@ -79,56 +79,6 @@
     </div>
   </div>
 
-  <!-- Token 设置弹窗 -->
-  <div class="modal fade" id="token-modal" tabindex="-1">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">GitHub Token</h4>
-        </div>
-        <div class="modal-body">
-          <p>需要 GitHub Personal Access Token 才能提交 PR。</p>
-          <input type="password" id="token-input" class="form-control" placeholder="ghp_...">
-          <p class="help-block"><a href="https://github.com/settings/tokens" target="_blank">创建 token</a>，需勾选 <code>repo</code> 权限。</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><span class="lang-zh">取消</span><span class="lang-en">Cancel</span></button>
-          <button type="button" class="btn btn-primary" id="token-save-btn"><span class="lang-zh">保存</span><span class="lang-en">Save</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 提交 PR 弹窗 -->
-  <div class="modal fade" id="pr-modal" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"><span class="lang-zh">提交 PR</span><span class="lang-en">Submit PR</span></h4>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label><span class="lang-zh">修改说明</span><span class="lang-en">Change description</span></label>
-            <textarea id="pr-description" class="form-control" rows="3" placeholder="简要描述你的修改..."></textarea>
-          </div>
-          <div id="pr-progress" style="display:none;">
-            <p><span class="lang-zh">处理中...</span><span class="lang-en">Processing...</span></p>
-            <div class="progress">
-              <div id="pr-progress-bar" class="progress-bar progress-bar-striped active" style="width:0%"></div>
-            </div>
-          </div>
-          <div id="pr-result" style="display:none;"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><span class="lang-zh">关闭</span><span class="lang-en">Close</span></button>
-          <button type="button" class="btn btn-primary" id="pr-submit-btn"><span class="lang-zh">提交</span><span class="lang-en">Submit</span></button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- 脚本 -->
   <script src="../jquery.js"></script>
   <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -137,7 +87,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/addon/mode/overlay.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/addon/edit/continuelist.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="config.token.js"></script>
   <script src="editor.js"></script>
 </body>
 </html>

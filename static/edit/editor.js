@@ -1,14 +1,9 @@
-/* ── 配置 ── */
-const REPO = 'ZZZZzzzzac/Daggerheart_SRD';
-const BRANCH = 'master';
-
 /* ── 状态 ── */
 let state = {
   pages: {},          // { slug: { zh: 'src/pages/.../zh.md', en: 'src/pages/.../en.md' } }
   currentSlug: null,
   currentLang: 'zh',
   originalContent: '',
-  token: localStorage.getItem('gh_token') || null,
 };
 
 let editor = null;    // CodeMirror 实例
@@ -99,43 +94,22 @@ async function loadFile(slug, lang) {
   state.currentLang = lang;
   setStatus('加载中...');
 
-  // 先试 GitHub API，失败后 fallback 到 raw CDN
-  let content = null;
-  const apis = [
-    async () => {
-      const r = await fetch(`https://api.github.com/repos/${REPO}/contents/${path}`);
-      if (!r.ok) throw new Error(`GitHub API HTTP ${r.status}`);
-      const d = await r.json();
-      const raw = atob(d.content.replace(/\n/g, ''));
-      return decodeURIComponent(escape(raw));
-    },
-    async () => {
-      const r = await fetch(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${path}`);
-      if (!r.ok) throw new Error(`raw CDN HTTP ${r.status}`);
-      return await r.text();
-    },
-  ];
-
-  for (const api of apis) {
-    try {
-      content = await api();
-      break;
-    } catch (e) {
-      console.warn('fetch failed, trying next:', e.message);
+  try {
+    const resp = await fetch(`/SRD/api/get-file?path=${encodeURIComponent(path)}`);
+    if (!resp.ok) {
+      const data = await resp.json();
+      throw new Error(data.error || `HTTP ${resp.status}`);
     }
+    const data = await resp.json();
+    state.originalContent = data.content;
+    editor.setValue(data.content);
+    editor.clearHistory();
+    setStatus('已加载: ' + slug + '/' + lang + '.md');
+    updatePreview();
+    updateSaveBtn();
+  } catch (e) {
+    setStatus(`加载失败: ${e.message}`, true);
   }
-
-  if (content === null) {
-    setStatus(`加载失败: 无法获取 ${slug}/${lang}.md（两种方式都失败了）`, true);
-    return;
-  }
-
-  state.originalContent = content;
-  editor.setValue(content);
-  editor.clearHistory();
-  setStatus('已加载: ' + slug + '/' + lang + '.md');
-  updatePreview();
-  updateSaveBtn();
 }
 
 /* ── 预览 ── */
@@ -217,166 +191,36 @@ function setupScrollSync() {
   });
 }
 
-/* ── Token ── */
-function openTokenModal() {
-  document.getElementById('token-input').value = state.token || '';
-  $('#token-modal').modal('show');
-}
-
-function saveToken() {
-  const token = document.getElementById('token-input').value.trim();
-  state.token = token || null;
-  if (token) {
-    localStorage.setItem('gh_token', token);
-  } else {
-    localStorage.removeItem('gh_token');
-  }
-  $('#token-modal').modal('hide');
-  updateSaveBtn();
-  setStatus(token ? 'Token 已保存' : 'Token 已清除');
-}
-
-/* ── 提交 PR ── */
-async function submitPR() {
+/* ── 保存 ── */
+async function saveDirect() {
   const slug = state.currentSlug;
   const lang = state.currentLang;
   const newContent = editor.getValue();
-  const desc = document.getElementById('pr-description').value.trim() || `编辑 ${slug}/${lang}.md`;
-
   const path = state.pages[slug]?.[lang];
+
   if (!path || !newContent) return;
+  if (newContent === state.originalContent) return;
 
-  const progressBar = document.getElementById('pr-progress-bar');
-  const progressDiv = document.getElementById('pr-progress');
-  const resultDiv = document.getElementById('pr-result');
-
-  function setProgress(pct, msg) {
-    progressDiv.style.display = 'block';
-    progressBar.style.width = pct + '%';
-    progressBar.textContent = msg || '';
-  }
+  setStatus('保存中...');
+  document.getElementById('save-btn').disabled = true;
 
   try {
-    if (state.token) {
-      await submitViaToken(path, newContent, desc, setProgress, resultDiv);
-    } else {
-      await submitViaProxy(path, newContent, desc, setProgress, resultDiv);
-    }
+    const resp = await fetch('/SRD/api/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ path, content: newContent }),
+    });
+
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.error || `服务器错误 (${resp.status})`);
+
     state.originalContent = newContent;
     updateSaveBtn();
+    setStatus('✓ ' + (data.message || '保存成功'));
   } catch (e) {
-    setProgress(0, '');
-    resultDiv.innerHTML = `<p class="text-danger">错误: ${e.message}</p>`;
+    setStatus('保存失败: ' + e.message, true);
+    document.getElementById('save-btn').disabled = false;
   }
-}
-
-/* 通过服务端代理提交（无 token 模式） */
-async function submitViaProxy(path, content, description, setProgress, resultDiv) {
-  setProgress(30, '正在提交...');
-
-  const resp = await fetch('/SRD/api/submit-pr', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ path, content, description }),
-  });
-
-  setProgress(80, '处理中...');
-
-  const data = await resp.json();
-  if (!resp.ok) throw new Error(data.error || `服务器错误 (${resp.status})`);
-
-  setProgress(100, '完成！');
-  resultDiv.innerHTML = `<p>PR 已创建：<a href="${data.html_url}" target="_blank">${data.html_url}</a></p>`;
-}
-
-/* 通过用户自己的 token 直接调 GitHub API（有 token 模式） */
-async function submitViaToken(path, content, description, setProgress, resultDiv) {
-  const headers = {
-    Authorization: `Bearer ${state.token}`,
-    'Content-Type': 'application/json',
-  };
-
-  const PR_BASE = `https://api.github.com/repos/${REPO}`;
-  const branchName = `edit-${path.replace(/\//g, '-').replace('.md', '')}-${Date.now()}`;
-
-  setProgress(5, '获取最新提交...');
-
-  const refResp = await fetch(`${PR_BASE}/git/refs/heads/${BRANCH}`, { headers });
-  if (!refResp.ok) throw new Error('获取 ref 失败: ' + (await refResp.text()));
-  const refData = await refResp.json();
-  const masterSha = refData.object.sha;
-
-  setProgress(20, '创建分支...');
-
-  const branchResp = await fetch(`${PR_BASE}/git/refs`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({ ref: `refs/heads/${branchName}`, sha: masterSha }),
-  });
-  if (!branchResp.ok) throw new Error('创建分支失败: ' + (await branchResp.text()));
-
-  setProgress(35, '提交内容...');
-
-  const blobResp = await fetch(`${PR_BASE}/git/blobs`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({ content, encoding: 'utf-8' }),
-  });
-  if (!blobResp.ok) throw new Error('创建 blob 失败: ' + (await blobResp.text()));
-  const blobData = await blobResp.json();
-
-  const masterCommitResp = await fetch(`${PR_BASE}/git/commits/${masterSha}`, { headers });
-  if (!masterCommitResp.ok) throw new Error('获取 commit 失败');
-  const masterCommit = await masterCommitResp.json();
-
-  const treeResp = await fetch(`${PR_BASE}/git/trees`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      base_tree: masterCommit.tree.sha,
-      tree: [{ path, mode: '100644', type: 'blob', sha: blobData.sha }],
-    }),
-  });
-  if (!treeResp.ok) throw new Error('创建 tree 失败: ' + (await treeResp.text()));
-  const treeData = await treeResp.json();
-
-  const commitResp = await fetch(`${PR_BASE}/git/commits`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      message: `编辑: ${path}`,
-      tree: treeData.sha,
-      parents: [masterSha],
-    }),
-  });
-  if (!commitResp.ok) throw new Error('创建 commit 失败: ' + (await commitResp.text()));
-  const commitData = await commitResp.json();
-
-  setProgress(65, '更新分支引用...');
-
-  await fetch(`${PR_BASE}/git/refs/heads/${branchName}`, {
-    method: 'PATCH',
-    headers,
-    body: JSON.stringify({ sha: commitData.sha, force: true }),
-  });
-
-  setProgress(80, '创建 PR...');
-
-  const prResp = await fetch(`${PR_BASE}/pulls`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({
-      title: `编辑: ${path}`,
-      head: branchName,
-      base: BRANCH,
-      body: description,
-    }),
-  });
-  if (!prResp.ok) throw new Error('创建 PR 失败: ' + (await prResp.text()));
-  const prData = await prResp.json();
-
-  setProgress(100, '完成！');
-  resultDiv.innerHTML = `<p>PR 已创建：<a href="${prData.html_url}" target="_blank">${prData.html_url}</a></p>`;
 }
 
 /* ── 事件绑定 ── */
@@ -410,20 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Token
-  document.getElementById('token-btn').addEventListener('click', (e) => {
-    e.preventDefault();
-    openTokenModal();
-  });
-  document.getElementById('token-save-btn').addEventListener('click', saveToken);
-
-  // PR
-  document.getElementById('save-btn').addEventListener('click', () => {
-    document.getElementById('pr-result').innerHTML = '';
-    document.getElementById('pr-result').style.display = 'none';
-    document.getElementById('pr-progress').style.display = 'none';
-    document.getElementById('pr-description').value = '';
-    $('#pr-modal').modal('show');
-  });
-  document.getElementById('pr-submit-btn').addEventListener('click', submitPR);
+  // 保存
+  document.getElementById('save-btn').addEventListener('click', saveDirect);
 });
