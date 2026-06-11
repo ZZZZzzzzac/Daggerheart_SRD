@@ -27,7 +27,10 @@ Daggerheart_SRD/
 │   ├── DH-SRD-CN.md     # 完整译文 md（从 paratranz 导出）
 │   ├── DH-SRD-EN.md     # 完整英文 md
 │   └── scores.json
-├── scripts/             # Python 构建脚本
+├── scripts/             # Python 构建脚本 + 服务端代理
+│   ├── build_srd.py
+│   ├── proxy_server.py  # GitHub API 代理（零依赖，纯 stdlib）
+│   └── proxy_server.service  # systemd 单元文件模板
 ├── layouts/             # Hugo 模板（chrome/ _default/）
 ├── static/              # CSS / JS / 图片 / 字体 / bootstrap
 ├── content/             # （生成）Python 生成的 Hugo 页面，已 gitignore
@@ -75,13 +78,40 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 - 大改动先开 issue 讨论
 - PR review 由维护者负责
 
-## 在线编辑（计划中）
+## 在线编辑器
 
-未来可加一个纯前端 SPA 编辑器：
-- 左边 CodeMirror 编辑 md
-- 右边实时渲染（marked.js + 现有 CSS）
--「保存」调 GitHub API → 新 branch + commit + PR
-- 不占服务器资源，Micro 实例足够
+`/SRD/edit/` 提供在线编辑功能：
+- 左边 CodeMirror 编辑 md，右边实时预览
+-「保存」→ 创建 Git 分支 + commit + PR
+- 两种提交模式：
+  - **服务端代理**（默认）：前端调 `/SRD/api/submit-pr`，服务器 `proxy_server.py` 持有 GitHub token 代发 PR
+  - **用户自有 token**：在 localStorage 中设置 `gh_token`，编辑器直接用此 token 调 GitHub API
+
+### 代理服务器
+
+`scripts/proxy_server.py` — 零外部依赖，纯 Python stdlib HTTP 服务器：
+- 监听 `127.0.0.1:5000`，由 nginx `proxy_pass` 暴露为 `/SRD/api/submit-pr`
+- 安全检查：只允许编辑 `src/pages/` 路径下的文件
+- Token 通过 systemd 环境变量注入，不入任何文件
+
+### 服务端配置
+
+**systemd**：`/etc/systemd/system/proxy_server.service`
+```
+Environment=GH_TOKEN=<fine-grained PAT>
+ExecStart=/usr/bin/python3 /var/www/SRD/scripts/proxy_server.py
+```
+
+**nginx**：在 `sites-enabled/daggerheart.conf` 的 `/SRD/` location 之前：
+```nginx
+location ^~ /SRD/api/ {
+    proxy_pass http://127.0.0.1:5000/api/;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+}
+```
+
+**部署**：`deploy.ps1` / `deploy.sh` 的最后一步会自动 `systemctl restart proxy_server`。
 
 不计划做：
 - 自建数据库保存内容（走 GitHub PR 审核流程）
@@ -97,14 +127,14 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 - 磁盘 45G，已用 9%
 - CPU load 0.00
 
-当前方案（静态页 + 客户端搜索 + 纯前端编辑器）Micro 绰绰有余。
+当前方案（静态页 + 客户端搜索 + 编辑器服务端代理）Micro 绰绰有余。
 需要升配的信号：自建后端数据库、WebSocket 协同、服务端渲染。
 
 ### 部署方式
 本地构建 → commit + push 到 master → SSH 上服务器 pull
 - 运行 `./deploy.ps1`（Win）或 `./deploy.sh`（Linux）
 - 构建产物落在 `public/` 目录，直接提交 git，nginx `alias /var/www/SRD/public/;` serve
-- 需要 `Daggerheart_VPS` 仓库同级（SSH 密钥路径 `../Daggerheart_VPS/.ssh/`）
+- 需要 SSH 密钥（`deploy.ps1` 默认读 `~/.ssh/ssh-key-2026-03-20.key`，可在脚本中修改路径）
 
 ### 三台 VPS
 | 服务器 | IP | 用途 |
