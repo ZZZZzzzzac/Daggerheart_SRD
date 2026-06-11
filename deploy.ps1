@@ -30,6 +30,8 @@ ssh -i "$SSH_KEY" $SERVER @'
   git pull
   sudo chown -R www-data:www-data .
   sudo chmod -R 755 .
+  sudo systemctl restart proxy_server
+  sudo systemctl status proxy_server --no-pager
 '@
 if ($LASTEXITCODE -eq 0) {
     Write-Host "服务器已更新。" -ForegroundColor Green

@@ -28,6 +28,8 @@ ssh -i "$SSH_KEY" "$SERVER" "
   git pull
   sudo chown -R www-data:www-data .
   sudo chmod -R 755 .
+  sudo systemctl restart proxy_server
+  sudo systemctl status proxy_server --no-pager
 " && echo "服务器已更新。"
 
 echo "完成！"

@@ -1,0 +1,19 @@
+[Unit]
+Description=Daggerheart SRD GitHub API Proxy
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/var/www/SRD
+Environment=GH_TOKEN=YOUR_GITHUB_PAT_HERE
+Environment=PROXY_HOST=127.0.0.1
+Environment=PROXY_PORT=5000
+ExecStart=/usr/bin/python3 /var/www/SRD/scripts/proxy_server.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
