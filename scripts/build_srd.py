@@ -5,6 +5,7 @@ build_srd.py — Daggerheart HTML SRD 构建脚本
 
 import os, re, sys, subprocess, yaml, markdown as md_lib
 from makeup_copy import apply_makeup
+from sage_md_ext import SageTouchedExtension
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
@@ -24,7 +25,7 @@ def read_page(path, suffix):
 def md_to_html(text):
     if not text:
         return ''
-    return md_lib.markdown(text, extensions=['extra'])
+    return md_lib.markdown(text, extensions=['extra', SageTouchedExtension()])
 
 
 def generate_page(path, title_zh, title_en, cn_text, en_text):
