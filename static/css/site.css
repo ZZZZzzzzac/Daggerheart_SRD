@@ -372,3 +372,37 @@ body.show-en .lang-en-active { font-weight: bold; color: #000; }
 body.show-en .lang-zh-inactive { color: #999; }
 
 /* 领域图标 — 统一在 layouts/_default/single.html 的 <style> 中修改 */
+
+
+/* ── 贤者恩泽 / SAGE-TOUCHED ──────────────────────────── */
+.sage-touched {
+  border-left: 4px solid #c8a45c;
+  background: #fdf6e8;
+  border-radius: 4px;
+  margin-bottom: 1.2em;
+}
+
+.sage-touched details {
+  padding: 0;
+}
+
+.sage-touched summary {
+  cursor: pointer;
+  font-weight: bold;
+  color: #8b6914;
+  padding: 8px 12px;
+}
+
+.sage-touched details[open] summary {
+  border-bottom: 1px solid #e0d5b8;
+  margin-bottom: 0;
+}
+
+.sage-touched summary::marker {
+  color: #8b6914;
+}
+
+.sage-touched summary + * {
+  padding: 8px 12px 12px 12px;
+}
+/* ──────────────────────────────────────────────────────── */

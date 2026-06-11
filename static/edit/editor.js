@@ -191,6 +191,25 @@ function setupScrollSync() {
   });
 }
 
+/* ── 贤者恩泽模板插入 ── */
+function insertSageTemplate() {
+  if (!editor) return;
+  const isZh = state.currentLang === 'zh';
+  const label = isZh ? '贤者恩泽' : 'SAGE-TOUCHED';
+  const titlePlaceholder = isZh ? '在此填写标题' : 'Your Title Here';
+  const contentPlaceholder = isZh
+    ? '在此填写补充说明内容（支持 markdown 语法）'
+    : 'Your commentary content here (markdown supported)';
+  const template = `<div class="sage-touched">\n<details>\n<summary>${label}：${titlePlaceholder}</summary>\n\n${contentPlaceholder}\n</details>\n</div>`;
+
+  const cursor = editor.getCursor();
+  editor.replaceRange('\n' + template + '\n', cursor);
+  const titleStart = cursor.line + 3;
+  const titleCol = label.length + 2;
+  editor.setCursor({ line: titleStart, ch: titleCol });
+  editor.focus();
+}
+
 /* ── 保存 ── */
 async function saveDirect() {
   const slug = state.currentSlug;
@@ -256,4 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 保存
   document.getElementById('save-btn').addEventListener('click', saveDirect);
+
+  // 贤者恩泽模板插入
+  document.getElementById('sage-btn').addEventListener('click', insertSageTemplate);
 });
