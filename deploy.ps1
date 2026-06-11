@@ -10,11 +10,6 @@ python scripts/build_srd.py
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "[2/3] 推送 master..." -ForegroundColor Cyan
-if (-not (Test-Path "public")) {
-    Write-Host "错误: public/ 不存在" -ForegroundColor Red
-    exit 1
-}
-Get-ChildItem -Path "public" | Copy-Item -Destination $ProjectDir -Recurse -Force 2>&1 | Out-Null
 
 git add -A
 git diff --cached --quiet

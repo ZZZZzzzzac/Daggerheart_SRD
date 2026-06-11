@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <title>运作一场游戏 | 匕首之心 HTML SRD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="匕首之心 HTML SRD">
+    <meta name="keywords" content="匕首之心,Daggerheart,SRD">
+    
+    <link href="/SRD/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/SRD/css/sticky-footer.css" rel="stylesheet">
+    <link href="/SRD/css/site.css" rel="stylesheet">
+
+    
+    
+    
+    <style>img.domain-icon { width:60px; height:60px; vertical-align:middle; margin-right:5px; border-radius:4px; }</style>
+  </head>
+  <body data-spy="scroll" data-target="#sidemenu">
+  <nav id="site-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar-header">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="/SRD/">匕首之心 HTML SRD</a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+   <li><a href="/SRD/introduction"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a></li>
+   <li><a href="/SRD/character-creation"><span class="lang-zh">创建角色</span><span class="lang-en">Character Creation</span></a></li>
+   <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心资源</span><span class="lang-en">Core Resources</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-resources/domains"><span class="lang-zh">领域</span><span class="lang-en">Domains</span></a></li>
+       <li><a href="/SRD/core-resources/classes"><span class="lang-zh">职业</span><span class="lang-en">Classes</span></a></li>
+       <li><a href="/SRD/core-resources/ancestries"><span class="lang-zh">种族</span><span class="lang-en">Ancestries</span></a></li>
+       <li><a href="/SRD/core-resources/communities"><span class="lang-zh">社群</span><span class="lang-en">Communities</span></a></li>
+     </ul>
+   </li>
+   <li class="dropdown">
+     <a href="/SRD/core-mechanics" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心机制</span><span class="lang-en">Core Mechanics</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-mechanics"><span class="lang-zh">总览</span><span class="lang-en">Overview</span></a></li>
+       <li><a href="/SRD/core-mechanics/equipment"><span class="lang-zh">装备表格</span><span class="lang-en">Equipment Tables</span></a></li>
+       <li><a href="/SRD/core-mechanics/combat-wheelchair"><span class="lang-zh">战斗轮椅</span><span class="lang-en">Combat Wheelchair</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/running-a-game"><span class="lang-zh">运作一场游戏</span><span class="lang-en">Running a Game</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/adversaries-and-environments" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">敌人与环境</span><span class="lang-en">Adversaries & Environments</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/adversaries-and-environments/adversary-mechanics"><span class="lang-zh">敌人机制介绍</span><span class="lang-en">Adversary Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/adversary-data"><span class="lang-zh">敌人数据</span><span class="lang-en">Adversary Data</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-mechanics"><span class="lang-zh">环境机制介绍</span><span class="lang-en">Environment Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-data"><span class="lang-zh">环境数据</span><span class="lang-en">Environment Data</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/campaign-frames"><span class="lang-zh">战役框架</span><span class="lang-en">Campaign Frames</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/appendix" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">附录</span><span class="lang-en">Appendix</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/appendix/domain-cards"><span class="lang-zh">领域卡查询</span><span class="lang-en">Domain Card Reference</span></a></li>
+     </ul>
+   </li>
+ </ul>
+ <ul class="nav navbar-nav navbar-right">
+   <li><a id="lang-toggle-btn" href="#"><span class="lang-zh-active">中</span> | <span class="lang-en-inactive">EN</span></a></li>
+ </ul>
+</div>
+</nav>
+
+  <div id="wrap">
+    <nav id="sidemenu">
+   <ul id="sidemenu-topnav" class="nav">
+   </ul>
+</nav>
+
+    <div class="content-area">
+      
+<h1><span class="lang-zh">运作一场游戏</span><span class="lang-en">Running a Game</span></h1>
+
+<div class="lang-zh">
+<p>游戏主持人负责引导叙事并扮演玩家角色所生活的世界。本章提供了运作《匕首之心》的建议：运用核心机制；创造难忘遭遇；规划刺激冒险；选择、创造和使用游戏主持人行动；构建完整战役；运作动态的非玩家角色；如此种种。</p>
+<h2>游戏主持人指引</h2>
+<p>这三个部分为你提供基础指引，帮助你充分利用游戏机制。“游戏主持人守则”是你的指明星——如有疑问，请回顾这些准则。</p>
+<h3>游戏主持人守则</h3>
+<h4><strong>以虚构为始，以虚构为终</strong></h4>
+<p><em>运用虚构故事来驱动游戏机制，然后将游戏机制的结果与虚构故事联系起来。</em></p>
+<h4><strong>始终保持合作，冲突期间尤甚</strong></h4>
+<p><em>玩家角色们是战役的主角; 玩家和游戏主持人之间的对抗应该只存在于虚构中。</em></p>
+<h4><strong>让世界充满生机、奇迹与危险</strong></h4>
+<p><em>用充满活力的冒险故事来展现丰富的文化，带领角色们探索奇妙的地域，并让他们接触危险的生物。</em></p>
+<h4><strong>提出问题并将答案融入冒险</strong></h4>
+<p><em>确保玩家的想法被纳入其中，从而鼓励整个团队创作叙事。</em></p>
+<h4><strong>让每一次掷骰都至关重要</strong></h4>
+<p><em>请只在有意义的时刻要求玩家掷骰。</em></p>
+<h4><strong>玩下去，看看会发生什么</strong></h4>
+<p><em>为玩家角色们的行动、抉择以及成长蜕变而惊喜。</em></p>
+<h4><strong>轻抓故事脉络</strong></h4>
+<p><em>如果需要放弃或改变之前的内容，也不必踌躇。</em></p>
+<h3>游戏主持人实践</h3>
+<h4><strong>营造充满好奇的游戏氛围</strong></h4>
+<p><em>关注引起玩家兴趣的事物，以营造一种充满创意探究的氛围。</em></p>
+<h4><strong>赢得玩家的信任</strong></h4>
+<p><em>真诚行事，履行承诺，承认错误。</em></p>
+<h4><strong>推动故事发展</strong></h4>
+<p><em>每当进行动作掷骰，无论成功与否，通过局势升级、新线索揭露或情境变化来继续推动故事。</em></p>
+<h4><strong>切入精彩时刻</strong></h4>
+<p><em>跳过无聊的部分。如果场景太冗长，结束它。</em>*</p>
+<h4><strong>帮助玩家掌握游戏机制</strong></h4>
+<p><em>帮助玩家们了解系统，会让他们获得更多的乐趣。</em></p>
+<h4><strong>创建场外交流机制</strong></h4>
+<p><em>确保玩家们始终可以脱离角色自由讨论, 使用安全工具，或提出疑问寻求澄清。</em></p>
+<h4><strong>告诉玩家们角色本该知道的内容</strong></h4>
+<p><em>不要对玩家们隐藏明显的细节或者重要的信息。</em></p>
+<h4><strong>以动机赋予世界真实感</strong></h4>
+<p><em>NPC 的行为源于他们的目标和愿望。</em></p>
+<h4><strong>让游戏机制鲜活起来</strong></h4>
+<p><em>以身作则，展示虚构叙事与游戏机制如何协同作用，从而增强游戏体验。</em></p>
+<h4><strong>重构而非否定</strong></h4>
+<p><em>如果玩家提出的内容与游戏设定相冲突，请尝试与对方协作共同重构。</em></p>
+<h4><strong>运用“片段”与“蒙太奇”</strong></h4>
+<p><em>在构建场景时，决定哪些故事节奏应该细细品味，哪些无需停留细化。</em></p>
+<h3>应避免的误区</h3>
+<h4><strong>削弱英雄作用</strong></h4>
+<p>当骰运不济时，描述失败是因对手的技艺、环境因素或突发状况所致，而不是因为玩家角色的无能。</p>
+<h4><strong>总是告诉玩家掷什么骰</strong></h4>
+<p>让玩家们自行决定如何应对挑战。</p>
+<h4><strong>场景节奏拖沓</strong></h4>
+<p>当场景自然收束、桌上气氛开始疲软，玩家开始原地打转时，直接收尾。</p>
+<h4><strong>唯一解思维</strong></h4>
+<p>不要为难题预设一个唯一的正确答案。如果玩家们提出了一个巧妙的思路，让它实现。</p>
+<h4>过度预设剧情</h4>
+<p>将你的准备时间用于创造情景，而不是编写场景脚本。如果玩家们让你大吃一惊，不妨先暂停来思考你的选择。</p>
+<h4><strong>囤积恐惧点</strong></h4>
+<p>有机会时就花掉恐惧点。玩家总会再制造出更多。</p>
+<p><em>更多深入的游戏主持人指导，请参见《匕首之心》核心规则书 </em><em>140</em>* 页。</p>
+<h2>核心游戏主持人机制</h2>
+<h3>掷骰</h3>
+<p>游戏主持人不使用二元骰，而是在需要时掷一枚被称为游戏主持人骰的 <strong>d20</strong> 。</p>
+<h4>敌人的攻击掷骰</h4>
+<p>敌人攻击玩家角色时，掷 <strong>d20</strong> 并将敌人的攻击加值加到结果上。如果结果总数达到或超过目标的闪避值，此次攻击成功；否则攻击失败。攻击成功时，进行伤害掷骰来决定你的攻击造成了多少伤害。</p>
+<p>如果你的攻击掷骰掷出 <strong>20</strong> ，你自动成功并造成额外伤害。照常进行一次伤害掷骰，并将伤害骰可掷出的最高值加到总伤害上。例如，一个造成 <strong>3d6+2</strong> 伤害的攻击在关键成功时会造成 <strong>18</strong> +3d6+2 点伤害；关键成功不影响固定的伤害调整值。</p>
+<p><em>注意：敌人反应掷骰时取得的关键成功只会自动成功，但不会获得额外增益。</em></p>
+<h4>动作掷骰指引</h4>
+<p>当玩家在游戏中描述他们想要进行的动作后，你可能需要决定是否通过一次动作掷骰，来决定场景如何发展。请参考以下指引，选择最符合当前情况的方式向玩家提出要求：</p>
+<ul>
+<li>综合考虑玩家角色的经历或背景故事、他们行动时面临的压力以及可能导致的结果，来判断是否有必要掷骰。</li>
+<li>在玩家进行动作掷骰前明确风险和收益。</li>
+<li>说明任何不可避免的后果。</li>
+<li>你可以视情况为玩家提供放弃动作掷骰的机会，并让玩家接受一个有趣的结果、代价或复杂情况作为交换。</li>
+</ul>
+<h3>执行行动</h3>
+<p>作为游戏主持人，你拥有会根据玩家行为推动故事发展的<strong>游戏主持人行动</strong>。游戏主持人行动不受特定法术或效果限制——当你执行游戏主持人行动时，可依剧情需要以任何方式来描述动作。</p>
+<p>游戏主持人行动发生在<strong>游戏主持人轮次</strong>中。游戏主持人轮次从聚焦转移到游戏主持人时开始，至聚焦回到玩家时结束。</p>
+<h4><strong>何时执行行动</strong></h4>
+<p>游戏主持人可以在任何时候执行游戏主持人行动，但其频率与强度取决于你所讲述的故事类型、玩家所采取的行动，以及你所营造的游戏基调。</p>
+<p>当玩家出现以下情况之一时，应考虑执行一次行动：</p>
+<ul>
+<li>在动作掷骰中掷出恐惧结果时。</li>
+<li>动作掷骰失败时。</li>
+<li>做出某个可能带来后果的行为时。</li>
+<li>给出了一个绝佳的叙事机会时。（一个需要立刻回应的开场）</li>
+<li>看向你，等你揭晓接下来的发展时。</li>
+</ul>
+<h4>选择游戏主持人行动</h4>
+<p>玩家动作掷骰的结果决定了你的反应：</p>
+<p><strong>关键成功</strong>时，让玩家描述其成功的过程，并给予他们额外机会或可乘之机。</p>
+<p><strong>希望成功</strong>时，让玩家描述其成功的过程，并展示世界对此的反应。</p>
+<p><strong>恐惧成功</strong>时，与你的玩家一起描述该角色的成功，你<strong>获得 1 恐惧点</strong>并执行游戏主持人行动，引入轻微的后果、复杂情况或代价：</p>
+<ul>
+<li>敌人进行一次攻击</li>
+<li>玩家角色<strong>标记 1 压力点</strong>- 引入新的威胁</li>
+<li>提高冲突带来的利害</li>
+</ul>
+<p><strong>希望失败</strong>时，你描述玩家角色未能如愿以偿，然后执行游戏主持人行动，引入轻微的后果、复杂情况或代价：</p>
+<ul>
+<li>敌人进行一次攻击</li>
+<li>玩家角色<strong>标记 1 压力点</strong>- 引入新的威胁</li>
+<li>提高冲突带来的利害</li>
+</ul>
+<p><strong>恐惧失败</strong>时，你描述事情如何变得糟糕，然后执行游戏主持人行动，引入严重的后果、复杂情况或代价：</p>
+<ul>
+<li>让玩家角色陷入直接危险</li>
+<li>让玩家角色被多个敌人针对</li>
+<li>迫使队伍分散</li>
+<li>永久性地剥夺一次机会</li>
+</ul>
+<h4>快速参考：处理动作掷骰</h4>
+<p>如果你不确定如何处理一次掷骰，可以考虑使用这些简短的短语：</p>
+<p><strong>希望成功：</strong> <em>是的，并且……</em>（你如愿以偿，并<strong>获得 1 希望点</strong>。）</p>
+<p><strong>恐惧成功：</strong> <em>是的，但是……</em>（你如愿以偿，但伴随着代价或者后果，并且游戏主持人<strong>获得 1 恐惧点</strong>。）</p>
+<p><strong>希望失败：</strong> <em>不，但是……</em>（事情并未如你所愿，但你<strong>获得 1 希望点</strong>。）</p>
+<p><strong>恐惧失败：</strong> <em>不，并且……</em>（事情变得非常糟糕，并且游戏主持人<strong>获得 1 恐惧点</strong>。）</p>
+<p>合适的行动有时并不那么明显，你可以从“游戏主持人行动示例”中寻找灵感：</p>
+<ul>
+<li>引入新的障碍或敌人</li>
+<li>询问玩家会发生什么</li>
+<li>让玩家角色<strong>标记 1 压力点</strong>- 告诉玩家“目前一切还好……暂时如此”</li>
+</ul>
+<h4><strong>软行动和硬行动</strong></h4>
+<p><strong>软行动</strong>对玩家更宽松——其为队伍提供关于场景的新信息，并给玩家机会做出反应。<strong>硬行动</strong>更严厉、更关键或更直接——玩家角色没有机会打断、改变或预见结果。</p>
+<p>在掷出希望结果时采取更软的行动，在掷出恐惧结果时采取更硬的行动。</p>
+<h4><strong>游戏主持人行动示例</strong></h4>
+<ul>
+<li>展示世界的反应。</li>
+<li>提出一个问题，并基于回答继续展开。</li>
+<li>让一个非玩家角色依据其动机采取行动。</li>
+<li>利用角色的目标驱使其采取行动。</li>
+<li>暗示一个即将发生的隐藏威胁。</li>
+<li>揭示令人不快的真相或意想不到的危险。</li>
+<li>迫使队伍分散。</li>
+<li>让某个玩家角色因其行为标记压力点。</li>
+<li>进行一个角色未察觉的行动。</li>
+<li>应用附带损害。</li>
+<li>清除一个临时状态或效果。</li>
+<li>改变环境。</li>
+<li>聚焦一个敌人。</li>
+<li>夺走某个重要的人或物。</li>
+<li>利用玩家角色的背景来对付对方。</li>
+<li>永久性地剥夺一次机会。</li>
+</ul>
+<h3>使用恐惧点</h3>
+<p>当你开始一场战役时，你初始拥有的恐惧点数量等于玩家角色的数量。当玩家角色掷出恐惧结果、休息（参见：休整），以及某些能力或效果要求时，你也会获得恐惧点。</p>
+<p>你最多可以持有 <strong>12</strong> 恐惧点。</p>
+<p>恐惧点在游戏场次之间会保留。</p>
+<p>你可以<strong>花费 1 恐惧点</strong>来：</p>
+<ul>
+<li>打断玩家来夺取聚焦，并执行一个游戏主持人行动</li>
+<li>执行一个额外的游戏主持人行动</li>
+<li>使用敌人的恐惧特性</li>
+<li>使用环境的恐惧特性</li>
+<li>将一个敌人的经历加值加入到一次掷骰中</li>
+</ul>
+<p>你在场景中花费的恐惧点数量会影响场景的戏剧性和张力。你可以根据以下表格的指引，决定在场景中应该花费多少恐惧点：</p>
+<table>
+<thead>
+<tr>
+<th>场景类型</th>
+<th>示例场景</th>
+<th>花费恐惧点数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>日常场景</td>
+<td>在情感激烈剧情后的角色间交流；信息搜集；在本地集市补给；休整期间的片段</td>
+<td>0–1 恐惧点</td>
+</tr>
+<tr>
+<td>次要场景</td>
+<td>旅途中的随机事件；引入新敌人或暗示未来麻烦的小规模遭遇战。</td>
+<td>1–3 恐惧点</td>
+</tr>
+<tr>
+<td>标准场景</td>
+<td>有关键目标的大型战斗；考验角色力量或智慧的危险旅程；争取关键情报或结盟的紧张社交场合。</td>
+<td>2–4 恐惧点</td>
+</tr>
+<tr>
+<td>主要场景</td>
+<td>与一个独狼或领袖敌人进行的大型战斗；角色命运转折点（如揭示、成长、背叛）的关键剧情。</td>
+<td>4–8 恐惧点</td>
+</tr>
+<tr>
+<td>高潮场景</td>
+<td>与故事中最终头目的决战；史诗般的战役；决定一个关键NPC命运的比武审判。</td>
+<td>6–12 恐惧点</td>
+</tr>
+</tbody>
+</table>
+<p>如果你发现自己拥有大量恐惧点，可以考虑以下方法：</p>
+<ul>
+<li>快：在玩家有机会反应之前花费恐惧点</li>
+<li>多：每当你处于聚焦状态时就花费恐惧点</li>
+<li>狠：花费恐惧点来连续进行多个行动</li>
+</ul>
+<p>花费恐惧点执行的行动会增强你行动的影响力。恐惧行动通常包含以下一个或多个要素：</p>
+<ul>
+<li>在没有铺垫或缺乏合理背景的情况下，向场景中引入新的敌人。</li>
+<li>敌人发动强力法术或变身，造成巨大伤害或显著提升自身能力。</li>
+<li>环境对队伍施加强烈的负面影响。</li>
+</ul>
+<h2>难度</h2>
+<h3>难度基准</h3>
+<p>以敌人为目标的攻击掷骰，难度等于该敌人数据块中指定的难度值。以敌人为目标进行的任何其它动作掷骰，难度等于该敌人的难度值，如适用，则额外添加一个相关经历的加值。</p>
+<p>当玩家进行没有指定难度的动作掷骰时，游戏主持人需要视情况设定掷骰难度。参考以下基准表获得更多指引：</p>
+<h4>敏捷</h4>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>冲刺</th>
+<th>跳跃</th>
+<th>机动</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>在有单个敌人的空旷区域内进行近距离范围的冲刺。</td>
+<td>进行一次相当于自身一半身高的助跑跳跃（人类约为 <strong>3</strong> 英尺）。</td>
+<td>缓慢走过一根狭窄横梁。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>在有单个敌人的空旷区域内进行远距离范围的冲刺。</td>
+<td>进行一次相当于你身高的助跑跳跃（人类约 <strong>6</strong> 英尺）。</td>
+<td>快速走过一根狭窄横梁。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>在有单个敌人的崎岖地形中进行近距离范围的冲刺。</td>
+<td>进行一次相当于你身高两倍的助跑跳跃（人类约 <strong>12</strong> 英尺）。</td>
+<td>奔跑穿过狭窄横梁。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>在多个敌人参与的战斗中进行近距离范围的冲刺。</td>
+<td>进行一次相当于你身高三倍的助跑跳跃（人类约 <strong>18</strong> 英尺）。</td>
+<td>在强风中奔跑穿过狭窄横梁。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>在崎岖地形的混战中进行远距离范围的冲刺。</td>
+<td>进行一次相当于你身高五倍的助跑跳跃（人类约 <strong>30</strong> 英尺）。</td>
+<td>在暴雨中奔跑穿过极窄横梁。</td>
+</tr>
+<tr>
+<td>30</td>
+<td>踏着敌人头顶在混战中奔跑。</td>
+<td>进行一次相当于你身高十倍的助跑跳跃（人类约 <strong>60</strong> 英尺）。</td>
+<td>在暴雨中奔跑穿越一根打滑的一英寸宽横梁。</td>
+</tr>
+</tbody>
+</table>
+<h4>力量</h4>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>举起</th>
+<th>猛击</th>
+<th>擒抱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>抬起一把椅子。</td>
+<td>砸碎一个玻璃杯。</td>
+<td>制服一个小孩。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>抬起一张桌子或一个小箱子。</td>
+<td>砸碎一张小木桌。</td>
+<td>制服一个虚弱的成年人。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>抬起一个成年人或一个大箱子。</td>
+<td>打破一扇木门。</td>
+<td>制服一个普通成年人。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>抬起装满货物的马车一侧，或搬运大箱子上楼。</td>
+<td>破开一堵石墙。</td>
+<td>制服一个熟练的摔跤手。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>抬起一匹马、一头牛或一个大型怪物。</td>
+<td>打穿龙的牙齿。</td>
+<td>制服一只大型野兽。</td>
+</tr>
+<tr>
+<td>30</td>
+<td>抬起落下的城门。</td>
+<td>挣脱神明的掌控。</td>
+<td>制服传说中的猛兽。</td>
+</tr>
+</tbody>
+</table>
+<h4>灵巧</h4>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>控制</th>
+<th>隐藏</th>
+<th>巧手</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>在平坦地形中骑马。</td>
+<td>在无月之夜完全遮蔽下躲藏。</td>
+<td>用钥匙打开一把卡住的锁。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>驾驭一辆牛车。</td>
+<td>在无月之夜有限遮蔽下躲藏。</td>
+<td>打开一个简单的机关盒。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>在崎岖地形中骑马。</td>
+<td>在普通夜晚有限遮蔽下躲藏。</td>
+<td>解除一个标准陷阱。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>在崎岖地形中驾驭马车。</td>
+<td>在普通夜晚的阴影中躲藏。</td>
+<td>解除一个复杂的陷阱。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>在危险地形中骑一匹野马。</td>
+<td>在光线充足、掩护稀少的环境中躲藏。</td>
+<td>解开一扇由多重复杂锁构成的门。</td>
+</tr>
+<tr>
+<td>30</td>
+<td>骑一头暴怒的野兽穿越危险地形。</td>
+<td>在大白天、无任何掩护下躲藏。</td>
+<td>解除一个极其敏感且致命的陷阱。</td>
+</tr>
+</tbody>
+</table>
+<h4>本能</h4>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>感知</th>
+<th>察觉</th>
+<th>导航</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>听到二十步外的巨大响动。</td>
+<td>察觉明显的埋伏或明显的谎言。</td>
+<td>在良好光照和天气下沿着一条熟路前进。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>听到五十步外的说话声。</td>
+<td>察觉迫近的威胁或普通人的谎言。</td>
+<td>在良好光照和天气下沿着一条普通小路前进。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>听到五十步外树林中的脚步声。</td>
+<td>洞察敌意或识破商人的谎言。</td>
+<td>在恶劣条件下沿隐秘路径前行。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>听到五十步外树林中潜行发出的动静。</td>
+<td>识别政客的虚伪或察觉刺客接近。</td>
+<td>在在严苛条件下沿隐秘路径前行。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>听到五十步外潜伏野兽的动静。</td>
+<td>看穿间谍头子的布局或政客的真正意图。</td>
+<td>在危险环境中，没有方向指引的情况下找到正确的路径。</td>
+</tr>
+<tr>
+<td>30</td>
+<td>听到百步外正在俯冲的飞鸟的动静。</td>
+<td>察觉神祇言语中的一丝迟疑。</td>
+<td>在诡计之神设下的迷宫中找到正确的路径。</td>
+</tr>
+</tbody>
+</table>
+<h4>风度</h4>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>魅力</th>
+<th>表演</th>
+<th>欺瞒</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>赢得友善邻居的信任。</td>
+<td>从友善的群众那里讨得一顿饭。</td>
+<td>欺骗一位信任你的熟人。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>赢得友善陌生人的信任。</td>
+<td>在小镇获得食宿或给一小群人留下深刻印象。</td>
+<td>欺骗一位普通陌生人。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>赢得谨慎陌生人或说服进入贵族的派对。</td>
+<td>在低端酒馆获得食宿或给一大群人留下深刻印象。</td>
+<td>欺骗一位普通商人。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>赢得一个同情你的敌人的信任或说服自己进入敌人的派对。</td>
+<td>在在高档酒馆获得住宿或打动满座剧院的观众。</td>
+<td>欺骗一位受过训练的宫廷人士。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>教唆一名敌人反对其统治者或混入妖精法庭。</td>
+<td>在王室宫廷中谋得职位或给打动满座竞技场的观众。</td>
+<td>欺骗一位间谍大师。</td>
+</tr>
+<tr>
+<td>30</td>
+<td>说服敌对神明赐予恩惠。</td>
+<td>在冒犯女王后逃脱死刑。</td>
+<td>欺骗一位神明。</td>
+</tr>
+</tbody>
+</table>
+<h4>知识</h4>
+<table>
+<thead>
+<tr>
+<th>难度</th>
+<th>回想</th>
+<th>分析</th>
+<th>理解</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>回忆本地的特殊信息。</td>
+<td>理解简单文本中的明显隐喻。</td>
+<td>从一位优秀教师那里学会简单技能。</td>
+</tr>
+<tr>
+<td>10</td>
+<td>回忆邻近地区的特殊信息。</td>
+<td>识破谈话中的明显潜台词。</td>
+<td>从一位普通教师那里学会简单技能。</td>
+</tr>
+<tr>
+<td>15</td>
+<td>回忆远方地区的特殊信息。</td>
+<td>破解密码信息中的普通密码。</td>
+<td>从一位优秀的老师那里学习复杂的技能。</td>
+</tr>
+<tr>
+<td>20</td>
+<td>回忆遥远地方的特定信息。</td>
+<td>看穿复杂战术中的漏洞。</td>
+<td>在恶劣条件下学会复杂技能。</td>
+</tr>
+<tr>
+<td>25</td>
+<td>回忆失落王国的特定信息。</td>
+<td>从隐藏的罪行中推断国家衰亡。</td>
+<td>在危险环境下快速掌握复杂技能。</td>
+</tr>
+<tr>
+<td>30</td>
+<td>回忆一个模糊历史组织的秘密信息。</td>
+<td>识破神选战士战斗姿态中的破绽。</td>
+<td>在信息残缺的情况下迅速学会复杂技能。</td>
+</tr>
+</tbody>
+</table>
+<h4>给予优势与劣势</h4>
+<p>给予玩家角色优势（或施加劣势）来取代调整动作掷骰的难度，可以让角色的行动和情境以更具象的方式影响其与世界的互动。</p>
+<h3><strong>敌人的动作掷骰</strong></h3>
+<p>除了攻击和其数据块中的独特动作外，敌人通常不会进行动作掷骰。敌人尝试的任何其它动作无需掷骰就能直接成功；如果你认为某个敌人的行为有可能失败，让与其相关的玩家角色进行一次反应掷骰。</p>
+<p>你也可以让敌人在玩家角色无法影响的戏剧性或困难任务中进行一次<strong>动作掷骰</strong>。敌人进行动作掷骰时，掷一个 <strong>d20</strong> 。若结果等于或大于该次行动的难度值，动作成功——反之失败。你可以在掷骰前<strong>花费 1 恐惧点</strong>，以将敌人数据块中相关经历的调整值加到结果中。敌人进行<strong>反应掷骰</strong>时也一样。</p>
+<h4><strong>敌人的优势与劣势</strong></h4>
+<p>如果敌人的动作掷骰拥有优势，游戏主持人投掷一个额外的 <strong>d20</strong> 并只计算较高的结果。如果敌人的动作掷骰拥有劣势，游戏主持人投掷一个额外的 <strong>d20</strong> 并只计算较低的结果。</p>
+<h4><strong>敌人攻击</strong></h4>
+<p>敌人攻击玩家角色时，游戏主持人掷 <strong>d20</strong> 并将敌人的攻击加值加到结果上。如果结果总数达到或超过目标的闪避值，此次攻击成功；否则攻击失败。游戏主持人可以在掷骰前给予敌人优势、劣势，或<strong>花费 1 恐惧点</strong>以将敌人数据块中相关经历的调整值加到结果上。</p>
+<p>成功时，敌人对目标造成数据块中该攻击所示的伤害。</p>
+<p>当敌人的动作允许游戏主持人对多个目标进行攻击时，只进行一次攻击掷骰，并分别与每个目标的闪避值进行比较。</p>
+<h2>倒计时</h2>
+<p><strong>倒计时</strong>用于体现未来某些效果发生前的一段时间或一系列事件。倒计时从起始值开始，每次<strong>推进</strong>时，将点数减少 <strong>1</strong> 。倒计时达到 <strong>0</strong> 时将触发倒计时的效果。</p>
+<p><em>注意：你可以通过转动骰子或勾选方框来追踪倒计时。</em></p>
+<p><strong>标准倒计时</strong>在每次玩家进行动作掷骰时推进。如果敌人或环境能力提到“倒计时 [n]”，它表示起始值为 n 的标准倒计时。</p>
+<p><strong>动态倒计时</strong>根据动作掷骰的结果推进最多 <strong>3</strong> 点。<strong>后果倒计时</strong>是导向负面效果的动态倒计时。<strong>进度倒计时</strong>是导向正面效果的动态倒计时。动态倒计时依据下表推进：</p>
+<h4>动态倒计时推进表</h4>
+<table>
+<thead>
+<tr>
+<th>掷骰结果</th>
+<th>进度推进</th>
+<th>后果推进</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>恐惧失败</td>
+<td>不推进</td>
+<td>-3</td>
+</tr>
+<tr>
+<td>希望失败</td>
+<td>不推进</td>
+<td>-2</td>
+</tr>
+<tr>
+<td>恐惧成功</td>
+<td>-1</td>
+<td>-1</td>
+</tr>
+<tr>
+<td>希望成功</td>
+<td>-2</td>
+<td>不推进</td>
+</tr>
+<tr>
+<td>关键成功</td>
+<td>-3</td>
+<td>不推进</td>
+</tr>
+</tbody>
+</table>
+<h4>进阶倒计时特性</h4>
+<ul>
+<li>具有<strong>随机起始值</strong>的倒计时</li>
+<li><strong>循环</strong>倒计时在其倒计时效果触发后重置为起始值</li>
+<li><strong>递增</strong>倒计时每次循环时将起始值增加 <strong>1</strong></li>
+<li><strong>递减</strong>倒计时每次循环时将起始值减少 <strong>1</strong></li>
+<li><strong>关联</strong>的进展和后果倒计时根据相同的动作掷骰结果同时推进</li>
+<li><strong>长期</strong>倒计时在<strong>休息</strong>而非动作掷骰后推进</li>
+</ul>
+<h2>分发金币、装备与战利品</h2>
+<p>在你的战役中，你和玩家可以自行决定金币、装备和战利品的重要程度。调整财富和装备的可获得性和实用性来反映你战役的基调、主题和设定。如果你不想追踪金币，那么当玩家角色购买新物品时，让他们从一个符合你战役设定和队伍当前定位的简短预选清单中挑选一到两件。</p>
+<p>你可以通过调整平均成本表中的条目来设定商品和服务的价格，以此反映你的战役设定：</p>
+<table>
+<thead>
+<tr>
+<th>购买项目</th>
+<th>金币</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一队冒险者一晚的餐食</td>
+<td>1 把</td>
+</tr>
+<tr>
+<td>标准旅店房间一晚</td>
+<td>1 把</td>
+</tr>
+<tr>
+<td>豪华旅店房间一晚</td>
+<td>1 袋</td>
+</tr>
+<tr>
+<td>马车乘坐</td>
+<td>2 把</td>
+</tr>
+<tr>
+<td>坐骑（马、骡子等）</td>
+<td>3 袋</td>
+</tr>
+<tr>
+<td>专业工具</td>
+<td>3 把</td>
+</tr>
+<tr>
+<td>精美衣物</td>
+<td>3 把</td>
+</tr>
+<tr>
+<td>豪华衣物</td>
+<td>1 袋</td>
+</tr>
+<tr>
+<td>T <strong>1</strong> 装备（武器、护甲）</td>
+<td>1–5 把</td>
+</tr>
+<tr>
+<td>T <strong>2</strong> 装备（武器、护甲）</td>
+<td>1–2 袋</td>
+</tr>
+<tr>
+<td>T <strong>3</strong> 装备（武器、护甲）</td>
+<td>5–10 袋</td>
+</tr>
+<tr>
+<td>T <strong>4</strong> 装备（武器、护甲）</td>
+<td>1–2 箱</td>
+</tr>
+</tbody>
+</table>
+<h2>运作游戏主持人控制的非玩家角色</h2>
+<p>当你作为游戏主持人操作非玩家角色时，应始终努力遵循游戏主持人原则，利用非玩家角色让世界变得生动有趣。通过非玩家角色独特的说话方式和行为来区分每个角色，并深入挖掘非玩家角色们各自的欲望和动机。</p>
+<p>非玩家角色不可或缺的三要素分别是他们的<strong>姓名、描述</strong>和<strong>动机</strong>。如果玩家角色可能对他们进行动作掷骰，那么也可以考虑为其设定难度。你可以修改一个敌人的数据块来创造或即兴设计新的敌人。</p>
+<p>如果非玩家角色在战斗中成为了玩家的盟友，他们不需要数据块——只需聚焦他们的行动，并展示因其参与而导致的故事转折。如果玩家角色在场景中利用了他们的帮助，给玩家角色优势。没有生命点和压力点的非玩家角色仍然可以在剧情需要时受伤或死亡。</p>
+<p>如果你想要重要的非玩家角色能够从机制上进行互动，你可以赋予他们一个或多个具备特定<strong>触发</strong>条件和<strong>效果</strong>的特性。非玩家角色也可能具备调整其特性参数的<strong>选择</strong>。例如：</p>
+<h4><strong>奥术束缚</strong></h4>
+<p><em>选择：</em> 战斗开始时，选择一个偏爱的玩家角色。</p>
+<p><em>触发：</em> 战斗中，位于近距离范围内、受到偏爱的玩家角色第一次受到攻击命中时。</p>
+<p><em>效果：</em> 对该敌人进行一次带有 +6 调整值的攻击掷骰。成功时，强大的魔法触须使目标暂时处于 <em>束缚</em> 状态。</p>
+<h3>NPC特性示例</h3>
+<h4><strong>箭雨</strong></h4>
+<p><em>触发：</em> 战斗开始且此非玩家角色参与其中。</p>
+<p><em>效果：</em> 启动一个倒计时（循环 <strong>3</strong> ）。当一名玩家角色攻击失败时，倒计时减少 <strong>1</strong> 。倒计时触发时，此非玩家角色向一名由玩家角色选择的目标射出一轮箭雨，造成 <strong>2d8+3</strong> 点物理伤害。</p>
+<h4><strong>导师</strong></h4>
+<p><em>选择：</em> 战斗开始时，选择一个玩家角色成为你的学徒。</p>
+<p><em>触发：</em> 你的学徒处于近距离范围内且攻击掷骰失败时。</p>
+<p><em>效果：</em> 移动至该玩家角色的近战范围内并给予建议或指导，使其下一次攻击掷骰具有优势。</p>
+<h4><strong>重整态势</strong></h4>
+<p><em>选择：</em> 战斗开始时，选择一个远距离范围内的地点。</p>
+<p><em>触发：</em> 当所有玩家角色都标记了其全部护甲槽时。</p>
+<p><em>效果：</em> 将所有玩家角色与该NPC传送到选定的地点，然后为每个目标<strong>清除 1 护甲槽</strong>。</p>
+<h4><strong>融入夜色</strong></h4>
+<p><em>触发：</em> 玩家角色与此非玩家角色一起开始长休。</p>
+<p><em>效果：</em> 掷 <strong>1d4</strong>。若结果小于等于 <strong>2</strong> ，该NPC会在玩家角色们睡觉时偷走队伍的 <strong>1</strong> 把金币，然后消失在夜色中。</p>
+<h2>可选主持人机制</h2>
+<h3><strong>命运掷骰</strong></h3>
+<p>当游戏主持人希望完全将结果交由运气决定时，其可以要求进行一次命运掷骰。游戏主持人说明所涉利害关系以及如何演绎掷骰结果。然后由一名玩家掷出其二元骰的其中一颗，并演绎该结果。</p>
+<p><em>示例：</em></p>
+<p>“掷出你的恐惧骰。若结果为 <strong>4</strong> 或更低，大火将蔓延到屋外。”</p>
+<p>“我觉得援军能否及时赶到完全取决于运气。来，掷出你的恐惧骰，这会决定倒计时的起始数值——等倒计时触发时，援军就会在离你远距离范围的地方出现。”</p>
+<p>“掷出你的希望骰，看看今晚旅馆里有多少人。点数越高，人越多。”</p>
+<p>“掷出你的希望骰，以此决定商店库存里还有多少瓶精力药水。”</p>
+<h3><strong>坠落与碰撞伤害</strong></h3>
+<p>如果角色坠落到地面，你可以使用下列指引来确定其受到的伤害：</p>
+<ul>
+<li>从邻近范围的高度坠落受到 <strong>1d10+3</strong> 点物理伤害。</li>
+<li>从近距离范围的高度坠落受到 <strong>1d20+5</strong> 点物理伤害。</li>
+<li>从远距离范围或极远范围的高度坠落受到 <strong>1d100+15</strong> 点物理伤害，或者由游戏主持人酌情判定死亡。</li>
+</ul>
+<p>如果角色以危险的速度撞上物体或另一个角色，二者都会受到 <strong>1d20+5</strong> 点直接物理伤害。</p>
+<h3><strong>水下移动与战斗</strong></h3>
+<p>水下进行的攻击掷骰通常处于劣势。</p>
+<p>对于无法在水下呼吸的生物，使用一个标准倒计时（3）来追踪其在水下憋气的时间。每当玩家角色在水下进行动作时，倒计时减 <strong>1</strong> 。此外，如果其动作掷骰为恐惧结果，你可以使用游戏主持人行动来让倒计时再减 <strong>1</strong> ——如果掷骰结果为恐惧失败，可额外减 <strong>2</strong> 。</p>
+<p>一旦倒计时结束，处于水下的玩家角色在执行每一次行动时，必须<strong>标记 1 压力点</strong>。</p>
+<h3><strong>玩家角色之间的冲突</strong></h3>
+<p>有时，玩家可能希望让自己的角色在场景中对抗另一名玩家角色。在开始掷骰前，先与双方玩家讨论当前情境，商量如何解决冲突。有时候无需掷骰也能得出结果；但如果大家都觉得掷骰能带来乐趣，那就先就掷骰的规则达成共识，再根据结果推进场景。</p>
+<p>如果对另一名玩家角色进行攻击掷骰，攻击者的掷骰将对抗目标角色的闪避值，就像对抗敌人一样。如果是其他类型的动作掷骰，发起方先进行一次动作掷骰，承受方则进行一次反应掷骰。发起方的动作掷骰结果必须达到承受方反应掷骰的结果才算成功。</p>
+<h2>附加游戏主持人指导</h2>
+<p><em>本章节提供有关准备与运作《匕首之心》游戏场次的额外指导。</em></p>
+<h4>叙事节奏</h4>
+<p>在叙事中，节奏指的是那些会改变故事轨迹的瞬间——一次世界的转变、一项关键的行动或反应、一场情感上的揭示，或一次重要的决策。与玩家轮流叙述节奏，接着让他们做出反应，推动场景发展。多从那些能够塑造场景或事件的重要时刻角度来准备游戏，而不要预先编写特定的细节和对话。</p>
+<h4>准备战斗遭遇</h4>
+<p>每一场遭遇战的建构都应以“如何更好地讲述故事？”为出发点。敌人、环境和危险是用于提升张力、制造戏剧冲突的工具。战斗应该被用来揭示更多有关剧情、世界或角色本身的信息。</p>
+<h4>战斗与叙事</h4>
+<p>精彩的战斗能够营造悬念，例如迫使玩家在不同目标之间做出选择，激发角色的动机与弱点，玩家得以在此将自己的角色淬炼成传奇英雄。在准备战斗遭遇时：</p>
+<ul>
+<li>考虑战斗的叙事功能</li>
+<li>基于敌人动机来设计行动</li>
+<li>利用动态环境让战场栩栩如生</li>
+<li>引入能与玩家角色特性和特殊能力互动的对手</li>
+</ul>
+<h4>场次奖励</h4>
+<p>在场次结束时奖励玩家：</p>
+<ul>
+<li>有用的信息</li>
+<li>剧情线索</li>
+<li>战利品</li>
+<li>金币</li>
+<li>获取新装备或强化的机会</li>
+</ul>
+<h4>构筑场景</h4>
+<p>每当你开启一场新游戏、抵达全新的区域，还是引发突变状况时，请调动你的全部感官进行描绘。分享这个世界独特或出乎意料的地方，让玩家明白他们需要知道的信息。</p>
+<h4>吸引玩家参与</h4>
+<p>通过以下方式保持玩家的参与度：</p>
+<ul>
+<li>让焦点在各个玩家角色之间轮转</li>
+<li>串联故事元素</li>
+<li>引导安静的玩家参与</li>
+<li>使用视觉辅助工具</li>
+<li>鼓励自主扮演</li>
+<li>让玩家角色面对内外部冲突</li>
+<li>使用恐惧点制造戏剧张力</li>
+<li>为战斗赋予层次化的目标 (参见下一页的随机目标表)</li>
+</ul>
+<h4>1d12 目标</h4>
+<ul>
+<li><strong>1</strong> 获取（取得或偷窃）一件或多件重要物品。</li>
+<li><strong>2</strong> 俘虏一个或多个对手。</li>
+<li><strong>3</strong> 启动一个魔法装置。</li>
+<li><strong>4</strong> 嫁祸于某个角色或玷污其名声。</li>
+<li><strong>5</strong> 将对手逼入死角或设伏地点。</li>
+<li><strong>6</strong> 阻止一场魔法仪式、公开审判或有时限的法术。</li>
+<li><strong>7</strong> 坚守阵地——阻止敌人到达某个区域或接触某个群体。</li>
+<li><strong>8</strong> 在目标身上安放证据以栽桩嫁祸或追踪装置。</li>
+<li><strong>9</strong> 抢先占领某个特定地点，以防另一方到达。</li>
+<li><strong>10</strong> 骚扰对手以消耗其资源或牵制其注意力。</li>
+<li><strong>11</strong> 摧毁一座建筑物、一尊雕像、一座神龛或一件武器。</li>
+<li><strong>12</strong> 调查某个状况以确认或否定现有情报。</li>
+</ul>
+<h4>分阶段战斗</h4>
+<p>通过在战斗中途改变敌人或环境的性质来设计战斗：</p>
+<ul>
+<li>改变交战条件</li>
+<li>改变环境</li>
+<li>使对手进化</li>
+</ul>
+<h4>使用休整</h4>
+<p>把休整场景作为调剂，从而调整故事的强度，并给予玩家角色喘息的空间。</p>
+<p>放手让你的玩家们自行构建休整时间的场景，询问他们当角色们在处理伤势、放松身心时会是什么样子，鼓励玩家们主导叙事，并与其他相关角色的玩家一起协作演绎。</p>
+<h4>休整时的项目</h4>
+<p>相比于其他休整行动，在修整行动时推进长期项目需要游戏主持人更费心，而这也是最适合玩家们长期努力的方向。
+这些项目通常会用进展倒计时追踪。在确定倒计时的起始值时，需考虑项目的复杂性、相关工具的可用性以及项目对故事的影响。
+简单项目会在每次玩家使用“推进长期项目”行动时都推进倒计时，而复杂项目则需要进行掷一次骰。</p>
+<h4>延长修整</h4>
+<p>当你快速推进故事跨越较长时间段时，可以使用蒙太奇手法来展现时间的流逝。每名玩家角色将使你<strong>获得 1d6 恐惧点</strong>，并根据情况推进任何合适的长期倒计时。</p>
+</div>
+<div class="lang-en">
+<h2>INTRODUCTION</h2>
+<p>The GM is responsible for guiding the narrative and roleplaying the world the PCs inhabit. This section provides you with advice for running Daggerheart: using the core mechanics; creating memorable encounters; planning exciting sessions; selecting, creating, and using GM moves; crafting a full campaign; running dynamic NPCs; and more.</p>
+<h2>GM GUIDANCE</h2>
+<p>These three sections provide a foundation to help you get the most out of this game. The "GM Principles" are your guiding star—when in doubt, return to these principles.</p>
+<h3>GM PRINCIPLES</h3>
+<h4><strong>BEGIN AND END WITH THE FICTION</strong></h4>
+<p><em>Use the fiction to drive mechanics, then connect the mechanics back to the fiction.</em></p>
+<h4><strong>COLLABORATE AT ALL TIMES, ESPECIALLY DURING CONFLICT</strong></h4>
+<p><em>The PCs are the protagonists of the campaign; antagonism between player and GM should exist only in the fiction.</em></p>
+<h4><strong>FILL THE WORLD WITH LIFE, WONDER, AND DANGER</strong></h4>
+<p><em>Showcase rich cultures, take the PCs to wondrous places, and introduce them to dangerous creatures.</em></p>
+<h4><strong>ASK QUESTIONS AND INCORPORATE THE ANSWERS</strong></h4>
+<p><em>Ensuring that the players' ideas are included results in a narrative that supports the whole group's creativity.</em></p>
+<h4><strong>GIVE EVERY ROLL IMPACT</strong></h4>
+<p><em>Only ask the players to roll during meaningful moments.</em></p>
+<h4><strong>PLAY TO FIND OUT WHAT HAPPENS</strong></h4>
+<p><em>Be surprised by what the characters do, the choices they make, and the people they become.</em></p>
+<h4><strong>HOLD ON GENTLY</strong></h4>
+<p><em>Don't worry if you need to abandon or alter something that came before.</em></p>
+<h3>GM PRACTICES</h3>
+<h4><strong>CULTIVATE A CURIOUS TABLE</strong></h4>
+<p><em>Follow what catches the players' interest to foster an environment of creative inquiry.</em></p>
+<h4><strong>GAIN YOUR PLAYERS' TRUST</strong></h4>
+<p><em>Act in good faith, follow through on your promises, admit your mistakes.</em></p>
+<h4><strong>KEEP THE STORY MOVING FORWARD</strong></h4>
+<p><em>Advance the story through escalating action, new information, or changing circumstances after every action roll, whether it succeeds or fails.</em></p>
+<h4><strong>CUT TO THE ACTION</strong></h4>
+<p><em>Skip past the boring bits. When a scene drags on, end it.</em></p>
+<h4><strong>HELP THE PLAYERS USE THE GAME</strong></h4>
+<p><em>Players have more fun when you help them understand the system.</em></p>
+<h4><strong>CREATE A META CONVERSATION</strong></h4>
+<p><em>Empower players to speak out of character, use safety tools, and ask for clarification.</em></p>
+<h4><strong>TELL THEM WHAT THEY WOULD KNOW</strong></h4>
+<p><em>Don't hide obvious details or important information from the players.</em></p>
+<h4><strong>GROUND THE WORLD IN MOTIVE</strong></h4>
+<p><em>An NPC's actions flow from their goals and desires.</em></p>
+<h4><strong>BRING THE GAME'S MECHANICS TO LIFE</strong></h4>
+<p><em>Set a good example of how fiction and mechanics work together to enhance the game experience.</em></p>
+<h4><strong>REFRAME RATHER THAN REJECT</strong></h4>
+<p><em>If a player's contribution conflicts with the fiction, work with them to reshape it.</em></p>
+<h4><strong>WORK IN MOMENTS AND MONTAGES</strong></h4>
+<p><em>When framing a scene, decide which beats should be savored and which shouldn't linger.</em></p>
+<h3>PITFALLS TO AVOID</h3>
+<h4><strong>UNDERMINING THE HEROES</strong></h4>
+<p>If a roll doesn't go well, show how it was impacted by an adversary's prowess, environmental factors, or unexpected surprises, rather than the PC's incompetence.</p>
+<h4><strong>ALWAYS TELLING THE PLAYERS WHAT TO ROLL</strong></h4>
+<p>Let the players decide how to handle a challenge.</p>
+<h4><strong>LETTING SCENES DRAG</strong></h4>
+<p>Shake it up or cut away when a scene has concluded, the table's energy is flagging, or people are talking in circles.</p>
+<h4><strong>SINGULAR SOLUTIONS</strong></h4>
+<p>Don't get hung up on one right answer to a problem. If the players have a clever idea, make it work.</p>
+<h4>Overplanning</h4>
+<p>Spend your prep time inventing situations instead of scripting scenes. If the players surprise you, take a break to think through your options.</p>
+<h4><strong>HOARDING FEAR</strong></h4>
+<p>Spend Fear when you have the opportunity. The players will always generate more.</p>
+<p><em>For more in-depth GM guidance, see pg. 140 of the Daggerheart Core Rulebook.</em></p>
+<h2>CORE GM MECHANICS</h2>
+<h3>ROLLING DICE</h3>
+<p>The GM has no Duality Dice; instead, they roll a single d20 called the GM's Die.</p>
+<h4><strong>ADVERSARY ATTACK ROLLS</strong></h4>
+<p>When an adversary attacks a PC, roll your d20 and add the adversary's attack bonus to the result. If the total meets or beats the target's Evasion, the attack succeeds; otherwise, the attack fails. On a successful attack, roll the attack's damage dice to determine how much it deals.</p>
+<p>If you roll a natural 20 on an attack, your roll automatically succeeds and you deal extra damage. Roll damage normally, then add the highest number on the damage dice to the total. For example, an attack that deals 3d6+2 deals 18+3d6+2 on a critical success; the critical success does not affect the flat damage modifier.</p>
+<p><em>Note: a critical success on an adversary's reaction roll automatically succeeds, but confers no additional benefit.</em></p>
+<h4><strong>GUIDANCE ON ACTION ROLLS</strong></h4>
+<p>After a player describes a move they want to make during the game, you might decide an action roll is necessary to determine how the scene progresses. Use this guide to determine what to present the player, choosing whichever option best fits the situation:</p>
+<ul>
+<li>Determine whether the roll is necessary, considering the PC's Experiences or backstory, the pressure they're acting under, and the possible outcomes.</li>
+<li>Establish the stakes of an action roll before the player makes it.</li>
+<li>Communicate any unavoidable consequences.</li>
+<li>If desired, you can offer the player the opportunity to forgo an action roll in exchange for agreeing to an interesting outcome, cost, or complication.</li>
+</ul>
+<h3>MAKING MOVES</h3>
+<p>As the GM, you have <strong>GM moves</strong> that change the story in response to the players' actions. GM moves aren't bound by specific spells or effects—when you make a GM move, you can describe the action in whatever way the fiction demands.</p>
+<p>GM moves happen during <strong>GM turns.</strong> A GM turn begins when the spotlight passes to them and ends when the spotlight passes back to the players.</p>
+<h4><strong>WHEN TO MAKE A MOVE</strong></h4>
+<p>The GM can make a GM move whenever you want, but the frequency and severity depends on the type of story you're telling, the actions your players take, and the tone of the session you're running.</p>
+<p>Make a GM move when the players:</p>
+<ul>
+<li>Roll with Fear</li>
+<li>Fail an action roll</li>
+<li>Do something that has unavoidable consequences</li>
+<li>Give you a "golden opportunity" (an opening that demands an immediate response)</li>
+<li>Look to you for what happens next</li>
+</ul>
+<h4><strong>CHOOSING GM MOVES</strong></h4>
+<p>The result of a player's action roll determines your response:</p>
+<p>On a <strong>Critical Success,</strong> you let the player describe their success, then give them an additional opportunity or advantage.</p>
+<p>On a <strong>Success with Hope,</strong> you let the player describe their success, then you show how the world reacts to it.</p>
+<p>On a <strong>Success with Fear,</strong> you work with the player to describe their success, then take a Fear and make a GM move to introduce a minor consequence, complication, or cost:</p>
+<ul>
+<li>An adversary attacks</li>
+<li>The PC marks a Stress</li>
+<li>You introduce a new threat</li>
+<li>You raise the stakes of the conflict</li>
+</ul>
+<p>On a <strong>Failure with Hope,</strong> you describe how the PC fails to get what they want, then make a GM move to introduce a minor consequence, complication, or cost:</p>
+<ul>
+<li>An adversary attacks</li>
+<li>The PC marks a Stress</li>
+<li>You introduce a new threat</li>
+<li>You raise the stakes of the conflict</li>
+</ul>
+<p><strong>On a Failure with Fear,</strong> you describe how things go wrong, then make a GM move to introduce a major consequence, complication, or cost:</p>
+<ul>
+<li>You put them in immediate danger</li>
+<li>They become the focus of multiple adversaries</li>
+<li>They are separated from their party</li>
+<li>They lose an important opportunity for good.</li>
+</ul>
+<h4><strong>QUICK REFERENCE:</strong> RESOLVING ACTION ROLLS</h4>
+<p><em>If you're unsure how to resolve a roll, think about these quick phrases:</em></p>
+<p><strong>Success with Hope:</strong> Yes, and… (You get what you want and gain a Hope.)</p>
+<p><strong>Success with Fear:</strong> Yes, but… (You get what you want, but there's a consequence, and the GM gains a Fear.)</p>
+<p><strong>Failure with Hope:</strong> No, but… (Things don't go as planned, but you gain a Hope.)</p>
+<p><strong>Failure with Fear:</strong> No, and… (Things don't go as planned and it gets worse. The GM gains a Fear.)</p>
+<p>If the move you should make is not obvious from the fiction, draw inspiration from the "Example GM Moves" list:</p>
+<ul>
+<li>Introduce a new obstacle or enemy</li>
+<li>Ask the player what happens</li>
+<li>Have the PC mark a Stress</li>
+<li>Tell the players "everything is fine… for now."</li>
+</ul>
+<h4><strong>SOFT AND HARD MOVES</strong></h4>
+<p><strong>Soft moves</strong> go easier on the players—they give the party new information about the scene and offer them an opportunity to react to it. <strong>Hard moves</strong> are harsher, more impactful, or more direct—the PCs don't get an opening to interrupt, alter, or anticipate the outcome.</p>
+<p>Use softer moves on rolls with Hope and harder moves on rolls with Fear.</p>
+<h4><strong>Example GM Moves</strong></h4>
+<ul>
+<li>Show how the world reacts</li>
+<li>Ask a question and build on the answer</li>
+<li>Make an NPC act in accordance with their motive</li>
+<li>Drive a PC to take action by dangling their goals in front of them</li>
+<li>Signal an imminent off-screen threat</li>
+<li>Reveal an unwelcome truth or unexpected danger</li>
+<li>Force the group to split up</li>
+<li>Make a PC mark Stress</li>
+<li>Make a move the characters don't see</li>
+<li>Show the collateral damage</li>
+<li>Clear an adversary's condition</li>
+<li>Shift the environment</li>
+<li>Spotlight an adversary</li>
+<li>Capture someone or something important</li>
+<li>Use a PC's backstory against them</li>
+<li>Take away an opportunity permanently.</li>
+</ul>
+<h3>USING FEAR</h3>
+<p>You start a campaign with 1 Fear per PC in the party.</p>
+<p>You gain Fear whenever a PC rolls with Fear, the PCs take a rest (see: Downtime), or when an ability or effect tells you to.</p>
+<p>You can never have more than 12 Fear at one time.</p>
+<p>Fear carries over between sessions.</p>
+<p>Spend a Fear to:</p>
+<ul>
+<li>Interrupt the players to steal the spotlight and make a move</li>
+<li>Make an additional GM move</li>
+<li>Use an adversary's Fear Feature</li>
+<li>Use an environment's Fear Feature</li>
+<li>Add an adversary's Experience to a roll</li>
+</ul>
+<p>The dramatic tension of a scene correlates with the amount of Fear you spend during it. For guidance on how much Fear you should spend in a scene, consult the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Incidental</th>
+<th>A catch-up between PCs<br>after an emotionally charged<br>scene; gathering information;<br>resupplying at a local market;<br>resting during downtime.</th>
+<th>0–1 Fear</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Minor</td>
+<td>A travel sequence; a minor<br>skirmish that introduces new<br>foes or signals future trouble.</td>
+<td>1–3 Fear</td>
+</tr>
+<tr>
+<td>Standard</td>
+<td>A substantial battle with a<br>notable objective; perilous<br>travel that tests might and<br>wit; a tense social encounter<br>seeking crucial information<br>or aid.</td>
+<td>2–4 Fear</td>
+</tr>
+<tr>
+<td>Major</td>
+<td>A large battle with a Solo<br>or Leader adversary; a<br>character-defining scene<br>with a significant change to<br>a character's personal story<br>(such as revelation, growth,<br>and betrayal).</td>
+<td>4–8 Fear</td>
+</tr>
+<tr>
+<td>Climactic</td>
+<td>A major confrontation with<br>the villain of a story arc;<br>an epic set piece battle; a<br>judicial duel to determine an<br>important NPC's fate.</td>
+<td>6–12 Fear</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>If you find yourself with a <strong>large amount of Fear,</strong> consider:</p>
+<ul>
+<li><strong>Spending Fast:</strong> Spend Fear before the players have a chance to react</li>
+<li><strong>Spending Often:</strong> Spend Fear every time the spotlight swings to you</li>
+</ul>
+<p>• <strong>Spending Big:</strong> Spend Fear to make multiple moves in a row Spending Fear to make a move communicates the increased impact of your action. Fear moves often include one or more of these elements:</p>
+<ul>
+<li>Introducing new adversaries to a scene when their appearance hasn't been foreshadowed or lacks context.</li>
+<li>An adversary activating a powerful spell or transformation to deal massive damage or boost their capabilities.</li>
+<li>An environment exerting a strong negative effect on the party.</li>
+</ul>
+<h2>DIFFICULTY BENCHMARKS</h2>
+<p>The Difficulty of an attack roll against an adversary is equal to the adversary's Difficulty score. The Difficulty of any other action rolls against an adversary is equal to the adversary's Difficulty score, plus (if applicable) the value of one of the adversary relevant Experience modifiers.</p>
+<p>When a player makes an action roll without a specified Difficulty, the GM sets the Difficulty according to the totality of the circumstances. Refer to the following benchmark table for more guidance:</p>
+<h4>AGILITY</h4>
+<table>
+<thead>
+<tr>
+<th>roll</th>
+<th>sprint</th>
+<th>leap</th>
+<th>Maneuver</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Sprint within Close range across an<br>open field with an enemy present.</td>
+<td>Make a running jump of half your height<br>(about 3 feet for a human).</td>
+<td>Walk slowly across a narrow beam.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Sprint within Far range across an open<br>field with an enemy present.</td>
+<td>Make a running jump of your height<br>(about 6 feet for a human).</td>
+<td>Walk quickly across a narrow beam.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Sprint within Close range across<br>rough terrain with an enemy present.</td>
+<td>Make a running jump of double your<br>height (about 12 feet for a human).</td>
+<td>Run across a narrow beam.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Sprint within Close range through an<br>active battle of multiple enemies.</td>
+<td>Make a running jump of three times your<br>height (about 18 feet for a human).</td>
+<td>Run across a narrow beam in heavy<br>wind.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Sprint within Far range through a<br>pitched battle in rough terrain.</td>
+<td>Make a running jump of five times your<br>height (about 30 feet for a human).</td>
+<td>Run across a very narrow beam in<br>an active rainstorm.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Sprint across the heads of your<br>enemies in a pitched battle.</td>
+<td>Make a running jump of ten times your<br>height (about 60 feet for a human).</td>
+<td>Run across an inch-wide, oil-slicked<br>beam in an active rainstorm.</td>
+</tr>
+</tbody>
+</table>
+<h4>STRENGTH</h4>
+<table>
+<thead>
+<tr>
+<th>roll</th>
+<th>lift</th>
+<th>smash</th>
+<th>grapple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Lift a chair.</td>
+<td>Destroy a glass cup.</td>
+<td>Subdue a child.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Lift a table or small chest.</td>
+<td>Destroy a small wooden table.</td>
+<td>Subdue a weak adult.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Lift a grown person or large chest.</td>
+<td>Break through a wooden door.</td>
+<td>Subdue an average adult.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Lift the side of a laden cart or carry a<br>large chest up stairs.</td>
+<td>Break through a stone wall.</td>
+<td>Subdue a skilled wrestler.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Lift a horse, an ox, or a large monster.</td>
+<td>Break through a dragon's teeth.</td>
+<td>Subdue a large beast.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Lift a falling portcullis gate.</td>
+<td>Break a god's grip.</td>
+<td>Subdue a legendary beast.</td>
+</tr>
+</tbody>
+</table>
+<h4>FINESSE</h4>
+<table>
+<thead>
+<tr>
+<th>roll</th>
+<th>control</th>
+<th>hide</th>
+<th>tinker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Ride a horse through easy terrain.</td>
+<td>Evade notice under full cover on a</td>
+<td>Open a sticky lock with the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>moonless night.</td>
+<td>appropriate key.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Drive an ox-pulled cart.</td>
+<td>Evade notice in limited cover on a<br>moonless night.</td>
+<td>Open a simple puzzle box.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Ride a horse through rough terrain.</td>
+<td>Evade notice in limited cover on an<br>average night.</td>
+<td>Disable a standard trap.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Drive a cart through rough terrain.</td>
+<td>Evade notice in the shadows on an<br>average night.</td>
+<td>Disable a complicated trap.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Ride a wild horse through dangerous<br>terrain.</td>
+<td>Evade notice with minimal cover in<br>ample light.</td>
+<td>Open a door secured by a sequence<br>of elaborate locks.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Ride an enraged beast through<br>dangerous terrain.</td>
+<td>Evade notice with no cover in full<br>daylight.</td>
+<td>Disable an incredibly sensitive and<br>deadly trap.</td>
+</tr>
+</tbody>
+</table>
+<h4>INSTINCT</h4>
+<table>
+<thead>
+<tr>
+<th>roll</th>
+<th>perceive</th>
+<th>sense</th>
+<th>navigate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Hear a loud noise twenty paces away.</td>
+<td>Detect an obvious ambush or notice an<br>obvious deception.</td>
+<td>Follow a well-trod path in good<br>lighting and weather.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Hear a speaking voice fifty paces<br>away.</td>
+<td>Detect a looming threat or notice an<br>average person's lies.</td>
+<td>Follow an average path in good<br>lighting and weather.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Hear someone walking in the woods<br>fifty paces away.</td>
+<td>Detect hostile intent from a foe or see<br>through a merchant's lies.</td>
+<td>Follow a subtle path through rough<br>conditions.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Hear someone sneaking through the<br>woods fifty paces away.</td>
+<td>Detect a politician's veiled hostility or<br>detect a nearby assassin.</td>
+<td>Follow a subtle path through harsh<br>conditions.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Hear a prowling animal fifty paces<br>away.</td>
+<td>Identify a spymaster's plot or read a<br>politican's true intentions.</td>
+<td>Find your way with no path through<br>dangerous conditions.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Hear a diving bird a hundred paces<br>away.</td>
+<td>Sense a shred of doubt within a god's<br>pronouncement.</td>
+<td>Find your way through a trickery<br>god's maze.</td>
+</tr>
+</tbody>
+</table>
+<h4>PRESENCE</h4>
+<table>
+<thead>
+<tr>
+<th>roll</th>
+<th>charm</th>
+<th>perform</th>
+<th>deceive</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Win the trust of a friendly neighbor.</td>
+<td>Earn a meal from a friendly crowd.</td>
+<td>Trick a trusting acquaintance.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Win the trust of a friendly stranger.</td>
+<td>Earn room and board in a small town or<br>impress a small crowd.</td>
+<td>Trick an average stranger.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Win the trust of a cautious stranger or<br>talk your way into a noble's party.</td>
+<td>Earn room and board in a low-end<br>tavern or impress a large crowd.</td>
+<td>Trick an average merchant.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Win the trust of a sympathetic foe or<br>talk your way into an enemy's party.</td>
+<td>Earn lodging in a high-end tavern or<br>impress a full theater.</td>
+<td>Trick a trained courtier.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Turn an enemy against their ruler or<br>talk your way into a fae court.</td>
+<td>Earn your keep in a royal court or<br>impress a full colosseum.</td>
+<td>Trick a spymaster.</td>
+</tr>
+<tr>
+<td>30</td>
+<td>Talk a hostile god into granting you a<br>boon.</td>
+<td>Save yourself from execution after<br>offending the queen.</td>
+<td>Trick a god.</td>
+</tr>
+</tbody>
+</table>
+<h4>KNOWLEDGE</h4>
+<table>
+<thead>
+<tr>
+<th>roll</th>
+<th>recall</th>
+<th>analyze</th>
+<th>comprehend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5</td>
+<td>Recall uncommon facts about your<br>community.</td>
+<td>Unpack an obvious metaphor in a simple<br>text.</td>
+<td>Learn simple skills from an excellent<br>teacher.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Recall uncommon facts about a<br>neighboring community.</td>
+<td>Identify obvious subtext in a<br>conversation.</td>
+<td>Learn simple skills from an average<br>teacher.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Recall uncommon facts about a<br>distant community.</td>
+<td>Break an average cipher in a coded<br>message.</td>
+<td>Learn complicated skills from an<br>excellent teacher.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Recall specialized facts about a<br>distant community.</td>
+<td>Identify a weakness in a complicated<br>battle plan.</td>
+<td>Learn complicated skills under poor<br>conditions.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Recall specialized facts about a fallen<br>kingdom.</td>
+<td>Predict the downfall of a nation based<br>on concealed misdeeds.</td>
+<td>Learn complicated skills quickly<br>under dangerous conditions.</td>
+</tr>
+</tbody>
+</table>
+<h4>GIVING ADVANTAGE AND DISADVANTAGE</h4>
+<p>To viscerally convey how a PC's actions or circumstances affect their ability to act, grant them advantage die (or impose disadvantage die) instead of adjusting the Difficulty of an action roll.</p>
+<h4><strong>ADVERSARY ACTION ROLLS</strong></h4>
+<p>By default, adversaries don't normally make action rolls except for attack rolls and any unique actions described in their stat blocks. Any other action an adversary attempts simply succeeds without an action roll; if you want an adversary's action to have a chance of failure, have any relevant PCs make reaction rolls instead.</p>
+<p>However, for especially dramatic or difficult tasks that the PCs can't influence, you can give an adversary an <strong>action roll</strong>  anyway. For an adversary's action roll, roll a d20. If the result is equal to or greater than the action's Difficulty, the action succeeds—otherwise it fails. You can spend a Fear before rolling to add a relevant Experience from the adversary's stat block to the total. Use the same procedure when an adversary makes a <strong>reaction roll.</strong></p>
+<h4><strong>ADVERSARY ADVANTAGE &amp; DISADVANTAGE</strong></h4>
+<p>If an adversary has advantage on an action roll, the GM rolls an extra d20 and counts only the higher result. If an adversary has disadvantage on an action roll, the GM rolls an extra d20 and counts only the lower result.</p>
+<h3><strong>ADVERSARY ATTACKS</strong></h3>
+<p>When an adversary attacks a PC, the GM rolls a d20 and adds the adversary's Attack Modifier to the result. If the total meets or beats the target's Evasion, the attack succeeds; otherwise, it fails. Before rolling, the GM can grant the attacking adversary advantage, impose disadvantage, or spend a Fear to add a relevant Experience from the adversary's stat block to the total.</p>
+<p>On a success, the adversary deals the damage listed in their stat block to the target.</p>
+<p>When an adversary's action lets the GM make an <strong>attack against multiple targets,</strong> they make one attack roll and compare it to each target's Evasion separately.</p>
+<h2>COUNTDOWNS</h2>
+<p><strong>Countdowns</strong> represent a period of time or series of events preceding a future effect. A countdown begins at a starting value. When a countdown <strong>advances,</strong> it's reduced by 1. The countdown's effect is triggered when the countdown reaches 0.</p>
+<p><em>Note: You can track countdowns by "spinning down" dice or ticking off boxes.</em></p>
+<p><strong>Standard countdowns</strong> advance every time a player makes an action roll. If an adversary or environment ability refers to a "Countdown [n]," then it means a standard countdown with a starting value of n.</p>
+<p><strong>Dynamic countdowns</strong> advance by up to 3 depending on the outcomes of action rolls. <strong>Consequence countdowns</strong>  are dynamic countdowns to negative effects. <strong>Progress countdowns</strong> are dynamic countdowns to positive effects. Dynamic countdowns advance according to this chart:</p>
+<h4>DYNAMIC COUNTDOWN ADVANCEMENT</h4>
+<table>
+<thead>
+<tr>
+<th>Roll Result</th>
+<th>Progress<br>Advancement</th>
+<th>Consequence<br>Advancement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Failure with Fear</td>
+<td>No advancement</td>
+<td>Tick down 3</td>
+</tr>
+<tr>
+<td>Failure with Hope</td>
+<td>No advancement</td>
+<td>Tick down 2</td>
+</tr>
+<tr>
+<td>Success with Fear</td>
+<td>Tick down 1</td>
+<td>Tick down 1</td>
+</tr>
+<tr>
+<td>Success with<br>Hope</td>
+<td>Tick down 2</td>
+<td>No advancement</td>
+</tr>
+<tr>
+<td>Critical Success</td>
+<td>Tick down 3</td>
+<td>No advancement</td>
+</tr>
+</tbody>
+</table>
+<h4>ADVANCED COUNTDOWN FEATURES</h4>
+<ul>
+<li>Countdowns with <strong>randomized starting values</strong></li>
+<li><strong>Loop</strong> countdowns that reset to their starting value after their countdown effect is triggered.</li>
+<li><strong>Increasing</strong> countdowns that increase their starting value by 1 every time they loop.</li>
+<li><strong>Decreasing</strong> countdowns that decrease their starting value by 1 every time they loop.</li>
+<li><strong>Linked</strong> progress and consequence countdowns that simultaneously advance according to the same action roll outcomes.</li>
+<li><strong>Long-term countdowns</strong> that advance after <strong>rests</strong> instead of action rolls.</li>
+</ul>
+<h2>GIVING OUT GOLD, EQUIPMENT, AND LOOT</h2>
+<p>It's up to you and your players how much importance you want to place on gold, equipment, and loot in your campaign.</p>
+<p>Adjust the availability and utility of wealth and equipment to reflect the tone, themes, and setting of your campaign.</p>
+<p>If you don't wish to track gold, then when PCs go shopping for new items let them pick one or two from a short, preselected</p>
+<p>list that aligns with your campaign setting and the party's current location.</p>
+<p>Otherwise, set the prices of goods and services by adjusting the entries in the Average Costs table to reflect your campaign setting:</p>
+<table>
+<thead>
+<tr>
+<th>Meals for a party of adventurers per<br>night</th>
+<th>1 Handful</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Standard inn room per night</td>
+<td>1 Handful</td>
+</tr>
+<tr>
+<td>Luxury inn room per night</td>
+<td>1 Bag</td>
+</tr>
+<tr>
+<td>Carriage ride</td>
+<td>2 Handfuls</td>
+</tr>
+<tr>
+<td>Mount (horse, mule, etc.)</td>
+<td>3 Bags</td>
+</tr>
+<tr>
+<td>Specialized tools</td>
+<td>3 Handfuls</td>
+</tr>
+<tr>
+<td>Fine clothing</td>
+<td>3 Handfuls</td>
+</tr>
+<tr>
+<td>Luxury clothing</td>
+<td>1 Bag</td>
+</tr>
+<tr>
+<td>Tier 1 equipment (weapons, armor)</td>
+<td>1–5 Handfuls</td>
+</tr>
+<tr>
+<td>Tier 2 equipment (weapons, armor)</td>
+<td>1–2 Bags</td>
+</tr>
+<tr>
+<td>Tier 3 equipment (weapons, armor)</td>
+<td>5–10 Bags</td>
+</tr>
+<tr>
+<td>Tier 4 equipment (weapons, armor)</td>
+<td>1–2 Chests</td>
+</tr>
+</tbody>
+</table>
+<h2>RUNNING GM NPCS</h2>
+<p>When you run NPCs as the GM, you should always strive to follow your GM principles and use them to bring the world to life. Differentiate NPCs with unique manners of speech and action; let their individual goals and desires motivate their actions.</p>
+<p>The only essential elements for a NPC are their <strong>name, description,</strong> and <strong>motive.</strong> If it's likely that the PCs will roll actions against them, give them a <strong>Difficulty.</strong> Adversaries can be invented or improvised by modifying the stat block of another adversary.</p>
+<p>If an NPC becomes an ally in combat, they don't need a stat block—just put the spotlight on what they do and show how their involvement alters the fiction. If a PC capitalizes on their help during the scene, give the PC advantage. NPCs that don't have Hit Points or Stress can still be injured or killed if the fiction demands it.</p>
+<p>If you want an important NPC to mechanically interact with the system, you can give them one or more features with specific <strong>triggers</strong> and <strong>effects.</strong> An NPC might also have a choice that adjusts the parameters of their feature. For example:</p>
+<h4>ARCANE HOLD</h4>
+<p><em>Choice:</em> When the battle begins, choose a favored PC.</p>
+<p><em>Trigger:</em> The first time during a battle the favored PC is within Close range and hit with an attack.</p>
+<p><em>Effect:</em> Make an attack roll with a +6 modifier against the adversary. On a success, the target is temporarily Restrained by tendrils of powerful magic.</p>
+<h3>NPC FEATURE EXAMPLES</h3>
+<h4>VOLLEY OF ARROWS</h4>
+<p><em>Trigger:</em> A battle begins and this NPC is involved.</p>
+<p><em>Effect:</em> Activate a countdown (Loop 3). It ticks down when a PC misses an attack. When it triggers, this NPC releases a volley of arrows at a target of the PCs' choice, dealing <strong>2d8+3</strong> physical damage.</p>
+<h4>MENTOR</h4>
+<p><em>Choice:</em> When the battle begins, choose a protégé PC.</p>
+<p><em>Trigger:</em> Your protégé is within Close range and fails an attack roll.</p>
+<p><em>Effect:</em> Move into Melee range with the PC and give them advice or guidance. The next attack roll they make has advantage.</p>
+<h4>REGROUP</h4>
+<p><em>Choice:</em> When a battle begins, choose a point within Far range.</p>
+<p><em>Trigger:</em> All PCs have marked all of their Armor Slots.</p>
+<p><em>Effect:</em> Teleport all PCs and this NPC to the chosen spot and clear an Armor Slot on each target.</p>
+<h4>INTO THE NIGHT</h4>
+<p><em>Trigger:</em> The PCs start a long rest with this NPC.</p>
+<p><em>Effect:</em> Roll 1d4. On a 2 or less, this NPC steals 1 handful of gold from the party while they are sleeping, then disappears into the night.</p>
+<h2>OPTIONAL GM MECHANICS</h2>
+<h3><strong>FATE ROLLS</strong></h3>
+<p>When the GM wants to leave an outcome entirely up to chance, they call for a fate roll. The GM establishes what's at stake and how the roll will be interpreted. Then a player rolls one of their Duality Dice and interprets the result.</p>
+<h4><em>Examples:</em></h4>
+<p><em>"Roll your Fear Die. On a 4 or lower, the fire spreads beyond this house."</em></p>
+<p><em>"I think it's really up to chance whether reinforcements will make it to you in time. Go ahead and roll your Fear Die that'll determine the starting size of the countdown. When that triggers, reinforcements will arrive in your Far range."</em></p>
+<p><em>"Go ahead and roll your Hope Die to see how big the crowd at the inn is tonight. The higher the roll, the bigger the crowd."</em></p>
+<p><em>"Make a roll using your Hope Die to determine the number of Stamina Potions the shop has in stock."</em></p>
+<h3><strong>FALLING AND COLLISION DAMAGE</strong></h3>
+<p>If a character falls to the ground, you can use the following as a guide to determine the damage they take:</p>
+<ul>
+<li>A fall from Very Close range deals 1d10+3 physical damage.</li>
+<li>A fall from Close range deals 1d20+5 physical damage.</li>
+<li>A fall from Far or Very Far range deals 1d100+15 physical damage, or death at the GM's discretion.</li>
+</ul>
+<p>If a character collides with an object or another character at a dangerous speed, they take 1d20+5 direct physical damage.</p>
+<h3><strong>MOVING AND FIGHTING UNDERWATER</strong></h3>
+<p>By default, attack rolls made while the attacker is underwater have disadvantage.</p>
+<p>For creatures that can't breathe underwater, use a standard countdown (3) to track how long they can hold their breath. Advance the countdown whenever the PC takes an action. In addition if they fail a roll or roll with Fear while underwater, you can spend your GM move to advance it an additional time—or twice, if they rolled a failure with Fear.</p>
+<p>Once the countdown ends, the underwater PC must mark a Stress whenever they take an action.</p>
+<h3><strong>CONFLICT BETWEEN PCS</strong></h3>
+<p>Sometimes a player might want their character to act against another PC in the scene. Before jumping to rolling dice, discuss the situation with both players to decide how to resolve the conflict. A roll might not be necessary to reach an outcome—but if rolling will be fun for everyone involved, come to a consensus on the terms of the roll, then facilitate the scene according to the results.</p>
+<p>On an attack roll against a PC, the attacker rolls against the defender's Evasion, just like an adversary. On any other kind of action roll, the instigator makes an action roll and the target makes a reaction roll. To succeed, the instigator must beat a Difficulty equal to the total value of the reaction roll.</p>
+<h2>ADDITIONAL GM GUIDANCE</h2>
+<p><em>This section provides additional guidance for preparing and running a session of Daggerheart.</em></p>
+<h4>STORY BEATS</h4>
+<p>In storytelling, a beat is a moment that changes the trajectory of the narrative—a shift in the world, a significant action or reaction, an emotional revelation, or an important decision. Take turns with the players, narrating a beat and then letting them react and carry the scene forward with their own beats. When preparing for a session, plan in terms of the moments that give shape to each scene or sequence, rather than prescripting specific details or exchanges.</p>
+<h4>PREPARING COMBAT ENCOUNTERS</h4>
+<p>Build the hurdles the PCs face around the question of "What helps tell the story?" Enemies, environments, and hazards are the tools for heightening tension and creating drama. Ensure that combat is being used to give players more information about the unfolding story, revealing the world, the plot, or the characters.</p>
+<h4>BATTLES AND NARRATIVE</h4>
+<p>Dynamic battles create suspense by forcing players to choose between their various objectives, engaging their character's motivations and weaknesses, and creating the crucible that the players use to forge their characters into legendary heroes. When preparing combat encounters:</p>
+<ul>
+<li>Consider the narrative function of the battle</li>
+<li>Base adversaries' moves on their motives</li>
+<li>Use dynamic environments to bring the battleground to life</li>
+<li>Add enemies that can interact with the PCs' features and special abilities</li>
+</ul>
+<h4>SESSION REWARDS</h4>
+<p>Reward players at the end of a session with:</p>
+<ul>
+<li>Useful information</li>
+<li>Story hooks</li>
+<li>Loot</li>
+<li>Gold</li>
+<li>Access to new equipment or enhancements</li>
+</ul>
+<h4>CRAFTING SCENES</h4>
+<p>Whenever you start a session, arrive at a new place, or change the situation, tell the players what they need to know by thinking with all of your senses and sharing something unique or unexpected about the fiction.</p>
+<h4>ENGAGING YOUR PLAYERS</h4>
+<p>Keep your players engaged by:</p>
+<ul>
+<li>Rotating the Focus between the PCs</li>
+<li>Tying Together Story Elements</li>
+<li>Engaging Quiet Players</li>
+<li>Using Visual Aids</li>
+<li>Encouraging Unguided Play</li>
+<li>Confronting the PCs with internal and external conflicts</li>
+<li>Raise the Stakes by Spending Fear</li>
+<li>Layering Goals Other than Attrition into Combat (see Table of Random Objectives on the next page)</li>
+</ul>
+<h4>1d12 Objective</h4>
+<ul>
+<li>1 Acquire (obtain or steal) an important item or items. 2 Capture one or more of the opponents. 3 Activate a magical device. 4 Frame a character or tarnish their reputation. 5 Drive the opponent into a corner or ambush point. 6 Stop a magical ritual, legal ceremony, or timesensitive spell. 7 Hold the line—keep the enemy from reaching a specific area or group. 8 Plant evidence or a tracking device on a target. 9 Secure a specific location ahead of another group's arrival. 10 Harass the opponent to deplete their resources or keep them occupied. 11 Destroy a piece of architecture, a statue, a shrine, or a weapon.</li>
+<li>12 Investigate a situation to confirm or deny existing information.</li>
+</ul>
+<h4>PHASED BATTLES</h4>
+<p>Make battles by shifting the nature of its enemies or environment mid-combat:</p>
+<ul>
+<li>Change the Terms of Engagement</li>
+<li>Alter the Environment</li>
+<li>Evolve the Opposition</li>
+</ul>
+<h4>USING DOWNTIME</h4>
+<p>Use downtime scenes as a pressure release valve to vary the intensity of the story and give the PCs room to breathe.</p>
+<p>Empower your players to frame their own downtime scenes. Ask the players what it looks like as they tend to their wounds or unwind together, encouraging them to take the reins and work with other players whose characters are involved</p>
+<h4>PROJECTS DURING DOWNTIME</h4>
+<p>The Work on a Project downtime move requires more GM input than other downtime moves and is best suited for longterm endeavors the PCs wish to undertake.</p>
+<p>These projects are typically tracked using a Progress Countdown. When deciding the starting value of the countdown, consider the complexity of the project, the availability of relevant tools, and the impact of the project on the story.</p>
+<p>Simple projects advance their countdown each time a player uses the Work on a Project move, but complex projects require a roll.</p>
+<h4>EXTENDED DOWNTIME</h4>
+<p>When you fast-forward the story across an extended period, use montages to illustrate the passage of time. You gain 1d6 Fear per PC and advance any long-term countdowns as appropriate.</p>
+</div>
+
+    </div>
+  </div>
+  <div id="footer">
+<div class="container">
+   <p class="NoIndent"><span class="lang-zh">匕首之心 Daggerheart HTML SRD。本文档依据 <a href="https://www.darringtonpress.com/license">Darrington Press 社群游戏授权条款</a>，视为公共游戏内容。</span>
+   <span class="lang-en">Daggerheart HTML SRD. This document is considered Public Game Content per the <a href="https://www.darringtonpress.com/license">Darrington Press Community Gaming License</a>.</span></p>
+   <p class="NoIndent"><span class="lang-zh">© 2025 Critical Role LLC. 保留所有权利。</span><span class="lang-en">© 2025 Critical Role LLC. All rights reserved.</span></p>
+</div>
+</div>
+
+
+    
+    <script src="/SRD/jquery.js"></script>
+    
+    <script src="/SRD/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/SRD/js/lang-toggle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        
+      });
+    </script>
+  </body>
+</html>

@@ -9,7 +9,6 @@ python scripts/build_srd.py
 
 echo "[2/3] 推送 master..."
 DATE=$(date "+%Y-%m-%d %H:%M")
-cp -r public/* . 2>/dev/null || true
 
 git add -A
 if ! git diff --cached --quiet 2>/dev/null; then

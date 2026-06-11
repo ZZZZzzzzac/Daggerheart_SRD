@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  <title>种族 | 匕首之心 HTML SRD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="匕首之心 HTML SRD">
+    <meta name="keywords" content="匕首之心,Daggerheart,SRD">
+    
+    <link href="/SRD/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/SRD/css/sticky-footer.css" rel="stylesheet">
+    <link href="/SRD/css/site.css" rel="stylesheet">
+
+    
+    
+    
+    <style>img.domain-icon { width:60px; height:60px; vertical-align:middle; margin-right:5px; border-radius:4px; }</style>
+  </head>
+  <body data-spy="scroll" data-target="#sidemenu">
+  <nav id="site-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar-header">
+ <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+   <span class="sr-only">Toggle navigation</span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+   <span class="icon-bar"></span>
+ </button>
+ <a class="navbar-brand" href="/SRD/">匕首之心 HTML SRD</a>
+</div>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+ <ul class="nav navbar-nav">
+   <li><a href="/SRD/introduction"><span class="lang-zh">介绍</span><span class="lang-en">Introduction</span></a></li>
+   <li><a href="/SRD/character-creation"><span class="lang-zh">创建角色</span><span class="lang-en">Character Creation</span></a></li>
+   <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心资源</span><span class="lang-en">Core Resources</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-resources/domains"><span class="lang-zh">领域</span><span class="lang-en">Domains</span></a></li>
+       <li><a href="/SRD/core-resources/classes"><span class="lang-zh">职业</span><span class="lang-en">Classes</span></a></li>
+       <li><a href="/SRD/core-resources/ancestries"><span class="lang-zh">种族</span><span class="lang-en">Ancestries</span></a></li>
+       <li><a href="/SRD/core-resources/communities"><span class="lang-zh">社群</span><span class="lang-en">Communities</span></a></li>
+     </ul>
+   </li>
+   <li class="dropdown">
+     <a href="/SRD/core-mechanics" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">核心机制</span><span class="lang-en">Core Mechanics</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/core-mechanics"><span class="lang-zh">总览</span><span class="lang-en">Overview</span></a></li>
+       <li><a href="/SRD/core-mechanics/equipment"><span class="lang-zh">装备表格</span><span class="lang-en">Equipment Tables</span></a></li>
+       <li><a href="/SRD/core-mechanics/combat-wheelchair"><span class="lang-zh">战斗轮椅</span><span class="lang-en">Combat Wheelchair</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/running-a-game"><span class="lang-zh">运作一场游戏</span><span class="lang-en">Running a Game</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/adversaries-and-environments" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">敌人与环境</span><span class="lang-en">Adversaries & Environments</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/adversaries-and-environments/adversary-mechanics"><span class="lang-zh">敌人机制介绍</span><span class="lang-en">Adversary Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/adversary-data"><span class="lang-zh">敌人数据</span><span class="lang-en">Adversary Data</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-mechanics"><span class="lang-zh">环境机制介绍</span><span class="lang-en">Environment Mechanics</span></a></li>
+       <li><a href="/SRD/adversaries-and-environments/environment-data"><span class="lang-zh">环境数据</span><span class="lang-en">Environment Data</span></a></li>
+     </ul>
+   </li>
+   <li><a href="/SRD/campaign-frames"><span class="lang-zh">战役框架</span><span class="lang-en">Campaign Frames</span></a></li>
+   <li class="dropdown">
+     <a href="/SRD/appendix" class="dropdown-toggle" data-toggle="dropdown"><span class="lang-zh">附录</span><span class="lang-en">Appendix</span> <b class="caret"></b></a>
+     <ul class="dropdown-menu">
+       <li><a href="/SRD/appendix/domain-cards"><span class="lang-zh">领域卡查询</span><span class="lang-en">Domain Card Reference</span></a></li>
+     </ul>
+   </li>
+ </ul>
+ <ul class="nav navbar-nav navbar-right">
+   <li><a id="lang-toggle-btn" href="#"><span class="lang-zh-active">中</span> | <span class="lang-en-inactive">EN</span></a></li>
+ </ul>
+</div>
+</nav>
+
+  <div id="wrap">
+    <nav id="sidemenu">
+   <ul id="sidemenu-topnav" class="nav">
+   </ul>
+</nav>
+
+    <div class="content-area">
+      
+<h1><span class="lang-zh">种族</span><span class="lang-en">Ancestries</span></h1>
+
+<div class="lang-zh">
+<p><strong>种族</strong>代表着你的角色的血脉传承，这会影响角色的外貌，以及获得某些特殊能力的途径。以下章节描述了《匕首之心》中的每一种种族，以及该种族成员共有的身体特征。话虽如此，你可以决定你的角色拥有不属于该种族“标准”或“平均”的特征。</p>
+<p>在《匕首之心》中，“人”这个词被用来指代所有种族，因为来自所有种族的个体都拥有独特的特征、文化以及人格。</p>
+<p>有些种族用“类人生物”这个词来描述。这并非指该特定种族与《匕首之心》中的独立种族“人类”有任何关联。具体来说，它指的是读者可以从自身解剖结构中识别出的一系列身体特征，例如两足行走、直立姿势、面部布局等等。尽管“类人生物”会提供一个有用的参考框架，这些特征仍因种族和个体各异。</p>
+<p>《匕首之心》的核心规则包含下列种族：械灵、龙人、矮人、精灵、仙灵、羊蹄人、费尔博格、孢菌人、龟人、巨人、哥布林、半身人、人类、魔裔、猫族、兽人、蛙裔、猿族，以及混合种族。</p>
+<h3>种族特性</h3>
+<p>每一种族都有两个<strong>种族特性</strong>。虽然有些特性（例如飞行）直接与种族的解剖结构相关，但最终仍由你决定角色的身体形态。你可以与游戏主持人协商，重新诠释任何与你角色概念不符的特性。</p>
+<p>如果你想创造一个结合了多种种族的角色，请参阅“混合种族”章节。</p>
+<h3><strong>械灵 CLANK</strong></h3>
+<p>械灵是具有感知能力的机械生命体，其由包括金属、木头、石头和陶土在内的多种材料构建而成，外观可以与类人生物、动物，甚至是无生命的物体相似。与有机生物类似，它们的体型各异，能够根据时间和需求发生变化与适应。由于定制化构造的特点，许多械灵拥有专门为某种功能定制的身体特征，比如用于抓握的爪状手、用于移动的轮子，或是内置的武器系统。</p>
+<p>许多械灵接受身体改造，既是为了风格也是为了功能，而其他种族的成员也经常求助于械灵工匠，制作高度定制化的移动辅助工具和身体装饰。其他种族可以构造械灵，甚至可以使用自己的身体特征作为灵感，但械灵之间相互构造也很常见。只要械灵能够获取或制作新部件，其寿命就可以无限延长，使物理形态近乎不朽。话虽如此，械灵的意识会受到时间的影响，并随着驱动自身的魔法失去效力而衰退。</p>
+<h4>种族特性</h4>
+<p><strong><em>定制设计：</em></strong> 决定你是由谁创造以及为何目的而创造的。在创建角色时，选择一个最符合此目的的经历，永久获得 +1 加值。</p>
+<p><strong><em>高效休整：</em></strong> 当你进行短休时，你可以选择一个长休的休整行动代替短休的休整行动。</p>
+<h3><strong>龙人 DRAKONA</strong></h3>
+<p>龙人的外观类似无翼的龙类，拥有类人形态和强大的元素吐息。所有龙人都有厚实的鳞片，能够为他们提供出色的天然护甲，抵御自然力量和攻击。他们体型庞大，平均身高在 <strong>5</strong> 到 <strong>7</strong> 英尺之间，牙齿尖利且长。龙人在其大约 <strong>350</strong> 年的生命周期中会不断长出新牙，因此永远不会面临永久性失去门牙的危险。与它们的龙族祖先不同，龙人没有翅膀，没有魔法辅助就无法飞行。该种族的成员通过世代传承其吐息的元素，尽管在极少数情况下，龙人的元素力量会与其家族其他成员不同。</p>
+<h4>种族特性</h4>
+<p><strong><em>鳞片保护：</em></strong> 你的鳞片提供天然保护。当你受到严重伤害时，你可以<strong>标记 1 压力点</strong>以少<strong>标记 1 生命点</strong>。</p>
+<p><strong><em>元素吐息：</em></strong> 选择一种元素作为你的吐息（例如电、火或冰）。你可以对邻近范围内的一个或一群目标使用此吐息，将其视为一种使用你的熟练值造成 <strong>d8</strong> 点魔法伤害的本能武器。</p>
+<h3><strong>矮人 DWARF</strong></h3>
+<p>矮人容易被辨识为身材矮小的类人生物，体格方正，肌肉结实，毛发浓密。他们的平均身高在 <strong>4</strong> 到 <strong>5</strong> . <strong>5</strong> 英尺之间，身材比例宽阔。他们的皮肤和指甲含有大量的角蛋白，使其天生具有韧性。这使得矮人可以将宝石嵌入体内，并用纹身或穿孔装饰自己。他们的毛发浓密——通常是头发，但有些矮人全身都有浓密的毛发。所有性别的矮人都会长胡须，他们经常将胡须打理成精致的样式。通常，矮人能活到 <strong>250</strong> 岁，即使到了晚年也能保持良好的肌肉状态。</p>
+<h4>种族特性</h4>
+<p><strong><em>厚实皮肤：</em></strong> 当你受到轻度伤害时，你可以<strong>标记 2 压力点</strong>代替<strong>标记 1 生命点</strong>。</p>
+<p><strong><em>增强坚韧：</em></strong> <strong>花费 3 希望点</strong>，将受到的物理伤害减半。</p>
+<h3><strong>精灵 ELF</strong></h3>
+<p>精灵通常是身材高挑的类人生物，拥有尖尖的耳朵和异常敏锐的感官。他们的耳朵大小和尖锐程度各不相同，随着精灵年龄的增长，耳尖会开始下垂。尽管精灵的体型各不相同，但他们普遍较高，身高大约在 <strong>6</strong> 到 <strong>6</strong> .5 英尺之间。所有精灵都能够用天界冥想状态代替睡觉。这使得他们能够在短时间内有效休息。</p>
+<p>有些精灵拥有所谓的“神秘形态”，当一个精灵全身心投入到对自然世界的研究或保护中，其身体形态会发生变化。这些特征可以包括星星点点的雀斑，头发中出现树叶、藤蔓或花朵，眼睛像火焰一样闪烁等等。有时这些特征是父母遗传的，但如果精灵改变自身所处环境或魔法侧重方向，其外貌也会逐渐改变。因为精灵可以活到大约 <strong>350</strong> 年，这些特征在他们的一生中可能会改变不止一次。</p>
+<h4>种族特性</h4>
+<p><strong><em>快速反应：</em></strong> <strong>标记 1 压力点</strong>，在反应掷骰上获得优势。</p>
+<p><strong><em>天界冥想：</em></strong> 在休息期间，你可以进入冥想状态，选择一个额外的休整行动。</p>
+<h3><strong>仙灵 FAERIE</strong></h3>
+<p>仙灵是拥有昆虫特征的带翼人形生物。这些特征涵盖了从类人到昆虫的广泛范围——有些拥有额外的肢体、复眼、发光器官、几丁质外骨骼或螫针。他们与自然世界的紧密联系，也使他们经常能够与各种植物融为一体。仙灵的平均身高范围约为 <strong>2</strong> 英尺到 <strong>5</strong> 英尺，但有些仙灵会长到 <strong>7</strong> 英尺高。所有仙灵都拥有薄膜状的翅膀，并且都会经历一个蜕变过程。这个过程和变化因仙灵而异，但在这种转变期间，每个个体都会显现出其将在余下约 <strong>50</strong> 年生命中保有的独特外观。</p>
+<h4>种族特性</h4>
+<p><strong><em>运气操控者：</em></strong>每场游戏一次，在你或一个近距离范围内的自愿盟友进行动作掷骰后，你可以<strong>花费 3 希望点</strong>重新掷二元骰。</p>
+<p><strong><em>翅膀：</em></strong>你可以飞行。飞行时，在敌人对你进行攻击之后，你可以<strong>标记 1 压力点</strong>在该攻击中闪避获得 +2 加值。</p>
+<h3><strong>羊蹄人 Faun</strong></h3>
+<p>羊蹄人类似于长有弯曲的角、方形瞳孔和分蹄的类人山羊。虽然他们的外貌可能各不相同，但大多数羊蹄人拥有类人的躯干和覆盖着浓密毛发的山羊状下半身。羊蹄人的脸可以更像山羊或更像人类，有着各种各样的耳朵和角形。羊蹄人的角从短而较直到长且蜿蜒，形态各异，均有可能。普通羊蹄人的身高范围约为 <strong>4</strong> 英尺到 <strong>6</strong> .5 英尺，但会根据站姿而发生显著变化。大多数羊蹄人无论四肢大小或形状如何，四肢比例都相对较长，且以其用分趾蹄进行强力打击的能力而闻名。羊蹄人寿命约 <strong>225</strong> 年，随着年龄增长，他们的外貌会越来越像山羊。</p>
+<h4>种族特性</h4>
+<p><strong><em>跳跃：</em></strong>你可以像使用正常移动一样跳跃到近距离范围内的任何地方，让你轻松跳过障碍物、跨越缝隙或攀爬障碍。</p>
+<p><strong><em>踢击：</em></strong>当你对近战范围内的一个目标攻击成功时，你可以<strong>标记 1 压力点</strong>借力将自己踢离目标，造成额外 <strong>2d6</strong> 点伤害，并将你自己或目标击退至邻近范围处。</p>
+<h3><strong>费尔博格 FIRBOLG</strong></h3>
+<p>费尔博格是半牛半类人生物，通常以其宽阔的鼻子和长而下垂的耳朵而闻名。有些费尔博格的脸部融合了类人生物和野牛、公牛、奶牛或其他牛科动物的特征。另一些，通常被称为牛头人，则拥有完全类似于牛的头部。他们是高大且肌肉发达的生物，身高范围约为 <strong>5</strong> 英尺到 <strong>7</strong> 英尺，无论年龄大小，都拥有与其体型相称的惊人力量。某些费尔博格人擅长运用这种力量向敌人发起冲锋，那些头部长有该种族常见各类犄角变体的个体使用这种战术尤为有效。尽管他们的特征各不相同，但所有费尔博格都全身覆盖各种柔和颜色的毛发，如土色、淡粉色或蓝色。平均而言，费尔博格的寿命约为 <strong>150</strong> 年。</p>
+<h4>种族特性</h4>
+<p><strong><em>冲撞：</em></strong>当你成功进行一次敏捷掷骰，从远距离或极远距离移动到一个或多个目标的近战距离内时，你可以<strong>标记 1 压力点</strong>，对近战距离内的所有目标造成 <strong>1d12</strong> 点物理伤害。</p>
+<p><strong><em>百折不挠：</em></strong>当你本应<strong>标记 1 压力点</strong>时，掷一个 <strong>d6</strong>。结果为 <strong>6</strong> 时，则无需标记。</p>
+<h3><strong>孢菌人 FUNGRIL</strong></h3>
+<p>孢菌人类似人形蘑菇。他们的外观可以更像人类，也可以更像真菌，颜色多种多样，从土色到鲜艳的红色、黄色、紫色或蓝色均有覆盖。孢菌人身体、面部与肢体结构的样式多种多样，并没有统一的典型外形。他们的身高范围从矮小的 <strong>2</strong> 英尺到惊人的 <strong>7</strong> 英尺不等。虽然孢菌人的平均寿命约为 <strong>300</strong> 年，但据记录，有些孢菌人活得比这久得多。他们可以不用语言交流，并且该种族的许多成员会使用菌丝，通过化学方式与远方的其他孢菌人交换信息。</p>
+<h4>种族特性</h4>
+<p><strong><em>孢菌网络：</em></strong>进行一次 <strong>本能掷骰（12）</strong>，使用你的菌丝与任何范围的同种族成员交换信息。</p>
+<p><strong><em>死亡连接：</em></strong>触摸一具最近死亡的尸体，你可以<strong>标记 1 压力点</strong>，从尸体中提取一个与你选择的特定情绪或感觉相关的记忆。</p>
+<h3><strong>龟人 GALAPA</strong></h3>
+<p>龟人有着类似拟人化乌龟的外观，拥有一副巨大而圆润的甲壳，头部和四肢可以缩回其中。他们的平均身高在 <strong>4</strong> 英尺到 <strong>6</strong> 英尺之间，头部和身体形状可以像任何类型的乌龟。龟人的颜色多为各种土色，通常是不同深浅的绿色和棕色的，并可能拥有几种色彩鲜艳且独特的图案，尤其是在它们的壳上。该种族的成员可以将头部、手臂和腿缩入龟壳中以获得保护，并在需要防御措施时将其用作天然盾牌。有些人通过附加盔甲或雕刻独特的设计来增强龟壳的强度或外观，但这个过程极其痛苦。大多数龟人无论年龄大小都行动缓慢，他们可以活大约 <strong>150</strong> 年。</p>
+<h4>种族特性</h4>
+<p><strong><em>龟甲：</em></strong>你的伤害阈值获得等同于你熟练值的加值。</p>
+<p><strong><em>缩壳：</em></strong> <strong>标记 1 压力点</strong>来缩入你的龟壳中。在龟壳中时，你获得物理伤害抗性，但动作掷骰有劣势，并且无法移动。</p>
+<h3><strong>巨人 GIANT</strong></h3>
+<p>巨人是高大的类人生物，肩膀宽阔，手臂修长，拥有一到三只眼睛。成年巨人的身高范围在 <strong>6</strong> .5 英尺到 <strong>8</strong> .5 英尺之间，无论体型如何，他们天生肌肉都很发达。其宽阔的身形以及细长的手臂、脖颈很容易辨认。尽管他们最多可以有三只眼睛，但所有巨人出生时都没有眼睛，并且在生命的第一个年头里都是失明的。在巨人 <strong>10</strong> 岁眼睛完全定型之前，其眼部构造可能持续发生变化。只有一只眼睛的巨人通常被称为独眼巨人。巨人的平均寿命约为 <strong>75</strong> 年。</p>
+<h4>种族特性</h4>
+<p><strong><em>坚毅：</em></strong>在创建角色时，获得一个额外的生命槽。</p>
+<p><strong><em>长臂：</em></strong>将任何近战范围的武器、能力、法术或其他特性视为具有邻近范围。</p>
+<h3><strong>哥布林 GOBLIN</strong></h3>
+<p>哥布林是体型矮小的类人生物，很容易通过他们的大眼睛和巨大的薄膜状耳朵来辨认。凭借敏锐的听觉和犀利的视力，他们能够感知远处和黑暗中的细节，从而轻松地在不太理想的环境中穿行。他们的皮肤和眼睛颜色变化多样，无论是鲜艳还是柔和的色调，都没有哪一种颜色占据主流。典型的哥布林身高在 <strong>3</strong> 英尺到 <strong>4</strong> 英尺之间，他们的每只耳朵都和头差不多大。哥布林可以通过摆动耳朵进行非常具体的非语言交流。哥布林的寿命大约为 <strong>100</strong> 年，许多哥布林即使到了高龄也能保持敏锐的听力和视力。</p>
+<h4>种族特性</h4>
+<p><strong><em>稳健脚步：</em></strong>你在敏捷掷骰中忽略劣势。</p>
+<p><strong><em>危险感应：</em></strong>每次休息一次，<strong>标记 1 压力点</strong>，强制一个敌人重掷对你或你邻近范围内的盟友的攻击。</p>
+<h3><strong>半身人 HALFLING</strong></h3>
+<p>半身人是体型矮小的类人生物，有着毛茸茸的大脚和突出的圆形耳朵。平均而言，半身人的身高在 <strong>3</strong> 到 <strong>4</strong> 英尺之间，他们的耳朵、鼻子和脚相对于身体其他部位来说比例较大。这个种族的成员寿命约为 <strong>150</strong> 年，即使从成年迈向老年，半身人的外貌也可能保持年轻。半身人天生与凡人界域的磁场相协调，这赋予了他们强大的、如同人体指南针一样的能力。他们还拥有敏锐的听觉和嗅觉，通常可以通过熟悉的人的行动声音来辨识他们。</p>
+<h4>种族特性</h4>
+<p><strong><em>幸运使者：</em></strong>每场游戏开始时，你队伍中的所有人皆<strong>获得 1 希望点</strong>。</p>
+<p><strong><em>内在罗盘：</em></strong>当你掷出的希望骰结果为 <strong>1</strong> 时，你可以重掷此次掷骰。</p>
+<h3><strong>人类 HUMAN</strong></h3>
+<p>人类最容易辨识的特征是灵巧的双手、圆圆的耳朵以及超强的耐力。他们的平均身高范围从略低于 <strong>5</strong> 英尺到大约 <strong>6</strong> .5 英尺。他们体型多样，有的体格健壮，有的身形苗条，许多人则介于两者之间。人类身体适应性强，能相对轻松地适应恶劣气候。通常情况下，人类寿命约为 <strong>100</strong> 岁，他们的身体在年轻和年老时期之间变化巨大。</p>
+<h4>种族特性</h4>
+<p><strong><em>精力充沛：</em></strong>角色创建时获得一个额外的压力槽。</p>
+<p><strong><em>随机应变：</em></strong>当你在运用某个经历进行的掷骰失败时，你可以<strong>标记 1 压力点</strong>进行重掷。</p>
+<h3><strong>魔裔 INFERNIS</strong></h3>
+<p>魔裔是拥有尖锐犬齿、尖耳朵和犄角的类人生物。他们是轮回下界恶魔的后裔。平均而言，魔裔身高范围从 <strong>5</strong> 英尺到 <strong>7</strong> 英尺不等，以长手指和尖指甲而闻名。有些有又长又细的光滑尾巴，尾巴末端呈尖状、分叉或箭头状。魔裔通常有两个或四个犄角——也有些魔裔拥有许多犄角组成的冠冕，而另一些魔裔或许只有一只犄角。这些犄角也可能不对称地生长，形成独特、通常是弯曲的形状，魔裔会通过雕刻和装饰来修饰他们的犄角。他们的皮肤、头发和犄角有各种颜色，包括柔和浅色、裸色或鲜明亮色，如玫瑰猩红、深紫色和漆黑。</p>
+<p>魔裔拥有一种“恐怖面容”，既会不自主地显现，例如当他们经历恐惧或其他强烈情绪时，也会有目的地显现，例如当他们希望恐吓敌人时。这种面容可以短暂地以多种方式改变他们的外貌，包括拉长牙齿和指甲、改变眼睛的颜色、扭曲犄角或增加身高。平均而言，魔裔寿命可达 <strong>350</strong> 年，有些人将此归因于他们的恶魔血统。</p>
+<h4>种族特性</h4>
+<p><strong><em>无畏：</em></strong>当你掷出恐惧结果时，你可以<strong>标记 2 压力点</strong>将其改为掷出希望结果。</p>
+<p><strong><em>恐怖面容：</em></strong>你在恐吓敌意生物的掷骰中具有优势。</p>
+<h3><strong>猫族 KATARI</strong></h3>
+<p>猫族是猫科类人生物，拥有可伸缩的爪子、垂直的瞳孔和高耸的三角形耳朵。他们也可能有小而尖的犬齿、柔软的皮毛和长长的胡须，以帮助感知和导航。他们的耳朵可以旋转近 <strong>180</strong> 度来侦测声音，增强自己敏锐的感官。猫族的外貌可能更像猫或更像人，同时会带有猫科动物的特征，如毛发、胡须和口鼻。大约一半的猫族拥有尾巴。他们的皮肤和皮毛有各种各样的色调和图案，包括纯色、三花、虎斑纹以及各种斑点、斑块、大理石纹或条纹。他们的身高范围从大约 <strong>3</strong> 英尺到 <strong>6</strong> . <strong>5</strong> 英尺不等，寿命约为 <strong>150</strong> 年。</p>
+<h4>种族特性</h4>
+<p><strong><em>猫科本能：</em></strong>当你进行敏捷掷骰时，你可以<strong>花费 2 希望点</strong>来重掷你的希望骰。</p>
+<p><strong><em>伸缩猫爪：</em></strong>进行一次敏捷掷骰来抓挠近战范围内的一个目标。成功时，目标暂时处于 <em>脆弱</em> 状态。</p>
+<h3><strong>兽人 ORC</strong></h3>
+<p>类人生物之一的兽人最容易辨认的特征是他们方正的面部和从下颚突出的野猪般的獠牙。他们的獠牙尺寸各异，尽管从口中伸出，但并非用于进食。相反，许多兽人会用重要的装饰品来修饰他们的獠牙。兽人通常寿命为 <strong>125</strong> 年，若无外力干扰，他们的獠牙会在整个生命周期内持续生长。他们的耳朵是尖的，头发和皮肤通常呈现绿色、蓝色、粉色或灰色调。兽人倾向于拥有肌肉发达的体格，平均身高范围从 <strong>5</strong> 英尺到 <strong>6</strong> .5 英尺。</p>
+<h4>种族特性</h4>
+<p><strong><em>强壮：</em></strong>当你剩余 <strong>1</strong> 点生命点时，以你为目标的攻击掷骰具有劣势。</p>
+<p><strong><em>獠牙：</em></strong>当你对近战范围内的一个目标攻击成功时，你可以<strong>花费 1 希望点</strong>用獠牙刺击目标，额外造成 <strong>1d6</strong> 点伤害。</p>
+<h3><strong>蛙裔 RIBBET</strong></h3>
+<p>蛙裔形似拟人化的青蛙，突出的眼睛和蹼状的手脚是其特征。他们拥有光滑湿润（虽然有时会有疣）的皮肤，眼睛位于头部两侧。有些蛙裔的后腿长度是躯干的两倍多，而另一些则肢干短小。无论体型大小（身高范围大约 <strong>3</strong> 英尺到 <strong>4</strong> .5 英尺），蛙裔主要通过跳跃移动。所有蛙裔的手和脚都是蹼状的，使其能轻松游泳。有些蛙裔拥有天然的绿色和棕色迷彩，而另一些则以大胆的图案呈现出鲜艳的颜色。无论外观如何，所有蛙裔都从水中产下的卵中孵化成蝌蚪，在大约 <strong>6</strong> 到 <strong>7</strong> 年后，长成大约 <strong>100</strong> 年的寿命的两栖动物。</p>
+<h4>种族特性</h4>
+<p><strong><em>两栖：</em></strong>你天生能够在水下呼吸和移动。</p>
+<p><strong><em>长舌：</em></strong>你可以使用你的长舌抓住近距离范围内的物体。<strong>标记 1 压力点</strong>，将你的舌头用作一把使用你的熟练值造成 <strong>d12</strong> 物理伤害的灵巧近战武器。</p>
+<h3><strong>猿族 SIMIAH</strong></h3>
+<p>猿族形似长着长肢和能抓握的脚的拟人化猴子和猿类。虽然他们的外表可能具有所有猿类生物的特征，从最大的大猩猩到最小的狨猴皆有可能，但其体型与动物同类并不一致，身高可以在 <strong>2</strong> 到 <strong>6</strong> 英尺之间。所有猿族都可以用他们灵巧的脚进行非语言交流、工作和战斗。此外，有些猿族还拥有能抓握物体、或在困难动作中用以维持平衡的尾巴。这些特质赋予该种族成员独特的敏捷性，让他们完成各种高难度动作时更为轻松。值得一提的是，猿族非常擅长攀爬，能够轻松在双足行走、四肢着地的指节行走以及攀爬之间切换自如。平均而言，猿族的寿命约为 <strong>100</strong> 年。</p>
+<h4>种族特性</h4>
+<p><strong><em>天生攀爬者：</em></strong>你在涉及平衡和攀爬的敏捷掷骰中具有优势。</p>
+<p><strong><em>灵活：</em></strong>在创建角色时，闪避值获得永久 +1 加值。</p>
+<h2><strong>混合种族 Mixed Ancestries</strong></h2>
+<p>在《匕首之心》的世界中，家族如同栖居于此的各个民族与文化一样独具特色。任何人的外表和能力组合都可能受到血脉、魔法、环境或各种其他因素的影响。</p>
+<p>如果你决定你的角色是多种族的融合，并且希望在游戏的机制中也体现这一点，请参照以下步骤：</p>
+<h4>第一步：确定种族组合</h4>
+<p>在创建角色并选择种族时，请在角色卡的“传承”部分写下你的角色如何认同自己的种族。如果你同时拥有哥布林和兽人血统，你可以使用“哥布林-兽人”这样的混合术语描述你的种族，也可以只写下你更认同的种族（例如，只写“哥布林”或只写“兽人”），或者创造一个新术语，比如“牙裔”。</p>
+<h4>第二步：选择种族特性</h4>
+<p>与游戏主持人共同商讨，从你混合种族的特性中选择两个组合。你必须从一个种族中选择第一个特性，从另一个种族中选择第二个特性。将这两个特性写在一张可以放在你其他卡牌旁边或角色卡旁边的便笺上。</p>
+<p><em>例如，如果你正在创作一个哥布林-兽人，你可能会选择“稳健脚步”（哥布林的特性 </em><em>1</em><em> ）和“獠牙”（兽人的特性 </em><em>2</em><em> ），或者“强壮”（兽人的特性 </em><em>1</em><em> ）和“危险感应”（哥布林的特性 </em><em>2</em><em> ），但不能同时选择“稳健脚步”（哥布林的特性 </em><em>1</em><em> ）和“强壮”（兽人的特性 </em><em>1</em><em> ）。</em></p>
+<p>如果你的角色的传承可能包含两个以上的种族，你只能选择其中两个种族的特性。你可以通过角色的外表或背景故事来体现其余种族。</p>
+</div>
+<div class="lang-en">
+<p><strong>Ancestries</strong> represent your character's lineage, which affects their physical appearance and access to certain special abilities. The following section describes each ancestry in Daggerheart and the characteristics generally shared by members of that ancestry, however, each player decides how much their character aligns with the "standard" or "average" expression of their ancestry.</p>
+<p>In Daggerheart, the term "people" is used to refer to all ancestries, as individuals from all lineages possess unique characteristics and cultures, as well as personhood.</p>
+<p>Some ancestries are described using the term "humanoid." This does not imply any genetic relation to "humans," which is a distinct ancestry within Daggerheart. Instead, it refers to the set of physical characteristics humans will recognize from their own anatomy, such as bipedal movement, upright posture, facial layout, and more. These traits vary by ancestry and individual, though "humanoid" should still provide a useful frame of reference.</p>
+<p>The core ruleset includes the following ancestries: Clank, Drakona, Dwarf, Elf, Faerie, Faun, Firbolg, Fungril, Galapa, Giant, Goblin, Halfling, Human, Infernis, Katari, Orc, Ribbet, Simiah, and Mixed Ancestry.</p>
+<h4>ANCESTRY FEATURES</h4>
+<p>Each ancestry grants two <strong>ancestry features.</strong> While some features (such as the ability to fly) are implicitly tied to an ancestry's anatomy, players determine their characters' physical form. Work with the GM to re-flavor any implied traits that don't align with your character concept.</p>
+<p>If you'd like to make a character who combines more than one ancestry, see "Mixed Ancestry."</p>
+<h3>CLANK</h3>
+<p>Clanks are sentient mechanical beings built from a variety of materials, including metal, wood, and stone. They can resemble humanoids, animals, or even inanimate objects. Like organic beings, their bodies come in a wide array of sizes. Because of their bespoke construction, many clanks have highly specialized physical configurations. Examples include clawed hands for grasping, wheels for movement, or built-in weaponry.</p>
+<p>Many clanks embrace body modifications for style as well as function, and members of other ancestries often turn to clank artisans to construct customized mobility aids and physical adornments. Other ancestries can create clanks, even using their own physical characteristics as inspiration, but it's also common for clanks to build one another. A clank's lifespan extends as long as they're able to acquire or craft new parts, making their physical form effectively immortal. That said, their minds are subject to the effects of time, and deteriorate as the magic that powers them loses potency.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Purposeful Design:</em> Decide who made you and for what purpose. At character creation, choose one of your Experiences that best aligns with this purpose and gain a permanent +1 bonus to it.</p>
+<p><em>Efficient:</em> When you take a short rest, you can choose a long rest move instead of a short rest move.</p>
+<h3>DRAKONA</h3>
+<p>Drakona resemble wingless dragons in humanoid form and possess a powerful elemental breath. All drakona have thick scales that provide excellent natural armor against both attacks and the forces of nature. They are large in size, ranging from 5 feet to 7 feet on average, with long sharp teeth. New teeth grow throughout a Drakona's approximately 350-year lifespan, so they are never in danger of permanently losing an incisor. Unlike their dragon ancestors, drakona don't have wings and can't fly without magical aid. Members of this ancestry pass down the element of their breath through generations, though in rare cases, a drakona's elemental power will differ from the rest of their family's.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Scales:</em> Your scales act as natural protection. When you would take Severe damage, you can <strong>mark a Stress</strong> to mark 1 fewer Hit Points.</p>
+<p><em>Elemental Breath:</em> Choose an element for your breath (such as electricity, fire, or ice). You can use this breath against a target or group of targets within Very Close range, treating it as an Instinct weapon that deals <strong>d8</strong> magic damage using your Proficiency.</p>
+<h3>DWARF</h3>
+<p>Dwarves are most easily recognized as short humanoids with square frames, dense musculature, and thick hair. Their average height ranges from 4 to 5 ½ feet, and they are often broad in proportion to their stature. Their skin and nails contain a high amount of keratin, making them naturally resilient. This allows dwarves to embed gemstones into their bodies and decorate themselves with tattoos or piercings. Their hair grows thickly—usually on their heads, but some dwarves have thick hair across their bodies as well. Dwarves of all genders can grow facial hair, which they often style in elaborate arrangements. Typically, dwarves live up to 250 years of age, maintaining their muscle mass well into later life.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Thick Skin:</em> When you take Minor damage, you can <strong>mark 2 Stress</strong> instead of marking a Hit Point.</p>
+<p><em>Increased Fortitude:</em> <strong>Spend 3 Hope</strong> to halve incoming physical damage.</p>
+<h3>ELF</h3>
+<p>Elves are typically tall humanoids with pointed ears and acutely attuned senses. Their ears vary in size and pointed shape, and as they age, the tips begin to droop. While elves come in a wide range of body types, they are all fairly tall, with heights ranging from about 6 to 6 ½ feet. All elves have the ability to drop into a celestial trance, rather than sleep. This allows them to rest effectively in a short amount of time.</p>
+<p>Some elves possess what is known as a "mystic form," which occurs when an elf has dedicated themself to the study or protection of the natural world so deeply that their physical form changes. These characteristics can include celestial freckles, the presence of leaves, vines, or flowers in their hair, eyes that flicker like fire, and more. Sometimes these traits are inherited from parents, but if an elf changes their environment or magical focus, their appearance changes over time. Because elves live for about 350 years, these traits can shift more than once throughout their lifespan.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Quick Reactions:</em> <strong>Mark a Stress</strong> to gain advantage on a reaction roll.</p>
+<p><em>Celestial Trance:</em> During a rest, you can drop into a trance to choose an additional downtime move.</p>
+<h3>FAERIE</h3>
+<p>Faeries are winged humanoid creatures with insectile features. These characteristics cover a broad spectrum from humanoid to insectoid—some possess additional arms, compound eyes, lantern organs, chitinous exoskeletons, or stingers. Because of their close ties to the natural world, they also frequently possess attributes that allow them to blend in with various plants. The average height of a faerie ranges from about 2 feet to 5 feet, but some faeries grow up to 7 feet tall. All faeries possess membranous wings and they each go through a process of metamorphosis. The process and changes differ from faerie to faerie, but during this transformation each individual manifests the unique appearance they will carry throughout the rest of their approximately 50-year lifespan.</p>
+<h4><strong>ANCESTRY FEATURE</strong></h4>
+<p><em>Luckbender:</em> Once per session, after you or a willing ally within Close range makes an action roll, you can <strong>spend 3 Hope</strong> to reroll the Duality Dice.</p>
+<p><em>Wings:</em> You can fly. While flying, you can <strong>mark a Stress</strong> after an adversary makes an attack against you to gain a +2 bonus to your Evasion against that attack.</p>
+<h3>FAUNS</h3>
+<p>Fauns resemble humanoid goats with curving horns, square pupils, and cloven hooves. Though their appearances may vary, most fauns have a humanoid torso and a goatlike lower body covered in dense fur. Faun faces can be more caprine or more humanlike, and they have a wide variety of ear and horn shapes. Faun horns range from short with minimal curvature to much larger with a distinct curl. The average faun ranges from 4 feet to 6 ½ feet tall, but their height can change dramatically from one moment to the next based on their stance. The majority of fauns have proportionately long limbs, no matter their size or shape, and are known for their ability to deliver powerful blows with their split hooves. Fauns live for roughly 225 years, and as they age, their appearance can become increasingly goatlike.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Caprine Leap:</em> You can leap anywhere within Close range as though you were using normal movement, allowing you to vault obstacles, jump across gaps, or scale barriers with ease.</p>
+<p><em>Kick:</em> When you succeed on an attack against a target within Melee range, you can <strong>mark a Stress</strong> to kick yourself off them, dealing an extra <strong>2d6</strong> damage and knocking back either yourself or the target to Very Close range.</p>
+<h3>FIRBOLG</h3>
+<p>Firbolgs are bovine humanoids typically recognized by their broad noses and long, drooping ears. Some have faces that are a blend of humanoid and bison, ox, cow, or other bovine creatures. Others, often referred to as minotaurs, have heads that entirely resemble cattle. They are tall and muscular creatures, with heights ranging from around 5 feet to</p>
+<p>7 feet, and possess remarkable strength no matter their age. Some firbolgs are known to use this strength to charge their adversaries, an action that is particuarly effective for those who have one of the many varieties of horn styles commonly found in this ancestry. Though their unique characteristics can vary, all firbolgs are covered in fur, which can be muted and earth-toned in color, or come in a variety of pastels, such as soft pinks and blues. On average, firbolgs live for about 150 years.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Charge:</em> When you succeed on an Agility Roll to move from Far or Very Far range into Melee range with one or more targets, you can <strong>mark a Stress</strong> to deal <strong>1d12</strong> physical damage to all targets within Melee range.</p>
+<p><em>Unshakable:</em> When you would mark a Stress, roll a <strong>d6.</strong> On a result of 6, don't mark it.</p>
+<h3>FUNGRIL</h3>
+<p>Fungril resemble humanoid mushrooms. They can be either more humanoid or more fungal in appearance, and they come in an assortment of colors, from earth tones to bright reds, yellows, purples, and blues. Fungril display an incredible variety of bodies, faces, and limbs, as there's no single common shape among them. Even their heights range from a tiny 2 feet tall to a staggering 7 feet tall. While the common lifespan of a fungril is about 300 years, some have been reported to live much longer. They can communicate nonverbally, and many members of this ancestry use a mycelial array to chemically exchange information with other fungril across long distances.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Fungril Network:</em> Make an <strong>Instinct Roll (12)</strong> to use your mycelial array to speak with others of your ancestry. On a success, you can communicate across any distance.</p>
+<p><em>Death Connection:</em> While touching a corpse that died recently, you can <strong>mark a Stress</strong> to extract one memory from the corpse related to a specific emotion or sensation of your choice.</p>
+<h3>GALAPA</h3>
+<p>Galapa resemble anthropomorphic turtles with large, domed shells into which they can retract. On average, they range from 4 feet to 6 feet in height, and their head and body shapes can resemble any type of turtle. Galapa come in a variety of earth tones—most often shades of green and brown— and possess unique patterns on their shells. Members of this ancestry can draw their head, arms, and legs into their shell for protection to use it as a natural shield when defensive measures are needed. Some supplement their shell's strength or appearance by attaching armor or carving unique designs, but the process is exceedingly painful. Most galapa move slowly no matter their age, and they can live approximately 150 years.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Shell:</em> Gain a bonus to your damage thresholds equal to your Proficiency.</p>
+<p><em>Retract:</em> <strong>Mark a Stress</strong> to retract into your shell. While in your shell, you have resistance to physical damage, you have disadvantage on action rolls, and you can't move.</p>
+<h3>GIANT</h3>
+<p>Giants are towering humanoids with broad shoulders, long arms, and one to three eyes. Adult giants range from 6 ½ to 8 ½ feet tall and are naturally muscular, regardless of body type. They are easily recognized by their wide frames and elongated arms and necks. Though they can have up to three eyes, all giants are born with none and remain sightless for their first year of life. Until a giant reaches the age of 10 and their features fully develop, the formation of their eyes may</p>
+<p>fluctuate. Those with a single eye are commonly known as cyclops. The average giant lifespan is about 75 years.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Endurance:</em> Gain an additional Hit Point slot at character creation.</p>
+<p><em>Reach:</em> Treat any weapon, ability, spell, or other feature that has a Melee range as though it has a Very Close range instead.</p>
+<h3>GOBLIN</h3>
+<p>Goblins are small humanoids easily recognizable by their large eyes and massive membranous ears. With keen hearing and sharp eyesight, they perceive details both at great distances and in darkness, allowing them to move through less-optimal environments with ease. Their skin and eye colors are incredibly varied, with no one hue, either vibrant or subdued, more dominant than another. A typical goblin stands between 3 feet and 4 feet tall, and each of their ears is about the size of their head. Goblins are known to use ear positions to very specific effect when communicating nonverbally. A goblin's lifespan is roughly 100 years, and many maintain their keen hearing and sight well into advanced age.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Surefooted:</em> You ignore disadvantage on Agility Rolls.</p>
+<p><em>Danger Sense:</em> Once per rest, <strong>mark a Stress</strong> to force an adversary to reroll an attack against you or an ally within Very Close range.</p>
+<h3>HALFLING</h3>
+<p>Halflings are small humanoids with large hairy feet and prominent rounded ears. On average, halflings are 3 to 4 feet in height, and their ears, nose, and feet are larger in proportion to the rest of their body. Members of this ancestry live for around 150 years, and a halfling's appearance is likely to remain youthful even as they progress from adulthood into old age. Halflings are naturally attuned to the magnetic fields of the Mortal Realm, granting them a strong internal compass. They also possess acute senses of hearing and smell, and can often detect those who are familiar to them by the sound of their movements.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Luckbringer:</em> At the start of each session, everyone in your party gains a Hope.</p>
+<p><em>Internal Compass:</em> When you roll a 1 on your Hope Die, you can reroll it.</p>
+<h3>HUMAN</h3>
+<p>Humans are most easily recognized by their dexterous hands, rounded ears, and bodies built for endurance. Their average height ranges from just under 5 feet to about 6 ½ feet. They have a wide variety of builds, with some being quite broad, others lithe, and many inhabiting the spectrum in between. Humans are physically adaptable and adjust to harsh climates with relative ease. In general, humans live to an age of about 100, with their bodies changing dramatically between their youngest and oldest years.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>High Stamina:</em> Gain an additional Stress slot at character creation.</p>
+<p><em>Adaptability:</em> When you fail a roll that utilized one of your Experiences, you can mark a Stress to reroll.</p>
+<h3>INFERNIS</h3>
+<p>Infernis are humanoids who possess sharp canine teeth, pointed ears, and horns. They are the descendants of demons from the Circles Below. On average, infernis range in height from 5 feet to 7 feet and are known to have long fingers and pointed nails. Some have long, thin, and smooth tails that end in points, forks, or arrowheads. It's common for infernis to have two or four horns—though some have crowns of many horns, or only one. These horns can also grow asymmetrically, forming unique, often curving, shapes that infernis enhance with carving and ornamentation. Their skin, hair, and horns come in an assortment of colors that can include soft pastels, stark tones, or vibrant hues, such as rosy scarlet, deep purple, and pitch black.</p>
+<p>Infernis possess a "dread visage" that manifests both involuntarily, such as when they experience fear or other strong emotions, or purposefully, such as when they wish to intimidate an adversary. This visage can briefly modify their appearance in a variety of ways, including lengthening their teeth and nails, changing the colors of their eyes, twisting their horns, or enhancing their height. On average, infernis live up to 350 years, with some attributing this lifespan to their demonic lineage.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Fearless:</em> When you roll with Fear, you can <strong>mark 2 Stress</strong> to change it into a roll with Hope instead.</p>
+<p><em>Dread Visage:</em> You have advantage on rolls to intimidate hostile creatures.</p>
+<h3>KATARI</h3>
+<p>Katari are feline humanoids with retractable claws, vertically slit pupils, and high, triangular ears. They can also have small, pointed canine teeth, soft fur, and long whiskers that assist their perception and navigation. Their ears can swivel nearly 180 degrees to detect sound, adding to their heightened senses. Katari may look more or less feline or humanoid, with catlike attributes in the form of hair, whiskers, and a muzzle. About half of the katari population have tails. Their skin and fur come in a wide range of hues and patterns, including solid colors, calico tones, tabby stripes, and an array of spots, patches, marbling, or bands. Their height ranges from about 3 feet to 6 ½ feet, and they live to around 150 years.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Feline Instincts:</em> When you make an Agility Roll, you can <strong>spend 2 Hope</strong> to reroll your Hope Die.</p>
+<p><em>Retracting Claws:</em> Make an <strong>Agility Roll</strong> to scratch a target within Melee range. On a success, they become temporarily <em>Vulnerable.</em></p>
+<h3>ORC</h3>
+<p>Orcs are humanoids most easily recognized by their square features and boar-like tusks that protrude from their lower jaw. Tusks come in various sizes, and though they extend from the mouth, they aren't used for consuming food. Instead, many orcs choose to decorate their tusks with significant ornamentation. Orcs typically live for 125 years, and unless altered, their tusks continue to grow throughout the course of their lives. Their ears are pointed, and their hair and skin typically have green, blue, pink, or gray tones. Orcs tend toward a muscular build, and their average height ranges from 5 feet to 6 ½ feet.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Sturdy:</em> When you have 1 Hit Point remaining, attacks against you have disadvantage.</p>
+<p><em>Tusks:</em> When you succeed on an attack against a target within Melee range, you can <strong>spend a Hope</strong> to gore the target with your tusks, dealing an extra <strong>1d6</strong> damage.</p>
+<h3>RIBBET</h3>
+<p>Ribbets resemble anthropomorphic frogs with protruding eyes and webbed hands and feet. They have smooth (though sometimes warty) moist skin and eyes positioned on either side of their head. Some ribbets have hind legs more than twice the length of their torso, while others have short limbs. No matter their size (which ranges from about 3 feet to 4 ½ feet), ribbets primarily move by hopping. All ribbets have webbed appendages, allowing them to swim with ease. Some ribbets possess a natural green-and-brown camouflage, while others are vibrantly colored with bold patterns. No matter their appearance, all ribbets are born from eggs laid in the water, hatch into tadpoles, and after about 6 to 7 years, grow into amphibians that can move around on land. Ribbets live for approximately 100 years.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Amphibious:</em> You can breathe and move naturally underwater.</p>
+<p><em>Long Tongue:</em> You can use your long tongue to grab onto things within Close range. <strong>Mark a Stress</strong> to use your tongue as a Finesse Close weapon that deals <strong>d12</strong> physical damage using your Proficiency.</p>
+<h3>SIMIAH</h3>
+<p>Simiah resemble anthropomorphic monkeys and apes with long limbs and prehensile feet. While their appearance reflects all simian creatures, from the largest gorilla to the smallest marmoset, their size does not align with their animal counterparts, and they can be anywhere from 2 to 6 feet tall. All simiah can use their dexterous feet for nonverbal communication, work, and combat. Additionally, some also have prehensile tails that can grasp objects or help with balance during difficult maneuvers. These traits grant members of this ancestry unique agility that aids them in a variety of physical tasks. In particular, simiah are skilled climbers and can easily transition from bipedal movement to knuckle-walking and climbing, and back again. On average, simiah live for about 100 years.</p>
+<h4><strong>ANCESTRY FEATURES</strong></h4>
+<p><em>Natural Climber:</em> You have advantage on Agility Rolls that involve balancing and climbing.</p>
+<p><em>Nimble:</em> Gain a permanent +1 bonus to your Evasion at character creation.</p>
+<h2>MIXED ANCESTRY</h2>
+<p>Families within the world of Daggerheart are as unique as the peoples and cultures that inhabit it. Anyone's appearance and abilities can be shaped by blood, magic, proximity, or a variety of other factors.</p>
+<p>If you decide that your character is a descendant of multiple ancestries and you want to mechanically represent that in the game, use the steps below:</p>
+<h4>1. <strong>Determine Ancestry Combination</strong></h4>
+<p>When you choose an ancestry at character creation, write down how your character identifies themself in the Heritage section of your character sheet. For example, if your character is descended from both goblins and orcs, you could use a hybridized term, such as "goblin-orc," to describe your ancestry, list only the ancestry you more closely identify with (e.g., just "goblin" or just "orc"), or invent a new term, such as "toothling."</p>
+<h4>2. <strong>Choose Ancestry Features</strong></h4>
+<p>Work with your GM to choose two features from the ancestries in your character's lineage. You must choose the first feature from one ancestry and the second from another. Write both down on a notecard you can keep with your other cards or next to your character sheet.</p>
+<p><em>For example, if you are making a goblin-orc, you might take the "Surefooted" and "Tusks" features or the "Sturdy" and "Danger Sense" features. You can't take both the "Surefooted" and "Sturdy" features, because these are both the first features listed on their respective ancestry cards.</em></p>
+<p>Your character's heritage might include more than two ancestries, but you still only choose features from two. You can represent additional ancestries through their appearance or backstory.</p>
+</div>
+
+    </div>
+  </div>
+  <div id="footer">
+<div class="container">
+   <p class="NoIndent"><span class="lang-zh">匕首之心 Daggerheart HTML SRD。本文档依据 <a href="https://www.darringtonpress.com/license">Darrington Press 社群游戏授权条款</a>，视为公共游戏内容。</span>
+   <span class="lang-en">Daggerheart HTML SRD. This document is considered Public Game Content per the <a href="https://www.darringtonpress.com/license">Darrington Press Community Gaming License</a>.</span></p>
+   <p class="NoIndent"><span class="lang-zh">© 2025 Critical Role LLC. 保留所有权利。</span><span class="lang-en">© 2025 Critical Role LLC. All rights reserved.</span></p>
+</div>
+</div>
+
+
+    
+    <script src="/SRD/jquery.js"></script>
+    
+    <script src="/SRD/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/SRD/js/lang-toggle.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        
+      });
+    </script>
+  </body>
+</html>

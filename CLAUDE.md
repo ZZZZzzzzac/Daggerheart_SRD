@@ -31,7 +31,7 @@ Daggerheart_SRD/
 ├── layouts/             # Hugo 模板（chrome/ _default/）
 ├── static/              # CSS / JS / 图片 / 字体 / bootstrap
 ├── content/             # （生成）Python 生成的 Hugo 页面，已 gitignore
-├── public/              # （生成）Hugo 最终输出，已 gitignore
+├── public/              # Hugo 最终输出，直接提交 git（nginx 从此目录 serve）
 ├── config.yaml          # Hugo 配置
 ├── page-toc.yaml        # 页面结构目录
 ├── build.ps1            # Windows 构建
@@ -103,7 +103,7 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 ### 部署方式
 本地构建 → commit + push 到 master → SSH 上服务器 pull
 - 运行 `./deploy.ps1`（Win）或 `./deploy.sh`（Linux）
-- 构建产物复制到仓库根目录后一起提交，nginx `alias /var/www/SRD/;` 直接服务
+- 构建产物落在 `public/` 目录，直接提交 git，nginx `alias /var/www/SRD/public/;` serve
 - 需要 `Daggerheart_VPS` 仓库同级（SSH 密钥路径 `../Daggerheart_VPS/.ssh/`）
 
 ### 三台 VPS
