@@ -8,8 +8,7 @@ let state = {
   currentSlug: null,
   currentLang: 'zh',
   originalContent: '',
-  // token 优先级：localStorage > BUILTIN_TOKEN（在 config.token.js 中设置，不入 git）
-  token: localStorage.getItem('gh_token') || (typeof BUILTIN_TOKEN !== 'undefined' ? BUILTIN_TOKEN : null),
+  token: localStorage.getItem('gh_token') || null,
 };
 
 let editor = null;    // CodeMirror 实例
@@ -17,18 +16,17 @@ let editor = null;    // CodeMirror 实例
 /* ── 页面列表 ── */
 async function loadPageList() {
   try {
-    const resp = await fetch(`https://api.github.com/repos/${REPO}/git/trees/${BRANCH}?recursive=1`);
+    const resp = await fetch('/SRD/api/page-list');
     if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    const tree = await resp.json();
+    const data = await resp.json();
 
-    for (const item of tree.tree) {
-      if (!item.path.startsWith('src/pages/') || !item.path.endsWith('.md')) continue;
-      const parts = item.path.replace('src/pages/', '').split('/');
+    for (const path of data.pages) {
+      const parts = path.replace('src/pages/', '').split('/');
       const lang = parts.pop().replace('.md', '');
       const slug = parts.join('/');
 
       if (!state.pages[slug]) state.pages[slug] = {};
-      state.pages[slug][lang] = item.path;
+      state.pages[slug][lang] = path;
     }
 
     populateSelect();
@@ -180,10 +178,8 @@ function setStatus(msg, isError) {
 function updateSaveBtn() {
   const btn = document.getElementById('save-btn');
   const modified = editor && editor.getValue() !== state.originalContent;
-  btn.disabled = !modified || !state.token;
-  if (!state.token) {
-    btn.title = '请先设置 GitHub Token';
-  } else if (!modified) {
+  btn.disabled = !modified;
+  if (!modified) {
     btn.title = '内容未修改';
   } else {
     btn.title = '';
@@ -250,13 +246,6 @@ async function submitPR() {
   const path = state.pages[slug]?.[lang];
   if (!path || !newContent) return;
 
-  const headers = {
-    Authorization: `Bearer ${state.token}`,
-    'Content-Type': 'application/json',
-  };
-
-  const PR_BASE = `https://api.github.com/repos/${REPO}`;
-  const branchName = `edit-${slug.replace(/\//g, '-')}-${Date.now()}`;
   const progressBar = document.getElementById('pr-progress-bar');
   const progressDiv = document.getElementById('pr-progress');
   const resultDiv = document.getElementById('pr-result');
@@ -268,98 +257,126 @@ async function submitPR() {
   }
 
   try {
-    setProgress(5, '获取最新提交...');
-
-    // 1. 获取 master 最新 commit SHA
-    const refResp = await fetch(`${PR_BASE}/git/refs/heads/${BRANCH}`, { headers });
-    if (!refResp.ok) throw new Error('获取 ref 失败: ' + (await refResp.text()));
-    const refData = await refResp.json();
-    const masterSha = refData.object.sha;
-
-    setProgress(20, '创建分支...');
-
-    // 2. 创建新分支
-    const branchResp = await fetch(`${PR_BASE}/git/refs`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({ ref: `refs/heads/${branchName}`, sha: masterSha }),
-    });
-    if (!branchResp.ok) throw new Error('创建分支失败: ' + (await branchResp.text()));
-
-    setProgress(35, '提交内容...');
-
-    // 3. 创建 blob（新文件内容）
-    const blobResp = await fetch(`${PR_BASE}/git/blobs`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({ content: newContent, encoding: 'utf-8' }),
-    });
-    if (!blobResp.ok) throw new Error('创建 blob 失败: ' + (await blobResp.text()));
-    const blobData = await blobResp.json();
-
-    // 4. 获取当前 master 的 tree SHA
-    const masterCommitResp = await fetch(`${PR_BASE}/git/commits/${masterSha}`, { headers });
-    if (!masterCommitResp.ok) throw new Error('获取 commit 失败');
-    const masterCommit = await masterCommitResp.json();
-
-    // 5. 创建新 tree
-    const treeResp = await fetch(`${PR_BASE}/git/trees`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        base_tree: masterCommit.tree.sha,
-        tree: [{ path, mode: '100644', type: 'blob', sha: blobData.sha }],
-      }),
-    });
-    if (!treeResp.ok) throw new Error('创建 tree 失败: ' + (await treeResp.text()));
-    const treeData = await treeResp.json();
-
-    // 6. 创建 commit
-    const commitResp = await fetch(`${PR_BASE}/git/commits`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        message: `编辑: ${path}`,
-        tree: treeData.sha,
-        parents: [masterSha],
-      }),
-    });
-    if (!commitResp.ok) throw new Error('创建 commit 失败: ' + (await commitResp.text()));
-    const commitData = await commitResp.json();
-
-    setProgress(65, '更新分支引用...');
-
-    // 7. 将新分支指向新 commit
-    await fetch(`${PR_BASE}/git/refs/heads/${branchName}`, {
-      method: 'PATCH',
-      headers,
-      body: JSON.stringify({ sha: commitData.sha, force: true }),
-    });
-
-    setProgress(80, '创建 PR...');
-
-    // 8. 创建 PR
-    const prResp = await fetch(`${PR_BASE}/pulls`, {
-      method: 'POST',
-      headers,
-      body: JSON.stringify({
-        title: `编辑: ${path}`,
-        head: branchName,
-        base: BRANCH,
-        body: desc,
-      }),
-    });
-    if (!prResp.ok) throw new Error('创建 PR 失败: ' + (await prResp.text()));
-    const prData = await prResp.json();
-
-    setProgress(100, '完成！');
-    resultDiv.innerHTML = `<p>PR 已创建：<a href="${prData.html_url}" target="_blank">${prData.html_url}</a></p>`;
+    if (state.token) {
+      await submitViaToken(path, newContent, desc, setProgress, resultDiv);
+    } else {
+      await submitViaProxy(path, newContent, desc, setProgress, resultDiv);
+    }
     state.originalContent = newContent;
     updateSaveBtn();
   } catch (e) {
     setProgress(0, '');
     resultDiv.innerHTML = `<p class="text-danger">错误: ${e.message}</p>`;
   }
+}
+
+/* 通过服务端代理提交（无 token 模式） */
+async function submitViaProxy(path, content, description, setProgress, resultDiv) {
+  setProgress(30, '正在提交...');
+
+  const resp = await fetch('/SRD/api/submit-pr', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ path, content, description }),
+  });
+
+  setProgress(80, '处理中...');
+
+  const data = await resp.json();
+  if (!resp.ok) throw new Error(data.error || `服务器错误 (${resp.status})`);
+
+  setProgress(100, '完成！');
+  resultDiv.innerHTML = `<p>PR 已创建：<a href="${data.html_url}" target="_blank">${data.html_url}</a></p>`;
+}
+
+/* 通过用户自己的 token 直接调 GitHub API（有 token 模式） */
+async function submitViaToken(path, content, description, setProgress, resultDiv) {
+  const headers = {
+    Authorization: `Bearer ${state.token}`,
+    'Content-Type': 'application/json',
+  };
+
+  const PR_BASE = `https://api.github.com/repos/${REPO}`;
+  const branchName = `edit-${path.replace(/\//g, '-').replace('.md', '')}-${Date.now()}`;
+
+  setProgress(5, '获取最新提交...');
+
+  const refResp = await fetch(`${PR_BASE}/git/refs/heads/${BRANCH}`, { headers });
+  if (!refResp.ok) throw new Error('获取 ref 失败: ' + (await refResp.text()));
+  const refData = await refResp.json();
+  const masterSha = refData.object.sha;
+
+  setProgress(20, '创建分支...');
+
+  const branchResp = await fetch(`${PR_BASE}/git/refs`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ ref: `refs/heads/${branchName}`, sha: masterSha }),
+  });
+  if (!branchResp.ok) throw new Error('创建分支失败: ' + (await branchResp.text()));
+
+  setProgress(35, '提交内容...');
+
+  const blobResp = await fetch(`${PR_BASE}/git/blobs`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ content, encoding: 'utf-8' }),
+  });
+  if (!blobResp.ok) throw new Error('创建 blob 失败: ' + (await blobResp.text()));
+  const blobData = await blobResp.json();
+
+  const masterCommitResp = await fetch(`${PR_BASE}/git/commits/${masterSha}`, { headers });
+  if (!masterCommitResp.ok) throw new Error('获取 commit 失败');
+  const masterCommit = await masterCommitResp.json();
+
+  const treeResp = await fetch(`${PR_BASE}/git/trees`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      base_tree: masterCommit.tree.sha,
+      tree: [{ path, mode: '100644', type: 'blob', sha: blobData.sha }],
+    }),
+  });
+  if (!treeResp.ok) throw new Error('创建 tree 失败: ' + (await treeResp.text()));
+  const treeData = await treeResp.json();
+
+  const commitResp = await fetch(`${PR_BASE}/git/commits`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      message: `编辑: ${path}`,
+      tree: treeData.sha,
+      parents: [masterSha],
+    }),
+  });
+  if (!commitResp.ok) throw new Error('创建 commit 失败: ' + (await commitResp.text()));
+  const commitData = await commitResp.json();
+
+  setProgress(65, '更新分支引用...');
+
+  await fetch(`${PR_BASE}/git/refs/heads/${branchName}`, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({ sha: commitData.sha, force: true }),
+  });
+
+  setProgress(80, '创建 PR...');
+
+  const prResp = await fetch(`${PR_BASE}/pulls`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({
+      title: `编辑: ${path}`,
+      head: branchName,
+      base: BRANCH,
+      body: description,
+    }),
+  });
+  if (!prResp.ok) throw new Error('创建 PR 失败: ' + (await prResp.text()));
+  const prData = await prResp.json();
+
+  setProgress(100, '完成！');
+  resultDiv.innerHTML = `<p>PR 已创建：<a href="${prData.html_url}" target="_blank">${prData.html_url}</a></p>`;
 }
 
 /* ── 事件绑定 ── */
@@ -402,10 +419,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // PR
   document.getElementById('save-btn').addEventListener('click', () => {
-    if (!state.token) {
-      openTokenModal();
-      return;
-    }
     document.getElementById('pr-result').innerHTML = '';
     document.getElementById('pr-result').style.display = 'none';
     document.getElementById('pr-progress').style.display = 'none';
