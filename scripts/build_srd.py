@@ -72,6 +72,16 @@ title: "匕首之心 HTML SRD"
 <p><span class="lang-zh"><a href="https://www.daggerheart.com/">匕首之心 (Daggerheart)</a> 是一款由 Darrington Press 出版的桌上角色扮演游戏。这个网站是本游戏的系统参考文档（System Reference Document, SRD），以 HTML 格式供浏览器查阅。</span>
 <span class="lang-en"><a href="https://www.daggerheart.com/">Daggerheart</a> is a tabletop roleplaying game published by Darrington Press. This site is a System Reference Document (SRD) for that game, prepared in HTML format for reference in a browser.</span></p>
 
+<div class="lang-zh">
+<div class="sage-touched">
+<details>
+<summary>贤者恩泽：什么是贤者恩泽</summary>
+
+由民间翻译组与资深GM共同撰写的数据分析、规则解释、判决案例以及总结官方设计师的规则澄清，解决跑团、带团遇到的各类问题。但请注意贤者恩泽并非官方指导，其中的意见与例子也绝非真理，而是对社群中常见的问题提供一个可参考的答案与解释。
+</details>
+</div>
+</div>
+
 <h2 id="license"><span class="lang-zh">授权</span><span class="lang-en">License</span></h2>
 
 <p><span class="lang-zh">本文档依据 <a href="https://www.darringtonpress.com/license">Darrington Press 社群游戏授权条款</a>，视为公共游戏内容（Public Game Content）。</span>
