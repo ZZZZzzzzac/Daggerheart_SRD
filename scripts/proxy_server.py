@@ -67,6 +67,15 @@ def save_and_build(path, content):
     with open(full, 'w', encoding='utf-8') as f:
         f.write(content)
 
+    # 允许 Hugo 写入 public/（nginx 以 www-data 运行，public/ 可能被其持有）
+    public_dir = os.path.join(PROJECT_DIR, 'public')
+    if os.path.isdir(public_dir):
+        try:
+            subprocess.run(['sudo', 'chown', '-R', 'ubuntu:ubuntu', public_dir],
+                           capture_output=True, timeout=10)
+        except Exception:
+            pass
+
     try:
         result = subprocess.run(
             ['python3', BUILD_SCRIPT],
@@ -79,6 +88,14 @@ def save_and_build(path, content):
         return False, "构建超时（超过 120 秒）"
     except Exception as e:
         return False, f"构建异常: {e}"
+    finally:
+        # 恢复 public/ 权限供 nginx 读取
+        if os.path.isdir(public_dir):
+            try:
+                subprocess.run(['sudo', 'chown', '-R', 'www-data:www-data', public_dir],
+                               capture_output=True, timeout=10)
+            except Exception:
+                pass
 
     # Git 备份（非阻塞，失败不影响）
     try:
