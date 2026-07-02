@@ -187,6 +187,21 @@ if __name__ == "__main__":
     print(f"  GET  /api/page-list")
     print(f"  GET  /api/get-file?path=...")
     print(f"  POST /api/save")
+
+    print("\n启动时构建站点...")
+    try:
+        result = subprocess.run(
+            ['python3', BUILD_SCRIPT],
+            cwd=PROJECT_DIR,
+            capture_output=True, text=True, timeout=120,
+        )
+        if result.returncode == 0:
+            print("  ✓ 构建成功\n")
+        else:
+            print(f"  ✗ 构建失败:\n{result.stderr}\n")
+    except Exception as e:
+        print(f"  ✗ 构建异常: {e}\n")
+
     try:
         server.serve_forever()
     except KeyboardInterrupt:
