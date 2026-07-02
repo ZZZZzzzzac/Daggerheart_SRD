@@ -189,6 +189,13 @@ if __name__ == "__main__":
     print(f"  POST /api/save")
 
     print("\n启动时构建站点...")
+    public_dir = os.path.join(PROJECT_DIR, 'public')
+    if os.path.isdir(public_dir):
+        try:
+            subprocess.run(['sudo', 'chown', '-R', 'ubuntu:ubuntu', public_dir],
+                           capture_output=True, timeout=10)
+        except Exception:
+            pass
     try:
         result = subprocess.run(
             ['python3', BUILD_SCRIPT],
@@ -201,6 +208,13 @@ if __name__ == "__main__":
             print(f"  ✗ 构建失败:\n{result.stderr}\n")
     except Exception as e:
         print(f"  ✗ 构建异常: {e}\n")
+    finally:
+        if os.path.isdir(public_dir):
+            try:
+                subprocess.run(['sudo', 'chown', '-R', 'www-data:www-data', public_dir],
+                               capture_output=True, timeout=10)
+            except Exception:
+                pass
 
     try:
         server.serve_forever()
