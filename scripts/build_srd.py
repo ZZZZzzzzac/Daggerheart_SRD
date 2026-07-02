@@ -35,7 +35,6 @@ def generate_page(path, title_zh, title_en, cn_text, en_text, is_parent):
     content = f"""---
 title: "{title_zh}"
 weight: 1
-markup: ""
 ---
  
 <h1><span class="lang-zh">{title_zh}</span><span class="lang-en">{title_en}</span></h1>
@@ -109,7 +108,6 @@ def build():
     print("生成首页...")
     homepage = """---
 title: "匕首之心 HTML SRD"
-markup: ""
 ---
  
 <h1><span class="lang-zh">匕首之心 HTML SRD</span><span class="lang-en">Daggerheart HTML SRD</span></h1>
