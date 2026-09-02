@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SRD 反馈收件箱</title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-page show-zh">
+  <header class="admin-header"><a href="../">DH · SRD</a><div><a href="../edit/">编辑正文</a><a href="../api/admin/feedback/export">导出 JSON</a></div></header>
+  <main class="admin-shell">
+    <div class="admin-title"><div><p class="eyebrow">站内反馈</p><h1>收件箱 <span id="unread-count"></span></h1><p class="sync-status" id="git-sync-status"></p></div><button class="secondary-button" id="refresh-button" type="button">刷新</button></div>
+    <nav class="status-tabs" id="status-tabs">
+      <button class="active" data-status="">全部</button><button data-status="pending">待处理</button><button data-status="in_progress">处理中</button><button data-status="accepted">已采纳</button><button data-status="closed">已关闭</button>
+    </nav>
+    <p class="admin-status" id="admin-status">正在读取反馈…</p>
+    <div class="feedback-list" id="feedback-list"></div>
+  </main>
+  <template id="feedback-template">
+    <article class="feedback-card">
+      <div class="feedback-card-head"><div><span class="feedback-id"></span><time></time></div><a class="feedback-location" target="_blank" rel="noopener"></a></div>
+      <p class="feedback-message"></p><p class="feedback-contact"></p>
+      <div class="feedback-controls"><label>状态<select><option value="pending">待处理</option><option value="in_progress">处理中</option><option value="accepted">已采纳</option><option value="closed">已关闭</option></select></label><label>内部备注<textarea maxlength="4000"></textarea></label><button class="primary-button save-feedback" type="button">保存处理结果</button></div>
+    </article>
+  </template>
+  <script src="admin.js" defer></script>
+</body>
+</html>

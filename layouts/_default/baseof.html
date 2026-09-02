@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="匕首之心 Daggerheart 双语系统参考文档">
+  <meta name="theme-color" content="#f4efe5">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+</head>
+<body data-base-url="{{ "" | relURL }}" data-site-index="{{ "generated/site-index.json" | relURL }}" data-search-index="{{ "generated/search-index.json" | relURL }}">
+  <header class="site-header">
+    <button class="icon-button menu-button" id="menu-button" type="button" aria-label="打开目录" title="目录"><span></span><span></span><span></span></button>
+    <a class="wordmark" href="{{ "" | relURL }}">
+      <span class="wordmark-mark">DH</span>
+      <span class="wordmark-text"><b>匕首之心</b><small>HTML SRD</small></span>
+    </a>
+    <div class="header-actions">
+      <button class="header-button search-button" id="search-button" type="button">
+        <span class="search-symbol" aria-hidden="true"></span>
+        <span class="lang-zh">搜索规则</span><span class="lang-en">Search rules</span><kbd>Ctrl K</kbd>
+      </button>
+      <button class="compact-button" id="language-button" type="button" title="切换语言">中 / EN</button>
+      <button class="compact-button theme-button" id="theme-button" type="button" title="切换主题">◐</button>
+    </div>
+  </header>
+
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+  <aside class="site-sidebar" id="site-sidebar">
+    <div class="sidebar-heading">
+      <p class="sidebar-label"><span class="lang-zh">规则目录</span><span class="lang-en">Contents</span></p>
+      <button class="sidebar-close" id="sidebar-close" type="button" aria-label="关闭目录">×</button>
+    </div>
+    <nav class="contents-tree" id="contents-tree" aria-label="整站目录">
+      <p class="sidebar-loading"><span class="lang-zh">正在整理目录…</span><span class="lang-en">Loading contents…</span></p>
+    </nav>
+    <div class="sidebar-meta">
+      <a href="{{ "edit/" | relURL }}{{ with .Params.srd_path }}?path={{ . | urlquery }}{{ end }}"><span class="lang-zh">管理员编辑</span><span class="lang-en">Editor</span></a>
+      <a href="{{ "admin/" | relURL }}"><span class="lang-zh">反馈收件箱</span><span class="lang-en">Feedback inbox</span></a>
+    </div>
+  </aside>
+
+  <main class="site-main" id="main-content">{{ block "main" . }}{{ end }}</main>
+
+  <footer class="site-footer">
+    <p><span class="lang-zh">依据 Darrington Press 社群游戏授权条款发布。</span><span class="lang-en">Published under the Darrington Press Community Gaming License.</span></p>
+    <p>© 2025 Critical Role LLC.</p>
+  </footer>
+
+  <dialog class="search-dialog" id="search-dialog">
+    <div class="dialog-shell">
+      <div class="dialog-heading">
+        <div><p class="eyebrow"><span class="lang-zh">全文索引</span><span class="lang-en">Full-text index</span></p><h2><span class="lang-zh">搜索规则</span><span class="lang-en">Search rules</span></h2></div>
+        <button class="dialog-close" type="button" data-close-dialog="search-dialog" aria-label="关闭">×</button>
+      </div>
+      <div class="search-field-wrap"><span class="search-symbol" aria-hidden="true"></span><input id="search-input" type="search" autocomplete="off" placeholder="输入标题、术语或正文…"><button id="search-language" type="button">中文</button></div>
+      <p class="search-hint" id="search-hint">输入文字后开始搜索</p>
+      <ol class="search-results" id="search-results"></ol>
+    </div>
+  </dialog>
+
+  <dialog class="feedback-dialog" id="feedback-dialog">
+    <form class="dialog-shell feedback-form" id="feedback-form">
+      <div class="dialog-heading">
+        <div><p class="eyebrow"><span class="lang-zh">站内反馈</span><span class="lang-en">Site feedback</span></p><h2><span class="lang-zh">报告此处问题</span><span class="lang-en">Report an issue here</span></h2></div>
+        <button class="dialog-close" type="button" data-close-dialog="feedback-dialog" aria-label="关闭">×</button>
+      </div>
+      <p class="feedback-context" id="feedback-context"></p>
+      <label><span class="lang-zh">问题描述</span><span class="lang-en">What is wrong?</span><textarea id="feedback-message" maxlength="4000" required></textarea></label>
+      <label><span class="lang-zh">联系方式（选填）</span><span class="lang-en">Contact (optional)</span><input id="feedback-contact" type="text" maxlength="200"></label>
+      <label class="honeypot" aria-hidden="true">Website<input id="feedback-website" type="text" tabindex="-1" autocomplete="off"></label>
+      <div class="form-actions"><p id="feedback-status"></p><button class="primary-button" type="submit"><span class="lang-zh">提交反馈</span><span class="lang-en">Send feedback</span></button></div>
+    </form>
+  </dialog>
+
+  <script src="{{ "js/search-core.js" | relURL }}" defer></script>
+  <script src="{{ "js/app.js" | relURL }}" defer></script>
+</body>
+</html>

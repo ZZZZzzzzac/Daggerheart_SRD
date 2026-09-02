@@ -6,9 +6,10 @@ After=network.target
 Type=simple
 User=ubuntu
 WorkingDirectory=/var/www/SRD
-Environment=GH_TOKEN=YOUR_GITHUB_PAT_HERE
 Environment=PROXY_HOST=127.0.0.1
 Environment=PROXY_PORT=5000
+Environment=FEEDBACK_DB=/var/www/SRD/var/feedback.db
+Environment=PYTHONUNBUFFERED=1
 ExecStart=/usr/bin/python3 /var/www/SRD/scripts/proxy_server.py
 Restart=always
 RestartSec=5

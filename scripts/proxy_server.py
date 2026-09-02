@@ -1,179 +1,493 @@
-"""proxy_server.py — 服务端编辑器代理
-提供端点:
-    GET  /api/page-list    — 列出 src/pages/ 下的 .md 文件
-    GET  /api/get-file     — 读取指定文件内容  (?path=src/pages/...)
-    POST /api/save         — 保存文件并重建站点  {path, content}
+"""Local editor, atomic publisher, and feedback inbox for the SRD site."""
 
-零依赖，纯 Python 标准库。
-认证由 nginx auth_basic 处理，本服务不检查密码。
-"""
+from __future__ import annotations
 
+import hashlib
 import json
-import time
-import subprocess
 import os
-from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
+import shutil
+import sqlite3
+import subprocess
+import sys
+import tempfile
+import threading
+import time
+import uuid
+from collections import defaultdict, deque
+from datetime import datetime, timezone
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
-PAGES_DIR = os.path.join(PROJECT_DIR, 'src', 'pages')
-BUILD_SCRIPT = os.path.join(SCRIPT_DIR, 'build_srd.py')
+import yaml
 
+try:
+    from .build_srd import render_preview
+except ImportError:  # Running as ``python scripts/proxy_server.py``.
+    from build_srd import render_preview
+
+
+SCRIPT_DIR = Path(__file__).resolve().parent
+PROJECT_DIR = SCRIPT_DIR.parent
+PAGES_DIR = PROJECT_DIR / "src" / "pages"
+BUILD_SCRIPT = SCRIPT_DIR / "build_srd.py"
+PUBLIC_DIR = PROJECT_DIR / "public"
+VAR_DIR = PROJECT_DIR / "var"
+FEEDBACK_DB = Path(os.environ.get("FEEDBACK_DB", VAR_DIR / "feedback.db"))
 LISTEN_HOST = os.environ.get("PROXY_HOST", "127.0.0.1")
 LISTEN_PORT = int(os.environ.get("PROXY_PORT", "5000"))
+MAX_JSON_BYTES = 1_000_000
+PUBLISH_LOCK = threading.Lock()
 
 
-def list_pages():
-    """列出 src/pages/ 下所有 .md 文件（相对 PROJECT_DIR 的路径）"""
+def utc_now() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def content_version(content: str) -> str:
+    return hashlib.sha256(content.encode("utf-8")).hexdigest()[:16]
+
+
+def list_pages() -> list[str]:
     pages = []
-    for dirpath, dirnames, filenames in os.walk(PAGES_DIR):
-        for fn in filenames:
-            if fn.endswith('.md'):
-                rel = os.path.relpath(os.path.join(dirpath, fn), PROJECT_DIR)
-                pages.append(rel.replace('\\', '/'))
+    pages_dir = Path(PAGES_DIR)
+    project_dir = Path(PROJECT_DIR)
+    if not pages_dir.exists():
+        return pages
+    for file_path in pages_dir.rglob("*.md"):
+        if file_path.is_file():
+            pages.append(file_path.relative_to(project_dir).as_posix())
     return sorted(pages)
 
 
-def _resolve_path(path):
-    """安全路径解析，返回规范化后的完整路径，非法路径返回 None"""
-    if not path.startswith('src/pages/'):
-        return None
-    full = os.path.normpath(os.path.join(PROJECT_DIR, path))
-    if not full.startswith(PAGES_DIR):
-        return None
-    return full
+def page_catalog() -> list[dict]:
+    """Return editable pages in manifest order with human-readable titles."""
+    manifest_path = Path(PROJECT_DIR) / "data" / "srd.yaml"
+    if not manifest_path.is_file():
+        return []
+    manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
+    available = set(list_pages())
+    catalog = []
+    for item in manifest.get("pages", []):
+        entries = item.get("subs") or [item]
+        for entry in entries:
+            path = str(entry.get("path", "")).strip("/")
+            if not path:
+                continue
+            files = {
+                language: f"src/pages/{path}/{language}.md"
+                for language in ("zh", "en")
+                if f"src/pages/{path}/{language}.md" in available
+            }
+            if files:
+                catalog.append({"path": path, "title": entry.get("title", {}), "files": files})
+    return catalog
 
 
-def read_file(path):
-    """读取 src/pages/ 下的文件内容"""
+def _resolve_path(path: str) -> Path | None:
+    if not isinstance(path, str) or not path.startswith("src/pages/") or not path.endswith(".md"):
+        return None
+    try:
+        pages_root = Path(PAGES_DIR).resolve()
+        candidate = (Path(PROJECT_DIR) / Path(path)).resolve()
+        candidate.relative_to(pages_root)
+    except (OSError, ValueError):
+        return None
+    return candidate
+
+
+def read_file(path: str) -> str | None:
     full = _resolve_path(path)
-    if not full or not os.path.exists(full):
+    if not full or not full.is_file():
         return None
-    with open(full, 'r', encoding='utf-8') as f:
-        return f.read()
+    return full.read_text(encoding="utf-8")
 
 
-def save_and_build(path, content):
-    """保存文件 → 重建站点 → git 备份"""
-    full = _resolve_path(path)
-    if not full:
-        return False, "只允许编辑 src/pages/ 下的文件"
+class PublishError(RuntimeError):
+    def __init__(self, message: str, status: int = 400, details: dict | None = None):
+        super().__init__(message)
+        self.status = status
+        self.details = details or {}
 
-    if not content.strip():
-        return False, "内容不能为空"
 
-    os.makedirs(os.path.dirname(full), exist_ok=True)
-    with open(full, 'w', encoding='utf-8') as f:
-        f.write(content)
+class GitSync:
+    def __init__(self, project_dir: Path):
+        self.project_dir = project_dir
+        self.state_path = project_dir / "var" / "git-sync.json"
+        self.lock = threading.Lock()
+        self._worker: threading.Thread | None = None
+        self.state = self._load()
+        if self.state.get("status") == "pending":
+            self._start_worker()
 
-    # 允许 Hugo 写入 public/（nginx 以 www-data 运行，public/ 可能被其持有）
-    public_dir = os.path.join(PROJECT_DIR, 'public')
-    if os.path.isdir(public_dir):
+    def _load(self) -> dict:
         try:
-            subprocess.run(['sudo', 'chown', '-R', 'ubuntu:ubuntu', public_dir],
-                           capture_output=True, timeout=10)
-        except Exception:
-            pass
+            return json.loads(self.state_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            return {"status": "idle", "updatedAt": utc_now(), "error": ""}
 
-    try:
-        result = subprocess.run(
-            ['python3', BUILD_SCRIPT],
-            cwd=PROJECT_DIR,
-            capture_output=True, text=True, timeout=120,
-        )
-        if result.returncode != 0:
-            return False, f"构建失败:\n{result.stderr}"
-    except subprocess.TimeoutExpired:
-        return False, "构建超时（超过 120 秒）"
-    except Exception as e:
-        return False, f"构建异常: {e}"
-    finally:
-        # 恢复 public/ 权限供 nginx 读取
-        if os.path.isdir(public_dir):
+    def _save(self) -> None:
+        self.state_path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = self.state_path.with_suffix(".tmp")
+        temporary.write_text(json.dumps(self.state, ensure_ascii=False), encoding="utf-8")
+        os.replace(temporary, self.state_path)
+
+    def queue(self, commit: str) -> None:
+        with self.lock:
+            self.state = {"status": "pending", "commit": commit, "updatedAt": utc_now(), "error": ""}
+            self._save()
+        self._start_worker()
+
+    def snapshot(self) -> dict:
+        with self.lock:
+            return dict(self.state)
+
+    def _start_worker(self) -> None:
+        if self._worker and self._worker.is_alive():
+            return
+        self._worker = threading.Thread(target=self._push_with_retry, daemon=True)
+        self._worker.start()
+
+    def _push_with_retry(self) -> None:
+        last_error = ""
+        for delay in (0, 3, 15):
+            if delay:
+                time.sleep(delay)
             try:
-                subprocess.run(['sudo', 'chown', '-R', 'www-data:www-data', public_dir],
-                               capture_output=True, timeout=10)
+                result = subprocess.run(
+                    ["git", "push"], cwd=self.project_dir, capture_output=True,
+                    text=True, timeout=60, encoding="utf-8", errors="replace",
+                )
+                if result.returncode == 0:
+                    with self.lock:
+                        self.state.update(status="synced", updatedAt=utc_now(), error="")
+                        self._save()
+                    return
+                last_error = (result.stderr or result.stdout).strip()
+            except (OSError, subprocess.TimeoutExpired) as exc:
+                last_error = str(exc)
+        with self.lock:
+            self.state.update(status="pending", updatedAt=utc_now(), error=last_error or "git push failed")
+            self._save()
+
+
+GIT_SYNC = GitSync(PROJECT_DIR)
+
+
+def _copy_candidate_project(destination: Path) -> None:
+    for directory in ("data", "layouts", "static", "src"):
+        source = PROJECT_DIR / directory
+        if source.exists():
+            shutil.copytree(source, destination / directory)
+    shutil.copy2(PROJECT_DIR / "config.yaml", destination / "config.yaml")
+
+
+def _run_candidate_build(candidate: Path) -> None:
+    result = subprocess.run(
+        [sys.executable, str(BUILD_SCRIPT), "--project-dir", str(candidate)],
+        cwd=PROJECT_DIR,
+        capture_output=True,
+        text=True,
+        timeout=180,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if result.returncode != 0:
+        details = (result.stderr or result.stdout).strip()
+        raise PublishError(f"构建失败:\n{details}")
+    if not (candidate / "public" / "index.html").is_file():
+        raise PublishError("构建未生成完整站点")
+
+
+def _commit_edit(path: str, display_name: str) -> str:
+    message = f"编辑: {path} ({display_name or 'shared-editor'})"
+    result = subprocess.run(
+        ["git", "commit", "--only", "-m", message, "--", path],
+        cwd=PROJECT_DIR,
+        capture_output=True,
+        text=True,
+        timeout=30,
+        encoding="utf-8",
+        errors="replace",
+    )
+    if result.returncode != 0:
+        raise PublishError(f"本地版本记录失败: {(result.stderr or result.stdout).strip()}", status=500)
+    revision = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=PROJECT_DIR, capture_output=True,
+        text=True, timeout=10, encoding="utf-8", errors="replace",
+    )
+    if revision.returncode != 0:
+        raise PublishError("无法读取发布版本", status=500)
+    return revision.stdout.strip()
+
+
+def publish_edit(path: str, content: str, base_version: str | None, display_name: str) -> dict:
+    full = _resolve_path(path)
+    if not full or not full.is_file():
+        raise PublishError("只允许编辑现有的 src/pages Markdown 文件")
+    if not isinstance(content, str) or not content.strip():
+        raise PublishError("内容不能为空")
+    if len(content.encode("utf-8")) > MAX_JSON_BYTES:
+        raise PublishError("内容过大")
+
+    with PUBLISH_LOCK:
+        current_content = full.read_text(encoding="utf-8")
+        current_version = content_version(current_content)
+        if base_version and base_version != current_version:
+            raise PublishError(
+                "页面已被其他人修改，请合并后再保存",
+                status=409,
+                details={"currentContent": current_content, "currentVersion": current_version},
+            )
+        if content == current_content:
+            return {"message": "内容没有变化", "version": current_version, "gitSync": GIT_SYNC.snapshot()}
+
+        with tempfile.TemporaryDirectory(prefix="srd-publish-", dir=PROJECT_DIR) as temp_name:
+            candidate = Path(temp_name)
+            _copy_candidate_project(candidate)
+            candidate_file = candidate / path
+            candidate_file.parent.mkdir(parents=True, exist_ok=True)
+            candidate_file.write_text(content, encoding="utf-8")
+            _run_candidate_build(candidate)
+
+            source_pending = full.with_name(f".{full.name}.{uuid.uuid4().hex}.pending")
+            source_pending.write_text(content, encoding="utf-8")
+            public_backup = PROJECT_DIR / f".public-backup-{uuid.uuid4().hex}"
+            source_changed = False
+            public_changed = False
+            try:
+                os.replace(source_pending, full)
+                source_changed = True
+                if PUBLIC_DIR.exists():
+                    os.replace(PUBLIC_DIR, public_backup)
+                os.replace(candidate / "public", PUBLIC_DIR)
+                public_changed = True
+                commit = _commit_edit(path, display_name)
             except Exception:
-                pass
+                if public_changed and PUBLIC_DIR.exists():
+                    shutil.rmtree(PUBLIC_DIR)
+                if public_backup.exists():
+                    os.replace(public_backup, PUBLIC_DIR)
+                if source_changed:
+                    full.write_text(current_content, encoding="utf-8")
+                if source_pending.exists():
+                    source_pending.unlink()
+                raise
+            finally:
+                if public_backup.exists():
+                    shutil.rmtree(public_backup)
 
-    # Git 备份（非阻塞，失败不影响）
+        GIT_SYNC.queue(commit)
+        return {
+            "message": "保存成功，站点已更新",
+            "version": content_version(content),
+            "commit": commit,
+            "gitSync": GIT_SYNC.snapshot(),
+        }
+
+
+def save_and_build(path: str, content: str, base_version: str | None = None, display_name: str = "shared-editor"):
+    """Compatibility wrapper used by older callers and tests."""
     try:
-        subprocess.run(['git', 'add', path], cwd=PROJECT_DIR,
-                       capture_output=True, timeout=10)
-        subprocess.run(['git', 'commit', '-m', f'编辑: {path}'],
-                       cwd=PROJECT_DIR, capture_output=True, timeout=10)
-        subprocess.run(['git', 'push'], cwd=PROJECT_DIR,
-                       capture_output=True, timeout=30)
-    except Exception:
-        pass
+        result = publish_edit(path, content, base_version, display_name)
+        return True, result["message"]
+    except PublishError as exc:
+        return False, str(exc)
 
-    return True, "保存成功，站点已更新"
+
+class FeedbackStore:
+    STATUSES = {"pending", "in_progress", "accepted", "closed"}
+
+    def __init__(self, database_path: Path):
+        self.database_path = database_path
+        database_path.parent.mkdir(parents=True, exist_ok=True)
+        self._initialize()
+
+    def connect(self):
+        connection = sqlite3.connect(self.database_path, timeout=10)
+        connection.row_factory = sqlite3.Row
+        return connection
+
+    def _initialize(self) -> None:
+        with self.connect() as connection:
+            connection.execute("""
+                CREATE TABLE IF NOT EXISTS feedback (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    message TEXT NOT NULL,
+                    contact TEXT NOT NULL DEFAULT '',
+                    page_path TEXT NOT NULL,
+                    anchor TEXT NOT NULL,
+                    language TEXT NOT NULL,
+                    site_version TEXT NOT NULL,
+                    status TEXT NOT NULL DEFAULT 'pending',
+                    internal_note TEXT NOT NULL DEFAULT '',
+                    is_read INTEGER NOT NULL DEFAULT 0,
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL
+                )
+            """)
+
+    def create(self, payload: dict) -> int:
+        now = utc_now()
+        with self.connect() as connection:
+            cursor = connection.execute(
+                """INSERT INTO feedback
+                   (message, contact, page_path, anchor, language, site_version, created_at, updated_at)
+                   VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+                (
+                    payload["message"], payload.get("contact", ""), payload.get("path", ""),
+                    payload.get("anchor", "top"), payload.get("language", "zh"),
+                    payload.get("version", "current"), now, now,
+                ),
+            )
+            return int(cursor.lastrowid)
+
+    def list(self, status: str | None = None) -> list[dict]:
+        query = "SELECT * FROM feedback"
+        params: tuple = ()
+        if status in self.STATUSES:
+            query += " WHERE status = ?"
+            params = (status,)
+        query += " ORDER BY created_at DESC"
+        with self.connect() as connection:
+            return [dict(row) for row in connection.execute(query, params).fetchall()]
+
+    def update(self, feedback_id: int, status: str, note: str, is_read: bool = True) -> bool:
+        if status not in self.STATUSES:
+            raise ValueError("无效状态")
+        with self.connect() as connection:
+            result = connection.execute(
+                """UPDATE feedback SET status = ?, internal_note = ?, is_read = ?, updated_at = ?
+                   WHERE id = ?""",
+                (status, note[:4000], int(is_read), utc_now(), feedback_id),
+            )
+            return result.rowcount == 1
+
+
+FEEDBACK_STORE = FeedbackStore(FEEDBACK_DB)
+RATE_LIMIT: dict[str, deque] = defaultdict(deque)
+RATE_LOCK = threading.Lock()
+
+
+def allow_feedback(ip_address: str, limit: int = 5, window_seconds: int = 600) -> bool:
+    now = time.monotonic()
+    with RATE_LOCK:
+        attempts = RATE_LIMIT[ip_address]
+        while attempts and now - attempts[0] > window_seconds:
+            attempts.popleft()
+        if len(attempts) >= limit:
+            return False
+        attempts.append(now)
+        return True
 
 
 class ProxyHandler(BaseHTTPRequestHandler):
+    server_version = "DaggerheartSRD/2"
+
     def do_GET(self):
         parsed = urlparse(self.path)
-
-        if parsed.path == '/api/page-list':
-            try:
-                pages = list_pages()
-                self._json(200, {"pages": pages})
-            except Exception as e:
-                self._json(500, {"error": str(e)})
-
-        elif parsed.path == '/api/get-file':
-            params = parse_qs(parsed.query)
-            path = params.get('path', [None])[0]
+        if parsed.path == "/api/page-list":
+            self._json(200, {"pages": page_catalog()})
+        elif parsed.path == "/api/get-file":
+            path = parse_qs(parsed.query).get("path", [""])[0]
             if not path:
                 self._json(400, {"error": "缺少 path 参数"})
                 return
-            try:
-                content = read_file(path)
-                if content is None:
-                    self._json(404, {"error": f"文件不存在或不可访问: {path}"})
-                else:
-                    self._json(200, {"content": content})
-            except Exception as e:
-                self._json(500, {"error": str(e)})
-
+            content = read_file(path)
+            if content is None:
+                self._json(404, {"error": f"文件不存在或不可访问: {path}"})
+            else:
+                self._json(200, {"content": content, "version": content_version(content)})
+        elif parsed.path == "/api/admin/publish-status":
+            self._json(200, {"gitSync": GIT_SYNC.snapshot()})
+        elif parsed.path == "/api/admin/feedback":
+            status = parse_qs(parsed.query).get("status", [None])[0]
+            records = FEEDBACK_STORE.list(status)
+            self._json(200, {"feedback": records, "unread": sum(not item["is_read"] for item in records)})
+        elif parsed.path == "/api/admin/feedback/export":
+            self._json(200, {"exportedAt": utc_now(), "feedback": FEEDBACK_STORE.list()})
         else:
             self._json(404, {"error": "Not found"})
 
     def do_POST(self):
-        if self.path != '/api/save':
+        parsed = urlparse(self.path)
+        try:
+            data = self._read_json()
+        except ValueError as exc:
+            self._json(400, {"error": str(exc)})
+            return
+
+        if parsed.path == "/api/preview":
+            content = data.get("content", "")
+            if not isinstance(content, str) or len(content.encode("utf-8")) > MAX_JSON_BYTES:
+                self._json(400, {"error": "预览内容无效"})
+                return
+            self._json(200, {"html": render_preview(content, data.get("language", "zh"))})
+        elif parsed.path == "/api/save":
+            try:
+                result = publish_edit(
+                    data.get("path", ""), data.get("content", ""),
+                    data.get("baseVersion"), str(data.get("displayName", ""))[:80],
+                )
+                self._json(200, result)
+            except PublishError as exc:
+                self._json(exc.status, {"error": str(exc), **exc.details})
+            except Exception as exc:
+                self._json(500, {"error": f"发布异常: {exc}"})
+        elif parsed.path == "/api/feedback":
+            self._submit_feedback(data)
+        elif parsed.path == "/api/admin/feedback/update":
+            try:
+                feedback_id = int(data.get("id"))
+                changed = FEEDBACK_STORE.update(feedback_id, data.get("status", "pending"), str(data.get("note", "")))
+                self._json(200 if changed else 404, {"updated": changed} if changed else {"error": "反馈不存在"})
+            except (TypeError, ValueError) as exc:
+                self._json(400, {"error": str(exc)})
+        else:
             self._json(404, {"error": "Not found"})
+
+    def _submit_feedback(self, data: dict) -> None:
+        ip_address = self.headers.get("X-Real-IP") or self.client_address[0]
+        if data.get("website"):
+            self._json(201, {"received": True})
             return
-
-        try:
-            length = int(self.headers.get("Content-Length", 0))
-            data = json.loads(self.rfile.read(length))
-        except Exception:
-            self._json(400, {"error": "无效的 JSON"})
+        if not allow_feedback(ip_address):
+            self._json(429, {"error": "提交过于频繁，请稍后再试"})
             return
+        message = data.get("message", "")
+        contact = data.get("contact", "")
+        if not isinstance(message, str) or not message.strip() or len(message) > 4000:
+            self._json(400, {"error": "问题描述不能为空且不能超过 4000 字"})
+            return
+        if not isinstance(contact, str) or len(contact) > 200:
+            self._json(400, {"error": "联系方式不能超过 200 字"})
+            return
+        data["message"] = message.strip()
+        data["contact"] = contact.strip()
+        feedback_id = FEEDBACK_STORE.create(data)
+        self._json(201, {"received": True, "id": feedback_id})
 
-        file_path = data.get("path", "")
-        content = data.get("content", "")
-
+    def _read_json(self) -> dict:
         try:
-            ok, msg = save_and_build(file_path, content)
-            self._json(200 if ok else 400,
-                       {"message": msg} if ok else {"error": msg})
-        except Exception as e:
-            self._json(500, {"error": str(e)})
+            length = int(self.headers.get("Content-Length", "0"))
+        except ValueError as exc:
+            raise ValueError("无效的 Content-Length") from exc
+        if length <= 0 or length > MAX_JSON_BYTES:
+            raise ValueError("请求内容为空或过大")
+        try:
+            value = json.loads(self.rfile.read(length))
+        except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+            raise ValueError("无效的 JSON") from exc
+        if not isinstance(value, dict):
+            raise ValueError("JSON 必须是对象")
+        return value
 
-    def do_OPTIONS(self):
-        self.send_response(200)
-        self.send_header("Access-Control-Allow-Origin", "*")
-        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
-        self.send_header("Access-Control-Allow-Headers", "Content-Type")
-        self.end_headers()
-
-    def _json(self, status, data):
+    def _json(self, status: int, data: dict):
         body = json.dumps(data, ensure_ascii=False).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
-        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
         self.end_headers()
         self.wfile.write(body)
 
@@ -181,43 +495,25 @@ class ProxyHandler(BaseHTTPRequestHandler):
         print(f"[{time.strftime('%Y-%m-%d %H:%M:%S')}] {args[0]}")
 
 
+def run_startup_build() -> bool:
+    result = subprocess.run(
+        [sys.executable, str(BUILD_SCRIPT)], cwd=PROJECT_DIR,
+        capture_output=True, text=True, timeout=180,
+        encoding="utf-8", errors="replace",
+    )
+    if result.returncode == 0:
+        print("启动构建成功")
+        return True
+    print(f"启动构建失败:\n{result.stderr or result.stdout}", file=sys.stderr)
+    return False
+
+
 if __name__ == "__main__":
-    server = HTTPServer((LISTEN_HOST, LISTEN_PORT), ProxyHandler)
-    print(f"编辑器代理已启动: http://{LISTEN_HOST}:{LISTEN_PORT}")
-    print(f"  GET  /api/page-list")
-    print(f"  GET  /api/get-file?path=...")
-    print(f"  POST /api/save")
-
-    print("\n启动时构建站点...")
-    public_dir = os.path.join(PROJECT_DIR, 'public')
-    if os.path.isdir(public_dir):
-        try:
-            subprocess.run(['sudo', 'chown', '-R', 'ubuntu:ubuntu', public_dir],
-                           capture_output=True, timeout=10)
-        except Exception:
-            pass
-    try:
-        result = subprocess.run(
-            ['python3', BUILD_SCRIPT],
-            cwd=PROJECT_DIR,
-            capture_output=True, text=True, timeout=120,
-        )
-        if result.returncode == 0:
-            print("  ✓ 构建成功\n")
-        else:
-            print(f"  ✗ 构建失败:\n{result.stderr}\n")
-    except Exception as e:
-        print(f"  ✗ 构建异常: {e}\n")
-    finally:
-        if os.path.isdir(public_dir):
-            try:
-                subprocess.run(['sudo', 'chown', '-R', 'www-data:www-data', public_dir],
-                               capture_output=True, timeout=10)
-            except Exception:
-                pass
-
+    run_startup_build()
+    server = ThreadingHTTPServer((LISTEN_HOST, LISTEN_PORT), ProxyHandler)
+    print(f"SRD 管理服务已启动: http://{LISTEN_HOST}:{LISTEN_PORT}")
     try:
         server.serve_forever()
     except KeyboardInterrupt:
-        print("\n代理已停止")
+        print("\n服务已停止")
         server.server_close()

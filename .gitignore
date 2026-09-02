@@ -7,3 +7,5 @@ __pycache__/
 hugo.exe
 .claude/
 static/edit/config.token.js
+static/generated/
+var/

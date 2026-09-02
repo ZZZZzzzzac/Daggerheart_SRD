@@ -31,12 +31,12 @@ Daggerheart_SRD/
 │   ├── build_srd.py
 │   ├── proxy_server.py  # GitHub API 代理（零依赖，纯 stdlib）
 │   └── proxy_server.service  # systemd 单元文件模板
-├── layouts/             # Hugo 模板（chrome/ _default/）
-├── static/              # CSS / JS / 图片 / 字体 / bootstrap
+├── data/                # 唯一章节清单 + 专用规则术语表
+├── layouts/             # Hugo 模板
+├── static/              # 阅读端、编辑器、反馈后台、图片
 ├── content/             # （生成）Python 生成的 Hugo 页面，已 gitignore
-├── public/              # Hugo 最终输出，直接提交 git（nginx 从此目录 serve）
+├── public/              # （生成）Hugo 最终输出，nginx 从此目录 serve
 ├── config.yaml          # Hugo 配置
-├── page-toc.yaml        # 页面结构目录
 ├── build.ps1            # Windows 构建
 ├── build.sh             # Linux 构建
 ├── deploy.ps1           # Windows 构建 + 部署（tar+scp 到服务器）
@@ -69,7 +69,9 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 
 ## 协作流程
 
-**流程**：贡献者 GitHub 网页上 Edit → Propose change → PR → 审核 → 合并 → 维护者本地构建并部署
+**内容流程**：信任用户登录 `/SRD/edit/` → 预览 → 完整候选构建 → 原子发布 → 本地 Git commit → 后台 push。
+
+**代码流程**：脚本、模板和样式仍通过 GitHub PR 审核，部署时服务器拉取代码并重新构建。
 
 **贡献者**：
 - 初期：翻译组成员（会教 GitHub 网页操作，不要求会 git 命令行）
@@ -83,8 +85,9 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 ## 在线编辑器
 
 `/SRD/edit/` 提供在线编辑功能：
-- 左边 CodeMirror 编辑 md，右边实时预览
--「保存」→ 直接写服务器文件 → 自动构建 → 即时生效
+- 左边编辑 Markdown，右边使用正式构建规则预览
+-「保存」→ 版本检查 → 临时完整构建 → 原子替换正式内容与站点
+- 成功发布先本地 Git commit，再异步 push；远端失败不阻塞发布
 - 编辑器页面和保存 API 由 nginx `auth_basic` 保护，需要密码才能编辑
 
 ### 代理服务器
@@ -92,47 +95,23 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 `scripts/proxy_server.py` — 零外部依赖，纯 Python stdlib HTTP 服务器：
 - 监听 `127.0.0.1:5000`，由 nginx `proxy_pass` 暴露为 `/SRD/api/`
 - 端点：`GET /api/page-list`、`GET /api/get-file`、`POST /api/save`
-- `/api/save` 写文件到 `src/pages/` → 调 `build_srd.py` → Hugo 构建到 `public/`
+- `/api/save` 只接受现有 `src/pages/` 页面，并执行冲突检查与候选构建
+- `/api/feedback` 接收公开文字反馈，`/api/admin/feedback` 管理 SQLite 收件箱
 - 安全检查：只允许编辑 `src/pages/` 路径下的文件
-- Git 备份：可选设置 `GH_TOKEN` 环境变量，设置后每次保存自动 commit + push
+- Git 备份：每次成功发布都自动 commit，并用服务器上已经配置好的非交互式 Git 凭据后台 push
 
 ### 服务端配置
 
 **systemd**：`/etc/systemd/system/proxy_server.service`
 ```
-Environment=GH_TOKEN=<fine-grained PAT>  # 可选，不设则不做 git 备份
 ExecStart=/usr/bin/python3 /var/www/SRD/scripts/proxy_server.py
 ```
 
-**nginx**：在 `sites-enabled/daggerheart.conf` 的 `/SRD/` location 之前：
-```nginx
-# 编辑器页面（需要密码）
-location ^~ /SRD/edit/ {
-    auth_basic "Daggerheart Editor";
-    auth_basic_user_file /etc/nginx/.htpasswd_daggerheart;
-    alias /var/www/SRD/public/edit/;
-}
-
-# 保存 API（需要密码）
-location = /SRD/api/save {
-    auth_basic "Daggerheart Editor";
-    auth_basic_user_file /etc/nginx/.htpasswd_daggerheart;
-    proxy_pass http://127.0.0.1:5000/api/save;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-}
-
-# 其他 API（公开 — page-list 和 get-file）
-location ^~ /SRD/api/ {
-    proxy_pass http://127.0.0.1:5000/api/;
-    proxy_set_header Host $host;
-    proxy_set_header X-Real-IP $remote_addr;
-}
-```
+**nginx**：使用 `scripts/nginx_proxy_snippet.conf`。公开反馈接口不要求登录；编辑器、反馈后台、发布接口和管理接口统一使用公用密码。
 
 不计划做：
 - 实时协同编辑
-- 服务端搜索（用客户端 lunr.js/flexsearch 即可）
+- 服务端搜索（当前使用无第三方依赖的浏览器端索引）
 
 ## 服务器
 

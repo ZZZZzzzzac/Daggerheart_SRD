@@ -1,191 +1,488 @@
-"""
-build_srd.py — Daggerheart HTML SRD 构建脚本
-从 src/pages/ 读取拆好的页面文件，生成 Hugo content 并构建
-"""
- 
-import os, re, sys, subprocess, yaml, markdown as md_lib
+"""Build the bilingual SRD, navigation data, and local search index."""
+
+from __future__ import annotations
+
+import argparse
+import html
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+import unicodedata
+from html.parser import HTMLParser
+from pathlib import Path
+from urllib.parse import urlparse
+
+import markdown as markdown_lib
+import yaml
+
 from makeup_copy import apply_makeup
 from sage_md_ext import SageTouchedExtension
- 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
-CONTENT_DIR = os.path.join(PROJECT_DIR, 'content')
-PAGES_DIR = os.path.join(PROJECT_DIR, 'src', 'pages')
-TOC_FILE = os.path.join(PROJECT_DIR, 'page-toc.yaml')
- 
- 
-def read_page(path, suffix):
-    fp = os.path.join(PAGES_DIR, path, suffix)
-    if not os.path.exists(fp):
-        return ''
-    with open(fp, 'r', encoding='utf-8') as f:
-        return f.read().strip()
- 
- 
-def md_to_html(text):
-    if not text:
-        return ''
-    return md_lib.markdown(text, extensions=['extra', SageTouchedExtension()])
- 
- 
-def generate_page(path, title_zh, title_en, cn_text, en_text, is_parent):
-    cn_html = md_to_html(apply_makeup(cn_text))
-    en_html = md_to_html(en_text)
-    body = f'<div class="lang-zh">\n{cn_html}\n</div>\n<div class="lang-en">\n{en_html}\n</div>'
-    content = f"""---
-title: "{title_zh}"
-weight: 1
----
- 
-<h1><span class="lang-zh">{title_zh}</span><span class="lang-en">{title_en}</span></h1>
- 
-{body}
-"""
-    d = os.path.join(CONTENT_DIR, path)
-    os.makedirs(d, exist_ok=True)
-    filename = '_index.md' if is_parent else 'index.md'
-    with open(os.path.join(d, filename), 'w', encoding='utf-8') as f:
-        f.write(content)
-    return path
+from validate_site import ValidationError, validate_site
 
 
-def get_parent_pages(pages):
-    """收集所有父页路径（有其他页面以其为前缀）"""
-    all_paths = set()
-    for page in pages:
-        subs = page.get('subs')
-        if subs:
-            for sub in subs:
-                all_paths.add(sub['path'])
-        else:
-            all_paths.add(page['path'])
- 
-    parents = set()
-    for path in all_paths:
-        for other in all_paths:
-            if other != path and other.startswith(path + '/'):
-                parents.add(path)
-                break
-    return parents
- 
- 
-def build():
-    with open(TOC_FILE, 'r', encoding='utf-8') as f:
-        toc = yaml.safe_load(f)
- 
-    os.makedirs(CONTENT_DIR, exist_ok=True)
- 
-    parent_pages = get_parent_pages(toc.get('pages', []))
- 
-    # 清理旧内容文件（.html 和 .md 遗留）
-    def clean_old(path):
-        for old_name in ['index.html', 'index.md', '_index.md']:
-            old_fp = os.path.join(CONTENT_DIR, path, old_name)
-            if os.path.exists(old_fp):
-                os.remove(old_fp)
- 
-    for p in toc.get('pages', []):
-        if p.get('subs'):
-            clean_old(p['path'])
-        elif p['path'] in parent_pages:
-            clean_old(p['path'])
- 
-    # 为有 subs 的 section 抑制 Hugo 自动列表页
-    for p in toc.get('pages', []):
-        if p.get('subs'):
-            d = os.path.join(CONTENT_DIR, p['path'])
-            os.makedirs(d, exist_ok=True)
-            with open(os.path.join(d, '_index.md'), 'w', encoding='utf-8') as f:
-                f.write('---\n_build:\n  render: never\n---\n')
- 
-    # 清理旧首页
-    for old_name in ['_index.html', 'index.html', 'index.md']:
-        old_fp = os.path.join(CONTENT_DIR, old_name)
-        if os.path.exists(old_fp):
-            os.remove(old_fp)
- 
-    # 首页
-    print("生成首页...")
-    homepage = """---
-title: "匕首之心 HTML SRD"
----
- 
-<h1><span class="lang-zh">匕首之心 HTML SRD</span><span class="lang-en">Daggerheart HTML SRD</span></h1>
- 
-<p><span class="lang-zh"><a href="https://www.daggerheart.com/">匕首之心 (Daggerheart)</a> 是一款由 Darrington Press 出版的桌上角色扮演游戏。这个网站是本游戏的系统参考文档（System Reference Document, SRD），以 HTML 格式供浏览器查阅。</span>
-<span class="lang-en"><a href="https://www.daggerheart.com/">Daggerheart</a> is a tabletop roleplaying game published by Darrington Press. This site is a System Reference Document (SRD) for that game, prepared in HTML format for reference in a browser.</span></p>
- 
-<div class="lang-zh">
-<div class="sage-touched">
-<details>
-<summary>贤者恩泽：什么是贤者恩泽</summary>
- 
-由民间翻译组与资深GM共同撰写的数据分析、规则解释、判决案例以及总结官方设计师的规则澄清，解决跑团、带团遇到的各类问题。但请注意贤者恩泽并非官方指导，其中的意见与例子也绝非真理，而是对社群中常见的问题提供一个可参考的答案与解释。
-</details>
-</div>
-</div>
- 
-<h2 id="license"><span class="lang-zh">授权</span><span class="lang-en">License</span></h2>
- 
-<p><span class="lang-zh">本文档依据 <a href="https://www.darringtonpress.com/license">Darrington Press 社群游戏授权条款</a>，视为公共游戏内容（Public Game Content）。</span>
-<span class="lang-en">This document is considered Public Game Content per the <a href="https://www.darringtonpress.com/license">Darrington Press Community Gaming License</a>.</span></p>
- 
-<p><span class="lang-zh">© 2025 Critical Role LLC. 保留所有权利。</span><span class="lang-en">© 2025 Critical Role LLC. All rights reserved.</span></p>
- 
-<h2 id="translators"><span class="lang-zh">致谢</span><span class="lang-en">Acknowledgments</span></h2>
- 
-<p><span class="lang-zh">感谢以下译者参与本 SRD 的翻译与审校：</span>
-<span class="lang-en">Thank you to the following translators for their contributions to this SRD (sorted by contribution):</span></p>
- 
-<ul>
-<li><span class="lang-zh"><strong>Alzgrey</strong></span><span class="lang-en"><strong>Alzgrey</strong></span></li>
-<li><span class="lang-zh"><strong>ZinGer_KyoN</strong></span><span class="lang-en"><strong>ZinGer_KyoN</strong></span></li>
-<li><span class="lang-zh"><strong>三得利乌龙茶</strong></span><span class="lang-en"><strong>三得利乌龙茶</strong></span></li>
-<li><span class="lang-zh"><strong>浣熊旅記</strong></span><span class="lang-en"><strong>浣熊旅記</strong></span></li>
-<li><span class="lang-zh"><strong>里予</strong></span><span class="lang-en"><strong>里予</strong></span></li>
-<li><span class="lang-zh"><strong>末楔</strong></span><span class="lang-en"><strong>末楔</strong></span></li>
-<li><span class="lang-zh"><strong>一条腿儿</strong></span><span class="lang-en"><strong>一条腿儿</strong></span></li>
-</ul>"""
-    with open(os.path.join(CONTENT_DIR, '_index.md'), 'w', encoding='utf-8') as f:
-        f.write(homepage)
- 
-    # 各页面
-    print("生成内容页面...")
-    for page in toc.get('pages', []):
-        zt = page['title']['zh']
-        et = page['title']['en']
-        subs = page.get('subs')
-        if subs:
-            for sub in subs:
-                sp = sub['path']
-                cn = read_page(sp, 'zh.md')
-                en = read_page(sp, 'en.md')
-                if not cn or not en:
-                    print(f"  ⚠ 缺文件: {sp} (CN={bool(cn)} EN={bool(en)})")
-                    continue
-                is_parent = sp in parent_pages
-                print(f"  ✓ {generate_page(sp, sub['title']['zh'], sub['title']['en'], cn, en, is_parent)}")
-        else:
-            p = page['path']
-            cn = read_page(p, 'zh.md')
-            en = read_page(p, 'en.md')
-            if not cn or not en:
-                print(f"  ⚠ 缺文件: {p} (CN={bool(cn)} EN={bool(en)})")
+SCRIPT_DIR = Path(__file__).resolve().parent
+DEFAULT_PROJECT_DIR = SCRIPT_DIR.parent
+HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
+EXPLICIT_ID_RE = re.compile(r"\s+\{#([a-zA-Z][\w-]*)\}\s*$")
+TAG_RE = re.compile(r"<[^>]+>")
+
+
+class BuildError(RuntimeError):
+    """A user-actionable build validation failure."""
+
+
+def _clean_heading(value: str) -> str:
+    value = EXPLICIT_ID_RE.sub("", value)
+    value = TAG_RE.sub("", value)
+    value = re.sub(r"[*_`~\[\]]", "", value)
+    return html.unescape(value).strip()
+
+
+def _slug(value: str, fallback: str) -> str:
+    explicit = EXPLICIT_ID_RE.search(value)
+    if explicit:
+        return explicit.group(1).lower()
+    normalized = unicodedata.normalize("NFKD", _clean_heading(value))
+    ascii_text = normalized.encode("ascii", "ignore").decode("ascii").lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", ascii_text).strip("-")
+    return slug or fallback
+
+
+def extract_headings(markdown_text: str) -> list[dict]:
+    return [
+        {
+            "level": len(match.group(1)),
+            "raw": match.group(2),
+            "title": _clean_heading(match.group(2)),
+        }
+        for match in HEADING_RE.finditer(markdown_text)
+    ]
+
+
+def assign_anchor_ids(zh_text: str, en_text: str) -> tuple[list[str], list[str]]:
+    """Create deterministic, language-neutral IDs for both heading streams.
+
+    Existing content is not perfectly aligned, so headings at the same ordinal share
+    an ID and unmatched headings receive a stable page-local fallback. Future source
+    can pin an important ID explicitly with Markdown's ``{#anchor}`` syntax.
+    """
+    zh_headings = extract_headings(zh_text)
+    en_headings = extract_headings(en_text)
+    size = max(len(zh_headings), len(en_headings))
+    ids: list[str] = []
+    used: set[str] = set()
+    for index in range(size):
+        source = en_headings[index]["raw"] if index < len(en_headings) else zh_headings[index]["raw"]
+        base = _slug(source, f"section-{index + 1:03d}")
+        candidate = base
+        suffix = 2
+        while candidate in used:
+            candidate = f"{base}-{suffix}"
+            suffix += 1
+        used.add(candidate)
+        ids.append(candidate)
+    return ids[: len(zh_headings)], ids[: len(en_headings)]
+
+
+def _inject_heading_ids(markdown_text: str, anchor_ids: list[str]) -> str:
+    index = 0
+
+    def replace(match: re.Match) -> str:
+        nonlocal index
+        marks, title = match.group(1), match.group(2)
+        anchor = anchor_ids[index]
+        index += 1
+        title = EXPLICIT_ID_RE.sub("", title).rstrip()
+        return f"{marks} {title} {{#{anchor}}}"
+
+    return HEADING_RE.sub(replace, markdown_text)
+
+
+def render_markdown(markdown_text: str, anchor_ids: list[str], language: str) -> str:
+    prepared = _inject_heading_ids(markdown_text, anchor_ids)
+    if language == "zh":
+        prepared = apply_makeup(prepared)
+    rendered = markdown_lib.markdown(
+        prepared,
+        extensions=["extra", "attr_list", SageTouchedExtension()],
+    )
+
+    def annotate(match: re.Match) -> str:
+        level, attributes = match.group(1), match.group(2)
+        id_match = re.search(r'\sid="([^"]+)"', attributes)
+        if not id_match:
+            return match.group(0)
+        anchor = id_match.group(1)
+        attributes = re.sub(r'\sdata-anchor="[^"]*"', "", attributes)
+        if language == "en":
+            attributes = re.sub(r'\sid="[^"]+"', "", attributes)
+        return f'<h{level}{attributes} data-anchor="{html.escape(anchor)}">'
+
+    rendered = re.sub(r"<h([1-6])([^>]*)>", annotate, rendered)
+    return re.sub(
+        r"(<table\b[^>]*>.*?</table>)",
+        r'<div class="table-scroll" role="region" tabindex="0">\1</div>',
+        rendered,
+        flags=re.DOTALL,
+    )
+
+
+def render_preview(markdown_text: str, language: str = "zh") -> str:
+    anchors, _ = assign_anchor_ids(markdown_text, markdown_text)
+    return render_markdown(markdown_text, anchors, language)
+
+
+class GlossaryLinker(HTMLParser):
+    """Link the first configured term in each section without touching markup."""
+
+    SKIP_TAGS = {"a", "code", "pre", "script", "style", "h1", "h2", "h3", "h4", "h5", "h6"}
+
+    def __init__(self, terms: list[dict], language: str, base_path: str):
+        super().__init__(convert_charrefs=False)
+        self.output: list[str] = []
+        self.skip_depth = 0
+        self.seen: set[str] = set()
+        candidates = []
+        for term in terms:
+            labels = [term.get(language, ""), *(term.get("aliases", {}).get(language, []) or [])]
+            for label in filter(None, labels):
+                candidates.append((label, term))
+        candidates.sort(key=lambda item: len(item[0]), reverse=True)
+        self.candidates = candidates
+        self.base_path = "/" + base_path.strip("/") + "/" if base_path.strip("/") else "/"
+
+    def handle_starttag(self, tag, attrs):
+        if tag in {"h1", "h2", "h3"}:
+            self.seen.clear()
+        if tag in self.SKIP_TAGS:
+            self.skip_depth += 1
+        self.output.append(self.get_starttag_text())
+
+    def handle_startendtag(self, tag, attrs):
+        self.output.append(self.get_starttag_text())
+
+    def handle_endtag(self, tag):
+        self.output.append(f"</{tag}>")
+        if tag in self.SKIP_TAGS:
+            self.skip_depth = max(0, self.skip_depth - 1)
+
+    def handle_data(self, data):
+        if self.skip_depth or not data.strip():
+            self.output.append(data)
+            return
+        output = data
+        for label, term in self.candidates:
+            term_id = str(term.get("id") or label)
+            if term_id in self.seen:
                 continue
-            is_parent = p in parent_pages
-            print(f"  ✓ {generate_page(p, zt, et, cn, en, is_parent)}")
- 
-    # Hugo（确保项目目录在 PATH 中，以便找到 hugo.exe）
-    os.environ['PATH'] = PROJECT_DIR + os.pathsep + os.environ.get('PATH', '')
-    print(f"\nHugo 构建...")
-    r = subprocess.run(['hugo'], cwd=PROJECT_DIR,
-                       capture_output=True, text=True,
-                       encoding='utf-8', errors='replace')
-    if r.returncode == 0:
-        print(f"  ✓ 成功")
+            flags = re.IGNORECASE if label.isascii() else 0
+            escaped = re.escape(label)
+            pattern = re.compile(rf"(?<![A-Za-z0-9_]){escaped}(?![A-Za-z0-9_])", flags) if label.isascii() else re.compile(escaped)
+            match = pattern.search(output)
+            if not match:
+                continue
+            target = str(term["target"]).strip("/")
+            anchor = str(term["anchor"])
+            href = f"{self.base_path}{target}/#{anchor}"
+            replacement = f'<a class="term-link" href="{html.escape(href, quote=True)}">{match.group(0)}</a>'
+            output = output[: match.start()] + replacement + output[match.end() :]
+            self.seen.add(term_id)
+        self.output.append(output)
+
+    def handle_entityref(self, name):
+        self.output.append(f"&{name};")
+
+    def handle_charref(self, name):
+        self.output.append(f"&#{name};")
+
+    def handle_comment(self, data):
+        self.output.append(f"<!--{data}-->")
+
+
+def apply_glossary_links(rendered_html: str, glossary: dict, language: str, base_path: str) -> str:
+    if not glossary.get("enabled"):
+        return rendered_html
+    linker = GlossaryLinker(glossary.get("terms", []), language, base_path)
+    linker.feed(rendered_html)
+    linker.close()
+    return "".join(linker.output)
+
+
+def _plain_text(markdown_text: str) -> str:
+    value = re.sub(r"```.*?```", " ", markdown_text, flags=re.DOTALL)
+    value = re.sub(r"`[^`]+`", " ", value)
+    value = re.sub(r"!\[[^]]*\]\([^)]*\)", " ", value)
+    value = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", value)
+    value = TAG_RE.sub(" ", value)
+    value = re.sub(r"[#>*_~|{}-]+", " ", value)
+    return re.sub(r"\s+", " ", html.unescape(value)).strip()
+
+
+def section_records(markdown_text: str, anchor_ids: list[str], page_title: str, path: str, language: str) -> list[dict]:
+    matches = list(HEADING_RE.finditer(markdown_text))
+    records: list[dict] = []
+    if not matches:
+        return [{
+            "path": path,
+            "language": language,
+            "pageTitle": page_title,
+            "heading": page_title,
+            "anchor": "top",
+            "body": _plain_text(markdown_text),
+        }]
+    for index, match in enumerate(matches):
+        level = len(match.group(1))
+        if level > 3:
+            continue
+        end = len(markdown_text)
+        for next_match in matches[index + 1 :]:
+            if len(next_match.group(1)) <= 3:
+                end = next_match.start()
+                break
+        records.append({
+            "path": path,
+            "language": language,
+            "pageTitle": page_title,
+            "heading": _clean_heading(match.group(2)),
+            "anchor": anchor_ids[index],
+            "body": _plain_text(markdown_text[match.end() : end]),
+        })
+    return records
+
+
+def read_page(pages_dir: Path, path: str, language: str) -> str:
+    file_path = pages_dir / path / f"{language}.md"
+    if not file_path.is_file():
+        raise BuildError(f"缺少文件: {path}/{language}.md")
+    content = file_path.read_text(encoding="utf-8").strip()
+    if not content:
+        raise BuildError(f"内容为空: {path}/{language}.md")
+    return content
+
+
+def flatten_pages(manifest: dict) -> list[dict]:
+    pages: list[dict] = []
+    for item in manifest.get("pages", []):
+        children = item.get("subs")
+        if children:
+            for child in children:
+                page = dict(child)
+                page["group"] = item["title"]
+                pages.append(page)
+        else:
+            page = dict(item)
+            page["group"] = None
+            pages.append(page)
+    return pages
+
+
+def _frontmatter(page: dict) -> str:
+    return "\n".join([
+        "---",
+        f"title: {json.dumps(page['title']['zh'], ensure_ascii=False)}",
+        f"title_en: {json.dumps(page['title']['en'], ensure_ascii=False)}",
+        f"srd_path: {json.dumps(page['path'])}",
+        "weight: 1",
+        "---",
+        "",
+    ])
+
+
+def generate_home(content_dir: Path) -> None:
+    home = """---
+title: "匕首之心 HTML SRD"
+title_en: "Daggerheart HTML SRD"
+srd_path: ""
+---
+
+<section class="home-hero">
+  <p class="eyebrow"><span class="lang-zh">系统参考文档</span><span class="lang-en">System Reference Document</span></p>
+  <h1><span class="lang-zh">匕首之心</span><span class="lang-en">Daggerheart</span></h1>
+  <p class="home-deck lang-zh">面向跑团现场的双语规则工具。浏览完整章节，搜索正文，或从左侧目录直接抵达需要的规则。</p>
+  <p class="home-deck lang-en">A bilingual rules reference built for use at the table. Browse the full structure, search the text, or jump directly to a rule from the contents.</p>
+  <p class="home-actions"><a class="primary-link" href="introduction/"><span class="lang-zh">开始阅读</span><span class="lang-en">Start reading</span></a></p>
+</section>
+
+<section class="home-note lang-zh">
+  <h2>关于本项目</h2>
+  <p>《匕首之心》是由 Darrington Press 出版的桌上角色扮演游戏。本站以 HTML 形式整理公开的系统参考文档，并由民间翻译组持续校对。</p>
+</section>
+<section class="home-note lang-en">
+  <h2>About this project</h2>
+  <p>Daggerheart is a tabletop roleplaying game published by Darrington Press. This site presents its public System Reference Document in a searchable HTML format.</p>
+</section>
+"""
+    (content_dir / "_index.md").write_text(home, encoding="utf-8")
+
+
+def generate_site(project_dir: Path) -> tuple[Path, Path]:
+    manifest_path = project_dir / "data" / "srd.yaml"
+    glossary_path = project_dir / "data" / "glossary.yaml"
+    pages_dir = project_dir / "src" / "pages"
+    content_dir = project_dir / "content"
+    generated_dir = project_dir / "static" / "generated"
+    if not manifest_path.is_file():
+        raise BuildError("缺少唯一章节清单 data/srd.yaml")
+    manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
+    glossary = yaml.safe_load(glossary_path.read_text(encoding="utf-8")) if glossary_path.is_file() else {"enabled": False, "terms": []}
+    if glossary.get("enabled") and not glossary.get("terms"):
+        raise BuildError("规则术语链接已启用，但术语表为空")
+
+    if content_dir.exists():
+        shutil.rmtree(content_dir)
+    content_dir.mkdir(parents=True)
+    generated_dir.mkdir(parents=True, exist_ok=True)
+    generate_home(content_dir)
+
+    flat_pages = flatten_pages(manifest)
+    parent_paths = {
+        page["path"] for page in flat_pages
+        if any(other["path"].startswith(page["path"] + "/") for other in flat_pages)
+    }
+    prepared_pages: list[dict] = []
+    anchors_by_path: dict[str, dict[str, set[str]]] = {}
+    for page in flat_pages:
+        path = page["path"]
+        zh_text = read_page(pages_dir, path, "zh")
+        en_text = read_page(pages_dir, path, "en")
+        zh_anchors, en_anchors = assign_anchor_ids(zh_text, en_text)
+        prepared_pages.append({
+            "page": page,
+            "zh_text": zh_text,
+            "en_text": en_text,
+            "zh_anchors": zh_anchors,
+            "en_anchors": en_anchors,
+        })
+        anchors_by_path[path] = {"zh": set(zh_anchors), "en": set(en_anchors)}
+
+    if glossary.get("enabled"):
+        for term in glossary.get("terms", []):
+            if not all(term.get(key) for key in ("id", "target", "anchor")):
+                raise BuildError("术语表条目必须包含 id、target 和 anchor")
+            target = str(term["target"]).strip("/")
+            anchor = str(term["anchor"])
+            if target not in anchors_by_path:
+                raise BuildError(f"术语 {term['id']} 指向不存在的页面: {target}")
+            for language in ("zh", "en"):
+                if anchor not in anchors_by_path[target][language]:
+                    raise BuildError(f"术语 {term['id']} 指向不存在的 {language} 小节: {target}#{anchor}")
+
+    if (project_dir / "config.yaml").is_file():
+        config_documents = yaml.safe_load_all((project_dir / "config.yaml").read_text(encoding="utf-8"))
+        config = next((document for document in config_documents if document), {})
     else:
-        print(f"  ✗ 失败:\n{r.stderr}")
- 
- 
-if __name__ == '__main__':
-    build()
+        config = {}
+    base_path = urlparse(str((config or {}).get("baseURL", ""))).path
+    site_pages: list[dict] = []
+    search_records: list[dict] = []
+    for position, prepared in enumerate(prepared_pages):
+        page = prepared["page"]
+        path = page["path"]
+        zh_text = prepared["zh_text"]
+        en_text = prepared["en_text"]
+        zh_anchors = prepared["zh_anchors"]
+        en_anchors = prepared["en_anchors"]
+        zh_html = apply_glossary_links(render_markdown(zh_text, zh_anchors, "zh"), glossary, "zh", base_path)
+        en_html = apply_glossary_links(render_markdown(en_text, en_anchors, "en"), glossary, "en", base_path)
+        output_dir = content_dir / path
+        output_dir.mkdir(parents=True, exist_ok=True)
+        page_content = _frontmatter(page) + (
+            f'<div class="lang-zh srd-language" lang="zh-CN">\n{zh_html}\n</div>\n'
+            f'<div class="lang-en srd-language" lang="en">\n{en_html}\n</div>\n'
+        )
+        output_name = "_index.md" if path in parent_paths else "index.md"
+        (output_dir / output_name).write_text(page_content, encoding="utf-8")
+
+        zh_headings = extract_headings(zh_text)
+        en_headings = extract_headings(en_text)
+        site_pages.append({
+            "path": path,
+            "url": f"{path}/",
+            "title": page["title"],
+            "group": page.get("group"),
+            "previous": flat_pages[position - 1]["path"] if position else None,
+            "next": flat_pages[position + 1]["path"] if position + 1 < len(flat_pages) else None,
+            "headings": {
+                "zh": [
+                    {"level": item["level"], "title": item["title"], "anchor": zh_anchors[index]}
+                    for index, item in enumerate(zh_headings) if item["level"] <= 3
+                ],
+                "en": [
+                    {"level": item["level"], "title": item["title"], "anchor": en_anchors[index]}
+                    for index, item in enumerate(en_headings) if item["level"] <= 3
+                ],
+            },
+        })
+        search_records.extend(section_records(zh_text, zh_anchors, page["title"]["zh"], path, "zh"))
+        search_records.extend(section_records(en_text, en_anchors, page["title"]["en"], path, "en"))
+
+    tree: list[dict] = []
+    for item in manifest.get("pages", []):
+        if item.get("subs"):
+            tree.append({
+                "type": "group",
+                "title": item["title"],
+                "children": [child["path"] for child in item["subs"]],
+            })
+        else:
+            tree.append({"type": "page", "path": item["path"]})
+    site_index = {
+        "version": manifest.get("version", "current"),
+        "tree": tree,
+        "pages": site_pages,
+    }
+    (generated_dir / "site-index.json").write_text(
+        json.dumps(site_index, ensure_ascii=False, separators=(",", ":")), encoding="utf-8"
+    )
+    (generated_dir / "search-index.json").write_text(
+        json.dumps({"version": site_index["version"], "records": search_records}, ensure_ascii=False, separators=(",", ":")),
+        encoding="utf-8",
+    )
+    return content_dir, generated_dir
+
+
+def run_hugo(project_dir: Path, destination: Path) -> None:
+    env = os.environ.copy()
+    env["PATH"] = str(DEFAULT_PROJECT_DIR) + os.pathsep + env.get("PATH", "")
+    command = ["hugo", "--source", str(project_dir), "--destination", str(destination), "--cleanDestinationDir"]
+    result = subprocess.run(command, capture_output=True, text=True, encoding="utf-8", errors="replace", env=env)
+    if result.returncode != 0:
+        details = (result.stderr or result.stdout).strip()
+        raise BuildError(f"Hugo 构建失败:\n{details}")
+    if not (destination / "index.html").is_file():
+        raise BuildError("Hugo 未生成首页")
+    try:
+        validate_site(destination)
+    except ValidationError as exc:
+        raise BuildError(f"站点结构校验失败: {exc}") from exc
+
+
+def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--project-dir", type=Path, default=DEFAULT_PROJECT_DIR)
+    parser.add_argument("--skip-hugo", action="store_true")
+    return parser.parse_args(argv)
+
+
+def main(argv: list[str] | None = None) -> int:
+    args = parse_args(argv)
+    project_dir = args.project_dir.resolve()
+    try:
+        manifest = yaml.safe_load((project_dir / "data" / "srd.yaml").read_text(encoding="utf-8"))
+        print(f"生成 {len(flatten_pages(manifest))} 个双语页面、整站目录与搜索资料...")
+        generate_site(project_dir)
+        if not args.skip_hugo:
+            print("运行 Hugo...")
+            run_hugo(project_dir, project_dir / "public")
+        print("构建成功")
+        return 0
+    except (BuildError, OSError, yaml.YAMLError) as exc:
+        print(f"构建失败: {exc}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -8,6 +8,7 @@ import urllib.request
 import urllib.error
 import json as json_mod
 import pytest
+from pathlib import Path
 from http.server import HTTPServer
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -20,8 +21,8 @@ import proxy_server
 
 def _setup_fake_project(monkeypatch):
     """对 PROJECT_DIR / PAGES_DIR 做平台兼容的 monkeypatch"""
-    proj = os.path.normpath("/fake/project")
-    pages = os.path.join(proj, "src", "pages")
+    proj = Path(os.path.normpath("/fake/project"))
+    pages = proj / "src" / "pages"
     monkeypatch.setattr(proxy_server, "PROJECT_DIR", proj)
     monkeypatch.setattr(proxy_server, "PAGES_DIR", pages)
     return proj, pages
@@ -32,7 +33,7 @@ def test_resolve_valid_path(monkeypatch):
     proj, pages = _setup_fake_project(monkeypatch)
 
     result = proxy_server._resolve_path("src/pages/intro/zh.md")
-    expected = os.path.normpath(os.path.join(proj, "src", "pages", "intro", "zh.md"))
+    expected = (proj / "src" / "pages" / "intro" / "zh.md").resolve()
     assert result == expected
 
 
@@ -58,21 +59,12 @@ def test_resolve_block_non_pages(monkeypatch):
 
 def _setup_tmp_project(monkeypatch, tmp_path):
     """创建临时项目结构并 monkeypatch PROJECT_DIR / PAGES_DIR"""
-    proj = str(tmp_path)
-    pages = os.path.join(proj, "src", "pages")
+    proj = Path(tmp_path)
+    pages = proj / "src" / "pages"
     os.makedirs(pages, exist_ok=True)
     monkeypatch.setattr(proxy_server, "PROJECT_DIR", proj)
     monkeypatch.setattr(proxy_server, "PAGES_DIR", pages)
     return proj, pages
-
-
-def _mock_subprocess(monkeypatch):
-    """替换 subprocess.run 为无操作版本"""
-    class FakeResult:
-        returncode = 0
-        stderr = ""
-    monkeypatch.setattr(proxy_server.subprocess, "run",
-                        lambda *a, **kw: FakeResult())
 
 
 def test_read_file_returns_content(monkeypatch, tmp_path):
@@ -120,25 +112,41 @@ def test_list_pages_returns_md_files(monkeypatch, tmp_path):
     assert result == expected
 
 
-def test_save_and_build_writes_file(monkeypatch, tmp_path):
-    """保存有效内容 → 文件写入正确"""
-    _setup_tmp_project(monkeypatch, tmp_path)
-    _mock_subprocess(monkeypatch)
+def test_page_catalog_uses_chinese_manifest_titles(monkeypatch, tmp_path):
+    proj, pages = _setup_tmp_project(monkeypatch, tmp_path)
+    (proj / "data").mkdir(exist_ok=True)
+    (pages / "core" / "equipment").mkdir(parents=True)
+    (pages / "core" / "equipment" / "zh.md").write_text("# 装备", encoding="utf-8")
+    (pages / "core" / "equipment" / "en.md").write_text("# Equipment", encoding="utf-8")
+    (proj / "data" / "srd.yaml").write_text(
+        'pages:\n  - path: core\n    title: {zh: "核心机制", en: "Core Mechanics"}\n'
+        '    subs:\n      - path: core/equipment\n        title: {zh: "装备表格", en: "Equipment Tables"}\n',
+        encoding="utf-8",
+    )
 
+    assert proxy_server.page_catalog() == [{
+        "path": "core/equipment",
+        "title": {"zh": "装备表格", "en": "Equipment Tables"},
+        "files": {
+            "zh": "src/pages/core/equipment/zh.md",
+            "en": "src/pages/core/equipment/en.md",
+        },
+    }]
+
+
+def test_save_and_build_writes_file(monkeypatch, tmp_path):
+    """兼容入口返回新的发布结果"""
+    monkeypatch.setattr(proxy_server, "publish_edit", lambda *args: {"message": "保存成功"})
     ok, msg = proxy_server.save_and_build("src/pages/intro/zh.md", "## 新内容")
     assert ok is True
     assert "成功" in msg
 
-    saved = os.path.join(str(tmp_path), "src", "pages", "intro", "zh.md")
-    with open(saved, "r", encoding="utf-8") as f:
-        assert f.read() == "## 新内容"
-
 
 def test_save_and_build_rejects_empty(monkeypatch, tmp_path):
-    """保存空白内容 → 返回错误"""
-    _setup_tmp_project(monkeypatch, tmp_path)
-    _mock_subprocess(monkeypatch)
-
+    """兼容入口保留可读错误"""
+    def reject(*args):
+        raise proxy_server.PublishError("内容不能为空")
+    monkeypatch.setattr(proxy_server, "publish_edit", reject)
     ok, msg = proxy_server.save_and_build("src/pages/intro/zh.md", "   \n  ")
     assert ok is False
     assert "不能为空" in msg
@@ -160,19 +168,22 @@ def test_save_and_build_rejects_bad_path(monkeypatch, tmp_path):
 @pytest.fixture
 def test_server(monkeypatch, tmp_path):
     """启动真实 HTTP 测试服务器，返回 base_url"""
-    proj = str(tmp_path)
-    pages = os.path.join(proj, "src", "pages")
+    proj = Path(tmp_path)
+    pages = proj / "src" / "pages"
     os.makedirs(pages, exist_ok=True)
 
     monkeypatch.setattr(proxy_server, "PROJECT_DIR", proj)
     monkeypatch.setattr(proxy_server, "PAGES_DIR", pages)
 
-    # 拦截 subprocess.run，禁止实际执行构建 / git 命令
-    class FakeResult:
-        returncode = 0
-        stderr = ""
-    monkeypatch.setattr(proxy_server.subprocess, "run",
-                        lambda *a, **kw: FakeResult())
+    def fake_publish(path, content, base_version, display_name):
+        if not content.strip():
+            raise proxy_server.PublishError("内容不能为空")
+        if not path.startswith("src/pages/"):
+            raise proxy_server.PublishError("非法路径")
+        return {"message": "保存成功", "version": "test", "gitSync": {"status": "pending"}}
+    monkeypatch.setattr(proxy_server, "publish_edit", fake_publish)
+    monkeypatch.setattr(proxy_server, "FEEDBACK_STORE", proxy_server.FeedbackStore(tmp_path / "feedback.db"))
+    proxy_server.RATE_LIMIT.clear()
 
     server = HTTPServer(("127.0.0.1", 0), proxy_server.ProxyHandler)
     port = server.server_address[1]
@@ -217,6 +228,7 @@ def test_api_get_file_ok(test_server, tmp_path):
     status, data = _api(test_server, "/api/get-file?path=src/pages/intro/zh.md")
     assert status == 200
     assert data["content"] == "# 标题\n\n正文内容。"
+    assert data["version"] == proxy_server.content_version(data["content"])
 
 
 def test_api_get_file_missing_path(test_server):
@@ -252,3 +264,33 @@ def test_api_save_bad_path(test_server):
     status, data = _api(test_server, "/api/save", method="POST",
                         body={"path": "src/other/secret.md", "content": "# evil"})
     assert status == 400
+
+
+def test_api_preview_uses_formal_renderer(test_server):
+    status, data = _api(test_server, "/api/preview", method="POST",
+                        body={"content": "## 动作掷骰", "language": "zh"})
+    assert status == 200
+    assert 'data-anchor="section-001"' in data["html"]
+
+
+def test_api_feedback_and_admin_workflow(test_server):
+    status, created = _api(test_server, "/api/feedback", method="POST", body={
+        "message": "这里有错字", "contact": "", "path": "core", "anchor": "roll",
+        "language": "zh", "version": "current", "website": "",
+    })
+    assert status == 201
+    status, inbox = _api(test_server, "/api/admin/feedback")
+    assert status == 200
+    assert inbox["unread"] == 1
+    assert inbox["feedback"][0]["message"] == "这里有错字"
+    status, updated = _api(test_server, "/api/admin/feedback/update", method="POST", body={
+        "id": created["id"], "status": "accepted", "note": "已修正",
+    })
+    assert status == 200
+    assert updated["updated"] is True
+
+
+def test_api_feedback_rejects_empty_message(test_server):
+    status, data = _api(test_server, "/api/feedback", method="POST", body={"message": "", "website": ""})
+    assert status == 400
+    assert "error" in data

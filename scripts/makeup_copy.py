@@ -138,7 +138,6 @@ MAKEUP_FUNCS = [
     format_resource_phrases_fn,
     bold_numbers_and_dice_fn,
     add_space_around_italics_fn,
-    simplify_markdown_links_fn,
     replace_pc_gm_fn,
 ]
 

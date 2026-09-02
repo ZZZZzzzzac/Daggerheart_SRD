@@ -2,13 +2,13 @@
 split_pages.py — 将 CN.md/EN.md 按页面拆分到 src/pages/
 每页生成一个 zh.md 和一个 en.md 文件
 """
-import os, re, yaml, sys
+import os, re, yaml, sys, shutil, tempfile, uuid
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 SRC_DIR = os.path.join(PROJECT_DIR, 'src')
 PAGES_DIR = os.path.join(SRC_DIR, 'pages')
-TOC_FILE = os.path.join(PROJECT_DIR, 'page-toc.yaml')
+TOC_FILE = os.path.join(PROJECT_DIR, 'data', 'srd.yaml')
 
 CN_FILE = os.path.join(SRC_DIR, 'DH-SRD-CN.md')
 EN_FILE = os.path.join(SRC_DIR, 'DH-SRD-EN.md')
@@ -104,49 +104,63 @@ def main():
     cn_ch = split_chapters(CN_FILE)
     en_ch = split_chapters(EN_FILE, use_en_map=True)
 
-    # 清空 pages 目录
-    if os.path.exists(PAGES_DIR):
-        import shutil
-        shutil.rmtree(PAGES_DIR)
-    os.makedirs(PAGES_DIR)
+    with tempfile.TemporaryDirectory(prefix='srd-import-', dir=SRC_DIR) as temp_dir:
+        candidate_pages = os.path.join(temp_dir, 'pages')
+        missing = []
+        for page in toc.get('pages', []):
+            title_zh = page['title']['zh']
+            path = page['path']
+            page_dir = os.path.join(candidate_pages, path)
 
-    for page in toc.get('pages', []):
-        title_zh = page['title']['zh']
-        path = page['path']
-        page_dir = os.path.join(PAGES_DIR, path)
-
-        cn_content = cn_ch.get(title_zh, '')
-        en_content = en_ch.get(title_zh, '')
-
-        if not cn_content and not en_content:
-            print(f"  ⚠ 跳过: {title_zh}")
-            continue
-
-        subs = page.get('subs')
-        if subs:
-            cn_subs = split_subsections(cn_content)
-            en_subs = split_subsections(en_content)
-            for sub in subs:
-                heading = sub['heading']
-                sub_dir = os.path.join(PAGES_DIR, sub['path'])
-                cn_sub = cn_subs.get(heading, '')
-                en_sub = en_subs.get(heading, '')
-                if not en_sub:
-                    en_key = CN_TO_EN_SUB.get(heading, '')
-                    if en_key:
-                        en_sub = en_subs.get(en_key, '')
-                if cn_sub:
+            cn_content = cn_ch.get(title_zh, '')
+            en_content = en_ch.get(title_zh, '')
+            subs = page.get('subs')
+            if subs:
+                cn_subs = split_subsections(cn_content)
+                en_subs = split_subsections(en_content)
+                for sub in subs:
+                    heading = sub['heading']
+                    sub_dir = os.path.join(candidate_pages, sub['path'])
+                    cn_sub = cn_subs.get(heading, '')
+                    en_sub = en_subs.get(heading, '')
+                    if not en_sub:
+                        en_key = CN_TO_EN_SUB.get(heading, '')
+                        if en_key:
+                            en_sub = en_subs.get(en_key, '')
+                    if not cn_sub or not en_sub:
+                        missing.append(f"{sub['path']} (zh={bool(cn_sub)}, en={bool(en_sub)})")
+                        continue
                     write_page(sub_dir, cn_sub, 'zh.md')
-                if en_sub:
                     write_page(sub_dir, en_sub, 'en.md')
-        else:
-            if cn_content:
+            else:
+                if not cn_content or not en_content:
+                    missing.append(f"{path} (zh={bool(cn_content)}, en={bool(en_content)})")
+                    continue
                 write_page(page_dir, cn_content, 'zh.md')
-            if en_content:
                 write_page(page_dir, en_content, 'en.md')
 
-    print(f"\n完成！页面文件已拆分到 {PAGES_DIR}")
+        if missing:
+            print("错误: 新版本尚未达到双语完整发布条件:", file=sys.stderr)
+            for item in missing:
+                print(f"  - {item}", file=sys.stderr)
+            return 1
+
+        backup = os.path.join(SRC_DIR, f'.pages-backup-{uuid.uuid4().hex}')
+        try:
+            if os.path.exists(PAGES_DIR):
+                os.replace(PAGES_DIR, backup)
+            os.replace(candidate_pages, PAGES_DIR)
+        except Exception:
+            if os.path.exists(backup) and not os.path.exists(PAGES_DIR):
+                os.replace(backup, PAGES_DIR)
+            raise
+        finally:
+            if os.path.exists(backup):
+                shutil.rmtree(backup)
+
+    print(f"\n完成！新版页面已整体替换到 {PAGES_DIR}")
+    return 0
 
 
 if __name__ == '__main__':
-    main()
+    raise SystemExit(main())
