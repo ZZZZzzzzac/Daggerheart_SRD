@@ -5,25 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SRD 反馈收件箱</title>
   <link rel="stylesheet" href="../css/site.css">
-  <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin.css?v=20260903j">
 </head>
 <body class="admin-page show-zh">
-  <header class="admin-header"><a href="../">DH · SRD</a><div><a href="../edit/">编辑正文</a><a href="../api/admin/feedback/export">导出 JSON</a></div></header>
+  <header class="admin-header">
+    <a class="admin-wordmark" href="../"><span>DH</span><b>SRD 管理台</b></a>
+    <nav aria-label="管理工具"><a href="../edit/">编辑正文</a><a href="../api/admin/feedback/export">导出 JSON</a></nav>
+  </header>
   <main class="admin-shell">
-    <div class="admin-title"><div><p class="eyebrow">站内反馈</p><h1>收件箱 <span id="unread-count"></span></h1><p class="sync-status" id="git-sync-status"></p></div><button class="secondary-button" id="refresh-button" type="button">刷新</button></div>
-    <nav class="status-tabs" id="status-tabs">
-      <button class="active" data-status="">全部</button><button data-status="pending">待处理</button><button data-status="in_progress">处理中</button><button data-status="accepted">已采纳</button><button data-status="closed">已关闭</button>
+    <section class="admin-intro">
+      <div class="admin-title">
+        <p class="eyebrow">站内反馈</p>
+        <div class="admin-heading-line"><h1>收件箱</h1><span class="unread-summary" id="unread-count" aria-live="polite"></span></div>
+        <p class="sync-status" id="git-sync-status"></p>
+      </div>
+      <button class="secondary-button refresh-button" id="refresh-button" type="button">刷新</button>
+    </section>
+    <nav class="status-tabs" id="status-tabs" aria-label="按处理状态筛选">
+      <button class="active" type="button" data-status="">全部</button>
+      <button type="button" data-status="pending">待处理</button>
+      <button type="button" data-status="in_progress">处理中</button>
+      <button type="button" data-status="accepted">已采纳</button>
+      <button type="button" data-status="closed">已关闭</button>
     </nav>
-    <p class="admin-status" id="admin-status">正在读取反馈…</p>
+    <p class="admin-status" id="admin-status" aria-live="polite">正在读取反馈…</p>
     <div class="feedback-list" id="feedback-list"></div>
   </main>
   <template id="feedback-template">
     <article class="feedback-card">
-      <div class="feedback-card-head"><div><span class="feedback-id"></span><time></time></div><a class="feedback-location" target="_blank" rel="noopener"></a></div>
-      <p class="feedback-message"></p><p class="feedback-contact"></p>
-      <div class="feedback-controls"><label>状态<select><option value="pending">待处理</option><option value="in_progress">处理中</option><option value="accepted">已采纳</option><option value="closed">已关闭</option></select></label><label>内部备注<textarea maxlength="4000"></textarea></label><button class="primary-button save-feedback" type="button">保存处理结果</button></div>
+      <header class="feedback-card-head">
+        <div class="feedback-meta">
+          <div class="feedback-flags"><span class="feedback-id"></span><span class="feedback-status-badge"></span><span class="feedback-unread" hidden>未读</span></div>
+          <time></time>
+        </div>
+        <a class="feedback-location" target="_blank" rel="noopener"></a>
+      </header>
+      <p class="feedback-message"></p>
+      <p class="feedback-contact"></p>
+      <div class="feedback-controls">
+        <label><span>状态</span><select><option value="pending">待处理</option><option value="in_progress">处理中</option><option value="accepted">已采纳</option><option value="closed">已关闭</option></select></label>
+        <label><span>内部备注</span><textarea rows="1" maxlength="4000"></textarea></label>
+        <button class="primary-button save-feedback" type="button">保存处理结果</button>
+      </div>
     </article>
   </template>
-  <script src="admin.js" defer></script>
+  <script src="admin.js?v=20260903j" defer></script>
 </body>
 </html>

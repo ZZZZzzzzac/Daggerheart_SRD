@@ -25,8 +25,13 @@
       const card = document.getElementById("feedback-template").content.firstElementChild.cloneNode(true);
       card.dataset.id = item.id;
       card.classList.toggle("unread", !item.is_read);
-      card.querySelector(".feedback-id").textContent = `#${item.id} · ${labelFor(item.status)}`;
-      card.querySelector("time").textContent = new Date(item.created_at).toLocaleString();
+      card.querySelector(".feedback-id").textContent = `#${item.id}`;
+      card.querySelector(".feedback-status-badge").textContent = labelFor(item.status);
+      card.querySelector(".feedback-unread").hidden = item.is_read;
+      const createdAt = new Date(item.created_at);
+      const time = card.querySelector("time");
+      time.dateTime = createdAt.toISOString();
+      time.textContent = createdAt.toLocaleString();
       const location = card.querySelector(".feedback-location");
       location.textContent = `${item.page_path || "首页"} #${item.anchor}`;
       location.href = pageUrl(item);
@@ -41,6 +46,15 @@
   }
 
   function labelFor(status) { return ({pending: "待处理", in_progress: "处理中", accepted: "已采纳", closed: "已关闭"})[status] || status; }
+
+  function markCardRead(card) {
+    if (!card.classList.contains("unread")) return;
+    card.classList.remove("unread");
+    card.querySelector(".feedback-unread").hidden = true;
+    const unread = document.getElementById("unread-count");
+    const remaining = Math.max(0, (Number.parseInt(unread.textContent, 10) || 0) - 1);
+    unread.textContent = remaining ? `${remaining} 条未读` : "";
+  }
 
   async function load() {
     statusText.textContent = "正在读取反馈…";
@@ -60,9 +74,11 @@
 
   async function saveCard(card) {
     const button = card.querySelector(".save-feedback"); button.disabled = true; button.textContent = "保存中…";
+    const selectedStatus = card.querySelector("select").value;
     try {
-      await request("/SRD/api/admin/feedback/update", { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({id: Number(card.dataset.id), status: card.querySelector("select").value, note: card.querySelector("textarea").value}) });
-      button.textContent = "已保存"; card.classList.remove("unread"); setTimeout(() => { button.textContent = "保存处理结果"; button.disabled = false; }, 800);
+      await request("/SRD/api/admin/feedback/update", { method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({id: Number(card.dataset.id), status: selectedStatus, note: card.querySelector("textarea").value}) });
+      card.querySelector(".feedback-status-badge").textContent = labelFor(selectedStatus);
+      button.textContent = "已保存"; markCardRead(card); setTimeout(() => { button.textContent = "保存处理结果"; button.disabled = false; }, 800);
     } catch (error) { button.textContent = error.message; button.disabled = false; }
   }
 

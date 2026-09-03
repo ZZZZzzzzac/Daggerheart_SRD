@@ -146,6 +146,22 @@ def test_feedback_form_reference_survives_async_submit():
     assert 'js/app.js?v=20260903i' in template
 
 
+def test_feedback_inbox_separates_unread_state_and_aligns_controls():
+    html = (PROJECT_DIR / "static" / "admin" / "index.html").read_text(encoding="utf-8")
+    css = (PROJECT_DIR / "static" / "admin" / "admin.css").read_text(encoding="utf-8")
+    script = (PROJECT_DIR / "static" / "admin" / "admin.js").read_text(encoding="utf-8")
+
+    assert 'class="admin-heading-line"' in html
+    assert 'class="feedback-unread"' in html
+    assert 'class="feedback-status-badge"' in html
+    assert "--admin-control-height:" in css
+    assert "height: var(--admin-control-height)" in css
+    assert "box-sizing: border-box" in css
+    assert 'querySelector(".feedback-unread").hidden = item.is_read' in script
+    assert 'admin.css?v=20260903j' in html
+    assert 'admin.js?v=20260903j' in html
+
+
 def test_site_css_and_editor_modules_use_current_cache_version():
     base = (PROJECT_DIR / "layouts" / "_default" / "baseof.html").read_text(encoding="utf-8")
     editor = (PROJECT_DIR / "static" / "edit" / "index.html").read_text(encoding="utf-8")
