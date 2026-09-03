@@ -37,6 +37,14 @@ def test_reader_editor_link_carries_current_page_path():
     assert '?path={{ . | urlquery }}' in template
 
 
+def test_reader_mobile_header_keeps_menu_brand_and_actions_on_one_row():
+    css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
+
+    mobile_rules = css.split("@media (max-width: 900px)", 1)[1]
+    header_rule = mobile_rules.split(".site-header", 1)[1].split("}", 1)[0]
+    assert "grid-template-columns: auto minmax(7rem, 1fr) auto" in header_rule
+
+
 def test_editor_opens_page_from_url_and_keeps_url_in_sync():
     script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
 
