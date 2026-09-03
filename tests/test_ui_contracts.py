@@ -134,6 +134,18 @@ def test_domain_card_metadata_uses_its_markdown_break_without_extra_blank_line()
     assert "margin-bottom" not in rule
 
 
+def test_feedback_form_reference_survives_async_submit():
+    script = (PROJECT_DIR / "static" / "js" / "app.js").read_text(encoding="utf-8")
+    template = (PROJECT_DIR / "layouts" / "_default" / "baseof.html").read_text(encoding="utf-8")
+    submit = script.split("async function submitFeedback", 1)[1].split("function bindEvents", 1)[0]
+
+    assert "const form = event.currentTarget;" in submit
+    assert "const button = form.querySelector" in submit
+    assert "form.reset();" in submit
+    assert "event.currentTarget.reset();" not in submit
+    assert 'js/app.js?v=20260903i' in template
+
+
 def test_site_css_and_editor_modules_use_current_cache_version():
     base = (PROJECT_DIR / "layouts" / "_default" / "baseof.html").read_text(encoding="utf-8")
     editor = (PROJECT_DIR / "static" / "edit" / "index.html").read_text(encoding="utf-8")

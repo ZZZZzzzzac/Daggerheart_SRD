@@ -282,8 +282,9 @@
 
   async function submitFeedback(event) {
     event.preventDefault();
+    const form = event.currentTarget;
     const status = document.getElementById("feedback-status");
-    const button = event.currentTarget.querySelector('button[type="submit"]');
+    const button = form.querySelector('button[type="submit"]');
     button.disabled = true;
     status.textContent = state.language === "zh" ? "正在提交…" : "Sending…";
     const payload = {
@@ -304,7 +305,7 @@
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || `HTTP ${response.status}`);
-      event.currentTarget.reset();
+      form.reset();
       status.textContent = state.language === "zh" ? "反馈已进入收件箱" : "Feedback received";
       window.setTimeout(() => closeDialog("feedback-dialog"), 900);
     } catch (error) {
