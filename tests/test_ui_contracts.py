@@ -100,6 +100,18 @@ def test_tables_wrap_inside_article_width_without_horizontal_scroll():
     assert "overflow-x: auto" not in css
 
 
+def test_site_css_and_editor_modules_use_current_cache_version():
+    base = (PROJECT_DIR / "layouts" / "_default" / "baseof.html").read_text(encoding="utf-8")
+    editor = (PROJECT_DIR / "static" / "edit" / "index.html").read_text(encoding="utf-8")
+    editor_script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
+    worker = (PROJECT_DIR / "static" / "edit" / "preview-worker.mjs").read_text(encoding="utf-8")
+
+    assert 'css/site.css?v=20260903f' in base
+    assert 'css/site.css?v=20260903f' in editor
+    assert 'render-core.mjs?v=20260903f' in editor_script
+    assert 'render-core.mjs?v=20260903f' in worker
+
+
 def test_article_tables_are_not_turned_into_blocks():
     css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
 
