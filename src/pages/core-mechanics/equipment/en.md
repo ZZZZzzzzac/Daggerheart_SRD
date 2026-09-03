@@ -1,4 +1,4 @@
-## EQUIPMENT
+## EQUIPMENT {#equipment}
 
 Your **equipped** weapons and armor are the ones listed in the "Active Weapons" and "Active Armor" sections of your character sheet. Your character can only attack with weapons, benefit from armor, and gain features from items they have equipped. You can't equip weapons or armor with a higher tier than you.
 
@@ -8,47 +8,47 @@ You can swap an Inventory Weapon with an Active Weapon at no cost during a rest 
 
 Your character can only have one Active Armor at a time. They can't equip armor while in danger or under pressure; otherwise, they can equip or unequip armor without cost. Each armor has its own Armor Slots; if your character unequips their armor, track how many of its Armor Slots are marked. You can't carry armor in your inventory. When your character equips or unequips armor, recalculate your damage thresholds.
 
-# WEAPONS
+# WEAPONS {#weapons}
 
 All weapons have a tier, trait, range, damage die, damage type, and burden. Some weapons also have a feature.
 
-#### **CATEGORY**
+#### **CATEGORY** {#category}
 
 A weapon's **category** specifies whether it is a Primary or Secondary weapon. Your character can only equip up to one weapon of each category at a time.
 
-#### **TRAIT**
+#### **TRAIT** {#trait}
 
 A weapon's **trait** specifies which trait to use when making an attack roll with it.
 
-#### **RANGE**
+#### **RANGE** {#range}
 
 A weapon's **range** specifies the maximum distance between the attacker and their target when attacking with it.
 
-#### **DAMAGE**
+#### **DAMAGE** {#damage}
 
 A weapon's **damage** indicates the size of the damage dice you roll on a successful attack with it; you roll a number of dice equal to your Proficiency. If the damage includes a flat modifier, this number is added to the total damage rolled, but is not altered or affected by Proficiency.
 
-#### **DAMAGE TYPE**
+#### **DAMAGE TYPE** {#damage-type}
 
 A weapon's **damage type** indicates whether it deals physical or magic damage. Weapons that deal magic damage can only be wielded by characters with a Spellcast trait.
 
-#### **BURDEN**
+#### **BURDEN** {#burden}
 
 A weapon's **burden** indicates how many **hands** it occupies when equipped. Your character's maximum burden is 2 hands.
 
-#### **FEATURE**
+#### **FEATURE** {#feature}
 
 A weapon's **feature** is a special rule that stays in effect while the weapon is equipped.
 
 You can throw an equipped weapon at a target within Very Close range, making the attack roll with Finesse. On a success, deal damage as usual for that weapon. Once thrown, the weapon is no longer considered equipped. Until you retrieve and re-equip it, you can't attack with it or benefit from its features.
 
-## PRIMARY WEAPON TABLES
+## PRIMARY WEAPON TABLES {#primary-weapon-tables}
 
 *Players can choose one Tier 1 primary weapon during character creation. The GM can make other weapons available throughout the campaign as the PCs level up.*
 
-#### TIER 1 (LEVEL 1)
+#### TIER 1 (LEVEL 1) {#tier-1-level-1}
 
-#### **Physical Weapons**
+#### **Physical Weapons** {#physical-weapons}
 
 | Name         | Trait    | Range      | Damage    | Burden     | Feature                                                                                                         |
 |--------------|----------|------------|-----------|------------|-----------------------------------------------------------------------------------------------------------------|
@@ -68,9 +68,9 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Crossbow     | Finesse  | Far        | d6+1 phy  | One-Handed | —                                                                                                               |
 | Longbow      | Agility  | Very Far   | d8+3 phy  | Two-Handed | Cumbersome: −1 to Finesse                                                                                       |
 
-#### TIER 1 (LEVEL 1)
+#### TIER 1 (LEVEL 1) {#tier-1-level-1-2}
 
-#### **Magic Weapons**
+#### **Magic Weapons** {#magic-weapons}
 
 *All magic weapons require a Spellcast trait*
 
@@ -87,9 +87,9 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Wand                | Knowledge | Far        | d6+1 mag  | One-Handed | —                                                                                                                   |
 | Greatstaff          | Knowledge | Very Far   | d6 mag    | Two-Handed | Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.                   |
 
-#### TIER 2 (LEVELS 2–4)
+#### TIER 2 (LEVELS 2–4) {#tier-2-levels-24}
 
-#### **Physical Weapons**
+#### **Physical Weapons** {#physical-weapons-2}
 
 | Name                     | Trait    | Range      | Damage    | Burden     | Feature                                                                                                                                            |
 |--------------------------|----------|------------|-----------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -118,9 +118,9 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Greatbow                 | Strength | Far        | d6+6 phy  | Two-Handed | Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.                                                  |
 | Finehair Bow             | Agility  | Very Far   | d6+5 phy  | Two-Handed | Reliable: +1 to attack rolls                                                                                                                       |
 
-#### TIER 2 (LEVELS 2–4)
+#### TIER 2 (LEVELS 2–4) {#tier-2-levels-24-2}
 
-#### **Magic Weapons**
+#### **Magic Weapons** {#magic-weapons-2}
 
 *All magic weapons require a Spellcast trait*
 
@@ -146,9 +146,9 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Wand of<br>Enthrallment      | Presence  | Far        | d6+4 mag  | One-Handed | Persuasive: Before you make a Presence Roll, you<br>can mark a Stress to gain a +2 bonus to the result.                                                                                |
 | Keeper's Staff               | Knowledge | Far        | d6+4 mag  | Two-Handed | Reliable: +1 to attack rolls                                                                                                                                                           |
 
-#### TIER 3 (LEVELS 5–7)
+#### TIER 3 (LEVELS 5–7) {#tier-3-levels-57}
 
-#### **Physical Weapons**
+#### **Physical Weapons** {#physical-weapons-3}
 
 | Name                     | Trait    | Range      | Damage    | Burden     | Feature                                                                                                                                            |
 |--------------------------|----------|------------|-----------|------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -178,9 +178,9 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Black Powder<br>Revolver | Finesse  | Far        | d6+8 phy  | One-Handed | Reloading: After you make an attack, roll a d6. On<br>a result of 1, you must mark a Stress to reload this<br>weapon before you can fire it again. |
 | Spiked Bow               | Agility  | Very Far   | d6+7 phy  | Two-Handed | Versatile: This weapon can also be used with these<br>statistics—Agility, Melee, d10+5.                                                            |
 
-#### TIER 3 (LEVELS 5–7)
+#### TIER 3 (LEVELS 5–7) {#tier-3-levels-57-2}
 
-#### **Magic Weapons**
+#### **Magic Weapons** {#magic-weapons-3}
 
 *All magic weapons require a Spellcast trait*
 
@@ -206,9 +206,9 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Mage Orb                        | Knowledge | Far        | d6+7 mag            | One-Handed | Powerful: On a successful attack, roll an additional<br>damage die and discard the lowest result.                                                  |
 | Ilmari's Rifle                  | Finesse   | Very Far   | d6+6 mag            | One-Handed | Reloading: After you make an attack, roll a d6. On<br>a result of 1, you must mark a Stress to reload this<br>weapon before you can fire it again. |
 
-#### TIER 4 (LEVELS 8–10)
+#### TIER 4 (LEVELS 8–10) {#tier-4-levels-810}
 
-#### **Physical Weapons**
+#### **Physical Weapons** {#physical-weapons-4}
 
 | Name                      | Trait    | Range      | Damage     | Burden     | Feature                                                                                                                                  |
 |---------------------------|----------|------------|------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
@@ -237,9 +237,9 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Aantari Bow               | Finesse  | Far        | d6+11 phy  | Two-Handed | Reliable: +1 to attack rolls                                                                                                             |
 | Hand Cannon               | Finesse  | Very Far   | d6+12 phy  | One-Handed | Reloading: After you make an attack, roll a d6. On<br>a 1, you must mark a Stress to reload this weapon<br>before you can fire it again. |
 
-#### TIER 4 (LEVELS 8–10)
+#### TIER 4 (LEVELS 8–10) {#tier-4-levels-810-2}
 
-#### **Magic Weapons**
+#### **Magic Weapons** {#magic-weapons-4}
 
 *All magic weapons require a Spellcast trait*
 
@@ -265,11 +265,11 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Magus Revolver                | Finesse   | Very Far   | d6+13 mag  | One-Handed | Reloading: After you make an attack, roll a d6. On<br>a result of 1, you must mark a Stress to reload<br>this weapon before you can fire it again. |
 | Fusion Gloves                 | Knowledge | Very Far   | d6+9 mag   | Two-Handed | Bonded: Gain a bonus to your damage rolls equal<br>to your level.                                                                                  |
 
-## SECONDARY WEAPON TABLES
+## SECONDARY WEAPON TABLES {#secondary-weapon-tables}
 
 *Players can choose one Tier 1 secondary weapon during character creation. The GM can make other weapons available throughout the campaign as the PCs level up.*
 
-#### TIER 1 (LEVEL 1)
+#### TIER 1 (LEVEL 1) {#tier-1-level-1-3}
 
 | Name             | Trait    | Range      | Damage   | Burden     | Feature                                                                                                         |
 |------------------|----------|------------|----------|------------|-----------------------------------------------------------------------------------------------------------------|
@@ -281,7 +281,7 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Grappler         | Finesse  | Close      | d6 phy   | One-Handed | Hooked: On a successful attack, you can pull the target<br>into Melee range.                                    |
 | Hand<br>Crossbow | Finesse  | Far        | d6+1 phy | One-Handed | —                                                                                                               |
 
-#### TIER 2 (LEVELS 2–4)
+#### TIER 2 (LEVELS 2–4) {#tier-2-levels-24-3}
 
 | Name                         | Trait    | Range      | Damage   | Burden     | Feature                                                                                                                                                                                                                                                      |
 |------------------------------|----------|------------|----------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -296,7 +296,7 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Parrying<br>Dagger           | Finesse  | Melee      | d6+2 phy | One-Handed | Parry: When you are attacked, roll this weapon's damage<br>dice. If any of the attacker's damage dice rolled the same<br>value as your dice, the matching results are discarded<br>from the attacker's damage dice before the damage you<br>take is totaled. |
 | Returning Axe                | Agility  | Close      | d6+4 phy | One-Handed | Returning: When this weapon is thrown within its range, it<br>appears in your hand immediately after the attack.                                                                                                                                             |
 
-#### TIER 3 (LEVELS 5–7)
+#### TIER 3 (LEVELS 5–7) {#tier-3-levels-57-3}
 
 | Name                         | Trait     | Range      | Damage   | Burden     | Feature                                                                                                                                                     |
 |------------------------------|-----------|------------|----------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -311,7 +311,7 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Powered<br>Gauntlet          | Knowledge | Close      | d6+4 phy | One-Handed | Charged: Mark a Stress to gain a +1 bonus to your<br>Proficiency on a primary weapon attack.                                                                |
 | Hand Sling                   | Finesse   | Very Far   | d6+4 phy | One-Handed | Versatile: This weapon can also be used with these<br>statistics—Finesse, Close, d8+4.                                                                      |
 
-#### TIER 4 (LEVELS 8–10)
+#### TIER 4 (LEVELS 8–10) {#tier-4-levels-810-3}
 
 | Name                          | Trait    | Range      | Damage   | Burden     | Feature                                                                                                                                     |
 |-------------------------------|----------|------------|----------|------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -326,7 +326,7 @@ You can throw an equipped weapon at a target within Very Close range, making the
 | Knuckle<br>Claws              | Strength | Melee      | d6+8 phy | One-Handed | Doubled Up: When you make an attack with your primary<br>weapon, you can deal damage to another target within<br>Melee range.               |
 | Primer Shard                  | Instinct | Very Close | d4 phy   | One-Handed | Locked On: On a successful attack, your next attack<br>against the same target with your primary weapon<br>automatically succeeds.          |
 
-# ARMOR
+# ARMOR {#armor}
 
 Every armor has a name, base damage thresholds, and a base Armor Score. Some armor also has a feature.
 
@@ -336,13 +336,13 @@ Every armor has a name, base damage thresholds, and a base Armor Score. Some arm
 
 While **unarmored,** your character's base Armor Score is 0, their Major threshold is equal to their level, and their Severe threshold is equal to twice their level.
 
-#### **REDUCING INCOMING DAMAGE**
+#### **REDUCING INCOMING DAMAGE** {#reducing-incoming-damage}
 
 When you take damage, you can mark one Armor Slot to reduce the number of Hit Points you would mark by one. If your character has an Armor Score of 0, you can't mark Armor Slots. If an effect temporarily increases your Armor Score, it increases your available Armor Slots by the same amount; when the effect ends, so does the availability of these Armor Slots.
 
-## ARMOR TABLES
+## ARMOR TABLES {#armor-tables}
 
-#### TIER 1 (LEVEL 1)
+#### TIER 1 (LEVEL 1) {#tier-1-level-1-4}
 
 | Name             | Base<br>Thresholds | Base<br>Score | Feature                                  |
 |------------------|--------------------|---------------|------------------------------------------|
@@ -351,7 +351,7 @@ When you take damage, you can mark one Armor Slot to reduce the number of Hit Po
 | Chainmail Armor  | 7 / 15             | 4             | Heavy: −1 to Evasion                     |
 | Full Plate Armor | 8 / 17             | 4             | Very Heavy: −2 to Evasion; −1 to Agility |
 
-#### TIER 2 (LEVELS 2–4)
+#### TIER 2 (LEVELS 2–4) {#tier-2-levels-24-4}
 
 | Name                       | Base<br>Thresholds | Base<br>Score | Feature                                                                                                                                              |
 |----------------------------|--------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -367,7 +367,7 @@ When you take damage, you can mark one Armor Slot to reduce the number of Hit Po
 | Tyris Soft Armor           | 8 / 18             | 5             | Quiet: You gain a +2 bonus to rolls you make to move silently.                                                                                       |
 | Rosewild Armor             | 11 / 23            | 5             | Hopeful: When you would spend a Hope, you can mark an Armor Slot<br>instead.                                                                         |
 
-#### TIER 3 (LEVELS 5–7)
+#### TIER 3 (LEVELS 5–7) {#tier-3-levels-57-4}
 
 | Name                      | Base<br>Thresholds | Base<br>Score | Feature                                                                                                       |
 |---------------------------|--------------------|---------------|---------------------------------------------------------------------------------------------------------------|
@@ -382,7 +382,7 @@ When you take damage, you can mark one Armor Slot to reduce the number of Hit Po
 | Monett's Cloak            | 16 / 39            | 6             | Magic: You can't mark an Armor Slot to reduce physical damage.                                                |
 | Runes of Fortification    | 17 / 43            | 6             | Painful: Each time you mark an Armor Slot, you must mark a Stress.                                            |
 
-#### TIER 4 (LEVELS 8–10)
+#### TIER 4 (LEVELS 8–10) {#tier-4-levels-810-4}
 
 | Name                       | Base<br>Thresholds | Base<br>Score | Feature                                                                                                                   |
 |----------------------------|--------------------|---------------|---------------------------------------------------------------------------------------------------------------------------|
@@ -397,7 +397,7 @@ When you take damage, you can mark one Armor Slot to reduce the number of Hit Po
 | Veritas Opal Armor         | 13 / 36            | 6             | Truthseeking: This armor glows when another creature within Close<br>range tells a lie.                                   |
 | Savior Chainmail           | 18 / 48            | 8             | Difficult: −1 to all character traits and Evasion                                                                         |
 
-# LOOT
+# LOOT {#loot}
 
 **Loot** comprises any consumables or reusable items the party acquires.
 
@@ -484,7 +484,7 @@ To generate a random item, choose a rarity, roll the designated dice, and match 
 | 59   | Ring of<br>Unbreakable<br>Resolve | Once per session, when the GM spends a Fear, you can spend 4 Hope to cancel the effects of that spent Fear.                                                                                                                                                                                          |
 | 60   | Belt of Unity                     | Once per session, you can spend 5 Hope to lead a Tag Team Roll with three PCs instead of two.                                                                                                                                                                                                        |
 
-# Consumables
+# Consumables {#consumables}
 
 Consumables are loot that can only be used once. You can hold up to five of each consumable at a time. Using a consumable doesn't require a roll unless required by the GM or the demands of the fiction.
 

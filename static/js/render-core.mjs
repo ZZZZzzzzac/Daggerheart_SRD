@@ -4,6 +4,7 @@ import MarkdownIt from "../vendor/markdown-it.mjs?v=15.0.1-browser";
 const HEADING_RE = /^(#{1,6})\s+(.+?)\s*$/gm;
 const EXPLICIT_ID_RE = /\s+\{#([a-zA-Z][\w-]*)\}\s*$/;
 const TAG_RE = /<[^>]+>/g;
+const BOLD_BOUNDARY = "<!--srd-bold-boundary-->";
 
 
 function cleanHeading(value) {
@@ -47,8 +48,17 @@ function assignAnchorIds(zhMarkdown, enMarkdown) {
   const ids = [];
   const used = new Set();
   for (let index = 0; index < count; index += 1) {
+    const zhExplicit = zhHeadings[index]?.raw.match(EXPLICIT_ID_RE)?.[1].toLowerCase();
+    const enExplicit = enHeadings[index]?.raw.match(EXPLICIT_ID_RE)?.[1].toLowerCase();
+    if (zhExplicit && enExplicit && zhExplicit !== enExplicit) {
+      throw new Error(`中英文第 ${index + 1} 个标题的显式锚点不一致: ${zhExplicit} / ${enExplicit}`);
+    }
     const source = enHeadings[index]?.raw ?? zhHeadings[index].raw;
     const base = slugHeading(source, `section-${String(index + 1).padStart(3, "0")}`);
+    const isExplicit = Boolean(zhExplicit || enExplicit);
+    if (isExplicit && used.has(base)) {
+      throw new Error(`重复的显式标题锚点: ${base}`);
+    }
     let candidate = base;
     let suffix = 2;
     while (used.has(candidate)) {
@@ -125,6 +135,16 @@ function applyMakeup(markdown) {
 }
 
 
+function normalizeBoldBoundaries(markdown) {
+  return markdown
+    .replace(/\*\*\*\*/g, `**${BOLD_BOUNDARY}**`)
+    .replace(
+      /(\*\*[^*\n|]+[：；，。！？]\*\*)(?=[\p{L}\p{N}])/gu,
+      `$1${BOLD_BOUNDARY}`,
+    );
+}
+
+
 function prepareHeadings(markdown) {
   return markdown.replace(HEADING_RE, (_match, marks, title) => `${marks} ${title.replace(EXPLICIT_ID_RE, "").trimEnd()}`);
 }
@@ -165,8 +185,9 @@ function renderSageBlocks(markdown, language, options) {
     prepared,
     restore(html) {
       return blocks.reduce((result, block, index) => {
+        const bodySource = language === "zh" ? applyMakeup(block.body) : block.body;
         const body = markdownRenderer.render(
-          language === "zh" ? applyMakeup(block.body) : block.body,
+          normalizeBoldBoundaries(bodySource),
           { anchorIds: [], headingIndex: 0, language, preserveSoftbreaks: options.pagePath === "domain-cards" },
         ).trim();
         const replacement = `<div class="sage-touched">\n<details>\n<summary>${block.summary}</summary>\n${body}\n</details>\n</div>`;
@@ -193,7 +214,8 @@ function renderDomainCards(html) {
 
 function renderMarkdown(markdown, anchorIds, language, options = {}) {
   const withHeadings = prepareHeadings(markdown);
-  const source = language === "zh" ? applyMakeup(withHeadings) : withHeadings;
+  const madeUp = language === "zh" ? applyMakeup(withHeadings) : withHeadings;
+  const source = normalizeBoldBoundaries(madeUp);
   const sage = renderSageBlocks(source, language, options);
   let html = markdownRenderer.render(sage.prepared, {
     anchorIds,
@@ -202,6 +224,7 @@ function renderMarkdown(markdown, anchorIds, language, options = {}) {
     preserveSoftbreaks: options.pagePath === "domain-cards",
   });
   html = sage.restore(html);
+  html = html.replaceAll(BOLD_BOUNDARY, "");
   html = html.replace(
     /(<table\b[^>]*>[\s\S]*?<\/table>)/g,
     '<div class="table-scroll" role="region">$1</div>',

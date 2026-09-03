@@ -1,122 +1,122 @@
-## INTRODUCTION
+## INTRODUCTION {#introduction}
 
 The GM is responsible for guiding the narrative and roleplaying the world the PCs inhabit. This section provides you with advice for running Daggerheart: using the core mechanics; creating memorable encounters; planning exciting sessions; selecting, creating, and using GM moves; crafting a full campaign; running dynamic NPCs; and more.
 
-## GM GUIDANCE
+## GM GUIDANCE {#gm-guidance}
 
 These three sections provide a foundation to help you get the most out of this game. The "GM Principles" are your guiding star—when in doubt, return to these principles.
 
-### GM PRINCIPLES
+### GM PRINCIPLES {#gm-principles}
 
-#### **BEGIN AND END WITH THE FICTION**
+#### **BEGIN AND END WITH THE FICTION** {#begin-and-end-with-the-fiction}
 
 *Use the fiction to drive mechanics, then connect the mechanics back to the fiction.*
 
-#### **COLLABORATE AT ALL TIMES, ESPECIALLY DURING CONFLICT**
+#### **COLLABORATE AT ALL TIMES, ESPECIALLY DURING CONFLICT** {#collaborate-at-all-times-especially-during-conflict}
 
 *The PCs are the protagonists of the campaign; antagonism between player and GM should exist only in the fiction.*
 
-#### **FILL THE WORLD WITH LIFE, WONDER, AND DANGER**
+#### **FILL THE WORLD WITH LIFE, WONDER, AND DANGER** {#fill-the-world-with-life-wonder-and-danger}
 
 *Showcase rich cultures, take the PCs to wondrous places, and introduce them to dangerous creatures.*
 
-#### **ASK QUESTIONS AND INCORPORATE THE ANSWERS**
+#### **ASK QUESTIONS AND INCORPORATE THE ANSWERS** {#ask-questions-and-incorporate-the-answers}
 
 *Ensuring that the players' ideas are included results in a narrative that supports the whole group's creativity.*
 
-#### **GIVE EVERY ROLL IMPACT**
+#### **GIVE EVERY ROLL IMPACT** {#give-every-roll-impact}
 
 *Only ask the players to roll during meaningful moments.*
 
-#### **PLAY TO FIND OUT WHAT HAPPENS**
+#### **PLAY TO FIND OUT WHAT HAPPENS** {#play-to-find-out-what-happens}
 
 *Be surprised by what the characters do, the choices they make, and the people they become.*
 
-#### **HOLD ON GENTLY**
+#### **HOLD ON GENTLY** {#hold-on-gently}
 
 *Don't worry if you need to abandon or alter something that came before.*
 
-### GM PRACTICES
+### GM PRACTICES {#gm-practices}
 
-#### **CULTIVATE A CURIOUS TABLE**
+#### **CULTIVATE A CURIOUS TABLE** {#cultivate-a-curious-table}
 
 *Follow what catches the players' interest to foster an environment of creative inquiry.*
 
-#### **GAIN YOUR PLAYERS' TRUST**
+#### **GAIN YOUR PLAYERS' TRUST** {#gain-your-players-trust}
 
 *Act in good faith, follow through on your promises, admit your mistakes.*
 
-#### **KEEP THE STORY MOVING FORWARD**
+#### **KEEP THE STORY MOVING FORWARD** {#keep-the-story-moving-forward}
 
 *Advance the story through escalating action, new information, or changing circumstances after every action roll, whether it succeeds or fails.*
 
-#### **CUT TO THE ACTION**
+#### **CUT TO THE ACTION** {#cut-to-the-action}
 
 *Skip past the boring bits. When a scene drags on, end it.*
 
-#### **HELP THE PLAYERS USE THE GAME**
+#### **HELP THE PLAYERS USE THE GAME** {#help-the-players-use-the-game}
 
 *Players have more fun when you help them understand the system.*
 
-#### **CREATE A META CONVERSATION**
+#### **CREATE A META CONVERSATION** {#create-a-meta-conversation}
 
 *Empower players to speak out of character, use safety tools, and ask for clarification.*
 
-#### **TELL THEM WHAT THEY WOULD KNOW**
+#### **TELL THEM WHAT THEY WOULD KNOW** {#tell-them-what-they-would-know}
 
 *Don't hide obvious details or important information from the players.*
 
-#### **GROUND THE WORLD IN MOTIVE**
+#### **GROUND THE WORLD IN MOTIVE** {#ground-the-world-in-motive}
 
 *An NPC's actions flow from their goals and desires.*
 
-#### **BRING THE GAME'S MECHANICS TO LIFE**
+#### **BRING THE GAME'S MECHANICS TO LIFE** {#bring-the-game-s-mechanics-to-life}
 
 *Set a good example of how fiction and mechanics work together to enhance the game experience.*
 
-#### **REFRAME RATHER THAN REJECT**
+#### **REFRAME RATHER THAN REJECT** {#reframe-rather-than-reject}
 
 *If a player's contribution conflicts with the fiction, work with them to reshape it.*
 
-#### **WORK IN MOMENTS AND MONTAGES**
+#### **WORK IN MOMENTS AND MONTAGES** {#work-in-moments-and-montages}
 
 *When framing a scene, decide which beats should be savored and which shouldn't linger.*
 
-### PITFALLS TO AVOID
+### PITFALLS TO AVOID {#pitfalls-to-avoid}
 
-#### **UNDERMINING THE HEROES**
+#### **UNDERMINING THE HEROES** {#undermining-the-heroes}
 
 If a roll doesn't go well, show how it was impacted by an adversary's prowess, environmental factors, or unexpected surprises, rather than the PC's incompetence.
 
-#### **ALWAYS TELLING THE PLAYERS WHAT TO ROLL**
+#### **ALWAYS TELLING THE PLAYERS WHAT TO ROLL** {#always-telling-the-players-what-to-roll}
 
 Let the players decide how to handle a challenge.
 
-#### **LETTING SCENES DRAG**
+#### **LETTING SCENES DRAG** {#letting-scenes-drag}
 
 Shake it up or cut away when a scene has concluded, the table's energy is flagging, or people are talking in circles.
 
-#### **SINGULAR SOLUTIONS**
+#### **SINGULAR SOLUTIONS** {#singular-solutions}
 
 Don't get hung up on one right answer to a problem. If the players have a clever idea, make it work.
 
-#### Overplanning
+#### Overplanning {#overplanning}
 
 Spend your prep time inventing situations instead of scripting scenes. If the players surprise you, take a break to think through your options.
 
-#### **HOARDING FEAR**
+#### **HOARDING FEAR** {#hoarding-fear}
 
 Spend Fear when you have the opportunity. The players will always generate more.
 
 *For more in-depth GM guidance, see pg. 140 of the Daggerheart Core Rulebook.*
 
-## CORE GM MECHANICS
+## CORE GM MECHANICS {#core-gm-mechanics}
 
-### ROLLING DICE
+### ROLLING DICE {#rolling-dice}
 
 The GM has no Duality Dice; instead, they roll a single d20 called the GM's Die.
 
-#### **ADVERSARY ATTACK ROLLS**
+#### **ADVERSARY ATTACK ROLLS** {#adversary-attack-rolls}
 
 When an adversary attacks a PC, roll your d20 and add the adversary's attack bonus to the result. If the total meets or beats the target's Evasion, the attack succeeds; otherwise, the attack fails. On a successful attack, roll the attack's damage dice to determine how much it deals.
 
@@ -124,7 +124,7 @@ If you roll a natural 20 on an attack, your roll automatically succeeds and you 
 
 *Note: a critical success on an adversary's reaction roll automatically succeeds, but confers no additional benefit.*
 
-#### **GUIDANCE ON ACTION ROLLS**
+#### **GUIDANCE ON ACTION ROLLS** {#guidance-on-action-rolls}
 
 After a player describes a move they want to make during the game, you might decide an action roll is necessary to determine how the scene progresses. Use this guide to determine what to present the player, choosing whichever option best fits the situation:
 
@@ -133,13 +133,13 @@ After a player describes a move they want to make during the game, you might dec
 - Communicate any unavoidable consequences.
 - If desired, you can offer the player the opportunity to forgo an action roll in exchange for agreeing to an interesting outcome, cost, or complication.
 
-### MAKING MOVES
+### MAKING MOVES {#making-moves}
 
 As the GM, you have **GM moves** that change the story in response to the players' actions. GM moves aren't bound by specific spells or effects—when you make a GM move, you can describe the action in whatever way the fiction demands.
 
 GM moves happen during **GM turns.** A GM turn begins when the spotlight passes to them and ends when the spotlight passes back to the players.
 
-#### **WHEN TO MAKE A MOVE**
+#### **WHEN TO MAKE A MOVE** {#when-to-make-a-move}
 
 The GM can make a GM move whenever you want, but the frequency and severity depends on the type of story you're telling, the actions your players take, and the tone of the session you're running.
 
@@ -151,7 +151,7 @@ Make a GM move when the players:
 - Give you a "golden opportunity" (an opening that demands an immediate response)
 - Look to you for what happens next
 
-#### **CHOOSING GM MOVES**
+#### **CHOOSING GM MOVES** {#choosing-gm-moves}
 
 The result of a player's action roll determines your response:
 
@@ -180,7 +180,7 @@ On a **Failure with Hope,** you describe how the PC fails to get what they want,
 - They are separated from their party
 - They lose an important opportunity for good.
 
-#### **QUICK REFERENCE:** RESOLVING ACTION ROLLS
+#### **QUICK REFERENCE:** RESOLVING ACTION ROLLS {#quick-reference-resolving-action-rolls}
 
 *If you're unsure how to resolve a roll, think about these quick phrases:*
 
@@ -199,13 +199,13 @@ If the move you should make is not obvious from the fiction, draw inspiration fr
 - Have the PC mark a Stress
 - Tell the players "everything is fine… for now."
 
-#### **SOFT AND HARD MOVES**
+#### **SOFT AND HARD MOVES** {#soft-and-hard-moves}
 
 **Soft moves** go easier on the players—they give the party new information about the scene and offer them an opportunity to react to it. **Hard moves** are harsher, more impactful, or more direct—the PCs don't get an opening to interrupt, alter, or anticipate the outcome.
 
 Use softer moves on rolls with Hope and harder moves on rolls with Fear.
 
-#### **Example GM Moves**
+#### **Example GM Moves** {#example-gm-moves}
 
 - Show how the world reacts
 - Ask a question and build on the answer
@@ -224,7 +224,7 @@ Use softer moves on rolls with Hope and harder moves on rolls with Fear.
 - Use a PC's backstory against them
 - Take away an opportunity permanently.
 
-### USING FEAR
+### USING FEAR {#using-fear}
 
 You start a campaign with 1 Fear per PC in the party.
 
@@ -263,13 +263,13 @@ If you find yourself with a **large amount of Fear,** consider:
 - An adversary activating a powerful spell or transformation to deal massive damage or boost their capabilities.
 - An environment exerting a strong negative effect on the party.
 
-## DIFFICULTY BENCHMARKS
+## DIFFICULTY BENCHMARKS {#difficulty-benchmarks}
 
 The Difficulty of an attack roll against an adversary is equal to the adversary's Difficulty score. The Difficulty of any other action rolls against an adversary is equal to the adversary's Difficulty score, plus (if applicable) the value of one of the adversary relevant Experience modifiers.
 
 When a player makes an action roll without a specified Difficulty, the GM sets the Difficulty according to the totality of the circumstances. Refer to the following benchmark table for more guidance:
 
-#### AGILITY
+#### AGILITY {#agility}
 | roll | sprint      | leap   | Maneuver       |
 |---|-------|--------|-------|
 | 5    | Sprint within Close range across an<br>open field with an enemy present.   | Make a running jump of half your height<br>(about 3 feet for a human).| Walk slowly across a narrow beam.|
@@ -279,7 +279,7 @@ When a player makes an action roll without a specified Difficulty, the GM sets t
 | 25   | Sprint within Far range through a<br>pitched battle in rough terrain.      | Make a running jump of five times your<br>height (about 30 feet for a human).  | Run across a very narrow beam in<br>an active rainstorm.    |
 | 30   | Sprint across the heads of your<br>enemies in a pitched battle.   | Make a running jump of ten times your<br>height (about 60 feet for a human).   | Run across an inch-wide, oil-slicked<br>beam in an active rainstorm. |
 
-#### STRENGTH
+#### STRENGTH {#strength}
 | roll | lift| smash   | grapple        |
 |---|--------|------|----|
 | 5    | Lift a chair.| Destroy a glass cup.      | Subdue a child.|
@@ -289,7 +289,7 @@ When a player makes an action roll without a specified Difficulty, the GM sets t
 | 25   | Lift a horse, an ox, or a large monster.| Break through a dragon's teeth.    | Subdue a large beast.   |
 | 30   | Lift a falling portcullis gate.| Break a god's grip.       | Subdue a legendary beast.        |
 
-#### FINESSE
+#### FINESSE {#finesse}
 | roll | control      | hide    | tinker|
 |---|--------|-------|-----|
 | 5    | Ride a horse through easy terrain.      | Evade notice under full cover on a | Open a sticky lock with the      |
@@ -300,7 +300,7 @@ When a player makes an action roll without a specified Difficulty, the GM sets t
 | 25   | Ride a wild horse through dangerous<br>terrain.  | Evade notice with minimal cover in<br>ample light.   | Open a door secured by a sequence<br>of elaborate locks.    |
 | 30   | Ride an enraged beast through<br>dangerous terrain.       | Evade notice with no cover in full<br>daylight.      | Disable an incredibly sensitive and<br>deadly trap.|
 
-#### INSTINCT
+#### INSTINCT {#instinct}
 
 | roll | perceive     | sense   | navigate       |
 |---|--------|-------|-----|
@@ -311,7 +311,7 @@ When a player makes an action roll without a specified Difficulty, the GM sets t
 | 25   | Hear a prowling animal fifty paces<br>away.      | Identify a spymaster's plot or read a<br>politican's true intentions.  | Find your way with no path through<br>dangerous conditions. |
 | 30   | Hear a diving bird a hundred paces<br>away.      | Sense a shred of doubt within a god's<br>pronouncement.       | Find your way through a trickery<br>god's maze.    |
 
-#### PRESENCE
+#### PRESENCE {#presence}
 
 | roll | charm  | perform        | deceive   |
 |---|--------|-------|-----|
@@ -322,7 +322,7 @@ When a player makes an action roll without a specified Difficulty, the GM sets t
 | 25   | Turn an enemy against their ruler or<br>talk your way into a fae court.        | Earn your keep in a royal court or<br>impress a full colosseum.      | Trick a spymaster. |
 | 30   | Talk a hostile god into granting you a<br>boon.     | Save yourself from execution after<br>offending the queen.  | Trick a god.       |
 
-#### KNOWLEDGE
+#### KNOWLEDGE {#knowledge}
 
 | roll | recall | analyze        | comprehend|
 |---|--------|-------|-----|
@@ -332,21 +332,21 @@ When a player makes an action roll without a specified Difficulty, the GM sets t
 | 20   | Recall specialized facts about a<br>distant community.       | Identify a weakness in a complicated<br>battle plan.        | Learn complicated skills under poor<br>conditions.     |
 | 25   | Recall specialized facts about a fallen<br>kingdom. | Predict the downfall of a nation based<br>on concealed misdeeds.     | Learn complicated skills quickly<br>under dangerous conditions. |
 
-#### GIVING ADVANTAGE AND DISADVANTAGE
+#### GIVING ADVANTAGE AND DISADVANTAGE {#giving-advantage-and-disadvantage}
 
 To viscerally convey how a PC's actions or circumstances affect their ability to act, grant them advantage die (or impose disadvantage die) instead of adjusting the Difficulty of an action roll.
 
-#### **ADVERSARY ACTION ROLLS**
+#### **ADVERSARY ACTION ROLLS** {#adversary-action-rolls}
 
 By default, adversaries don't normally make action rolls except for attack rolls and any unique actions described in their stat blocks. Any other action an adversary attempts simply succeeds without an action roll; if you want an adversary's action to have a chance of failure, have any relevant PCs make reaction rolls instead.
 
 However, for especially dramatic or difficult tasks that the PCs can't influence, you can give an adversary an **action roll**  anyway. For an adversary's action roll, roll a d20. If the result is equal to or greater than the action's Difficulty, the action succeeds—otherwise it fails. You can spend a Fear before rolling to add a relevant Experience from the adversary's stat block to the total. Use the same procedure when an adversary makes a **reaction roll.**
 
-#### **ADVERSARY ADVANTAGE & DISADVANTAGE**
+#### **ADVERSARY ADVANTAGE & DISADVANTAGE** {#adversary-advantage-disadvantage}
 
 If an adversary has advantage on an action roll, the GM rolls an extra d20 and counts only the higher result. If an adversary has disadvantage on an action roll, the GM rolls an extra d20 and counts only the lower result.
 
-### **ADVERSARY ATTACKS**
+### **ADVERSARY ATTACKS** {#adversary-attacks}
 
 When an adversary attacks a PC, the GM rolls a d20 and adds the adversary's Attack Modifier to the result. If the total meets or beats the target's Evasion, the attack succeeds; otherwise, it fails. Before rolling, the GM can grant the attacking adversary advantage, impose disadvantage, or spend a Fear to add a relevant Experience from the adversary's stat block to the total.
 
@@ -354,7 +354,7 @@ On a success, the adversary deals the damage listed in their stat block to the t
 
 When an adversary's action lets the GM make an **attack against multiple targets,** they make one attack roll and compare it to each target's Evasion separately.
 
-## COUNTDOWNS
+## COUNTDOWNS {#countdowns}
 
 **Countdowns** represent a period of time or series of events preceding a future effect. A countdown begins at a starting value. When a countdown **advances,** it's reduced by 1. The countdown's effect is triggered when the countdown reaches 0.
 
@@ -364,7 +364,7 @@ When an adversary's action lets the GM make an **attack against multiple targets
 
 **Dynamic countdowns** advance by up to 3 depending on the outcomes of action rolls. **Consequence countdowns**  are dynamic countdowns to negative effects. **Progress countdowns** are dynamic countdowns to positive effects. Dynamic countdowns advance according to this chart:
 
-#### DYNAMIC COUNTDOWN ADVANCEMENT
+#### DYNAMIC COUNTDOWN ADVANCEMENT {#dynamic-countdown-advancement}
 
 | Roll Result | Progress<br>Advancement | Consequence<br>Advancement |
 |----|----|----|
@@ -374,7 +374,7 @@ When an adversary's action lets the GM make an **attack against multiple targets
 | Success with<br>Hope | Tick down 2    | No advancement    |
 | Critical Success     | Tick down 3    | No advancement    |
 
-#### ADVANCED COUNTDOWN FEATURES
+#### ADVANCED COUNTDOWN FEATURES {#advanced-countdown-features}
 
 - Countdowns with **randomized starting values**
 - **Loop** countdowns that reset to their starting value after their countdown effect is triggered.
@@ -383,7 +383,7 @@ When an adversary's action lets the GM make an **attack against multiple targets
 - **Linked** progress and consequence countdowns that simultaneously advance according to the same action roll outcomes.
 - **Long-term countdowns** that advance after **rests** instead of action rolls.
 
-## GIVING OUT GOLD, EQUIPMENT, AND LOOT
+## GIVING OUT GOLD, EQUIPMENT, AND LOOT {#giving-out-gold-equipment-and-loot}
 
 It's up to you and your players how much importance you want to place on gold, equipment, and loot in your campaign.
 
@@ -409,7 +409,7 @@ Otherwise, set the prices of goods and services by adjusting the entries in the 
 | Tier 3 equipment (weapons, armor)    | 5–10 Bags    |
 | Tier 4 equipment (weapons, armor)    | 1–2 Chests   |
 
-## RUNNING GM NPCS
+## RUNNING GM NPCS {#running-gm-npcs}
 
 When you run NPCs as the GM, you should always strive to follow your GM principles and use them to bring the world to life. Differentiate NPCs with unique manners of speech and action; let their individual goals and desires motivate their actions.
 
@@ -419,7 +419,7 @@ If an NPC becomes an ally in combat, they don't need a stat block—just put the
 
 If you want an important NPC to mechanically interact with the system, you can give them one or more features with specific **triggers** and **effects.** An NPC might also have a choice that adjusts the parameters of their feature. For example:
 
-#### ARCANE HOLD
+#### ARCANE HOLD {#arcane-hold}
 
 *Choice:* When the battle begins, choose a favored PC.
 
@@ -427,15 +427,15 @@ If you want an important NPC to mechanically interact with the system, you can g
 
 *Effect:* Make an attack roll with a +6 modifier against the adversary. On a success, the target is temporarily Restrained by tendrils of powerful magic.
 
-### NPC FEATURE EXAMPLES
+### NPC FEATURE EXAMPLES {#npc-feature-examples}
 
-#### VOLLEY OF ARROWS
+#### VOLLEY OF ARROWS {#volley-of-arrows}
 
 *Trigger:* A battle begins and this NPC is involved.
 
 *Effect:* Activate a countdown (Loop 3). It ticks down when a PC misses an attack. When it triggers, this NPC releases a volley of arrows at a target of the PCs' choice, dealing **2d8+3** physical damage.
 
-#### MENTOR
+#### MENTOR {#mentor}
 
 *Choice:* When the battle begins, choose a protégé PC.
 
@@ -443,7 +443,7 @@ If you want an important NPC to mechanically interact with the system, you can g
 
 *Effect:* Move into Melee range with the PC and give them advice or guidance. The next attack roll they make has advantage.
 
-#### REGROUP
+#### REGROUP {#regroup}
 
 *Choice:* When a battle begins, choose a point within Far range.
 
@@ -451,19 +451,19 @@ If you want an important NPC to mechanically interact with the system, you can g
 
 *Effect:* Teleport all PCs and this NPC to the chosen spot and clear an Armor Slot on each target.
 
-#### INTO THE NIGHT
+#### INTO THE NIGHT {#into-the-night}
 
 *Trigger:* The PCs start a long rest with this NPC.
 
 *Effect:* Roll 1d4. On a 2 or less, this NPC steals 1 handful of gold from the party while they are sleeping, then disappears into the night.
 
-## OPTIONAL GM MECHANICS
+## OPTIONAL GM MECHANICS {#optional-gm-mechanics}
 
-### **FATE ROLLS**
+### **FATE ROLLS** {#fate-rolls}
 
 When the GM wants to leave an outcome entirely up to chance, they call for a fate roll. The GM establishes what's at stake and how the roll will be interpreted. Then a player rolls one of their Duality Dice and interprets the result.
 
-#### *Examples:*
+#### *Examples:* {#examples}
 
 *"Roll your Fear Die. On a 4 or lower, the fire spreads beyond this house."*
 
@@ -473,7 +473,7 @@ When the GM wants to leave an outcome entirely up to chance, they call for a fat
 
 *"Make a roll using your Hope Die to determine the number of Stamina Potions the shop has in stock."*
 
-### **FALLING AND COLLISION DAMAGE**
+### **FALLING AND COLLISION DAMAGE** {#falling-and-collision-damage}
 
 If a character falls to the ground, you can use the following as a guide to determine the damage they take:
 
@@ -483,7 +483,7 @@ If a character falls to the ground, you can use the following as a guide to dete
 
 If a character collides with an object or another character at a dangerous speed, they take 1d20+5 direct physical damage.
 
-### **MOVING AND FIGHTING UNDERWATER**
+### **MOVING AND FIGHTING UNDERWATER** {#moving-and-fighting-underwater}
 
 By default, attack rolls made while the attacker is underwater have disadvantage.
 
@@ -491,25 +491,25 @@ For creatures that can't breathe underwater, use a standard countdown (3) to tra
 
 Once the countdown ends, the underwater PC must mark a Stress whenever they take an action.
 
-### **CONFLICT BETWEEN PCS**
+### **CONFLICT BETWEEN PCS** {#conflict-between-pcs}
 
 Sometimes a player might want their character to act against another PC in the scene. Before jumping to rolling dice, discuss the situation with both players to decide how to resolve the conflict. A roll might not be necessary to reach an outcome—but if rolling will be fun for everyone involved, come to a consensus on the terms of the roll, then facilitate the scene according to the results.
 
 On an attack roll against a PC, the attacker rolls against the defender's Evasion, just like an adversary. On any other kind of action roll, the instigator makes an action roll and the target makes a reaction roll. To succeed, the instigator must beat a Difficulty equal to the total value of the reaction roll.
 
-## ADDITIONAL GM GUIDANCE
+## ADDITIONAL GM GUIDANCE {#additional-gm-guidance}
 
 *This section provides additional guidance for preparing and running a session of Daggerheart.*
 
-#### STORY BEATS
+#### STORY BEATS {#story-beats}
 
 In storytelling, a beat is a moment that changes the trajectory of the narrative—a shift in the world, a significant action or reaction, an emotional revelation, or an important decision. Take turns with the players, narrating a beat and then letting them react and carry the scene forward with their own beats. When preparing for a session, plan in terms of the moments that give shape to each scene or sequence, rather than prescripting specific details or exchanges.
 
-#### PREPARING COMBAT ENCOUNTERS
+#### PREPARING COMBAT ENCOUNTERS {#preparing-combat-encounters}
 
 Build the hurdles the PCs face around the question of "What helps tell the story?" Enemies, environments, and hazards are the tools for heightening tension and creating drama. Ensure that combat is being used to give players more information about the unfolding story, revealing the world, the plot, or the characters.
 
-#### BATTLES AND NARRATIVE
+#### BATTLES AND NARRATIVE {#battles-and-narrative}
 
 Dynamic battles create suspense by forcing players to choose between their various objectives, engaging their character's motivations and weaknesses, and creating the crucible that the players use to forge their characters into legendary heroes. When preparing combat encounters:
 
@@ -518,7 +518,7 @@ Dynamic battles create suspense by forcing players to choose between their vario
 - Use dynamic environments to bring the battleground to life
 - Add enemies that can interact with the PCs' features and special abilities
 
-#### SESSION REWARDS
+#### SESSION REWARDS {#session-rewards}
 
 Reward players at the end of a session with:
 
@@ -528,11 +528,11 @@ Reward players at the end of a session with:
 - Gold
 - Access to new equipment or enhancements
 
-#### CRAFTING SCENES
+#### CRAFTING SCENES {#crafting-scenes}
 
 Whenever you start a session, arrive at a new place, or change the situation, tell the players what they need to know by thinking with all of your senses and sharing something unique or unexpected about the fiction.
 
-#### ENGAGING YOUR PLAYERS
+#### ENGAGING YOUR PLAYERS {#engaging-your-players}
 
 Keep your players engaged by:
 
@@ -545,12 +545,12 @@ Keep your players engaged by:
 - Raise the Stakes by Spending Fear
 - Layering Goals Other than Attrition into Combat (see Table of Random Objectives on the next page)
 
-#### 1d12 Objective
+#### 1d12 Objective {#1d12-objective} {#1d12-objective-1d12-objective} {#1d12-objective-1d12-objective-1d12-objective-1d12-objective}
 
 - 1 Acquire (obtain or steal) an important item or items. 2 Capture one or more of the opponents. 3 Activate a magical device. 4 Frame a character or tarnish their reputation. 5 Drive the opponent into a corner or ambush point. 6 Stop a magical ritual, legal ceremony, or timesensitive spell. 7 Hold the line—keep the enemy from reaching a specific area or group. 8 Plant evidence or a tracking device on a target. 9 Secure a specific location ahead of another group's arrival. 10 Harass the opponent to deplete their resources or keep them occupied. 11 Destroy a piece of architecture, a statue, a shrine, or a weapon.
 - 12 Investigate a situation to confirm or deny existing information.
 
-#### PHASED BATTLES
+#### PHASED BATTLES {#phased-battles}
 
 Make battles by shifting the nature of its enemies or environment mid-combat:
 
@@ -558,13 +558,13 @@ Make battles by shifting the nature of its enemies or environment mid-combat:
 - Alter the Environment
 - Evolve the Opposition
 
-#### USING DOWNTIME
+#### USING DOWNTIME {#using-downtime}
 
 Use downtime scenes as a pressure release valve to vary the intensity of the story and give the PCs room to breathe.
 
 Empower your players to frame their own downtime scenes. Ask the players what it looks like as they tend to their wounds or unwind together, encouraging them to take the reins and work with other players whose characters are involved
 
-#### PROJECTS DURING DOWNTIME
+#### PROJECTS DURING DOWNTIME {#projects-during-downtime}
 
 The Work on a Project downtime move requires more GM input than other downtime moves and is best suited for longterm endeavors the PCs wish to undertake.
 
@@ -572,6 +572,6 @@ These projects are typically tracked using a Progress Countdown. When deciding t
 
 Simple projects advance their countdown each time a player uses the Work on a Project move, but complex projects require a roll.
 
-#### EXTENDED DOWNTIME
+#### EXTENDED DOWNTIME {#extended-downtime}
 
 When you fast-forward the story across an extended period, use montages to illustrate the passage of time. You gain 1d6 Fear per PC and advance any long-term countdowns as appropriate.

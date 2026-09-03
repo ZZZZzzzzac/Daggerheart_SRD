@@ -1,4 +1,4 @@
-version: "current"
+version: "srd-1.0"
 pages:
   - path: introduction
     title: {zh: "介绍", en: "Introduction"}

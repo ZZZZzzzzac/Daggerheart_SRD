@@ -1,20 +1,20 @@
-## ADVERSARIES AND ENVIRONMENTS
+## ADVERSARIES AND ENVIRONMENTS {#adversaries-and-environments}
 
-## USING ADVERSARIES
+## USING ADVERSARIES {#using-adversaries}
 
-## ADVERSARY STAT BLOCKS
+## ADVERSARY STAT BLOCKS {#adversary-stat-blocks}
 
 All the information required to run an adversary is contained in their stat block. An adversary's stat block includes their:
 
-## **NAME**
+## **NAME** {#name}
 
 Each stat block has a unique **name.** Abilities that affect adversaries with a certain name include all adversaries who use that stat block, regardless of their in-story name.
 
-## **TIER**
+## **TIER** {#tier}
 
 Each adversary is designed to oppose PCs of a certain **tier.** If you confront the party with an adversary from another tier, adjust their stats.
 
-## **TYPE**
+## **TYPE** {#type}
 
 The adversary's type appears alongside their tier. An adversary's **type** represents the role they play in a conflict. The adversary types are:
 
@@ -29,37 +29,37 @@ The adversary's type appears alongside their tier. An adversary's **type** repre
 - **Standards:** representative of their fictional group.
 - **Supports:** enhance their allies and disrupt their opponents.
 
-## **DESCRIPTION**
+## **DESCRIPTION** {#description}
 
 A summary of the adversary's appearance and demeanor.
 
-## **MOTIVES & TACTICS**
+## **MOTIVES & TACTICS** {#motives-tactics}
 
 Suggusted impulses, actions and goals for the adversary.
 
-## **DIFFICULTY**
+## **DIFFICULTY** {#difficulty}
 
 The Difficulty of any roll made against the adversary, unless otherwise noted.
 
-### **DAMAGE THRESHOLDS, HIT POINTS, AND STRESS**
+### **DAMAGE THRESHOLDS, HIT POINTS, AND STRESS** {#damage-thresholds-hit-points-and-stress}
 
 These systems function the same way they do for PCs. The
 
 numbers listed after "Threshold" are the adversary's Major and Severe Thresholds.
 
-## **ATTACK MODIFIER**
+## **ATTACK MODIFIER** {#attack-modifier}
 
 When you attack with the adversary, apply this bonus or penalty to your attack roll.
 
-## **STANDARD ATTACK**
+## **STANDARD ATTACK** {#standard-attack}
 
 A description of the adversary's primary mode of inflicting harm on the PCs. It includes the attack's **name,** its effective **range,** and the **damage** it deals on a success. Using an adversary's **standard attack** is a GM move.
 
-## **EXPERIENCE (OPTIONAL)**
+## **EXPERIENCE (OPTIONAL)** {#experience-optional}
 
 The GM can spend a Fear to add an adversary's relevant Experience to raise their attack roll or increase the Difficulty of a roll made against them.
 
-### **EXAMPLE EXPERIENCES:**
+### **EXAMPLE EXPERIENCES:** {#example-experiences}
 
 | Acrobatics  | Hunt from Above      | Navigation     |
 |-------------|----------------------|----------------|
@@ -69,7 +69,7 @@ The GM can spend a Fear to add an adversary's relevant Experience to raise their
 | Bodyguard   | Magical<br>Knowledge | Stealth        |
 | Commander   | Nature's Friend      | Tracker        |
 
-## **FEATURE(S)**
+## **FEATURE(S)** {#feature-s}
 
 There are three kinds of adversary features: **actions, reactions,** and **passives.** Note: each adversaries stress is tracked individually. If a feature requires the GM to spend Stress to activate it, the Stress must come from the adversary whose feature is being activate. If a feature has a Fear requirement, it must be spent in addition to any Fear already spent—for instance, to interrupt the PCs and put the spotlight on the adversary.
 
@@ -77,13 +77,13 @@ There are three kinds of adversary features: **actions, reactions,** and **passi
 - **Reactions:** special effects that take effect when their trigger occurs, regardless of whether the spotlight is on the adversary.
 - **Passives:** special abilities that remain in effect by default and require no resources or triggers to activate.
 
-## **FEAR FEATURE(S)**
+## **FEAR FEATURE(S)** {#fear-feature-s}
 
 High-impact effects that cost a Fear to activate.
 
-#### **EXAMPLE ADVERSARY FEATURES:**
+#### **EXAMPLE ADVERSARY FEATURES:** {#example-adversary-features}
 
-#### **ACTIONS**
+#### **ACTIONS** {#actions}
 
 **Haymaker - Action:** Make an attack against a target within Very Close range. On a success, deal X direct physical damage.
 
@@ -91,7 +91,7 @@ High-impact effects that cost a Fear to activate.
 
 **More Where That Came From - Action:** Summon three Jagged Knife Lackeys, who appear at Far range.
 
-#### **REACTIONS**
+#### **REACTIONS** {#reactions}
 
 **Heavy Hitter - Reaction:** When this adversary deals damage with a standard attack, you can spend a Fear to gain a +X bonus to the damage roll.
 
@@ -99,7 +99,7 @@ High-impact effects that cost a Fear to activate.
 
 **Momentum - Reaction:** When this adversary makes a successful attack against a PC, you gain a Fear.
 
-#### **PASSIVES**
+#### **PASSIVES** {#passives}
 
 **Horde (X) - Passive:** When the Horde has marked half or more of their HP, their standard attack deals X damage instead.
 
@@ -113,11 +113,11 @@ High-impact effects that cost a Fear to activate.
 
 **Armored Carapace - Passive:** When this adversary takes physical damage, reduce it by X.
 
-#### **FEAR FEATURES**
+#### **FEAR FEATURES** {#fear-features}
 
 **Explosion - Action:** Spend a Fear to erupt in a fiery explosion. Make an attack against all targets within Close range. Targets the adversary succeeds against take 1d8 magic damage and are knocked back to Far range.
 
-### BUILDING BALANCED ENCOUNTERS
+### BUILDING BALANCED ENCOUNTERS {#building-balanced-encounters}
 
 When planning a battle, start with **[(3 x the number of PCs in combat) + 2] Battle Points** and make the following adjustments:
 
@@ -146,11 +146,11 @@ Then spend your Battle Points to add an adversary to the encounter:
 
 **Spend 5 points** for each Solo adversary.
 
-#### **DEFEATED ADVERSARIES**
+#### **DEFEATED ADVERSARIES** {#defeated-adversaries}
 
 When an adversary marks their last Hit Point, they are defeated: incapacitated, tied up, routed, killed, or anything else the table decides makes sense.
 
-#### **ADVERSARY STAT BLOCK BENCHMARKS**
+#### **ADVERSARY STAT BLOCK BENCHMARKS** {#adversary-stat-block-benchmarks}
 
 | Adversary Statistic | Tier 1            | Tier 2             | Tier 3             | Tier 4             |
 |---------------------|-------------------|--------------------|--------------------|--------------------|

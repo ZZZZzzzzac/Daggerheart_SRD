@@ -1,20 +1,20 @@
-## USING ENVIRONMENTS
+## USING ENVIRONMENTS {#using-environments}
 
 *Environments represent everything in a scene beyond the PCs and adversaries, such as the physical space, background NPCs, and natural forces.*
 
-## ENVIRONMENT STAT BLOCK
+## ENVIRONMENT STAT BLOCK {#environment-stat-block}
 
 Each environment's **stat block** presents their necessary mechanical statistics:
 
-#### **NAME**
+#### **NAME** {#name}
 
 The unique name of the environment stat block.
 
-#### **TIER**
+#### **TIER** {#tier}
 
 The PC tier the environment is designed to challenge.
 
-#### **TYPE**
+#### **TYPE** {#type}
 
 The type of scene it most easily supports:
 
@@ -23,31 +23,31 @@ The type of scene it most easily supports:
 - **Traversals** dangerous locations where movement through and around the space itself is a challenge
 - **Events** special activities or occurrences (rather than physical spaces)
 
-### **DESCRIPTION**
+### **DESCRIPTION** {#description}
 
 An evocative one-line summary of the environment.
 
-#### **IMPULSES**
+#### **IMPULSES** {#impulses}
 
 The manner or mode with which the environment pushs and pulls the people within them.
 
-#### **DIFFICULTY**
+#### **DIFFICULTY** {#difficulty}
 
 The standard Difficulty for action rolls made to overcome, oppose, or resist the environment or its elements.
 
-#### **POTENTIAL ADVERSARIES**
+#### **POTENTIAL ADVERSARIES** {#potential-adversaries}
 
 Suggested adversaries that might appear in scenes within the environment.
 
-#### **FEATURES**
+#### **FEATURES** {#features}
 
 Features provide inspiration for GM moves you can use that represent the dynamic landscape or situation.
 
-#### **FEATURE QUESTIONS**
+#### **FEATURE QUESTIONS** {#feature-questions}
 
 Prompts for plot hooks, narrative engines, and connections to other story elements.
 
-## ADAPTING ENVIRONMENTS
+## ADAPTING ENVIRONMENTS {#adapting-environments}
 
 Sometimes you want to use an environment but it's at the wrong tier for your party. Or you might want to replace a feature or two, then present it as an entirely different environment. Whether planning your session or even improvising an environment mid-session, you can adjust an existing environment's stat block to fit the needs of your scene or improvise elements as needed. The environments
 
@@ -55,7 +55,7 @@ framework is there to help organize ideas, not to stifle creativity.
 
 When you need to quickly adjust a stat block to a different tier, you can simply replace its existing statistics with those listed on the Environment Statistics by Tier table, using the column that corresponds to your party's tier.
 
-#### BENCHMARK STATISTICS FOR ENVIRONMENTS BY TIER
+#### BENCHMARK STATISTICS FOR ENVIRONMENTS BY TIER {#benchmark-statistics-for-environments-by-tier}
 
 | Environment Statistic | Tier 1         | Tier 2          | Tier 3          | Tier 4           |
 |-----------------------|----------------|-----------------|-----------------|------------------|

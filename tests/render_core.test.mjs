@@ -18,6 +18,27 @@ test("one render core gives bilingual headings the same stable anchors", () => {
 });
 
 
+test("explicit anchors survive bilingual heading text changes", () => {
+  const before = renderPair("## 动作掷骰 {#action-check}", "## Action Roll {#action-check}");
+  const after = renderPair("## 进行动作检定 {#action-check}", "## Make an Action Check {#action-check}");
+
+  assert.deepEqual(before.anchors, after.anchors);
+  assert.deepEqual(after.anchors, { zh: ["action-check"], en: ["action-check"] });
+});
+
+
+test("duplicate or mismatched explicit anchors are rejected", () => {
+  assert.throws(
+    () => renderPair("## 一 {#same}\n## 二 {#same}", "## One {#same}\n## Two {#same}"),
+    /重复的显式标题锚点: same/,
+  );
+  assert.throws(
+    () => renderPair("## 一 {#one}", "## One {#two}"),
+    /显式锚点不一致/,
+  );
+});
+
+
 test("render core handles formal tables and Markdown inside sage blocks", () => {
   const source = [
     '<div class="sage-touched">',
@@ -37,6 +58,24 @@ test("render core handles formal tables and Markdown inside sage blocks", () => 
   assert.match(rendered.html.zh, /<div class="sage-touched">/);
   assert.match(rendered.html.zh, /<strong>重点<\/strong>/);
   assert.match(rendered.html.zh, /<div class="table-scroll" role="region">\s*<table>/);
+});
+
+
+test("adjacent bold spans and Chinese punctuation render inside table cells", () => {
+  const source = [
+    "| 武器 | 特性 |",
+    "| --- | --- |",
+    "| 刺剑 | **迅捷：****标记 1 压力点**以额外攻击一个范围内的目标。 |",
+    "| 戟 | **繁琐：**灵巧 **-1**。 |",
+    "| 拳刃 | **残暴：**伤害骰每掷出一次最大值，就额外掷出一个伤害骰。 |",
+  ].join("\n");
+
+  const rendered = renderPair(source, source);
+
+  assert.doesNotMatch(rendered.html.zh, /\*\*/);
+  assert.match(rendered.html.zh, /<strong>迅捷：<\/strong><strong>标记 1 压力点<\/strong>/);
+  assert.match(rendered.html.zh, /<strong>繁琐：<\/strong>灵巧 <strong>-1<\/strong>。/);
+  assert.match(rendered.html.zh, /<strong>残暴：<\/strong>伤害骰/);
 });
 
 

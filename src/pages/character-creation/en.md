@@ -2,7 +2,7 @@ Unless their table chooses to use pre-generated characters, each player creates 
 
 *Note: You can fill in your character's name, pronouns, and Character Description details at any point of the character creation process.*
 
-## STEP 1: Choose a Class and Subclass
+## STEP 1: Choose a Class and Subclass {#step-1-choose-a-class-and-subclass}
 
 **Classes** are role-based archetypes that determine which class features and **domain cards** a PC gains access to throughout the campaign. There are nine classes in this SRD: Bard, Druid, Guardian, Ranger, Rogue, Seraph, Sorcerer, Warrior, Wizard.
 
@@ -10,14 +10,14 @@ Unless their table chooses to use pre-generated characters, each player creates 
 - Every class begins with one or more unique **class feature(s),** described at the bottom left of each class's character sheet. If your class feature prompts you to make a selection, do so now.
 - **Choose a Subclass Subclasses** further refine a class archetype and reinforce its expression by granting access to unique **subclass features.** Each class comprises two subclasses. Select one of your class's subclasses and take its **Foundation** card.
 
-## STEP 2: Choose Your Heritage
+## STEP 2: Choose Your Heritage {#step-2-choose-your-heritage}
 
 Your character's **heritage** combines two elements: **ancestry** and **community.**
 
 - A character's **ancestry** reflects their lineage, impacting their physicality and granting them two unique **ancestry features.** Take the card for one of the following ancestries, then write its name in the Heritage field of your character sheet: Clank, Drakona, Dwarf, Elf, Faerie, Faun, Firbolg, Fungril, Galapa, Giant, Goblin, Halfling, Human, Infernis, Katari, Orc, Ribbet, Simiah. To create a Mixed Ancestry, take the top (first-listed) ancestry feature from one ancestry and the bottom (second-listed) ancestry feature from another.
 - Your character's **community** represents their culture or environment of origin and grants them a **community feature.** Take the card for one of the following communities, then write its name in the Heritage field of your character sheet: Highborne, Loreborne, Orderborne, Ridgeborne, Seaborne, Slyborne, Underborne, Wanderborne, Wildborne.
 
-## STEP 3: Assign Character Traits
+## STEP 3: Assign Character Traits {#step-3-assign-character-traits}
 
 Your character has six traits that represent their physical, mental, and social aptitude:
 
@@ -30,7 +30,7 @@ Your character has six traits that represent their physical, mental, and social 
 
 When you "roll with a trait," that trait's modifier is added to the roll's total. Assign the modifiers +2, +1, +1, +0, +0, -1 to your character's traits in any order you wish.
 
-## STEP 4: Record Additional Character Information
+## STEP 4: Record Additional Character Information {#step-4-record-additional-character-information}
 
 - Characters start a new campaign at **Level 1.** Record your level in the designated space at the top of your character sheet.
 - **Evasion** represents your character's ability to avoid damage. Your character's starting Evasion is determined by their class and appears directly beneath the Evasion field on your character sheet; copy this number into the Evasion field.
@@ -38,9 +38,9 @@ When you "roll with a trait," that trait's modifier is added to the roll's total
 - **Stress** reflects your ability to withstand the mental and emotional strain of dangerous situations and physical exertion. Every PC starts with 6 Stress slots.
 - **Hope** is a metacurrency that fuels special moves and certain abilities or features. All PCs start with 2 Hope; mark these in the Hope field of your character sheet.
 
-## STEP 5: Choose Your Starting Equipment
+## STEP 5: Choose Your Starting Equipment {#step-5-choose-your-starting-equipment}
 
-#### Choose your **weapon(s):**
+#### Choose your **weapon(s):** {#choose-your-weapon-s}
 
 - Select from the Tier 1 Weapon Tables. Either a **twohanded primary weapon** or a **one-handed primary weapon and a one-handed secondary weapon.**Then equip your selection by recording it in the Active Weapon field of your character sheet.
 - At Level 1, your **Proficiency** is 1; write this number in the Proficiency field on your character sheet, then calculate and record your **damage roll** by combining your Proficiency value with your equipped weapon(s) **damage dice.** *Example: If your Proficiency is 1 and your weapon's damage dice is d6+1, your damage roll is 1d6+1. Proficiency only determines how many damage dice you roll, and does not affect any flat damage modifiers.*
@@ -58,20 +58,20 @@ Add the following items to the **Inventory** fields on your character sheet:
 - If applicable, whichever class-specific item you selected to carry your spells
 - Any other GM-approved items you'd like to have at the start of the game
 
-## STEP 6: Create Your Background
+## STEP 6: Create Your Background {#step-6-create-your-background}
 
 Develop your character's **background** by answering the **background questions** in your character guide, modifying or replacing them if they don't fit the character you want to play.
 
 *Note: Your background has no explicit mechanical effect, but it greatly affects the character you'll play and the prep the GM will do. Throughout character creation, you can adjust choices you made in earlier steps to better reflect this background as your character takes shape. If you wish, you can leave your character's past more ambiguous for the time being and discover their backstory through play.*
 
-## STEP 7: Create Your Experiences
+## STEP 7: Create Your Experiences {#step-7-create-your-experiences}
 
 An Experience is a word or phrase used to encapsulate a specific set of skills, personality traits, or aptitudes your character has acquired over the course of their life. When your PC makes a move, they can spend a Hope to add a relevant Experience's modifier to an action or reaction roll.
 
 - Your PC gets two Experiences at character creation, each with a +2 modifier.
 - There's no set list of Experiences to choose from, but an Experience can't be too broadly applicable and it can't grant your character specific mechanical benefits, such as magic spells or special abilities. *For example, "Lucky" and "Highly Skilled" are too broad, because they could be applied to virtually any roll. Likewise, "Supersonic Flight" and "Invulnerable" imply game-breaking special abilities.*
 
-#### EXAMPLE EXPERIENCES
+#### EXAMPLE EXPERIENCES {#example-experiences}
 
 **Backgrounds:** *Assassin, Blacksmith, Bodyguard, Bounty Hunter, Chef to the Royal Family, Circus Performer, Con Artist, Fallen Monarch, Field Medic, High Priestess, Merchant, Noble, Pirate, Politician, Runaway, Scholar, Sellsword, Soldier, Storyteller, Thief, World Traveler* 
 
@@ -83,11 +83,11 @@ An Experience is a word or phrase used to encapsulate a specific set of skills, 
 
 **Phrases:** *Catch Me If You Can, Fake It Till You Make It, First Time's the Charm, Hold the Line, I Won't Let You Down, I'll Catch You, I've Got Your Back, Knowledge Is Power, Nature's Friend, Never Again, No One Left Behind, Pick on Someone Your Own Size, The Show Must Go On, This Is Not a Negotiation, Wolf in Sheep's Clothing*
 
-## STEP 8: Choose Domain Cards
+## STEP 8: Choose Domain Cards {#step-8-choose-domain-cards}
 
 Your class has access to two of the nine Domains included in the core set. Choose two cards from your class's domains, which are listed in the upper left of your character sheet. You can take one card from each domain or two from a single domain, whichever you prefer.
 
-## STEP 9: Create Your Connections
+## STEP 9: Create Your Connections {#step-9-create-your-connections}
 
 Connections are the relationships between the PCs. To create connections, follow these steps:
 

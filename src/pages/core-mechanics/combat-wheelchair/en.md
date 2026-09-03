@@ -1,10 +1,10 @@
-## Combat Wheelchair
+## Combat Wheelchair {#combat-wheelchair}
 
 *By Mark Thompson*
 
 The combat wheelchair is a ruleset designed to help you play a wheelchair user in Daggerheart. This section provides mechanics and narrative guidance for you to work from, but feel free to adapt the flavor text to best suit your character. Have fun with your character's wheelchair design, and make it as unique or tailored to them as you please.
 
-## ACTION AND MOVEMENT
+## ACTION AND MOVEMENT {#action-and-movement}
 
 When describing how your character moves, you can use descriptions such as the following:
 
@@ -13,7 +13,7 @@ When describing how your character moves, you can use descriptions such as the f
 
 • "I pull my brakes and skid to a halt, turning in my seat to level my bow at the intruder."
 
-## CONSEQUENCES
+## CONSEQUENCES {#consequences}
 
 Here are some ways you might describe complications you encounter when your character uses their wheelchair:
 
@@ -25,19 +25,19 @@ Here are some ways you might describe complications you encounter when your char
 
 GMs should avoid breaking a character's wheelchair or otherwise removing it from play as a consequence, unless everyone at the table, especially the wheelchair user's player, gives their approval.
 
-## EVASION
+## EVASION {#evasion}
 
 Your character is assumed to be skilled in moving their wheelchair and navigating numerous situations in it. As a result, the only wheelchair that gives a penalty to a PC's Evasion is the Heavy Frame model.
 
-## BURDEN
+## BURDEN {#burden}
 
 All wheelchairs can be maneuvered using one or two hands outside of combat. However, when being used as a weapon, the chair is restricted to requiring one or two hands to perform attacks, depending on the model you've chosen. If you're playing a character who has limited to no mobility in their arms, their wheelchair can be attuned to them by magical means. For example, your character might use a psychic link to guide the chair around like a pseudo-electric wheelchair. All the rules presented here can be tailored and adapted to any character's needs.
 
-## CHOOSING YOUR MODEL
+## CHOOSING YOUR MODEL {#choosing-your-model}
 
 All combat wheelchairs are equipped as Primary Weapons. There are three models of wheelchair available: light, heavy, and arcane. You're encouraged to consider the type of character you're playing and the class they belong to, then choose the model that best matches that character concept.
 
-### **Light Frame Models**
+### **Light Frame Models** {#light-frame-models}
 
 Though tough, these wheelchairs have light frames that allow the chair to move with your character in more acrobatic ways. These models are best suited to adventurers who rely on speed and flexibility.
 
@@ -48,7 +48,7 @@ Though tough, these wheelchairs have light frames that allow the chair to move w
 | Advanced<br>Light-Frame<br>Wheelchair  | 3    | Agility | Melee | d8+6 phy | One-Handed | Quick: When you make an attack, you can mark a<br>Stress to target another creature within range. |
 | Legendary<br>Light-Frame<br>Wheelchair | 4    | Agility | Melee | d8+9 phy | One-Handed | Quick: When you make an attack, you can mark a<br>Stress to target another creature within range. |
 
-#### **Heavy Frame Models**
+#### **Heavy Frame Models** {#heavy-frame-models}
 
 These wheelchairs have bulky and heavier frames, allowing the chair to lend its weight to your character's attacks. It also makes them a bigger target.
 
@@ -59,7 +59,7 @@ These wheelchairs have bulky and heavier frames, allowing the chair to lend its 
 | Advanced<br>Heavy-Frame<br>Wheelchair  | 3    | Strength | Melee | d12+9 phy  | Two-Handed | Heavy: −1 to Evasion |
 | Legendary<br>Heavy-Frame<br>Wheelchair | 4    | Strength | Melee | d12+12 phy | Two-Handed | Heavy: −1 to Evasion |
 
-#### **Arcane Frame Models**
+#### **Arcane Frame Models** {#arcane-frame-models}
 
 These wheelchairs have frames that are attuned to your character and their magic, allowing them to channel their spells through the chair. Unlike other primary magic weapons, the arcane-frame model doesn't specify a trait to use when making an attack with it. Instead, you use the Spellcast trait indicated by your subclass.
 

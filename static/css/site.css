@@ -183,6 +183,31 @@ details[open] > summary .tree-caret { transform: rotate(90deg); }
 .article-body th:last-child, .article-body td:last-child { border-right: 0; }
 .article-body tbody tr:nth-child(even) { background: color-mix(in srgb, var(--paper-deep) 48%, transparent); }
 
+@media (min-width: 701px) {
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(6):last-child),
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(4):last-child) { table-layout: fixed; }
+
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(6):last-child) :is(th, td):nth-child(1) { width: 18%; }
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(6):last-child) :is(th, td):nth-child(2) { width: 8%; }
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(6):last-child) :is(th, td):nth-child(3) { width: 10%; }
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(6):last-child) :is(th, td):nth-child(4) { width: 11%; }
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(6):last-child) :is(th, td):nth-child(5) { width: 8%; }
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(6):last-child) :is(th, td):nth-child(6) { width: 45%; }
+
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(4):last-child) :is(th, td):nth-child(1) { width: 24%; }
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(4):last-child) :is(th, td):nth-child(2) { width: 16%; }
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(4):last-child) :is(th, td):nth-child(3) { width: 12%; }
+  .srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(4):last-child) :is(th, td):nth-child(4) { width: 48%; }
+}
+
+.srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(6):last-child) :is(th, td):nth-child(n+2):nth-child(-n+5),
+.srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(4):last-child) :is(th, td):nth-child(2),
+.srd-article[data-page-path="core-mechanics/equipment"] table:has(th:nth-child(4):last-child) :is(th, td):nth-child(3) {
+  overflow-wrap: normal;
+  word-break: normal;
+  white-space: nowrap;
+}
+
 .srd-article[data-page-path="domain-cards"] { width: min(100%, 94rem); }
 .domain-section { --domain-color: #70578d; --domain-text: color-mix(in srgb, var(--domain-color) 42%, var(--ink)); margin: 0 0 5rem; }
 .domain-section:nth-of-type(2) { --domain-color: #93483f; }

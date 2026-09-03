@@ -1,11 +1,20 @@
+import json
+import re
 import shutil
 import sys
+import tempfile
 from pathlib import Path
 
 import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import proxy_server
+
+
+@pytest.fixture
+def workspace_tmpdir():
+    with tempfile.TemporaryDirectory(prefix=".codex-test-tmp-", dir=proxy_server.PROJECT_DIR) as directory:
+        yield Path(directory)
 
 
 class FakeSync:
@@ -156,7 +165,7 @@ def test_feedback_store_create_list_and_update(tmp_path):
     store = proxy_server.FeedbackStore(Path(tmp_path) / "feedback.db")
     feedback_id = store.create({
         "message": "动作掷骰有错字", "contact": "reader@example.com", "path": "core",
-        "anchor": "action-roll", "language": "zh", "version": "current",
+        "anchor": "action-roll", "language": "zh", "version": "srd-1.0",
     })
     records = store.list()
     assert records[0]["id"] == feedback_id
@@ -180,10 +189,38 @@ def test_feedback_rate_limit():
     assert proxy_server.allow_feedback("127.0.0.9", limit=2) is False
 
 
-def test_real_candidate_project_can_complete_full_build(tmp_path):
-    candidate = Path(tmp_path) / "candidate"
+def test_real_publication_updates_full_site_search_and_keeps_feedback_anchor_resolvable(monkeypatch, workspace_tmpdir):
+    root_project = Path(proxy_server.PROJECT_DIR)
+    candidate = workspace_tmpdir / "candidate"
     candidate.mkdir()
     proxy_server._copy_candidate_project(candidate)
-    proxy_server._run_candidate_build(candidate)
+    shutil.copytree(root_project / "scripts", candidate / "scripts")
+    shutil.copy2(root_project / "hugo.exe", candidate / "hugo.exe")
+    source = candidate / "src" / "pages" / "introduction" / "zh.md"
+    original = source.read_text(encoding="utf-8")
+    anchor = re.findall(r"\{#([a-zA-Z][\w-]*)\}", original)[-1]
+    marker = "端到端发布索引验证标记"
+
+    monkeypatch.setattr(proxy_server, "PROJECT_DIR", candidate)
+    monkeypatch.setattr(proxy_server, "PAGES_DIR", candidate / "src" / "pages")
+    monkeypatch.setattr(proxy_server, "PUBLIC_DIR", candidate / "public")
+    monkeypatch.setattr(proxy_server, "BUILD_SCRIPT", candidate / "scripts" / "build_srd.py")
+    monkeypatch.setattr(proxy_server, "GIT_SYNC", FakeSync())
+    monkeypatch.setattr(proxy_server, "_commit_changes", lambda paths, name: "integration123")
+
+    result = proxy_server.publish_edit(
+        "src/pages/introduction/zh.md",
+        f"{original.rstrip()}\n\n{marker}\n",
+        proxy_server.content_version(original),
+        "集成测试",
+    )
+
+    search = json.loads((candidate / "public" / "generated" / "search-index.json").read_text(encoding="utf-8"))
+    record = next(item for item in search["records"] if marker in item["body"])
+    page_html = (candidate / "public" / "introduction" / "index.html").read_text(encoding="utf-8")
+
+    assert result["commit"] == "integration123"
     assert (candidate / "public" / "index.html").is_file()
-    assert (candidate / "public" / "generated" / "search-index.json").is_file()
+    assert record["path"] == "introduction"
+    assert record["anchor"] == anchor
+    assert f'id="{anchor}"' in page_html

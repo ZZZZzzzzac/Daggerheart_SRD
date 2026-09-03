@@ -105,7 +105,8 @@ def test_tables_wrap_inside_article_width_without_horizontal_scroll():
     css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
 
     assert "table-layout: auto" in css
-    assert "table-layout: fixed" not in css
+    generic_table_rule = css.split(".article-body table {", 1)[1].split("}", 1)[0]
+    assert "table-layout: fixed" not in generic_table_rule
     assert "overflow-wrap: anywhere" in css
     assert ".table-scroll" in css
     assert "overflow-x: auto" not in css
@@ -143,7 +144,7 @@ def test_feedback_form_reference_survives_async_submit():
     assert "const button = form.querySelector" in submit
     assert "form.reset();" in submit
     assert "event.currentTarget.reset();" not in submit
-    assert 'js/app.js?v=20260903i' in template
+    assert 'js/app.js?v=20260903k' in template
 
 
 def test_feedback_inbox_separates_unread_state_and_aligns_controls():
@@ -170,16 +171,26 @@ def test_feedback_inbox_opens_on_pending_filter():
     assert 'let currentStatus = "pending";' in script
 
 
+def test_feedback_inbox_renders_untrusted_text_without_html_interpretation():
+    script = (PROJECT_DIR / "static" / "admin" / "admin.js").read_text(encoding="utf-8")
+
+    assert 'querySelector(".feedback-message").textContent = item.message' in script
+    assert 'contact.textContent = item.contact' in script
+    assert ".innerHTML" not in script
+
+
 def test_site_css_and_editor_modules_use_current_cache_version():
     base = (PROJECT_DIR / "layouts" / "_default" / "baseof.html").read_text(encoding="utf-8")
     editor = (PROJECT_DIR / "static" / "edit" / "index.html").read_text(encoding="utf-8")
     editor_script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
     worker = (PROJECT_DIR / "static" / "edit" / "preview-worker.mjs").read_text(encoding="utf-8")
 
-    assert 'css/site.css?v=20260903h' in base
-    assert 'css/site.css?v=20260903h' in editor
-    assert 'render-core.mjs?v=20260903h' in editor_script
-    assert 'render-core.mjs?v=20260903h' in worker
+    assert 'css/site.css?v=20260903j' in base
+    assert 'css/site.css?v=20260903j' in editor
+    assert 'editor.js?v=20260903j' in editor
+    assert 'preview-worker.mjs?v=20260903j' in editor_script
+    assert 'render-core.mjs?v=20260903j' in editor_script
+    assert 'render-core.mjs?v=20260903j' in worker
 
 
 def test_article_tables_are_not_turned_into_blocks():

@@ -388,7 +388,7 @@ class FeedbackStore:
                 (
                     payload["message"], payload.get("contact", ""), payload.get("path", ""),
                     payload.get("anchor", "top"), payload.get("language", "zh"),
-                    payload.get("version", "current"), now, now,
+                    payload.get("version", "unknown"), now, now,
                 ),
             )
             return int(cursor.lastrowid)

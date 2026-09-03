@@ -217,6 +217,19 @@ def flatten_pages(manifest: dict) -> list[dict]:
     return pages
 
 
+def validate_page_inventory(pages_dir: Path, flat_pages: list[dict]) -> None:
+    expected = {
+        (pages_dir / page["path"] / f"{language}.md").resolve()
+        for page in flat_pages
+        for language in ("zh", "en")
+    }
+    actual = {path.resolve() for path in pages_dir.rglob("*.md") if path.is_file()}
+    unreferenced = sorted(path.relative_to(pages_dir.resolve()).as_posix() for path in actual - expected)
+    if unreferenced:
+        details = "\n".join(f"  - {path}" for path in unreferenced)
+        raise BuildError(f"发现未被 data/srd.yaml 引用的正文文件:\n{details}")
+
+
 def _frontmatter(page: dict) -> str:
     return "\n".join([
         "---",
@@ -265,6 +278,9 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
     if not manifest_path.is_file():
         raise BuildError("缺少唯一章节清单 data/srd.yaml")
     manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8")) or {}
+    version = str(manifest.get("version", "")).strip()
+    if not version or version.lower() == "current":
+        raise BuildError("data/srd.yaml 必须使用真实版本号，不能留空或使用 current")
     glossary = yaml.safe_load(glossary_path.read_text(encoding="utf-8")) if glossary_path.is_file() else {"enabled": False, "terms": []}
     if glossary.get("enabled") and not glossary.get("terms"):
         raise BuildError("规则术语链接已启用，但术语表为空")
@@ -276,6 +292,7 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
     generate_home(content_dir)
 
     flat_pages = flatten_pages(manifest)
+    validate_page_inventory(pages_dir, flat_pages)
     parent_paths = {
         page["path"] for page in flat_pages
         if any(other["path"].startswith(page["path"] + "/") for other in flat_pages)
@@ -380,7 +397,7 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         else:
             tree.append({"type": "page", "path": item["path"]})
     site_index = {
-        "version": manifest.get("version", "current"),
+        "version": version,
         "tree": tree,
         "pages": site_pages,
     }

@@ -51,6 +51,20 @@ def test_explicit_anchor_wins_over_generated_slug():
     assert en_ids == ["action-check"]
 
 
+def test_heading_text_can_change_without_changing_explicit_anchor():
+    before = build_srd.assign_anchor_ids("## 动作掷骰 {#action-check}", "## Action Roll {#action-check}")
+    after = build_srd.assign_anchor_ids("## 进行动作检定 {#action-check}", "## Make an Action Check {#action-check}")
+    assert before == after == (["action-check"], ["action-check"])
+
+
+def test_duplicate_explicit_anchor_blocks_generation():
+    with pytest.raises(build_srd.BuildError, match="重复的显式标题锚点: same"):
+        build_srd.assign_anchor_ids(
+            "## 一 {#same}\n## 二 {#same}",
+            "## One {#same}\n## Two {#same}",
+        )
+
+
 def test_duplicate_heading_anchors_are_unique():
     zh_ids, en_ids = build_srd.assign_anchor_ids("## 一\n## 二", "## Test\n## Test")
     assert zh_ids == ["test", "test-2"]
@@ -75,6 +89,25 @@ def test_missing_language_blocks_generation(tmp_path):
     project = make_project(tmp_path)
     (project / "src" / "pages" / "core" / "en.md").unlink()
     with pytest.raises(build_srd.BuildError, match="缺少文件"):
+        build_srd.generate_site(project)
+
+
+def test_unreferenced_markdown_blocks_generation(tmp_path):
+    project = make_project(tmp_path)
+    orphan = project / "src" / "pages" / "orphan"
+    orphan.mkdir()
+    (orphan / "zh.md").write_text("## 遗留正文", encoding="utf-8")
+    with pytest.raises(build_srd.BuildError, match=r"(?s)未被 data/srd.yaml 引用.*orphan/zh.md"):
+        build_srd.generate_site(project)
+
+
+def test_placeholder_version_blocks_generation(tmp_path):
+    project = make_project(tmp_path)
+    manifest_path = project / "data" / "srd.yaml"
+    manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    manifest["version"] = "current"
+    manifest_path.write_text(yaml.safe_dump(manifest, allow_unicode=True), encoding="utf-8")
+    with pytest.raises(build_srd.BuildError, match="必须使用真实版本号"):
         build_srd.generate_site(project)
 
 

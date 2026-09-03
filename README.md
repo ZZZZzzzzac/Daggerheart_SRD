@@ -86,20 +86,25 @@ python scripts/preview_server.py
 
 读者可从正文提交站内反馈。反馈保存在服务器的 SQLite 数据库中；管理员通过 `/SRD/admin/` 查看、备注并更新处理状态。管理路径和管理 API 必须使用 nginx 公用密码保护，配置示例见 `scripts/nginx_proxy_snippet.conf`。
 
+生产数据库使用 SQLite 在线备份机制每天生成一致快照，默认保留 30 天；定时任务安装与恢复步骤见 [`docs/feedback-backups.md`](docs/feedback-backups.md)。
+
 ## 测试
 
 ```bash
 python -m pytest -q
 npm test
+npm run test:e2e
 ```
 
-Python 测试覆盖构建、批量发布、版本冲突和反馈收件箱；Node 测试覆盖共享渲染核心与本地搜索。
+Python 测试覆盖构建、批量发布、版本冲突、反馈收件箱和数据库备份；Node 测试覆盖共享渲染核心与本地搜索；Playwright 使用本机 Chrome 覆盖目录、搜索、语言、主题和移动端抽屉。没有 Chrome 的环境可先运行 `npx playwright install chromium`，再设置 `PLAYWRIGHT_CHANNEL=chromium`。
 
 ## 协作流程
 
 **内容编辑**：信任用户通过在线编辑器 `/SRD/edit/` 直写，即时生效。
 
 **代码贡献**：编辑 `src/pages/` 以外的文件（脚本、模板、样式等）→ GitHub Fork/PR → 审核 → 合并。
+
+正式版本号、大版本 Git tag / GitHub Release 归档与恢复验证流程见 [`docs/releases.md`](docs/releases.md)。
 
 ## 外部依赖
 

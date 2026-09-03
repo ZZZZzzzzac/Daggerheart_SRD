@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily Daggerheart SRD feedback database backup
+
+[Timer]
+OnCalendar=*-*-* 03:20:00 UTC
+Persistent=true
+RandomizedDelaySec=10m
+Unit=feedback-backup.service
+
+[Install]
+WantedBy=timers.target

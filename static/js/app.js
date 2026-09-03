@@ -252,6 +252,7 @@
         const item = node("li", "search-result");
         const link = node("a");
         link.href = pageUrl(record.path, record.anchor);
+        link.addEventListener("click", () => closeDialog("search-dialog"));
         const meta = node("div", "search-result-meta");
         meta.append(node("span", "", record.pageTitle));
         link.append(meta, node("h3", "", record.heading), node("p", "", snippetFor(record.body, query)));
@@ -294,7 +295,7 @@
       path: currentPath,
       anchor: document.getElementById("feedback-context").dataset.anchor || "top",
       language: state.language,
-      version: state.site?.version || "current",
+      version: state.site?.version || "unknown",
     };
     try {
       const response = await fetch(`${baseUrl}api/feedback`, {

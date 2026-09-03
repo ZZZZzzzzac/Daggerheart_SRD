@@ -10,4 +10,6 @@ static/edit/config.token.js
 static/generated/
 var/
 node_modules/
+playwright-report/
+test-results/
 .codex-test-tmp-*/
