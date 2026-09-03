@@ -76,6 +76,14 @@ def test_editor_requires_name_in_publish_dialog_and_polls_github_sync():
     assert "已同步至 GitHub" in script
 
 
+def test_nginx_editor_routes_share_one_auth_realm():
+    nginx = (PROJECT_DIR / "scripts" / "nginx_proxy_snippet.conf").read_text(encoding="utf-8")
+
+    assert "/SRD/api/preview" not in nginx
+    assert "location = /SRD/api/publish-status" in nginx
+    assert nginx.count('auth_basic "DaggerheartEditor";') == 5
+
+
 def test_publish_dialog_has_centered_panel_and_grouped_actions():
     css = (PROJECT_DIR / "static" / "edit" / "editor.css").read_text(encoding="utf-8")
 
