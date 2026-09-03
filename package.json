@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "node --test tests/render_core.test.mjs tests/search.test.mjs"
+  },
+  "devDependencies": {
+    "markdown-it": "15.0.1"
+  }
+}

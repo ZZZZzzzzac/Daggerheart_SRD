@@ -50,7 +50,8 @@ Daggerheart_SRD/
 ## 构建
 
 ### 前置依赖
-- Python 3 + pyyaml + markdown
+- Python 3 + pyyaml
+- Node.js 24 LTS
 - Hugo（非 extended 版即可）
 - DaggerHeart_CN 仓库在同级目录（外部数据依赖）
 

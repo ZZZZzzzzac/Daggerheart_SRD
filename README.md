@@ -32,13 +32,15 @@ Daggerheart_SRD/
 
 ### 前置依赖
 
-- Python 3 + `pyyaml` `markdown`
+- Python 3 + `pyyaml`
+- Node.js 24 LTS
 - [Hugo](https://gohugo.io/)（非 extended 版即可）
 
 安装 Python 依赖：
 
 ```bash
 python -m pip install -r requirements.txt
+npm ci
 ```
 
 ### 构建命令
@@ -72,10 +74,12 @@ python scripts/preview_server.py
 ## 在线编辑器
 
 `/SRD/edit/` 提供在线编辑功能：
-- 左侧编辑 Markdown，右侧使用与正式构建相同的规则预览
-- 保存时检查页面版本，防止覆盖其他管理员的修改
-- 候选内容在临时项目中完整构建；成功后才替换正式正文和站点
-- 每次成功发布先创建本地 Git 版本，再异步推送 GitHub
+- 可在当前浏览器会话中修改多个中英文页面，再统一发布为一个 Git 版本
+- 右侧由浏览器内的 Worker 本地渲染；编辑时切页和预览不请求服务器
+- 本地预览和服务端正式构建调用同一份 JavaScript 渲染核心
+- 发布时要求填写编辑者名称，并一次检查所有页面版本，防止部分覆盖
+- 候选内容在临时项目中完整构建；成功后才原子替换正式正文和站点
+- 发布完成后异步推送 GitHub，编辑器轮询并显示最终同步状态
 - 编辑器页面有密码保护（nginx auth_basic），信任用户可编辑
 
 ## 反馈收件箱
@@ -86,10 +90,10 @@ python scripts/preview_server.py
 
 ```bash
 python -m pytest -q
-node --test tests/search_core.test.js
+npm test
 ```
 
-Python 测试覆盖构建、页面发布、版本冲突和反馈收件箱；Node 测试覆盖本地搜索的排序与语言筛选。
+Python 测试覆盖构建、批量发布、版本冲突和反馈收件箱；Node 测试覆盖共享渲染核心与本地搜索。
 
 ## 协作流程
 
@@ -105,6 +109,8 @@ Python 测试覆盖构建、页面发布、版本冲突和反馈收件箱；Node
 - `DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/data/environments.json` — 环境数据
 
 预期 `DaggerHeart_CN` 与本仓库同级目录。
+
+服务器信息在 `Daggerheart_VPS` 仓库。
 
 ## 授权
 

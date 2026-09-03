@@ -52,6 +52,39 @@ def test_editor_opens_page_from_url_and_keeps_url_in_sync():
     assert "history.replaceState" in script
 
 
+def test_editor_keeps_session_drafts_and_renders_without_preview_requests():
+    script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
+    worker = (PROJECT_DIR / "static" / "edit" / "preview-worker.mjs").read_text(encoding="utf-8")
+
+    assert "new Map()" in script
+    assert "new Worker" in script
+    assert 'request("/SRD/api/preview"' not in script
+    assert "pending-count" in script
+    assert "const document =" not in script
+    assert "sequence" in worker
+    assert "sequence, zh, en" in worker
+
+
+def test_editor_requires_name_in_publish_dialog_and_polls_github_sync():
+    html = (PROJECT_DIR / "static" / "edit" / "index.html").read_text(encoding="utf-8")
+    script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
+
+    assert 'id="publish-dialog"' in html
+    assert 'id="publish-name"' in html
+    assert "required" in html.split('id="publish-name"', 1)[1].split(">", 1)[0]
+    assert "/SRD/api/admin/publish-status" in script
+    assert "已同步至 GitHub" in script
+
+
+def test_tables_wrap_inside_article_width_without_horizontal_scroll():
+    css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
+
+    assert "table-layout: fixed" in css
+    assert "overflow-wrap: anywhere" in css
+    assert ".table-scroll" in css
+    assert "overflow-x: auto" not in css
+
+
 def test_article_tables_are_not_turned_into_blocks():
     css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
 

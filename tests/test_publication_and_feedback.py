@@ -42,7 +42,7 @@ def publication_project(monkeypatch, tmp_path):
         content = (candidate / "src" / "pages" / "intro" / "zh.md").read_text(encoding="utf-8")
         (output / "index.html").write_text(f"built: {content}", encoding="utf-8")
     monkeypatch.setattr(proxy_server, "_run_candidate_build", build_candidate)
-    monkeypatch.setattr(proxy_server, "_commit_edit", lambda path, name: "abc123")
+    monkeypatch.setattr(proxy_server, "_commit_changes", lambda paths, name: "abc123")
     return project, page, public, sync
 
 
@@ -61,7 +61,7 @@ def test_publish_conflict_does_not_change_source(monkeypatch, tmp_path):
     with pytest.raises(proxy_server.PublishError) as caught:
         proxy_server.publish_edit("src/pages/intro/zh.md", "# 新内容", "stale", "译者")
     assert caught.value.status == 409
-    assert caught.value.details["currentContent"] == "# 旧内容"
+    assert caught.value.details["conflicts"][0]["currentContent"] == "# 旧内容"
     assert page.read_text(encoding="utf-8") == "# 旧内容"
     assert (public / "index.html").read_text(encoding="utf-8") == "old site"
 
@@ -78,11 +78,78 @@ def test_failed_candidate_build_leaves_live_state_unchanged(monkeypatch, tmp_pat
 
 def test_failed_local_commit_rolls_back_source_and_site(monkeypatch, tmp_path):
     project, page, public, sync = publication_project(monkeypatch, tmp_path)
-    monkeypatch.setattr(proxy_server, "_commit_edit", lambda path, name: (_ for _ in ()).throw(proxy_server.PublishError("commit failed")))
+    monkeypatch.setattr(proxy_server, "_commit_changes", lambda paths, name: (_ for _ in ()).throw(proxy_server.PublishError("commit failed")))
     with pytest.raises(proxy_server.PublishError, match="commit failed"):
         proxy_server.publish_edit("src/pages/intro/zh.md", "# 新内容", proxy_server.content_version("# 旧内容"), "译者")
     assert page.read_text(encoding="utf-8") == "# 旧内容"
     assert (public / "index.html").read_text(encoding="utf-8") == "old site"
+
+
+def test_change_set_publishes_multiple_pages_in_one_commit(monkeypatch, tmp_path):
+    project, page, public, sync = publication_project(monkeypatch, tmp_path)
+    english = project / "src" / "pages" / "intro" / "en.md"
+    committed = []
+    monkeypatch.setattr(
+        proxy_server,
+        "_commit_changes",
+        lambda paths, name: committed.append((paths, name)) or "batch123",
+        raising=False,
+    )
+
+    result = proxy_server.publish_changes([
+        {
+            "path": "src/pages/intro/zh.md",
+            "content": "# 新内容",
+            "baseVersion": proxy_server.content_version("# 旧内容"),
+        },
+        {
+            "path": "src/pages/intro/en.md",
+            "content": "# New",
+            "baseVersion": proxy_server.content_version("# Old"),
+        },
+    ], "译者")
+
+    assert page.read_text(encoding="utf-8") == "# 新内容"
+    assert english.read_text(encoding="utf-8") == "# New"
+    assert committed == [(["src/pages/intro/zh.md", "src/pages/intro/en.md"], "译者")]
+    assert result["commit"] == "batch123"
+    assert sync.commits == ["batch123"]
+
+
+def test_change_set_rejects_every_page_when_one_version_conflicts(monkeypatch, tmp_path):
+    project, page, public, sync = publication_project(monkeypatch, tmp_path)
+    english = project / "src" / "pages" / "intro" / "en.md"
+
+    with pytest.raises(proxy_server.PublishError) as caught:
+        proxy_server.publish_changes([
+            {
+                "path": "src/pages/intro/zh.md",
+                "content": "# 新内容",
+                "baseVersion": proxy_server.content_version("# 旧内容"),
+            },
+            {
+                "path": "src/pages/intro/en.md",
+                "content": "# New",
+                "baseVersion": "stale",
+            },
+        ], "译者")
+
+    assert caught.value.status == 409
+    assert caught.value.details["conflicts"][0]["path"] == "src/pages/intro/en.md"
+    assert page.read_text(encoding="utf-8") == "# 旧内容"
+    assert english.read_text(encoding="utf-8") == "# Old"
+    assert (public / "index.html").read_text(encoding="utf-8") == "old site"
+    assert sync.commits == []
+
+
+def test_change_set_requires_editor_name(monkeypatch, tmp_path):
+    publication_project(monkeypatch, tmp_path)
+    with pytest.raises(proxy_server.PublishError, match="编辑者名称"):
+        proxy_server.publish_changes([{
+            "path": "src/pages/intro/zh.md",
+            "content": "# 新内容",
+            "baseVersion": proxy_server.content_version("# 旧内容"),
+        }], "  ")
 
 
 def test_feedback_store_create_list_and_update(tmp_path):

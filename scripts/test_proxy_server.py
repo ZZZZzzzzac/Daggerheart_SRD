@@ -15,6 +15,24 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import proxy_server
 
 
+def test_git_sync_keeps_retrying_until_push_succeeds(monkeypatch, tmp_path):
+    attempts = iter([
+        subprocess.CompletedProcess(["git", "push"], 1, "", "network down"),
+        subprocess.CompletedProcess(["git", "push"], 1, "", "still down"),
+        subprocess.CompletedProcess(["git", "push"], 0, "", ""),
+    ])
+    sleeps = []
+    monkeypatch.setattr(proxy_server.subprocess, "run", lambda *args, **kwargs: next(attempts))
+    monkeypatch.setattr(proxy_server.time, "sleep", sleeps.append)
+    sync = proxy_server.GitSync(tmp_path)
+    sync.state = {"status": "pending", "commit": "abc", "updatedAt": "", "error": ""}
+
+    sync._push_with_retry()
+
+    assert sync.snapshot()["status"] == "synced"
+    assert sleeps == [3, 15]
+
+
 # ═══════════════════════════════════════════
 # 层 1：路径安全检查
 # ═══════════════════════════════════════════
@@ -175,13 +193,16 @@ def test_server(monkeypatch, tmp_path):
     monkeypatch.setattr(proxy_server, "PROJECT_DIR", proj)
     monkeypatch.setattr(proxy_server, "PAGES_DIR", pages)
 
-    def fake_publish(path, content, base_version, display_name):
-        if not content.strip():
-            raise proxy_server.PublishError("内容不能为空")
-        if not path.startswith("src/pages/"):
-            raise proxy_server.PublishError("非法路径")
-        return {"message": "保存成功", "version": "test", "gitSync": {"status": "pending"}}
-    monkeypatch.setattr(proxy_server, "publish_edit", fake_publish)
+    def fake_publish(changes, display_name):
+        if not display_name.strip():
+            raise proxy_server.PublishError("编辑者名称不能为空")
+        for change in changes:
+            if not change["content"].strip():
+                raise proxy_server.PublishError("内容不能为空")
+            if not change["path"].startswith("src/pages/"):
+                raise proxy_server.PublishError("非法路径")
+        return {"message": "保存成功", "versions": {}, "gitSync": {"status": "pending"}}
+    monkeypatch.setattr(proxy_server, "publish_changes", fake_publish)
     monkeypatch.setattr(proxy_server, "FEEDBACK_STORE", proxy_server.FeedbackStore(tmp_path / "feedback.db"))
     proxy_server.RATE_LIMIT.clear()
 
@@ -247,7 +268,7 @@ def test_api_get_file_not_found(test_server):
 def test_api_save_ok(test_server):
     """POST /api/save 合法请求返回 200"""
     status, data = _api(test_server, "/api/save", method="POST",
-                        body={"path": "src/pages/test/zh.md", "content": "# 测试"})
+                        body={"path": "src/pages/test/zh.md", "content": "# 测试", "displayName": "测试者"})
     assert status == 200
     assert "成功" in data.get("message", "")
 
@@ -255,22 +276,22 @@ def test_api_save_ok(test_server):
 def test_api_save_empty_content(test_server):
     """POST /api/save 空内容返回 400"""
     status, data = _api(test_server, "/api/save", method="POST",
-                        body={"path": "src/pages/test/zh.md", "content": "  "})
+                        body={"path": "src/pages/test/zh.md", "content": "  ", "displayName": "测试者"})
     assert status == 400
 
 
 def test_api_save_bad_path(test_server):
     """POST /api/save 非法路径返回 400"""
     status, data = _api(test_server, "/api/save", method="POST",
-                        body={"path": "src/other/secret.md", "content": "# evil"})
+                        body={"path": "src/other/secret.md", "content": "# evil", "displayName": "测试者"})
     assert status == 400
 
 
-def test_api_preview_uses_formal_renderer(test_server):
+def test_api_preview_endpoint_is_removed(test_server):
     status, data = _api(test_server, "/api/preview", method="POST",
                         body={"content": "## 动作掷骰", "language": "zh"})
-    assert status == 200
-    assert 'data-anchor="section-001"' in data["html"]
+    assert status == 404
+    assert data["error"] == "Not found"
 
 
 def test_api_feedback_and_admin_workflow(test_server):

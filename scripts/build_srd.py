@@ -10,21 +10,18 @@ import re
 import shutil
 import subprocess
 import sys
-import unicodedata
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
 
-import markdown as markdown_lib
 import yaml
 
-from makeup_copy import apply_makeup
-from sage_md_ext import SageTouchedExtension
 from validate_site import ValidationError, validate_site
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 DEFAULT_PROJECT_DIR = SCRIPT_DIR.parent
+RENDER_CORE_CLI = SCRIPT_DIR / "render_core_cli.mjs"
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 EXPLICIT_ID_RE = re.compile(r"\s+\{#([a-zA-Z][\w-]*)\}\s*$")
 TAG_RE = re.compile(r"<[^>]+>")
@@ -41,98 +38,39 @@ def _clean_heading(value: str) -> str:
     return html.unescape(value).strip()
 
 
-def _slug(value: str, fallback: str) -> str:
-    explicit = EXPLICIT_ID_RE.search(value)
-    if explicit:
-        return explicit.group(1).lower()
-    normalized = unicodedata.normalize("NFKD", _clean_heading(value))
-    ascii_text = normalized.encode("ascii", "ignore").decode("ascii").lower()
-    slug = re.sub(r"[^a-z0-9]+", "-", ascii_text).strip("-")
-    return slug or fallback
-
-
-def extract_headings(markdown_text: str) -> list[dict]:
-    return [
-        {
-            "level": len(match.group(1)),
-            "raw": match.group(2),
-            "title": _clean_heading(match.group(2)),
-        }
-        for match in HEADING_RE.finditer(markdown_text)
-    ]
+def render_pairs(documents: list[dict[str, str]]) -> list[dict]:
+    try:
+        result = subprocess.run(
+            ["node", str(RENDER_CORE_CLI)],
+            input=json.dumps({"documents": documents}, ensure_ascii=False),
+            capture_output=True,
+            text=True,
+            timeout=60,
+            encoding="utf-8",
+            errors="replace",
+        )
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise BuildError(f"无法运行 JavaScript 渲染核心: {exc}") from exc
+    if result.returncode != 0:
+        details = (result.stderr or result.stdout).strip()
+        raise BuildError(f"JavaScript 渲染核心失败:\n{details}")
+    try:
+        rendered = json.loads(result.stdout)["documents"]
+    except (KeyError, TypeError, ValueError) as exc:
+        raise BuildError("JavaScript 渲染核心返回无效结果") from exc
+    if len(rendered) != len(documents):
+        raise BuildError("JavaScript 渲染核心返回的页面数量不一致")
+    return rendered
 
 
 def assign_anchor_ids(zh_text: str, en_text: str) -> tuple[list[str], list[str]]:
-    """Create deterministic, language-neutral IDs for both heading streams.
-
-    Existing content is not perfectly aligned, so headings at the same ordinal share
-    an ID and unmatched headings receive a stable page-local fallback. Future source
-    can pin an important ID explicitly with Markdown's ``{#anchor}`` syntax.
-    """
-    zh_headings = extract_headings(zh_text)
-    en_headings = extract_headings(en_text)
-    size = max(len(zh_headings), len(en_headings))
-    ids: list[str] = []
-    used: set[str] = set()
-    for index in range(size):
-        source = en_headings[index]["raw"] if index < len(en_headings) else zh_headings[index]["raw"]
-        base = _slug(source, f"section-{index + 1:03d}")
-        candidate = base
-        suffix = 2
-        while candidate in used:
-            candidate = f"{base}-{suffix}"
-            suffix += 1
-        used.add(candidate)
-        ids.append(candidate)
-    return ids[: len(zh_headings)], ids[: len(en_headings)]
-
-
-def _inject_heading_ids(markdown_text: str, anchor_ids: list[str]) -> str:
-    index = 0
-
-    def replace(match: re.Match) -> str:
-        nonlocal index
-        marks, title = match.group(1), match.group(2)
-        anchor = anchor_ids[index]
-        index += 1
-        title = EXPLICIT_ID_RE.sub("", title).rstrip()
-        return f"{marks} {title} {{#{anchor}}}"
-
-    return HEADING_RE.sub(replace, markdown_text)
-
-
-def render_markdown(markdown_text: str, anchor_ids: list[str], language: str) -> str:
-    prepared = _inject_heading_ids(markdown_text, anchor_ids)
-    if language == "zh":
-        prepared = apply_makeup(prepared)
-    rendered = markdown_lib.markdown(
-        prepared,
-        extensions=["extra", "attr_list", SageTouchedExtension()],
-    )
-
-    def annotate(match: re.Match) -> str:
-        level, attributes = match.group(1), match.group(2)
-        id_match = re.search(r'\sid="([^"]+)"', attributes)
-        if not id_match:
-            return match.group(0)
-        anchor = id_match.group(1)
-        attributes = re.sub(r'\sdata-anchor="[^"]*"', "", attributes)
-        if language == "en":
-            attributes = re.sub(r'\sid="[^"]+"', "", attributes)
-        return f'<h{level}{attributes} data-anchor="{html.escape(anchor)}">'
-
-    rendered = re.sub(r"<h([1-6])([^>]*)>", annotate, rendered)
-    return re.sub(
-        r"(<table\b[^>]*>.*?</table>)",
-        r'<div class="table-scroll" role="region" tabindex="0">\1</div>',
-        rendered,
-        flags=re.DOTALL,
-    )
+    anchors = render_pairs([{"zh": zh_text, "en": en_text}])[0]["anchors"]
+    return anchors["zh"], anchors["en"]
 
 
 def render_preview(markdown_text: str, language: str = "zh") -> str:
-    anchors, _ = assign_anchor_ids(markdown_text, markdown_text)
-    return render_markdown(markdown_text, anchors, language)
+    rendered = render_pairs([{"zh": markdown_text, "en": markdown_text}])[0]
+    return rendered["html"][language]
 
 
 class GlossaryLinker(HTMLParser):
@@ -343,20 +281,27 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         if any(other["path"].startswith(page["path"] + "/") for other in flat_pages)
     }
     prepared_pages: list[dict] = []
-    anchors_by_path: dict[str, dict[str, set[str]]] = {}
     for page in flat_pages:
         path = page["path"]
         zh_text = read_page(pages_dir, path, "zh")
         en_text = read_page(pages_dir, path, "en")
-        zh_anchors, en_anchors = assign_anchor_ids(zh_text, en_text)
         prepared_pages.append({
             "page": page,
             "zh_text": zh_text,
             "en_text": en_text,
-            "zh_anchors": zh_anchors,
-            "en_anchors": en_anchors,
         })
-        anchors_by_path[path] = {"zh": set(zh_anchors), "en": set(en_anchors)}
+    rendered_pages = render_pairs([
+        {"zh": prepared["zh_text"], "en": prepared["en_text"]}
+        for prepared in prepared_pages
+    ])
+    anchors_by_path: dict[str, dict[str, set[str]]] = {}
+    for prepared, rendered in zip(prepared_pages, rendered_pages, strict=True):
+        prepared["rendered"] = rendered
+        anchors = rendered["anchors"]
+        anchors_by_path[prepared["page"]["path"]] = {
+            "zh": set(anchors["zh"]),
+            "en": set(anchors["en"]),
+        }
 
     if glossary.get("enabled"):
         for term in glossary.get("terms", []):
@@ -383,10 +328,11 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         path = page["path"]
         zh_text = prepared["zh_text"]
         en_text = prepared["en_text"]
-        zh_anchors = prepared["zh_anchors"]
-        en_anchors = prepared["en_anchors"]
-        zh_html = apply_glossary_links(render_markdown(zh_text, zh_anchors, "zh"), glossary, "zh", base_path)
-        en_html = apply_glossary_links(render_markdown(en_text, en_anchors, "en"), glossary, "en", base_path)
+        rendered = prepared["rendered"]
+        zh_anchors = rendered["anchors"]["zh"]
+        en_anchors = rendered["anchors"]["en"]
+        zh_html = apply_glossary_links(rendered["html"]["zh"], glossary, "zh", base_path)
+        en_html = apply_glossary_links(rendered["html"]["en"], glossary, "en", base_path)
         output_dir = content_dir / path
         output_dir.mkdir(parents=True, exist_ok=True)
         page_content = _frontmatter(page) + (
@@ -396,8 +342,8 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         output_name = "_index.md" if path in parent_paths else "index.md"
         (output_dir / output_name).write_text(page_content, encoding="utf-8")
 
-        zh_headings = extract_headings(zh_text)
-        en_headings = extract_headings(en_text)
+        zh_headings = rendered["headings"]["zh"]
+        en_headings = rendered["headings"]["en"]
         site_pages.append({
             "path": path,
             "url": f"{path}/",
@@ -407,12 +353,12 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
             "next": flat_pages[position + 1]["path"] if position + 1 < len(flat_pages) else None,
             "headings": {
                 "zh": [
-                    {"level": item["level"], "title": item["title"], "anchor": zh_anchors[index]}
-                    for index, item in enumerate(zh_headings) if item["level"] <= 3
+                    {"level": item["level"], "title": item["title"], "anchor": item["anchor"]}
+                    for item in zh_headings if item["level"] <= 3
                 ],
                 "en": [
-                    {"level": item["level"], "title": item["title"], "anchor": en_anchors[index]}
-                    for index, item in enumerate(en_headings) if item["level"] <= 3
+                    {"level": item["level"], "title": item["title"], "anchor": item["anchor"]}
+                    for item in en_headings if item["level"] <= 3
                 ],
             },
         })

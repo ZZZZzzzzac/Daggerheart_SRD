@@ -6,15 +6,21 @@
     site: null,
     slug: "",
     language: readSetting("dh-srd-lang", "zh") === "en" ? "en" : "zh",
-    original: "",
-    version: "",
+    documents: new Map(),
     previewTimer: null,
+    previewSequence: 0,
+    previewFallbackTimer: null,
+    loadSequence: 0,
     pendingAnchor: "",
+    syncTimer: null,
   };
   const textarea = document.getElementById("editor-textarea");
   const status = document.getElementById("save-status");
   const saveButton = document.getElementById("save-btn");
-  const displayName = document.getElementById("display-name");
+  const publishDialog = document.getElementById("publish-dialog");
+  const publishForm = document.getElementById("publish-form");
+  const publishName = document.getElementById("publish-name");
+  const previewWorker = new Worker("preview-worker.mjs?v=20260903d", { type: "module" });
 
   function readSetting(key, fallback) {
     try { return localStorage.getItem(key) || fallback; } catch (_) { return fallback; }
@@ -40,10 +46,20 @@
     return value?.[state.language] || value?.zh || value?.en || "";
   }
 
-  function isDirty() { return textarea.value !== state.original; }
-  function updateSaveState() { saveButton.disabled = !state.slug || !isDirty(); }
-  function currentPath() { return state.pages[state.slug]?.files?.[state.language]; }
-  function canLeaveDocument() { return !isDirty() || window.confirm("当前修改尚未保存，确定放弃吗？"); }
+  function documentFor(slug = state.slug, language = state.language) {
+    const path = state.pages[slug]?.files?.[language];
+    return path ? state.documents.get(path) : undefined;
+  }
+
+  function dirtyDocuments() {
+    return [...state.documents.values()].filter((draft) => draft.content !== draft.original);
+  }
+
+  function updateSaveState() {
+    const count = dirtyDocuments().length;
+    document.getElementById("pending-count").textContent = `待发布 ${count} 页`;
+    saveButton.disabled = count === 0;
+  }
   function readerUrl(path, anchor = "") { return `../${path}/${anchor ? `#${encodeURIComponent(anchor)}` : ""}`; }
   function editorUrl(path, language = state.language) { return `./?path=${encodeURIComponent(path)}&lang=${language}`; }
 
@@ -63,18 +79,31 @@
     return new Map((state.site?.pages || []).map((page) => [page.path, page]));
   }
 
+  function slugIsDirty(slug) {
+    return ["zh", "en"].some((language) => {
+      const draft = documentFor(slug, language);
+      return draft && draft.content !== draft.original;
+    });
+  }
+
+  function navigate(event, path, language = state.language, anchor = "") {
+    event.preventDefault();
+    event.stopPropagation();
+    loadDocument(path, language, anchor);
+  }
+
   function summaryRow(title, path) {
     const row = node("span", "tree-summary-row");
     row.append(node("span", "tree-caret", "›"));
     const link = node("a", "tree-page-link", title);
     link.href = editorUrl(path);
-    link.addEventListener("click", (event) => event.stopPropagation());
+    link.addEventListener("click", (event) => navigate(event, path));
     row.append(link);
     return row;
   }
 
   function buildPageBranch(page) {
-    const details = node("details", `tree-page${page.path === state.slug ? " current" : ""}`);
+    const details = node("details", `tree-page${page.path === state.slug ? " current" : ""}${slugIsDirty(page.path) ? " dirty" : ""}`);
     details.open = page.path === state.slug;
     const summary = node("summary");
     summary.append(summaryRow(textFor(page.title), page.path));
@@ -86,6 +115,7 @@
         const item = node("li", `level-${heading.level}`);
         const link = node("a", "", heading.title);
         link.href = editorUrl(page.path, state.language) + `#${encodeURIComponent(heading.anchor)}`;
+        link.addEventListener("click", (event) => navigate(event, page.path, state.language, heading.anchor));
         item.append(link);
         list.append(item);
       });
@@ -179,32 +209,39 @@
   }
 
   async function loadDocument(slug, language, anchor = "") {
-    const path = state.pages[slug]?.files?.[language];
-    if (!path) { setStatus("该语言文件不存在", true); return; }
+    if (!state.pages[slug]?.files?.[language]) { setStatus("该语言文件不存在", true); return; }
+    const sequence = ++state.loadSequence;
     setStatus("加载中…");
-    state.pendingAnchor = anchor;
     try {
-      const data = await request(`/SRD/api/get-file?path=${encodeURIComponent(path)}`);
+      const files = state.pages[slug].files;
+      const missing = ["zh", "en"].filter((item) => files[item] && !state.documents.has(files[item]));
+      const loaded = await Promise.all(missing.map(async (item) => {
+        const path = files[item];
+        const data = await request(`/SRD/api/get-file?path=${encodeURIComponent(path)}`);
+        return { path, slug, language: item, content: data.content, original: data.content, version: data.version };
+      }));
+      loaded.forEach((draft) => state.documents.set(draft.path, draft));
+      if (sequence !== state.loadSequence) return;
       state.slug = slug;
       state.language = language;
-      state.original = data.content;
-      state.version = data.version;
-      textarea.value = data.content;
+      state.pendingAnchor = anchor;
+      const draft = documentFor();
+      textarea.value = draft.content;
       textarea.disabled = false;
-      document.getElementById("document-version").textContent = `版本 ${data.version}`;
+      document.getElementById("document-version").textContent = `版本 ${draft.version}`;
       document.getElementById("conflict-panel").hidden = true;
       saveSetting("dh-srd-lang", language);
       updatePageChrome();
       updateSaveState();
-      await renderPreview();
-      setStatus("已载入");
+      renderPreview();
+      setStatus("已载入；未发布修改保存在当前浏览器会话");
       document.body.classList.remove("sidebar-open");
     } catch (error) { setStatus(`加载失败：${error.message}`, true); }
   }
 
   function schedulePreview() {
     clearTimeout(state.previewTimer);
-    state.previewTimer = setTimeout(renderPreview, 280);
+    state.previewTimer = setTimeout(renderPreview, 160);
     document.getElementById("preview-status").textContent = "等待更新";
   }
 
@@ -214,53 +251,155 @@
     if (anchor) history.replaceState(null, "", editorUrl(state.slug, state.language) + `#${encodeURIComponent(anchor)}`);
   }
 
-  async function renderPreview() {
+  function renderPreview() {
     if (!state.slug) return;
-    document.getElementById("preview-status").textContent = "渲染中…";
-    try {
-      const data = await request("/SRD/api/preview", {
-        method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content: textarea.value, language: state.language }),
-      });
-      document.getElementById("preview").innerHTML = data.html;
-      document.getElementById("preview-status").textContent = "与正式构建规则一致";
-      if (state.pendingAnchor) {
-        const anchor = state.pendingAnchor;
-        state.pendingAnchor = "";
-        requestAnimationFrame(() => scrollPreviewTo(anchor));
+    const zh = documentFor(state.slug, "zh");
+    const en = documentFor(state.slug, "en");
+    if (!zh || !en) return;
+    const sequence = ++state.previewSequence;
+    document.getElementById("preview-status").textContent = "本地渲染中…";
+    previewWorker.postMessage({ id: sequence, sequence, zh: zh.content, en: en.content, language: state.language });
+    clearTimeout(state.previewFallbackTimer);
+    state.previewFallbackTimer = setTimeout(async () => {
+      if (sequence !== state.previewSequence) return;
+      try {
+        const { renderPair } = await import("../js/render-core.mjs?v=20260903d");
+        applyPreviewResult(sequence, renderPair(zh.content, en.content).html[state.language]);
+      } catch (error) {
+        document.getElementById("preview-status").textContent = `预览失败：${error.message}`;
       }
-    } catch (error) {
-      document.getElementById("preview-status").textContent = `预览失败：${error.message}`;
+    }, 1200);
+  }
+
+  function applyPreviewResult(sequence, html) {
+    if (sequence !== state.previewSequence) return;
+    clearTimeout(state.previewFallbackTimer);
+    document.getElementById("preview").innerHTML = html;
+    document.getElementById("preview-status").textContent = "本地预览 · 与正式构建同源";
+    if (state.pendingAnchor) {
+      const anchor = state.pendingAnchor;
+      state.pendingAnchor = "";
+      requestAnimationFrame(() => scrollPreviewTo(anchor));
     }
   }
 
-  async function save() {
-    if (!isDirty() || !currentPath()) return;
-    const name = displayName.value.trim();
-    saveSetting("dh-srd-editor-name", name);
-    saveButton.disabled = true;
+  previewWorker.addEventListener("message", (event) => {
+    const responseSequence = event.data.sequence ?? event.data.id;
+    if (responseSequence !== state.previewSequence) return;
+    if (event.data.error) {
+      document.getElementById("preview-status").textContent = `预览失败：${event.data.error}`;
+      return;
+    }
+    applyPreviewResult(responseSequence, event.data.html);
+  });
+
+  previewWorker.addEventListener("error", (event) => {
+    document.getElementById("preview-status").textContent = `预览失败：${event.message}`;
+  });
+
+  function pageLabel(draft) {
+    const page = state.pages[draft.slug];
+    const title = page?.title?.[draft.language] || page?.title?.zh || draft.slug;
+    return `${title} · ${draft.language === "zh" ? "中文" : "EN"}`;
+  }
+
+  function openPublishDialog() {
+    const dirty = dirtyDocuments();
+    if (!dirty.length) return;
+    const list = document.getElementById("publish-list");
+    list.replaceChildren(...dirty.map((draft) => node("li", "", pageLabel(draft))));
+    document.getElementById("publish-error").textContent = "";
+    publishName.value = readSetting("dh-srd-editor-name", "");
+    publishDialog.showModal();
+    publishName.focus();
+  }
+
+  function closePublishDialog() {
+    if (!publishForm.dataset.busy) publishDialog.close();
+  }
+
+  async function pollGitSync() {
+    clearTimeout(state.syncTimer);
+    try {
+      const data = await request("/SRD/api/admin/publish-status");
+      const sync = data.gitSync || data;
+      if (sync.status === "synced") { setStatus("已同步至 GitHub"); return; }
+      if (sync.status === "failed") {
+        setStatus(`站点已发布；GitHub 同步失败：${sync.error || "未知错误"}`, true);
+        return;
+      }
+      setStatus(sync.status === "retrying"
+        ? `站点已发布；GitHub 同步正在重试：${sync.error || "网络异常"}`
+        : "已发布；GitHub 正在后台同步", sync.status === "retrying");
+      state.syncTimer = setTimeout(pollGitSync, 2000);
+    } catch (error) {
+      setStatus(`站点已发布；同步状态读取失败：${error.message}`, true);
+      state.syncTimer = setTimeout(pollGitSync, 5000);
+    }
+  }
+
+  async function publish(event) {
+    event.preventDefault();
+    const name = publishName.value.trim();
+    const dirty = dirtyDocuments();
+    if (!name) {
+      document.getElementById("publish-error").textContent = "请输入编辑者名称";
+      publishName.focus();
+      return;
+    }
+    if (!dirty.length) { publishDialog.close(); return; }
+    publishForm.dataset.busy = "true";
+    [...publishForm.elements].forEach((element) => { element.disabled = true; });
+    document.getElementById("publish-error").textContent = "正在完整构建并发布…";
     setStatus("正在完整构建并发布…");
     try {
       const data = await request("/SRD/api/save", {
         method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ path: currentPath(), content: textarea.value, baseVersion: state.version, displayName: name }),
+        body: JSON.stringify({
+          displayName: name,
+          changes: dirty.map((draft) => ({
+            path: draft.path,
+            content: draft.content,
+            baseVersion: draft.version,
+          })),
+        }),
       });
-      state.original = textarea.value;
-      state.version = data.version;
-      document.getElementById("document-version").textContent = `版本 ${data.version}`;
-      setStatus(data.gitSync?.status === "pending" ? "已发布；GitHub 正在后台同步" : data.message);
+      dirty.forEach((draft) => {
+        draft.original = draft.content;
+        draft.version = data.versions?.[draft.path] || draft.version;
+      });
+      saveSetting("dh-srd-editor-name", name);
+      publishDialog.close();
+      const current = documentFor();
+      if (current) document.getElementById("document-version").textContent = `版本 ${current.version}`;
+      renderTree();
       updateSaveState();
+      if (data.gitSync?.status === "synced") setStatus("已同步至 GitHub");
+      else {
+        setStatus("已发布；GitHub 正在后台同步");
+        pollGitSync();
+      }
     } catch (error) {
-      if (error.status === 409) showConflict(error.data);
-      setStatus(`保存失败：${error.message}`, true);
+      if (error.status === 409) await showConflict(error.data);
+      document.getElementById("publish-error").textContent = `发布失败：${error.message}`;
+      setStatus(`发布失败：${error.message}`, true);
+    } finally {
+      delete publishForm.dataset.busy;
+      [...publishForm.elements].forEach((element) => { element.disabled = false; });
       updateSaveState();
     }
   }
 
-  function showConflict(data) {
+  async function showConflict(data) {
+    const conflict = data.conflicts?.[0] || data;
+    const draft = conflict.path ? state.documents.get(conflict.path) : documentFor();
+    if (draft && (draft.slug !== state.slug || draft.language !== state.language)) {
+      await loadDocument(draft.slug, draft.language);
+    }
     const panel = document.getElementById("conflict-panel");
-    document.getElementById("server-content").value = data.currentContent || "";
-    panel.dataset.version = data.currentVersion || "";
+    document.getElementById("server-content").value = conflict.currentContent || "";
+    panel.dataset.path = conflict.path || draft?.path || "";
+    panel.dataset.version = conflict.currentVersion || "";
     panel.hidden = false;
   }
 
@@ -275,22 +414,43 @@
 
   document.getElementById("language-button").addEventListener("click", () => {
     const language = state.language === "zh" ? "en" : "zh";
-    if (state.slug && canLeaveDocument()) loadDocument(state.slug, language);
+    if (state.slug) loadDocument(state.slug, language);
   });
-  textarea.addEventListener("input", () => { updateSaveState(); schedulePreview(); });
-  saveButton.addEventListener("click", save);
+  textarea.addEventListener("input", () => {
+    const draft = documentFor();
+    if (!draft) return;
+    draft.content = textarea.value;
+    updateSaveState();
+    renderTree();
+    schedulePreview();
+  });
+  saveButton.addEventListener("click", openPublishDialog);
+  publishForm.addEventListener("submit", publish);
+  document.getElementById("publish-close").addEventListener("click", closePublishDialog);
+  document.getElementById("publish-cancel").addEventListener("click", closePublishDialog);
   document.getElementById("sage-btn").addEventListener("click", insertSage);
   document.getElementById("menu-button").addEventListener("click", () => document.body.classList.add("sidebar-open"));
   document.getElementById("sidebar-close").addEventListener("click", () => document.body.classList.remove("sidebar-open"));
   document.getElementById("sidebar-backdrop").addEventListener("click", () => document.body.classList.remove("sidebar-open"));
   document.getElementById("accept-server").addEventListener("click", () => {
-    state.original = document.getElementById("server-content").value;
-    state.version = document.getElementById("conflict-panel").dataset.version;
-    textarea.value = state.original;
-    document.getElementById("conflict-panel").hidden = true;
-    schedulePreview(); updateSaveState(); setStatus("已载入服务器版本");
+    const panel = document.getElementById("conflict-panel");
+    const draft = state.documents.get(panel.dataset.path) || documentFor();
+    if (!draft) return;
+    draft.content = document.getElementById("server-content").value;
+    draft.original = draft.content;
+    draft.version = panel.dataset.version;
+    if (draft === documentFor()) {
+      textarea.value = draft.content;
+      document.getElementById("document-version").textContent = `版本 ${draft.version}`;
+      schedulePreview();
+    }
+    panel.hidden = true;
+    renderTree();
+    updateSaveState();
+    setStatus("已载入服务器版本");
   });
-  window.addEventListener("beforeunload", (event) => { if (isDirty()) { event.preventDefault(); event.returnValue = ""; } });
-  displayName.value = readSetting("dh-srd-editor-name", "");
+  window.addEventListener("beforeunload", (event) => {
+    if (dirtyDocuments().length) { event.preventDefault(); event.returnValue = ""; }
+  });
   loadPages();
 })();

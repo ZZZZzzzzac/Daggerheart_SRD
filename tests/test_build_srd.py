@@ -57,11 +57,11 @@ def test_duplicate_heading_anchors_are_unique():
     assert en_ids == ["test", "test-2"]
 
 
-def test_rendered_tables_keep_table_layout_inside_scroll_region():
+def test_rendered_tables_keep_table_layout_inside_width_wrapper():
     markdown = "| 名称 | 阈值 | 护甲值 | 特性 |\n| --- | --- | --- | --- |\n| 皮甲 | 6 / 13 | 3 | 灵活 |"
     rendered = build_srd.render_preview(markdown, "zh")
 
-    assert '<div class="table-scroll" role="region" tabindex="0">' in rendered
+    assert '<div class="table-scroll" role="region">' in rendered
     assert "<table>" in rendered
     assert "</table></div>" in rendered
 

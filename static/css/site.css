@@ -175,10 +175,10 @@ details[open] > summary .tree-caret { transform: rotate(90deg); }
 .article-body a { overflow-wrap: anywhere; }
 .article-body .term-link { text-decoration-style: dotted; text-decoration-color: var(--accent); }
 
-.article-body .table-scroll { max-width: 100%; margin: 1.8rem 0 2.2rem; overflow-x: auto; }
-.article-body table { display: table; width: max-content; min-width: 100%; margin: 0; border-spacing: 0; border-collapse: separate; border: 1px solid var(--line); font-family: var(--ui-font); font-size: .86rem; line-height: 1.5; }
-.article-body th, .article-body td { min-width: 4.5rem; padding: .68rem .8rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-.article-body th { background: var(--paper-deep); color: var(--ink); font-weight: 650; white-space: nowrap; }
+.article-body .table-scroll { max-width: 100%; margin: 1.8rem 0 2.2rem; overflow: visible; }
+.article-body table { display: table; width: 100%; max-width: 100%; table-layout: fixed; margin: 0; border-spacing: 0; border-collapse: separate; border: 1px solid var(--line); font-family: var(--ui-font); font-size: .86rem; line-height: 1.5; }
+.article-body th, .article-body td { min-width: 0; padding: .68rem .8rem; overflow-wrap: anywhere; word-break: break-word; white-space: normal; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.article-body th { background: var(--paper-deep); color: var(--ink); font-weight: 650; }
 .article-body tr:last-child td { border-bottom: 0; }
 .article-body th:last-child, .article-body td:last-child { border-right: 0; }
 .article-body tbody tr:nth-child(even) { background: color-mix(in srgb, var(--paper-deep) 48%, transparent); }

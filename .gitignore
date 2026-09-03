@@ -9,3 +9,5 @@ hugo.exe
 static/edit/config.token.js
 static/generated/
 var/
+node_modules/
+.codex-test-tmp-*/

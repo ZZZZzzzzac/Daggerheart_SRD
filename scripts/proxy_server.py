@@ -21,11 +21,6 @@ from urllib.parse import parse_qs, urlparse
 
 import yaml
 
-try:
-    from .build_srd import render_preview
-except ImportError:  # Running as ``python scripts/proxy_server.py``.
-    from build_srd import render_preview
-
 
 SCRIPT_DIR = Path(__file__).resolve().parent
 PROJECT_DIR = SCRIPT_DIR.parent
@@ -117,7 +112,7 @@ class GitSync:
         self.lock = threading.Lock()
         self._worker: threading.Thread | None = None
         self.state = self._load()
-        if self.state.get("status") == "pending":
+        if self.state.get("status") in {"pending", "retrying"}:
             self._start_worker()
 
     def _load(self) -> dict:
@@ -149,8 +144,8 @@ class GitSync:
         self._worker.start()
 
     def _push_with_retry(self) -> None:
-        last_error = ""
-        for delay in (0, 3, 15):
+        delay = 0
+        while True:
             if delay:
                 time.sleep(delay)
             try:
@@ -166,9 +161,14 @@ class GitSync:
                 last_error = (result.stderr or result.stdout).strip()
             except (OSError, subprocess.TimeoutExpired) as exc:
                 last_error = str(exc)
-        with self.lock:
-            self.state.update(status="pending", updatedAt=utc_now(), error=last_error or "git push failed")
-            self._save()
+            with self.lock:
+                self.state.update(
+                    status="retrying",
+                    updatedAt=utc_now(),
+                    error=last_error or "git push failed",
+                )
+                self._save()
+            delay = 3 if delay == 0 else min(delay * 5, 300)
 
 
 GIT_SYNC = GitSync(PROJECT_DIR)
@@ -199,10 +199,10 @@ def _run_candidate_build(candidate: Path) -> None:
         raise PublishError("构建未生成完整站点")
 
 
-def _commit_edit(path: str, display_name: str) -> str:
-    message = f"编辑: {path} ({display_name or 'shared-editor'})"
+def _commit_changes(paths: list[str], display_name: str) -> str:
+    message = f"编辑 {len(paths)} 个页面 ({display_name})"
     result = subprocess.run(
-        ["git", "commit", "--only", "-m", message, "--", path],
+        ["git", "commit", "--only", "-m", message, "--", *paths],
         cwd=PROJECT_DIR,
         capture_output=True,
         text=True,
@@ -221,57 +221,98 @@ def _commit_edit(path: str, display_name: str) -> str:
     return revision.stdout.strip()
 
 
-def publish_edit(path: str, content: str, base_version: str | None, display_name: str) -> dict:
-    full = _resolve_path(path)
-    if not full or not full.is_file():
-        raise PublishError("只允许编辑现有的 src/pages Markdown 文件")
-    if not isinstance(content, str) or not content.strip():
-        raise PublishError("内容不能为空")
-    if len(content.encode("utf-8")) > MAX_JSON_BYTES:
-        raise PublishError("内容过大")
-
+def publish_changes(changes: list[dict], display_name: str) -> dict:
+    display_name = display_name.strip() if isinstance(display_name, str) else ""
+    if not display_name:
+        raise PublishError("编辑者名称不能为空")
+    if not isinstance(changes, list) or not changes:
+        raise PublishError("没有需要发布的页面")
     with PUBLISH_LOCK:
-        current_content = full.read_text(encoding="utf-8")
-        current_version = content_version(current_content)
-        if base_version and base_version != current_version:
+        prepared = []
+        conflicts = []
+        seen_paths = set()
+        for change in changes:
+            if not isinstance(change, dict):
+                raise PublishError("页面修改格式无效")
+            path = change.get("path", "")
+            if path in seen_paths:
+                raise PublishError(f"页面重复提交: {path}")
+            seen_paths.add(path)
+            full = _resolve_path(path)
+            if not full or not full.is_file():
+                raise PublishError("只允许编辑现有的 src/pages Markdown 文件")
+            content = change.get("content", "")
+            if not isinstance(content, str) or not content.strip():
+                raise PublishError(f"内容不能为空: {path}")
+            if len(content.encode("utf-8")) > MAX_JSON_BYTES:
+                raise PublishError(f"内容过大: {path}")
+            current_content = full.read_text(encoding="utf-8")
+            current_version = content_version(current_content)
+            base_version = change.get("baseVersion")
+            if base_version and base_version != current_version:
+                conflicts.append({
+                    "path": path,
+                    "currentContent": current_content,
+                    "currentVersion": current_version,
+                })
+            prepared.append({
+                "path": path,
+                "full": full,
+                "content": content,
+                "currentContent": current_content,
+                "currentVersion": current_version,
+            })
+        if conflicts:
             raise PublishError(
-                "页面已被其他人修改，请合并后再保存",
+                "变更集中有页面已被其他人修改，请合并后重新发布",
                 status=409,
-                details={"currentContent": current_content, "currentVersion": current_version},
+                details={"conflicts": conflicts},
             )
-        if content == current_content:
-            return {"message": "内容没有变化", "version": current_version, "gitSync": GIT_SYNC.snapshot()}
+
+        changed = [item for item in prepared if item["content"] != item["currentContent"]]
+        versions = {
+            item["path"]: content_version(item["content"])
+            for item in prepared
+        }
+        if not changed:
+            return {"message": "内容没有变化", "versions": versions, "gitSync": GIT_SYNC.snapshot()}
 
         with tempfile.TemporaryDirectory(prefix="srd-publish-", dir=PROJECT_DIR) as temp_name:
             candidate = Path(temp_name)
             _copy_candidate_project(candidate)
-            candidate_file = candidate / path
-            candidate_file.parent.mkdir(parents=True, exist_ok=True)
-            candidate_file.write_text(content, encoding="utf-8")
+            for item in changed:
+                candidate_file = candidate / item["path"]
+                candidate_file.parent.mkdir(parents=True, exist_ok=True)
+                candidate_file.write_text(item["content"], encoding="utf-8")
             _run_candidate_build(candidate)
 
-            source_pending = full.with_name(f".{full.name}.{uuid.uuid4().hex}.pending")
-            source_pending.write_text(content, encoding="utf-8")
+            pending_sources = []
+            for item in changed:
+                pending = item["full"].with_name(f".{item['full'].name}.{uuid.uuid4().hex}.pending")
+                pending.write_text(item["content"], encoding="utf-8")
+                pending_sources.append((item, pending))
             public_backup = PROJECT_DIR / f".public-backup-{uuid.uuid4().hex}"
-            source_changed = False
+            replaced_sources = []
             public_changed = False
             try:
-                os.replace(source_pending, full)
-                source_changed = True
+                for item, pending in pending_sources:
+                    os.replace(pending, item["full"])
+                    replaced_sources.append(item)
                 if PUBLIC_DIR.exists():
                     os.replace(PUBLIC_DIR, public_backup)
                 os.replace(candidate / "public", PUBLIC_DIR)
                 public_changed = True
-                commit = _commit_edit(path, display_name)
+                commit = _commit_changes([item["path"] for item in changed], display_name)
             except Exception:
                 if public_changed and PUBLIC_DIR.exists():
                     shutil.rmtree(PUBLIC_DIR)
                 if public_backup.exists():
                     os.replace(public_backup, PUBLIC_DIR)
-                if source_changed:
-                    full.write_text(current_content, encoding="utf-8")
-                if source_pending.exists():
-                    source_pending.unlink()
+                for item in replaced_sources:
+                    item["full"].write_text(item["currentContent"], encoding="utf-8")
+                for _item, pending in pending_sources:
+                    if pending.exists():
+                        pending.unlink()
                 raise
             finally:
                 if public_backup.exists():
@@ -280,10 +321,20 @@ def publish_edit(path: str, content: str, base_version: str | None, display_name
         GIT_SYNC.queue(commit)
         return {
             "message": "保存成功，站点已更新",
-            "version": content_version(content),
+            "versions": versions,
             "commit": commit,
             "gitSync": GIT_SYNC.snapshot(),
         }
+
+
+def publish_edit(path: str, content: str, base_version: str | None, display_name: str) -> dict:
+    result = publish_changes([{
+        "path": path,
+        "content": content,
+        "baseVersion": base_version,
+    }], display_name)
+    result["version"] = result["versions"].get(path)
+    return result
 
 
 def save_and_build(path: str, content: str, base_version: str | None = None, display_name: str = "shared-editor"):
@@ -417,18 +468,16 @@ class ProxyHandler(BaseHTTPRequestHandler):
             self._json(400, {"error": str(exc)})
             return
 
-        if parsed.path == "/api/preview":
-            content = data.get("content", "")
-            if not isinstance(content, str) or len(content.encode("utf-8")) > MAX_JSON_BYTES:
-                self._json(400, {"error": "预览内容无效"})
-                return
-            self._json(200, {"html": render_preview(content, data.get("language", "zh"))})
-        elif parsed.path == "/api/save":
+        if parsed.path == "/api/save":
             try:
-                result = publish_edit(
-                    data.get("path", ""), data.get("content", ""),
-                    data.get("baseVersion"), str(data.get("displayName", ""))[:80],
-                )
+                changes = data.get("changes")
+                if not isinstance(changes, list):
+                    changes = [{
+                        "path": data.get("path", ""),
+                        "content": data.get("content", ""),
+                        "baseVersion": data.get("baseVersion"),
+                    }]
+                result = publish_changes(changes, str(data.get("displayName", ""))[:80])
                 self._json(200, result)
             except PublishError as exc:
                 self._json(exc.status, {"error": str(exc), **exc.details})
