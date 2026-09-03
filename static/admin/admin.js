@@ -2,7 +2,7 @@
   "use strict";
   const list = document.getElementById("feedback-list");
   const statusText = document.getElementById("admin-status");
-  let currentStatus = "";
+  let currentStatus = "pending";
 
   async function request(url, options) {
     const response = await fetch(url, { credentials: "same-origin", ...options });

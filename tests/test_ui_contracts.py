@@ -162,6 +162,14 @@ def test_feedback_inbox_separates_unread_state_and_aligns_controls():
     assert 'admin.js?v=20260903j' in html
 
 
+def test_feedback_inbox_opens_on_pending_filter():
+    html = (PROJECT_DIR / "static" / "admin" / "index.html").read_text(encoding="utf-8")
+    script = (PROJECT_DIR / "static" / "admin" / "admin.js").read_text(encoding="utf-8")
+
+    assert '<button class="active" type="button" data-status="pending">待处理</button>' in html
+    assert 'let currentStatus = "pending";' in script
+
+
 def test_site_css_and_editor_modules_use_current_cache_version():
     base = (PROJECT_DIR / "layouts" / "_default" / "baseof.html").read_text(encoding="utf-8")
     editor = (PROJECT_DIR / "static" / "edit" / "index.html").read_text(encoding="utf-8")
