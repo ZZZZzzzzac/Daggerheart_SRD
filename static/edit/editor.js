@@ -321,7 +321,7 @@
   async function pollGitSync() {
     clearTimeout(state.syncTimer);
     try {
-      const data = await request("/SRD/api/admin/publish-status");
+      const data = await request("/SRD/api/publish-status");
       const sync = data.gitSync || data;
       if (sync.status === "synced") { setStatus("已同步至 GitHub"); return; }
       if (sync.status === "failed") {

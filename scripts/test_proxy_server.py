@@ -294,6 +294,14 @@ def test_api_preview_endpoint_is_removed(test_server):
     assert data["error"] == "Not found"
 
 
+def test_editor_and_admin_publish_status_endpoints_match(test_server):
+    editor_status, editor_data = _api(test_server, "/api/publish-status")
+    admin_status, admin_data = _api(test_server, "/api/admin/publish-status")
+
+    assert editor_status == admin_status == 200
+    assert editor_data == admin_data
+
+
 def test_api_feedback_and_admin_workflow(test_server):
     status, created = _api(test_server, "/api/feedback", method="POST", body={
         "message": "这里有错字", "contact": "", "path": "core", "anchor": "roll",

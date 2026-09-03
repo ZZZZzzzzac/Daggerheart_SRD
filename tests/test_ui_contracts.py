@@ -72,7 +72,7 @@ def test_editor_requires_name_in_publish_dialog_and_polls_github_sync():
     assert 'id="publish-dialog"' in html
     assert 'id="publish-name"' in html
     assert "required" in html.split('id="publish-name"', 1)[1].split(">", 1)[0]
-    assert "/SRD/api/admin/publish-status" in script
+    assert "/SRD/api/publish-status" in script
     assert "已同步至 GitHub" in script
 
 

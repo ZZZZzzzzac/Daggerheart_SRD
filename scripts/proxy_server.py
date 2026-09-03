@@ -449,7 +449,7 @@ class ProxyHandler(BaseHTTPRequestHandler):
                 self._json(404, {"error": f"文件不存在或不可访问: {path}"})
             else:
                 self._json(200, {"content": content, "version": content_version(content)})
-        elif parsed.path == "/api/admin/publish-status":
+        elif parsed.path in {"/api/publish-status", "/api/admin/publish-status"}:
             self._json(200, {"gitSync": GIT_SYNC.snapshot()})
         elif parsed.path == "/api/admin/feedback":
             status = parse_qs(parsed.query).get("status", [None])[0]
