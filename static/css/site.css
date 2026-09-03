@@ -201,7 +201,7 @@ details[open] > summary .tree-caret { transform: rotate(90deg); }
 .domain-card::before { content: ""; position: absolute; inset: 0 0 auto; height: .28rem; background: var(--domain-color); }
 .article-body .domain-card h4 { margin: -.05rem -.1rem .85rem; padding: .45rem .55rem; background: color-mix(in srgb, var(--domain-color) 15%, var(--paper-raised)); color: var(--domain-text); font-size: 1.14rem; letter-spacing: -.015em; }
 .article-body .domain-card p { margin-bottom: .9rem; line-height: 1.72; }
-.article-body .domain-card > p:first-of-type > strong:first-child { display: block; margin-bottom: .65rem; color: var(--domain-text); font: 700 .78rem/1.45 var(--ui-font); letter-spacing: .035em; }
+.article-body .domain-card > p:first-of-type > strong:first-child { color: var(--domain-text); font: 700 .78rem/1.45 var(--ui-font); letter-spacing: .035em; }
 .article-body .domain-card ul, .article-body .domain-card ol { margin-bottom: .9rem; }
 .article-body .domain-card > :last-child { margin-bottom: 0; }
 

@@ -126,16 +126,24 @@ def test_domain_cards_are_a_top_level_card_grid():
     assert ".domain-card" in css
 
 
+def test_domain_card_metadata_uses_its_markdown_break_without_extra_blank_line():
+    css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
+
+    rule = css.split(".article-body .domain-card > p:first-of-type > strong:first-child", 1)[1].split("}", 1)[0]
+    assert "display: block" not in rule
+    assert "margin-bottom" not in rule
+
+
 def test_site_css_and_editor_modules_use_current_cache_version():
     base = (PROJECT_DIR / "layouts" / "_default" / "baseof.html").read_text(encoding="utf-8")
     editor = (PROJECT_DIR / "static" / "edit" / "index.html").read_text(encoding="utf-8")
     editor_script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
     worker = (PROJECT_DIR / "static" / "edit" / "preview-worker.mjs").read_text(encoding="utf-8")
 
-    assert 'css/site.css?v=20260903g' in base
-    assert 'css/site.css?v=20260903g' in editor
-    assert 'render-core.mjs?v=20260903g' in editor_script
-    assert 'render-core.mjs?v=20260903g' in worker
+    assert 'css/site.css?v=20260903h' in base
+    assert 'css/site.css?v=20260903h' in editor
+    assert 'render-core.mjs?v=20260903h' in editor_script
+    assert 'render-core.mjs?v=20260903h' in worker
 
 
 def test_article_tables_are_not_turned_into_blocks():
