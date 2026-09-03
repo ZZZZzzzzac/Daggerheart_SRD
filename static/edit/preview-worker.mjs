@@ -1,4 +1,4 @@
-import { renderPair } from "../js/render-core.mjs?v=20260903d";
+import { renderPair } from "../js/render-core.mjs?v=20260903e";
 
 
 self.addEventListener("message", (event) => {

@@ -76,6 +76,21 @@ def test_editor_requires_name_in_publish_dialog_and_polls_github_sync():
     assert "已同步至 GitHub" in script
 
 
+def test_publish_dialog_has_centered_panel_and_grouped_actions():
+    css = (PROJECT_DIR / "static" / "edit" / "editor.css").read_text(encoding="utf-8")
+
+    dialog_rule = css.split("#publish-dialog", 1)[1].split("}", 1)[0]
+    form_rule = css.split(".publish-form {", 1)[1].split("}", 1)[0]
+    actions_rule = css.split(".publish-form .form-actions", 1)[1].split("}", 1)[0]
+    assert "position: fixed" in dialog_rule
+    assert "margin: auto" in dialog_rule
+    assert "padding: 0" in dialog_rule
+    assert "display: grid" in form_rule
+    assert "display: flex" in actions_rule
+    assert "justify-content: flex-end" in actions_rule
+    assert ".publish-form .secondary-button" in css
+
+
 def test_tables_wrap_inside_article_width_without_horizontal_scroll():
     css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
 
