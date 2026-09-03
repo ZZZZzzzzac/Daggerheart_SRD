@@ -1,5 +1,7 @@
 from pathlib import Path
 
+import yaml
+
 
 PROJECT_DIR = Path(__file__).resolve().parents[1]
 
@@ -102,10 +104,26 @@ def test_publish_dialog_has_centered_panel_and_grouped_actions():
 def test_tables_wrap_inside_article_width_without_horizontal_scroll():
     css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
 
-    assert "table-layout: fixed" in css
+    assert "table-layout: auto" in css
+    assert "table-layout: fixed" not in css
     assert "overflow-wrap: anywhere" in css
     assert ".table-scroll" in css
     assert "overflow-x: auto" not in css
+
+
+def test_domain_cards_are_a_top_level_card_grid():
+    manifest = yaml.safe_load((PROJECT_DIR / "data" / "srd.yaml").read_text(encoding="utf-8"))
+    css = (PROJECT_DIR / "static" / "css" / "site.css").read_text(encoding="utf-8")
+
+    paths = [page["path"] for page in manifest["pages"]]
+    assert "domain-cards" in paths
+    assert all(
+        child["path"] != "domain-cards"
+        for page in manifest["pages"]
+        for child in page.get("subs", [])
+    )
+    assert ".domain-card-grid" in css
+    assert ".domain-card" in css
 
 
 def test_site_css_and_editor_modules_use_current_cache_version():
@@ -114,10 +132,10 @@ def test_site_css_and_editor_modules_use_current_cache_version():
     editor_script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
     worker = (PROJECT_DIR / "static" / "edit" / "preview-worker.mjs").read_text(encoding="utf-8")
 
-    assert 'css/site.css?v=20260903f' in base
-    assert 'css/site.css?v=20260903f' in editor
-    assert 'render-core.mjs?v=20260903f' in editor_script
-    assert 'render-core.mjs?v=20260903f' in worker
+    assert 'css/site.css?v=20260903g' in base
+    assert 'css/site.css?v=20260903g' in editor
+    assert 'render-core.mjs?v=20260903g' in editor_script
+    assert 'render-core.mjs?v=20260903g' in worker
 
 
 def test_article_tables_are_not_turned_into_blocks():

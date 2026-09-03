@@ -174,7 +174,21 @@ function renderSageBlocks(markdown, language) {
 }
 
 
-function renderMarkdown(markdown, anchorIds, language) {
+function renderDomainCards(html) {
+  return html.split(/(?=<h2\b)/).map((section) => {
+    if (!/^<h2\b[^>]*>[\s\S]*?class="domain-icon"[^>]*>[\s\S]*?<\/h2>/.test(section)) return section;
+    const match = section.match(/^(<h2\b[^>]*>[\s\S]*?<\/h2>\s*)([\s\S]*)$/);
+    if (!match) return section;
+    const cards = match[2].replace(
+      /(<h4\b[^>]*>[\s\S]*?<\/h4>)([\s\S]*?)(?=<h4\b|$)/g,
+      '<article class="domain-card">$1$2</article>\n',
+    );
+    return `<section class="domain-section">\n${match[1]}<div class="domain-card-grid">\n${cards}</div>\n</section>\n`;
+  }).join("");
+}
+
+
+function renderMarkdown(markdown, anchorIds, language, options = {}) {
   const withHeadings = prepareHeadings(markdown);
   const source = language === "zh" ? applyMakeup(withHeadings) : withHeadings;
   const sage = renderSageBlocks(source, language);
@@ -184,14 +198,15 @@ function renderMarkdown(markdown, anchorIds, language) {
     language,
   });
   html = sage.restore(html);
-  return html.replace(
+  html = html.replace(
     /(<table\b[^>]*>[\s\S]*?<\/table>)/g,
     '<div class="table-scroll" role="region">$1</div>',
   );
+  return options.pagePath === "domain-cards" ? renderDomainCards(html) : html;
 }
 
 
-export function renderPair(zhMarkdown, enMarkdown) {
+export function renderPair(zhMarkdown, enMarkdown, options = {}) {
   const anchors = assignAnchorIds(zhMarkdown, enMarkdown);
   const headings = {
     zh: extractHeadings(zhMarkdown).map((heading, index) => ({ ...heading, anchor: anchors.zh[index] })),
@@ -201,8 +216,8 @@ export function renderPair(zhMarkdown, enMarkdown) {
     anchors,
     headings,
     html: {
-      zh: renderMarkdown(zhMarkdown, anchors.zh, "zh"),
-      en: renderMarkdown(enMarkdown, anchors.en, "en"),
+      zh: renderMarkdown(zhMarkdown, anchors.zh, "zh", options),
+      en: renderMarkdown(enMarkdown, anchors.en, "en", options),
     },
   };
 }

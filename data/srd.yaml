@@ -44,9 +44,7 @@ pages:
         title: {zh: "环境数据", en: "Environment Data"}
   - path: campaign-frames
     title: {zh: "战役框架", en: "Campaign Frames"}
+  - path: domain-cards
+    title: {zh: "领域卡查询", en: "Domain Card Reference"}
   - path: appendix
     title: {zh: "附录", en: "Appendix"}
-    subs:
-      - path: appendix/domain-cards
-        heading: "领域卡查询"
-        title: {zh: "领域卡查询", en: "Domain Card Reference"}

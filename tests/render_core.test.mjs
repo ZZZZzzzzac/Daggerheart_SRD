@@ -38,3 +38,26 @@ test("render core handles formal tables and Markdown inside sage blocks", () => 
   assert.match(rendered.html.zh, /<strong>重点<\/strong>/);
   assert.match(rendered.html.zh, /<div class="table-scroll" role="region">\s*<table>/);
 });
+
+
+test("domain card pages render cards without changing ordinary level-four sections", () => {
+  const source = [
+    '## <img src="/SRD/img/domains/arcana.png" class="domain-icon" alt=""> 奥术领域 ARCANA',
+    "",
+    "#### 符文护符 RUNE WARD",
+    "**1 级 奥术 法术 回想费用：0**  ",
+    "卡牌正文。",
+    "",
+    "#### 释放混沌 UNLEASH CHAOS",
+    "**1 级 奥术 法术 回想费用：1**  ",
+    "另一张卡牌。",
+  ].join("\n");
+
+  const cards = renderPair(source, source, { pagePath: "domain-cards" });
+  const ordinary = renderPair(source, source);
+
+  assert.match(cards.html.zh, /<section class="domain-section">/);
+  assert.equal((cards.html.zh.match(/<article class="domain-card">/g) || []).length, 2);
+  assert.match(cards.html.zh, /<div class="domain-card-grid">/);
+  assert.doesNotMatch(ordinary.html.zh, /class="domain-card"/);
+});

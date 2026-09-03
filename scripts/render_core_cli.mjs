@@ -12,7 +12,7 @@ const documents = input.documents.map((document) => {
   if (typeof document.zh !== "string" || typeof document.en !== "string") {
     throw new TypeError("each document must contain zh and en strings");
   }
-  return renderPair(document.zh, document.en);
+  return renderPair(document.zh, document.en, { pagePath: document.pagePath || "" });
 });
 
 process.stdout.write(JSON.stringify({ documents }));

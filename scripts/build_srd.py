@@ -291,7 +291,11 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
             "en_text": en_text,
         })
     rendered_pages = render_pairs([
-        {"zh": prepared["zh_text"], "en": prepared["en_text"]}
+        {
+            "zh": prepared["zh_text"],
+            "en": prepared["en_text"],
+            "pagePath": prepared["page"]["path"],
+        }
         for prepared in prepared_pages
     ])
     anchors_by_path: dict[str, dict[str, set[str]]] = {}
