@@ -46,7 +46,8 @@ test("domain card pages render cards without changing ordinary level-four sectio
     "",
     "#### 符文护符 RUNE WARD",
     "**1 级 奥术 法术 回想费用：0**  ",
-    "卡牌正文。",
+    "卡牌正文第一行。",
+    "卡牌正文第二行。",
     "",
     "#### 释放混沌 UNLEASH CHAOS",
     "**1 级 奥术 法术 回想费用：1**  ",
@@ -59,5 +60,7 @@ test("domain card pages render cards without changing ordinary level-four sectio
   assert.match(cards.html.zh, /<section class="domain-section">/);
   assert.equal((cards.html.zh.match(/<article class="domain-card">/g) || []).length, 2);
   assert.match(cards.html.zh, /<div class="domain-card-grid">/);
+  assert.match(cards.html.zh, /卡牌正文第一行。<br>\s*卡牌正文第二行。/);
   assert.doesNotMatch(ordinary.html.zh, /class="domain-card"/);
+  assert.doesNotMatch(ordinary.html.zh, /卡牌正文第一行。<br>/);
 });

@@ -141,6 +141,9 @@ function createMarkdownRenderer() {
     }
     return renderer.renderToken(tokens, index, {});
   };
+  md.renderer.rules.softbreak = (_tokens, _index, _options, environment) => (
+    environment.preserveSoftbreaks ? "<br>\n" : "\n"
+  );
   return md;
 }
 
@@ -148,7 +151,7 @@ function createMarkdownRenderer() {
 const markdownRenderer = createMarkdownRenderer();
 
 
-function renderSageBlocks(markdown, language) {
+function renderSageBlocks(markdown, language, options) {
   const blocks = [];
   const prepared = markdown.replace(
     /<div class="sage-touched">\s*<details>\s*<summary>(.*?)<\/summary>\s*([\s\S]*?)\s*<\/details>\s*<\/div>/g,
@@ -164,7 +167,7 @@ function renderSageBlocks(markdown, language) {
       return blocks.reduce((result, block, index) => {
         const body = markdownRenderer.render(
           language === "zh" ? applyMakeup(block.body) : block.body,
-          { anchorIds: [], headingIndex: 0, language },
+          { anchorIds: [], headingIndex: 0, language, preserveSoftbreaks: options.pagePath === "domain-cards" },
         ).trim();
         const replacement = `<div class="sage-touched">\n<details>\n<summary>${block.summary}</summary>\n${body}\n</details>\n</div>`;
         return result.replace(`<div data-srd-sage-placeholder="${index}"></div>`, replacement);
@@ -191,11 +194,12 @@ function renderDomainCards(html) {
 function renderMarkdown(markdown, anchorIds, language, options = {}) {
   const withHeadings = prepareHeadings(markdown);
   const source = language === "zh" ? applyMakeup(withHeadings) : withHeadings;
-  const sage = renderSageBlocks(source, language);
+  const sage = renderSageBlocks(source, language, options);
   let html = markdownRenderer.render(sage.prepared, {
     anchorIds,
     headingIndex: 0,
     language,
+    preserveSoftbreaks: options.pagePath === "domain-cards",
   });
   html = sage.restore(html);
   html = html.replace(
