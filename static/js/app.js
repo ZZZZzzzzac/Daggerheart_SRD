@@ -70,6 +70,13 @@
     if (persist) saveSetting("dh-srd-theme", theme);
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = theme === "dark" ? "#1c1b19" : "#f4efe5";
+    const button = document.getElementById("theme-button");
+    if (button) {
+      const nextTheme = theme === "dark" ? "日间" : "夜间";
+      button.textContent = theme === "dark" ? "☀" : "☾";
+      button.setAttribute("aria-label", `切换到${nextTheme}模式`);
+      button.title = `切换到${nextTheme}模式`;
+    }
   }
 
   function initialTheme() {
