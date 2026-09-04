@@ -11,7 +11,7 @@ import pytest
 from pathlib import Path
 from http.server import HTTPServer
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import proxy_server
 
 

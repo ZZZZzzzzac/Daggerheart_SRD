@@ -27,13 +27,14 @@ Daggerheart_SRD/
 │   ├── DH-SRD-CN.md     # 完整译文 md（从 paratranz 导出）
 │   ├── DH-SRD-EN.md     # 完整英文 md
 │   └── scores.json
-├── scripts/             # Python 构建脚本 + 服务端代理
+├── scripts/             # 构建、导入、校验与服务端运行脚本
 │   ├── build_srd.py
 │   ├── proxy_server.py  # GitHub API 代理（零依赖，纯 stdlib）
 │   └── proxy_server.service  # systemd 单元文件模板
 ├── data/                # 唯一章节清单 + 专用规则术语表
 ├── layouts/             # Hugo 模板
 ├── static/              # 阅读端、编辑器、反馈后台、图片
+├── tests/               # Python、Node.js 与浏览器测试
 ├── content/             # （生成）Python 生成的 Hugo 页面，已 gitignore
 ├── public/              # （生成）Hugo 最终输出，nginx 从此目录 serve
 ├── config.yaml          # Hugo 配置
@@ -141,7 +142,9 @@ ExecStart=/usr/bin/python3 /var/www/SRD/scripts/proxy_server.py
 
 所有服务器用户 `ubuntu`，SSH 密钥在 `~/.ssh/authorized_keys`。
 
-## 外部依赖
+## 大版本内容导入
+
+日常构建只读取本仓库中的 `src/pages/`，不依赖外部仓库。导入新的完整 SRD 版本时使用以下外部资料：
 
 ```
 ../DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/
@@ -169,4 +172,4 @@ GitHub Issues（`ZZZZzzzzac/Daggerheart_SRD`）。见 `docs/agents/issue-tracker
 
 ### Domain docs
 
-单上下文（根目录 `CONTEXT.md` + `docs/adr/`）。当前文件不存在，技能静默跳过。见 `docs/agents/domain.md`。
+单上下文（根目录 `CONTEXT.md` + `docs/adr/`）。见 `docs/agents/domain.md`。

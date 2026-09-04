@@ -13,7 +13,8 @@ Daggerheart_SRD/
 │   ├── DH-SRD-CN.md    # 完整译文 md（从 paratranz 导出）
 │   ├── DH-SRD-EN.md    # 完整英文 md
 │   └── scores.json
-├── scripts/             # Python 构建脚本 + 服务端代理
+├── scripts/             # 构建、导入、校验与服务端运行脚本
+├── tests/               # Python、Node.js 与浏览器测试
 ├── data/
 │   ├── srd.yaml         # 唯一章节清单
 │   └── glossary.yaml    # 专用规则术语表（默认关闭）
@@ -106,9 +107,9 @@ Python 测试覆盖构建、批量发布、版本冲突、反馈收件箱和数�
 
 正式版本号、大版本 Git tag / GitHub Release 归档与恢复验证流程见 [`docs/releases.md`](docs/releases.md)。
 
-## 外部依赖
+## 大版本内容导入
 
-构建依赖以下外部数据（不在本仓库中）：
+日常构建只读取本仓库中的 `src/pages/`，不依赖外部仓库。导入新的完整 SRD 版本时，以下原始资料位于同级的 `DaggerHeart_CN` 仓库：
 - `DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/paratranz/DH-SRD-1.0-June-26-2025.md.json` — 翻译数据
 - `DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/data/adversaries.json` — 敌人数据
 - `DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/data/environments.json` — 环境数据
