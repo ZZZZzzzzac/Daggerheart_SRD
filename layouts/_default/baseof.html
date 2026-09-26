@@ -6,7 +6,7 @@
   <meta name="description" content="匕首之心 Daggerheart 双语系统参考文档">
   <meta name="theme-color" content="#f4efe5">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
-  <link rel="stylesheet" href="{{ "css/site.css?v=20260904c" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/site.css?v=20260926a" | relURL }}">
 </head>
 <body data-base-url="{{ "" | relURL }}" data-site-index="{{ "generated/site-index.json" | relURL }}" data-search-index="{{ "generated/search-index.json" | relURL }}">
   <header class="site-header">
@@ -35,6 +35,9 @@
     <nav class="contents-tree" id="contents-tree" aria-label="整站目录">
       <p class="sidebar-loading"><span class="lang-zh">正在整理目录…</span><span class="lang-en">Loading contents…</span></p>
     </nav>
+    <div class="term-preferences" id="term-preferences" hidden>
+      <button class="text-button" id="term-toggle" type="button" aria-pressed="true"><span class="lang-zh">术语提示：开</span><span class="lang-en">Term hints: on</span></button>
+    </div>
     <div class="sidebar-meta">
       <a href="{{ "edit/" | relURL }}{{ with .Params.srd_path }}?path={{ . | urlquery }}{{ end }}"><span class="lang-zh">管理员编辑</span><span class="lang-en">Editor</span></a>
       <a href="{{ "admin/" | relURL }}"><span class="lang-zh">反馈收件箱</span><span class="lang-en">Feedback inbox</span></a>
@@ -76,5 +79,6 @@
 
   <script src="{{ "js/search-core.js" | relURL }}" defer></script>
   <script src="{{ "js/app.js?v=20260904a" | relURL }}" defer></script>
+  <script src="{{ "js/terms.js?v=20260926a" | relURL }}" defer></script>
 </body>
 </html>

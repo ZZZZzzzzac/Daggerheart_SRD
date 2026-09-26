@@ -129,6 +129,7 @@ def test_glossary_links_first_term_per_section_and_skips_existing_markup(tmp_pat
         "terms": [{
             "id": "advantage", "zh": "优势", "en": "Advantage",
             "target": "core", "anchor": "action-roll", "aliases": {"zh": [], "en": []},
+            "summary": {"zh": "加入 d6。", "en": "Add a d6."},
         }],
     }
     (project / "data" / "glossary.yaml").write_text(yaml.safe_dump(glossary, allow_unicode=True), encoding="utf-8")
@@ -137,3 +138,73 @@ def test_glossary_links_first_term_per_section_and_skips_existing_markup(tmp_pat
     assert generated.count('class="term-link"') == 4
     assert '<code>优势</code>' in generated
     assert '<a href="https://example.com">优势</a>' in generated
+
+
+def test_glossary_matches_original_text_only_and_prefers_long_terms():
+    terms = [
+        {"id": "armor", "zh": "护甲", "en": "Armor", "target": "armor", "anchor": "armor"},
+        {"id": "slots", "zh": "护甲槽", "en": "Armor Slot", "target": "armor", "anchor": "slots", "summary": {"en": 'Armor <script> & "quoted"'}},
+        {"id": "advantage", "zh": "优势", "en": "Advantage", "target": "rules", "anchor": "advantage"},
+    ]
+    source = '<h4>Armor Slot</h4><p title="Armor">Armor Slot, Armor Slot, Armor, disadvantage, ADVANTAGE, Advantage.</p><a href="/armor/">Armor</a><code>Armor</code><button>Armor</button><h4>Next</h4><p>Armor</p>'
+    output = build_srd.apply_glossary_links(source, {"enabled": True, "terms": terms}, "en", "/SRD/")
+    assert output.count('class="term-link"') == 4
+    assert '>Armor Slot</a>, Armor Slot, <a' in output
+    assert ', disadvantage, <a' in output
+    assert '>ADVANTAGE</a>, Advantage.' in output
+    assert 'title="Armor"' in output
+    assert '<a href="/armor/">Armor</a><code>Armor</code><button>Armor</button>' in output
+    assert 'href="/SRD/armor/#slots"' in output
+    assert 'data-term-summary="Armor &lt;script&gt; &amp; &quot;quoted&quot;"' in output
+    assert '<h4>Armor Slot</h4>' in output
+
+    class LinkDepth(build_srd.HTMLParser):
+        depth = 0
+        maximum = 0
+
+        def handle_starttag(self, tag, attrs):
+            if tag == "a":
+                self.depth += 1
+                self.maximum = max(self.maximum, self.depth)
+
+        def handle_endtag(self, tag):
+            if tag == "a":
+                self.depth -= 1
+
+    parser = LinkDepth()
+    parser.feed(output)
+    assert parser.maximum == 1
+    assert parser.depth == 0
+
+
+def test_glossary_uses_each_languages_actual_target(tmp_path):
+    project = make_project(tmp_path, zh="## 压力点 {#legacy-stress}\n\n压力点。", en="## Stress {#legacy-stress}\n\nStress.\n\n## More Stress {#stress-rule}")
+    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": {"zh": "legacy-stress", "en": "stress-rule"}, "summary": {"zh": "精神负荷。", "en": "Mental strain."}}
+    (project / "data" / "glossary.yaml").write_text(yaml.safe_dump({"enabled": True, "terms": [term]}, allow_unicode=True), encoding="utf-8")
+    build_srd.generate_site(project)
+    output = (project / "content" / "core" / "index.md").read_text(encoding="utf-8")
+    assert 'href="/core/#legacy-stress"' in output
+    assert 'href="/core/#stress-rule"' in output
+    assert 'data-term-summary="精神负荷。"' in output
+    assert 'data-term-summary="Mental strain."' in output
+
+
+@pytest.mark.parametrize("change, error", [
+    ({"summary": {"zh": "说明"}}, "缺少 en 简述"),
+    ({"anchor": {"zh": "rule", "en": "missing"}}, "不存在的 en 小节"),
+    ({"id": "not valid"}, "ID 无效"),
+    ({"aliases": {"en": ["STRESS"]}}, "名称或别名重复"),
+    ({"aliases": {"en": "Stress"}}, "别名必须"),
+    ({"target": "missing"}, "不存在的页面"),
+])
+def test_glossary_invalid_definitions_fail_build(change, error):
+    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "summary": {"zh": "说明", "en": "Summary"}}
+    term.update(change)
+    with pytest.raises(build_srd.BuildError, match=error):
+        build_srd.validate_glossary({"terms": [term]}, {"core": {"zh": {"rule"}, "en": {"rule"}}})
+
+
+def test_glossary_rejects_duplicate_ids():
+    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "summary": {"zh": "说明", "en": "Summary"}}
+    with pytest.raises(build_srd.BuildError, match="ID 无效或重复"):
+        build_srd.validate_glossary({"terms": [term, term]}, {"core": {"zh": {"rule"}, "en": {"rule"}}})

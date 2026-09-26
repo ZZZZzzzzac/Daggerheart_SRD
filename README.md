@@ -17,7 +17,7 @@ Daggerheart_SRD/
 ├── tests/               # Python、Node.js 与浏览器测试
 ├── data/
 │   ├── srd.yaml         # 唯一章节清单
-│   └── glossary.yaml    # 专用规则术语表（默认关闭）
+│   └── glossary.yaml    # 双语规则术语、简述与目标小节
 ├── layouts/             # Hugo 模板
 ├── static/              # 阅读端、编辑器和反馈后台资源
 ├── content/             # （生成）Python 生成的 Hugo 页面，已 gitignore
@@ -71,6 +71,10 @@ python scripts/preview_server.py
 ```
 
 服务器端自行构建 `public/`，代码更新需手动 SSH 到服务器 `git pull`。
+
+## 术语提示
+
+正文中的核心规则术语支持悬停、键盘聚焦或手机点击查看简述，并可进入完整规则。目录下方可关闭提示。术语维护与校验方式见 [docs/glossary.md](docs/glossary.md)。
 
 ## 在线编辑器
 

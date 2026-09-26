@@ -76,24 +76,30 @@ def render_preview(markdown_text: str, language: str = "zh") -> str:
 class GlossaryLinker(HTMLParser):
     """Link the first configured term in each section without touching markup."""
 
-    SKIP_TAGS = {"a", "code", "pre", "script", "style", "h1", "h2", "h3", "h4", "h5", "h6"}
+    SKIP_TAGS = {"a", "button", "code", "pre", "script", "style", "textarea", "h1", "h2", "h3", "h4", "h5", "h6"}
 
     def __init__(self, terms: list[dict], language: str, base_path: str):
         super().__init__(convert_charrefs=False)
         self.output: list[str] = []
         self.skip_depth = 0
         self.seen: set[str] = set()
+        self.language = language
         candidates = []
         for term in terms:
             labels = [term.get(language, ""), *(term.get("aliases", {}).get(language, []) or [])]
             for label in filter(None, labels):
                 candidates.append((label, term))
         candidates.sort(key=lambda item: len(item[0]), reverse=True)
-        self.candidates = candidates
+        self.terms_by_label = {label.casefold(): term for label, term in candidates}
+        patterns = []
+        for label, _ in candidates:
+            escaped = re.escape(label)
+            patterns.append(rf"(?<![A-Za-z0-9_])(?i:{escaped})(?![A-Za-z0-9_])" if label.isascii() else escaped)
+        self.pattern = re.compile("|".join(patterns)) if patterns else None
         self.base_path = "/" + base_path.strip("/") + "/" if base_path.strip("/") else "/"
 
     def handle_starttag(self, tag, attrs):
-        if tag in {"h1", "h2", "h3"}:
+        if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
             self.seen.clear()
         if tag in self.SKIP_TAGS:
             self.skip_depth += 1
@@ -108,27 +114,32 @@ class GlossaryLinker(HTMLParser):
             self.skip_depth = max(0, self.skip_depth - 1)
 
     def handle_data(self, data):
-        if self.skip_depth or not data.strip():
+        if self.skip_depth or not data.strip() or self.pattern is None:
             self.output.append(data)
             return
-        output = data
-        for label, term in self.candidates:
-            term_id = str(term.get("id") or label)
+        # Match only the original text, never the HTML emitted for an earlier term.
+        # A single pass also prevents shorter labels from nesting inside longer ones.
+        def replace(match):
+            label = match.group(0)
+            term = self.terms_by_label[label.casefold()]
+            term_id = term["id"]
             if term_id in self.seen:
-                continue
-            flags = re.IGNORECASE if label.isascii() else 0
-            escaped = re.escape(label)
-            pattern = re.compile(rf"(?<![A-Za-z0-9_]){escaped}(?![A-Za-z0-9_])", flags) if label.isascii() else re.compile(escaped)
-            match = pattern.search(output)
-            if not match:
-                continue
+                return label
             target = str(term["target"]).strip("/")
-            anchor = str(term["anchor"])
+            anchor = glossary_anchor(term, self.language)
             href = f"{self.base_path}{target}/#{anchor}"
-            replacement = f'<a class="term-link" href="{html.escape(href, quote=True)}">{match.group(0)}</a>'
-            output = output[: match.start()] + replacement + output[match.end() :]
+            attributes = {
+                "href": href,
+                "data-term-id": term_id,
+                "data-term-zh": term.get("zh", ""),
+                "data-term-en": term.get("en", ""),
+                "data-term-summary": term.get("summary", {}).get(self.language, ""),
+            }
+            rendered_attributes = " ".join(f'{key}="{html.escape(value, quote=True)}"' for key, value in attributes.items())
             self.seen.add(term_id)
-        self.output.append(output)
+            return f'<a class="term-link" {rendered_attributes}>{label}</a>'
+
+        self.output.append(self.pattern.sub(replace, data))
 
     def handle_entityref(self, name):
         self.output.append(f"&{name};")
@@ -138,6 +149,43 @@ class GlossaryLinker(HTMLParser):
 
     def handle_comment(self, data):
         self.output.append(f"<!--{data}-->")
+
+
+def glossary_anchor(term: dict, language: str) -> str:
+    anchor = term.get("anchor", "")
+    return anchor.get(language, "") if isinstance(anchor, dict) else anchor
+
+
+def validate_glossary(glossary: dict, anchors_by_path: dict) -> None:
+    ids: set[str] = set()
+    labels: dict[str, set[str]] = {"zh": set(), "en": set()}
+    for term in glossary.get("terms", []):
+        if not isinstance(term, dict) or not all(isinstance(term.get(key), str) and term[key].strip() for key in ("id", "target", "zh", "en")):
+            raise BuildError("术语表条目必须包含非空 id、target、zh 和 en")
+        if not re.fullmatch(r"[a-z][a-z0-9-]*", term["id"]) or term["id"] in ids:
+            raise BuildError(f"术语 ID 无效或重复: {term['id']}")
+        ids.add(term["id"])
+        target = term["target"].strip("/")
+        if target not in anchors_by_path:
+            raise BuildError(f"术语 {term['id']} 指向不存在的页面: {target}")
+        summary = term.get("summary", {})
+        aliases = term.get("aliases", {})
+        if not isinstance(summary, dict) or not isinstance(aliases, dict):
+            raise BuildError(f"术语 {term['id']} 的 summary 和 aliases 必须按语言设置")
+        for language in ("zh", "en"):
+            if not isinstance(summary.get(language), str) or not summary[language].strip():
+                raise BuildError(f"术语 {term['id']} 缺少 {language} 简述")
+            anchor = glossary_anchor(term, language)
+            if not isinstance(anchor, str) or anchor not in anchors_by_path[target][language]:
+                raise BuildError(f"术语 {term['id']} 指向不存在的 {language} 小节: {target}#{anchor}")
+            extra = aliases.get(language, [])
+            if not isinstance(extra, list) or not all(isinstance(label, str) and label.strip() for label in extra):
+                raise BuildError(f"术语 {term['id']} 的 {language} 别名必须是非空字符串列表")
+            for label in [term[language], *extra]:
+                normalized = label.casefold()
+                if normalized in labels[language]:
+                    raise BuildError(f"术语名称或别名重复: {language} {label}")
+                labels[language].add(normalized)
 
 
 def apply_glossary_links(rendered_html: str, glossary: dict, language: str, base_path: str) -> str:
@@ -325,16 +373,7 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         }
 
     if glossary.get("enabled"):
-        for term in glossary.get("terms", []):
-            if not all(term.get(key) for key in ("id", "target", "anchor")):
-                raise BuildError("术语表条目必须包含 id、target 和 anchor")
-            target = str(term["target"]).strip("/")
-            anchor = str(term["anchor"])
-            if target not in anchors_by_path:
-                raise BuildError(f"术语 {term['id']} 指向不存在的页面: {target}")
-            for language in ("zh", "en"):
-                if anchor not in anchors_by_path[target][language]:
-                    raise BuildError(f"术语 {term['id']} 指向不存在的 {language} 小节: {target}#{anchor}")
+        validate_glossary(glossary, anchors_by_path)
 
     if (project_dir / "config.yaml").is_file():
         config_documents = yaml.safe_load_all((project_dir / "config.yaml").read_text(encoding="utf-8"))
