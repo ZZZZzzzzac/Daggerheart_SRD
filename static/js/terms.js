@@ -27,7 +27,6 @@
   popup.setAttribute("aria-modal", "false");
   popup.setAttribute("aria-labelledby", "term-title");
   popup.setAttribute("aria-describedby", "term-quote");
-  const label = element("p", "term-label");
   const title = element("h2", "term-title");
   title.id = "term-title";
   const translation = element("p", "term-translation");
@@ -38,7 +37,7 @@
   const closeButton = element("button", "term-close");
   closeButton.type = "button";
   actions.append(ruleLink, closeButton);
-  popup.append(label, title, translation, quote, actions);
+  popup.append(title, translation, quote, actions);
   document.body.append(popup);
 
   function close(restoreFocus = false) {
@@ -61,10 +60,12 @@
     toggle.querySelector(".lang-en").textContent = `Term hints: ${enabled ? "on" : "off"}`;
     links.forEach((link) => {
       if (enabled) {
+        if (!link.hasAttribute("href")) { link.tabIndex = 0; link.setAttribute("role", "button"); }
         link.setAttribute("aria-haspopup", "dialog");
         link.setAttribute("aria-expanded", "false");
         link.setAttribute("aria-controls", popup.id);
       } else {
+        if (!link.hasAttribute("href")) { link.removeAttribute("tabindex"); link.removeAttribute("role"); }
         ["aria-haspopup", "aria-expanded", "aria-controls"].forEach((name) => link.removeAttribute(name));
       }
     });
@@ -72,20 +73,21 @@
   }
 
   function show(link, pin = false) {
-    if (!enabled || !link.dataset.termQuote) return;
+    if (!enabled) return;
     clearTimeout(hideTimer);
     if (active && active !== link) close();
     active = link;
     pinned = pin;
     const english = document.documentElement.lang === "en";
-    label.textContent = english ? "SRD text · Verbatim excerpt" : "本站译文 · 原文摘录";
-    if (link.dataset.termKind === "approved") label.textContent = english ? "Human-reviewed explanation" : "已人工审核的解释";
     title.textContent = english ? link.dataset.termEn : link.dataset.termZh;
     translation.textContent = english ? link.dataset.termZh : link.dataset.termEn;
     translation.lang = english ? "zh-CN" : "en";
     quote.textContent = link.dataset.termQuote;
+    quote.lang = "zh-CN";
+    quote.hidden = !link.dataset.termQuote;
     ruleLink.textContent = english ? "Read the full rule →" : "查看完整规则 →";
-    ruleLink.href = link.href;
+    ruleLink.hidden = !link.hasAttribute("href");
+    if (!ruleLink.hidden) ruleLink.href = link.href;
     closeButton.textContent = english ? "Close" : "收起";
     popup.hidden = false;
     link.setAttribute("aria-expanded", "true");
@@ -125,10 +127,11 @@
       else show(link, true);
     });
     link.addEventListener("keydown", (event) => {
+      if (enabled && !link.hasAttribute("href") && ["Enter", " "].includes(event.key)) { event.preventDefault(); show(link, true); }
       if (event.key === "Tab" && !event.shiftKey && active === link) {
         event.preventDefault();
         pinned = true;
-        ruleLink.focus();
+        (ruleLink.hidden ? closeButton : ruleLink).focus();
       }
     });
   });
@@ -137,7 +140,7 @@
   popup.addEventListener("pointerleave", scheduleClose);
   popup.addEventListener("keydown", (event) => {
     if (event.key !== "Tab") return;
-    if (event.shiftKey && event.target === ruleLink) {
+    if (event.shiftKey && (event.target === ruleLink || (ruleLink.hidden && event.target === closeButton))) {
       event.preventDefault();
       close(true);
     } else if (!event.shiftKey && event.target === closeButton) {
@@ -151,7 +154,13 @@
     }
   });
   closeButton.addEventListener("click", () => close(true));
-  ruleLink.addEventListener("click", () => close());
+  ruleLink.addEventListener("click", () => {
+    // There is one jump destination, maintained alongside the Chinese explanation.
+    if (document.documentElement.lang === "en" && ruleLink.origin === location.origin) {
+      document.getElementById("language-button")?.click();
+    }
+    close();
+  });
   toggle.addEventListener("click", () => {
     close();
     enabled = !enabled;

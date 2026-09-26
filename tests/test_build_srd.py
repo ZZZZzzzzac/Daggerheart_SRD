@@ -1,7 +1,6 @@
 import json
 import sys
 import subprocess
-import hashlib
 from pathlib import Path
 
 import pytest
@@ -12,12 +11,6 @@ import build_srd
 
 
 def write_glossary(project, terms):
-    for term in terms:
-        term.setdefault('enabled', True)
-        term.setdefault('aliases', {'zh': [], 'en': []})
-        term.setdefault('definition', {language: {'mode': 'quote', 'reviewer': '', 'reviewedAt': '', 'hash': ''} for language in ('zh', 'en')})
-        if isinstance(term['anchor'], str):
-            term['anchor'] = {'zh': term['anchor'], 'en': term['anchor']}
     result = subprocess.run(['node', str(build_srd.RENDER_CORE_CLI)], input=json.dumps({'mode': 'serialize-glossary', 'terms': terms}), capture_output=True, text=True, encoding='utf-8', check=True)
     (project / 'data/glossary.md').write_text(result.stdout, encoding='utf-8')
 
@@ -130,155 +123,33 @@ def test_empty_glossary_allows_removing_all_hints(tmp_path):
     assert 'term-link' not in (project / 'content/core/index.md').read_text(encoding='utf-8')
 
 
-def test_glossary_links_first_term_per_section_and_skips_existing_markup(tmp_path):
-    project = make_project(
-        tmp_path,
-        zh="# 游戏\n\n## 动作掷骰\n\n优势与优势。\n\n## 其他\n\n`优势`、[优势](https://example.com)与优势。",
-        en="# Game\n\n## Action Roll\n\nAdvantage and Advantage.\n\n## Other\n\n`Advantage`, [Advantage](https://example.com), and Advantage.",
-    )
-    glossary = {
-        "enabled": True,
-        "terms": [{
-            "id": "advantage", "zh": "优势", "en": "Advantage",
-            "target": "core", "anchor": "action-roll", "aliases": {"zh": [], "en": []},
-            "quote": {"zh": "优势与优势。", "en": "Advantage and Advantage."},
-        }],
-    }
-    write_glossary(project, glossary["terms"])
-    build_srd.generate_site(project)
-    generated = (project / "content" / "core" / "index.md").read_text(encoding="utf-8")
-    assert generated.count('class="term-link"') == 4
-    assert '<code>优势</code>' in generated
-    assert '<a href="https://example.com">优势</a>' in generated
-
-
-def test_glossary_matches_original_text_only_and_prefers_long_terms():
-    terms = [
-        {"id": "armor", "zh": "护甲", "en": "Armor", "target": "armor", "anchor": "armor"},
-        {"id": "slots", "zh": "护甲槽", "en": "Armor Slot", "target": "armor", "anchor": "slots", "quote": {"en": 'Armor <script> & "quoted"'}},
-        {"id": "advantage", "zh": "优势", "en": "Advantage", "target": "rules", "anchor": "advantage"},
-    ]
-    source = '<h4>Armor Slot</h4><p title="Armor">Armor Slot, Armor Slot, Armor, disadvantage, ADVANTAGE, Advantage.</p><a href="/armor/">Armor</a><code>Armor</code><button>Armor</button><h4>Next</h4><p>Armor</p>'
-    output = build_srd.apply_glossary_links(source, {"enabled": True, "terms": terms}, "en", "/SRD/")
-    assert output.count('class="term-link"') == 4
-    assert '>Armor Slot</a>, Armor Slot, <a' in output
-    assert ', disadvantage, <a' in output
-    assert '>ADVANTAGE</a>, Advantage.' in output
-    assert 'title="Armor"' in output
-    assert '<a href="/armor/">Armor</a><code>Armor</code><button>Armor</button>' in output
-    assert 'href="/SRD/armor/#slots"' in output
-    assert 'data-term-quote="Armor &lt;script&gt; &amp; &quot;quoted&quot;"' in output
-    assert '<h4>Armor Slot</h4>' in output
-
-    class LinkDepth(build_srd.HTMLParser):
-        depth = 0
-        maximum = 0
-
-        def handle_starttag(self, tag, attrs):
-            if tag == "a":
-                self.depth += 1
-                self.maximum = max(self.maximum, self.depth)
-
-        def handle_endtag(self, tag):
-            if tag == "a":
-                self.depth -= 1
-
-    parser = LinkDepth()
-    parser.feed(output)
-    assert parser.maximum == 1
-    assert parser.depth == 0
-
-
-def test_glossary_uses_each_languages_actual_target(tmp_path):
-    project = make_project(tmp_path, zh="## 压力点 {#legacy-stress}\n\n压力点。", en="## Stress {#legacy-stress}\n\nStress.\n\n## More Stress {#stress-rule}\n\nMental strain.")
-    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": {"zh": "legacy-stress", "en": "stress-rule"}, "quote": {"zh": "压力点。", "en": "Mental strain."}}
+def test_seven_field_terms_allow_manual_explanations_and_blank_links(tmp_path):
+    project = make_project(tmp_path, zh="# 游戏\n\n压力点与压力点。", en="# Game\n\nStress and stress.")
+    term = {"zh": "压力点", "en": "Stress", "aliases": {"zh": [], "en": []}, "case_sensitive": True, "description": "人工填写的解释。", "url": ""}
     write_glossary(project, [term])
     build_srd.generate_site(project)
-    output = (project / "content" / "core" / "index.md").read_text(encoding="utf-8")
-    assert 'href="/core/#legacy-stress"' in output
-    assert 'href="/core/#stress-rule"' in output
-    assert 'data-term-quote="压力点。"' in output
-    assert 'data-term-quote="Mental strain."' in output
+    result = (project / "content/core/index.md").read_text(encoding="utf-8")
+    assert result.count('class="term-link"') == 2
+    assert '<span class="term-link"' in result
+    assert 'data-term-quote="人工填写的解释。"' in result
+    assert 'data-term-kind' not in result
 
 
-@pytest.mark.parametrize("change, error", [
-    ({"quote": {"zh": "说明"}}, "缺少 en 原文摘录"),
-    ({"anchor": {"zh": "rule", "en": "missing"}}, "不存在的 en 小节"),
-    ({"id": "not valid"}, "ID 无效"),
-    ({"aliases": {"en": ["STRESS"]}}, "名称或别名重复"),
-    ({"aliases": {"en": "Stress"}}, "别名必须"),
-    ({"target": "missing"}, "不存在的页面"),
-])
-def test_glossary_invalid_definitions_fail_build(change, error):
-    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "quote": {"zh": "说明", "en": "Summary"}}
-    term.update(change)
-    with pytest.raises(build_srd.BuildError, match=error):
-        build_srd.validate_glossary({"terms": [term]}, {"core": {"zh": {"rule"}, "en": {"rule"}}}, {"core": {"zh": {"rule": ["说明"]}, "en": {"rule": ["Summary"]}}})
+def test_matching_prefers_long_names_then_primary_names_then_file_order():
+    terms = [
+        {"en": "Arm", "zh": "臂", "aliases": {"en": ["Armor"]}, "description": "", "url": ""},
+        {"en": "Armor", "zh": "护甲", "aliases": {"en": []}, "description": "原文。\n\n第二段。", "url": "/SRD/core/#armor"},
+    ]
+    output = build_srd.apply_glossary_links('<p title="Armor">Armor Arm Armor armory.</p><a href="/">Armor</a><code>Arm</code>', {"terms": terms}, "en", "/SRD")
+    assert output.count('class="term-link"') == 2
+    assert 'data-term-zh="护甲"' in output
+    assert 'data-term-quote="原文。&#10;&#10;第二段。"' in output
+    assert 'title="Armor"' in output
+    assert 'armory' in output
+    assert '<a href="/">Armor</a><code>Arm</code>' in output
 
 
-def test_glossary_rejects_duplicate_ids():
-    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "quote": {"zh": "说明", "en": "Summary"}}
-    with pytest.raises(build_srd.BuildError, match="ID 无效或重复"):
-        build_srd.validate_glossary({"terms": [term, term]}, {"core": {"zh": {"rule"}, "en": {"rule"}}}, {"core": {"zh": {"rule": ["说明"]}, "en": {"rule": ["Summary"]}}})
-
-
-def test_glossary_rejects_paraphrases_wrong_sections_and_stale_quotes():
-    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "quote": {"zh": "原文。", "en": "Original."}}
-    anchors = {"core": {"zh": {"rule", "other"}, "en": {"rule"}}}
-    blocks = {"core": {"zh": {"rule": ["原文。"], "other": ["别处原文。"]}, "en": {"rule": ["Original."]}}}
-    build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
-    for text in ("改写原文。", "别处原文。", "旧版原文。", "原文"):
-        term["quote"]["zh"] = text
-        with pytest.raises(build_srd.BuildError, match="禁止自行概括"):
-            build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
-    term["summary"] = {"zh": "未经审核", "en": "Unreviewed"}
-    with pytest.raises(build_srd.BuildError, match="不允许未经审核"):
-        build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
-
-
-def test_source_quotes_preserve_complete_contiguous_blocks_and_only_remove_formatting():
-    blocks = build_srd.source_blocks('<h2 data-anchor="rule">规则</h2><p>原文<strong>强调</strong> &amp; 内容。</p><ul><li>第一项。</li><li>第二项。</li></ul><h3 data-anchor="other">其他</h3><p>其他内容。</p>')
-    assert blocks == {"rule": ["原文强调 & 内容。", "第一项。", "第二项。"], "other": ["其他内容。"]}
-    term = {"id": "test", "zh": "术语", "en": "Term", "target": "core", "anchor": "rule", "quote": {"zh": "原文强调 & 内容。\n\n第一项。", "en": "Original."}}
-    anchors = {"core": {"zh": {"rule"}, "en": {"rule"}}}
-    sources = {"core": {"zh": blocks, "en": {"rule": ["Original."]}}}
-    build_srd.validate_glossary({"terms": [term]}, anchors, sources)
-    term["quote"]["zh"] = "原文强调 & 内容。\n\n第二项。"
-    with pytest.raises(build_srd.BuildError, match="禁止自行概括"):
-        build_srd.validate_glossary({"terms": [term]}, anchors, sources)
-
-
-def test_markdown_is_the_only_glossary_source():
-    project = Path(__file__).resolve().parents[1]
-    glossary = build_srd.read_glossary(project)
-    assert len(glossary['terms']) == 328
-    assert sum(term['enabled'] for term in glossary['terms']) == 14
-    term = next(term for term in glossary['terms'] if term['id'] == 'armor-slots')
-    assert term['zh'] == '护甲槽'
-    assert term['en'] == 'Armor Slot'
-    assert term['aliases']['en'] == ['Armor Slots']
-    assert term['case_sensitive'] is True
-    output = build_srd.apply_glossary_links('<p>armor slot; Armor Slots; Armor Slot.</p>', {'enabled': True, 'terms': [term]}, 'en', '/SRD')
-    assert '<p>armor slot; <a' in output
-    assert output.count('class="term-link"') == 1
-
-
-def test_multiline_quotes_do_not_break_hugo_raw_html_attributes():
-    term = {"id": "test", "zh": "术语", "en": "Term", "target": "core", "anchor": "rule", "quote": {"zh": "第一段。\n\n第二段。"}}
-    output = build_srd.apply_glossary_links('<p>术语</p><h2 id="rule">规则</h2>', {"enabled": True, "terms": [term]}, "zh", "/SRD")
-    assert 'data-term-quote="第一段。&#10;&#10;第二段。"' in output
-    assert '\n' not in output
-
-
-def test_manual_explanation_requires_current_review_record():
-    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "quote": {"zh": "测试用的人工文案。", "en": "Original."}, "definition": {"zh": {"mode": "pending"}, "en": {"mode": "quote"}}}
-    anchors = {"core": {"zh": {"rule"}, "en": {"rule"}}}
-    blocks = {"core": {"zh": {"rule": ["原文。"]}, "en": {"rule": ["Original."]}}}
-    with pytest.raises(build_srd.BuildError, match="尚未审核"):
-        build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
-    payload = "\n".join([term["id"], term["zh"], term["en"], term["target"], "rule", term["quote"]["zh"]])
-    term["definition"]["zh"] = {"mode": "approved", "reviewer": "测试审核人", "reviewedAt": "2026-09-26", "hash": hashlib.sha256(payload.encode()).hexdigest()}
-    build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
-    term["quote"]["zh"] += "修改"
-    with pytest.raises(build_srd.BuildError, match="审核记录缺失或文案已变化"):
-        build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
+@pytest.mark.parametrize("url", ["javascript:alert(1)", "data:text/html,x", "//example.com", "https:\\evil"])
+def test_jump_links_reject_unsafe_protocols(url):
+    with pytest.raises(build_srd.BuildError, match="跳转链接无效"):
+        build_srd.validate_glossary({"terms": [{"zh": "词", "en": "Term", "url": url}]})

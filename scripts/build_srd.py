@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import html
-import hashlib
 import json
 import os
 import re
@@ -86,17 +85,19 @@ class GlossaryLinker(HTMLParser):
         self.seen: set[str] = set()
         self.language = language
         candidates = []
-        for term in terms:
-            labels = [term.get(language, ""), *(term.get("aliases", {}).get(language, []) or [])]
-            for label in filter(None, labels):
-                candidates.append((label, term))
-        candidates.sort(key=lambda item: len(item[0]), reverse=True)
-        self.terms_by_label = {label.casefold(): term for label, term in candidates}
+        for index, term in enumerate(terms):
+            for priority, labels in enumerate(([term.get(language, "")], term.get("aliases", {}).get(language, []))):
+                for label in filter(None, labels):
+                    candidates.append((label, priority, index, term))
+        candidates.sort(key=lambda item: (-len(item[0]), item[1], item[2]))
+        self.matches = {}
         patterns = []
-        for label, term in candidates:
+        for label, _, term_index, term in candidates:
             escaped = re.escape(label)
             matched = escaped if term.get("case_sensitive") else rf"(?i:{escaped})"
-            patterns.append(rf"(?<![A-Za-z0-9_]){matched}(?![A-Za-z0-9_])" if label.isascii() else escaped)
+            pattern = rf"(?<![A-Za-z0-9_]){matched}(?![A-Za-z0-9_])" if label.isascii() else escaped
+            patterns.append(pattern)
+            self.matches.setdefault(label.casefold(), []).append((label, str(term_index), term))
         self.pattern = re.compile("|".join(patterns)) if patterns else None
         self.base_path = "/" + base_path.strip("/") + "/" if base_path.strip("/") else "/"
 
@@ -123,21 +124,24 @@ class GlossaryLinker(HTMLParser):
         # A single pass also prevents shorter labels from nesting inside longer ones.
         def replace(match):
             label = match.group(0)
-            term = self.terms_by_label[label.casefold()]
-            term_id = term["id"]
+            choices = self.matches.get(label.casefold(), [])
+            chosen = next((entry for entry in choices if not entry[2].get("case_sensitive") or entry[0] == label), None)
+            if chosen is None:
+                return label
+            _, term_id, term = chosen
             if term_id in self.seen:
                 return label
-            target = str(term["target"]).strip("/")
-            anchor = glossary_anchor(term, self.language)
-            href = f"{self.base_path}{target}/#{anchor}"
+            href = term.get("url", "")
+            if href and not urlparse(href).scheme and not href.startswith(("/", "#")):
+                href = self.base_path + href
             attributes = {
-                "href": href,
                 "data-term-id": term_id,
                 "data-term-zh": term.get("zh", ""),
                 "data-term-en": term.get("en", ""),
-                "data-term-quote": term.get("quote", {}).get(self.language, ""),
-                "data-term-kind": term.get("definition", {}).get(self.language, {}).get("mode", "quote"),
+                "data-term-quote": term.get("description", ""),
             }
+            if href:
+                attributes["href"] = href
             # Blank lines inside an attribute would be parsed as Markdown blocks by Hugo.
             escaped_attributes = {
                 key: html.escape(value, quote=True).replace("\n", "&#10;").replace("\r", "&#13;")
@@ -145,7 +149,8 @@ class GlossaryLinker(HTMLParser):
             }
             rendered_attributes = " ".join(f'{key}="{value}"' for key, value in escaped_attributes.items())
             self.seen.add(term_id)
-            return f'<a class="term-link" {rendered_attributes}>{label}</a>'
+            tag = "a" if href else "span"
+            return f'<{tag} class="term-link" {rendered_attributes}>{label}</{tag}>'
 
         self.output.append(self.pattern.sub(replace, data))
 
@@ -159,15 +164,10 @@ class GlossaryLinker(HTMLParser):
         self.output.append(f"<!--{data}-->")
 
 
-def glossary_anchor(term: dict, language: str) -> str:
-    anchor = term.get("anchor", "")
-    return anchor.get(language, "") if isinstance(anchor, dict) else anchor
-
-
 def read_glossary(project_dir: Path) -> dict:
     path = project_dir / "data" / "glossary.md"
     if not path.is_file():
-        return {"enabled": True, "terms": []}
+        return {"terms": []}
     result = subprocess.run(
         ["node", str(RENDER_CORE_CLI)],
         input=json.dumps({"mode": "glossary", "markdown": path.read_text(encoding="utf-8")}),
@@ -178,95 +178,17 @@ def read_glossary(project_dir: Path) -> dict:
     return json.loads(result.stdout)
 
 
-class SourceBlocks(HTMLParser):
-    """Read complete paragraphs/list items under their actual heading anchors."""
-
-    def __init__(self):
-        super().__init__(convert_charrefs=True)
-        self.anchor = "top"
-        self.blocks: dict[str, list[str]] = {}
-        self.captures: list[tuple[str, list[str]]] = []
-
-    def handle_starttag(self, tag, attrs):
-        attributes = dict(attrs)
-        if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
-            self.anchor = attributes.get("data-anchor", attributes.get("id", "top"))
-        if tag in {"p", "li"}:
-            self.captures.append((tag, []))
-        if tag == "br":
-            self.handle_data(" ")
-
-    def handle_data(self, text):
-        for _, parts in self.captures:
-            parts.append(text)
-
-    def handle_endtag(self, tag):
-        if self.captures and self.captures[-1][0] == tag:
-            _, parts = self.captures.pop()
-            text = " ".join("".join(parts).split())
-            if text:
-                self.blocks.setdefault(self.anchor, []).append(text)
-
-
-def source_blocks(rendered_html: str) -> dict[str, list[str]]:
-    parser = SourceBlocks()
-    parser.feed(rendered_html)
-    return parser.blocks
-
-
-def validate_glossary(glossary: dict, anchors_by_path: dict, blocks_by_path: dict) -> None:
-    ids: set[str] = set()
-    labels: dict[str, dict[str, str]] = {"zh": {}, "en": {}}
-    for term in glossary.get("terms", []):
-        if not isinstance(term, dict) or not all(isinstance(term.get(key), str) and term[key].strip() for key in ("id", "target", "zh", "en")):
-            raise BuildError("术语表条目必须包含非空 id、target、zh 和 en")
-        if not re.fullmatch(r"[a-z][a-z0-9-]*", term["id"]) or term["id"] in ids:
-            raise BuildError(f"术语 ID 无效或重复: {term['id']}")
-        ids.add(term["id"])
-        target = term["target"].strip("/")
-        if target not in anchors_by_path:
-            raise BuildError(f"术语 {term['id']} 指向不存在的页面: {target}")
-        if "summary" in term:
-            raise BuildError(f"术语 {term['id']} 不允许未经审核的 summary；请使用原文 quote")
-        quote = term.get("quote", {})
-        aliases = term.get("aliases", {})
-        if not isinstance(quote, dict) or not isinstance(aliases, dict):
-            raise BuildError(f"术语 {term['id']} 的 quote 和 aliases 必须按语言设置")
-        for language in ("zh", "en"):
-            if not isinstance(quote.get(language), str) or not quote[language].strip():
-                raise BuildError(f"术语 {term['id']} 缺少 {language} 原文摘录")
-            anchor = glossary_anchor(term, language)
-            if not isinstance(anchor, str) or anchor not in anchors_by_path[target][language]:
-                raise BuildError(f"术语 {term['id']} 指向不存在的 {language} 小节: {target}#{anchor}")
-            blocks = blocks_by_path.get(target, {}).get(language, {}).get(anchor, [])
-            excerpts = {"\n\n".join(blocks[start:end]) for start in range(len(blocks)) for end in range(start + 1, len(blocks) + 1)}
-            definition = term.get("definition", {}).get(language, {"mode": "quote"})
-            mode = definition.get("mode")
-            if mode == "approved":
-                payload = "\n".join([term["id"], term["zh"], term["en"], term["target"], anchor, quote[language]])
-                expected = hashlib.sha256(payload.encode("utf-8")).hexdigest()
-                if not definition.get("reviewer", "").strip() or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", definition.get("reviewedAt", "")) or definition.get("hash") != expected:
-                    raise BuildError(f"术语 {term['id']} 的 {language} 审核记录缺失或文案已变化，请重新人工审核")
-            elif mode != "quote":
-                raise BuildError(f"术语 {term['id']} 的 {language} 解释尚未审核，不能启用")
-            elif quote[language] not in excerpts:
-                raise BuildError(f"术语 {term['id']} 的 {language} 摘录与目标小节的完整段落/列表项不一致；禁止自行概括")
-            extra = aliases.get(language, [])
-            if not isinstance(extra, list) or not all(isinstance(label, str) and label.strip() for label in extra):
-                raise BuildError(f"术语 {term['id']} 的 {language} 别名必须是非空字符串列表")
-            term_labels = set()
-            for label in [term[language], *extra]:
-                normalized = label if language == "en" and term.get("case_sensitive") else label.casefold()
-                owner = labels[language].get(label.casefold())
-                if normalized in term_labels or (owner is not None and owner != term["id"]):
-                    raise BuildError(f"术语名称或别名重复: {language} {label}")
-                term_labels.add(normalized)
-                labels[language][label.casefold()] = term["id"]
+def validate_glossary(glossary: dict) -> None:
+    for index, term in enumerate(glossary.get("terms", []), 1):
+        if not term.get("zh", "").strip() or not term.get("en", "").strip():
+            raise BuildError(f"第 {index} 条术语必须填写英文名和中文名")
+        url = term.get("url", "")
+        parsed = urlparse(url)
+        if (parsed.scheme and parsed.scheme.lower() not in {"http", "https"}) or url.startswith("//") or any(ord(char) < 32 or char == "\\" for char in url):
+            raise BuildError(f"术语 {term['en']} 的跳转链接无效")
 
 
 def apply_glossary_links(rendered_html: str, glossary: dict, language: str, base_path: str) -> str:
-    if not glossary.get("enabled"):
-        return rendered_html
     linker = GlossaryLinker(glossary.get("terms", []), language, base_path)
     linker.feed(rendered_html)
     linker.close()
@@ -405,7 +327,7 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
     if not version or version.lower() == "current":
         raise BuildError("data/srd.yaml 必须使用真实版本号，不能留空或使用 current")
     glossary = read_glossary(project_dir)
-    glossary["terms"] = [term for term in glossary["terms"] if term.get("enabled", True)]
+    validate_glossary(glossary)
 
     if content_dir.exists():
         shutil.rmtree(content_dir)
@@ -437,37 +359,8 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         }
         for prepared in prepared_pages
     ])
-    anchors_by_path: dict[str, dict[str, set[str]]] = {}
     for prepared, rendered in zip(prepared_pages, rendered_pages, strict=True):
         prepared["rendered"] = rendered
-        anchors = rendered["anchors"]
-        anchors_by_path[prepared["page"]["path"]] = {
-            "zh": set(anchors["zh"]),
-            "en": set(anchors["en"]),
-        }
-
-    if glossary.get("enabled"):
-        blocks_by_path = {
-            prepared["page"]["path"]: {
-                language: source_blocks(prepared["rendered"]["html"][language])
-                for language in ("zh", "en")
-            }
-            for prepared in prepared_pages
-        }
-        validate_glossary(glossary, anchors_by_path, blocks_by_path)
-        sources = {
-            prepared["page"]["path"]: {
-                "title": prepared["page"]["title"],
-                "languages": {
-                    language: [
-                        {"anchor": heading["anchor"], "title": heading["title"],
-                         "blocks": blocks_by_path[prepared["page"]["path"]][language].get(heading["anchor"], [])}
-                        for heading in prepared["rendered"]["headings"][language]
-                    ] for language in ("zh", "en")
-                },
-            } for prepared in prepared_pages
-        }
-        (generated_dir / "glossary-sources.json").write_text(json.dumps(sources, ensure_ascii=False), encoding="utf-8")
 
     if (project_dir / "config.yaml").is_file():
         config_documents = yaml.safe_load_all((project_dir / "config.yaml").read_text(encoding="utf-8"))

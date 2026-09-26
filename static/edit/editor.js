@@ -270,19 +270,19 @@
       const sequence = ++state.previewSequence;
       clearTimeout(state.previewFallbackTimer);
       const content = documentFor().content;
-      import("../js/glossary-core.mjs?v=20260926c").then(({ parseGlossary }) => {
+      import("../js/glossary-core.mjs?v=20260926d").then(({ parseGlossary }) => {
         if (sequence !== state.previewSequence) return;
         try {
           const { terms } = parseGlossary(content);
           const preview = document.getElementById("preview");
-          preview.replaceChildren(node("h2", "", "术语表预览"), node("p", "", `${terms.length} 条术语 · ${terms.filter((term) => term.enabled).length} 条启用`));
+          preview.replaceChildren(node("h2", "", "术语表预览"), node("p", "", `${terms.length} 条术语`));
           for (const term of terms) {
             const entry = node("details", "glossary-preview-entry");
-            entry.append(node("summary", "", `${term.zh} / ${term.en} · ${term.enabled ? "启用" : "停用"}`));
-            for (const lang of ["zh", "en"]) entry.append(node("p", "", term.quote[lang] || "尚无解释"));
+            entry.append(node("summary", "", `${term.zh} / ${term.en}`));
+            entry.append(node("p", "", term.description));
             preview.append(entry);
           }
-          document.getElementById("preview-status").textContent = "Markdown 格式有效 · 原文与审核记录在发布时校验";
+          document.getElementById("preview-status").textContent = "Markdown 格式有效";
         } catch (error) { document.getElementById("preview-status").textContent = `格式错误：${error.message}`; }
       });
       return;
@@ -409,10 +409,6 @@
       if (current) document.getElementById("document-version").textContent = `版本 ${current.version}`;
       renderTree();
       updateSaveState();
-      if (state.glossaryEditor) {
-        request("../generated/glossary-sources.json").then((sources) => state.glossaryEditor.setSources(sources))
-          .catch(() => setStatus("已发布；请刷新页面以更新原文选择列表", true));
-      }
       if (data.gitSync?.status === "synced") setStatus("已同步至 GitHub");
       else {
         setStatus("已发布；GitHub 正在后台同步");
@@ -492,12 +488,9 @@
   async function showGlossaryForm(show) {
     const container = document.getElementById("glossary-editor");
     if (show && !state.glossaryEditor) {
-      const [{ createGlossaryEditor }, sources] = await Promise.all([
-        import("./glossary-editor.mjs?v=20260926c"), request("../generated/glossary-sources.json"),
-      ]);
+      const { createGlossaryEditor } = await import("./glossary-editor.mjs?v=20260926d");
       if (state.slug !== "glossary") return;
       state.glossaryEditor = createGlossaryEditor(container, {
-        sources,
         onChange(content) {
           const draft = documentFor("glossary");
           if (!draft) return;

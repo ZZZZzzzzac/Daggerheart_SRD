@@ -1,41 +1,25 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { parseGlossary, serializeGlossary, newTerm, reviewHash, invalidateReview } from "../static/js/glossary-core.mjs";
+import { parseGlossary, serializeGlossary, newTerm } from "../static/js/glossary-core.mjs";
 
-test("the editable Markdown preserves all imported terms and exact excerpts through a round trip", () => {
-  const source = readFileSync(new URL("../data/glossary.md", import.meta.url), "utf8");
-  const parsed = parseGlossary(source);
-  assert.equal(parsed.terms.length, 328);
-  assert.equal(parsed.terms.filter((term) => term.enabled).length, 14);
-  assert.deepEqual(parseGlossary(serializeGlossary(parsed.terms)), parsed);
-  assert.match(parsed.terms.find((term) => term.id === "stress").quote.zh, /^压力点 代表角色/);
+test("seven fields preserve all 328 terms and Chinese explanations", () => {
+  const markdown = readFileSync(new URL("../data/glossary.md", import.meta.url), "utf8");
+  const glossary = parseGlossary(markdown);
+  assert.equal(glossary.terms.length, 328);
+  assert.deepEqual(parseGlossary(serializeGlossary(glossary.terms)), glossary);
+  assert.deepEqual(Object.keys(glossary.terms[0]).sort(), ["en", "zh", "aliases", "case_sensitive", "description", "url"].sort());
+  assert.match(glossary.terms.find(term => term.en === "Stress").description, /^压力点 代表/);
+  assert.doesNotMatch(markdown, /^- .*审核|^- 读者提示|^### 英文解释|\{#/m);
 });
-
-test("adding and deleting entries is reflected in the shared Markdown", () => {
-  const term = newTerm("custom-term");
-  term.zh = "测试术语"; term.en = "Test Term";
-  const parsed = parseGlossary(serializeGlossary([term]));
-  assert.equal(parsed.terms[0].enabled, false);
-  assert.equal(parsed.terms[0].definition.zh.mode, "pending");
+test("new entries and empty descriptions need no workflow metadata", () => {
+  const term = newTerm(); term.en = "Test"; term.zh = "测试";
+  assert.deepEqual(parseGlossary(serializeGlossary([term])).terms[0], term);
   assert.equal(parseGlossary(serializeGlossary([])).terms.length, 0);
 });
-
-test("malformed metadata and duplicate identifiers cannot silently disappear", () => {
-  const term = newTerm("test"); const source = serializeGlossary([term]);
-  assert.throws(() => parseGlossary(source.replace("- 读者提示：停用", "- 读者提示：maybe")), /必须为/);
-  assert.throws(() => parseGlossary(source.replace("### 中文解释", "### 中文改写")), /未知/);
-  assert.throws(() => parseGlossary(source.replace("- 中文审核人：\n", "")), /缺少字段/);
-  assert.throws(() => parseGlossary(serializeGlossary([term, term])), /重复术语标识/);
-});
-
-test("review fingerprints change when names, sources or explanation text change", async () => {
-  const term = newTerm("review"); term.quote.zh = "人工文案";
-  const original = await reviewHash(term, "zh");
-  term.definition.zh = { mode: "approved", reviewer: "人工测试", reviewedAt: "2026-09-26", hash: original };
-  term.quote.zh += "有修改";
-  assert.notEqual(await reviewHash(term, "zh"), original);
-  invalidateReview(term, "zh");
-  assert.equal(term.definition.zh.mode, "pending");
-  assert.equal(term.definition.zh.hash, "");
+test("malformed fields fail clearly while duplicate imported names remain maintainable", () => {
+  const term = newTerm(); const text = serializeGlossary([term]);
+  assert.throws(() => parseGlossary(text.replace("- 大小写：不区分", "- 大小写：maybe")), /大小写/);
+  assert.throws(() => parseGlossary(text.replace("- 跳转链接：\n", "")), /缺少字段/);
+  assert.equal(parseGlossary(serializeGlossary([term, term])).terms.length, 2);
 });

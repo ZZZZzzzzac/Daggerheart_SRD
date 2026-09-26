@@ -5,7 +5,7 @@ test.use({ httpCredentials: { username: "admin", password: "playwright" } });
 
 async function openEditor(page) {
   await page.goto("/SRD/edit/?path=glossary");
-  await expect(page.locator("#glossary-count")).toHaveText("328 条术语 · 14 条启用");
+  await expect(page.locator("#glossary-count")).toHaveText("328 条术语");
 }
 
 test("editor can add, update and delete terms, and batch publish the Markdown document", async ({ page }) => {
@@ -20,7 +20,7 @@ test("editor can add, update and delete terms, and batch publish the Markdown do
   await page.locator("#glossary-en").fill("Browser Test Term");
   await expect(page.locator("#pending-count")).toHaveText("待发布 1 项");
   await page.getByRole("button", { name: "编辑 Markdown", exact: true }).click();
-  expect(await page.locator("#editor-textarea").inputValue()).toContain("## 浏览器测试术语");
+  expect(await page.locator("#editor-textarea").inputValue()).toContain("- 中文名：浏览器测试术语");
   await page.locator("#glossary-form").click();
   await expect(page.locator("#glossary-zh")).toHaveValue("浏览器测试术语");
   // Switching to an ordinary document and back preserves the glossary draft.
@@ -45,26 +45,6 @@ test("editor can add, update and delete terms, and batch publish the Markdown do
   expect(parsed.terms.some((term) => term.en === "Browser Test Term")).toBe(true);
   expect(parsed.terms.some((term) => term.en === "a group")).toBe(false);
   expect(changes.changes.some((item) => item.path === "src/pages/introduction/zh.md")).toBe(true);
-});
-
-test("quote picker inserts actual source and manual approval is invalidated by editing", async ({ page }) => {
-  await openEditor(page);
-  await page.locator("#glossary-search").fill("压力点");
-  await page.locator("#glossary-list button").filter({ hasText: /^压力点Stress · 启用$/ }).click();
-  const chinese = page.locator(".glossary-language").first();
-  await chinese.getByRole("button", { name: "引用所选原文" }).click();
-  await expect(page.locator("#glossary-quote-zh")).toHaveValue(/^压力点 代表角色所能承受/);
-  await page.locator("#glossary-quote-zh").fill("仅供自动化测试的人工文案。");
-  await chinese.getByText("人工审核改写文案", { exact: true }).click();
-  await chinese.getByLabel("审核人", { exact: true }).fill("测试审核人");
-  await chinese.getByRole("button", { name: "我已审核，批准此文案" }).click();
-  await expect(chinese.locator(".glossary-review-status")).toContainText("已审核 · 测试审核人");
-  await page.locator("#glossary-quote-zh").fill("修改后的测试文案。");
-  await expect(chinese.locator(".glossary-review-status")).toContainText("待审核");
-  await page.getByRole("button", { name: "编辑 Markdown", exact: true }).click();
-  const term = parseGlossary(await page.locator("#editor-textarea").inputValue()).terms.find((term) => term.id === "stress");
-  expect(term.definition.zh.mode).toBe("pending");
-  expect(term.definition.zh.hash).toBe("");
 });
 
 test("invalid Markdown and conflicting publications preserve local work", async ({ page }) => {
@@ -107,8 +87,8 @@ test("manual Markdown editing preserves the complete large terminology document"
   await page.keyboard.insertText("\n手工维护测试文本。\n");
   const parsed = parseGlossary(await markdown.inputValue());
   expect(parsed.terms).toHaveLength(328);
-  expect(parsed.terms.at(-1).quote.en).toBe("手工维护测试文本。");
+  expect(parsed.terms.at(-1).description).toBe("手工维护测试文本。");
   await page.locator("#glossary-form").click();
-  await expect(page.locator("#glossary-count")).toHaveText("328 条术语 · 14 条启用");
+  await expect(page.locator("#glossary-count")).toHaveText("328 条术语");
   await expect(page.locator("#pending-count")).toHaveText("待发布 1 项");
 });

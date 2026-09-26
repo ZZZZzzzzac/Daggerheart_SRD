@@ -359,3 +359,6 @@ dialog::backdrop { background: rgba(20, 18, 15, .56); backdrop-filter: blur(3px)
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+.term-link:not(a) { text-decoration: underline dotted var(--accent); text-underline-offset: .18em; cursor: help; }
+.term-popover [hidden] { display: none !important; }
