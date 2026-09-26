@@ -57,6 +57,12 @@ python scripts/build_srd.py    # md → Hugo content → 静态页
 
 ### 本地预览
 
+Windows 可直接双击仓库根目录的 **`preview.cmd`**：自动构建、启动本地服务器，并在默认浏览器打开术语编辑器。登录账号 `admin`，该启动入口的本地预览密码为 `local-preview`。保持命令窗口打开；按 `Ctrl+C` 或关闭窗口停止服务器。再次打开若提示端口占用，可直接访问已运行的站点。
+
+阅读首页：`http://127.0.0.1:8765/SRD/`；术语编辑器：`http://127.0.0.1:8765/SRD/edit/?path=glossary`。
+
+也可以在终端运行（不加 `--open` 时不会自动打开浏览器）：
+
 ```bash
 python scripts/preview_server.py
 ```
