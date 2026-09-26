@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import hashlib
 import json
 import os
 import re
@@ -135,6 +136,7 @@ class GlossaryLinker(HTMLParser):
                 "data-term-zh": term.get("zh", ""),
                 "data-term-en": term.get("en", ""),
                 "data-term-quote": term.get("quote", {}).get(self.language, ""),
+                "data-term-kind": term.get("definition", {}).get(self.language, {}).get("mode", "quote"),
             }
             # Blank lines inside an attribute would be parsed as Markdown blocks by Hugo.
             escaped_attributes = {
@@ -160,6 +162,20 @@ class GlossaryLinker(HTMLParser):
 def glossary_anchor(term: dict, language: str) -> str:
     anchor = term.get("anchor", "")
     return anchor.get(language, "") if isinstance(anchor, dict) else anchor
+
+
+def read_glossary(project_dir: Path) -> dict:
+    path = project_dir / "data" / "glossary.md"
+    if not path.is_file():
+        return {"enabled": True, "terms": []}
+    result = subprocess.run(
+        ["node", str(RENDER_CORE_CLI)],
+        input=json.dumps({"mode": "glossary", "markdown": path.read_text(encoding="utf-8")}),
+        capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30,
+    )
+    if result.returncode:
+        raise BuildError(f"术语 Markdown 格式错误：{result.stderr.strip()}")
+    return json.loads(result.stdout)
 
 
 class SourceBlocks(HTMLParser):
@@ -198,35 +214,9 @@ def source_blocks(rendered_html: str) -> dict[str, list[str]]:
     return parser.blocks
 
 
-def resolve_glossary_names(glossary: dict, project_dir: Path) -> None:
-    """Use a checked-in snapshot of the user's translation terminology."""
-    if not any("translation_term" in term for term in glossary.get("terms", [])):
-        return
-    source = project_dir / "data" / "translation-terms.json"
-    entries = json.loads(source.read_text(encoding="utf-8"))
-    for term in glossary["terms"]:
-        key = term.get("translation_term")
-        matches = [entry for entry in entries if entry["term"] == key]
-        if len(matches) != 1:
-            raise BuildError(f"术语表来源不存在或不唯一: {key}")
-        entry = matches[0]
-        term["zh"] = entry["translation"]
-        term["en"] = entry["term"]
-        term["case_sensitive"] = bool(entry.get("case_sensitive"))
-        # Dedupe spelling-only variants under the entry's matching policy.
-        seen = {term["en"] if term["case_sensitive"] else term["en"].casefold()}
-        aliases = []
-        for variant in entry.get("variants", []):
-            normalized = variant if term["case_sensitive"] else variant.casefold()
-            if normalized not in seen:
-                aliases.append(variant)
-                seen.add(normalized)
-        term["aliases"] = {"zh": [], "en": aliases}
-
-
 def validate_glossary(glossary: dict, anchors_by_path: dict, blocks_by_path: dict) -> None:
     ids: set[str] = set()
-    labels: dict[str, set[str]] = {"zh": set(), "en": set()}
+    labels: dict[str, dict[str, str]] = {"zh": {}, "en": {}}
     for term in glossary.get("terms", []):
         if not isinstance(term, dict) or not all(isinstance(term.get(key), str) and term[key].strip() for key in ("id", "target", "zh", "en")):
             raise BuildError("术语表条目必须包含非空 id、target、zh 和 en")
@@ -250,16 +240,28 @@ def validate_glossary(glossary: dict, anchors_by_path: dict, blocks_by_path: dic
                 raise BuildError(f"术语 {term['id']} 指向不存在的 {language} 小节: {target}#{anchor}")
             blocks = blocks_by_path.get(target, {}).get(language, {}).get(anchor, [])
             excerpts = {"\n\n".join(blocks[start:end]) for start in range(len(blocks)) for end in range(start + 1, len(blocks) + 1)}
-            if quote[language] not in excerpts:
+            definition = term.get("definition", {}).get(language, {"mode": "quote"})
+            mode = definition.get("mode")
+            if mode == "approved":
+                payload = "\n".join([term["id"], term["zh"], term["en"], term["target"], anchor, quote[language]])
+                expected = hashlib.sha256(payload.encode("utf-8")).hexdigest()
+                if not definition.get("reviewer", "").strip() or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", definition.get("reviewedAt", "")) or definition.get("hash") != expected:
+                    raise BuildError(f"术语 {term['id']} 的 {language} 审核记录缺失或文案已变化，请重新人工审核")
+            elif mode != "quote":
+                raise BuildError(f"术语 {term['id']} 的 {language} 解释尚未审核，不能启用")
+            elif quote[language] not in excerpts:
                 raise BuildError(f"术语 {term['id']} 的 {language} 摘录与目标小节的完整段落/列表项不一致；禁止自行概括")
             extra = aliases.get(language, [])
             if not isinstance(extra, list) or not all(isinstance(label, str) and label.strip() for label in extra):
                 raise BuildError(f"术语 {term['id']} 的 {language} 别名必须是非空字符串列表")
+            term_labels = set()
             for label in [term[language], *extra]:
                 normalized = label if language == "en" and term.get("case_sensitive") else label.casefold()
-                if normalized in labels[language]:
+                owner = labels[language].get(label.casefold())
+                if normalized in term_labels or (owner is not None and owner != term["id"]):
                     raise BuildError(f"术语名称或别名重复: {language} {label}")
-                labels[language].add(normalized)
+                term_labels.add(normalized)
+                labels[language][label.casefold()] = term["id"]
 
 
 def apply_glossary_links(rendered_html: str, glossary: dict, language: str, base_path: str) -> str:
@@ -393,7 +395,6 @@ srd_path: ""
 
 def generate_site(project_dir: Path) -> tuple[Path, Path]:
     manifest_path = project_dir / "data" / "srd.yaml"
-    glossary_path = project_dir / "data" / "glossary.yaml"
     pages_dir = project_dir / "src" / "pages"
     content_dir = project_dir / "content"
     generated_dir = project_dir / "static" / "generated"
@@ -403,9 +404,8 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
     version = str(manifest.get("version", "")).strip()
     if not version or version.lower() == "current":
         raise BuildError("data/srd.yaml 必须使用真实版本号，不能留空或使用 current")
-    glossary = yaml.safe_load(glossary_path.read_text(encoding="utf-8")) if glossary_path.is_file() else {"enabled": False, "terms": []}
-    if glossary.get("enabled") and not glossary.get("terms"):
-        raise BuildError("规则术语链接已启用，但术语表为空")
+    glossary = read_glossary(project_dir)
+    glossary["terms"] = [term for term in glossary["terms"] if term.get("enabled", True)]
 
     if content_dir.exists():
         shutil.rmtree(content_dir)
@@ -447,7 +447,6 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         }
 
     if glossary.get("enabled"):
-        resolve_glossary_names(glossary, project_dir)
         blocks_by_path = {
             prepared["page"]["path"]: {
                 language: source_blocks(prepared["rendered"]["html"][language])
@@ -456,6 +455,19 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
             for prepared in prepared_pages
         }
         validate_glossary(glossary, anchors_by_path, blocks_by_path)
+        sources = {
+            prepared["page"]["path"]: {
+                "title": prepared["page"]["title"],
+                "languages": {
+                    language: [
+                        {"anchor": heading["anchor"], "title": heading["title"],
+                         "blocks": blocks_by_path[prepared["page"]["path"]][language].get(heading["anchor"], [])}
+                        for heading in prepared["rendered"]["headings"][language]
+                    ] for language in ("zh", "en")
+                },
+            } for prepared in prepared_pages
+        }
+        (generated_dir / "glossary-sources.json").write_text(json.dumps(sources, ensure_ascii=False), encoding="utf-8")
 
     if (project_dir / "config.yaml").is_file():
         config_documents = yaml.safe_load_all((project_dir / "config.yaml").read_text(encoding="utf-8"))

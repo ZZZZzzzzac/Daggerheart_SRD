@@ -187,7 +187,7 @@ def test_site_css_and_editor_modules_use_current_cache_version():
 
     assert 'css/site.css?v=20260926b' in base
     assert 'css/site.css?v=20260926b' in editor
-    assert 'editor.js?v=20260903j' in editor
+    assert 'editor.js?v=20260926c' in editor
     assert 'preview-worker.mjs?v=20260903j' in editor_script
     assert 'render-core.mjs?v=20260903j' in editor_script
     assert 'render-core.mjs?v=20260903j' in worker

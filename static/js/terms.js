@@ -79,6 +79,7 @@
     pinned = pin;
     const english = document.documentElement.lang === "en";
     label.textContent = english ? "SRD text · Verbatim excerpt" : "本站译文 · 原文摘录";
+    if (link.dataset.termKind === "approved") label.textContent = english ? "Human-reviewed explanation" : "已人工审核的解释";
     title.textContent = english ? link.dataset.termEn : link.dataset.termZh;
     translation.textContent = english ? link.dataset.termZh : link.dataset.termEn;
     translation.lang = english ? "zh-CN" : "en";

@@ -17,8 +17,7 @@ Daggerheart_SRD/
 ├── tests/               # Python、Node.js 与浏览器测试
 ├── data/
 │   ├── srd.yaml         # 唯一章节清单
-│   ├── glossary.yaml    # 启用的规则术语、原文摘录与目标小节
-│   └── translation-terms.json # 用户翻译术语表快照
+│   └── glossary.md      # 可通过 editor 增删改的双语术语表
 ├── layouts/             # Hugo 模板
 ├── static/              # 阅读端、编辑器和反馈后台资源
 ├── content/             # （生成）Python 生成的 Hugo 页面，已 gitignore
@@ -75,7 +74,9 @@ python scripts/preview_server.py
 
 ## 术语提示
 
-正文中的核心规则术语支持悬停、键盘聚焦或手机点击查看原文摘录，并可进入完整规则。名称来自用户翻译术语表；中文引用本站译文，英文引用 SRD 原文，构建会拒绝与来源不一致的解释。目录下方可关闭提示。术语维护与校验方式见 [docs/glossary.md](docs/glossary.md)。
+正文中的核心规则术语支持悬停、键盘聚焦或手机点击查看解释及来源。`data/glossary.md` 保存 328 条术语，首批启用 14 条。可在 `/SRD/edit/?path=glossary` 新增、修改、删除或启停条目，切换 Markdown 编辑，并通过“保存并发布”直接更新网站。
+
+解释只能使用原文或用户明确审核后的文案；原文在构建时核对，改写文案需在 editor 人工审核，修改后审核失效。目录下方可关闭提示。维护协议见 [docs/glossary.md](docs/glossary.md)。
 
 ## 在线编辑器
 

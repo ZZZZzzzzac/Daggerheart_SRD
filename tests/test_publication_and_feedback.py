@@ -75,6 +75,51 @@ def test_publish_conflict_does_not_change_source(monkeypatch, tmp_path):
     assert (public / "index.html").read_text(encoding="utf-8") == "old site"
 
 
+def test_glossary_requires_version_and_conflicts_do_not_overwrite(monkeypatch, tmp_path):
+    project, page, public, sync = publication_project(monkeypatch, tmp_path)
+    (project / "data").mkdir()
+    glossary = project / "data/glossary.md"
+    glossary.write_text("# 原术语表\n", encoding="utf-8")
+    with pytest.raises(proxy_server.PublishError, match="原始版本号"):
+        proxy_server.publish_edit("data/glossary.md", "# 新术语表\n", None, "测试")
+    with pytest.raises(proxy_server.PublishError) as caught:
+        proxy_server.publish_edit("data/glossary.md", "# 新术语表\n", "old", "测试")
+    assert caught.value.status == 409
+    assert glossary.read_text(encoding="utf-8") == "# 原术语表\n"
+    assert not sync.commits
+
+
+def test_real_glossary_publication_rebuilds_reader_and_invalid_content_is_atomic(monkeypatch, workspace_tmpdir):
+    root = Path(proxy_server.PROJECT_DIR)
+    candidate = workspace_tmpdir / "candidate"
+    candidate.mkdir()
+    proxy_server._copy_candidate_project(candidate)
+    shutil.copytree(root / "scripts", candidate / "scripts")
+    shutil.copy2(root / "hugo.exe", candidate / "hugo.exe")
+    glossary = candidate / "data/glossary.md"
+    original = glossary.read_text(encoding="utf-8")
+    # Removing one term through Markdown must remove its hints from the reader.
+    updated = re.sub(r"(?ms)^## 压力点 \{#stress\}.*?(?=^## |\Z)", "", original)
+    assert updated != original
+    monkeypatch.setattr(proxy_server, "PROJECT_DIR", candidate)
+    monkeypatch.setattr(proxy_server, "PAGES_DIR", candidate / "src/pages")
+    monkeypatch.setattr(proxy_server, "PUBLIC_DIR", candidate / "public")
+    monkeypatch.setattr(proxy_server, "BUILD_SCRIPT", candidate / "scripts/build_srd.py")
+    sync = FakeSync()
+    monkeypatch.setattr(proxy_server, "GIT_SYNC", sync)
+    monkeypatch.setattr(proxy_server, "_commit_changes", lambda paths, name: "glossary-test")
+    assert proxy_server.page_catalog()[-1]["files"] == {"zh": "data/glossary.md"}
+    proxy_server.publish_edit("data/glossary.md", updated, proxy_server.content_version(original), "测试")
+    rendered = (candidate / "public/core-mechanics/index.html").read_text(encoding="utf-8")
+    assert 'data-term-id="stress"' not in rendered
+    assert 'data-term-id="hope"' in rendered
+    with pytest.raises(proxy_server.PublishError, match="构建失败"):
+        proxy_server.publish_edit("data/glossary.md", updated + "\n## 无效格式\n", proxy_server.content_version(updated), "测试")
+    assert glossary.read_text(encoding="utf-8") == updated
+    assert (candidate / "public/core-mechanics/index.html").read_text(encoding="utf-8") == rendered
+    assert sync.commits == ["glossary-test"]
+
+
 def test_failed_candidate_build_leaves_live_state_unchanged(monkeypatch, tmp_path):
     project, page, public, sync = publication_project(monkeypatch, tmp_path)
     monkeypatch.setattr(proxy_server, "_run_candidate_build", lambda candidate: (_ for _ in ()).throw(proxy_server.PublishError("构建失败")))

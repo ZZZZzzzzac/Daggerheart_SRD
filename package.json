@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "node --test tests/render_core.test.mjs tests/search_core.test.js",
+    "test": "node --test tests/render_core.test.mjs tests/search_core.test.js tests/glossary_core.test.mjs",
     "test:e2e": "playwright test"
   },
   "devDependencies": {
