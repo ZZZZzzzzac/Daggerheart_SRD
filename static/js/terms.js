@@ -1,7 +1,7 @@
 (function () {
   "use strict";
 
-  const links = [...document.querySelectorAll(".srd-language .term-link[data-term-summary]")];
+  const links = [...document.querySelectorAll(".srd-language .term-link[data-term-quote]")];
   const controls = document.getElementById("term-preferences");
   const toggle = document.getElementById("term-toggle");
   if (!links.length || !controls || !toggle) return;
@@ -26,19 +26,19 @@
   popup.setAttribute("role", "dialog");
   popup.setAttribute("aria-modal", "false");
   popup.setAttribute("aria-labelledby", "term-title");
-  popup.setAttribute("aria-describedby", "term-summary");
+  popup.setAttribute("aria-describedby", "term-quote");
   const label = element("p", "term-label");
   const title = element("h2", "term-title");
   title.id = "term-title";
   const translation = element("p", "term-translation");
-  const summary = element("p", "term-summary");
-  summary.id = "term-summary";
+  const quote = element("blockquote", "term-quote");
+  quote.id = "term-quote";
   const actions = element("div", "term-actions");
   const ruleLink = element("a", "term-source");
   const closeButton = element("button", "term-close");
   closeButton.type = "button";
   actions.append(ruleLink, closeButton);
-  popup.append(label, title, translation, summary, actions);
+  popup.append(label, title, translation, quote, actions);
   document.body.append(popup);
 
   function close(restoreFocus = false) {
@@ -72,17 +72,17 @@
   }
 
   function show(link, pin = false) {
-    if (!enabled || !link.dataset.termSummary) return;
+    if (!enabled || !link.dataset.termQuote) return;
     clearTimeout(hideTimer);
     if (active && active !== link) close();
     active = link;
     pinned = pin;
     const english = document.documentElement.lang === "en";
-    label.textContent = english ? "Rule reference · Summary" : "规则术语 · 简述";
+    label.textContent = english ? "SRD text · Verbatim excerpt" : "本站译文 · 原文摘录";
     title.textContent = english ? link.dataset.termEn : link.dataset.termZh;
     translation.textContent = english ? link.dataset.termZh : link.dataset.termEn;
     translation.lang = english ? "zh-CN" : "en";
-    summary.textContent = link.dataset.termSummary;
+    quote.textContent = link.dataset.termQuote;
     ruleLink.textContent = english ? "Read the full rule →" : "查看完整规则 →";
     ruleLink.href = link.href;
     closeButton.textContent = english ? "Close" : "收起";

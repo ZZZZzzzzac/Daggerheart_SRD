@@ -129,7 +129,7 @@ def test_glossary_links_first_term_per_section_and_skips_existing_markup(tmp_pat
         "terms": [{
             "id": "advantage", "zh": "优势", "en": "Advantage",
             "target": "core", "anchor": "action-roll", "aliases": {"zh": [], "en": []},
-            "summary": {"zh": "加入 d6。", "en": "Add a d6."},
+            "quote": {"zh": "优势与优势。", "en": "Advantage and Advantage."},
         }],
     }
     (project / "data" / "glossary.yaml").write_text(yaml.safe_dump(glossary, allow_unicode=True), encoding="utf-8")
@@ -143,7 +143,7 @@ def test_glossary_links_first_term_per_section_and_skips_existing_markup(tmp_pat
 def test_glossary_matches_original_text_only_and_prefers_long_terms():
     terms = [
         {"id": "armor", "zh": "护甲", "en": "Armor", "target": "armor", "anchor": "armor"},
-        {"id": "slots", "zh": "护甲槽", "en": "Armor Slot", "target": "armor", "anchor": "slots", "summary": {"en": 'Armor <script> & "quoted"'}},
+        {"id": "slots", "zh": "护甲槽", "en": "Armor Slot", "target": "armor", "anchor": "slots", "quote": {"en": 'Armor <script> & "quoted"'}},
         {"id": "advantage", "zh": "优势", "en": "Advantage", "target": "rules", "anchor": "advantage"},
     ]
     source = '<h4>Armor Slot</h4><p title="Armor">Armor Slot, Armor Slot, Armor, disadvantage, ADVANTAGE, Advantage.</p><a href="/armor/">Armor</a><code>Armor</code><button>Armor</button><h4>Next</h4><p>Armor</p>'
@@ -155,7 +155,7 @@ def test_glossary_matches_original_text_only_and_prefers_long_terms():
     assert 'title="Armor"' in output
     assert '<a href="/armor/">Armor</a><code>Armor</code><button>Armor</button>' in output
     assert 'href="/SRD/armor/#slots"' in output
-    assert 'data-term-summary="Armor &lt;script&gt; &amp; &quot;quoted&quot;"' in output
+    assert 'data-term-quote="Armor &lt;script&gt; &amp; &quot;quoted&quot;"' in output
     assert '<h4>Armor Slot</h4>' in output
 
     class LinkDepth(build_srd.HTMLParser):
@@ -178,19 +178,19 @@ def test_glossary_matches_original_text_only_and_prefers_long_terms():
 
 
 def test_glossary_uses_each_languages_actual_target(tmp_path):
-    project = make_project(tmp_path, zh="## 压力点 {#legacy-stress}\n\n压力点。", en="## Stress {#legacy-stress}\n\nStress.\n\n## More Stress {#stress-rule}")
-    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": {"zh": "legacy-stress", "en": "stress-rule"}, "summary": {"zh": "精神负荷。", "en": "Mental strain."}}
+    project = make_project(tmp_path, zh="## 压力点 {#legacy-stress}\n\n压力点。", en="## Stress {#legacy-stress}\n\nStress.\n\n## More Stress {#stress-rule}\n\nMental strain.")
+    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": {"zh": "legacy-stress", "en": "stress-rule"}, "quote": {"zh": "压力点。", "en": "Mental strain."}}
     (project / "data" / "glossary.yaml").write_text(yaml.safe_dump({"enabled": True, "terms": [term]}, allow_unicode=True), encoding="utf-8")
     build_srd.generate_site(project)
     output = (project / "content" / "core" / "index.md").read_text(encoding="utf-8")
     assert 'href="/core/#legacy-stress"' in output
     assert 'href="/core/#stress-rule"' in output
-    assert 'data-term-summary="精神负荷。"' in output
-    assert 'data-term-summary="Mental strain."' in output
+    assert 'data-term-quote="压力点。"' in output
+    assert 'data-term-quote="Mental strain."' in output
 
 
 @pytest.mark.parametrize("change, error", [
-    ({"summary": {"zh": "说明"}}, "缺少 en 简述"),
+    ({"quote": {"zh": "说明"}}, "缺少 en 原文摘录"),
     ({"anchor": {"zh": "rule", "en": "missing"}}, "不存在的 en 小节"),
     ({"id": "not valid"}, "ID 无效"),
     ({"aliases": {"en": ["STRESS"]}}, "名称或别名重复"),
@@ -198,13 +198,62 @@ def test_glossary_uses_each_languages_actual_target(tmp_path):
     ({"target": "missing"}, "不存在的页面"),
 ])
 def test_glossary_invalid_definitions_fail_build(change, error):
-    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "summary": {"zh": "说明", "en": "Summary"}}
+    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "quote": {"zh": "说明", "en": "Summary"}}
     term.update(change)
     with pytest.raises(build_srd.BuildError, match=error):
-        build_srd.validate_glossary({"terms": [term]}, {"core": {"zh": {"rule"}, "en": {"rule"}}})
+        build_srd.validate_glossary({"terms": [term]}, {"core": {"zh": {"rule"}, "en": {"rule"}}}, {"core": {"zh": {"rule": ["说明"]}, "en": {"rule": ["Summary"]}}})
 
 
 def test_glossary_rejects_duplicate_ids():
-    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "summary": {"zh": "说明", "en": "Summary"}}
+    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "quote": {"zh": "说明", "en": "Summary"}}
     with pytest.raises(build_srd.BuildError, match="ID 无效或重复"):
-        build_srd.validate_glossary({"terms": [term, term]}, {"core": {"zh": {"rule"}, "en": {"rule"}}})
+        build_srd.validate_glossary({"terms": [term, term]}, {"core": {"zh": {"rule"}, "en": {"rule"}}}, {"core": {"zh": {"rule": ["说明"]}, "en": {"rule": ["Summary"]}}})
+
+
+def test_glossary_rejects_paraphrases_wrong_sections_and_stale_quotes():
+    term = {"id": "stress", "zh": "压力点", "en": "Stress", "target": "core", "anchor": "rule", "quote": {"zh": "原文。", "en": "Original."}}
+    anchors = {"core": {"zh": {"rule", "other"}, "en": {"rule"}}}
+    blocks = {"core": {"zh": {"rule": ["原文。"], "other": ["别处原文。"]}, "en": {"rule": ["Original."]}}}
+    build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
+    for text in ("改写原文。", "别处原文。", "旧版原文。", "原文"):
+        term["quote"]["zh"] = text
+        with pytest.raises(build_srd.BuildError, match="禁止自行概括"):
+            build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
+    term["summary"] = {"zh": "未经审核", "en": "Unreviewed"}
+    with pytest.raises(build_srd.BuildError, match="不允许未经审核"):
+        build_srd.validate_glossary({"terms": [term]}, anchors, blocks)
+
+
+def test_source_quotes_preserve_complete_contiguous_blocks_and_only_remove_formatting():
+    blocks = build_srd.source_blocks('<h2 data-anchor="rule">规则</h2><p>原文<strong>强调</strong> &amp; 内容。</p><ul><li>第一项。</li><li>第二项。</li></ul><h3 data-anchor="other">其他</h3><p>其他内容。</p>')
+    assert blocks == {"rule": ["原文强调 & 内容。", "第一项。", "第二项。"], "other": ["其他内容。"]}
+    term = {"id": "test", "zh": "术语", "en": "Term", "target": "core", "anchor": "rule", "quote": {"zh": "原文强调 & 内容。\n\n第一项。", "en": "Original."}}
+    anchors = {"core": {"zh": {"rule"}, "en": {"rule"}}}
+    sources = {"core": {"zh": blocks, "en": {"rule": ["Original."]}}}
+    build_srd.validate_glossary({"terms": [term]}, anchors, sources)
+    term["quote"]["zh"] = "原文强调 & 内容。\n\n第二项。"
+    with pytest.raises(build_srd.BuildError, match="禁止自行概括"):
+        build_srd.validate_glossary({"terms": [term]}, anchors, sources)
+
+
+def test_names_variants_and_case_policy_come_from_translation_snapshot():
+    project = Path(__file__).resolve().parents[1]
+    glossary = {"terms": [{"id": "armor", "translation_term": "Armor Slot", "zh": "不可使用的自拟名称"}]}
+    build_srd.resolve_glossary_names(glossary, project)
+    term = glossary["terms"][0]
+    assert term["zh"] == "护甲槽"
+    assert term["en"] == "Armor Slot"
+    assert term["aliases"]["en"] == ["Armor Slots"]
+    assert term["case_sensitive"] is True
+    assert "note" not in term
+    term.update({"target": "core", "anchor": "rule", "quote": {"en": "Original."}})
+    output = build_srd.apply_glossary_links('<p>armor slot; Armor Slots; Armor Slot.</p>', {"enabled": True, "terms": [term]}, "en", "/SRD")
+    assert '<p>armor slot; <a' in output
+    assert output.count('class="term-link"') == 1
+
+
+def test_multiline_quotes_do_not_break_hugo_raw_html_attributes():
+    term = {"id": "test", "zh": "术语", "en": "Term", "target": "core", "anchor": "rule", "quote": {"zh": "第一段。\n\n第二段。"}}
+    output = build_srd.apply_glossary_links('<p>术语</p><h2 id="rule">规则</h2>', {"enabled": True, "terms": [term]}, "zh", "/SRD")
+    assert 'data-term-quote="第一段。&#10;&#10;第二段。"' in output
+    assert '\n' not in output

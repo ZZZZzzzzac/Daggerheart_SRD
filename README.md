@@ -17,7 +17,8 @@ Daggerheart_SRD/
 ├── tests/               # Python、Node.js 与浏览器测试
 ├── data/
 │   ├── srd.yaml         # 唯一章节清单
-│   └── glossary.yaml    # 双语规则术语、简述与目标小节
+│   ├── glossary.yaml    # 启用的规则术语、原文摘录与目标小节
+│   └── translation-terms.json # 用户翻译术语表快照
 ├── layouts/             # Hugo 模板
 ├── static/              # 阅读端、编辑器和反馈后台资源
 ├── content/             # （生成）Python 生成的 Hugo 页面，已 gitignore
@@ -74,7 +75,7 @@ python scripts/preview_server.py
 
 ## 术语提示
 
-正文中的核心规则术语支持悬停、键盘聚焦或手机点击查看简述，并可进入完整规则。目录下方可关闭提示。术语维护与校验方式见 [docs/glossary.md](docs/glossary.md)。
+正文中的核心规则术语支持悬停、键盘聚焦或手机点击查看原文摘录，并可进入完整规则。名称来自用户翻译术语表；中文引用本站译文，英文引用 SRD 原文，构建会拒绝与来源不一致的解释。目录下方可关闭提示。术语维护与校验方式见 [docs/glossary.md](docs/glossary.md)。
 
 ## 在线编辑器
 

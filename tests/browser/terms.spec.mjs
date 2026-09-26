@@ -10,7 +10,7 @@ test("term hints support hover, pointer transfer, keyboard, dismissal, and full 
   await expect(popup).toBeVisible();
   await expect(popup.locator(".term-title")).toHaveText("压力点");
   await expect(popup.locator(".term-translation")).toHaveText("Stress");
-  await expect(popup.locator(".term-summary")).toContainText("标记 1 生命点");
+  await expect(popup.locator(".term-quote")).toContainText("压力点 代表角色所能承受");
   await popup.hover();
   await expect(popup).toBeVisible();
   await page.keyboard.press("Escape");
@@ -66,7 +66,7 @@ test("English terms link to the actual English rule and language switch dismisse
   const trigger = term(page, "stress", "en");
   await trigger.click();
   await expect(page.locator("#term-title")).toHaveText("Stress");
-  await expect(page.locator("#term-summary")).toContainText("Mental, physical");
+  await expect(page.locator("#term-quote")).toContainText("Stress represents how much");
   await page.getByRole("link", { name: "Read the full rule" }).click();
   await expect(page).toHaveURL(/#stress$/);
   await expect(page.locator(".lang-en #stress")).toHaveText("STRESS");
@@ -104,4 +104,16 @@ test("outside click dismisses hints and the theme remains readable", async ({ pa
   expect(colors.color).not.toBe(colors.background);
   await page.locator(".site-header .wordmark-text").click();
   await expect(popup).toBeHidden();
+});
+
+test("multiblock verbatim excerpts survive the full Hugo build without corrupting headings", async ({ page }) => {
+  await page.goto("/SRD/core-mechanics/");
+  await term(page, "damage-thresholds").click();
+  await expect(page.locator("#term-popover .term-label")).toHaveText("本站译文 · 原文摘录");
+  await expect(page.locator("#term-quote")).toContainText("若伤害被减至 0 或更低，则不标记生命点。");
+  const text = await page.locator("#term-quote").textContent();
+  expect(text.split("\n\n")).toHaveLength(5);
+  expect(text).not.toContain("<p>");
+  await expect(page.locator(".lang-zh #attack-rolls")).toHaveCount(1);
+  await expect(page.locator(".lang-zh #attack-rolls")).toHaveText("压力点");
 });

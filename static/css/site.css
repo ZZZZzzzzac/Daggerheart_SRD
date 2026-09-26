@@ -193,7 +193,7 @@ html[data-theme="dark"] .article-body img.domain-icon { filter: invert(1); }
 .term-label { margin: 0 0 .45rem; color: var(--ink-soft); font-size: .68rem; letter-spacing: .08em; }
 .term-title { margin: 0; font: 600 1.3rem/1.4 var(--reading-font); }
 .term-translation { margin: .12rem 0 .75rem; color: var(--ink-soft); font-size: .8rem; }
-.term-summary { margin: 0 0 .9rem; }
+.term-quote { margin: 0 0 .9rem; white-space: pre-line; }
 .term-actions { display: flex; align-items: center; justify-content: space-between; gap: .6rem; border-top: 1px solid var(--line); }
 .term-source, .term-close { display: inline-flex; align-items: center; min-height: 2.75rem; font-size: .8rem; }
 .term-close { padding: 0 .5rem; border: 0; background: transparent; color: var(--ink-soft); cursor: pointer; }
