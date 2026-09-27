@@ -48,7 +48,20 @@
     });
   }
 
+  function resolveHash() {
+    let hash;
+    try { hash = decodeURIComponent(location.hash.slice(1)); } catch (_) { return null; }
+    const target = document.getElementById(hash);
+    if (target?.dataset.targetAnchor) {
+      const canonical = target.dataset.targetAnchor;
+      history.replaceState(null, "", `${location.pathname}${location.search}#${encodeURIComponent(canonical)}`);
+      return document.getElementById(canonical);
+    }
+    return target;
+  }
+
   function setLanguage(language, persist = true) {
+    if (persist) resolveHash();
     state.language = language === "en" ? "en" : "zh";
     body.classList.toggle("show-en", state.language === "en");
     body.classList.toggle("show-zh", state.language === "zh");
@@ -61,8 +74,8 @@
       renderSequence();
       observeHeadings();
     }
-    const hash = decodeURIComponent(location.hash.slice(1));
-    if (hash) requestAnimationFrame(() => document.getElementById(hash)?.scrollIntoView());
+    const target = resolveHash();
+    if (target) requestAnimationFrame(() => target.scrollIntoView());
   }
 
   function setTheme(theme, persist = true) {
@@ -324,6 +337,7 @@
   }
 
   function bindEvents() {
+    window.addEventListener("hashchange", () => resolveHash()?.scrollIntoView());
     document.getElementById("language-button")?.addEventListener("click", () => setLanguage(state.language === "zh" ? "en" : "zh"));
     document.getElementById("theme-button")?.addEventListener("click", () => setTheme(root.dataset.theme === "dark" ? "light" : "dark"));
     document.getElementById("menu-button")?.addEventListener("click", () => body.classList.add("sidebar-open"));

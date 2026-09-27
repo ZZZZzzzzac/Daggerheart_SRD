@@ -144,7 +144,7 @@ def test_feedback_form_reference_survives_async_submit():
     assert "const button = form.querySelector" in submit
     assert "form.reset();" in submit
     assert "event.currentTarget.reset();" not in submit
-    assert 'js/app.js?v=20260904a' in template
+    assert 'js/app.js?v=20260927-anchors' in template
 
 
 def test_feedback_inbox_separates_unread_state_and_aligns_controls():
@@ -187,10 +187,10 @@ def test_site_css_and_editor_modules_use_current_cache_version():
 
     assert 'css/site.css?v=20260926f' in base
     assert 'css/site.css?v=20260926f' in editor
-    assert 'editor.js?v=20260927-alias-free' in editor
-    assert 'preview-worker.mjs?v=20260927k' in editor_script
-    assert 'render-core.mjs?v=20260927k' in editor_script
-    assert 'render-core.mjs?v=20260927k' in worker
+    assert 'editor.js?v=20260927-anchors' in editor
+    assert 'preview-worker.mjs?v=20260927-anchors' in editor_script
+    assert 'render-core.mjs?v=20260927-anchors' in editor_script
+    assert 'render-core.mjs?v=20260927-anchors' in worker
 
 
 def test_article_tables_are_not_turned_into_blocks():

@@ -21,7 +21,7 @@
   const publishDialog = document.getElementById("publish-dialog");
   const publishForm = document.getElementById("publish-form");
   const publishName = document.getElementById("publish-name");
-  const previewWorker = new Worker("preview-worker.mjs?v=20260927k", { type: "module" });
+  const previewWorker = new Worker("preview-worker.mjs?v=20260927-anchors", { type: "module" });
 
   function readSetting(key, fallback) {
     try { return localStorage.getItem(key) || fallback; } catch (_) { return fallback; }
@@ -270,7 +270,7 @@
       const sequence = ++state.previewSequence;
       clearTimeout(state.previewFallbackTimer);
       const content = documentFor().content;
-      import("../js/glossary-core.mjs?v=20260927a").then(({ parseGlossary }) => {
+      import("../js/glossary-core.mjs?v=20260927-trim").then(({ parseGlossary }) => {
         if (sequence !== state.previewSequence) return;
         try {
           const { terms } = parseGlossary(content);
@@ -297,7 +297,7 @@
     state.previewFallbackTimer = setTimeout(async () => {
       if (sequence !== state.previewSequence) return;
       try {
-        const { renderPair } = await import("../js/render-core.mjs?v=20260927k");
+        const { renderPair } = await import("../js/render-core.mjs?v=20260927-anchors");
         applyPreviewResult(sequence, renderPair(zh.content, en.content, { pagePath: state.slug }).html[state.language]);
       } catch (error) {
         document.getElementById("preview-status").textContent = `预览失败：${error.message}`;
@@ -488,7 +488,7 @@
   async function showGlossaryForm(show) {
     const container = document.getElementById("glossary-editor");
     if (show && !state.glossaryEditor) {
-      const { createGlossaryEditor } = await import("./glossary-editor.mjs?v=20260927a");
+      const { createGlossaryEditor } = await import("./glossary-editor.mjs?v=20260927-trim");
       if (state.slug !== "glossary") return;
       state.glossaryEditor = createGlossaryEditor(container, {
         onChange(content) {

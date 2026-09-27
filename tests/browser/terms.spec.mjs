@@ -1,4 +1,8 @@
 import { expect, test } from "@playwright/test";
+import { readFileSync } from "node:fs";
+import { parseGlossary } from "../../static/js/glossary-core.mjs";
+
+const descriptions = new Map(parseGlossary(readFileSync(new URL("../../data/glossary.md", import.meta.url), "utf8")).terms.map(term => [term.zh, term.description]));
 
 const term = (page, id, language = "zh") => page.locator(`.srd-language.lang-${language} .term-link[data-term-zh="${id === "damage-thresholds" ? "伤害阈值" : "压力点"}"]`).first();
 
@@ -10,7 +14,7 @@ test("term hints support hover, pointer transfer, keyboard, dismissal, and full 
   await expect(popup).toBeVisible();
   await expect(popup.locator(".term-title")).toHaveText("压力点");
   await expect(popup.locator(".term-translation")).toHaveCount(0);
-  await expect(popup.locator(".term-quote")).toContainText("压力点 代表角色所能承受");
+  await expect(popup.locator(".term-quote")).toHaveText(descriptions.get("压力点"));
   await popup.hover();
   await expect(popup).toBeVisible();
   await page.keyboard.press("Escape");
@@ -28,8 +32,8 @@ test("term hints support hover, pointer transfer, keyboard, dismissal, and full 
 
   await trigger.press("Enter");
   await popup.locator(".term-source").click();
-  await expect(page).toHaveURL(/core-mechanics\/#attack-rolls$/);
-  await expect(page.locator(".lang-zh #attack-rolls")).toHaveText("压力点");
+  await expect(page).toHaveURL(/core-mechanics\/#rule-stress$/);
+  await expect(page.locator(".lang-zh #rule-stress")).toHaveText("压力点");
   await expect(popup).toBeHidden();
 });
 
@@ -54,7 +58,7 @@ test("mobile hints fit the viewport and persist the off preference", async ({ pa
   await page.reload();
   await expect(page.locator("#term-toggle")).toHaveAttribute("aria-pressed", "false");
   await trigger.click();
-  await expect(page).toHaveURL(/#attack-rolls$/);
+  await expect(page).toHaveURL(/#rule-stress$/);
   await expect(popup).toBeHidden();
 });
 
@@ -70,8 +74,8 @@ test("plain rule links remain available without JavaScript", async ({ browser })
   const page = await context.newPage();
   await page.goto("http://127.0.0.1:8766/SRD/core-mechanics/");
   await term(page, "stress").click();
-  await expect(page).toHaveURL(/#attack-rolls$/);
-  await expect(page.locator(".lang-zh #attack-rolls")).toHaveText("压力点");
+  await expect(page).toHaveURL(/#rule-stress$/);
+  await expect(page.locator(".lang-zh #rule-stress")).toHaveText("压力点");
   await context.close();
 });
 
@@ -105,13 +109,22 @@ test("multiblock verbatim excerpts survive the full Hugo build without corruptin
   await expect(page.locator("#term-popover .term-label")).toHaveCount(0);
   await expect(page.locator("#term-quote")).toContainText("若伤害被减至 0 或更低，则不标记生命点。");
   const text = await page.locator("#term-quote").textContent();
-  expect(text.split("\n\n")).toHaveLength(5);
+  expect(text).toBe(descriptions.get("伤害阈值"));
   expect(text).not.toContain("<p>");
-  await expect(page.locator(".lang-zh #attack-rolls")).toHaveCount(1);
-  await expect(page.locator(".lang-zh #attack-rolls")).toHaveText("压力点");
+  await expect(page.locator(".lang-zh #rule-stress")).toHaveCount(1);
+  await expect(page.locator(".lang-zh #rule-stress")).toHaveText("压力点");
 });
 
 test("terms without an explanation or jump link still show their names", async ({ page }) => {
+  // Keep the empty-term case independent of the user's completed glossary.
+  await page.route("**/SRD/core-mechanics/", async route => {
+    const response = await route.fetch();
+    const original = await response.text();
+    const body = original.replace(/<a\b[^>]*data-term-zh="游戏主持人"[^>]*>[\s\S]*?<\/a>/,
+      '<span class="term-link" data-term-id="empty-fixture" data-term-zh="游戏主持人" data-term-quote="">游戏主持人</span>');
+    expect(body).not.toBe(original);
+    await route.fulfill({ response, body });
+  });
   await page.goto("/SRD/core-mechanics/");
   const trigger = page.locator('.lang-zh span.term-link[data-term-zh="游戏主持人"]').first();
   await trigger.focus();

@@ -21,7 +21,7 @@ export function parseGlossary(markdown) {
       finish();
       const match = line.match(/^## 中文名：\s*(.+)$/);
       if (!match) throw new Error("术语标题应为：## 中文名：希望点");
-      term = newTerm(); term.zh = match[1]; terms.push(term);
+      term = newTerm(); term.zh = match[1].trimEnd(); terms.push(term);
       if (category) term.category = category;
       metadata = new Set(); explanation = false; lines = [];
     } else if (term && line === "### 中文解释") {
@@ -50,6 +50,6 @@ export function serializeGlossary(terms) {
     const category = term.category || "备用区";
     const heading = grouped && category !== previousCategory ? `\n# ${single(category)}\n` : "";
     previousCategory = category;
-    return heading + `\n## 中文名：${single(term.zh)}\n- 跳转链接：${single(term.url)}\n### 中文解释\n${term.description.trim()}\n`;
+    return heading + `\n## 中文名：${single(term.zh).trimEnd()}\n- 跳转链接：${single(term.url)}\n### 中文解释\n${term.description.trim()}\n`;
   }).join("");
 }

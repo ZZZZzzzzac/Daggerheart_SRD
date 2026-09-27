@@ -1,5 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 
 import { renderPair } from "../static/js/render-core.mjs";
 
@@ -44,15 +45,26 @@ test("explicit anchors survive bilingual heading text changes", () => {
 });
 
 
-test("duplicate or mismatched explicit anchors are rejected", () => {
+test("duplicates are rejected, explicit anchors do not depend on counterpart heading order", () => {
   assert.throws(
     () => renderPair("## 一 {#same}\n## 二 {#same}", "## One {#same}\n## Two {#same}"),
     /重复的显式标题锚点: same/,
   );
-  assert.throws(
-    () => renderPair("## 一 {#one}", "## One {#two}"),
-    /显式锚点不一致/,
-  );
+  assert.deepEqual(renderPair("## 一 {#one}", "## Extra {#extra}\n## One {#one}").anchors, { zh: ["one"], en: ["extra", "one"] });
+});
+
+test("core mechanics and character creation share semantic anchors with legacy aliases", () => {
+  for (const path of ["core-mechanics", "character-creation"]) {
+    const texts = ["zh", "en"].map(language => readFileSync(new URL(`../src/pages/${path}/${language}.md`, import.meta.url), "utf8"));
+    const result = renderPair(...texts, { pagePath: path });
+    assert.deepEqual(new Set(result.anchors.zh), new Set(result.anchors.en));
+    if (path === "core-mechanics") {
+      assert.equal(result.headings.zh.find(h => h.title === "生命点与伤害阈值").anchor, "rule-hit-points-damage-thresholds");
+      assert.equal(result.headings.zh.find(h => h.title === "压力点").anchor, "rule-stress");
+      assert.match(result.html.zh, /data-legacy-anchor="stress" data-target-anchor="rule-hit-points-damage-thresholds"/);
+      assert.match(result.html.en, /data-legacy-anchor="stress" data-target-anchor="rule-stress"/);
+    }
+  }
 });
 
 

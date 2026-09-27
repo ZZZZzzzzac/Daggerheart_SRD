@@ -1,4 +1,4 @@
-import { parseGlossary, serializeGlossary, newTerm } from "../js/glossary-core.mjs?v=20260927a";
+import { parseGlossary, serializeGlossary, newTerm } from "../js/glossary-core.mjs?v=20260927-trim";
 
 export function createGlossaryEditor(container, { onChange }) {
   let terms = [], selected = 0, query = "", confirmDelete = false;

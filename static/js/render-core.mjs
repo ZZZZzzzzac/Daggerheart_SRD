@@ -1,4 +1,5 @@
 import { renderEnvironments } from './environment-core.mjs';
+import { legacyAnchors } from './legacy-anchors.mjs';
 import MarkdownIt from "../vendor/markdown-it.mjs?v=15.0.1-browser";
 import { renderAdversaries } from "./adversary-core.mjs?v=20260927k";
 
@@ -46,6 +47,20 @@ function extractHeadings(markdown) {
 function assignAnchorIds(zhMarkdown, enMarkdown) {
   const zhHeadings = extractHeadings(zhMarkdown);
   const enHeadings = extractHeadings(enMarkdown);
+  // Explicit IDs belong to headings, not to their position in the other language.
+  // Preserve index-based fallback only for documents that have not pinned their IDs.
+  if ([...zhHeadings, ...enHeadings].every(heading => EXPLICIT_ID_RE.test(heading.raw))) {
+    const explicitIds = headings => {
+      const ids = headings.map(heading => heading.raw.match(EXPLICIT_ID_RE)[1].toLowerCase());
+      const seen = new Set();
+      for (const id of ids) {
+        if (seen.has(id)) throw new Error(`重复的显式标题锚点: ${id}`);
+        seen.add(id);
+      }
+      return ids;
+    };
+    return { zh: explicitIds(zhHeadings), en: explicitIds(enHeadings) };
+  }
   const count = Math.max(zhHeadings.length, enHeadings.length);
   const ids = [];
   const used = new Set();
@@ -195,7 +210,10 @@ function createMarkdownRenderer() {
       if (environment.language === "zh") tokens[index].attrSet("id", anchor);
       tokens[index].attrSet("data-anchor", anchor);
     }
-    return renderer.renderToken(tokens, index, {});
+    const aliases = Object.entries(legacyAnchors[environment.pagePath]?.[environment.language] || {})
+      .filter(([, target]) => target === anchor)
+      .map(([old, target]) => `<span${environment.language === "zh" ? ` id="${old}"` : ""} data-anchor="${old}" data-legacy-anchor="${old}" data-target-anchor="${target}" aria-hidden="true"></span>`).join("");
+    return aliases + renderer.renderToken(tokens, index, {});
   };
   md.renderer.rules.softbreak = (_tokens, _index, _options, environment) => (
     environment.preserveSoftbreaks ? "<br>\n" : "\n"
@@ -257,6 +275,7 @@ function renderMarkdown(markdown, anchorIds, language, options = {}) {
     anchorIds,
     headingIndex: 0,
     language,
+    pagePath: options.pagePath,
     preserveSoftbreaks: options.pagePath === "domain-cards",
   });
   html = sage.restore(html);

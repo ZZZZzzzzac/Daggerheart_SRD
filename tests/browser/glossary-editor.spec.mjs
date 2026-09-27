@@ -90,7 +90,8 @@ test("manual Markdown editing preserves the complete large terminology document"
   await page.keyboard.insertText("\n手工维护测试文本。\n");
   const parsed = parseGlossary(await markdown.inputValue());
   expect(parsed.terms).toHaveLength(initialTerms.length);
-  expect(parsed.terms.at(-1).description).toBe("手工维护测试文本。");
+  expect(parsed.terms.at(-1).description).toContain(initialTerms.at(-1).description);
+  expect(parsed.terms.at(-1).description).toMatch(/手工维护测试文本。$/);
   await page.locator("#glossary-form").click();
   await expect(page.locator("#glossary-count")).toHaveText(`${initialTerms.length} 条术语`);
   await expect(page.locator("#pending-count")).toHaveText("待发布 1 项");
