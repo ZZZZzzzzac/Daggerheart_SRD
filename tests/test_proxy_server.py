@@ -71,6 +71,17 @@ def test_resolve_block_non_pages(monkeypatch):
     assert result is None
 
 
+def test_editor_allows_only_the_named_glossary_markdown(monkeypatch, tmp_path):
+    proj, pages = _setup_tmp_project(monkeypatch, tmp_path)
+    (proj / "data").mkdir()
+    (proj / "data/glossary.md").write_text("# 术语表\n", encoding="utf-8")
+    assert proxy_server._resolve_path("data/glossary.md") == (proj / "data/glossary.md").resolve()
+    assert proxy_server.read_file("data/glossary.md") == "# 术语表\n"
+    assert "data/glossary.md" in proxy_server.list_pages()
+    for path in ("data/srd.yaml", "data/other.md", "data/../config.yaml", "data/glossary.md/../other.md"):
+        assert proxy_server._resolve_path(path) is None
+
+
 # ═══════════════════════════════════════════
 # 层 2：文件读写
 # ═══════════════════════════════════════════

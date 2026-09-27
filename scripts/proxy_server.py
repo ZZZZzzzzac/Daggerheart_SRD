@@ -32,6 +32,7 @@ FEEDBACK_DB = Path(os.environ.get("FEEDBACK_DB", VAR_DIR / "feedback.db"))
 LISTEN_HOST = os.environ.get("PROXY_HOST", "127.0.0.1")
 LISTEN_PORT = int(os.environ.get("PROXY_PORT", "5000"))
 MAX_JSON_BYTES = 1_000_000
+GLOSSARY_PATH = "data/glossary.md"
 PUBLISH_LOCK = threading.Lock()
 
 
@@ -47,11 +48,11 @@ def list_pages() -> list[str]:
     pages = []
     pages_dir = Path(PAGES_DIR)
     project_dir = Path(PROJECT_DIR)
-    if not pages_dir.exists():
-        return pages
     for file_path in pages_dir.rglob("*.md"):
         if file_path.is_file():
             pages.append(file_path.relative_to(project_dir).as_posix())
+    if (project_dir / GLOSSARY_PATH).is_file():
+        pages.append(GLOSSARY_PATH)
     return sorted(pages)
 
 
@@ -76,10 +77,16 @@ def page_catalog() -> list[dict]:
             }
             if files:
                 catalog.append({"path": path, "title": entry.get("title", {}), "files": files})
+    if GLOSSARY_PATH in available:
+        catalog.append({"path": "glossary", "title": {"zh": "术语表", "en": "Glossary"}, "kind": "glossary", "files": {"zh": GLOSSARY_PATH}})
     return catalog
 
 
 def _resolve_path(path: str) -> Path | None:
+    if path == GLOSSARY_PATH:
+        candidate = (Path(PROJECT_DIR) / GLOSSARY_PATH).resolve()
+        # The extra editable resource is an exact allowlist entry, not the data directory.
+        return candidate if candidate.parent == (Path(PROJECT_DIR) / "data").resolve() and candidate.name == "glossary.md" else None
     if not isinstance(path, str) or not path.startswith("src/pages/") or not path.endswith(".md"):
         return None
     try:
@@ -240,7 +247,7 @@ def publish_changes(changes: list[dict], display_name: str) -> dict:
             seen_paths.add(path)
             full = _resolve_path(path)
             if not full or not full.is_file():
-                raise PublishError("只允许编辑现有的 src/pages Markdown 文件")
+                raise PublishError("只允许编辑现有规则 Markdown 或 data/glossary.md 术语表")
             content = change.get("content", "")
             if not isinstance(content, str) or not content.strip():
                 raise PublishError(f"内容不能为空: {path}")
@@ -249,6 +256,8 @@ def publish_changes(changes: list[dict], display_name: str) -> dict:
             current_content = full.read_text(encoding="utf-8")
             current_version = content_version(current_content)
             base_version = change.get("baseVersion")
+            if path == GLOSSARY_PATH and not base_version:
+                raise PublishError("术语表发布必须提供原始版本号，请重新载入后重试")
             if base_version and base_version != current_version:
                 conflicts.append({
                     "path": path,

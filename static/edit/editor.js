@@ -13,6 +13,7 @@
     loadSequence: 0,
     pendingAnchor: "",
     syncTimer: null,
+    glossaryEditor: null,
   };
   const textarea = document.getElementById("editor-textarea");
   const status = document.getElementById("save-status");
@@ -20,7 +21,7 @@
   const publishDialog = document.getElementById("publish-dialog");
   const publishForm = document.getElementById("publish-form");
   const publishName = document.getElementById("publish-name");
-  const previewWorker = new Worker("preview-worker.mjs?v=20260903j", { type: "module" });
+  const previewWorker = new Worker("preview-worker.mjs?v=20260927-anchors", { type: "module" });
 
   function readSetting(key, fallback) {
     try { return localStorage.getItem(key) || fallback; } catch (_) { return fallback; }
@@ -47,6 +48,7 @@
   }
 
   function documentFor(slug = state.slug, language = state.language) {
+    if (state.pages[slug]?.kind === "glossary") language = "zh";
     const path = state.pages[slug]?.files?.[language];
     return path ? state.documents.get(path) : undefined;
   }
@@ -57,7 +59,7 @@
 
   function updateSaveState() {
     const count = dirtyDocuments().length;
-    document.getElementById("pending-count").textContent = `待发布 ${count} 页`;
+    document.getElementById("pending-count").textContent = `待发布 ${count} 项`;
     saveButton.disabled = count === 0;
   }
   function readerUrl(path, anchor = "") { return `../${path}/${anchor ? `#${encodeURIComponent(anchor)}` : ""}`; }
@@ -130,6 +132,11 @@
     container.replaceChildren();
     const pages = pageMap();
     const list = node("ul", "tree-list");
+    if (state.pages.glossary) {
+      const glossaryItem = node("li");
+      glossaryItem.append(buildPageBranch(state.pages.glossary));
+      list.append(glossaryItem);
+    }
     state.site.tree.forEach((entry) => {
       const item = node("li");
       if (entry.type === "group") {
@@ -195,13 +202,17 @@
 
   function updatePageChrome() {
     const page = state.pages[state.slug];
+    const glossary = page?.kind === "glossary";
+    document.getElementById("language-button").hidden = glossary;
+    document.getElementById("sage-btn").hidden = glossary;
+    document.getElementById("glossary-form").hidden = !glossary;
     const title = textFor(page?.title) || state.slug;
     document.getElementById("editor-document-label").textContent = title;
     document.title = `${title} · SRD 编辑器`;
     document.querySelector(".editor-shell").dataset.pagePath = state.slug;
     document.getElementById("language-button").textContent = state.language === "zh" ? "中文" : "EN";
     document.documentElement.lang = state.language === "zh" ? "zh-CN" : "en";
-    const url = readerUrl(state.slug);
+    const url = glossary ? "../" : readerUrl(state.slug);
     document.getElementById("reader-link").href = url;
     document.getElementById("sidebar-reader-link").href = url;
     history.replaceState(null, "", editorUrl(state.slug, state.language) + (state.pendingAnchor ? `#${encodeURIComponent(state.pendingAnchor)}` : ""));
@@ -209,6 +220,7 @@
   }
 
   async function loadDocument(slug, language, anchor = "") {
+    if (state.pages[slug]?.kind === "glossary") language = "zh";
     if (!state.pages[slug]?.files?.[language]) { setStatus("该语言文件不存在", true); return; }
     const sequence = ++state.loadSequence;
     setStatus("加载中…");
@@ -234,6 +246,7 @@
       updatePageChrome();
       updateSaveState();
       renderPreview();
+      await showGlossaryForm(state.pages[slug].kind === "glossary");
       setStatus("已载入；未发布修改保存在当前浏览器会话");
       document.body.classList.remove("sidebar-open");
     } catch (error) { setStatus(`加载失败：${error.message}`, true); }
@@ -253,6 +266,27 @@
 
   function renderPreview() {
     if (!state.slug) return;
+    if (state.slug === "glossary") {
+      const sequence = ++state.previewSequence;
+      clearTimeout(state.previewFallbackTimer);
+      const content = documentFor().content;
+      import("../js/glossary-core.mjs?v=20260927-trim").then(({ parseGlossary }) => {
+        if (sequence !== state.previewSequence) return;
+        try {
+          const { terms } = parseGlossary(content);
+          const preview = document.getElementById("preview");
+          preview.replaceChildren(node("h2", "", "术语表预览"), node("p", "", `${terms.length} 条术语`));
+          for (const term of terms) {
+            const entry = node("details", "glossary-preview-entry");
+            entry.append(node("summary", "", `${term.zh}`));
+            entry.append(node("p", "", term.description));
+            preview.append(entry);
+          }
+          document.getElementById("preview-status").textContent = "Markdown 格式有效";
+        } catch (error) { document.getElementById("preview-status").textContent = `格式错误：${error.message}`; }
+      });
+      return;
+    }
     const zh = documentFor(state.slug, "zh");
     const en = documentFor(state.slug, "en");
     if (!zh || !en) return;
@@ -263,7 +297,7 @@
     state.previewFallbackTimer = setTimeout(async () => {
       if (sequence !== state.previewSequence) return;
       try {
-        const { renderPair } = await import("../js/render-core.mjs?v=20260903j");
+        const { renderPair } = await import("../js/render-core.mjs?v=20260927-anchors");
         applyPreviewResult(sequence, renderPair(zh.content, en.content, { pagePath: state.slug }).html[state.language]);
       } catch (error) {
         document.getElementById("preview-status").textContent = `预览失败：${error.message}`;
@@ -299,6 +333,7 @@
 
   function pageLabel(draft) {
     const page = state.pages[draft.slug];
+    if (page?.kind === "glossary") return "术语表 · 中英共用";
     const title = page?.title?.[draft.language] || page?.title?.zh || draft.slug;
     return `${title} · ${draft.language === "zh" ? "中文" : "EN"}`;
   }
@@ -443,12 +478,33 @@
       textarea.value = draft.content;
       document.getElementById("document-version").textContent = `版本 ${draft.version}`;
       schedulePreview();
+      if (draft.slug === "glossary") state.glossaryEditor?.load(draft.content);
     }
     panel.hidden = true;
     renderTree();
     updateSaveState();
     setStatus("已载入服务器版本");
   });
+  async function showGlossaryForm(show) {
+    const container = document.getElementById("glossary-editor");
+    if (show && !state.glossaryEditor) {
+      const { createGlossaryEditor } = await import("./glossary-editor.mjs?v=20260927-trim");
+      if (state.slug !== "glossary") return;
+      state.glossaryEditor = createGlossaryEditor(container, {
+        onChange(content) {
+          const draft = documentFor("glossary");
+          if (!draft) return;
+          draft.content = content; textarea.value = content;
+          updateSaveState(); renderTree(); schedulePreview();
+        },
+      });
+      container.querySelector("#glossary-markdown").addEventListener("click", () => showGlossaryForm(false));
+    }
+    if (show) state.glossaryEditor.load(documentFor("glossary").content);
+    container.hidden = !show;
+    document.querySelector(".editor-workspace").hidden = show;
+  }
+  document.getElementById("glossary-form").addEventListener("click", () => showGlossaryForm(true));
   window.addEventListener("beforeunload", (event) => {
     if (dirtyDocuments().length) { event.preventDefault(); event.returnValue = ""; }
   });

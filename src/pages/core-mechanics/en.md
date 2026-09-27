@@ -213,45 +213,45 @@ Advantage and disadvantage dice cancel each out, one-forone, when they would be 
 
 **Hope** and **Fear** are metacurrencies representing the cosmic forces that shape the events of your table's story. Hope powers PC abilities and features, while Fear powers the abilities of the GM and the adversaries and environments they control.
 
-#### **HOPE** {#hope}
+#### **HOPE** {#rule-hope}
 
 Every PC starts with 2 Hope at character creation and gains more throughout play. A PC can have a maximum of 6 Hope at one time, and Hope carries over between sessions.
 
 Players can spend Hope to:
 
-#### • **Help an Ally** {#help-an-ally}
+#### • **Help an Ally** {#rule-help-an-ally}
 
 When you Help an Ally who is making an action roll, describe how you do so and roll an advantage die. Multiple players can spend Hope to help the same acting player, but that player only adds the highest result to their final total.
 
-• **Utilize an Experience**
+#### Utilize an Experience {#rule-utilize-an-experience}
 
 When you Utilize an Experience on a relevant roll, add its modifier to the result. You can spend multiple Hope to utilize multiple Experiences.
 
-• **Initiate a Tag Team Roll**
+#### Initiate a Tag Team Roll {#rule-initiate-tag-team-roll}
 
 Spend 3 Hope to initiate a Tag Team roll, combining the actions of two PCs into one impressive act of synergy. When you make a Tag Team roll, both players roll their action rolls and then choose which set of results to apply to the outcome.
 
-• **Activate a Hope Feature** 
+#### Activate a Hope Feature {#rule-activate-hope-feature}
 
 A Hope Feature is any effect that allows (or requires) you to spend a specified amount of Hope to activate it. **Class Hope features** are class-specific features, detailed on your character sheet, that cost 3 Hope to activate.
 
 *Note: When using a Hope Feature, if you rolled with Hope for that action, the Hope you gain from that roll can be spent on that feature (or toward it, if it requires spending multiple Hope).*
 
-#### **FEAR** {#fear}
+#### **FEAR** {#rule-fear}
 
 The GM gains Fear whenever a player rolls with Fear and can spend Fear at any time to make or enhance a GM move or to use a Fear Feature. The GM can have up to 12 Fear at one time. Fear carries over between sessions.
 
-# COMBAT {#combat}
+# COMBAT {#rule-combat}
 
 Though Daggerheart relies on the same flow of collaborative storytelling in and out of combat, physical conflicts rely more heavily on several key mechanics related to attacking, maneuvering, and taking damage.
 
-## EVASION {#evasion}
+## EVASION {#rule-evasion}
 
 **Evasion** represents a character's ability to avoid attacks and other unwanted effects. Any roll made against a PC has a Difficulty equal to the target's Evasion. A PC's base Evasion is determined by their class, but can be modified by domain cards, equipment, conditions, and other effects.
 
 *Note: attacks rolled against adversaries use the target's Difficulty instead of Evasion.*
 
-## HIT POINTS & DAMAGE THRESHOLDS {#hit-points-damage-thresholds}
+## HIT POINTS & DAMAGE THRESHOLDS {#rule-hit-points-damage-thresholds}
 
 **Hit Points (HP)** represent a character's ability to withstand physical injury. When a character takes damage, they mark 1 to 3 HP, based on their **damage thresholds:**
 
@@ -268,11 +268,11 @@ When a character marks their last Hit Point, they fall. If a PC falls, they make
 
 Characters can clear Hit Points by taking downtime moves (see: Downtime) or by activating relevant special abilities or effects.
 
-#### *Optional Rule: Massive Damage* {#optional-rule-massive-damage}
+#### *Optional Rule: Massive Damage* {#rule-optional-rule-massive-damage}
 
 If a character ever takes damage equal to twice their Severe threshold, they mark 4 HP instead of 3.
 
-## STRESS {#stress}
+## STRESS {#rule-stress}
 
 **Stress** represents how much mental, physical, and emotional strain a character can endure. Some special abilities or effects require the character activating them to mark Stress, and the GM can require a PC to mark Stress as a GM move or to represent the cost, complication, or consequence of an action roll.
 
@@ -282,13 +282,13 @@ When a character must mark 1 or more Stress but can't, they mark 1 HP instead. A
 
 PCs can clear Stress by making downtime moves (see: Downtime). A PC's maximum Stress is determined by their class, but they can increase it through advancements, abilities, and other effects.
 
-## ATTACKING {#attacking}
+## ATTACKING {#rule-attacking}
 
-### **ATTACK ROLLS** {#attack-rolls}
+### **ATTACK ROLLS** {#rule-attack-rolls}
 
 An **attack roll** is an action roll intended to inflict harm. The trait that applies to an attack roll is specified by the weapon or spell being used. Unarmed attack rolls use either Strength or Finesse (GM's choice). An attack roll's Difficulty, unless otherwise noted, is equal to the Difficulty score of its target.
 
-### **DAMAGE ROLLS** {#damage-rolls}
+### **DAMAGE ROLLS** {#rule-damage-rolls}
 
 On a successful attack, roll damage. Damage is calculated from the **damage roll** listed in the attack's description with the format "xdy+[modifier]" *(e.g., for a spell that inflicts "1d8+2" damage, you roll an eight-sided and add 2 to the result; the damage dealt is equal to the total).*
 
@@ -300,15 +300,15 @@ For weapons, the number of damage dice you roll is equal to your **Proficiency.*
 
 Successful unarmed attacks inflict [Proficiency]d4 damage.
 
-#### **CRITICAL DAMAGE** {#critical-damage}
+#### **CRITICAL DAMAGE** {#rule-critical-damage}
 
 When you get a critical success (i.e., you roll matching values on your Duality Dice) on an attack roll, you deal extra damage. Make the damage roll as usual, but add the maximum possible result of the damage dice to the final total. For instance, if an attack would normally deal 2d8+1 damage, a critical success would deal 2d8+1+16.
 
-#### **DAMAGE TYPES** {#damage-types}
+#### **DAMAGE TYPES** {#rule-damage-types}
 
 There are two damage types: **physical damage (phy)** and **magic damage (mag)**. Unless stated otherwise, mundane weapons and unarmed attacks deal physical damage, and spells deal magic damage.
 
-#### **RESISTANCE, IMMUNITY, AND DIRECT DAMAGE** {#resistance-immunity-and-direct-damage}
+#### **RESISTANCE, IMMUNITY, AND DIRECT DAMAGE** {#rule-resistance-immunity-and-direct-damage}
 
 If a target has **resistance** to a damage type, then they reduce incoming damage of that type by half before comparing it to their Hit Point Thresholds. If the target has additional ways of reducing incoming damage, such as marking Armor Slots, they apply the resistance effect first. The effects of multiple resistances to the same damage type do not stack.
 
@@ -318,17 +318,17 @@ If an attack deals both physical and magic damage, a character can only benefit 
 
 **Direct damage** is damage that can't be reduced by marking Armor Slots.
 
-#### **MULTI-TARGET ATTACK ROLLS** {#multi-target-attack-rolls}
+#### **MULTI-TARGET ATTACK ROLLS** {#rule-multi-target-attack-rolls}
 
 If a spell or ability allows you to target multiple adversaries, make one attack roll and one damage roll, then apply the results to each target individually.
 
-#### **MULTIPLE DAMAGE SOURCES** {#multiple-damage-sources}
+#### **MULTIPLE DAMAGE SOURCES** {#rule-multiple-damage-sources}
 
 Damage dealt simultaneously from multiple sources is always totaled before it's compared to its target's damage thresholds.
 
 For example, if a PC with orc ancestry makes a successful attack against a target in Melee range and decides to spend a Hope to use their "Tusks" feature (which gives them an extra 1d6 damage on a damage roll), they would roll their normal weapon damage and add a d6 to the result, then deal that total damage to the adversary.
 
-## MAPS, RANGE, AND MOVEMENT {#maps-range-and-movement}
+## MAPS, RANGE, AND MOVEMENT {#rule-maps-range-and-movement}
 
 You can play Daggerheart using "theater of the mind" or maps and miniatures. The conversions below from abstract ranges to physical measurements assume 1 inch of map represents about 5 feet of fictional space.
 
@@ -350,7 +350,7 @@ Range is measured from the source of an effect, such as the attacker or spellcas
 
 A weapon, spell, ability, item, or other effect's stated range is a maximum range; unless otherwise noted, it can be used at closer distances.
 
-#### **Optional Rule: Defined Ranges** {#optional-rule-defined-ranges}
+#### **Optional Rule: Defined Ranges** {#rule-optional-rule-defined-ranges}
 
 *If your table would rather operate with more precise range rules, you can use a 1-inch grid battle map during combat. If you do, use the following guidelines for play:*
 
@@ -361,37 +361,37 @@ A weapon, spell, ability, item, or other effect's stated range is a maximum rang
 - **Very Far:** 13+ squares
 - **Out of Range:** Off the battlemap
 
-#### **MOVEMENT UNDER PRESSURE** {#movement-under-pressure}
+#### **MOVEMENT UNDER PRESSURE** {#rule-movement-under-pressure}
 
 When you're under pressure or in danger and make an action roll, you can move to a location within Close range as part of that action. If you're not already making an action roll, or if you want to move farther than your Close range, you need to succeed on an Agility Roll to safely reposition yourself.
 
 An adversary can move within Close range for free as part of an action, or within Very Far range as a separate action.
 
-#### **AREA OF EFFECT** {#area-of-effect}
+#### **AREA OF EFFECT** {#rule-area-of-effect}
 
 Unless stated otherwise, all the targets of a group effect must be within Very Close range of a single origin point within your effect's range.
 
-#### **LINE OF SIGHT & COVER** {#line-of-sight-cover}
+#### **LINE OF SIGHT & COVER** {#rule-line-of-sight-cover}
 
 Unless stated otherwise, a ranged attacker must have **line of sight** to their intended target to make an attack roll. If a partial obstruction lies between the attacker and target, the target has **cover.** Attacks made through cover are rolled with disadvantage. If the obstruction is total, there is no line of sight.
 
-## CONDITIONS {#conditions}
+## CONDITIONS {#rule-conditions}
 
 **Conditions** are effects that grant specific benefits or drawbacks to the target they are attached to.
 
-#### STANDARD CONDITIONS {#standard-conditions}
+#### STANDARD CONDITIONS {#rule-standard-conditions}
 
 Daggerheart has three standard conditions:
 
-#### **HIDDEN** {#hidden}
+#### **HIDDEN** {#rule-hidden}
 
 While you're out of sight from all enemies and they don't otherwise know your location, you gain the *Hidden* condition. Any rolls against a *Hidden* creature have disadvantage. After an adversary moves to where they would see you, you move into their line of sight, or you make an attack, you are no longer *Hidden*.
 
-#### **RESTRAINED** {#restrained}
+#### **RESTRAINED** {#rule-restrained}
 
 *Restrained* characters can't move, but you can still take actions from their current position.
 
-#### **VULNERABLE** {#vulnerable}
+#### **VULNERABLE** {#rule-vulnerable}
 
 When a creature is *Vulnerable,* all rolls targeting them have advantage.
 
@@ -399,13 +399,13 @@ Some features can apply special or unique conditions, which work as described in
 
 Unless otherwise noted, the same condition can't be applied more than once to the same target.
 
-#### TEMPORARY TAGS & SPECIAL CONDITIONS {#temporary-tags-special-conditions}
+#### TEMPORARY TAGS & SPECIAL CONDITIONS {#rule-temporary-tags-special-conditions}
 
 The **temporary** tag denotes a condition or effect that the affected creature can clear by making a move against it. When an affected PC makes a move to clear a temporary condition or effect, it normally requires a successful action roll using an appropriate trait. When an affected adversary makes a move to clear a temporary condition or effect, the GM puts the spotlight on the adversary and describes how they do it; this doesn't require a roll but it does use up that adversary's spotlight.
 
 **Special conditions** are only cleared when specific requirements are met, such as completing a certain action or using a particular item. The requirements for clearing these conditions are stated in the text of the effect that applies the condition.
 
-# DOWNTIME {#downtime}
+# DOWNTIME {#rule-downtime}
 
 Between conflicts, the party can take a **rest** to recover expended resources and deepen their bonds. During a rest, each PC can make up to two downtime moves.
 
@@ -432,11 +432,11 @@ A **long rest** is when the characters make camp and relax or sleep for several 
 
 At the end of a long rest, any features or effects with a limited number of uses per rest or per long rest refresh and any features or effects that last until your next rest or until your next long rest expire.
 
-#### **DOWNTIME CONSEQUENCES** {#downtime-consequences}
+#### **DOWNTIME CONSEQUENCES** {#rule-downtime-consequences}
 
 On a short rest, the GM gains 1d4 Fear. On a long rest, they gain Fear equal to 1d4 + the number of PCs, and they can advance a **long-term countdown** of their choice.
 
-# **DEATH** {#death}
+# **DEATH** {#rule-death}
 
 When a PC marks their last Hit Point, they must make a **death move** by choosing one of the following options:
 
@@ -446,43 +446,43 @@ When a PC marks their last Hit Point, they must make a **death move** by choosin
 
 If your character dies, work with the GM before the next session to create a new character at the current level of the rest of the party.
 
-# ADDITIONAL RULES {#additional-rules}
+# ADDITIONAL RULES {#rule-additional-rules}
 
 *The following rules apply to many aspects of the game.*
 
-#### **ROUNDING UP** {#rounding-up}
+#### **ROUNDING UP** {#rule-rounding-up}
 
 This game doesn't use fractions; if you need to round to a whole number, round up unless otherwise specified. When in doubt, resolve any ambiguity in favor of the PCs.
 
-#### **REROLLING DICE** {#rerolling-dice}
+#### **REROLLING DICE** {#rule-rerolling-dice}
 
 When a feature allows you to reroll a die, you always take the new result unless the feature specifically says otherwise.
 
-#### **INCOMING DAMAGE** {#incoming-damage}
+#### **INCOMING DAMAGE** {#rule-incoming-damage}
 
 Incoming damage means the total damage from a single attack or source, before Armor Slots are marked.
 
-#### **SIMULTANEOUS EFFECTS** {#simultaneous-effects}
+#### **SIMULTANEOUS EFFECTS** {#rule-simultaneous-effects}
 
 If the resolution order of multiple effects is unclear, the person in control of the effects (player or GM) decides what order to resolve them in.
 
-#### **STACKING EFFECTS** {#stacking-effects}
+#### **STACKING EFFECTS** {#rule-stacking-effects}
 
 Unless stated otherwise, all effects beside conditions and advantage/disadvantage can stack.
 
-#### **ONGOING SPELL EFFECTS** {#ongoing-spell-effects}
+#### **ONGOING SPELL EFFECTS** {#rule-ongoing-spell-effects}
 
 If an effect doesn't have a listed mechanical expiration, it only ends when decided by the controlling player, the GM, or the demands of the fiction.
 
-#### **SPENDING RESOURCES** {#spending-resources}
+#### **SPENDING RESOURCES** {#rule-spending-resources}
 
 Unless an effect states otherwise, you can't spend Hope or mark Stress multiple times on the same feature to increase or repeat its effects on the same roll.
 
-#### **USING FEATURES AFTER A ROLL** {#using-features-after-a-roll}
+#### **USING FEATURES AFTER A ROLL** {#rule-using-features-after-a-roll}
 
 If a feature allows you to affect a roll after the result has been totaled, you can use it after the GM declares whether the roll succeeds or fails, but not after the consequences unfold or another roll is made.
 
-# LEVELING UP {#leveling-up}
+# LEVELING UP {#rule-leveling-up}
 
 Your party levels up whenever the GM decides you've reached a narrative milestone (usually about every 3 sessions). All party members level up at the same time.
 
@@ -495,7 +495,7 @@ Daggerheart has 10 PC levels divided into 4 tiers:
 
 Your tier affects your damage thresholds, tier achievements, and access to advancements.
 
-#### STEP ONE TIER ACHIEVEMENTS {#step-one-tier-achievements}
+#### STEP ONE TIER ACHIEVEMENTS {#rule-step-one-tier-achievements}
 
 Take any applicable tier **achievements**
 
@@ -503,7 +503,7 @@ Take any applicable tier **achievements**
 - At level 5, you gain a new Experience at +2, permanently increase your Proficiency by 1, and clear any marked traits.
 - At level 8, you gain a new Experience at +2, permanently increase your Proficiency by 1, and clear any marked traits.
 
-#### STEP TWO ADVANCEMENTS {#step-two-advancements}
+#### STEP TWO ADVANCEMENTS {#rule-step-two-advancements}
 
 Choose any two **advancements** with at least one unmarked slot from your tier or below. Options with multiple slots can be chosen more than once. When you choose an advancement, mark one of its slots.
 
@@ -517,21 +517,21 @@ Choose any two **advancements** with at least one unmarked slot from your tier o
 - *When you choose to increase your Proficiency:* Fill in one of the open circles in the "Proficiency" section of your character sheet, then increase your weapon's number of damage dice by 1. *The black box around this advancement's slots indicates you must spend two advancements and mark both level-up slots in order to take it as an option.*
 - *When you choose to multiclass:* Choose an additional class, select one of its domains, and gain its class feature. Add the appropriate **multiclass module** to your character sheet and take the foundation card from one of its subclasses. Then cross out the "upgraded subclass" advancement option in this tier and all other "multiclass" advancement options on your character sheet. *The black box around this advancement's slots indicates you must spend two advancements and mark both level-up slots in order to take it as an option.*
 
-#### STEP THREE DAMAGE THRESHOLDS {#step-three-damage-thresholds}
+#### STEP THREE DAMAGE THRESHOLDS {#rule-step-three-damage-thresholds}
 
 Increase all damage thresholds by 1.
 
-#### STEP FOUR DOMAIN CARDS {#step-four-domain-cards}
+#### STEP FOUR DOMAIN CARDS {#rule-step-four-domain-cards}
 
 Acquire a new domain card at your level or lower from one of your class's domains and add it to your loadout or vault. If your loadout is already full, you can't add the new card to it until you move another into your vault. You can also exchange one domain card you've previously acquired for a different domain card of the same level or lower.
 
-## MULTICLASSING {#multiclassing}
+## MULTICLASSING {#rule-multiclassing}
 
 Starting at level 5, you can choose multiclassing as an option when leveling up. When you multiclass, you choose an additional class, gain access to one of its domains, and acquire its class feature. Take the appropriate multiclass module and add it to the right side of your character sheet, then choose a foundation card from one of its subclasses. If your foundation cards specify different Spellcast traits, you can choose which one to apply when making a Spellcast roll.
 
 Whenever you have the option to acquire a new domain card, you can choose from cards at or below half your current level (rounded up) from the domain you chose when you selected the multiclass advancement.
 
-# GOLD {#gold}
+# GOLD {#rule-gold}
 
 Gold is an abstract measurement of how much wealth a character has, and is measured in **handfuls, bags,** and **chests,** with 10 handfuls to 1 bag, and 10 bags to 1 chest. When you have marked all of the slots in a category and you gain another gold reward in that category, mark a slot in the following category and clear all the slots in the current one.
 
@@ -539,6 +539,6 @@ For example, if you have 9 handfuls and gain another, you instead mark 1 bag and
 
 You can't have more than 1 chest, so if all your Gold slots are marked, you'll need to spend some of your gold or store it somewhere else before you can acquire more.
 
-#### **Optional Rule: Gold Coins** {#optional-rule-gold-coins}
+#### **Optional Rule: Gold Coins** {#rule-optional-rule-gold-coins}
 
 If your group wants to track gold with more granularity, you can add **coins** as your lowest denomination. Following the established pattern, 10 coins equal 1 handful.

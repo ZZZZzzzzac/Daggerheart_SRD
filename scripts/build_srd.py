@@ -17,6 +17,7 @@ from urllib.parse import urlparse
 import yaml
 
 from validate_site import ValidationError, validate_site
+import adversary_catalog
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -76,27 +77,39 @@ def render_preview(markdown_text: str, language: str = "zh") -> str:
 class GlossaryLinker(HTMLParser):
     """Link the first configured term in each section without touching markup."""
 
-    SKIP_TAGS = {"a", "code", "pre", "script", "style", "h1", "h2", "h3", "h4", "h5", "h6"}
+    SKIP_TAGS = {"a", "button", "code", "pre", "script", "style", "textarea", "h1", "h2", "h3", "h4", "h5", "h6"}
 
     def __init__(self, terms: list[dict], language: str, base_path: str):
         super().__init__(convert_charrefs=False)
         self.output: list[str] = []
         self.skip_depth = 0
+        self.skip_stack = []
         self.seen: set[str] = set()
+        self.language = language
         candidates = []
-        for term in terms:
-            labels = [term.get(language, ""), *(term.get("aliases", {}).get(language, []) or [])]
-            for label in filter(None, labels):
-                candidates.append((label, term))
-        candidates.sort(key=lambda item: len(item[0]), reverse=True)
-        self.candidates = candidates
+        for index, term in enumerate(terms):
+            label = term.get(language, "")
+            if label:
+                candidates.append((label, index, term))
+        candidates.sort(key=lambda item: (-len(item[0]), item[1]))
+        self.matches = {}
+        patterns = []
+        for label, term_index, term in candidates:
+            escaped = re.escape(label)
+            matched = escaped
+            pattern = rf"(?<![A-Za-z0-9_]){matched}(?![A-Za-z0-9_])" if label.isascii() else escaped
+            patterns.append(pattern)
+            self.matches.setdefault(label, []).append((label, str(term_index), term))
+        self.pattern = re.compile("|".join(patterns)) if patterns else None
         self.base_path = "/" + base_path.strip("/") + "/" if base_path.strip("/") else "/"
 
     def handle_starttag(self, tag, attrs):
-        if tag in {"h1", "h2", "h3"}:
+        if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
             self.seen.clear()
-        if tag in self.SKIP_TAGS:
-            self.skip_depth += 1
+        skip = tag in self.SKIP_TAGS or "no-glossary" in dict(attrs).get("class", "").split()
+        if tag not in {"br", "hr", "img", "input", "meta", "link", "wbr", "area", "base", "col", "embed", "param", "source", "track"}:
+            self.skip_stack.append((tag, skip))
+            self.skip_depth += int(skip)
         self.output.append(self.get_starttag_text())
 
     def handle_startendtag(self, tag, attrs):
@@ -104,31 +117,48 @@ class GlossaryLinker(HTMLParser):
 
     def handle_endtag(self, tag):
         self.output.append(f"</{tag}>")
-        if tag in self.SKIP_TAGS:
-            self.skip_depth = max(0, self.skip_depth - 1)
+        for index in range(len(self.skip_stack) - 1, -1, -1):
+            if self.skip_stack[index][0] == tag:
+                self.skip_depth -= sum(int(skip) for _, skip in self.skip_stack[index:])
+                del self.skip_stack[index:]
+                break
 
     def handle_data(self, data):
-        if self.skip_depth or not data.strip():
+        if self.skip_depth or not data.strip() or self.pattern is None:
             self.output.append(data)
             return
-        output = data
-        for label, term in self.candidates:
-            term_id = str(term.get("id") or label)
+        # Match only the original text, never the HTML emitted for an earlier term.
+        # A single pass also prevents shorter labels from nesting inside longer ones.
+        def replace(match):
+            label = match.group(0)
+            choices = self.matches.get(label, [])
+            chosen = choices[0] if choices else None
+            if chosen is None:
+                return label
+            _, term_id, term = chosen
             if term_id in self.seen:
-                continue
-            flags = re.IGNORECASE if label.isascii() else 0
-            escaped = re.escape(label)
-            pattern = re.compile(rf"(?<![A-Za-z0-9_]){escaped}(?![A-Za-z0-9_])", flags) if label.isascii() else re.compile(escaped)
-            match = pattern.search(output)
-            if not match:
-                continue
-            target = str(term["target"]).strip("/")
-            anchor = str(term["anchor"])
-            href = f"{self.base_path}{target}/#{anchor}"
-            replacement = f'<a class="term-link" href="{html.escape(href, quote=True)}">{match.group(0)}</a>'
-            output = output[: match.start()] + replacement + output[match.end() :]
+                return label
+            href = term.get("url", "")
+            if href and not urlparse(href).scheme and not href.startswith(("/", "#")):
+                href = self.base_path + href
+            attributes = {
+                "data-term-id": term_id,
+                "data-term-zh": term.get("zh", ""),
+                "data-term-quote": term.get("description", ""),
+            }
+            if href:
+                attributes["href"] = href
+            # Blank lines inside an attribute would be parsed as Markdown blocks by Hugo.
+            escaped_attributes = {
+                key: html.escape(value, quote=True).replace("\n", "&#10;").replace("\r", "&#13;")
+                for key, value in attributes.items()
+            }
+            rendered_attributes = " ".join(f'{key}="{value}"' for key, value in escaped_attributes.items())
             self.seen.add(term_id)
-        self.output.append(output)
+            tag = "a" if href else "span"
+            return f'<{tag} class="term-link" {rendered_attributes}>{label}</{tag}>'
+
+        self.output.append(self.pattern.sub(replace, data))
 
     def handle_entityref(self, name):
         self.output.append(f"&{name};")
@@ -140,8 +170,32 @@ class GlossaryLinker(HTMLParser):
         self.output.append(f"<!--{data}-->")
 
 
+def read_glossary(project_dir: Path) -> dict:
+    path = project_dir / "data" / "glossary.md"
+    if not path.is_file():
+        return {"terms": []}
+    result = subprocess.run(
+        ["node", str(RENDER_CORE_CLI)],
+        input=json.dumps({"mode": "glossary", "markdown": path.read_text(encoding="utf-8")}),
+        capture_output=True, text=True, encoding="utf-8", errors="replace", timeout=30,
+    )
+    if result.returncode:
+        raise BuildError(f"术语 Markdown 格式错误：{result.stderr.strip()}")
+    return json.loads(result.stdout)
+
+
+def validate_glossary(glossary: dict) -> None:
+    for index, term in enumerate(glossary.get("terms", []), 1):
+        if not term.get("zh", "").strip():
+            raise BuildError(f"第 {index} 条术语必须填写中文名")
+        url = term.get("url", "")
+        parsed = urlparse(url)
+        if (parsed.scheme and parsed.scheme.lower() not in {"http", "https"}) or url.startswith("//") or any(ord(char) < 32 or char == "\\" for char in url):
+            raise BuildError(f"术语 {term['zh']} 的跳转链接无效")
+
+
 def apply_glossary_links(rendered_html: str, glossary: dict, language: str, base_path: str) -> str:
-    if not glossary.get("enabled"):
+    if language != "zh":
         return rendered_html
     linker = GlossaryLinker(glossary.get("terms", []), language, base_path)
     linker.feed(rendered_html)
@@ -151,6 +205,8 @@ def apply_glossary_links(rendered_html: str, glossary: dict, language: str, base
 
 def _plain_text(markdown_text: str) -> str:
     value = re.sub(r"```.*?```", " ", markdown_text, flags=re.DOTALL)
+    value = re.sub(r"^\s*:::(?: no-glossary)?\s*$", "", value, flags=re.MULTILINE)
+    value = value.replace("[[!", "").replace("]]", "")
     value = re.sub(r"`[^`]+`", " ", value)
     value = re.sub(r"!\[[^]]*\]\([^)]*\)", " ", value)
     value = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", value)
@@ -271,7 +327,6 @@ srd_path: ""
 
 def generate_site(project_dir: Path) -> tuple[Path, Path]:
     manifest_path = project_dir / "data" / "srd.yaml"
-    glossary_path = project_dir / "data" / "glossary.yaml"
     pages_dir = project_dir / "src" / "pages"
     content_dir = project_dir / "content"
     generated_dir = project_dir / "static" / "generated"
@@ -281,9 +336,8 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
     version = str(manifest.get("version", "")).strip()
     if not version or version.lower() == "current":
         raise BuildError("data/srd.yaml 必须使用真实版本号，不能留空或使用 current")
-    glossary = yaml.safe_load(glossary_path.read_text(encoding="utf-8")) if glossary_path.is_file() else {"enabled": False, "terms": []}
-    if glossary.get("enabled") and not glossary.get("terms"):
-        raise BuildError("规则术语链接已启用，但术语表为空")
+    glossary = read_glossary(project_dir)
+    validate_glossary(glossary)
 
     if content_dir.exists():
         shutil.rmtree(content_dir)
@@ -315,26 +369,8 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         }
         for prepared in prepared_pages
     ])
-    anchors_by_path: dict[str, dict[str, set[str]]] = {}
     for prepared, rendered in zip(prepared_pages, rendered_pages, strict=True):
         prepared["rendered"] = rendered
-        anchors = rendered["anchors"]
-        anchors_by_path[prepared["page"]["path"]] = {
-            "zh": set(anchors["zh"]),
-            "en": set(anchors["en"]),
-        }
-
-    if glossary.get("enabled"):
-        for term in glossary.get("terms", []):
-            if not all(term.get(key) for key in ("id", "target", "anchor")):
-                raise BuildError("术语表条目必须包含 id、target 和 anchor")
-            target = str(term["target"]).strip("/")
-            anchor = str(term["anchor"])
-            if target not in anchors_by_path:
-                raise BuildError(f"术语 {term['id']} 指向不存在的页面: {target}")
-            for language in ("zh", "en"):
-                if anchor not in anchors_by_path[target][language]:
-                    raise BuildError(f"术语 {term['id']} 指向不存在的 {language} 小节: {target}#{anchor}")
 
     if (project_dir / "config.yaml").is_file():
         config_documents = yaml.safe_load_all((project_dir / "config.yaml").read_text(encoding="utf-8"))
@@ -354,6 +390,7 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         en_anchors = rendered["anchors"]["en"]
         zh_html = apply_glossary_links(rendered["html"]["zh"], glossary, "zh", base_path)
         en_html = apply_glossary_links(rendered["html"]["en"], glossary, "en", base_path)
+        prepared["linked_html"] = {"zh": zh_html, "en": en_html}
         output_dir = content_dir / path
         output_dir.mkdir(parents=True, exist_ok=True)
         page_content = _frontmatter(page) + (
@@ -385,6 +422,12 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         })
         search_records.extend(section_records(zh_text, zh_anchors, page["title"]["zh"], path, "zh"))
         search_records.extend(section_records(en_text, en_anchors, page["title"]["en"], path, "en"))
+
+    try:
+        adversary_catalog.generate(project_dir, prepared_pages, site_pages, search_records)
+        adversary_catalog.generate(project_dir, prepared_pages, site_pages, search_records, "environment")
+    except (ValueError, KeyError) as exc:
+        raise BuildError(f"敌人资料库生成失败: {exc}") from exc
 
     tree: list[dict] = []
     for item in manifest.get("pages", []):

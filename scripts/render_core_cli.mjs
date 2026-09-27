@@ -1,9 +1,18 @@
 import { readFileSync } from "node:fs";
 
 import { renderPair } from "../static/js/render-core.mjs";
+import { parseGlossary, serializeGlossary } from "../static/js/glossary-core.mjs";
 
 
 const input = JSON.parse(readFileSync(0, "utf8"));
+if (input.mode === "glossary") {
+  process.stdout.write(JSON.stringify(parseGlossary(input.markdown)));
+  process.exit(0);
+}
+if (input.mode === "serialize-glossary") {
+  process.stdout.write(serializeGlossary(input.terms));
+  process.exit(0);
+}
 if (!Array.isArray(input.documents)) {
   throw new TypeError("documents must be an array");
 }

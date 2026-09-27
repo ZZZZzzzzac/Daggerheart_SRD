@@ -1,5 +1,6 @@
 import json
 import sys
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -7,6 +8,11 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 import build_srd
+
+
+def write_glossary(project, terms):
+    result = subprocess.run(['node', str(build_srd.RENDER_CORE_CLI)], input=json.dumps({'mode': 'serialize-glossary', 'terms': terms}), capture_output=True, text=True, encoding='utf-8', check=True)
+    (project / 'data/glossary.md').write_text(result.stdout, encoding='utf-8')
 
 
 def make_project(tmp_path, zh="# 游戏\n\n## 动作掷骰\n\n中文正文", en="# Game\n\n## Action Roll\n\nEnglish body"):
@@ -18,7 +24,7 @@ def make_project(tmp_path, zh="# 游戏\n\n## 动作掷骰\n\n中文正文", en=
         "pages": [{"path": "core", "title": {"zh": "核心", "en": "Core"}}],
     }
     (project / "data" / "srd.yaml").write_text(yaml.safe_dump(manifest, allow_unicode=True), encoding="utf-8")
-    (project / "data" / "glossary.yaml").write_text("enabled: false\nterms: []\n", encoding="utf-8")
+    (project / "data" / "glossary.md").write_text("# 规则术语表\n", encoding="utf-8")
     (project / "src" / "pages" / "core" / "zh.md").write_text(zh, encoding="utf-8")
     (project / "src" / "pages" / "core" / "en.md").write_text(en, encoding="utf-8")
     return project
@@ -111,29 +117,58 @@ def test_placeholder_version_blocks_generation(tmp_path):
         build_srd.generate_site(project)
 
 
-def test_enabled_empty_glossary_blocks_generation(tmp_path):
+def test_empty_glossary_allows_removing_all_hints(tmp_path):
     project = make_project(tmp_path)
-    (project / "data" / "glossary.yaml").write_text("enabled: true\nterms: []\n", encoding="utf-8")
-    with pytest.raises(build_srd.BuildError, match="术语表为空"):
-        build_srd.generate_site(project)
-
-
-def test_glossary_links_first_term_per_section_and_skips_existing_markup(tmp_path):
-    project = make_project(
-        tmp_path,
-        zh="# 游戏\n\n## 动作掷骰\n\n优势与优势。\n\n## 其他\n\n`优势`、[优势](https://example.com)与优势。",
-        en="# Game\n\n## Action Roll\n\nAdvantage and Advantage.\n\n## Other\n\n`Advantage`, [Advantage](https://example.com), and Advantage.",
-    )
-    glossary = {
-        "enabled": True,
-        "terms": [{
-            "id": "advantage", "zh": "优势", "en": "Advantage",
-            "target": "core", "anchor": "action-roll", "aliases": {"zh": [], "en": []},
-        }],
-    }
-    (project / "data" / "glossary.yaml").write_text(yaml.safe_dump(glossary, allow_unicode=True), encoding="utf-8")
     build_srd.generate_site(project)
-    generated = (project / "content" / "core" / "index.md").read_text(encoding="utf-8")
-    assert generated.count('class="term-link"') == 4
-    assert '<code>优势</code>' in generated
-    assert '<a href="https://example.com">优势</a>' in generated
+    assert 'term-link' not in (project / 'content/core/index.md').read_text(encoding='utf-8')
+
+
+def test_seven_field_terms_allow_manual_explanations_and_blank_links(tmp_path):
+    project = make_project(tmp_path, zh="# 游戏\n\n压力点与压力点。", en="# Game\n\nStress and stress.")
+    term = {"zh": "压力点", "en": "Stress", "aliases": {"zh": [], "en": []}, "case_sensitive": True, "description": "人工填写的解释。", "url": ""}
+    write_glossary(project, [term])
+    build_srd.generate_site(project)
+    result = (project / "content/core/index.md").read_text(encoding="utf-8")
+    assert result.count('class="term-link"') == 1
+    assert '<span class="term-link"' in result
+    assert 'data-term-quote="人工填写的解释。"' in result
+    assert 'data-term-kind' not in result
+
+
+def test_no_glossary_excludes_nested_text_without_affecting_later_matches():
+    terms = [{"zh": "压力点", "aliases": {"zh": []}, "description": "说明", "url": ""}]
+    markdown = '## 规则\n\n[[!压力点 **压力点**]]与压力点。'
+    rendered = build_srd.render_preview(markdown)
+    output = build_srd.apply_glossary_links(rendered, {"terms": terms}, "zh", "/SRD")
+    assert output.count('class="term-link"') == 1
+    assert '<span class="no-glossary">压力点 <strong>压力点</strong></span>' in output
+    assert '</span>与<span class="term-link"' in output
+    assert build_srd.apply_glossary_links(rendered, {"terms": terms}, "en", "/SRD") == rendered
+
+
+def test_no_glossary_block_survives_markdown_rendering():
+    terms = [{"zh": "压力点", "aliases": {"zh": []}, "description": "", "url": ""}]
+    markdown = '::: no-glossary\n\n压力点\n\n::: no-glossary\n\n压力点\n\n:::\n\n:::\n\n压力点'
+    rendered = build_srd.render_preview(markdown)
+    output = build_srd.apply_glossary_links(rendered, {"terms": terms}, "zh", "/SRD")
+    assert output.count('class="term-link"') == 1
+    assert output.count('class="no-glossary"') == 2
+
+
+@pytest.mark.parametrize("url", ["javascript:alert(1)", "data:text/html,x", "//example.com", "https:\\evil"])
+def test_jump_links_reject_unsafe_protocols(url):
+    with pytest.raises(build_srd.BuildError, match="跳转链接无效"):
+        build_srd.validate_glossary({"terms": [{"zh": "词", "en": "Term", "url": url}]})
+
+
+def test_long_terms_are_not_split_into_shorter_terms():
+    terms = [
+        {"en": "AB", "zh": "甲乙", "aliases": {}, "description": "", "url": ""},
+        {"en": "ABCD", "zh": "甲乙丙丁", "aliases": {}, "description": "", "url": ""},
+    ]
+    for language, text in [("zh", "甲乙丙丁、甲乙、甲乙丙丁")]:
+        output = build_srd.apply_glossary_links(f"<p>{text}</p>", {"terms": terms}, language, "/SRD")
+        assert output.count('class="term-link"') == 2
+        assert output.count('data-term-zh="甲乙丙丁"') == 1
+        assert output.count('data-term-zh="甲乙"') == 1
+        assert '</span>丙丁' not in output
