@@ -12,6 +12,7 @@
 #glossary-list button { display: grid; width: 100%; gap: .15rem; padding: .65rem; border: 0; border-bottom: 1px solid var(--line); background: transparent; text-align: left; cursor: pointer; }
 #glossary-list button.selected { background: var(--accent-wash); box-shadow: inset 3px 0 var(--accent); }
 #glossary-list small { color: var(--ink-soft); overflow-wrap: anywhere; }
+.glossary-category { margin: 1rem 0 .35rem; color: var(--accent); font: 600 .75rem/1.6 var(--ui-font); }
 #glossary-detail { overflow: auto; padding: .3rem .75rem 3rem 0; min-width: 0; }
 .glossary-detail-heading { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
 .glossary-detail-heading h3 { margin: 0 0 .8rem; font-family: var(--reading-font); }

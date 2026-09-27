@@ -185,12 +185,12 @@ def test_site_css_and_editor_modules_use_current_cache_version():
     editor_script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
     worker = (PROJECT_DIR / "static" / "edit" / "preview-worker.mjs").read_text(encoding="utf-8")
 
-    assert 'css/site.css?v=20260926d' in base
-    assert 'css/site.css?v=20260926d' in editor
-    assert 'editor.js?v=20260926d' in editor
-    assert 'preview-worker.mjs?v=20260903j' in editor_script
-    assert 'render-core.mjs?v=20260903j' in editor_script
-    assert 'render-core.mjs?v=20260903j' in worker
+    assert 'css/site.css?v=20260926f' in base
+    assert 'css/site.css?v=20260926f' in editor
+    assert 'editor.js?v=20260927-alias-free' in editor
+    assert 'preview-worker.mjs?v=20260927k' in editor_script
+    assert 'render-core.mjs?v=20260927k' in editor_script
+    assert 'render-core.mjs?v=20260927k' in worker
 
 
 def test_article_tables_are_not_turned_into_blocks():

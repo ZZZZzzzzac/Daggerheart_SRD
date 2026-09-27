@@ -2,7 +2,7 @@
 setlocal
 cd /d "%~dp0"
 title Daggerheart SRD - Local Preview
-python -u scripts\preview_server.py --open --admin-password local-preview
+python -u scripts\preview_server.py --open
 if errorlevel 1 (
   echo.
   echo Preview could not start. Check the error above.

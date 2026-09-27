@@ -1,0 +1,8 @@
+{{ define "main" }}
+<p><a id="adversary-destination" href="{{ "adversaries-and-environments/adversary-data/" | relURL }}">敌人数据 / Adversaries</a></p>
+<script>
+const destination = document.getElementById('adversary-destination').href;
+const hash = location.hash ? '#adversary-' + location.hash.slice(1).replace(/^adversary-/, '') : '';
+location.replace(destination + location.search + hash);
+</script>
+{{ end }}

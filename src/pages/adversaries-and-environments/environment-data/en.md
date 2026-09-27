@@ -36,6 +36,8 @@ This section contains the following stat blocks.
 
 #### TIER 1 ENVIRONMENTS (LEVEL 1) {#tier-1-environments-level-1}
 
+<!-- environment: abandoned-grove | Abandoned Grove -->
+
 #### ABANDONED GROVE {#abandoned-grove}
 
 ##### *Tier 1 Exploration* {#tier-1-exploration}
@@ -67,6 +69,10 @@ This section contains the following stat blocks.
 
 *What color does the grass turn as the elemental appears? How does the chaos warp insects and small wildlife within the grove?*
 
+<!-- /environment -->
+
+<!-- environment: ambushed | Ambushed -->
+
 #### AMBUSHED {#ambushed}
 
 ##### *Tier 1 Event* {#tier-1-event}
@@ -82,6 +88,10 @@ This section contains the following stat blocks.
  *Surprise! - Action:* The ambushers reveal themselves to the party, you gain 2 Fear, and the spotlight immediately shifts to one of the ambushing adversaries.
 
 *What do the ambushers want from the party? How do their tactics in the ambush refl ect that?*
+
+<!-- /environment -->
+
+<!-- environment: ambushers | Ambushers -->
 
 #### AMBUSHERS {#ambushers}
 
@@ -99,6 +109,10 @@ This section contains the following stat blocks.
 - *Where Did They Come From? Reaction:* When a PC starts the ambush on unsuspecting adversaries, you lose 2 Fear and the fi rst attack roll a PC makes has advantage.
 
 *What are the adversaries in the middle of doing when the ambush starts? How does this impact their approach to the fi ght?*
+
+<!-- /environment -->
+
+<!-- environment: bustling-marketplace | Bustling Marketplace -->
 
 #### BUSTLING MARKETPLACE {#bustling-marketplace}
 
@@ -124,6 +138,10 @@ This section contains the following stat blocks.
 *What drove this person to pickpocketing? Where is the thief's hideout and how has it avoided notice?*
 
 *Crowd Closes In - Reaction:* When one of the PCs splits from the group, the crowds shift and cut them off from the party. *Where does the crowd's movement carry them? How do they feel about being alone but surrounded?*
+
+<!-- /environment -->
+
+<!-- environment: cliffside-ascent | Cliffside Ascent -->
 
 #### CLIFFSIDE ASCENT {#cliffside-ascent}
 
@@ -154,6 +172,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 *What do the shape and material of these pitons tell you about the previous climbers? How far apart are they from one another?*
 
 *Fall - Action:* **Spend a Fear** to have a PC's handhold fail, plummeting them toward the ground. If they aren't saved on the next action, they hit the ground and tick up the countdown by 2. The PC takes **1d12** physical damage if the countdown is between 8 and 12, **2d12** between 4 and 7, and **3d12** at 3 or lower. *How can you tell many others have fallen here before? What lives in these walls that might try to scare adventurers into falling for an easy meal?*
+
+<!-- /environment -->
+
+<!-- environment: local-tavern | Local Tavern -->
 
 #### LOCAL TAVERN {#local-tavern}
 
@@ -188,6 +210,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 *Bar Fight! - Action:* **Spend a Fear** to have a bar fi ght erupt in the tavern. When a PC tries to move through the tavern while the fi ght persists, they must succeed on an Agility or Presence Roll or take **1d6+2** physical damage from a wild swing or thrown object. A PC can try to activate this feature by succeeding on an action roll that would provoke tavern patrons.
 
 *Who started the fi ght? What will it take to stop it?*
+
+<!-- /environment -->
+
+<!-- environment: outpost-town | Outpost Town -->
 
 #### OUTPOST TOWN {#outpost-town}
 
@@ -228,6 +254,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *What details show the party that these people are desperate former adventurers?*
 
+<!-- /environment -->
+
+<!-- environment: raging-river | Raging River -->
+
 #### RAGING RIVER {#raging-river}
 
 ##### *Tier 1 Traversal* {#tier-1-traversal-2}
@@ -252,7 +282,11 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *What treasures does the beast have in their burrow? What travelers have already fallen victim to this predator?*
 
+<!-- /environment -->
+
 #### TIER 2 ENVIRONMENTS (LEVELS 2-4) {#tier-2-environments-levels-2-4}
+
+<!-- environment: cult-ritual | Cult Ritual -->
 
 #### CULT RITUAL {#cult-ritual}
 
@@ -281,6 +315,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 *What will the cult do with this leashed demon if they succeed? What will they try to summon next?*
 
 *Complete the Ritual - Reaction:* If the ritual's leader is targeted by an attack or spell, an ally within Very Close range of them can **mark a Stress** to be targeted by that attack or spell instead. *What does it feel like to see such devotion turned to the pursuit of fear and domination?*
+
+<!-- /environment -->
+
+<!-- environment: hallowed-temple | Hallowed Temple -->
 
 #### HALLOWED TEMPLE {#hallowed-temple}
 
@@ -314,6 +352,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *What symbols or icons do they bear that signal they are anointed agents of the divinity? Who leads the group and what led them to this calling?*
 
+<!-- /environment -->
+
+<!-- environment: haunted-city | Haunted City -->
+
 #### HAUNTED CITY {#haunted-city}
 
 ##### *Tier 2 Exploration* {#tier-2-exploration}
@@ -341,6 +383,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 *What do the ghosts want from you? What do you need from them?*
 
 *Apocalypse Then - Action:* **Spend a Fear** to manifest the echo of a past disaster that ravaged the city. Activate a Progress Countdown (5) as the disaster replays around the PCs. To complete the countdown and escape the catastrophe, the PCs must overcome threats such as rampaging fi res, stampeding civilians, collapsing buildings, or crumbling streets, while recalling history and fi nding clues to escape the inevitable. *Is this the disaster that led the city to be abandoned? What is known about this disaster, and how could that help the PCs escape?*
+
+<!-- /environment -->
+
+<!-- environment: mountain-pass | Mountain Pass -->
 
 #### MOUNTAIN PASS {#mountain-pass}
 
@@ -370,7 +416,11 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *Icy Winds - Reaction: Countdown (Loop 4)*. When the PCs enter the mountain pass, activate the countdown. When it triggers, all characters traveling through the pass must succeed on a Strength Reaction Roll or mark a Stress. A PC wearing clothes appropriate for extreme cold gains advantage on these rolls. *What parts of the PC's bodies go numb fi rst? How do they try to keep warm as they press forward?*
 
+<!-- /environment -->
+
 #### TIER 3 ENVIRONMENTS (LEVELS 5-7) {#tier-3-environments-levels-5-7}
+
+<!-- environment: burning-heart-of-the-woods | Burning Heart Of The Woods -->
 
 #### BURNING HEART OF THE WOODS {#burning-heart-of-the-woods}
 
@@ -406,6 +456,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *does it possess?*
 
+<!-- /environment -->
+
+<!-- environment: castle-siege | Castle Siege -->
+
 #### CASTLE SIEGE {#castle-siege}
 
 ##### *Tier 3 Event* {#tier-3-event}
@@ -439,6 +493,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *What debris is scattered by the attack? What is broken by the strike that can't be easily mended?*
 
+<!-- /environment -->
+
+<!-- environment: pitched-battle | Pitched Battle -->
+
 #### PITCHED BATTLE {#pitched-battle}
 
 ##### *Tier 3 Event* {#tier-3-event-2}
@@ -464,7 +522,11 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *Who are they targeting fi rst? What formation do they take?*
 
+<!-- /environment -->
+
 #### TIER 4 ENVIRONMENTS (LEVELS 8-10) {#tier-4-environments-levels-8-10}
+
+<!-- environment: chaos-realm | Chaos Realm -->
 
 #### CHAOS REALM {#chaos-realm}
 
@@ -497,6 +559,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 *Outer Realms Predators - Action:* **Spend a Fear** to summon an Outer Realms Abomination, an Outer Realms Corruptor, and **2d6** Outer Realms Thralls, who appear at Close range of a chosen PC in defi ance of logic and causality. Immediately spotlight one of these adversaries, and you can **spend an additional Fear** to automatically succeed on that adversary's standard attack. *What half-consumed remnants of the shattered world do these monstrosities cast aside in pursuit of living fl esh? What jagged refl ections of former personhood do you catch between moments of unquestioning malice?*
 
 *Disorienting Reality - Reaction:* On a result with Fear, you can ask the PC to describe which of their fears the Chaos Realm evokes as a vision of reality unmakes and reconstitutes itself to the PC. The PC loses a Hope. If it is their last Hope, you gain a Fear. *What moment do they see? If it's a memory, how is it warped by this place? How hard will it be to hold on to the real memory?*
+
+<!-- /environment -->
+
+<!-- environment: divine-usurpation | Divine Usurpation -->
 
 #### DIVINE USURPATION {#divine-usurpation}
 
@@ -536,6 +602,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *What visions of failures past torment you as your eff orts fall short? How are these memories twisted by the Usurper?*
 
+<!-- /environment -->
+
+<!-- environment: imperial-court | Imperial Court -->
+
 #### IMPERIAL COURT {#imperial-court}
 
 ##### *Tier 4 Social* {#tier-4-social}
@@ -570,6 +640,10 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 *impulse to protect the empire, even if doesn't treat them well?*
 
+<!-- /environment -->
+
+<!-- environment: necromancer-s-ossuary | Necromancer'S Ossuary -->
+
 #### NECROMANCER'S OSSUARY {#necromancer-s-ossuary}
 
 ##### *Tier 4 Exploration* {#tier-4-exploration}
@@ -598,4 +672,6 @@ When the countdown triggers, the party has made it to the top of the cliff .
 *They Just Keep Coming! - Action:* **Spend a Fear** to summon **1d6** Rotted Zombies, two Perfected Zombies, or a Zombie Legion, who appear at Close range of a chosen PC.
 
 *Who were these people before they became the necromancer's pawns? What vestiges of those lives remain for the heroes to see?*
+
+<!-- /environment -->
 

@@ -17,6 +17,7 @@ from urllib.parse import urlparse
 import yaml
 
 from validate_site import ValidationError, validate_site
+import adversary_catalog
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -82,30 +83,33 @@ class GlossaryLinker(HTMLParser):
         super().__init__(convert_charrefs=False)
         self.output: list[str] = []
         self.skip_depth = 0
+        self.skip_stack = []
         self.seen: set[str] = set()
         self.language = language
         candidates = []
         for index, term in enumerate(terms):
-            for priority, labels in enumerate(([term.get(language, "")], term.get("aliases", {}).get(language, []))):
-                for label in filter(None, labels):
-                    candidates.append((label, priority, index, term))
-        candidates.sort(key=lambda item: (-len(item[0]), item[1], item[2]))
+            label = term.get(language, "")
+            if label:
+                candidates.append((label, index, term))
+        candidates.sort(key=lambda item: (-len(item[0]), item[1]))
         self.matches = {}
         patterns = []
-        for label, _, term_index, term in candidates:
+        for label, term_index, term in candidates:
             escaped = re.escape(label)
-            matched = escaped if term.get("case_sensitive") else rf"(?i:{escaped})"
+            matched = escaped
             pattern = rf"(?<![A-Za-z0-9_]){matched}(?![A-Za-z0-9_])" if label.isascii() else escaped
             patterns.append(pattern)
-            self.matches.setdefault(label.casefold(), []).append((label, str(term_index), term))
+            self.matches.setdefault(label, []).append((label, str(term_index), term))
         self.pattern = re.compile("|".join(patterns)) if patterns else None
         self.base_path = "/" + base_path.strip("/") + "/" if base_path.strip("/") else "/"
 
     def handle_starttag(self, tag, attrs):
         if tag in {"h1", "h2", "h3", "h4", "h5", "h6"}:
             self.seen.clear()
-        if tag in self.SKIP_TAGS:
-            self.skip_depth += 1
+        skip = tag in self.SKIP_TAGS or "no-glossary" in dict(attrs).get("class", "").split()
+        if tag not in {"br", "hr", "img", "input", "meta", "link", "wbr", "area", "base", "col", "embed", "param", "source", "track"}:
+            self.skip_stack.append((tag, skip))
+            self.skip_depth += int(skip)
         self.output.append(self.get_starttag_text())
 
     def handle_startendtag(self, tag, attrs):
@@ -113,8 +117,11 @@ class GlossaryLinker(HTMLParser):
 
     def handle_endtag(self, tag):
         self.output.append(f"</{tag}>")
-        if tag in self.SKIP_TAGS:
-            self.skip_depth = max(0, self.skip_depth - 1)
+        for index in range(len(self.skip_stack) - 1, -1, -1):
+            if self.skip_stack[index][0] == tag:
+                self.skip_depth -= sum(int(skip) for _, skip in self.skip_stack[index:])
+                del self.skip_stack[index:]
+                break
 
     def handle_data(self, data):
         if self.skip_depth or not data.strip() or self.pattern is None:
@@ -124,8 +131,8 @@ class GlossaryLinker(HTMLParser):
         # A single pass also prevents shorter labels from nesting inside longer ones.
         def replace(match):
             label = match.group(0)
-            choices = self.matches.get(label.casefold(), [])
-            chosen = next((entry for entry in choices if not entry[2].get("case_sensitive") or entry[0] == label), None)
+            choices = self.matches.get(label, [])
+            chosen = choices[0] if choices else None
             if chosen is None:
                 return label
             _, term_id, term = chosen
@@ -137,7 +144,6 @@ class GlossaryLinker(HTMLParser):
             attributes = {
                 "data-term-id": term_id,
                 "data-term-zh": term.get("zh", ""),
-                "data-term-en": term.get("en", ""),
                 "data-term-quote": term.get("description", ""),
             }
             if href:
@@ -180,15 +186,17 @@ def read_glossary(project_dir: Path) -> dict:
 
 def validate_glossary(glossary: dict) -> None:
     for index, term in enumerate(glossary.get("terms", []), 1):
-        if not term.get("zh", "").strip() or not term.get("en", "").strip():
-            raise BuildError(f"第 {index} 条术语必须填写英文名和中文名")
+        if not term.get("zh", "").strip():
+            raise BuildError(f"第 {index} 条术语必须填写中文名")
         url = term.get("url", "")
         parsed = urlparse(url)
         if (parsed.scheme and parsed.scheme.lower() not in {"http", "https"}) or url.startswith("//") or any(ord(char) < 32 or char == "\\" for char in url):
-            raise BuildError(f"术语 {term['en']} 的跳转链接无效")
+            raise BuildError(f"术语 {term['zh']} 的跳转链接无效")
 
 
 def apply_glossary_links(rendered_html: str, glossary: dict, language: str, base_path: str) -> str:
+    if language != "zh":
+        return rendered_html
     linker = GlossaryLinker(glossary.get("terms", []), language, base_path)
     linker.feed(rendered_html)
     linker.close()
@@ -197,6 +205,8 @@ def apply_glossary_links(rendered_html: str, glossary: dict, language: str, base
 
 def _plain_text(markdown_text: str) -> str:
     value = re.sub(r"```.*?```", " ", markdown_text, flags=re.DOTALL)
+    value = re.sub(r"^\s*:::(?: no-glossary)?\s*$", "", value, flags=re.MULTILINE)
+    value = value.replace("[[!", "").replace("]]", "")
     value = re.sub(r"`[^`]+`", " ", value)
     value = re.sub(r"!\[[^]]*\]\([^)]*\)", " ", value)
     value = re.sub(r"\[([^]]+)\]\([^)]*\)", r"\1", value)
@@ -380,6 +390,7 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         en_anchors = rendered["anchors"]["en"]
         zh_html = apply_glossary_links(rendered["html"]["zh"], glossary, "zh", base_path)
         en_html = apply_glossary_links(rendered["html"]["en"], glossary, "en", base_path)
+        prepared["linked_html"] = {"zh": zh_html, "en": en_html}
         output_dir = content_dir / path
         output_dir.mkdir(parents=True, exist_ok=True)
         page_content = _frontmatter(page) + (
@@ -411,6 +422,12 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         })
         search_records.extend(section_records(zh_text, zh_anchors, page["title"]["zh"], path, "zh"))
         search_records.extend(section_records(en_text, en_anchors, page["title"]["en"], path, "en"))
+
+    try:
+        adversary_catalog.generate(project_dir, prepared_pages, site_pages, search_records)
+        adversary_catalog.generate(project_dir, prepared_pages, site_pages, search_records, "environment")
+    except (ValueError, KeyError) as exc:
+        raise BuildError(f"敌人资料库生成失败: {exc}") from exc
 
     tree: list[dict] = []
     for item in manifest.get("pages", []):

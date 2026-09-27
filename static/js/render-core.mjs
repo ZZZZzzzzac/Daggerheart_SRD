@@ -1,4 +1,6 @@
+import { renderEnvironments } from './environment-core.mjs';
 import MarkdownIt from "../vendor/markdown-it.mjs?v=15.0.1-browser";
+import { renderAdversaries } from "./adversary-core.mjs?v=20260927k";
 
 
 const HEADING_RE = /^(#{1,6})\s+(.+?)\s*$/gm;
@@ -152,6 +154,40 @@ function prepareHeadings(markdown) {
 
 function createMarkdownRenderer() {
   const md = new MarkdownIt({ html: true, linkify: false, typographer: false });
+  md.inline.ruler.before("link", "no_glossary", (state, silent) => {
+    if (!state.src.startsWith("[[!", state.pos)) return false;
+    const end = state.src.indexOf("]]", state.pos + 3);
+    if (end < 0) return false;
+    if (!silent) {
+      const open = state.push("no_glossary_open", "span", 1);
+      open.attrSet("class", "no-glossary");
+      const children = [];
+      state.md.inline.parse(state.src.slice(state.pos + 3, end), state.md, state.env, children);
+      state.tokens.push(...children);
+      state.push("no_glossary_close", "span", -1);
+    }
+    state.pos = end + 2;
+    return true;
+  });
+  md.block.ruler.before("fence", "no_glossary", (state, start, end, silent) => {
+    const line = index => state.src.slice(state.bMarks[index] + state.tShift[index], state.eMarks[index]).trim();
+    if (state.sCount[start] - state.blkIndent >= 4 || line(start) !== "::: no-glossary") return false;
+    let last = start + 1, depth = 1;
+    for (; last < end; last++) {
+      if (line(last) === "::: no-glossary") depth++;
+      if (line(last) === ":::" && --depth === 0) break;
+    }
+    if (last === end) return false;
+    if (silent) return true;
+    state.push("no_glossary_open", "div", 1).attrSet("class", "no-glossary");
+    const previousMax = state.lineMax;
+    state.lineMax = last;
+    state.md.block.tokenize(state, start + 1, last);
+    state.lineMax = previousMax;
+    state.push("no_glossary_close", "div", -1);
+    state.line = last + 1;
+    return true;
+  }, { alt: ["paragraph", "reference", "blockquote", "list"] });
   md.renderer.rules.heading_open = (tokens, index, _options, environment, renderer) => {
     const anchor = environment.anchorIds[environment.headingIndex];
     environment.headingIndex += 1;
@@ -229,12 +265,19 @@ function renderMarkdown(markdown, anchorIds, language, options = {}) {
     /(<table\b[^>]*>[\s\S]*?<\/table>)/g,
     '<div class="table-scroll" role="region">$1</div>',
   );
+  if (html.includes('<!-- environment:')) html = renderEnvironments(html, language);
+  if (html.includes('<!-- adversary:')) html = renderAdversaries(html, language);
   return options.pagePath === "domain-cards" ? renderDomainCards(html) : html;
 }
 
 
 export function renderPair(zhMarkdown, enMarkdown, options = {}) {
-  const anchors = assignAnchorIds(zhMarkdown, enMarkdown);
+  // Adversaries pair by their explicit card IDs, not heading order. Editors can
+  // insert or reorder a Chinese card without touching the English reference.
+  const cardDocument = /<!-- (?:adversary|environment):/.test(zhMarkdown + enMarkdown);
+  const anchors = cardDocument
+    ? { zh: assignAnchorIds(zhMarkdown, '').zh, en: assignAnchorIds('', enMarkdown).en }
+    : assignAnchorIds(zhMarkdown, enMarkdown);
   const headings = {
     zh: extractHeadings(zhMarkdown).map((heading, index) => ({ ...heading, anchor: anchors.zh[index] })),
     en: extractHeadings(enMarkdown).map((heading, index) => ({ ...heading, anchor: anchors.en[index] })),

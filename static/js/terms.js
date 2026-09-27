@@ -29,7 +29,6 @@
   popup.setAttribute("aria-describedby", "term-quote");
   const title = element("h2", "term-title");
   title.id = "term-title";
-  const translation = element("p", "term-translation");
   const quote = element("blockquote", "term-quote");
   quote.id = "term-quote";
   const actions = element("div", "term-actions");
@@ -37,7 +36,7 @@
   const closeButton = element("button", "term-close");
   closeButton.type = "button";
   actions.append(ruleLink, closeButton);
-  popup.append(title, translation, quote, actions);
+  popup.append(title, quote, actions);
   document.body.append(popup);
 
   function close(restoreFocus = false) {
@@ -79,9 +78,7 @@
     active = link;
     pinned = pin;
     const english = document.documentElement.lang === "en";
-    title.textContent = english ? link.dataset.termEn : link.dataset.termZh;
-    translation.textContent = english ? link.dataset.termZh : link.dataset.termEn;
-    translation.lang = english ? "zh-CN" : "en";
+    title.textContent = link.dataset.termZh;
     quote.textContent = link.dataset.termQuote;
     quote.lang = "zh-CN";
     quote.hidden = !link.dataset.termQuote;

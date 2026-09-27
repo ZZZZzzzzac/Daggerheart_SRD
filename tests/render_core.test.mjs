@@ -3,6 +3,23 @@ import assert from "node:assert/strict";
 
 import { renderPair } from "../static/js/render-core.mjs";
 
+test("Markdown term exclusions hide markers and keep inline formatting", () => {
+  const source = "[[!压力点与**脆弱**]]，压力点。";
+  const html = renderPair(source, source).html.zh;
+  assert.match(html, /<span class="no-glossary">压力点与<strong>脆弱<\/strong><\/span>/);
+  assert.ok(!html.includes("[[!"));
+});
+
+test("block term exclusions preserve paragraphs, nesting and following headings", () => {
+  const source = "::: no-glossary\n\n压力点\n\n::: no-glossary\n\n脆弱\n\n:::\n\n:::\n\n## 后续 {#after}\n\n压力点";
+  const html = renderPair(source, source).html.zh;
+  assert.equal((html.match(/class="no-glossary"/g) || []).length, 2);
+  assert.ok(!html.includes(":::"));
+  assert.match(html, /id="after"/);
+  const code = renderPair("`[[!压力点]]`", "").html.zh;
+  assert.match(code, /<code>\[\[!压力点\]\]<\/code>/);
+});
+
 
 test("one render core gives bilingual headings the same stable anchors", () => {
   const rendered = renderPair(

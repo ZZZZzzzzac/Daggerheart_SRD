@@ -1,8 +1,8 @@
-import { parseGlossary, serializeGlossary, newTerm } from "../js/glossary-core.mjs?v=20260926d";
+import { parseGlossary, serializeGlossary, newTerm } from "../js/glossary-core.mjs?v=20260927a";
 
 export function createGlossaryEditor(container, { onChange }) {
   let terms = [], selected = 0, query = "", confirmDelete = false;
-  container.innerHTML = `<div class="glossary-toolbar"><div><h2>术语表</h2><p id="glossary-count"></p></div><button type="button" class="secondary-button" id="glossary-new">新增术语</button><button type="button" class="secondary-button" id="glossary-markdown">编辑 Markdown</button></div><p id="glossary-error" role="status"></p><div class="glossary-layout"><aside class="glossary-list-pane"><label>查找术语<input id="glossary-search" type="search" placeholder="中文、英文或别名"></label><div id="glossary-list"></div></aside><div id="glossary-detail"></div></div>`;
+  container.innerHTML = `<div class="glossary-toolbar"><div><h2>术语表</h2><p id="glossary-count"></p></div><button type="button" class="secondary-button" id="glossary-new">新增术语</button><button type="button" class="secondary-button" id="glossary-markdown">编辑 Markdown</button></div><p id="glossary-error" role="status"></p><div class="glossary-layout"><aside class="glossary-list-pane"><label>查找术语<input id="glossary-search" type="search" placeholder="术语名称"></label><div id="glossary-list"></div></aside><div id="glossary-detail"></div></div>`;
   const list = container.querySelector("#glossary-list"), detail = container.querySelector("#glossary-detail"), error = container.querySelector("#glossary-error");
   function element(tag, text) { const item = document.createElement(tag); if (text !== undefined) item.textContent = text; return item; }
   function save() {
@@ -12,11 +12,16 @@ export function createGlossaryEditor(container, { onChange }) {
   function renderList() {
     container.querySelector("#glossary-count").textContent = `${terms.length} 条术语`;
     list.replaceChildren();
+    let previousCategory;
     terms.forEach((term, index) => {
-      if (![term.zh, term.en, ...term.aliases.zh, ...term.aliases.en].join(" ").toLowerCase().includes(query.toLowerCase())) return;
+      if (!term.zh.toLowerCase().includes(query.toLowerCase())) return;
+      if (term.category && term.category !== previousCategory) {
+        const heading = element("h3", term.category); heading.className = "glossary-category"; list.append(heading);
+        previousCategory = term.category;
+      }
       const button = element("button"); button.type = "button"; button.className = index === selected ? "selected" : "";
       button.setAttribute("aria-pressed", String(index === selected));
-      button.append(element("b", term.zh || "未填写中文名"), element("small", term.en || "未填写英文名"));
+      button.append(element("b", term.zh || "未填写中文名"));
       button.addEventListener("click", () => { selected = index; confirmDelete = false; renderList(); renderDetail(); });
       list.append(button);
     });
@@ -34,14 +39,7 @@ export function createGlossaryEditor(container, { onChange }) {
     const term = terms[selected];
     if (!term) { detail.append(element("p", "选择一条术语，或新增术语。")); return; }
     const basics = element("div"); basics.className = "glossary-fields"; detail.append(basics);
-    field(basics, "英文名", term.en, value => { term.en = value; }, "glossary-en");
     field(basics, "中文名", term.zh, value => { term.zh = value; }, "glossary-zh");
-    field(basics, "中文别名（用；分隔）", term.aliases.zh.join("；"), value => { term.aliases.zh = value.split("；").map(item => item.trim()).filter(Boolean); }, "glossary-aliases-zh");
-    field(basics, "英文别名（用；分隔）", term.aliases.en.join("；"), value => { term.aliases.en = value.split("；").map(item => item.trim()).filter(Boolean); }, "glossary-aliases-en");
-    const label = element("label", "大小写"), select = element("select"); select.id = "glossary-case";
-    for (const [value, text] of [["false", "不区分"], ["true", "区分"]]) { const option = element("option", text); option.value = value; select.append(option); }
-    select.value = String(term.case_sensitive); select.addEventListener("change", () => { term.case_sensitive = select.value === "true"; save(); });
-    label.append(select); basics.append(label);
     field(detail, "中文解释", term.description, value => { term.description = value; }, "glossary-description", true);
     field(detail, "跳转链接", term.url, value => { term.url = value; }, "glossary-url");
     const remove = element("button", confirmDelete ? "确认删除这条术语" : "删除术语"); remove.type = "button"; remove.className = "secondary-button glossary-delete";
@@ -52,7 +50,11 @@ export function createGlossaryEditor(container, { onChange }) {
     detail.append(remove);
   }
   container.querySelector("#glossary-search").addEventListener("input", event => { query = event.target.value; renderList(); });
-  container.querySelector("#glossary-new").addEventListener("click", () => { terms.unshift(newTerm()); selected = 0; query = ""; confirmDelete = false; container.querySelector("#glossary-search").value = ""; save(); renderDetail(); });
+  container.querySelector("#glossary-new").addEventListener("click", () => {
+    if (terms.some(term => term.category)) { terms.push({ ...newTerm(), category: "备用区" }); selected = terms.length - 1; }
+    else { terms.unshift(newTerm()); selected = 0; }
+    query = ""; confirmDelete = false; container.querySelector("#glossary-search").value = ""; save(); renderDetail();
+  });
   return { load(markdown) {
     try { terms = parseGlossary(markdown).terms; selected = Math.max(0, Math.min(selected, terms.length - 1)); error.textContent = ""; container.querySelector("#glossary-new").disabled = false; renderList(); renderDetail(); }
     catch (exception) { error.textContent = `Markdown 格式错误：${exception.message}。请切换 Markdown 修正。`; list.replaceChildren(); detail.replaceChildren(); container.querySelector("#glossary-new").disabled = true; }

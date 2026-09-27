@@ -57,7 +57,7 @@ python scripts/build_srd.py    # md → Hugo content → 静态页
 
 ### 本地预览
 
-Windows 可直接双击仓库根目录的 **`preview.cmd`**：自动构建、启动本地服务器，并在默认浏览器打开术语编辑器。登录账号 `admin`，该启动入口的本地预览密码为 `local-preview`。保持命令窗口打开；按 `Ctrl+C` 或关闭窗口停止服务器。再次打开若提示端口占用，可直接访问已运行的站点。
+Windows 可直接双击仓库根目录的 **`preview.cmd`**：自动构建、启动本地服务器，并在默认浏览器打开术语编辑器。本地预览免登录，无需填写用户名和密码。保持命令窗口打开；按 `Ctrl+C` 或关闭窗口停止服务器。再次打开若提示端口占用，可直接访问已运行的站点。
 
 阅读首页：`http://127.0.0.1:8765/SRD/`；术语编辑器：`http://127.0.0.1:8765/SRD/edit/?path=glossary`。
 
@@ -67,7 +67,7 @@ Windows 可直接双击仓库根目录的 **`preview.cmd`**：自动构建、启
 python scripts/preview_server.py
 ```
 
-打开 `http://127.0.0.1:8765/SRD/`。同一条命令同时启动阅读站、编辑接口和反馈收件箱。终端会显示本次随机生成的管理密码；编辑器、反馈后台和管理接口统一使用账号 `admin` 登录。需要固定测试密码时可运行 `python scripts/preview_server.py --admin-password 你的密码`。正式服务器仍由 nginx 配置公用密码。
+打开 `http://127.0.0.1:8765/SRD/`。同一条命令同时启动阅读站、编辑接口和反馈收件箱。默认仅监听本机，编辑器、反馈后台和管理接口免登录。需要测试密码认证时可运行 `python scripts/preview_server.py --admin-password 你的密码`。正式服务器仍由 nginx 配置公用密码。
 
 ### 部署
 
@@ -80,9 +80,9 @@ python scripts/preview_server.py
 
 ## 术语提示
 
-正文中的核心规则术语支持悬停、键盘聚焦或手机点击查看中英文名称和中文解释。`data/glossary.md` 保存 328 条术语，全部参与匹配。可在 `/SRD/edit/?path=glossary` 新增、修改或删除条目，切换 Markdown 编辑，并通过“保存并发布”直接更新网站。
+正文中的核心规则术语支持悬停、键盘聚焦或手机点击查看中文名称和解释。`data/glossary.md` 保存人工维护的术语，按类别分组，全部参与匹配。可在 `/SRD/edit/?path=glossary` 新增、修改或删除条目，切换 Markdown 编辑，并通过“保存并发布”直接更新网站。
 
-每条仅包含英文名、中文名、中文别名、英文别名、大小写、中文解释和跳转链接；解释及链接可留空，由人工维护，不设置审核流程。目录下方可关闭提示。维护协议见 [docs/glossary.md](docs/glossary.md)。
+每条仅包含中文名、中文解释和跳转链接；解释及链接可留空，由人工维护，不设置审核流程。目录下方可关闭提示。维护协议见 [docs/glossary.md](docs/glossary.md)。
 
 ## 在线编辑器
 

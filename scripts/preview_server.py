@@ -5,7 +5,6 @@ from __future__ import annotations
 import argparse
 import base64
 import hmac
-import secrets
 import subprocess
 import sys
 import threading
@@ -107,7 +106,7 @@ def main() -> int:
     parser.add_argument("--port", type=int, default=8765)
     parser.add_argument("--no-build", action="store_true")
     parser.add_argument("--open", action="store_true", help="启动后在默认浏览器打开术语编辑器")
-    parser.add_argument("--admin-password", help="本地编辑器和反馈后台的密码；不填则每次随机生成")
+    parser.add_argument("--admin-password", default="", help="可选的本地管理密码；默认免登录")
     args = parser.parse_args()
     if not args.no_build:
         result = subprocess.run([sys.executable, str(PROJECT_DIR / "scripts" / "build_srd.py")], cwd=PROJECT_DIR)
@@ -119,11 +118,9 @@ def main() -> int:
         print(f"无法启动本地服务器（端口 {args.port}）：{error}", file=sys.stderr)
         print(f"如果已经启动，请打开 http://127.0.0.1:{args.port}/SRD/", file=sys.stderr)
         return 1
-    server.admin_password = args.admin_password or secrets.token_urlsafe(9)
+    server.admin_password = args.admin_password
     print(f"本地完整站点: http://127.0.0.1:{args.port}/SRD/")
-    print("管理账号: admin")
-    print(f"本次管理密码: {server.admin_password}")
-    print("阅读和读者勘误公开；编辑器、反馈后台及管理接口需要上述密码。")
+    print("管理账号: admin（使用指定密码）" if server.admin_password else "本地管理页面免登录，用户名和密码无需填写。")
     print("按 Ctrl+C 停止")
     if args.open:
         threading.Thread(target=webbrowser.open, args=(f"http://127.0.0.1:{args.port}/SRD/edit/?path=glossary",), daemon=True).start()

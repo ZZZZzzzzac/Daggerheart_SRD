@@ -129,27 +129,46 @@ def test_seven_field_terms_allow_manual_explanations_and_blank_links(tmp_path):
     write_glossary(project, [term])
     build_srd.generate_site(project)
     result = (project / "content/core/index.md").read_text(encoding="utf-8")
-    assert result.count('class="term-link"') == 2
+    assert result.count('class="term-link"') == 1
     assert '<span class="term-link"' in result
     assert 'data-term-quote="人工填写的解释。"' in result
     assert 'data-term-kind' not in result
 
 
-def test_matching_prefers_long_names_then_primary_names_then_file_order():
-    terms = [
-        {"en": "Arm", "zh": "臂", "aliases": {"en": ["Armor"]}, "description": "", "url": ""},
-        {"en": "Armor", "zh": "护甲", "aliases": {"en": []}, "description": "原文。\n\n第二段。", "url": "/SRD/core/#armor"},
-    ]
-    output = build_srd.apply_glossary_links('<p title="Armor">Armor Arm Armor armory.</p><a href="/">Armor</a><code>Arm</code>', {"terms": terms}, "en", "/SRD")
-    assert output.count('class="term-link"') == 2
-    assert 'data-term-zh="护甲"' in output
-    assert 'data-term-quote="原文。&#10;&#10;第二段。"' in output
-    assert 'title="Armor"' in output
-    assert 'armory' in output
-    assert '<a href="/">Armor</a><code>Arm</code>' in output
+def test_no_glossary_excludes_nested_text_without_affecting_later_matches():
+    terms = [{"zh": "压力点", "aliases": {"zh": []}, "description": "说明", "url": ""}]
+    markdown = '## 规则\n\n[[!压力点 **压力点**]]与压力点。'
+    rendered = build_srd.render_preview(markdown)
+    output = build_srd.apply_glossary_links(rendered, {"terms": terms}, "zh", "/SRD")
+    assert output.count('class="term-link"') == 1
+    assert '<span class="no-glossary">压力点 <strong>压力点</strong></span>' in output
+    assert '</span>与<span class="term-link"' in output
+    assert build_srd.apply_glossary_links(rendered, {"terms": terms}, "en", "/SRD") == rendered
+
+
+def test_no_glossary_block_survives_markdown_rendering():
+    terms = [{"zh": "压力点", "aliases": {"zh": []}, "description": "", "url": ""}]
+    markdown = '::: no-glossary\n\n压力点\n\n::: no-glossary\n\n压力点\n\n:::\n\n:::\n\n压力点'
+    rendered = build_srd.render_preview(markdown)
+    output = build_srd.apply_glossary_links(rendered, {"terms": terms}, "zh", "/SRD")
+    assert output.count('class="term-link"') == 1
+    assert output.count('class="no-glossary"') == 2
 
 
 @pytest.mark.parametrize("url", ["javascript:alert(1)", "data:text/html,x", "//example.com", "https:\\evil"])
 def test_jump_links_reject_unsafe_protocols(url):
     with pytest.raises(build_srd.BuildError, match="跳转链接无效"):
         build_srd.validate_glossary({"terms": [{"zh": "词", "en": "Term", "url": url}]})
+
+
+def test_long_terms_are_not_split_into_shorter_terms():
+    terms = [
+        {"en": "AB", "zh": "甲乙", "aliases": {}, "description": "", "url": ""},
+        {"en": "ABCD", "zh": "甲乙丙丁", "aliases": {}, "description": "", "url": ""},
+    ]
+    for language, text in [("zh", "甲乙丙丁、甲乙、甲乙丙丁")]:
+        output = build_srd.apply_glossary_links(f"<p>{text}</p>", {"terms": terms}, language, "/SRD")
+        assert output.count('class="term-link"') == 2
+        assert output.count('data-term-zh="甲乙丙丁"') == 1
+        assert output.count('data-term-zh="甲乙"') == 1
+        assert '</span>丙丁' not in output

@@ -99,7 +99,7 @@ def test_real_glossary_publication_rebuilds_reader_and_invalid_content_is_atomic
     glossary = candidate / "data/glossary.md"
     original = glossary.read_text(encoding="utf-8")
     # Removing one term through Markdown must remove its hints from the reader.
-    updated = re.sub(r"(?ms)^## 英文名：Stress\n.*?(?=^## |\Z)", "", original)
+    updated = re.sub(r"(?ms)^## 中文名：压力点\n.*?(?=^## |\Z)", "", original)
     assert updated != original
     monkeypatch.setattr(proxy_server, "PROJECT_DIR", candidate)
     monkeypatch.setattr(proxy_server, "PAGES_DIR", candidate / "src/pages")
@@ -111,8 +111,8 @@ def test_real_glossary_publication_rebuilds_reader_and_invalid_content_is_atomic
     assert proxy_server.page_catalog()[-1]["files"] == {"zh": "data/glossary.md"}
     proxy_server.publish_edit("data/glossary.md", updated, proxy_server.content_version(original), "测试")
     rendered = (candidate / "public/core-mechanics/index.html").read_text(encoding="utf-8")
-    assert 'data-term-en="Stress"' not in rendered
-    assert 'data-term-en="Hope"' in rendered
+    assert 'data-term-zh="压力点"' not in rendered
+    assert 'data-term-zh="希望点"' in rendered
     with pytest.raises(proxy_server.PublishError, match="构建失败"):
         proxy_server.publish_edit("data/glossary.md", updated + "\n## 无效格式\n", proxy_server.content_version(updated), "测试")
     assert glossary.read_text(encoding="utf-8") == updated

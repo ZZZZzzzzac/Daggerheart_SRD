@@ -1,3 +1,12 @@
 {{ define "main" }}
-<article class="srd-article home-article" data-page-path=""><div class="article-body">{{ .Content }}</div></article>
+<article class="srd-article home-article" data-page-path=""><div class="article-body">{{ .Content }}
+  <section class="home-note">
+    <h2><a href="{{ "adversaries-and-environments/adversary-data/" | relURL }}"><span class="lang-zh">敌人数据 →</span><span class="lang-en">Adversaries →</span></a></h2>
+    <p><span class="lang-zh">按位阶、类型和名称挑选敌人，快速对照数据，展开查看完整能力。</span><span class="lang-en">Find adversaries by tier, type and name. Compare stats and explore their full features.</span></p>
+  </section>
+  <section class="home-note">
+    <h2><a href="{{ "adversaries-and-environments/environment-data/" | relURL }}"><span class="lang-zh">环境数据 →</span><span class="lang-en">Environments →</span></a></h2>
+    <p><span class="lang-zh">查找探索、险境、社交与事件环境，查看特性与引导问题。</span><span class="lang-en">Find exploration, traversal, social and event environments with features and GM prompts.</span></p>
+  </section>
+</div></article>
 {{ end }}
