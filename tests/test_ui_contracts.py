@@ -187,10 +187,10 @@ def test_site_css_and_editor_modules_use_current_cache_version():
 
     assert 'css/site.css?v=20260926f' in base
     assert 'css/site.css?v=20260926f' in editor
-    assert 'editor.js?v=20260927-anchors' in editor
-    assert 'preview-worker.mjs?v=20260927-anchors' in editor_script
-    assert 'render-core.mjs?v=20260927-anchors' in editor_script
-    assert 'render-core.mjs?v=20260927-anchors' in worker
+    assert 'editor.js?v=20260927-domain-cards' in editor
+    assert 'preview-worker.mjs?v=20260927-domain-cards' in editor_script
+    assert 'render-core.mjs?v=20260927-domain-cards' in editor_script
+    assert 'render-core.mjs?v=20260927-domain-cards' in worker
 
 
 def test_article_tables_are_not_turned_into_blocks():

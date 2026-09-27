@@ -1,5 +1,5 @@
 {{ define "main" }}
-<link rel="stylesheet" href="{{ "css/adversaries.css?v=20260927l" | relURL }}">
+<link rel="stylesheet" href="{{ "css/adversaries.css?v=20260928a" | relURL }}">
 <article class="srd-article adversary-catalog" data-page-path="{{ .Params.srd_path }}" data-page-title-zh="{{ .Title }}" data-page-title-en="{{ .Params.title_en }}" data-catalog-kind="{{ .Params.catalog_kind }}">
   <nav class="breadcrumbs" id="breadcrumbs" aria-label="当前位置"></nav>
   <header class="catalog-heading" id="top">
@@ -7,8 +7,12 @@
   </header>
   <form class="catalog-filters" id="catalog-filters" role="search" hidden>
     <label class="catalog-query"><span class="control-label">名称 / Name</span><input id="adversary-query" type="search" autocomplete="off"></label>
-    <details class="filter-dropdown" data-filter="tier"><summary><span class="lang-zh">位阶</span><span class="lang-en">Tier</span><span class="selection-count"></span></summary><div id="adversary-tier" class="filter-chips"></div></details>
-    <details class="filter-dropdown" data-filter="type"><summary><span class="lang-zh">类型</span><span class="lang-en">Type</span><span class="selection-count"></span></summary><div id="adversary-type" class="filter-chips"></div></details>
+    <details class="filter-dropdown" data-filter="tier"><summary>{{ if eq .Params.catalog_kind "domain" }}<span class="lang-zh">等级</span><span class="lang-en">Level</span>{{ else }}<span class="lang-zh">位阶</span><span class="lang-en">Tier</span>{{ end }}<span class="selection-count"></span></summary><div id="adversary-tier" class="filter-chips"></div></details>
+    <details class="filter-dropdown" data-filter="type"><summary>{{ if eq .Params.catalog_kind "domain" }}<span class="lang-zh">领域</span><span class="lang-en">Domain</span>{{ else }}<span class="lang-zh">类型</span><span class="lang-en">Type</span>{{ end }}<span class="selection-count"></span></summary><div id="adversary-type" class="filter-chips"></div></details>
+    {{ if eq .Params.catalog_kind "domain" }}
+    <details class="filter-dropdown" data-filter="cardtype"><summary>属性<span class="selection-count"></span></summary><div id="adversary-cardtype" class="filter-chips"></div></details>
+    <details class="filter-dropdown" data-filter="recall"><summary>回想<span class="selection-count"></span></summary><div id="adversary-recall" class="filter-chips"></div></details>
+    {{ end }}
     <button id="adversary-view" class="view-switch" type="button" role="switch" aria-checked="false" aria-label="紧凑视图">
       <span class="view-switch-thumb" aria-hidden="true"></span>
       <span class="view-full"><span class="lang-zh">完整</span><span class="lang-en">Full</span></span>
@@ -23,5 +27,5 @@
   <div class="article-tools"><button class="text-button" id="feedback-button" type="button"><span class="lang-zh">报告本页问题</span><span class="lang-en">Report an issue</span></button></div>
   <nav class="page-sequence" id="page-sequence" aria-label="前后页"></nav>
 </article>
-<script type="module" src="{{ "js/adversaries.mjs?v=20260927k" | relURL }}"></script>
+<script type="module" src="{{ "js/adversaries.mjs?v=20260927m" | relURL }}"></script>
 {{ end }}

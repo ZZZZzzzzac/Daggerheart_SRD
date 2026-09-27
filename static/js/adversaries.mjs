@@ -5,18 +5,21 @@ const results = document.querySelector('#adversary-results');
 const cards = [...results.querySelectorAll('.adversary')];
 const controls = Object.fromEntries(['query', 'tier', 'type', 'view'].map(key => [key, document.querySelector(`#adversary-${key}`)]));
 const environment = document.querySelector('[data-catalog-kind]')?.dataset.catalogKind === 'environment';
-const roles = environment ? environmentTypes : {bruiser: '斗士', horde: '集群', leader: '头目', minion: '杂兵', ranged: '远程', skulk: '潜伏', social: '社交', solo: '独狼', standard: '标准', support: '辅助'};
-const defaults = {query: '', tier: '', type: '', view: 'full'};
+const domain = document.querySelector('[data-catalog-kind]')?.dataset.catalogKind === 'domain';
+const levels = domain ? Array.from({length: 10}, (_, i) => String(i + 1)) : ['1', '2', '3', '4'];
+const roles = domain ? {arcana: '奥术', blade: '利刃', bone: '骸骨', codex: '典籍', grace: '优雅', midnight: '午夜', sage: '贤者', splendor: '辉耀', valor: '勇气'} : environment ? environmentTypes : {bruiser: '斗士', horde: '集群', leader: '头目', minion: '杂兵', ranged: '远程', skulk: '潜伏', social: '社交', solo: '独狼', standard: '标准', support: '辅助'};
+if (domain) for (const key of ['cardtype', 'recall']) controls[key] = document.querySelector(`#adversary-${key}`);
+const defaults = {query: '', tier: '', type: '', view: 'full', ...(domain ? {cardtype: '', recall: ''} : {})};
 let state = {...defaults};
 const language = () => document.documentElement.lang === 'en' ? 'en' : 'zh';
-const searchSelector = '.compact-name, .compact-role, .compact-stats, h3, h5, p, li, .stat-values > span, .stat-resources > span, .environment-difficulty';
+const searchSelector = '.compact-name, .compact-role, .compact-stats, h3, h4, h5, p, li, .domain-stats > div, .stat-values > span, .stat-resources > span, .environment-difficulty';
 const searchable = new Map(cards.map(card => [card, [...card.querySelectorAll(searchSelector)].filter(element => !element.parentElement.closest(searchSelector)).map(element => ({element, text: element.textContent}))]));
 
 function readURL() {
   const params = new URLSearchParams(location.search);
   state = {...defaults};
   for (const key of Object.keys(state)) state[key] = params.get(key === 'query' ? 'q' : key) ?? defaults[key];
-  state.tier = [...new Set(state.tier.split(',').filter(value => ['1', '2', '3', '4'].includes(value)))].sort().join(',');
+  state.tier = [...new Set(state.tier.split(',').filter(value => levels.includes(value)))].sort().join(',');
   state.type = [...new Set(state.type.split(',').filter(value => Object.hasOwn(roles, value)))].sort().join(',');
   if (!['list', 'full'].includes(state.view)) state.view = 'full';
 }
@@ -46,8 +49,12 @@ function chips(key, values) {
 function localize() {
   const en = language() === 'en';
   controls.view.setAttribute('aria-label', en ? 'Compact view' : '紧凑视图');
-  chips('tier', [['', en ? 'All tiers' : '全部位阶'], ...['1', '2', '3', '4'].map((n, i) => [n, `${en ? 'Tier' : '位阶'} ${n} · ${['1', '2–4', '5–7', '8–10'][i]} ${en ? 'level(s)' : '级'}`])]);
+  chips('tier', [['', en ? 'All levels' : domain ? '全部等级' : '全部位阶'], ...levels.map(n => [n, domain ? `Lv${n}` : `${en ? 'Tier' : '位阶'} ${n}`])]);
   chips('type', [['', en ? 'All types' : '全部类型'], ...Object.entries(roles).map(([key, zh]) => [key, en ? key[0].toUpperCase() + key.slice(1) : zh])]);
+  if (domain) {
+    chips('cardtype', [['', en ? 'All types' : '全部属性'], ...[...new Set(cards.map(card => card.dataset.cardType))].map(value => [value, value])]);
+    chips('recall', [['', en ? 'All costs' : '全部回想'], ...[...new Set(cards.map(card => card.dataset.recall))].sort().map(value => [value, value])]);
+  }
   controls.query.placeholder = en ? 'Search names, stats, features…' : '搜索名称、数值、特性…';
   controls.query.value = state.query;
 }
@@ -60,12 +67,12 @@ function render() {
   let count = 0;
   for (const card of cards) {
     const matches = searchable.get(card).map(unit => ({...unit, hits: phraseMatches(unit.text, query)}));
-    card.hidden = !!((state.tier && !state.tier.split(',').includes(card.dataset.tier)) || (state.type && !state.type.split(',').includes(card.dataset.type)) || (query && !matches.some(unit => unit.hits.length)));
+    card.hidden = !!((state.tier && !state.tier.split(',').includes(card.dataset.tier)) || (state.type && !state.type.split(',').includes(card.dataset.type)) || (domain && state.cardtype && !state.cardtype.split(',').includes(card.dataset.cardType)) || (domain && state.recall && !state.recall.split(',').includes(card.dataset.recall)) || (query && !matches.some(unit => unit.hits.length)));
     if (!card.hidden) {
       count++;
       for (const unit of matches) if (unit.hits.length) highlightPhrase(unit.element, unit.hits);
     }
-    results.querySelector(`[data-tier-group="${card.dataset.tier}"] .adversary-grid`).append(card);
+    results.querySelector(`[data-tier-group="${(card.dataset.group || card.dataset.tier)}"] .adversary-grid`).append(card);
   }
   results.dataset.view = state.view;
   controls.view.setAttribute('aria-checked', String(state.view === 'list'));
@@ -74,7 +81,7 @@ function render() {
     group.hidden = visible === 0;
     group.querySelector('.tier-count').textContent = visible;
   });
-  document.querySelector('#catalog-count').textContent = en ? `${count} / ${cards.length} ${environment ? "environments" : "adversaries"}` : `${count} / ${cards.length} 个${environment ? "环境" : "敌人"}`;
+  document.querySelector('#catalog-count').textContent = en ? `${count} / ${cards.length} ${domain ? "domain cards" : environment ? "environments" : "adversaries"}` : `${count} / ${cards.length} 个${domain ? "领域卡" : environment ? "环境" : "敌人"}`;
   document.querySelector('#catalog-empty').hidden = count !== 0;
 }
 
@@ -85,7 +92,7 @@ function openHash() {
   if (!card) return;
   closePreview();
   if (card.hidden) {
-    state = {...state, query: '', tier: '', type: ''};
+    state = {...defaults, view: state.view};
     localize();
     render();
     writeURL();
@@ -98,7 +105,7 @@ function openHash() {
 }
 
 form.addEventListener('submit', event => event.preventDefault());
-for (const [key, control] of Object.entries(controls).filter(([key]) => !['tier', 'type', 'view'].includes(key))) control.addEventListener(key === 'query' ? 'input' : 'change', () => {
+for (const [key, control] of Object.entries(controls).filter(([key]) => !['tier', 'type', 'view', 'cardtype', 'recall'].includes(key))) control.addEventListener(key === 'query' ? 'input' : 'change', () => {
   state[key] = control.value;
   // A new search should not leave an unrelated entry in the share URL.
   const url = new URL(location.href);
@@ -118,7 +125,7 @@ controls.view.addEventListener('keydown', event => {
     event.preventDefault(); changeView(event.key === 'ArrowLeft' ? 'full' : 'list');
   }
 });
-for (const key of ['tier', 'type']) controls[key].addEventListener('click', event => {
+for (const key of (domain ? ['tier', 'type', 'cardtype', 'recall'] : ['tier', 'type'])) controls[key].addEventListener('click', event => {
   const button = event.target.closest('button[data-value]');
   if (!button) return;
   const selected = new Set(state[key].split(',').filter(Boolean));
@@ -157,7 +164,7 @@ form.addEventListener('reset', event => {
 });
 // A hoverable, scrollable preview remains open while moving from the entry to it.
 const preview = document.createElement('aside');
-preview.className = `stat-card adversary-preview${environment ? ' environment-card' : ''}`;
+preview.className = `stat-card adversary-preview${domain ? ' domain-entry' : environment ? ' environment-card' : ''}`;
 preview.id = 'adversary-preview'; preview.hidden = true;
 preview.setAttribute('role', 'dialog');
 preview.setAttribute('aria-label', environment ? '完整环境卡片 / Full environment' : '完整敌人卡片 / Full adversary');

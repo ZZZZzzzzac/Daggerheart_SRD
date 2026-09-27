@@ -194,3 +194,27 @@ html:lang(en) .environment-card .stat-role::before, html:lang(en) .stat-card[dat
 .environment-context strong { display: block; color: var(--card-red); margin-bottom: .2rem; }
 .stat-features .environment-question { margin-top: .55rem; padding-top: .5rem; border-top: 1px solid var(--card-line); color: #725747; font-style: italic; font-weight: 400; }
 html[data-theme="dark"] .environment-question { color: #c8b59b; }
+
+.srd-article.adversary-catalog[data-page-path="domain-cards"] { width: min(100%, 100rem); }
+.domain-entry .stat-heading, .domain-card.stat-card .stat-heading { display: block; border-bottom: 3px solid #b88a57; }
+.domain-entry .stat-heading h4, .domain-card.stat-card .stat-heading h4 { margin: 0; padding: 0; border: 0; color: #fff4df; font: 800 1.45rem/1.3 var(--reading-font); }
+.domain-stats { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-bottom: 1px solid var(--card-line); background: var(--card-bone); }
+.domain-stats > div { display: grid; justify-items: center; align-content: center; padding: .7rem .3rem; gap: .2rem; }
+.domain-stats > div + div { border-left: 1px solid var(--card-line); }
+.domain-stats b { color: var(--card-red); font-size: 1.05rem; }
+.domain-stats small { font-size: .7rem; color: var(--card-ink); }
+.domain-entry .stat-content, .domain-card.stat-card .stat-content { padding: 1rem; font-size: .94rem; line-height: 1.75; }
+.domain-entry .stat-content > p:first-child { color: inherit; }
+#preview .domain-card.stat-card { padding: 0; border: 2px solid #21150f; background: #eee4d0; }
+
+.domain-original { display: block; color: #d6bea0; font: 500 .75rem/1.5 var(--ui-font); margin-top: .3rem; }
+.domain-entry .stat-content p, #preview .domain-card.stat-card .stat-content p { border: 0; background: transparent; padding: 0; }
+
+.domain-entry .stat-content > p:has(> strong:first-child):not(.stat-attack) { border: 0; background: transparent; padding: 0; }
+
+/* Domain rules retain ordinary Markdown lists, unlike adversary features. */
+:is(.domain-entry, .domain-card.stat-card) .stat-content ul { list-style: disc outside; padding-left: 1.4rem; margin: .6rem 0; }
+:is(.domain-entry, .domain-card.stat-card) .stat-content ol { list-style: decimal outside; padding-left: 1.4rem; margin: .6rem 0; }
+:is(.domain-entry, .domain-card.stat-card) .stat-content ul ul { list-style-type: circle; }
+:is(.domain-entry, .domain-card.stat-card) .stat-content li { display: list-item; padding: 0; margin: .3rem 0; border: 0; border-radius: 0; background: transparent; }
+:is(.domain-entry, .domain-card.stat-card) .stat-content li > em:first-child { font-weight: inherit; font-style: italic; color: inherit; }

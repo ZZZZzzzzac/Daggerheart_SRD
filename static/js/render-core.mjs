@@ -259,7 +259,22 @@ function renderDomainCards(html) {
     if (!match) return section;
     const cards = match[2].replace(
       /(<h4\b[^>]*>[\s\S]*?<\/h4>)([\s\S]*?)(?=<h4\b|$)/g,
-      '<article class="domain-card">$1$2</article>\n',
+      (_all, title, content) => {
+        const metadata = content.match(/^\s*<p><strong>([\s\S]*?)<\/strong>(?:<br\s*\/?>)?/);
+        if (!metadata) throw new Error('领域卡缺少等级、领域、属性或回想费用');
+        const text = metadata[1].replace(/<[^>]*>/g, '');
+        const fields = text.match(/^(\d+)\s*级\s+(\S+)\s+(\S+)\s+回想费用[：:]\s*(\d+)/) || text.match(/^Level\s+(\d+)\s+(\S+)\s+(?:(\S+)\s+)?Recall Cost:\s*(\d+)/i);
+        if (!fields) throw new Error(`领域卡属性格式无效：${text}`);
+        const [, level, domain, rawType, recall] = fields;
+        const type = rawType || 'Grimoire';
+        const zh = /级/.test(text);
+        if (zh) title = title.replace(/(<h4[^>]*>)(.*?)([A-Z][A-Z0-9 ’'&:!,()\-]+)(<\/h4>)/, '$1$2<small class="domain-original">$3</small>$4');
+        content = content.replace(metadata[0], '<p>');
+        const labels = zh ? ['领域', '等级', '属性', '回想'] : ['Domain', 'Level', 'Type', 'Recall'];
+        const values = [domain, level, type, recall];
+        const stats = values.map((value, i) => `<div><b>${value}</b><small>${labels[i]}</small></div>`).join('');
+        return `<article class="domain-card stat-card" data-level="${level}" data-domain="${domain}" data-type="${type}" data-recall="${recall}"><header class="stat-heading no-glossary">${title}</header><div class="domain-stats no-glossary">${stats}</div><div class="stat-content stat-features">${content}</div></article>\n`;
+      },
     );
     return `<section class="domain-section">\n${match[1]}<div class="domain-card-grid">\n${cards}</div>\n</section>\n`;
   }).join("");
