@@ -460,6 +460,26 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
     return content_dir, generated_dir
 
 
+def prepare_browser_modules(destination: Path) -> None:
+    """发布标准 .js 模块地址，兼容未配置 .mjs MIME 类型的静态服务器。"""
+    for source in list(destination.rglob('*.mjs')):
+        alias = source.with_suffix('.js')
+        if alias.exists():
+            raise BuildError(f'浏览器模块路径冲突: {alias.relative_to(destination)}')
+        alias.write_text(source.read_text(encoding='utf-8'), encoding='utf-8')
+    # 仅处理脚本字符串和 HTML 资源属性，不替换规则正文中的普通文字。
+    for script in destination.rglob('*.js'):
+        text = script.read_text(encoding='utf-8')
+        updated = re.sub(r'''\.mjs(?=[?'"`])''', '.js', text)
+        if updated != text:
+            script.write_text(updated, encoding='utf-8')
+    for page in destination.rglob('*.html'):
+        text = page.read_text(encoding='utf-8')
+        updated = re.sub(r'''(\b(?:src|href)=["'][^"']*)\.mjs(?=[?"'])''', r'\1.js', text)
+        if updated != text:
+            page.write_text(updated, encoding='utf-8')
+
+
 def run_hugo(project_dir: Path, destination: Path) -> None:
     env = os.environ.copy()
     env["PATH"] = str(DEFAULT_PROJECT_DIR) + os.pathsep + env.get("PATH", "")
@@ -470,6 +490,7 @@ def run_hugo(project_dir: Path, destination: Path) -> None:
         raise BuildError(f"Hugo 构建失败:\n{details}")
     if not (destination / "index.html").is_file():
         raise BuildError("Hugo 未生成首页")
+    prepare_browser_modules(destination)
     try:
         validate_site(destination)
     except ValidationError as exc:

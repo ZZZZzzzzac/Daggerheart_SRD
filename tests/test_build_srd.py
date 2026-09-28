@@ -57,6 +57,19 @@ def test_explicit_anchor_wins_over_generated_slug():
     assert en_ids == ["action-check"]
 
 
+def test_browser_modules_publish_js_urls_including_worker_and_dynamic_imports(tmp_path):
+    (tmp_path / 'core.mjs').write_text('export const value = 1;', encoding='utf-8')
+    (tmp_path / 'main.mjs').write_text('import {value} from "./core.mjs?v=1";', encoding='utf-8')
+    (tmp_path / 'editor.js').write_text('new Worker("./main.mjs?v=2"); import("./core.mjs");', encoding='utf-8')
+    (tmp_path / 'index.html').write_text('<p>core.mjs</p><script type="module" src="main.mjs?v=2"></script>', encoding='utf-8')
+    build_srd.prepare_browser_modules(tmp_path)
+    assert '"./core.js?v=1"' in (tmp_path / 'main.js').read_text(encoding='utf-8')
+    assert '"./main.js?v=2"' in (tmp_path / 'editor.js').read_text(encoding='utf-8')
+    assert '"./core.js"' in (tmp_path / 'editor.js').read_text(encoding='utf-8')
+    assert '<p>core.mjs</p>' in (tmp_path / 'index.html').read_text(encoding='utf-8')
+    assert 'src="main.js?v=2"' in (tmp_path / 'index.html').read_text(encoding='utf-8')
+
+
 def test_search_indexes_each_section_even_when_heading_levels_differ():
     zh = "## 领域 {#domains}\n\n介绍。\n\n#### 奥术 {#arcana}\n\n天生魔法。"
     en = "## Domains {#domains}\n\nIntroduction.\n\n### Arcana {#arcana}\n\nInnate magic."
