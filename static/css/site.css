@@ -304,7 +304,9 @@ dialog::backdrop { background: rgba(20, 18, 15, .56); backdrop-filter: blur(3px)
 .search-results { max-height: 55vh; margin: 0; padding: 0; overflow: auto; list-style: none; }
 .search-result a { display: block; padding: .9rem .2rem; border-top: 1px solid var(--line); color: var(--ink); text-decoration: none; }
 .search-result a:hover { background: var(--accent-wash); }
-.search-result-meta { display: flex; gap: .6rem; color: var(--accent); font-size: .68rem; letter-spacing: .06em; }
+.search-result-meta { display: flex; flex-wrap: wrap; gap: .6rem; color: var(--accent); font-size: .68rem; letter-spacing: .06em; }
+.search-result-origin { font-weight: 700; }
+.search-result p.search-result-source { margin-top: .3rem; font-size: .72rem; }
 .search-result h3 { margin: .2rem 0; font: 650 1.05rem/1.4 var(--reading-font); }
 .search-result p { margin: 0; color: var(--ink-soft); font-size: .8rem; line-height: 1.5; }
 .search-result mark { background: var(--accent-wash); color: inherit; }

@@ -280,12 +280,12 @@
 游戏主持人负责引导叙事并扮演玩家角色所生活的世界。
 
 ## 中文名：游戏主持人行动
-- 跳转链接：/SRD/running-a-game/#guidance-on-action-rolls
+- 跳转链接：/SRD/running-a-game/#section-making-moves
 ### 中文解释
 作为游戏主持人，你拥有会根据玩家行为推动故事发展的游戏主持人行动。游戏主持人行动不受特定法术或效果限制——当你执行游戏主持人行动时，可依剧情需要以任何方式来描述动作。
 
 ## 中文名：游戏主持人轮次
-- 跳转链接：/SRD/running-a-game/#guidance-on-action-rolls
+- 跳转链接：/SRD/running-a-game/#section-making-moves
 ### 中文解释
 游戏主持人行动发生在游戏主持人轮次中。游戏主持人轮次从聚焦转移到游戏主持人时开始，至聚焦回到玩家时结束。
 
@@ -300,22 +300,22 @@
 游戏主持人当前持有的恐惧点总量。获得恐惧点时加入池中，花费或被效果清除时从池中扣除；最多可持有 12 恐惧点，并可跨场次保留。
 
 ## 中文名：倒计时
-- 跳转链接：/SRD/running-a-game/#countdowns
+- 跳转链接：/SRD/running-a-game/#section-countdowns
 ### 中文解释
 倒计时用于体现未来某些效果发生前的一段时间或一系列事件。倒计时从起始值开始，每次推进时，将点数减少 1 。倒计时达到 0 时将触发倒计时的效果。
 
 ## 中文名：非玩家角色
-- 跳转链接：/SRD/running-a-game/#running-gm-npcs
+- 跳转链接：/SRD/running-a-game/#section-running-gm-npcs
 ### 中文解释
 非玩家角色（NPC）是由游戏主持人扮演、而非由玩家操控的角色，包括盟友、中立和敌对的角色。
 
 ## 中文名：动态倒计时
-- 跳转链接：/SRD/running-a-game/#dynamic-countdown-advancement
+- 跳转链接：/SRD/running-a-game/#section-dynamic-countdown-advancement
 ### 中文解释
 动态倒计时根据动作掷骰结果不同，将推进不同的进度。包括进展倒计时和后果倒计时两种。
 
 ## 中文名：进展倒计时
-- 跳转链接：/SRD/running-a-game/#dynamic-countdown-advancement
+- 跳转链接：/SRD/running-a-game/#section-dynamic-countdown-advancement
 ### 中文解释
 进展倒计时是导向正面效果的动态倒计时。
 → 恐惧失败：不推进
@@ -325,7 +325,7 @@
 → 关键成功：-3
 
 ## 中文名：后果倒计时
-- 跳转链接：/SRD/running-a-game/#dynamic-countdown-advancement
+- 跳转链接：/SRD/running-a-game/#section-dynamic-countdown-advancement
 ### 中文解释
 后果倒计时是导向负面效果的动态倒计时。
 → 恐惧失败：-3
@@ -589,7 +589,7 @@ C. 触发机制指定的人
 某项特性或效果只能使用一次，使用次数在短休或长休结束时恢复。
 
 ## 中文名：每场景一次
-- 跳转链接：/SRD/running-a-game/#session-rewards
+- 跳转链接：/SRD/running-a-game/#section-crafting-scenes
 ### 中文解释
 某项特性或效果在同一场景内只能使用一次，进入新场景后重新获得使用机会。场景的边界由故事进展与主持人决定。
 
@@ -839,169 +839,169 @@ C. 触发机制指定的人
 自等级 5 开始，你可以在升级时选择兼职选项。当你兼职时，选择一个额外的职业，选择它的一个领域，然后获得它的职业特性。将相应的兼职模块加入你的角色卡右侧，并获得它的一个子职的基础卡。如果该基础子职卡有着与你不同的施法属性，你可以任意选择使用哪个属性进行施法掷骰。
 
 ## 中文名：吟游诗人
-- 跳转链接：/SRD/core-resources/classes/#bard
+- 跳转链接：/SRD/core-resources/classes/#section-bard
 ### 中文解释
 吟游诗人是诸界域中最富魅力的存在。这个职业的成员深谙蛊惑之道，精于各类表演形式——无论是引吭高歌、演奏乐器、编织故事还是插科打诨。
 
 ## 中文名：德鲁伊
-- 跳转链接：/SRD/core-resources/classes/#background-questions
+- 跳转链接：/SRD/core-resources/classes/#section-druid
 ### 中文解释
 成为一名德鲁伊不仅仅是一种职业，更是那些渴望从自然之中学习魔法并且保护自然之人的使命。那些常常默默地耕耘植物的德鲁伊们，很可能被人们低估；但那些驾驭着狂野自然之力的德鲁伊，则可能成为令人畏惧的存在。
 
 ## 中文名：守护者
-- 跳转链接：/SRD/core-resources/classes/#mythic-aerial-hunter
+- 跳转链接：/SRD/core-resources/classes/#section-guardian
 ### 中文解释
 守护者之名涵盖诸多武术职业，其本质更在于坚定不移的道德准则与磐石般的意志，而非具体战斗方式。虽然许多守护者会为了国家或事业加入军事组织，但他们更倾向于追随少数他们真正关心的人，而不是盲从大多数的意志。
 
 ## 中文名：游侠
-- 跳转链接：/SRD/core-resources/classes/#specialization-feature-4
+- 跳转链接：/SRD/core-resources/classes/#section-ranger
 ### 中文解释
 游侠是技艺高超的猎手，尽管他们拥有出色的战斗能力，却鲜少投身军旅。通过对身体的锤炼与野性的深刻理解，游侠成为狡黠的战术大师，凭借机敏和耐心追捕猎物。
 
 ## 中文名：游荡者
-- 跳转链接：/SRD/core-resources/classes/#foundation-features-5
+- 跳转链接：/SRD/core-resources/classes/#section-rogue
 ### 中文解释
 无论是态度还是行为，游荡者都可算是无赖恶棍之流。他们被人熟知的身份常常是骗子和小偷，但这个职业中的顶尖高手却能大隐隐于市。他们运用敏锐的智慧和刀刃，既能通过社交操纵欺骗敌人，也能轻松地撬锁、翻窗，又或是不动声色出手攻击。
 
 ## 中文名：神使
-- 跳转链接：/SRD/core-resources/classes/#mastery-features-3
+- 跳转链接：/SRD/core-resources/classes/#section-seraph
 ### 中文解释
 神使是充满神圣使命的神圣战士和治疗者。界域中存在着众多不同的神祇，因此也有许多不同类型的神使被这些神祇所任命。
 
 ## 中文名：术士
-- 跳转链接：/SRD/core-resources/classes/#foundation-features-6
+- 跳转链接：/SRD/core-resources/classes/#section-sorcerer
 ### 中文解释
 并非所有天生施法者都选择精进技艺，但那些潜心钻研之人终将成为强大的术士。这些施法者的天赋往往通过血脉传承，即便家族成员对其浑然不觉或刻意回避。
 
 ## 中文名：战士
-- 跳转链接：/SRD/core-resources/classes/#sorcerer-subclasses
+- 跳转链接：/SRD/core-resources/classes/#section-warrior
 ### 中文解释
 成为一名战士需要经年累月——往往耗费一生的时间——投入武器与战斗技艺的磨炼。当多数好战之人仅锤炼蛮力时，战士深谙敏捷的身手与机敏头脑的重要性，这使他们成为诸界域中最受追捧的斗士。
 
 ## 中文名：法师
-- 跳转链接：/SRD/core-resources/classes/#warrior-s-hope-feature
+- 跳转链接：/SRD/core-resources/classes/#section-wizard
 ### 中文解释
 无论通过学院研习还是个人修行，被称为法师之人皆需经年累月借助书籍、宝石、药剂与草药等工具来获取并锤炼浩瀚魔力。一些法师穷尽一生专精某学派的法术，而另一些人则从各种不同的学派中学习。
 
 ## 中文名：野兽形态
-- 跳转链接：/SRD/core-resources/classes/#druid
+- 跳转链接：/SRD/core-resources/classes/#section-class-feature-2
 ### 中文解释
 德鲁伊可以标记 1 压力点，魔法般变形成野兽形态列表中的一种生物，其位阶必须等于或低于你的位阶。你可以随时解除此形态。变身后，你无法使用武器或施展领域卡上的法术，但你仍然可以使用你拥有的其他特性或能力。
 
 ## 中文名：动物伙伴
-- 跳转链接：/SRD/core-resources/classes/#spellcast-trait-6
+- 跳转链接：/SRD/core-resources/classes/#section-ranger-companion
 ### 中文解释
 游侠职业的驯兽大师子职有一个自选动物伙伴（与游戏主持人商讨）。除非你另有指示，否则它始终待在你身边。
 
 # 资源/子职业
 
 ## 中文名：子职业
-- 跳转链接：/SRD/core-resources/classes/#subclasses
+- 跳转链接：/SRD/core-resources/classes/#section-subclasses
 ### 中文解释
 每个职业分为两个子职业，用于进一步定义并强化该职业原型的某一面向。
 
 ## 中文名：基础
-- 跳转链接：/SRD/core-resources/classes/#subclasses
+- 跳转链接：/SRD/core-resources/classes/#section-subclasses
 ### 中文解释
 一个独特的起始特性，用以确立该子职业的定位与优势。
 
 ## 中文名：进阶
-- 跳转链接：/SRD/core-resources/classes/#subclasses
+- 跳转链接：/SRD/core-resources/classes/#section-subclasses
 ### 中文解释
 一个可在升级时获得的强化特性。某些子职业的进阶特性会赋予全新能力，另一些则会扩展或强化你从职业或子职业已获得的特性。
 
 ## 中文名：精通
-- 跳转链接：/SRD/core-resources/classes/#subclasses
+- 跳转链接：/SRD/core-resources/classes/#section-subclasses
 ### 中文解释
 子职业中最强大的特性，可在更高等级时获得。某些子职业的精通特性会解锁全新的超凡能力，另一些则是子职业核心特性的最终形态。
 
 ## 中文名：驯兽大师
-- 跳转链接：/SRD/core-resources/classes/#ranger
+- 跳转链接：/SRD/core-resources/classes/#section-beastbound
 ### 中文解释
 选择驯兽大师，与动物盟友建立深厚情谊。
 
 ## 中文名：勇气呼唤
-- 跳转链接：/SRD/core-resources/classes/#specialization-feature-9
+- 跳转链接：/SRD/core-resources/classes/#section-call-of-the-brave
 ### 中文解释
 选择勇气呼唤，利用敌人的力量激励自己。
 
 ## 中文名：屠戮呼唤
-- 跳转链接：/SRD/core-resources/classes/#foundation-feature-8
+- 跳转链接：/SRD/core-resources/classes/#section-call-of-the-slayer
 ### 中文解释
 选择屠戮呼唤，以摧枯拉朽之力碾碎敌人。
 
 ## 中文名：神兵驭者
-- 跳转链接：/SRD/core-resources/classes/#specialization-feature-6
+- 跳转链接：/SRD/core-resources/classes/#section-divine-wielder
 ### 中文解释
 选择神兵驭者，凭借传奇武器来主宰战场。
 
 ## 中文名：元素起源
-- 跳转链接：/SRD/core-resources/classes/#spellcast-trait-10
+- 跳转链接：/SRD/core-resources/classes/#section-elemental-origin
 ### 中文解释
 选择元素起源，引导某一元素的原始魔力。
 
 ## 中文名：黑夜行者
-- 跳转链接：/SRD/core-resources/classes/#connections-4
+- 跳转链接：/SRD/core-resources/classes/#section-nightwalker
 ### 中文解释
 选择黑夜行者，操纵阴影使你穿行于环境。
 
 ## 中文名：原初起源
-- 跳转链接：/SRD/core-resources/classes/#background-questions-6
+- 跳转链接：/SRD/core-resources/classes/#section-primal-origin
 ### 中文解释
 选择原初起源，强力地拓展法术的多变性。
 
 ## 中文名：知识学派
-- 跳转链接：/SRD/core-resources/classes/#foundation-features-7
+- 跳转链接：/SRD/core-resources/classes/#section-school-of-knowledge
 ### 中文解释
 选择知识学派，敏锐地洞察世间参透万物。
 
 ## 中文名：战争学派
-- 跳转链接：/SRD/core-resources/classes/#foundation-feature-9
+- 跳转链接：/SRD/core-resources/classes/#section-school-of-war
 ### 中文解释
 选择战争学派，熟练地使用魔法大杀四方。
 
 ## 中文名：坚毅铁卫
-- 跳转链接：/SRD/core-resources/classes/#guardian
+- 跳转链接：/SRD/core-resources/classes/#section-stalwart
 ### 中文解释
 选择坚毅铁卫，承受重击后依然奋战不休。
 
 ## 中文名：帮派豪杰
-- 跳转链接：/SRD/core-resources/classes/#class-feature-5
+- 跳转链接：/SRD/core-resources/classes/#section-syndicate
 ### 中文解释
 选择帮派豪杰，你所到之处皆有人脉网络。
 
 ## 中文名：游唱乐手
-- 跳转链接：/SRD/core-resources/classes/#troubadour
+- 跳转链接：/SRD/core-resources/classes/#section-troubadour
 ### 中文解释
 选择游唱乐手，演奏音乐来鼓舞你的盟友。
 
 ## 中文名：复仇战卫
-- 跳转链接：/SRD/core-resources/classes/#stalwart
+- 跳转链接：/SRD/core-resources/classes/#section-vengeance
 ### 中文解释
 选择复仇战卫，痛击伤害你与同伴的敌人。
 
 ## 中文名：复兴结社
-- 跳转链接：/SRD/core-resources/classes/#foundation-feature-2
+- 跳转链接：/SRD/core-resources/classes/#section-warden-of-renewal
 ### 中文解释
 选择复兴结社，使用强大的魔法治疗盟友。
 
 ## 中文名：元素结社
-- 跳转链接：/SRD/core-resources/classes/#class-feature-2
+- 跳转链接：/SRD/core-resources/classes/#section-warden-of-the-elements
 ### 中文解释
 选择元素结社，体现自然元素的不同面貌。
 
 ## 中文名：寻路斥候
-- 跳转链接：/SRD/core-resources/classes/#beastbound
+- 跳转链接：/SRD/core-resources/classes/#section-wayfinder
 ### 中文解释
 选择寻路斥候，用致命武力追踪猎杀目标。
 
 ## 中文名：翔翼哨兵
-- 跳转链接：/SRD/core-resources/classes/#seraph
+- 跳转链接：/SRD/core-resources/classes/#section-winged-sentinel
 ### 中文解释
 选择翔翼哨兵，翱翔天际并施展毁灭打击。
 
 ## 中文名：言文巧匠
-- 跳转链接：/SRD/core-resources/classes/#mastery-feature
+- 跳转链接：/SRD/core-resources/classes/#section-wordsmith
 ### 中文解释
 选择言文巧匠，以机锋妙语折服广大听众。
 
@@ -1013,79 +1013,79 @@ C. 触发机制指定的人
 《匕首之心》核心规则包含 9 组领域卡，每组卡牌代表一种特定主题，赋予角色相应的特性或特殊能力。
 
 ## 中文名：领域卡
-- 跳转链接：/SRD/core-resources/domains/#section-011
+- 跳转链接：/SRD/core-resources/domains/#section-domain-cards
 ### 中文解释
 每张领域卡提供一个或多个你在冒险过程中可使用的特性。部分领域卡牌提供你可以进行的行动，例如独特的攻击或法术；也有一些则赋予被动效果、新的休整行动或社交遭遇能力，或者是一次性增益。
 
 ## 中文名：配置
-- 跳转链接：/SRD/core-resources/domains/#section-019
+- 跳转链接：/SRD/core-resources/domains/#section-loadout-and-vault
 ### 中文解释
 你的配置是在你已获得的领域卡中，你的玩家角色可以在游戏过程中使用其效果的一组卡牌。你最多可以同时在配置中放置 5 张领域卡。
 
 ## 中文名：宝库
-- 跳转链接：/SRD/core-resources/domains/#section-019
+- 跳转链接：/SRD/core-resources/domains/#section-loadout-and-vault
 ### 中文解释
 角色已获得、但当前未放入配置的领域卡集合。宝库中的卡牌处于非激活状态，不会影响游戏；要使用其效果，通常需要先将其移入配置。
 
 ## 中文名：回想
-- 跳转链接：/SRD/core-resources/domains/#section-019
+- 跳转链接：/SRD/core-resources/domains/#section-loadout-and-vault
 ### 中文解释
 将领域卡从宝库移入配置的操作，通常需要标记等同于该卡回想费用的压力点。配置已满时，还需将一张配置卡移回宝库。休整期间交换领域卡不支付回想费用。
 
 ## 中文名：奥术
-- 跳转链接：/SRD/core-resources/domains/#the-9-domains-are
+- 跳转链接：/SRD/core-resources/domains/#section-arcana
 ### 中文解释
 奥术是与生俱来和本能魔法的领域。选择此道的人能够利用界域中原始、神秘的力量来操纵自身的能量和元素。
 
 ## 中文名：利刃
-- 跳转链接：/SRD/core-resources/domains/#arcana
+- 跳转链接：/SRD/core-resources/domains/#section-blade
 ### 中文解释
 利刃是武器精通的领域。无论是通过钢剑、弓箭，还是更专业的武器，追随此道的人都拥有斩断他人生命的能力。
 
 ## 中文名：骸骨
-- 跳转链接：/SRD/core-resources/domains/#blade
+- 跳转链接：/SRD/core-resources/domains/#section-bone
 ### 中文解释
 骸骨是战术和肉体的领域。此领域的实践者能够不可思议地控制自己的身体能力，并且善于预测他人在战斗中的行为。
 
 ## 中文名：典籍
-- 跳转链接：/SRD/core-resources/domains/#bone
+- 跳转链接：/SRD/core-resources/domains/#section-codex
 ### 中文解释
 典籍是深入研究魔法的领域。寻求魔法知识的人会探寻记录在书本上、写在卷轴上、刻在墙壁上或纹在身体上的力量方程式。
 
 ## 中文名：优雅
-- 跳转链接：/SRD/core-resources/domains/#codex
+- 跳转链接：/SRD/core-resources/domains/#section-grace
 ### 中文解释
 优雅是魅力的领域。通过令人心醉的讲述、迷人的法术或谎言的迷雾，引导这种力量的人能够定义敌人的现实，按照自己的意愿扭曲感知。
 
 ## 中文名：午夜
-- 跳转链接：/SRD/core-resources/domains/#grace
+- 跳转链接：/SRD/core-resources/domains/#section-midnight
 ### 中文解释
 午夜是阴影与秘密的领域。无论是通过巧妙的诡计、灵巧的魔法还是夜色的掩护，引导这些力量的人都实践着隐匿的艺术，并且能够揭示隐藏的宝藏。
 
 ## 中文名：贤者
-- 跳转链接：/SRD/core-resources/domains/#midnight
+- 跳转链接：/SRD/core-resources/domains/#section-sage
 ### 中文解释
 贤者是自然世界的领域。走上这条道路的人能够汲取大地及其生灵的不羁力量，释放原始的魔法。
 
 ## 中文名：辉耀
-- 跳转链接：/SRD/core-resources/domains/#sage
+- 跳转链接：/SRD/core-resources/domains/#section-splendor
 ### 中文解释
 辉耀是生命的领域。通过这种魔法，追随者获得治愈以及在一定程度上控制死亡的能力。
 
 ## 中文名：勇气
-- 跳转链接：/SRD/core-resources/domains/#splendor
+- 跳转链接：/SRD/core-resources/domains/#section-valor
 ### 中文解释
 勇气是守护的领域。无论是通过攻击还是防御，选择此信条之人皆可引导强大的力量在战斗中保护他们的盟友。
 
 ## 中文名：术典
-- 跳转链接：/SRD/core-resources/domains/#section-017
+- 跳转链接：/SRD/core-resources/domains/#section-card-type
 ### 中文解释
 术典是典籍领域独有的领域卡类型，是一系列小型法术的集合。
 
 # 战役
 
 ## 中文名：第零场
-- 跳转链接：/SRD/campaign-frames/#session-zero-questions
+- 跳转链接：/SRD/campaign-frames/#section-session-zero-questions
 ### 中文解释
 为你的团队搭建一个能共同讲好史诗故事的基础舞台。在建立角色或选择背景设定之前，大家需要先交流——每个人希望从这次游戏体验中获得什么。
 第零场由游戏主持人引导，但所有玩家都应积极参与，表达自己对这场战役想要、以及不想要的内容。
@@ -1131,7 +1131,7 @@ C. 触发机制指定的人
 在一个将失落古文明的遗留科技奉为魔法的世界里，一种恶意病毒开始在徘徊于荒原上的机械中蔓延，新的威胁正在悄然崛起。
 
 ## 中文名：秽野之息
-- 跳转链接：/SRD/campaign-frames/#complexity-rating
+- 跳转链接：/SRD/campaign-frames/#section-the-witherwild
 ### 中文解释
 当恣意妄为的国度将战火引向古老的森林神祇，蔓生无度的荒野如瘟疫般吞没了整片大地。
 
@@ -1153,6 +1153,6 @@ C. 触发机制指定的人
 当你处于所有敌人视线之外，且敌人不知道你的位置时，你获得隐藏 状态。所有以 隐藏 状态下的生物为目标的掷骰都具有劣势。一旦敌人移动到可以看到你的位置、你主动进入他们视线或者你进行攻击，你都将脱离 隐藏 状态。
 
 ## 中文名：隐匿
-- 跳转链接：/SRD/core-resources/classes/#mastery-feature-6
+- 跳转链接：/SRD/core-resources/classes/#section-class-feature-5
 ### 中文解释
 除了 隐藏 状态的增益之外，当你处于 隐匿 状态时，如果一个敌人移动到能看到你的位置时，只要你保持静止就不会被看到。隐匿 状态保持到你进行攻击或在敌人的视线内结束移动为止。

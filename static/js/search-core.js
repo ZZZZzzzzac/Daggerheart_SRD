@@ -32,10 +32,32 @@
     const query = normalize(rawQuery);
     if (!query) return [];
     const terms = query.split(" ").filter(Boolean);
-    return records
-      .filter((record) => record.language === language)
-      .map((record) => ({ record, score: scoreRecord(record, query, terms) }))
-      .filter((item) => item.score >= 0)
+    const keyFor = (record) => `${record.path}#${record.anchor}`;
+    const translated = new Map();
+    const pages = new Map();
+    records.filter((record) => record.language === language).forEach((record) => {
+      translated.set(keyFor(record), record);
+      if (!pages.has(record.path)) pages.set(record.path, record.pageTitle);
+    });
+    const matches = new Map();
+    records.forEach((sourceRecord) => {
+      const score = scoreRecord(sourceRecord, query, terms);
+      if (score < 0) return;
+      let record = translated.get(keyFor(sourceRecord));
+      const chapterOnly = !record;
+      if (!record) {
+        const title = pages.get(sourceRecord.path);
+        if (!title) return;
+        // 另一语言没有同一小节时只定位章节，不猜测相邻小节的含义。
+        record = { path: sourceRecord.path, anchor: "top", language, pageTitle: title, heading: title, body: "" };
+      }
+      const key = keyFor(record);
+      const previous = matches.get(key);
+      if (!previous || score > previous.score || (score === previous.score && sourceRecord.language === language && previous.sourceRecord.language !== language)) {
+        matches.set(key, { record, score, sourceRecord, chapterOnly });
+      }
+    });
+    return [...matches.values()]
       .sort((a, b) => b.score - a.score)
       .slice(0, limit);
   }

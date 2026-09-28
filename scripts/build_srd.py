@@ -229,14 +229,8 @@ def section_records(markdown_text: str, anchor_ids: list[str], page_title: str, 
             "body": _plain_text(markdown_text),
         }]
     for index, match in enumerate(matches):
-        level = len(match.group(1))
-        if level > 3:
-            continue
-        end = len(markdown_text)
-        for next_match in matches[index + 1 :]:
-            if len(next_match.group(1)) <= 3:
-                end = next_match.start()
-                break
+        # 中英文的标题层级不一定一致；每个显式小节都可作为双语关联目标。
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(markdown_text)
         records.append({
             "path": path,
             "language": language,

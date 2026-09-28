@@ -6,7 +6,7 @@
   <meta name="description" content="匕首之心 Daggerheart 双语系统参考文档">
   <meta name="theme-color" content="#f4efe5">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
-  <link rel="stylesheet" href="{{ "css/site.css?v=20260926f" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/site.css?v=20260928-search" | relURL }}">
 </head>
 <body data-base-url="{{ "" | relURL }}" data-site-index="{{ "generated/site-index.json" | relURL }}" data-search-index="{{ "generated/search-index.json" | relURL }}">
   <header class="site-header">
@@ -57,7 +57,7 @@
         <div><p class="eyebrow"><span class="lang-zh">全文索引</span><span class="lang-en">Full-text index</span></p><h2><span class="lang-zh">搜索规则</span><span class="lang-en">Search rules</span></h2></div>
         <button class="dialog-close" type="button" data-close-dialog="search-dialog" aria-label="关闭">×</button>
       </div>
-      <div class="search-field-wrap"><span class="search-symbol" aria-hidden="true"></span><input id="search-input" type="search" autocomplete="off" placeholder="输入标题、术语或正文…"><button id="search-language" type="button">中文</button></div>
+      <div class="search-field-wrap"><span class="search-symbol" aria-hidden="true"></span><input id="search-input" type="search" autocomplete="off" placeholder="输入中文或英文标题、术语、正文…"><button id="search-language" type="button" title="切换结果显示语言；始终搜索中英文" aria-label="切换搜索结果显示语言">中文</button></div>
       <p class="search-hint" id="search-hint">输入文字后开始搜索</p>
       <ol class="search-results" id="search-results"></ol>
     </div>
@@ -77,8 +77,8 @@
     </form>
   </dialog>
 
-  <script src="{{ "js/search-core.js" | relURL }}" defer></script>
-  <script src="{{ "js/app.js?v=20260927-anchors" | relURL }}" defer></script>
+  <script src="{{ "js/search-core.js?v=20260928-search" | relURL }}" defer></script>
+  <script src="{{ "js/app.js?v=20260928-search" | relURL }}" defer></script>
   <script src="{{ "js/terms.js?v=20260926f" | relURL }}" defer></script>
 </body>
 </html>

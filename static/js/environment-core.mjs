@@ -23,7 +23,7 @@ export function renderEnvironments(html, language) {
     body = body.replace(/<p>([\s\S]*?)<\/p>/g, (_p, content) => '<p>' + content.replace(/(?<=.)\s*(<strong>(?:Potential Adversaries|Difficulty|Impulses):)/g, '</p><p>$1') + '</p>');
     const impulse = take(/<p><strong>(?:趋向|Impulses)[：:][\s\S]*?<\/p>/);
     const opponents = take(/<p><strong>(?:潜在敌人|Potential Adversaries)[：:][\s\S]*?<\/p>/);
-    const difficultyBlock = take(/<(?:p|h4)\b[^>]*><strong>(?:难度|Difficulty)[：:][\s\S]*?<\/(?:p|h4)>/);
+    const difficultyBlock = take(/<(?:p|h4)\b[^>]*>(?:<span\b[^>]*data-legacy-anchor="[^"]*"[^>]*><\/span>)*<strong>(?:难度|Difficulty)[：:][\s\S]*?<\/(?:p|h4)>/);
     const difficulty = plain(difficultyBlock).replace(/^(?:难度|Difficulty)[：:]\s*/, '').trim();
     if (!difficulty || !impulse || !opponents) throw new Error(`环境缺少难度、趋向或潜在敌人：${id}`);
     const difficultyHTML = difficultyBlock.replace(/^<(p|h4)([^>]*)>/, `<div$2 class="environment-difficulty${/^\d+$/.test(difficulty) ? '' : ' is-special'}">`).replace(/<\/(?:p|h4)>$/, '</div>');

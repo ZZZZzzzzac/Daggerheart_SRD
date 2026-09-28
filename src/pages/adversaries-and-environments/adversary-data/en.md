@@ -1,8 +1,8 @@
-## ADVERSARIES BY TIER {#adversaries-by-tier}
+## ADVERSARIES BY TIER {#section-adversaries-by-tier}
 
 This section contains the following stat blocks:
 
-#### **TIER 1 (LEVEL 1)** {#tier-1-level-1}
+#### **TIER 1 (LEVEL 1)** {#section-tier-1-overview}
 
 - Acid Burrower
 - Bear
@@ -57,7 +57,7 @@ This section contains the following stat blocks:
 - Shambling Zombie
 - Zombie Pack
 
-#### **TIER 2 (LEVELS 2–4)** {#tier-2-levels-24}
+#### **TIER 2 (LEVELS 2–4)** {#section-tier-2-overview}
 
 - Archer Squadron
 - Apprentice Assassin
@@ -96,7 +96,7 @@ This section contains the following stat blocks:
 - Stonewraith
 - War Wizard
 
-#### **TIER 3 (LEVELS 5–7)** {#tier-3-levels-57}
+#### **TIER 3 (LEVELS 5–7)** {#section-tier-3-overview}
 
 - Adult Flickerfly
 - Demon of Avarice
@@ -122,7 +122,7 @@ This section contains the following stat blocks:
 - Vault Guardian Turret
 - Young Ice Dragon
 
-#### **TIER 4 (LEVELS 8–10)** {#tier-4-levels-810}
+#### **TIER 4 (LEVELS 8–10)** {#section-tier-4-overview}
 
 - Arch-Necromancer
 - Fallen Shock Troop
@@ -143,13 +143,13 @@ This section contains the following stat blocks:
 - Perfected Zombie
 - Zombie Legion
 
-## TIER 1 ADVERSARIES (LEVEL 1) {#tier-1-adversaries-level-1}
+## TIER 1 ADVERSARIES (LEVEL 1) {#section-tier-1}
 
 <!-- adversary: acid-burrower | Acid Burrower -->
 
-#### ACID BURROWER {#acid-burrower}
+#### ACID BURROWER {#section-adversary-acid-burrower}
 
-##### *Tier Solo* {#tier-solo}
+##### *Tier Solo* {#section-adversary-acid-burrower-role}
 
 *A horse-sized insect with digging claws and acidic blood.* **Motives & Tactics:** Burrow, drag away, feed, reposition
 
@@ -157,7 +157,7 @@ This section contains the following stat blocks:
 
 **Experience:** Tremor Sense +2
 
-#### **FEATURES** {#features}
+#### **FEATURES** {#section-adversary-acid-burrower-features}
 
 *Relentless (3) - Passive:* The Burrower can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -169,9 +169,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: bear | Bear -->
 
-#### BEAR {#bear}
+#### BEAR {#section-adversary-bear}
 
-##### *Tier Bruiser* {#tier-bruiser}
+##### *Tier Bruiser* {#section-adversary-bear-role}
 
 *A large bear with thick fur and powerful claws.* **Motives & Tactics:** Climb, defend territory, pummel, track
 
@@ -179,7 +179,7 @@ This section contains the following stat blocks:
 
 **Experience:** Ambusher +3, Keen Senses +2
 
-#### **FEATURES** {#features-2}
+#### **FEATURES** {#section-adversary-bear-features}
 
 *Overwhelming Force - Passive:* Targets who mark HP from the Bear's standard attack are knocked back to Very Close range.
 
@@ -191,9 +191,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: cave-ogre | Cave Ogre -->
 
-#### CAVE OGRE {#cave-ogre}
+#### CAVE OGRE {#section-adversary-cave-ogre}
 
-##### *Tier Solo* {#tier-solo-2}
+##### *Tier Solo* {#section-adversary-cave-ogre-role}
 
 *A massive humanoid who sees all sapient life as food.* **Motives & Tactics:** Bite off heads, feast, rip limbs, stomp, throw enemies
 
@@ -201,7 +201,7 @@ This section contains the following stat blocks:
 
 **Experience:** Throw +2
 
-#### **FEATURES** {#features-3}
+#### **FEATURES** {#section-adversary-cave-ogre-features}
 
 *Ramp Up - Passive:* You must **spend a Fear** to spotlight the Ogre. While spotlighted, they can make their standard attack against all targets within range.
 
@@ -213,9 +213,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: construct | Construct -->
 
-#### CONSTRUCT {#construct}
+#### CONSTRUCT {#section-adversary-construct}
 
-##### *Tier Solo* {#tier-solo-3}
+##### *Tier Solo* {#section-adversary-construct-role}
 
 *A roughly humanoid being of stone and steel, assembled and animated by magic.*
 
@@ -223,7 +223,7 @@ This section contains the following stat blocks:
 
 **Difficulty:** 13 | **Thresholds:** 7/15 | **HP:** 9 | **Stress:** 4 **ATK:** +4 | **Fist Slam:** Melee | 1d20 phy
 
-#### **FEATURES** {#features-4}
+#### **FEATURES** {#section-adversary-construct-features}
 
 *Relentless (2) - Passive:* The Construct can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -236,9 +236,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: courtier | Courtier -->
 
-#### COURTIER {#courtier}
+#### COURTIER {#section-adversary-courtier}
 
-##### *Tier Social* {#tier-social}
+##### *Tier Social* {#section-adversary-courtier-role}
 
 *An ambitious and ostentatiously dressed socialite.* **Motives & Tactics:** Discredit, gain favor, maneuver, scheme
 
@@ -246,7 +246,7 @@ This section contains the following stat blocks:
 
 **Experience:** Socialite +3
 
-#### **FEATURES** {#features-5}
+#### **FEATURES** {#section-adversary-courtier-features}
 
 *Mockery - Action:* **Mark a Stress** to say something mocking and force a target within Close range to make a Presence Reaction Roll (14) to see if they can save face. On a failure, the target must mark 2 Stress and is *Vulnerable* until the scene ends.
 
@@ -256,9 +256,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: deeproot-defender | Deeproot Defender -->
 
-#### DEEPROOT DEFENDER {#deeproot-defender}
+#### DEEPROOT DEFENDER {#section-adversary-deeproot-defender}
 
-##### *Tier Bruiser* {#tier-bruiser-2}
+##### *Tier Bruiser* {#section-adversary-deeproot-defender-role}
 
 *A burly vegetable-person with grasping vines.* **Motives & Tactics:** Ambush, grab, protect, pummel
 
@@ -266,7 +266,7 @@ This section contains the following stat blocks:
 
 **Experience:** Huge +3
 
-#### **FEATURES** {#features-6}
+#### **FEATURES** {#section-adversary-deeproot-defender-features}
 
 *Ground Slam - Action:* Slam the ground, knocking all targets within Very Close range back to Far range. Each target knocked back this way must mark a Stress.
 
@@ -276,9 +276,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: dire-wolf | Dire Wolf -->
 
-#### DIRE WOLF {#dire-wolf}
+#### DIRE WOLF {#section-adversary-dire-wolf}
 
-##### *Tier Skulk* {#tier-skulk}
+##### *Tier Skulk* {#section-adversary-dire-wolf-role}
 
 *A large wolf with menacing teeth, seldom encountered alone.* **Motives & Tactics:** Defend territory, harry, protect pack, surround, trail
 
@@ -286,7 +286,7 @@ This section contains the following stat blocks:
 
 **Experience:** Keen Senses +3
 
-#### **FEATURES** {#features-7}
+#### **FEATURES** {#section-adversary-dire-wolf-features}
 
 *Pack Tactics - Passive:* If the Wolf makes a successful standard attack and another Dire Wolf is within Melee range of the target, deal **1d6+5** physical damage instead of their standard damage and you gain a Fear.
 
@@ -296,9 +296,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: giant-mosquitoes | Giant Mosquitoes -->
 
-#### GIANT MOSQUITOES {#giant-mosquitoes}
+#### GIANT MOSQUITOES {#section-adversary-giant-mosquitoes}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp}
+##### *Tier Horde (/HP)* {#section-adversary-giant-mosquitoes-role}
 
 *Dozens of fi st-sized mosquitoes, fl ying together for protection.* **Motives & Tactics:** Fly away, harass, steal blood
 
@@ -306,7 +306,7 @@ This section contains the following stat blocks:
 
 **Experience:** Camoufl age +2
 
-#### **FEATURES** {#features-8}
+#### **FEATURES** {#section-adversary-giant-mosquitoes-features}
 
 *Horde (1d4+1) - Passive:* When the Mosquitoes have marked half or more of their HP, their standard attack deals **1d4+1** physical damage instead.
 
@@ -318,9 +318,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: giant-rat | Giant Rat -->
 
-#### GIANT RAT {#giant-rat}
+#### GIANT RAT {#section-adversary-giant-rat}
 
-##### *Tier Minion* {#tier-minion}
+##### *Tier Minion* {#section-adversary-giant-rat-role}
 
 *A cat-sized rodent skilled at scavenging and survival.*
 
@@ -332,7 +332,7 @@ This section contains the following stat blocks:
 
 **Experience:** Keen Senses +3
 
-#### **FEATURES** {#features-9}
+#### **FEATURES** {#section-adversary-giant-rat-features}
 
 *Minion (3) - Passive:* The Rat is defeated when they take any damage. For every 3 damage a PC deals to the Rat, defeat an additional Minion within range the attack would succeed against.
 
@@ -342,9 +342,9 @@ This section contains the following stat blocks:
 
 <!-- adversary: giant-scorpion | Giant Scorpion -->
 
-#### GIANT SCORPION {#giant-scorpion}
+#### GIANT SCORPION {#section-adversary-giant-scorpion}
 
-##### *Tier Bruiser* {#tier-bruiser-3}
+##### *Tier Bruiser* {#section-adversary-giant-scorpion-role}
 
 *A human-sized arachnid with tearing claws and a stinging tail.* **Motives & Tactics:** Ambush, feed, grapple, poison
 
@@ -354,7 +354,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 ```
 **Experience:** Camoufl age +2
 
-#### **FEATURES** {#features-10}
+#### **FEATURES** {#section-adversary-giant-scorpion-features}
 
 *Double Strike - Action:* **Mark a Stress** to make a standard attack against two targets within Melee range.
 
@@ -366,9 +366,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: glass-snake | Glass Snake -->
 
-#### GLASS SNAKE {#glass-snake}
+#### GLASS SNAKE {#section-adversary-glass-snake}
 
-##### *Tier Standard* {#tier-standard}
+##### *Tier Standard* {#section-adversary-glass-snake-role}
 
 *A clear serpent with a massive head that leaves behind a glass shard trail wherever they go.*
 
@@ -378,7 +378,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **ATK:** +2 | **Glass Fangs:** Very Close | 1d8+2 phy
 
-#### **FEATURES** {#features-11}
+#### **FEATURES** {#section-adversary-glass-snake-features}
 
 - *Armor-Shredding Shards Passive:* On a successful attack within Melee range against the Snake, the attacker must mark an Armor Slot without receiving its benefi ts (they can still use armor to reduce the damage). If they can't mark an Armor Slot, they must mark an additional HP.
 - *Spinning Serpent Action:* **Mark a Stress** to make an attack against all targets within Very Close range. Targets the Snake succeeds against take **1d6+1** physical damage.
@@ -388,9 +388,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: harrier | Harrier -->
 
-#### HARRIER {#harrier}
+#### HARRIER {#section-adversary-harrier}
 
-##### *Tier Standard* {#tier-standard-2}
+##### *Tier Standard* {#section-adversary-harrier-role}
 
 *A nimble fi ghter armed with javelins.* **Motives & Tactics:** Flank, harry, kite, profi t
 
@@ -398,7 +398,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Camoufl age +2
 
-#### **FEATURES** {#features-12}
+#### **FEATURES** {#section-adversary-harrier-features}
 
 - *Maintain Distance Passive:* After making a standard attack, the Harrier can move anywhere within Far range.
 - *Fall Back Reaction:* When a creature moves into Melee range to make an attack, you can **mark a Stress** before the attack roll to move anywhere within Close range and make an attack against that creature. On a success, deal **1d10+2** physical damage.
@@ -407,9 +407,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: archer-guard | Archer Guard -->
 
-#### ARCHER GUARD {#archer-guard}
+#### ARCHER GUARD {#section-adversary-archer-guard}
 
-##### *Tier Ranged* {#tier-ranged}
+##### *Tier Ranged* {#section-adversary-archer-guard-role}
 
 *A tall guard bearing a longbow and quiver with arrows fl etched in the settlement's colors.*
 
@@ -419,7 +419,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Local Knowledge +3
 
-#### **FEATURES** {#features-13}
+#### **FEATURES** {#section-adversary-archer-guard-features}
 
 *Hobbling Shot - Action:* Make an attack against a target within Far range. On a success, **mark a Stress** to deal **1d12+3** physical damage. If the target marks HP from this attack, they have disadvantage on Agility Rolls until they clear at least 1 HP.
 
@@ -427,9 +427,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: bladed-guard | Bladed Guard -->
 
-#### BLADED GUARD {#bladed-guard}
+#### BLADED GUARD {#section-adversary-bladed-guard}
 
-##### *Tier Standard* {#tier-standard-3}
+##### *Tier Standard* {#section-adversary-bladed-guard-role}
 
 *An armored guard bearing a sword and shield painted in the settlement's colors.*
 
@@ -439,7 +439,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Local Knowledge +3
 
-#### **FEATURES** {#features-14}
+#### **FEATURES** {#section-adversary-bladed-guard-features}
 
 *Shield Wall - Passive:* A creature who tries to move within Very Close range of the Guard must succeed on an Agility Roll. If additional Bladed Guards are standing in a line alongside the fi rst, and each is within Melee range of another guard in the line, the Difficulty increases by the total number of guards in that line.
 
@@ -449,9 +449,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: head-guard | Head Guard -->
 
-#### HEAD GUARD {#head-guard}
+#### HEAD GUARD {#section-adversary-head-guard}
 
-##### *Tier Leader* {#tier-leader}
+##### *Tier Leader* {#section-adversary-head-guard-role}
 
 *A seasoned guard with a mace, a whistle, and a bellowing voice.* **Motives & Tactics:** Arrest, close gates, pin down, seek glory
 
@@ -459,7 +459,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Commander +2, Local Knowledge +2
 
-#### **FEATURES** {#features-15}
+#### **FEATURES** {#section-adversary-head-guard-features}
 
 *Rally Guards - Action:* **Spend 2 Fear** to spotlight the Head Guard and up to **2d4** allies within Far range.
 
@@ -471,9 +471,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: jagged-knife-bandit | Jagged Knife Bandit -->
 
-#### JAGGED KNIFE BANDIT {#jagged-knife-bandit}
+#### JAGGED KNIFE BANDIT {#section-adversary-jagged-knife-bandit}
 
-##### *Tier Standard* {#tier-standard-4}
+##### *Tier Standard* {#section-adversary-jagged-knife-bandit-role}
 
 *A cunning criminal in a cloak bearing one of the gang's iconic knives.* **Motives & Tactics:** Escape, profi t, steal, throw smoke
 
@@ -481,7 +481,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Thief +2
 
-#### **FEATURES** {#features-16}
+#### **FEATURES** {#section-adversary-jagged-knife-bandit-features}
 
 *Climber - Passive:* The Bandit climbs just as easily as they run. *From Above - Passive:* When the Bandit succeeds on a standard attack from above a target, they deal **1d10+1** physical damage instead of their standard damage.
 
@@ -489,9 +489,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: jagged-knife-hexer | Jagged Knife Hexer -->
 
-#### JAGGED KNIFE HEXER {#jagged-knife-hexer}
+#### JAGGED KNIFE HEXER {#section-adversary-jagged-knife-hexer}
 
-##### *Tier Support* {#tier-support}
+##### *Tier Support* {#section-adversary-jagged-knife-hexer-role}
 
 *A staff -wielding bandit in a cloak adorned with magical paraphernalia, using curses to vex their foes.* **Motives & Tactics:** Command, hex, profi t
 
@@ -501,7 +501,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Magical Knowledge +2
 
-#### **FEATURES** {#features-17}
+#### **FEATURES** {#section-adversary-jagged-knife-hexer-features}
 
 - *Curse Action:* Choose a target within Far range and temporarily *Curse* them. While the target is *Cursed*, you can **mark a Stress** when that target rolls with Hope to make the roll be with Fear instead.
 - *Chaotic Flux Action:* Make an attack against up to three targets within Very Close range. **Mark a Stress** to deal **2d6+3** magic damage to targets the Hexer succeeded against.
@@ -510,9 +510,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: jagged-knife-kneebreaker | Jagged Knife Kneebreaker -->
 
-#### JAGGED KNIFE KNEEBREAKER {#jagged-knife-kneebreaker}
+#### JAGGED KNIFE KNEEBREAKER {#section-adversary-jagged-knife-kneebreaker}
 
-##### *Tier Bruiser* {#tier-bruiser-4}
+##### *Tier Bruiser* {#section-adversary-jagged-knife-kneebreaker-role}
 
 *An imposing brawler carrying a large club.* **Motives & Tactics:** Grapple, intimidate, profi t, steal
 
@@ -520,7 +520,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Thief +2, Unveiled Threats +3
 
-#### **FEATURES** {#features-18}
+#### **FEATURES** {#section-adversary-jagged-knife-kneebreaker-features}
 
 - *I've Got 'Em Passive:* Creatures *Restrained* by the Kneebreaker take double damage from attacks by other adversaries.
 - *Hold Them Down Action:* Make an attack against a target within Melee range. On a success, the target takes no damage but is *Restrained* and *Vulnerable*. The target can break free, clearing both conditions, with a successful Strength Roll or is freed automatically if the Kneebreaker takes Major or greater damage.
@@ -529,9 +529,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: jagged-knife-lackey | Jagged Knife Lackey -->
 
-#### JAGGED KNIFE LACKEY {#jagged-knife-lackey}
+#### JAGGED KNIFE LACKEY {#section-adversary-jagged-knife-lackey}
 
-##### *Tier Minion* {#tier-minion-2}
+##### *Tier Minion* {#section-adversary-jagged-knife-lackey-role}
 
 *A thief with simple clothes and small daggers, eager to prove themselves.*
 
@@ -543,7 +543,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Thief +2
 
-#### **FEATURES** {#features-19}
+#### **FEATURES** {#section-adversary-jagged-knife-lackey-features}
 
 *Minion (3) - Passive:* The Lackey is defeated when they take any damage. For every 3 damage a PC deals to the Lackey, defeat an additional Minion within range the attack would succeed against.
 
@@ -553,9 +553,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: jagged-knife-lieutenant | Jagged Knife Lieutenant -->
 
-#### JAGGED KNIFE LIEUTENANT {#jagged-knife-lieutenant}
+#### JAGGED KNIFE LIEUTENANT {#section-adversary-jagged-knife-lieutenant}
 
-##### *Tier Leader* {#tier-leader-2}
+##### *Tier Leader* {#section-adversary-jagged-knife-lieutenant-role}
 
 *A seasoned bandit in quality leathers with a strong voice and cunning eyes.*
 
@@ -565,7 +565,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Local Knowledge +2
 
-#### **FEATURES** {#features-20}
+#### **FEATURES** {#section-adversary-jagged-knife-lieutenant-features}
 
 *Tactician - Action:* When you spotlight the Lieutenant, **mark a Stress** to also spotlight two allies within Close range.
 
@@ -579,9 +579,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: jagged-knife-shadow | Jagged Knife Shadow -->
 
-#### JAGGED KNIFE SHADOW {#jagged-knife-shadow}
+#### JAGGED KNIFE SHADOW {#section-adversary-jagged-knife-shadow}
 
-##### *Tier Skulk* {#tier-skulk-2}
+##### *Tier Skulk* {#section-adversary-jagged-knife-shadow-role}
 
 *A nimble scoundrel bearing a wicked knife and utilizing shadow magic to isolate targets.*
 
@@ -591,7 +591,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Intrusion +3
 
-#### **FEATURES** {#features-21}
+#### **FEATURES** {#section-adversary-jagged-knife-shadow-features}
 
 *Backstab - Passive:* When the Shadow succeeds on a standard attack that has advantage, they deal **1d6+6** physical damage instead of their standard damage.
 
@@ -601,9 +601,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: jagged-knife-sniper | Jagged Knife Sniper -->
 
-#### JAGGED KNIFE SNIPER {#jagged-knife-sniper}
+#### JAGGED KNIFE SNIPER {#section-adversary-jagged-knife-sniper}
 
-##### *Tier Ranged* {#tier-ranged-2}
+##### *Tier Ranged* {#section-adversary-jagged-knife-sniper-role}
 
 *A lanky bandit striking from cover with a shortbow.* **Motives & Tactics:** Ambush, hide, profi t, reposition
 
@@ -611,7 +611,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Stealth +2
 
-#### **FEATURES** {#features-22}
+#### **FEATURES** {#section-adversary-jagged-knife-sniper-features}
 
 *Unseen Strike - Passive:* If the Sniper is *Hidden* when they make a successful standard attack against a target, they deal **1d10+4** physical damage instead of their standard damage.
 
@@ -619,9 +619,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: merchant | Merchant -->
 
-#### MERCHANT {#merchant}
+#### MERCHANT {#section-adversary-merchant}
 
-##### *Tier Social* {#tier-social-2}
+##### *Tier Social* {#section-adversary-merchant-role}
 
 *A fi nely dressed trader with a keen eye for fi nancial gain.* **Motives & Tactics:** Buy low and sell high, create demand, infl ate prices, seek profi t
 
@@ -631,7 +631,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Shrewd Negotiator +3
 
-#### **FEATURES** {#features-23}
+#### **FEATURES** {#section-adversary-merchant-features}
 
 - *Preferential Treatment Passive:* A PC who succeeds on a Presence Roll against the Merchant gains a discount on purchases. A PC who fails on a Presence Roll against the Merchant must pay more and has disadvantage on future Presence Rolls against the Merchant.
 - *The Runaround Passive:* When a PC rolls a 14 or lower on a Presence Roll made against the Merchant, they must mark a Stress.
@@ -640,15 +640,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: minor-chaos-elemental | Minor Chaos Elemental -->
 
-#### MINOR CHAOS ELEMENTAL {#minor-chaos-elemental}
+#### MINOR CHAOS ELEMENTAL {#section-adversary-minor-chaos-elemental}
 
-##### *Tier Solo* {#tier-solo-4}
+##### *Tier Solo* {#section-adversary-minor-chaos-elemental-role}
 
 *A coruscating mass of uncontrollable magic.* **Motives & Tactics:** Confound, destabilize, transmogrify
 
 **Difficulty:** 14 | **Thresholds:** 7/14 | **HP:** 7 | **Stress:** 3 **ATK:** +3 | **Warp Blast:** Close | 1d12+6 mag
 
-#### **FEATURES** {#features-24}
+#### **FEATURES** {#section-adversary-minor-chaos-elemental-features}
 
 - *Arcane Form Passive:* The Elemental is resistant to magic damage.
 - *Sickening Flux Action:* **Mark a HP** to force all targets within Close range to mark a Stress and become *Vulnerable* until their next rest or they clear a HP.
@@ -660,15 +660,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: minor-fire-elemental | Minor Fire Elemental -->
 
-#### MINOR FIRE ELEMENTAL {#minor-fire-elemental}
+#### MINOR FIRE ELEMENTAL {#section-adversary-minor-fire-elemental}
 
-##### *Tier Solo* {#tier-solo-5}
+##### *Tier Solo* {#section-adversary-minor-fire-elemental-role}
 
 *A living fl ame the size of a large bonfi re.* **Motives & Tactics:** Encircle enemies, grow in size, intimidate, start fi res
 
 **Difficulty:** 13 | **Thresholds:** 7/15 | **HP:** 9 | **Stress:** 3 **ATK:** +3 | **Elemental Blast:** Far | 1d10+4 mag
 
-#### **FEATURES** {#features-25}
+#### **FEATURES** {#section-adversary-minor-fire-elemental-features}
 
 - *Relentless (2) Passive:* The Elemental can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.
 - *Scorched Earth Action:* **Mark a Stress** to choose a point within Far range. The ground within Very Close range of that point immediately bursts into fl ames. All creatures within this area must make an Agility Reaction Roll. Targets who fail take **2d8** magic damage from the fl ames. Targets who succeed take half damage.
@@ -680,9 +680,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: minor-demon | Minor Demon -->
 
-#### MINOR DEMON {#minor-demon}
+#### MINOR DEMON {#section-adversary-minor-demon}
 
-##### *Tier Solo* {#tier-solo-6}
+##### *Tier Solo* {#section-adversary-minor-demon-role}
 
 *A crimson-hued creature from the Circles Below, consumed by rage against all mortals.*
 
@@ -700,15 +700,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: minor-treant | Minor Treant -->
 
-#### MINOR TREANT {#minor-treant}
+#### MINOR TREANT {#section-adversary-minor-treant}
 
-##### *Tier Minion* {#tier-minion-3}
+##### *Tier Minion* {#section-adversary-minor-treant-role}
 
 *An ambulatory sapling rising up to defend their forest.* **Motives & Tactics:** Crush, overwhelm, protect
 
 **Difficulty:** 10 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** −2 | **Clawed Branch:** Melee | 4 phy
 
-#### **FEATURES** {#features-26}
+#### **FEATURES** {#section-adversary-minor-treant-features}
 
 - *Minion () Passive:* The Treant is defeated when they take any damage. For every 5 damage a PC deals to the Treant, defeat an additional Minion within range the attack would succeed against.
 - *Group Attack Action:* **Spend a Fear** to choose a target and spotlight all Minor Treants within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 4 physical damage each. Combine this damage.
@@ -717,9 +717,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: green-ooze | Green Ooze -->
 
-#### GREEN OOZE {#green-ooze}
+#### GREEN OOZE {#section-adversary-green-ooze}
 
-##### *Tier Skulk* {#tier-skulk-3}
+##### *Tier Skulk* {#section-adversary-green-ooze-role}
 
 *A moving mound of translucent green slime.* **Motives & Tactics:** Camoufl age, consume and multiply, creep up, envelop
 
@@ -727,7 +727,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Camoufl age +3
 
-#### **FEATURES** {#features-27}
+#### **FEATURES** {#section-adversary-green-ooze-features}
 
 - *Slow Passive:* When you spotlight the Ooze and they don't have a token on their stat block, they can't act yet. Place a token on their stat block and describe what they're preparing to do. When you spotlight the Ooze and they have a token on their stat block, clear the token and they can act.
 - *Acidic Form Passive:* When the Ooze makes a successful attack, the target must mark an Armor Slot without receiving its benefi ts (they can still use armor to reduce the damage). If they can't mark an Armor Slot, they must mark an additional HP.
@@ -738,15 +738,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: tiny-green-ooze | Tiny Green Ooze -->
 
-#### TINY GREEN OOZE {#tiny-green-ooze}
+#### TINY GREEN OOZE {#section-adversary-tiny-green-ooze}
 
-##### *Tier Skulk* {#tier-skulk-4}
+##### *Tier Skulk* {#section-adversary-tiny-green-ooze-role}
 
 *A small moving mound of translucent green slime.* **Motives & Tactics:** Camoufl age, creep up
 
 **Difficulty:** 14 | **Thresholds:** 4/None | **HP:** 2 | **Stress:** 1 **ATK:** −1 | **Ooze Appendage:** Melee | 1d4+1 mag
 
-#### **FEATURES** {#features-28}
+#### **FEATURES** {#section-adversary-tiny-green-ooze-features}
 
 *Acidic Form - Passive:* When the Ooze makes a successful attack, the target must mark an Armor Slot without receiving its benefi ts (they can still use armor to reduce the damage). If they can't mark an Armor Slot, they must mark an additional HP.
 
@@ -754,9 +754,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: red-ooze | Red Ooze -->
 
-#### RED OOZE {#red-ooze}
+#### RED OOZE {#section-adversary-red-ooze}
 
-##### *Tier Skulk* {#tier-skulk-5}
+##### *Tier Skulk* {#section-adversary-red-ooze-role}
 
 *A moving mound of translucent fl aming red slime.* **Motives & Tactics:** Camoufl age, consume and multiply, ignite, start fi res
 
@@ -764,7 +764,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Camoufl age +3
 
-#### **FEATURES** {#features-29}
+#### **FEATURES** {#section-adversary-red-ooze-features}
 
 *Creeping Fire - Passive:* The Ooze can only move within Very Close range as their normal movement. They light any fl ammable object they touch on fi re.
 
@@ -775,15 +775,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: tiny-red-ooze | Tiny Red Ooze -->
 
-#### TINY RED OOZE {#tiny-red-ooze}
+#### TINY RED OOZE {#section-adversary-tiny-red-ooze}
 
-##### *Tier Skulk* {#tier-skulk-6}
+##### *Tier Skulk* {#section-adversary-tiny-red-ooze-role}
 
 *A small moving mound of translucent fl aming red slime* **Motives & Tactics:** Blaze, camoufl age
 
 **Difficulty:** 11 | **Thresholds:** 5/None | **HP:** 2 | **Stress:** 1 **ATK:** −1 | **Ooze Appendage:** Melee | 1d4+2 mag
 
-#### **FEATURES** {#features-30}
+#### **FEATURES** {#section-adversary-tiny-red-ooze-features}
 
 *Burning - Reaction:* When a creature within Melee range deals damage to the Ooze, they take **1d6** direct magic damage.
 
@@ -791,9 +791,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: petty-noble | Petty Noble -->
 
-#### PETTY NOBLE {#petty-noble}
+#### PETTY NOBLE {#section-adversary-petty-noble}
 
-##### *Tier Social* {#tier-social-3}
+##### *Tier Social* {#section-adversary-petty-noble-role}
 
 *A richly dressed and adorned aristocrat brimming with hubris.* **Motives & Tactics:** Abuse power, gather resources, mobilize minions
 
@@ -809,9 +809,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: pirate-captain | Pirate Captain -->
 
-#### PIRATE CAPTAIN {#pirate-captain}
+#### PIRATE CAPTAIN {#section-adversary-pirate-captain}
 
-##### *Tier Leader* {#tier-leader-3}
+##### *Tier Leader* {#section-adversary-pirate-captain-role}
 
 *A charismatic sea dog with an impressive hat, eager to raid and plunder.*
 
@@ -821,7 +821,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Commander +2, Sailor +3
 
-#### **FEATURES** {#features-31}
+#### **FEATURES** {#section-adversary-pirate-captain-features}
 
 *Swashbuckler - Passive:* When the Captain marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress.
 
@@ -835,9 +835,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: pirate-raiders | Pirate Raiders -->
 
-#### PIRATE RAIDERS {#pirate-raiders}
+#### PIRATE RAIDERS {#section-adversary-pirate-raiders}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp-2}
+##### *Tier Horde (/HP)* {#section-adversary-pirate-raiders-role}
 
 *Seafaring scoundrels moving in a ravaging pack.* **Motives & Tactics:** Gang up, plunder, raid
 
@@ -847,7 +847,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Sailor +3
 
-#### **FEATURES** {#features-32}
+#### **FEATURES** {#section-adversary-pirate-raiders-features}
 
 *Horde (1d4+1) - Passive:* When the Raiders have marked half or more of their HP, their standard attack deals **1d4+1** physical damage instead.
 
@@ -857,9 +857,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: pirate-tough | Pirate Tough -->
 
-#### PIRATE TOUGH {#pirate-tough}
+#### PIRATE TOUGH {#section-adversary-pirate-tough}
 
-##### *Tier Bruiser* {#tier-bruiser-5}
+##### *Tier Bruiser* {#section-adversary-pirate-tough-role}
 
 *A thickly muscled and tattooed pirate with melon-sized fi sts.* **Motives & Tactics:** Plunder, raid, smash, terrorize
 
@@ -867,7 +867,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Sailor +2
 
-#### **FEATURES** {#features-33}
+#### **FEATURES** {#section-adversary-pirate-tough-features}
 
 *Swashbuckler - Passive:* When the Tough marks 2 or fewer HP from an attack within Melee range, the attacker must mark a Stress.
 
@@ -877,15 +877,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: sellsword | Sellsword -->
 
-#### SELLSWORD {#sellsword}
+#### SELLSWORD {#section-adversary-sellsword}
 
-##### *Tier Minion* {#tier-minion-4}
+##### *Tier Minion* {#section-adversary-sellsword-role}
 
 *An armed mercenary testing their luck.* **Motives & Tactics:** Charge, lacerate, overwhelm, profi t
 
 **Difficulty:** 10 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** +3 | **Longsword:** Melee | 3 phy
 
-#### **FEATURES** {#features-34}
+#### **FEATURES** {#section-adversary-sellsword-features}
 
 *Minion (4) - Passive:* The Sellsword is defeated when they take any damage. For every 4 damage a PC deals to the Sellsword, defeat an additional Minion within range the attack would succeed against.
 
@@ -895,9 +895,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: skeleton-archer | Skeleton Archer -->
 
-#### SKELETON ARCHER {#skeleton-archer}
+#### SKELETON ARCHER {#section-adversary-skeleton-archer}
 
-##### *Tier Ranged* {#tier-ranged-3}
+##### *Tier Ranged* {#section-adversary-skeleton-archer-role}
 
 *A fragile skeleton with a shortbow and arrows.*
 
@@ -905,7 +905,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 9 | **Thresholds:** 4/7 | **HP:** 3 | **Stress:** 2 **ATK:** +2 | **Shortbow:** Far | 1d8+1 phy
 
-#### **FEATURES** {#features-35}
+#### **FEATURES** {#section-adversary-skeleton-archer-features}
 
 *Opportunist - Passive:* When two or more adversaries are within Very Close range of a creature, all damage the Archer deals to that creature is doubled.
 
@@ -915,9 +915,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: skeleton-dredge | Skeleton Dredge -->
 
-#### SKELETON DREDGE {#skeleton-dredge}
+#### SKELETON DREDGE {#section-adversary-skeleton-dredge}
 
-##### *Tier Minion* {#tier-minion-5}
+##### *Tier Minion* {#section-adversary-skeleton-dredge-role}
 
 *A clattering pile of bones.* **Motives & Tactics:** Fall apart, overwhelm, play dead, steal skin
 
@@ -930,9 +930,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: skeleton-knight | Skeleton Knight -->
 
-#### SKELETON KNIGHT {#skeleton-knight}
+#### SKELETON KNIGHT {#section-adversary-skeleton-knight}
 
-##### *Tier Bruiser* {#tier-bruiser-6}
+##### *Tier Bruiser* {#section-adversary-skeleton-knight-role}
 
 *A large armored skeleton with a huge blade.*
 
@@ -940,7 +940,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 13 | **Thresholds:** 7/13 | **HP:** 5 | **Stress:** 2 **ATK:** +2 | **Rusty Greatsword:** Melee | 1d10+2 phy
 
-#### **FEATURES** {#features-36}
+#### **FEATURES** {#section-adversary-skeleton-knight-features}
 
 *Terrifying - Passive:* When the Knight makes a successful attack, all PCs within Close range lose a Hope and you gain a Fear.
 
@@ -952,15 +952,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: skeleton-warrior | Skeleton Warrior -->
 
-#### SKELETON WARRIOR {#skeleton-warrior}
+#### SKELETON WARRIOR {#section-adversary-skeleton-warrior}
 
-##### *Tier Standard* {#tier-standard-5}
+##### *Tier Standard* {#section-adversary-skeleton-warrior-role}
 
 *A dirt-covered skeleton armed with a rusted blade.* **Motives & Tactics:** Feign death, gang up, steal skin
 
 **Difficulty:** 10 | **Thresholds:** 4/8 | **HP:** 3 | **Stress:** 2 **ATK:** +0 | **Sword:** Melee | 1d6+2 phy
 
-#### **FEATURES** {#features-37}
+#### **FEATURES** {#section-adversary-skeleton-warrior-features}
 
 *Only Bones - Passive:* The Warrior is resistant to physical damage. *Won't Stay Dead - Reaction:* When the Warrior is defeated, you can spotlight them and roll a **d6**. On a result of 6, if there are other adversaries on the battlefi eld, the Warrior re-forms with no marked HP.
 
@@ -968,9 +968,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: spellblade | Spellblade -->
 
-#### SPELLBLADE {#spellblade}
+#### SPELLBLADE {#section-adversary-spellblade}
 
-##### *Tier Leader* {#tier-leader-4}
+##### *Tier Leader* {#section-adversary-spellblade-role}
 
 *A mercenary combining swordplay and magic to deadly eff ect.* **Motives & Tactics:** Blast, command, endure
 
@@ -978,7 +978,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Magical Knowledge +2
 
-#### **FEATURES** {#features-38}
+#### **FEATURES** {#section-adversary-spellblade-features}
 
 *Arcane Steel - Passive:* Damage dealt by the Spellblade's standard attack is considered both physical and magic.
 
@@ -992,9 +992,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: swarm-of-rats | Swarm Of Rats -->
 
-#### SWARM OF RATS {#swarm-of-rats}
+#### SWARM OF RATS {#section-adversary-swarm-of-rats}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp-3}
+##### *Tier Horde (/HP)* {#section-adversary-swarm-of-rats-role}
 
 *A skittering mass of ordinary rodents moving as one like a ravenous wave.*
 
@@ -1002,7 +1002,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 10 | **Thresholds:** 6/10 | **HP:** 6 | **Stress:** 2 **ATK:** −3 | **Claws:** Melee | 1d8+2 phy
 
-#### **FEATURES** {#features-39}
+#### **FEATURES** {#section-adversary-swarm-of-rats-features}
 
 *Horde (1d4+1) - Passive:* When the Swarm has marked half or more of their HP, their standard attack deals **1d4+1** physical damage instead.
 
@@ -1012,9 +1012,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: sylvan-soldier | Sylvan Soldier -->
 
-#### SYLVAN SOLDIER {#sylvan-soldier}
+#### SYLVAN SOLDIER {#section-adversary-sylvan-soldier}
 
-##### *Tier Standard* {#tier-standard-6}
+##### *Tier Standard* {#section-adversary-sylvan-soldier-role}
 
 *A faerie warrior adorned in armor made of leaves and bark.* **Motives & Tactics:** Ambush, hide, overwhelm, protect, trail
 
@@ -1022,7 +1022,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Tracker +2
 
-#### **FEATURES** {#features-40}
+#### **FEATURES** {#section-adversary-sylvan-soldier-features}
 
 *Pack Tactics - Passive:* If the Soldier makes a standard attack and another Sylvan Soldier is within Melee range of the target, deal **1d8+5** physical damage instead of their standard damage.
 
@@ -1034,9 +1034,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: tangle-bramble-swarm | Tangle Bramble Swarm -->
 
-#### TANGLE BRAMBLE SWARM {#tangle-bramble-swarm}
+#### TANGLE BRAMBLE SWARM {#section-adversary-tangle-bramble-swarm}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp-4}
+##### *Tier Horde (/HP)* {#section-adversary-tangle-bramble-swarm-role}
 
 *A cluster of animate, blood-drinking tumbleweeds, each the size of a large gourd.*
 
@@ -1054,15 +1054,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: tangle-bramble | Tangle Bramble -->
 
-#### TANGLE BRAMBLE {#tangle-bramble}
+#### TANGLE BRAMBLE {#section-adversary-tangle-bramble}
 
-##### *Tier Minion* {#tier-minion-6}
+##### *Tier Minion* {#section-adversary-tangle-bramble-role}
 
 *An animate, blood-drinking tumbleweed.* **Motives & Tactics:** Combine, drain, entangle
 
 **Difficulty:** 11 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** −1 | **Thorns:** Melee | 2 phy
 
-#### **FEATURES** {#features-41}
+#### **FEATURES** {#section-adversary-tangle-bramble-features}
 
 - *Minion (4) Passive:* The Bramble is defeated when they take any damage. For every 4 damage a PC deals to the Tangle Bramble, defeat an additional Minion within range the attack would succeed against.
 - *Group Attack Action:* **Spend a Fear** to choose a target and spotlight all Tangle Brambles within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 2 physical damage each. Combine this damage.
@@ -1072,15 +1072,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: weaponmaster | Weaponmaster -->
 
-#### WEAPONMASTER {#weaponmaster}
+#### WEAPONMASTER {#section-adversary-weaponmaster}
 
-##### *Tier Bruiser* {#tier-bruiser-7}
+##### *Tier Bruiser* {#section-adversary-weaponmaster-role}
 
 *A master-at-arms wielding a sword twice their size.* **Motives & Tactics:** Act fi rst, aim for the weakest, intimidate
 
 **Difficulty:** 14 | **Thresholds:** 8/15 | **HP:** 6 | **Stress:** 3 **ATK:** +2 | **Claymore:** Very Close | 1d12+2 phy
 
-#### **FEATURES** {#features-42}
+#### **FEATURES** {#section-adversary-weaponmaster-features}
 
 - *Goading Strike Action:* Make a standard attack against a target. On a success, **mark a Stress** to *Taunt* the target until their next successful attack. The next time the *Taunted* target attacks, they have disadvantage against targets other than the Weaponmaster.
 - *Adrenaline Burst Action:* Once per scene, **spend a Fear** to clear 2 HP and 2 Stress.
@@ -1091,9 +1091,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: young-dryad | Young Dryad -->
 
-#### YOUNG DRYAD {#young-dryad}
+#### YOUNG DRYAD {#section-adversary-young-dryad}
 
-##### *Tier Leader* {#tier-leader-5}
+##### *Tier Leader* {#section-adversary-young-dryad-role}
 
 *An imperious tree-person leading their forest's defenses.* **Motives & Tactics:** Command, nurture, prune the unwelcome
 
@@ -1101,7 +1101,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Leadership +3
 
-#### **FEATURES** {#features-43}
+#### **FEATURES** {#section-adversary-young-dryad-features}
 
 *Voice of the Forest - Action:* **Mark a Stress** to spotlight **1d4** allies within range of a target they can attack without moving. On a success, their attacks deal half damage.
 
@@ -1113,9 +1113,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: brawny-zombie | Brawny Zombie -->
 
-#### BRAWNY ZOMBIE {#brawny-zombie}
+#### BRAWNY ZOMBIE {#section-adversary-brawny-zombie}
 
-##### *Tier Bruiser* {#tier-bruiser-8}
+##### *Tier Bruiser* {#section-adversary-brawny-zombie-role}
 
 *A large corpse, decay-bloated and angry.* **Motives & Tactics:** Crush, destroy, hail debris, slam
 
@@ -1123,7 +1123,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Collateral Damage +2, Throw +4
 
-#### **FEATURES** {#features-44}
+#### **FEATURES** {#section-adversary-brawny-zombie-features}
 
 - *Slow Passive:* When you spotlight the Zombie and they don't have a token on their stat block, they can't act yet. Place a token on their stat block and describe what they're preparing to do. When you spotlight the Zombie and they have a token on their stat block, clear the token and they can act.
 - *Rend Asunder Action:* Make a standard attack with advantage against a target the Zombie has *Restrained*. On a success, the attack deals direct damage.
@@ -1134,9 +1134,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: patchwork-zombie-hulk | Patchwork Zombie Hulk -->
 
-#### PATCHWORK ZOMBIE HULK {#patchwork-zombie-hulk}
+#### PATCHWORK ZOMBIE HULK {#section-adversary-patchwork-zombie-hulk}
 
-##### *Tier Solo* {#tier-solo-7}
+##### *Tier Solo* {#section-adversary-patchwork-zombie-hulk-role}
 
 *A towering gestalt of corpses moving as one, with torso-sized limbs and fi sts as large as a grown halfl ing.*
 
@@ -1146,7 +1146,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Intimidation +2, Tear Things Apart +2
 
-#### **FEATURES** {#features-45}
+#### **FEATURES** {#section-adversary-patchwork-zombie-hulk-features}
 
 *Destructible - Passive:* When the Zombie takes Major or greater damage, they mark an additional HP.
 
@@ -1160,15 +1160,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: rotted-zombie | Rotted Zombie -->
 
-#### ROTTED ZOMBIE {#rotted-zombie}
+#### ROTTED ZOMBIE {#section-adversary-rotted-zombie}
 
-##### *Tier Minion* {#tier-minion-7}
+##### *Tier Minion* {#section-adversary-rotted-zombie-role}
 
 *A decaying corpse ambling toward their prey.* **Motives & Tactics:** Eat fl esh, hunger, maul, surround
 
 **Difficulty:** 8 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** −3 | **Bite:** Melee | 2 phy
 
-#### **FEATURES** {#features-46}
+#### **FEATURES** {#section-adversary-rotted-zombie-features}
 
 *Minion (3) - Passive:* The Zombie is defeated when they take any damage. For every 3 damage a PC deals to the Zombie, defeat an additional Minion within range the attack would succeed against.
 
@@ -1178,15 +1178,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: shambling-zombie | Shambling Zombie -->
 
-#### SHAMBLING ZOMBIE {#shambling-zombie}
+#### SHAMBLING ZOMBIE {#section-adversary-shambling-zombie}
 
-##### *Tier Standard* {#tier-standard-7}
+##### *Tier Standard* {#section-adversary-shambling-zombie-role}
 
 *An animated corpse that moves shakily, driven only by hunger.* **Motives & Tactics:** Devour, hungry, mob enemy, shred fl esh
 
 **Difficulty:** 10 | **Thresholds:** 4/6 | **HP:** 4 | **Stress:** 1 **ATK:** +0 | **Bite:** Melee | 1d6+1 phy
 
-#### **FEATURES** {#features-47}
+#### **FEATURES** {#section-adversary-shambling-zombie-features}
 
 *Too Many to Handle - Passive:* When the Zombie is within Melee range of a creature and at least one other Zombie is within Close range, all attacks against that creature have advantage.
 
@@ -1194,19 +1194,19 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- /adversary -->
 
-## TIER 2 ADVERSARIES (LEVELS 2-4) {#tier-2-adversaries-levels-2-4}
+## TIER 2 ADVERSARIES (LEVELS 2-4) {#section-tier-2}
 
 <!-- adversary: archer-squadron | Archer Squadron -->
 
-#### ARCHER SQUADRON {#archer-squadron}
+#### ARCHER SQUADRON {#section-adversary-archer-squadron}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp-5}
+##### *Tier Horde (/HP)* {#section-adversary-archer-squadron-role}
 
 *A group of trained archers bearing massive bows.* **Motives & Tactics:** Stick together, survive, volley fi re
 
 **Difficulty:** 13 | **Thresholds:** 8/16 | **HP:** 4 | **Stress:** 3 **ATK:** +0 | **Longbow:** Far | 2d6+3 phy
 
-#### **FEATURES** {#features-48}
+#### **FEATURES** {#section-adversary-archer-squadron-features}
 
 - *Horde (1d+3) Passive:* When the Squadron has marked half or more of their HP, their standard attack deals **1d6+3** physical damage instead.
 - *Focused Volley Action:* **Spend a Fear** to target a point within Far range. Make an attack with advantage against all targets within Close range of that point. Targets the Squadron succeeds against take **1d10+4** physical damage.
@@ -1216,9 +1216,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: apprentice-assassin | Apprentice Assassin -->
 
-#### APPRENTICE ASSASSIN {#apprentice-assassin}
+#### APPRENTICE ASSASSIN {#section-adversary-apprentice-assassin}
 
-##### *Tier Minion* {#tier-minion-8}
+##### *Tier Minion* {#section-adversary-apprentice-assassin-role}
 
 *A young trainee eager to prove themselves.* **Motives & Tactics:** Act reckless, kill, prove their worth, show off
 
@@ -1228,7 +1228,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Intrusion +2
 
-#### **FEATURES** {#features-49}
+#### **FEATURES** {#section-adversary-apprentice-assassin-features}
 
 - *Minion () Passive:* The Assassin is defeated when they take any damage. For every 6 damage a PC deals to the Assassin, defeat an additional Minion within range the attack would succeed against.
 - *Group Attack Action:* **Spend a Fear** to choose a target and spotlight all Apprentice Assassins within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 4 physical damage each. Combine this damage.
@@ -1237,15 +1237,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: zombie-pack | Zombie Pack -->
 
-#### ZOMBIE PACK {#zombie-pack}
+#### ZOMBIE PACK {#section-adversary-zombie-pack}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp-6}
+##### *Tier Horde (/HP)* {#section-adversary-zombie-pack-role}
 
 *A group of shambling corpses instinctively moving together.* **Motives & Tactics:** Consume fl esh, hunger, maul
 
 **Difficulty:** 8 | **Thresholds:** 6/12 | **HP:** 6 | **Stress:** 3 **ATK:** −1 | **Bite:** Melee | 1d10+2 phy
 
-#### **FEATURES** {#features-50}
+#### **FEATURES** {#section-adversary-zombie-pack-features}
 
 *Horde (1d4+2) - Passive:* When the Zombies have marked half or more of their HP, their standard attack deals **1d4+2** physical damage instead.
 
@@ -1255,9 +1255,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: assassin-poisoner | Assassin Poisoner -->
 
-#### ASSASSIN POISONER {#assassin-poisoner}
+#### ASSASSIN POISONER {#section-adversary-assassin-poisoner}
 
-##### *Tier Skulk* {#tier-skulk-7}
+##### *Tier Skulk* {#section-adversary-assassin-poisoner-role}
 
 *A cunning scoundrel skilled in both poisons and ambushing.* **Motives & Tactics:** Anticipate, get paid, kill, taint food and water
 
@@ -1265,7 +1265,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Intrusion +2
 
-#### **FEATURES** {#features-51}
+#### **FEATURES** {#section-adversary-assassin-poisoner-features}
 
 - *Grindletooth Venom Passive:* Targets who mark HP from the Assassin's attacks are *Vulnerable* until they clear a HP.
 - *Out of Nowhere Passive:* The Assassin has advantage on attacks if they are *Hidden*.
@@ -1275,9 +1275,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: master-assassin | Master Assassin -->
 
-#### MASTER ASSASSIN {#master-assassin}
+#### MASTER ASSASSIN {#section-adversary-master-assassin}
 
-##### *Tier Leader* {#tier-leader-6}
+##### *Tier Leader* {#section-adversary-master-assassin-role}
 
 *A seasoned killer with a threatening voice and a deadly blade.* **Motives & Tactics:** Ambush, get out alive, kill, prepare for all scenarios
 
@@ -1294,9 +1294,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: battle-box | Battle Box -->
 
-#### BATTLE BOX {#battle-box}
+#### BATTLE BOX {#section-adversary-battle-box}
 
-##### *Tier Solo* {#tier-solo-8}
+##### *Tier Solo* {#section-adversary-battle-box-role}
 
 *A cube-shaped construct with a diff erent rune on each of their six sides.*
 
@@ -1308,7 +1308,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Camoufl age +2
 
-#### **FEATURES** {#features-52}
+#### **FEATURES** {#section-adversary-battle-box-features}
 
 *Relentless (2) - Passive:* The Box can be spotlighted up to two times times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -1328,15 +1328,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: chaos-skull | Chaos Skull -->
 
-#### CHAOS SKULL {#chaos-skull}
+#### CHAOS SKULL {#section-adversary-chaos-skull}
 
-##### *Tier Ranged* {#tier-ranged-4}
+##### *Tier Ranged* {#section-adversary-chaos-skull-role}
 
 *A fl oating humanoid skull animated by scintillating magic.* **Motives & Tactics:** Cackle, consume magic, serve creator
 
 **Difficulty:** 15 | **Thresholds:** 8/16 | **HP:** 5 | **Stress:** 4 **ATK:** +2 | **Energy Blast:** Close | 2d8+3 mag
 
-#### **FEATURES** {#features-53}
+#### **FEATURES** {#section-adversary-chaos-skull-features}
 
 - *Levitation Passive:* The Skull levitates several feet off the ground and can't be *Restrained*.
 - *Wards Passive:* The Skull is resistant to magic damage.
@@ -1347,15 +1347,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: conscript | Conscript -->
 
-#### CONSCRIPT {#conscript}
+#### CONSCRIPT {#section-adversary-conscript}
 
-##### *Tier Minion* {#tier-minion-9}
+##### *Tier Minion* {#section-adversary-conscript-role}
 
 *A poorly trained civilian pressed into war.* **Motives & Tactics:** Follow orders, gang up, survive
 
 **Difficulty:** 12 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** +0 | **Spears:** Very Close | 6 phy
 
-#### **FEATURES** {#features-54}
+#### **FEATURES** {#section-adversary-conscript-features}
 
 - *Minion () Passive:* The Conscript is defeated when they take any damage. For every 6 damage a PC deals to the Conscript, defeat an additional Minion within range the attack would succeed against.
 - *Group Attack Action:* **Spend a Fear** to choose a target and spotlight all Conscripts within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 6 physical damage each. Combine this damage.
@@ -1364,9 +1364,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: courtesan | Courtesan -->
 
-#### COURTESAN {#courtesan}
+#### COURTESAN {#section-adversary-courtesan}
 
-##### *Tier Social* {#tier-social-4}
+##### *Tier Social* {#section-adversary-courtesan-role}
 
 *An accomplished manipulator and master of the social arts.* **Motives & Tactics:** Entice, maneuver, secure patrons
 
@@ -1374,7 +1374,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Manipulation +3, Socialite +3
 
-#### **FEATURES** {#features-55}
+#### **FEATURES** {#section-adversary-courtesan-features}
 
 *Searing Glance - Reaction:* When a PC within Close range makes a Presence Roll, you can **mark a Stress** to cast a gaze toward the aftermath. On the target's failure, they must mark 2 Stress and are *Vulnerable* until the scene ends or they succeed on a social action against the Courtesan. On the target's success, they must mark a Stress.
 
@@ -1382,9 +1382,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: cult-adept | Cult Adept -->
 
-#### CULT ADEPT {#cult-adept}
+#### CULT ADEPT {#section-adversary-cult-adept}
 
-##### *Tier Support* {#tier-support-2}
+##### *Tier Support* {#section-adversary-cult-adept-role}
 
 *An experienced mage wielding shadow and fear.* **Motives & Tactics:** Curry favor, hinder foes, uncover knowledge
 
@@ -1403,15 +1403,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: cult-fang | Cult Fang -->
 
-#### CULT FANG {#cult-fang}
+#### CULT FANG {#section-adversary-cult-fang}
 
-##### *Tier Skulk* {#tier-skulk-8}
+##### *Tier Skulk* {#section-adversary-cult-fang-role}
 
 *A professional killer-turned-cultist.* **Motives & Tactics:** Capture sacrifi ces, isolate prey, rise in the ranks
 
 **Difficulty:** 15 | **Thresholds:** 9/17 | **HP:** 4 | **Stress:** 4 **ATK:** +2 | **Long Knife:** Melee | 2d8+4 phy
 
-#### **FEATURES** {#features-56}
+#### **FEATURES** {#section-adversary-cult-fang-features}
 
 - *Shadow's Embrace Passive:* The Fang can climb and walk on vertical surfaces. **Mark a Stress** to move from one shadow to another within Far range.
 - *Pick Off the Straggler Action:* **Mark a Stress** to cause a target within Melee range to make an Instinct Reaction Roll. On a failure, the target must mark 2 Stress and is teleported with the Fang to a shadow within Far range, making them temporarily *Vulnerable*. On a success, the target must mark a Stress.
@@ -1420,15 +1420,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: cult-initiate | Cult Initiate -->
 
-#### CULT INITIATE {#cult-initiate}
+#### CULT INITIATE {#section-adversary-cult-initiate}
 
-##### *Tier Minion* {#tier-minion-10}
+##### *Tier Minion* {#section-adversary-cult-initiate-role}
 
 *A low-ranking cultist in simple robes, eager to gain power.* **Motives & Tactics:** Follow orders, gain power, seek forbidden knowledge
 
 **Difficulty:** 13 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** +0 | **Ritual Dagger:** Melee | 5 phy
 
-#### **FEATURES** {#features-57}
+#### **FEATURES** {#section-adversary-cult-initiate-features}
 
 - *Minion () Passive:* The Initiate is defeated when they take any damage. For every 6 damage a PC deals to the Initiate, defeat an additional Minion within range the attack would succeed against.
 - *Group Attack Action:* **Spend a Fear** to choose a target and spotlight all Cult Initiates within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 5 physical damage each. Combine this damage.
@@ -1437,9 +1437,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: demonic-hound-pack | Demonic Hound Pack -->
 
-#### DEMONIC HOUND PACK {#demonic-hound-pack}
+#### DEMONIC HOUND PACK {#section-adversary-demonic-hound-pack}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp-7}
+##### *Tier Horde (/HP)* {#section-adversary-demonic-hound-pack-role}
 
 *Unnatural hounds lit from within by hellfi re.* **Motives & Tactics:** Cause fear, consume fl esh, please masters
 
@@ -1447,7 +1447,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Scent Tracking +3
 
-#### **FEATURES** {#features-58}
+#### **FEATURES** {#section-adversary-demonic-hound-pack-features}
 
 *Horde (2d4+1) - Passive:* When the Pack has marked half or more of their HP, their standard attack deals **2d4+1** physical damage instead.
 
@@ -1459,15 +1459,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: electric-eels | Electric Eels -->
 
-#### ELECTRIC EELS {#electric-eels}
+#### ELECTRIC EELS {#section-adversary-electric-eels}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp-8}
+##### *Tier Horde (/HP)* {#section-adversary-electric-eels-role}
 
 *A swarm of eels that encircle and electrocute.* **Motives & Tactics:** Avoid larger predators, shock prey, tear apart
 
 **Difficulty:** 14 | **Thresholds:** 10/20 | **HP:** 5 | **Stress:** 3 **ATK:** +0 | **Shocking Bite:** Melee | 2d6+4 phy
 
-#### **FEATURES** {#features-59}
+#### **FEATURES** {#section-adversary-electric-eels-features}
 
 *Horde (2d4+1) - Passive:* When the Eels have marked half or more of their HP, their standard attack deals **2d4+1** physical damage instead.
 
@@ -1477,15 +1477,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: elite-soldier | Elite Soldier -->
 
-#### ELITE SOLDIER {#elite-soldier}
+#### ELITE SOLDIER {#section-adversary-elite-soldier}
 
-##### *Tier Standard* {#tier-standard-8}
+##### *Tier Standard* {#section-adversary-elite-soldier-role}
 
 *An armored squire or experienced commoner looking to advance.* **Motives & Tactics:** Gain glory, keep order, make alliances
 
 **Difficulty:** 15 | **Thresholds:** 9/18 | **HP:** 4 | **Stress:** 3 **ATK:** +1 | **Spear:** Very Close | 2d8+4 phy
 
-#### **FEATURES** {#features-60}
+#### **FEATURES** {#section-adversary-elite-soldier-features}
 
 - *Reinforce Action:* **Mark a Stress** to move into Melee range of an ally and make a standard attack against a target within Very Close range. On a success, deal **2d10+2** physical damage and the ally can clear a Stress.
 - *Vassal's Loyalty Reaction:* When the Soldier is within Very Close range of a knight or other noble who would take damage, you can **mark a Stress** to move into Melee range of them and take the damage instead.
@@ -1494,9 +1494,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: failed-experiment | Failed Experiment -->
 
-#### FAILED EXPERIMENT {#failed-experiment}
+#### FAILED EXPERIMENT {#section-adversary-failed-experiment}
 
-##### *Tier Standard* {#tier-standard-9}
+##### *Tier Standard* {#section-adversary-failed-experiment-role}
 
 *A magical necromantic experiment gone wrong, leaving them warped and ungainly.*
 
@@ -1514,9 +1514,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: giant-beastmaster | Giant Beastmaster -->
 
-#### GIANT BEASTMASTER {#giant-beastmaster}
+#### GIANT BEASTMASTER {#section-adversary-giant-beastmaster}
 
-##### *Tier Leader* {#tier-leader-7}
+##### *Tier Leader* {#section-adversary-giant-beastmaster-role}
 
 *A leather-clad warrior bearing a whip and massive bow.*
 
@@ -1528,7 +1528,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Animal Handling +3
 
-#### **FEATURES** {#features-61}
+#### **FEATURES** {#section-adversary-giant-beastmaster-features}
 
 *Two as One - Passive:* When the Beastmaster is spotlighted, you can also spotlight a Tier 1 animal adversary currently under their control.
 
@@ -1540,9 +1540,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: giant-brawler | Giant Brawler -->
 
-#### GIANT BRAWLER {#giant-brawler}
+#### GIANT BRAWLER {#section-adversary-giant-brawler}
 
-##### *Tier Bruiser* {#tier-bruiser-9}
+##### *Tier Bruiser* {#section-adversary-giant-brawler-role}
 
 *An especially muscular giant wielding a warhammer larger than a human.*
 
@@ -1552,7 +1552,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Intrusion +2
 
-#### **FEATURES** {#features-62}
+#### **FEATURES** {#section-adversary-giant-brawler-features}
 
 *Battering Ram - Action:* **Mark a Stress** to have the Brawler charge at an inanimate object within Close range they could feasibly smash (such as a wall, cart, or market stand) and destroy it. All targets within Very Close range of the object must succeed on an Agility Reaction Roll or take **2d4+3** physical damage from the shrapnel.
 
@@ -1564,15 +1564,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: giant-recruit | Giant Recruit -->
 
-#### GIANT RECRUIT {#giant-recruit}
+#### GIANT RECRUIT {#section-adversary-giant-recruit}
 
-##### *Tier Minion* {#tier-minion-11}
+##### *Tier Minion* {#section-adversary-giant-recruit-role}
 
 *A giant fi ghter wearing borrowed armor.* **Motives & Tactics:** Batter, make a living, overwhelm, terrify
 
 **Difficulty:** 13 | **Thresholds:** None | **HP:** 1 | **Stress:** 2 **ATK:** +1 | **Warhammer:** Very Close | 5 phy
 
-#### **FEATURES** {#features-63}
+#### **FEATURES** {#section-adversary-giant-recruit-features}
 
 *Minion () - Passive:* The Recruit is defeated when they take any damage. For every 7 damage a PC deals to the Recruit, defeat an additional Minion within range the attack would succeed against.
 
@@ -1582,15 +1582,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: giant-eagle | Giant Eagle -->
 
-#### GIANT EAGLE {#giant-eagle}
+#### GIANT EAGLE {#section-adversary-giant-eagle}
 
-##### *Tier Skulk* {#tier-skulk-9}
+##### *Tier Skulk* {#section-adversary-giant-eagle-role}
 
 *A giant bird of prey with blood-stained talons.* **Motives & Tactics:** Hunt prey, stay mobile, strike decisively
 
 **Difficulty:** 14 | **Thresholds:** 8/19 | **HP:** 4 | **Stress:** 4 **ATK:** +1 | **Claws and Beak:** Very Close | 2d6+3 phy
 
-#### **FEATURES** {#features-64}
+#### **FEATURES** {#section-adversary-giant-eagle-features}
 
 *Flight - Passive:* While fl ying, the Eagle gains a +3 bonus to their Difficulty.
 
@@ -1602,9 +1602,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: gorgon | Gorgon -->
 
-#### GORGON {#gorgon}
+#### GORGON {#section-adversary-gorgon}
 
-##### *Tier Solo* {#tier-solo-9}
+##### *Tier Solo* {#section-adversary-gorgon-role}
 
 *A snake-headed, scaled humanoid with a gilded bow, enraged that their peace has been disturbed.*
 
@@ -1616,7 +1616,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Stealth +3
 
-#### **FEATURES** {#features-65}
+#### **FEATURES** {#section-adversary-gorgon-features}
 
 *Relentless (2) - Passive:* The Gorgon can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -1630,9 +1630,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: juvenile-flickerfly | Juvenile Flickerfly -->
 
-#### JUVENILE FLICKERFLY {#juvenile-flickerfly}
+#### JUVENILE FLICKERFLY {#section-adversary-juvenile-flickerfly}
 
-##### *Tier Solo* {#tier-solo-10}
+##### *Tier Solo* {#section-adversary-juvenile-flickerfly-role}
 
 *A horse-sized insect with iridescent scales and crystalline wings moving faster than the eye can see.*
 
@@ -1640,7 +1640,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 14 | **Thresholds:** 13/26 | **HP:** 10 | **Stress:** 5 **ATK:** +3 | **Wing Slash:** Very Close | 2d10+4 phy
 
-#### **FEATURES** {#features-66}
+#### **FEATURES** {#section-adversary-juvenile-flickerfly-features}
 
 - *Relentless (3) Passive:* The Flickerfl y can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.
 - *Peerless Accuracy Passive:* Before the Flickerfl y makes an attack, roll a **d6**. On a result of 4 or higher, the target's Evasion is halved against this attack.
@@ -1651,9 +1651,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: knight-of-the-realm | Knight Of The Realm -->
 
-#### KNIGHT OF THE REALM {#knight-of-the-realm}
+#### KNIGHT OF THE REALM {#section-adversary-knight-of-the-realm}
 
-##### *Tier Leader* {#tier-leader-8}
+##### *Tier Leader* {#section-adversary-knight-of-the-realm-role}
 
 *A decorated soldier with heavy armor and a powerful steed.* **Motives & Tactics:** Run down, seek glory, show dominance
 
@@ -1661,7 +1661,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Ancient Knowledge +3, High Society +2, Tactics +2
 
-#### **FEATURES** {#features-67}
+#### **FEATURES** {#section-adversary-knight-of-the-realm-features}
 
 - *Chevalier Passive:* While the Knight is on a mount, they gain a +2 bonus to their Difficulty. When they take Severe damage, they're knocked from their mount and lose this benefi t until they're next spotlighted.
 - *Heavily Armored Passive:* When the Knight takes physical damage, reduce it by 3.
@@ -1672,9 +1672,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: masked-thief | Masked Thief -->
 
-#### MASKED THIEF {#masked-thief}
+#### MASKED THIEF {#section-adversary-masked-thief}
 
-##### *Tier Skulk* {#tier-skulk-10}
+##### *Tier Skulk* {#section-adversary-masked-thief-role}
 
 *A cunning thief with acrobatic skill and a fl air for the dramatic.* **Motives & Tactics:** Evade, hide, pilfer, profi t
 
@@ -1682,7 +1682,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Acrobatics +3
 
-#### **FEATURES** {#features-68}
+#### **FEATURES** {#section-adversary-masked-thief-features}
 
 - *Quick Hands Action:* Make an attack against a target within Melee range. On a success, deal **1d8+2** physical damage and the Thief steals one item or consumable from the target's inventory.
 - *Escape Plan Action:* **Mark a Stress** to reveal a snare trap set anywhere on the battlefi eld by the Thief. All targets within Very Close range of the trap must succeed on an Agility Reaction Roll (13) or be pulled off their feet and suspended upside down. A target is *Restrained* and *Vulnerable* until they break free, ending both conditions, with a successful Finesse or Strength Roll (13).
@@ -1691,9 +1691,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: merchant-baron | Merchant Baron -->
 
-#### MERCHANT BARON {#merchant-baron}
+#### MERCHANT BARON {#section-adversary-merchant-baron}
 
-##### *Tier Social* {#tier-social-5}
+##### *Tier Social* {#section-adversary-merchant-baron-role}
 
 *An accomplished merchant with a large operation under their command.*
 
@@ -1710,9 +1710,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: minotaur-wrecker | Minotaur Wrecker -->
 
-#### MINOTAUR WRECKER {#minotaur-wrecker}
+#### MINOTAUR WRECKER {#section-adversary-minotaur-wrecker}
 
-##### *Tier Bruiser* {#tier-bruiser-10}
+##### *Tier Bruiser* {#section-adversary-minotaur-wrecker-role}
 
 *A massive bull-headed fi rbolg with a quick temper.* **Motives & Tactics:** Consume, gore, navigate, overpower, pursue
 
@@ -1720,7 +1720,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Navigation +2
 
-#### **FEATURES** {#features-69}
+#### **FEATURES** {#section-adversary-minotaur-wrecker-features}
 
 *Ramp Up - Passive:* You must **spend a Fear** to spotlight the Minotaur. While spotlighted, they can make their standard attack against all targets within range.
 
@@ -1732,9 +1732,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: mortal-hunter | Mortal Hunter -->
 
-#### MORTAL HUNTER {#mortal-hunter}
+#### MORTAL HUNTER {#section-adversary-mortal-hunter}
 
-##### *Tier Leader* {#tier-leader-9}
+##### *Tier Leader* {#section-adversary-mortal-hunter-role}
 
 *An undead fi gure wearing a heavy leather coat, with searching eyes and a casually cruel demeanor.*
 
@@ -1746,7 +1746,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Bloodhound +3
 
-#### **FEATURES** {#features-70}
+#### **FEATURES** {#section-adversary-mortal-hunter-features}
 
 *Terrifying - Passive:* When the Hunter makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.
 
@@ -1760,9 +1760,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: royal-advisor | Royal Advisor -->
 
-#### ROYAL ADVISOR {#royal-advisor}
+#### ROYAL ADVISOR {#section-adversary-royal-advisor}
 
-##### *Tier Social* {#tier-social-6}
+##### *Tier Social* {#section-adversary-royal-advisor-role}
 
 *A high-ranking courtier with the ear of the local nobility.* **Motives & Tactics:** Curry favor, manufacture evidence, scheme
 
@@ -1770,7 +1770,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Administration +3, Courtier +3
 
-#### **FEATURES** {#features-71}
+#### **FEATURES** {#section-adversary-royal-advisor-features}
 
 *Devastating Retort - Passive:* A PC who rolls less than 17 on an action roll targeting the Advisor must mark a Stress.
 
@@ -1782,9 +1782,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: secret-keeper | Secret-Keeper -->
 
-#### SECRET-KEEPER {#secret-keeper}
+#### SECRET-KEEPER {#section-adversary-secret-keeper}
 
-##### *Tier Leader* {#tier-leader-10}
+##### *Tier Leader* {#section-adversary-secret-keeper-role}
 
 *A clandestine leader with a direct channel to the Fallen Gods.* **Motives & Tactics:** Amass great power, plot, take command
 
@@ -1792,7 +1792,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Coercion +2, Fallen Lore +2
 
-#### **FEATURES** {#features-72}
+#### **FEATURES** {#section-adversary-secret-keeper-features}
 
 *Seize Your Moment - Action:* **Spend 2 Fear** to spotlight **1d4** allies. Attacks they make while spotlighted in this way deal half damage.
 
@@ -1806,9 +1806,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: shark | Shark -->
 
-#### SHARK {#shark}
+#### SHARK {#section-adversary-shark}
 
-##### *Tier Bruiser* {#tier-bruiser-11}
+##### *Tier Bruiser* {#section-adversary-shark-role}
 
 *A large aquatic predator, always on the move.* **Motives & Tactics:** Find the blood, isolate prey, target the weak
 
@@ -1816,7 +1816,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Sense of Smell +3
 
-#### **FEATURES** {#features-73}
+#### **FEATURES** {#section-adversary-shark-features}
 
 *Terrifying - Passive:* When the Shark makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.
 
@@ -1828,9 +1828,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: siren | Siren -->
 
-#### SIREN {#siren}
+#### SIREN {#section-adversary-siren}
 
-##### *Tier Skulk* {#tier-skulk-11}
+##### *Tier Skulk* {#section-adversary-siren-role}
 
 *A half-fi sh person with shimmering scales and an irresistible voice.* **Motives & Tactics:** Consume, lure prey, subdue with song
 
@@ -1838,7 +1838,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Song Repertoire +3
 
-#### **FEATURES** {#features-74}
+#### **FEATURES** {#section-adversary-siren-features}
 
 *Captive Audience - Passive:* If the Siren makes a standard attack against a target *Entranced* by their song, the attack deals **2d10+1** damage instead of their standard damage.
 
@@ -1848,9 +1848,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: spectral-archer | Spectral Archer -->
 
-#### SPECTRAL ARCHER {#spectral-archer}
+#### SPECTRAL ARCHER {#section-adversary-spectral-archer}
 
-##### *Tier Ranged* {#tier-ranged-5}
+##### *Tier Ranged* {#section-adversary-spectral-archer-role}
 
 *A ghostly fi ghter with an ethereal bow, unable to move on while their charge is vulnerable.*
 
@@ -1860,7 +1860,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Ancient Knowledge +2
 
-#### **FEATURES** {#features-75}
+#### **FEATURES** {#section-adversary-spectral-archer-features}
 
 *Ghost - Passive:* The Archer has resistance to physical damage. **Mark a Stress** to move up to Close range through solid objects.
 
@@ -1870,9 +1870,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: spectral-captain | Spectral Captain -->
 
-#### SPECTRAL CAPTAIN {#spectral-captain}
+#### SPECTRAL CAPTAIN {#section-adversary-spectral-captain}
 
-##### *Tier Leader* {#tier-leader-11}
+##### *Tier Leader* {#section-adversary-spectral-captain-role}
 
 *A ghostly commander leading their troops beyond death.* **Motives & Tactics:** Move through solid objects, rally troops, rehash old battles
 
@@ -1880,7 +1880,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Ancient Knowledge +3
 
-#### **FEATURES** {#features-76}
+#### **FEATURES** {#section-adversary-spectral-captain-features}
 
 *Ghost - Passive:* The Captain has resistance to physical damage. **Mark a Stress** to move up to Close range through solid objects.
 
@@ -1893,9 +1893,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: spectral-guardian | Spectral Guardian -->
 
-#### SPECTRAL GUARDIAN {#spectral-guardian}
+#### SPECTRAL GUARDIAN {#section-adversary-spectral-guardian}
 
-##### *Tier Standard* {#tier-standard-10}
+##### *Tier Standard* {#section-adversary-spectral-guardian-role}
 
 *A ghostly fi ghter with spears and swords, anchored by duty.* **Motives & Tactics:** Move through solid objects, protect treasure, rehash old battles
 
@@ -1903,7 +1903,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Ancient Knowledge +2
 
-#### **FEATURES** {#features-77}
+#### **FEATURES** {#section-adversary-spectral-guardian-features}
 
 *Ghost - Passive:* The Guardian has resistance to physical damage. **Mark a Stress** to move up to Close range through solid objects.
 
@@ -1913,9 +1913,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: spy | Spy -->
 
-#### SPY {#spy}
+#### SPY {#section-adversary-spy}
 
-##### *Tier Social* {#tier-social-7}
+##### *Tier Social* {#section-adversary-spy-role}
 
 *A skilled espionage agent with a knack for being in the right place to overhear secrets.*
 
@@ -1925,7 +1925,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Espionage +3
 
-#### **FEATURES** {#features-78}
+#### **FEATURES** {#section-adversary-spy-features}
 
 *Gathering Secrets - Action:* **Spend a Fear** to describe how the Spy knows a secret about a PC in the scene.
 
@@ -1935,9 +1935,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: stonewraith | Stonewraith -->
 
-#### STONEWRAITH {#stonewraith}
+#### STONEWRAITH {#section-adversary-stonewraith}
 
-##### *Tier Skulk* {#tier-skulk-12}
+##### *Tier Skulk* {#section-adversary-stonewraith-role}
 
 *A prowling hunter, like a slinking mountain lion, with a slate-gray stone body.*
 
@@ -1949,7 +1949,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Stonesense +3
 
-#### **FEATURES** {#features-79}
+#### **FEATURES** {#section-adversary-stonewraith-features}
 
 - *Stonestrider Passive:* The Stonewraith can move through stone and earth as easily as air. While within stone or earth, they are *Hidden* and immune to all damage.
 - *Rocky Ambush Action:* While *Hidden*, **mark a Stress** to leap into Melee range with a target within Very Close range. The target must succeed on an Agility or Instinct Reaction Roll (15) or take **2d8** physical damage and become temporarily *Restrained*.
@@ -1960,9 +1960,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: war-wizard | War Wizard -->
 
-#### WAR WIZARD {#war-wizard}
+#### WAR WIZARD {#section-adversary-war-wizard}
 
-##### *Tier Ranged* {#tier-ranged-6}
+##### *Tier Ranged* {#section-adversary-war-wizard-role}
 
 *A battle-hardened mage trained in destructive magic.* **Motives & Tactics:** Develop new spells, seek power, shatter formations
 
@@ -1970,7 +1970,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Magical Knowledge +2, Strategize +2
 
-#### **FEATURES** {#features-80}
+#### **FEATURES** {#section-adversary-war-wizard-features}
 
 *Battle Teleport - Passive:* Before or after making a standard attack, you can **mark a Stress** to teleport to a location within Far range.
 
@@ -1981,13 +1981,13 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- /adversary -->
 
-## TIER 3 ADVERSARIES (LEVELS 5-7) {#tier-3-adversaries-levels-5-7}
+## TIER 3 ADVERSARIES (LEVELS 5-7) {#section-tier-3}
 
 <!-- adversary: adult-flickerfly | Adult Flickerfly -->
 
-#### ADULT FLICKERFLY {#adult-flickerfly}
+#### ADULT FLICKERFLY {#section-adversary-adult-flickerfly}
 
-##### *Tier Solo* {#tier-solo-11}
+##### *Tier Solo* {#section-adversary-adult-flickerfly-role}
 
 *A winged insect the size of a large house with iridescent scales and wings that move too fast to track.*
 
@@ -1995,7 +1995,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 17 | **Thresholds:** 20/35 | **HP:** 12 | **Stress:** 6 **ATK:** +3 | **Wing Slash:** Very Close | 3d20 phy
 
-#### **FEATURES** {#features-81}
+#### **FEATURES** {#section-adversary-adult-flickerfly-features}
 
 - *Relentless (4) Passive:* The Flickerfl y can be spotlighted up to four times per GM turn. Spend Fear as usual to spotlight them.
 - *Never Misses Passive:* When the Flickerfl y makes an attack, the target's Evasion is halved against the attack.
@@ -2009,9 +2009,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: demon-of-avarice | Demon Of Avarice -->
 
-#### DEMON OF AVARICE {#demon-of-avarice}
+#### DEMON OF AVARICE {#section-adversary-demon-of-avarice}
 
-##### *Tier Support* {#tier-support-3}
+##### *Tier Support* {#section-adversary-demon-of-avarice-role}
 
 *A regal cloaked monstrosity with circular horns adorned with treasure.*
 
@@ -2029,9 +2029,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: demon-of-despair | Demon Of Despair -->
 
-#### DEMON OF DESPAIR {#demon-of-despair}
+#### DEMON OF DESPAIR {#section-adversary-demon-of-despair}
 
-##### *Tier Skulk* {#tier-skulk-13}
+##### *Tier Skulk* {#section-adversary-demon-of-despair-role}
 
 *A cloaked demon-creature with long limbs, seeping shadows.* **Motives & Tactics:** Make fear contagious, stick to the shadows, undermine resolve
 
@@ -2039,7 +2039,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Manipulation +3
 
-#### **FEATURES** {#features-82}
+#### **FEATURES** {#section-adversary-demon-of-despair-features}
 
 *Depths of Despair - Passive:* The Demon deals double damage to PCs with 0 Hope.
 
@@ -2051,9 +2051,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: demon-of-hubris | Demon Of Hubris -->
 
-#### DEMON OF HUBRIS {#demon-of-hubris}
+#### DEMON OF HUBRIS {#section-adversary-demon-of-hubris}
 
-##### *Tier Leader* {#tier-leader-12}
+##### *Tier Leader* {#section-adversary-demon-of-hubris-role}
 
 *A perfectly beautiful and infi nitely cruel demon with a gleaming spear and elegant robes.*
 
@@ -2063,7 +2063,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **ATK:** +4 | **Perfect Spear:** Very Close | 3d10 phy **Experience:** Manipulation +2
 
-#### **FEATURES** {#features-83}
+#### **FEATURES** {#section-adversary-demon-of-hubris-features}
 
 *Terrifying - Passive:* When the Demon makes a successful attack, all PCs within Far range must lose a Hope and you gain a Fear.
 
@@ -2079,9 +2079,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: demon-of-jealousy | Demon Of Jealousy -->
 
-#### DEMON OF JEALOUSY {#demon-of-jealousy}
+#### DEMON OF JEALOUSY {#section-adversary-demon-of-jealousy}
 
-##### *Tier Ranged* {#tier-ranged-7}
+##### *Tier Ranged* {#section-adversary-demon-of-jealousy-role}
 
 *A fi ckle creature of spindly limbs and insatiable desires.*
 
@@ -2091,7 +2091,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Manipulation +3
 
-#### **FEATURES** {#features-84}
+#### **FEATURES** {#section-adversary-demon-of-jealousy-features}
 
 *Unprotected Mind - Passive:* The Demon's standard attack deals direct damage.
 
@@ -2103,9 +2103,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: demon-of-wrath | Demon Of Wrath -->
 
-#### DEMON OF WRATH {#demon-of-wrath}
+#### DEMON OF WRATH {#section-adversary-demon-of-wrath}
 
-##### *Tier Bruiser* {#tier-bruiser-12}
+##### *Tier Bruiser* {#section-adversary-demon-of-wrath-role}
 
 *A hulking demon with boulder-sized fi sts, driven by endless rage.* **Motives & Tactics:** Fuel anger, impress rivals, wreak havoc
 
@@ -2113,7 +2113,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Intimidation +2
 
-#### **FEATURES** {#features-85}
+#### **FEATURES** {#section-adversary-demon-of-wrath-features}
 
 *Anger Unrelenting - Passive:* The Demon's attacks deal direct damage.
 
@@ -2125,9 +2125,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: dire-bat | Dire Bat -->
 
-#### DIRE BAT {#dire-bat}
+#### DIRE BAT {#section-adversary-dire-bat}
 
-##### *Tier Skulk* {#tier-skulk-14}
+##### *Tier Skulk* {#section-adversary-dire-bat-role}
 
 *A wide-winged pet endlessly loyal to their vampire owner.* **Motives & Tactics:** Dive-bomb, hide, protect leader
 
@@ -2135,7 +2135,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Bloodthirsty +3
 
-#### **FEATURES** {#features-86}
+#### **FEATURES** {#section-adversary-dire-bat-features}
 
 *Flying - Passive:* While fl ying, the Bat gains a +3 bonus to their Difficulty.
 
@@ -2146,9 +2146,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: dryad | Dryad -->
 
-#### DRYAD {#dryad}
+#### DRYAD {#section-adversary-dryad}
 
-##### *Tier Leader* {#tier-leader-13}
+##### *Tier Leader* {#section-adversary-dryad-role}
 
 *A nature spirit in the form of a humanoid tree.* **Motives & Tactics:** Command, cultivate, drive out, preserve the forest
 
@@ -2156,7 +2156,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Forest Knowledge +4
 
-#### **FEATURES** {#features-87}
+#### **FEATURES** {#section-adversary-dryad-features}
 
 - *Bramble Patch Action:* **Mark a Stress** to target a point within Far range. Create a patch of thorns that covers an area within Close range of that point. All targets within that area take **2d6+2** physical damage when they act. A target must succeed on a Finesse Roll or deal more than 20 damage to the Dryad with an attack to leave the area.
 - *Grow Saplings Action:* **Spend a Fear** to grow three Treant Sapling Minions, who appear at Close range and immediately take the spotlight.
@@ -2167,15 +2167,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: elemental-spark | Elemental Spark -->
 
-#### ELEMENTAL SPARK {#elemental-spark}
+#### ELEMENTAL SPARK {#section-adversary-elemental-spark}
 
-##### *Tier Minion* {#tier-minion-12}
+##### *Tier Minion* {#section-adversary-elemental-spark-role}
 
 *A blazing mote of elemental fi re.* **Motives & Tactics:** Blast, consume, gain mass
 
 **Difficulty:** 15 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** +0 | **Bursts of Fire:** Close | 5 mag
 
-#### **FEATURES** {#features-88}
+#### **FEATURES** {#section-adversary-elemental-spark-features}
 
 - *Minion () Passive:* The Elemental is defeated when they take any damage. For every 9 damage a PC deals to the Elemental, defeat an additional Minion within range the attack would succeed against.
 - *Group Attack Action:* **Spend a Fear** to choose a target and spotlight all Elemental Sparks within Close range of them. Those Minions move into Melee range of the target and make one shared attack roll. On a success, they deal 5 physical damage each. Combine this damage.
@@ -2184,15 +2184,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: greater-earth-elemental | Greater Earth Elemental -->
 
-#### GREATER EARTH ELEMENTAL {#greater-earth-elemental}
+#### GREATER EARTH ELEMENTAL {#section-adversary-greater-earth-elemental}
 
-##### *Tier Bruiser* {#tier-bruiser-13}
+##### *Tier Bruiser* {#section-adversary-greater-earth-elemental-role}
 
 *A living landslide of boulders and dust, as large as a house.* **Motives & Tactics:** Avalanche, knock over, pummel
 
 **Difficulty:** 17 | **Thresholds:** 22/40 | **HP:** 10 | **Stress:** 4 **ATK:** +7 | **Boulder Fist:** Very Close | 3d10+1 phy
 
-#### **FEATURES** {#features-89}
+#### **FEATURES** {#section-adversary-greater-earth-elemental-features}
 
 - *Slow Passive:* When you spotlight the Elemental and they don't have a token on their stat block, they can't act yet. Place a token on their stat block and describe what they're preparing to do. When you spotlight the Elemental and they have a token on their stat block, clear the token and they can act.
 - *Crushing Blows Passive:* When the Elemental makes a successful attack, the target must mark an Armor Slot without receiving its benefi ts (they can still use armor to reduce the damage). If they can't mark an Armor Slot, they must mark an additional HP.
@@ -2204,9 +2204,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: greater-water-elemental | Greater Water Elemental -->
 
-#### GREATER WATER ELEMENTAL {#greater-water-elemental}
+#### GREATER WATER ELEMENTAL {#section-adversary-greater-water-elemental}
 
-##### *Tier Support* {#tier-support-4}
+##### *Tier Support* {#section-adversary-greater-water-elemental-role}
 
 *A huge living wave that crashes down upon enemies.* **Motives & Tactics:** Deluge, disperse, drown
 
@@ -2220,9 +2220,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: huge-green-ooze | Huge Green Ooze -->
 
-#### HUGE GREEN OOZE {#huge-green-ooze}
+#### HUGE GREEN OOZE {#section-adversary-huge-green-ooze}
 
-##### *Tier Skulk* {#tier-skulk-15}
+##### *Tier Skulk* {#section-adversary-huge-green-ooze-role}
 
 *A translucent green mound of acid taller than most humans.* **Motives & Tactics:** Camoufl age, creep up, envelop, multiply
 
@@ -2230,7 +2230,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Blend In +3
 
-#### **FEATURES** {#features-90}
+#### **FEATURES** {#section-adversary-huge-green-ooze-features}
 
 - *Slow Passive:* When you spotlight the Ooze and they don't have a token on their stat block, they can't act yet. Place a token on their stat block and describe what they're preparing to do. When you spotlight the Ooze and they have a token on their stat block, clear the token and they can act.
 - *Acidic Form Passive:* When the Ooze makes a successful attack, the target must mark an Armor Slot without receiving its benefi ts (they can still use armor to reduce the damage). If they can't mark an Armor Slot, they must mark an additional HP.
@@ -2241,7 +2241,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: hydra | Hydra -->
 
-## HYDRA {#hydra}
+## HYDRA {#section-adversary-hydra}
 
 *Tier Solo*
 
@@ -2251,7 +2251,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 18 | **Thresholds:** 19/35 | **HP:** 10 | **Stress:** 5 **ATK:** +3 | **Bite:** Close | 2d12+2 phy
 
-#### **FEATURES** {#features-91}
+#### **FEATURES** {#section-adversary-hydra-features}
 
 - *Many-Headed Menace Passive:* The Hydra begins with three heads and can have up to fi ve. When the Hydra takes Major or greater damage, they lose a head.
 - *Relentless (X) Passive:* The Hydra can be spotlighted X times per GM turn, where X is the Hydra's number of heads. Spend Fear as usual to spotlight them.
@@ -2263,9 +2263,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: monarch | Monarch -->
 
-#### MONARCH {#monarch}
+#### MONARCH {#section-adversary-monarch}
 
-##### *Tier Social* {#tier-social-8}
+##### *Tier Social* {#section-adversary-monarch-role}
 
 *The sovereign ruler of a nation, wreathed in the privilege of tradition and wielding unmatched power in their domain.*
 
@@ -2275,7 +2275,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** History +3, Nobility +3
 
-#### **FEATURES** {#features-92}
+#### **FEATURES** {#section-adversary-monarch-features}
 
 - *Execute Them! Action:* **Spend a Fear** per PC in the party to have the group condemned for crimes real or imagined. A PC who succeeds on a Presence Roll can demand trial by combat or another special form of trial.
 - *Crownsguard Action:* Once per scene, **mark a Stress** to summon six Tier 3 Minions, who appear at Close range to enforce the Monarch's will.
@@ -2285,9 +2285,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: stag-knight | Stag Knight -->
 
-#### STAG KNIGHT {#stag-knight}
+#### STAG KNIGHT {#section-adversary-stag-knight}
 
-##### *Tier Standard* {#tier-standard-11}
+##### *Tier Standard* {#section-adversary-stag-knight-role}
 
 *A knight with huge, majestic antlers wearing armor made of dangerous thorns.*
 
@@ -2297,7 +2297,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Forest Knowledge +3
 
-#### **FEATURES** {#features-93}
+#### **FEATURES** {#section-adversary-stag-knight-features}
 
 *From Above - Passive:* When the Knight succeeds on a standard attack from above a target, they deal **3d12+3** physical damage instead of their standard damage.
 
@@ -2308,9 +2308,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: oak-treant | Oak Treant -->
 
-#### OAK TREANT {#oak-treant}
+#### OAK TREANT {#section-adversary-oak-treant}
 
-##### *Tier Bruiser* {#tier-bruiser-14}
+##### *Tier Bruiser* {#section-adversary-oak-treant-role}
 
 *A sturdy animate old-growth tree.*
 
@@ -2322,7 +2322,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Forest Knowledge +3
 
-#### **FEATURES** {#features-94}
+#### **FEATURES** {#section-adversary-oak-treant-features}
 
 - *Just a Tree Passive:* Before they make their fi rst attack in a fi ght or after they become *Hidden*, the Treant is indistinguishable from other trees until they next act or a PC succeeds on an Instinct Roll to identify them.
 - *Seed Barrage Action:* **Mark a Stress** and make an attack against up to three targets within Close range, pummeling them with giant acorns. Targets the Treant succeeds against take **2d10+5** physical damage.
@@ -2332,9 +2332,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: treant-sapling | Treant Sapling -->
 
-#### TREANT SAPLING {#treant-sapling}
+#### TREANT SAPLING {#section-adversary-treant-sapling}
 
-##### *Tier Minion* {#tier-minion-13}
+##### *Tier Minion* {#section-adversary-treant-sapling-role}
 
 *A small, sentient tree sapling.*
 
@@ -2342,7 +2342,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 14 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** +0 | **Branches:** Melee | 8 phy
 
-#### **FEATURES** {#features-95}
+#### **FEATURES** {#section-adversary-treant-sapling-features}
 
 *Minion () - Passive:* The Sapling is defeated when they take any damage. For every 6 damage a PC deals to the Sapling, defeat an additional Minion within range the attack would succeed against.
 
@@ -2352,9 +2352,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: head-vampire | Head Vampire -->
 
-#### HEAD VAMPIRE {#head-vampire}
+#### HEAD VAMPIRE {#section-adversary-head-vampire}
 
-##### *Tier Leader* {#tier-leader-14}
+##### *Tier Leader* {#section-adversary-head-vampire-role}
 
 *A captivating undead dressed in aristocratic fi nery.* **Motives & Tactics:** Create thralls, charm, command, fl y, intimidate
 
@@ -2362,7 +2362,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Aristocrat +3
 
-#### **FEATURES** {#features-96}
+#### **FEATURES** {#section-adversary-head-vampire-features}
 
 *Terrifying - Passive:* When the Vampire makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.
 
@@ -2375,9 +2375,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: vampire | Vampire -->
 
-#### VAMPIRE {#vampire}
+#### VAMPIRE {#section-adversary-vampire}
 
-##### *Tier Standard* {#tier-standard-12}
+##### *Tier Standard* {#section-adversary-vampire-role}
 
 *An intelligent undead with blood-stained lips and a predator's smile.* **Motives & Tactics:** Bite, charm, deceive, feed, intimidate
 
@@ -2385,7 +2385,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Nocturnal Hunter +3
 
-#### **FEATURES** {#features-97}
+#### **FEATURES** {#section-adversary-vampire-features}
 
 - *Draining Bite Action:* Make an attack against a target within Melee range. On a success, deal **5d4** physical damage. A target who marks HP from this attack loses a Hope and must mark a Stress. The Vampire then clears a HP.
 - *Mistform Reaction:* When the Vampire takes physical damage, you can **spend a Fear** to take half damage.
@@ -2394,9 +2394,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: vault-guardian-gaoler | Vault Guardian Gaoler -->
 
-#### VAULT GUARDIAN GAOLER {#vault-guardian-gaoler}
+#### VAULT GUARDIAN GAOLER {#section-adversary-vault-guardian-gaoler}
 
-##### *Tier Support* {#tier-support-5}
+##### *Tier Support* {#section-adversary-vault-guardian-gaoler-role}
 
 *A boxy, dust-covered construct with thick metallic swinging doors on their torso.*
 
@@ -2413,9 +2413,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: vault-guardian-sentinel | Vault Guardian Sentinel -->
 
-#### VAULT GUARDIAN SENTINEL {#vault-guardian-sentinel}
+#### VAULT GUARDIAN SENTINEL {#section-adversary-vault-guardian-sentinel}
 
-##### *Tier Bruiser* {#tier-bruiser-15}
+##### *Tier Bruiser* {#section-adversary-vault-guardian-sentinel-role}
 
 *A dust-covered golden construct with boxy limbs and a huge mace for a hand.*
 
@@ -2423,7 +2423,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 17 | **Thresholds:** 21/40 | **HP:** 6 | **Stress:** 3 **ATK:** +3 | **Charged Mace:** Very Close | 2d12+1 phy
 
-#### **FEATURES** {#features-98}
+#### **FEATURES** {#section-adversary-vault-guardian-sentinel-features}
 
 *Kinetic Slam - Passive:* Targets who take damage from the Sentinel's standard attack are knocked back to Very Close range.
 
@@ -2437,9 +2437,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: vault-guardian-turret | Vault Guardian Turret -->
 
-#### VAULT GUARDIAN TURRET {#vault-guardian-turret}
+#### VAULT GUARDIAN TURRET {#section-adversary-vault-guardian-turret}
 
-##### *Tier Ranged* {#tier-ranged-8}
+##### *Tier Ranged* {#section-adversary-vault-guardian-turret-role}
 
 *A massive living turret with reinforced armor and twelve pistondriven mechanical legs.*
 
@@ -2447,7 +2447,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 16 | **Thresholds:** 20/32 | **HP:** 5 | **Stress:** 4 **ATK:** +3 | **Magitech Cannon:** Far | 3d10+3 mag
 
-#### **FEATURES** {#features-99}
+#### **FEATURES** {#section-adversary-vault-guardian-turret-features}
 
 - *Slow Firing Passive:* When you spotlight the Turret and they don't have a token on their stat block, they can't make a standard attack. Place a token on their stat block and describe what they're preparing to do. When you spotlight the Turret and they have a token on their stat block, clear the token and they can attack.
 - *Mark Target Action:* **Spend a Fear** to *Mark* a target within Far range until the Turret is destroyed or the *Marked* target becomes *Hidden*. While the target is *Marked*, their Evasion is halved.
@@ -2458,9 +2458,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: young-ice-dragon | Young Ice Dragon -->
 
-#### YOUNG ICE DRAGON {#young-ice-dragon}
+#### YOUNG ICE DRAGON {#section-adversary-young-ice-dragon}
 
-##### *Tier Solo* {#tier-solo-12}
+##### *Tier Solo* {#section-adversary-young-ice-dragon-role}
 
 *A glacier-blue dragon with four powerful limbs and frost-tinged wings.*
 
@@ -2470,7 +2470,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Protect What Is Mine +3
 
-#### **FEATURES** {#features-100}
+#### **FEATURES** {#section-adversary-young-ice-dragon-features}
 
 *Relentless (3) - Passive:* The Dragon can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -2483,13 +2483,13 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- /adversary -->
 
-## TIER 4 ADVERSARIES (LEVELS 8-10) {#tier-4-adversaries-levels-8-10}
+## TIER 4 ADVERSARIES (LEVELS 8-10) {#section-tier-4}
 
 <!-- adversary: arch-necromancer | Arch-Necromancer -->
 
-#### ARCH-NECROMANCER {#arch-necromancer}
+#### ARCH-NECROMANCER {#section-adversary-arch-necromancer}
 
-##### *Tier Leader* {#tier-leader-15}
+##### *Tier Leader* {#section-adversary-arch-necromancer-role}
 
 *A decaying mage adorned in dark, tattered robes.* **Motives & Tactics:** Corrupt, decay, fl ee to fi ght another day, resurrect
 
@@ -2497,7 +2497,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Forbidden Knowledge +3, Wisdom of Centuries +3
 
-#### **FEATURES** {#features-101}
+#### **FEATURES** {#section-adversary-arch-necromancer-features}
 
 - *Dance of Death Action:* **Mark a Stress** to spotlight **1d4** allies. Attacks they make while spotlighted in this way deal half damage, or full damage if you **spend a Fear**.
 - *Beam of Decay Action:* **Mark 2 Stress** to cause all targets within Far range to make a Strength Reaction Roll. Targets who fail take **2d20+12** magic damage and you gain a Fear. Targets who succeed take half damage. A target who marks 2 or more HP must also mark **2 Stress** and becomes *Vulnerable* until they roll with Hope.
@@ -2509,9 +2509,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: fallen-shock-troop | Fallen Shock Troop -->
 
-#### FALLEN SHOCK TROOP {#fallen-shock-troop}
+#### FALLEN SHOCK TROOP {#section-adversary-fallen-shock-troop}
 
-##### *Tier Minion* {#tier-minion-14}
+##### *Tier Minion* {#section-adversary-fallen-shock-troop-role}
 
 *A cursed soul bound to the Fallen's will.*
 
@@ -2519,7 +2519,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Difficulty:** 18 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** +2 | **Cursed Axe:** Very Close | 12 phy
 
-#### **FEATURES** {#features-102}
+#### **FEATURES** {#section-adversary-fallen-shock-troop-features}
 
 - *Minion (12) Passive:* The Shock Troop is defeated when they take any damage. For every 12 damage a PC deals to the Shock Troop, defeat an additional Minion within range the attack would succeed against.
 - *Aura of Doom Passive:* When a PC marks HP from an attack by the Shock Troop, they lose a Hope.
@@ -2529,9 +2529,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: fallen-sorcerer | Fallen Sorcerer -->
 
-#### FALLEN SORCERER {#fallen-sorcerer}
+#### FALLEN SORCERER {#section-adversary-fallen-sorcerer}
 
-##### *Tier Support* {#tier-support-6}
+##### *Tier Support* {#section-adversary-fallen-sorcerer-role}
 
 *A powerful mage bound by the bargains they made in life.* **Motives & Tactics:** Acquire, dishearten, dominate, torment
 
@@ -2539,7 +2539,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Ancient Knowledge +2
 
-#### **FEATURES** {#features-103}
+#### **FEATURES** {#section-adversary-fallen-sorcerer-features}
 
 - *Confl agration Action:* **Spend a Fear** to unleash an all-consuming fi restorm and make an attack against all targets within Close range. Targets the Sorcerer succeeds against take **2d10+6** direct magic damage.
 - *Nightmare Tableau Action:* **Mark a Stress** to trap a target within Far range in a powerful illusion of their worst fears. While trapped, the target is *Restrained* and *Vulnerable* until they break free, ending both conditions, with a successful Instinct Roll.
@@ -2550,9 +2550,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: fallen-warlord-realm-breaker | Fallen Warlord:Realm-Breaker -->
 
-#### FALLEN WARLORD: REALM-BREAKER {#fallen-warlord-realm-breaker}
+#### FALLEN WARLORD: REALM-BREAKER {#section-adversary-fallen-warlord-realm-breaker}
 
-##### *Tier Solo* {#tier-solo-13}
+##### *Tier Solo* {#section-adversary-fallen-warlord-realm-breaker-role}
 
 *A Fallen God, wreathed in rage and resentment, bearing millennia of experience in breaking heroes' spirits.*
 
@@ -2562,7 +2562,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Conquest +3, History +2, Intimidation +3
 
-#### **FEATURES** {#features-104}
+#### **FEATURES** {#section-adversary-fallen-warlord-realm-breaker-features}
 
 *Relentless (2) - Passive:* The Realm-Breaker can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -2576,9 +2576,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: fallen-warlord-undefeated-champion | Fallen Warlord:Undefeated Champion -->
 
-#### FALLEN WARLORD: UNDEFEATED CHAMPION {#fallen-warlord-undefeated-champion}
+#### FALLEN WARLORD: UNDEFEATED CHAMPION {#section-adversary-fallen-warlord-undefeated-champion}
 
-##### *Tier Solo* {#tier-solo-14}
+##### *Tier Solo* {#section-adversary-fallen-warlord-undefeated-champion-role}
 
 *That which only the most feared have a chance to fear.* **Motives & Tactics:** Dispatch merciless death, punish the defi ant, secure victory at any cost
 
@@ -2586,7 +2586,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Conquest +3, History +2, Intimidation +3
 
-#### **FEATURES** {#features-105}
+#### **FEATURES** {#section-adversary-fallen-warlord-undefeated-champion-features}
 
 - *Relentless (3) Passive:* The Undefeated Champion can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.
 - *Faltering Armor Passive:* When the Undefeated Champion takes damage, reduce it by **1d10**.
@@ -2600,15 +2600,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: hallowed-archer | Hallowed Archer -->
 
-#### HALLOWED ARCHER {#hallowed-archer}
+#### HALLOWED ARCHER {#section-adversary-hallowed-archer}
 
-##### *Tier Ranged* {#tier-ranged-9}
+##### *Tier Ranged* {#section-adversary-hallowed-archer-role}
 
 *Spirit soldiers with sanctifi ed bows.* **Motives & Tactics:** Focus fi re, obey, reposition, volley
 
 **Difficulty:** 19 | **Thresholds:** 25/45 | **HP:** 3 | **Stress:** 2 **ATK:** +4 | **Sanctifi ed Longbow:** Far | 4d8+8 phy
 
-#### **FEATURES** {#features-106}
+#### **FEATURES** {#section-adversary-hallowed-archer-features}
 
 *Punish the Guilty - Passive:* The Archer deals double damage to targets marked *Guilty* by a High Seraph.
 
@@ -2618,15 +2618,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: hallowed-soldier | Hallowed Soldier -->
 
-#### HALLOWED SOLDIER {#hallowed-soldier}
+#### HALLOWED SOLDIER {#section-adversary-hallowed-soldier}
 
-##### *Tier Minion* {#tier-minion-15}
+##### *Tier Minion* {#section-adversary-hallowed-soldier-role}
 
 *Souls of the faithful, lifted up with divine weaponry.* **Motives & Tactics:** Obey, outmaneuver, punish, swarm
 
 **Difficulty:** 18 | **Thresholds:** None | **HP:** 1 | **Stress:** 2 **ATK:** +2 | **Sword and Shield:** Melee | 10 phy
 
-#### **FEATURES** {#features-107}
+#### **FEATURES** {#section-adversary-hallowed-soldier-features}
 
 - *Minion (13) Passive:* The Soldier is defeated when they take any damage. For every 13 damage a PC deals to the Soldier, defeat an additional Minion within range the attack would succeed against.
 - *Divine Flight Passive:* While the Soldier is fl ying, **spend a Fear** to move up to Far range instead of Close range before taking an action.
@@ -2636,9 +2636,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: high-seraph | High Seraph -->
 
-#### HIGH SERAPH {#high-seraph}
+#### HIGH SERAPH {#section-adversary-high-seraph}
 
-##### *Tier Leader* {#tier-leader-16}
+##### *Tier Leader* {#section-adversary-high-seraph-role}
 
 *A divine champion, head of a hallowed host of warriors who enforce their god's will.*
 
@@ -2658,9 +2658,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: kraken | Kraken -->
 
-#### KRAKEN {#kraken}
+#### KRAKEN {#section-adversary-kraken}
 
-##### *Tier Solo* {#tier-solo-15}
+##### *Tier Solo* {#section-adversary-kraken-role}
 
 *A legendary beast of the sea, bigger than the largest galleon, with sucker-laden tentacles and a terrifying maw.*
 
@@ -2670,7 +2670,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Swimming +3
 
-#### **FEATURES** {#features-108}
+#### **FEATURES** {#section-adversary-kraken-features}
 
 *Relentless (3) - Passive:* The Kraken can be spotlighted up to three times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -2686,9 +2686,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: oracle-of-doom | Oracle Of Doom -->
 
-#### ORACLE OF DOOM {#oracle-of-doom}
+#### ORACLE OF DOOM {#section-adversary-oracle-of-doom}
 
-##### *Tier Solo* {#tier-solo-16}
+##### *Tier Solo* {#section-adversary-oracle-of-doom-role}
 
 *A towering immortal and incarnation of fate, cursed to only see bad outcomes.*
 
@@ -2698,7 +2698,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Boundless Knowledge +4
 
-#### **FEATURES** {#features-109}
+#### **FEATURES** {#section-adversary-oracle-of-doom-features}
 
 *Terrifying - Passive:* When the Oracle makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.
 
@@ -2713,15 +2713,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: outer-realms-abomination | Outer Realms Abomination -->
 
-#### OUTER REALMS ABOMINATION {#outer-realms-abomination}
+#### OUTER REALMS ABOMINATION {#section-adversary-outer-realms-abomination}
 
-##### *Tier Bruiser* {#tier-bruiser-16}
+##### *Tier Bruiser* {#section-adversary-outer-realms-abomination-role}
 
 *A chaotic mockery of life, constantly in fl ux.* **Motives & Tactics:** Demolish, devour, undermine
 
 **Difficulty:** 19 | **Thresholds:** 35/71 | **HP:** 7 | **Stress:** 5 **ATK:** +2d4 | **Massive Pseudopod:** Very Close | 4d6+13 mag
 
-#### **FEATURES** {#features-110}
+#### **FEATURES** {#section-adversary-outer-realms-abomination-features}
 
 *Chaotic Form - Passive:* When the Abomination attacks, roll **2d4** and use the result as their attack modifi er.
 
@@ -2733,15 +2733,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: outer-realms-corrupter | Outer Realms Corrupter -->
 
-#### OUTER REALMS CORRUPTER {#outer-realms-corrupter}
+#### OUTER REALMS CORRUPTER {#section-adversary-outer-realms-corrupter}
 
-##### *Tier Support* {#tier-support-7}
+##### *Tier Support* {#section-adversary-outer-realms-corrupter-role}
 
 *A shifting, formless mass seemingly made of chromatic light.* **Motives & Tactics:** Confuse, distract, overwhelm
 
 **Difficulty:** 19 | **Thresholds:** 27/47 | **HP:** 4 | **Stress:** 3 **ATK:** +7 | **Corroding Pseudopod:** Very Close | 4d8+5 mag
 
-#### **FEATURES** {#features-111}
+#### **FEATURES** {#section-adversary-outer-realms-corrupter-features}
 
 *Will-Shattering Touch - Passive:* When a PC takes damage from the Corrupter, they lose a Hope.
 
@@ -2751,15 +2751,15 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: outer-realms-thrall | Outer Realms Thrall -->
 
-#### OUTER REALMS THRALL {#outer-realms-thrall}
+#### OUTER REALMS THRALL {#section-adversary-outer-realms-thrall}
 
-##### *Tier Minion* {#tier-minion-16}
+##### *Tier Minion* {#section-adversary-outer-realms-thrall-role}
 
 *A vaguely humanoid form stripped of memory and identity.* **Motives & Tactics:** Destroy, disgust, disorient, intimidate
 
 **Difficulty:** 17 | **Thresholds:** None | **HP:** 1 | **Stress:** 1 **ATK:** +3 | **Claws and Teeth:** Very Close | 11 phy
 
-#### **FEATURES** {#features-112}
+#### **FEATURES** {#section-adversary-outer-realms-thrall-features}
 
 *Minion (13) - Passive:* The Thrall is defeated when they take any damage. For every 13 damage a PC deals to the Thrall, defeat an additional Minion within range the attack would succeed against.
 
@@ -2769,7 +2769,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: volcanic-dragon-obsidian-predator | Volcanic Dragon:Obsidian Predator -->
 
-## VOLCANIC DRAGON: OBSIDIAN PREDATOR {#volcanic-dragon-obsidian-predator}
+## VOLCANIC DRAGON: OBSIDIAN PREDATOR {#section-adversary-volcanic-dragon-obsidian-predator}
 
 *Tier Solo*
 
@@ -2781,7 +2781,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Hunt from Above +5
 
-#### **FEATURES** {#features-113}
+#### **FEATURES** {#section-adversary-volcanic-dragon-obsidian-predator-features}
 
 *Relentless (2) - Passive:* The Obsidian Predator can be spotlighted up to two times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -2798,9 +2798,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: volcanic-dragon-molten-scourge | Volcanic Dragon:Molten Scourge -->
 
-#### VOLCANIC DRAGON: MOLTEN SCOURGE {#volcanic-dragon-molten-scourge}
+#### VOLCANIC DRAGON: MOLTEN SCOURGE {#section-adversary-volcanic-dragon-molten-scourge}
 
-##### *Tier Solo* {#tier-solo-17}
+##### *Tier Solo* {#section-adversary-volcanic-dragon-molten-scourge-role}
 
 *Enraged by their wounds, the dragon bursts into molten lava.* **Motives & Tactics:** Douse with lava, incinerate, repel Invaders, reposition
 
@@ -2820,9 +2820,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: volcanic-dragon-ashen-tyrant | Volcanic Dragon:Ashen Tyrant -->
 
-#### VOLCANIC DRAGON: ASHEN TYRANT {#volcanic-dragon-ashen-tyrant}
+#### VOLCANIC DRAGON: ASHEN TYRANT {#section-adversary-volcanic-dragon-ashen-tyrant}
 
-##### *Tier Solo* {#tier-solo-18}
+##### *Tier Solo* {#section-adversary-volcanic-dragon-ashen-tyrant-role}
 
 *No enemy has ever had the insolence to wound the dragon so. As the lava settles, it's ground to ash like the dragon's past foes.* **Motives & Tactics:** Choke, fl y, intimidate, kill or be killed
 
@@ -2830,7 +2830,7 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 **Experience:** Hunt from Above +5
 
-#### **FEATURES** {#features-114}
+#### **FEATURES** {#section-adversary-volcanic-dragon-ashen-tyrant-features}
 
 *Relentless (4) - Passive:* The Ashen Tyrant can be spotlighted up to four times per GM turn. Spend Fear as usual to spotlight them.
 
@@ -2845,9 +2845,9 @@ ATK: +1 | Pincers: Melee | 1d12+2 phy
 
 <!-- adversary: perfected-zombie | Perfected Zombie -->
 
-#### PERFECTED ZOMBIE {#perfected-zombie}
+#### PERFECTED ZOMBIE {#section-adversary-perfected-zombie}
 
-##### *Tier Bruiser* {#tier-bruiser-17}
+##### *Tier Bruiser* {#section-adversary-perfected-zombie-role}
 
 *A towering, muscular zombie with magically infused strength and skill.*
 
@@ -2858,7 +2858,7 @@ Difficulty: 20 | Thresholds: 40/70 | HP: 9 | Stress: 4
 ATK: +4 | Greataxe: Very Close | 4d12+15 phy
 ```
 
-#### **FEATURES** {#features-115}
+#### **FEATURES** {#section-adversary-perfected-zombie-features}
 
 *Terrifying - Passive:* When the Zombie makes a successful attack, all PCs within Far range lose a Hope and you gain a Fear.
 
@@ -2871,15 +2871,15 @@ ATK: +4 | Greataxe: Very Close | 4d12+15 phy
 
 <!-- adversary: zombie-legion | Zombie Legion -->
 
-#### ZOMBIE LEGION {#zombie-legion}
+#### ZOMBIE LEGION {#section-adversary-zombie-legion}
 
-##### *Tier Horde (/HP)* {#tier-horde-hp-9}
+##### *Tier Horde (/HP)* {#section-adversary-zombie-legion-role}
 
 *A large pack of undead, still powerful despite their rotting fl esh.* **Motives & Tactics:** Consume brain, shred fl esh, surround
 
 **Difficulty:** 17 | **Thresholds:** 25/45 | **HP:** 8 | **Stress:** 5 **ATK:** +2 | **Tentacles:** Close | 4d6+10 phy
 
-#### **FEATURES** {#features-116}
+#### **FEATURES** {#section-adversary-zombie-legion-features}
 
 *Horde (2d+) - Passive:* When the Legion has marked half or more of their HP, their standard attack deals **2d6+5** physical damage instead.
 

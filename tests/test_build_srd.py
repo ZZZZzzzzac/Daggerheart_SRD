@@ -57,6 +57,20 @@ def test_explicit_anchor_wins_over_generated_slug():
     assert en_ids == ["action-check"]
 
 
+def test_search_indexes_each_section_even_when_heading_levels_differ():
+    zh = "## 领域 {#domains}\n\n介绍。\n\n#### 奥术 {#arcana}\n\n天生魔法。"
+    en = "## Domains {#domains}\n\nIntroduction.\n\n### Arcana {#arcana}\n\nInnate magic."
+    zh_ids, en_ids = build_srd.assign_anchor_ids(zh, en)
+    records = build_srd.section_records(zh, zh_ids, "领域", "domains", "zh") + build_srd.section_records(en, en_ids, "Domains", "domains", "en")
+    versions = {(r['path'], r['anchor'], r['language']): r for r in records}
+    english_hit = next(r for r in records if r['heading'] == 'Arcana')
+    chinese = versions[(english_hit['path'], english_hit['anchor'], 'zh')]
+    assert chinese['heading'] == '奥术'
+    assert chinese['body'] == '天生魔法。'
+    assert versions[(chinese['path'], chinese['anchor'], 'en')] == english_hit
+    assert next(r for r in records if r['heading'] == '领域')['body'] == '介绍。'
+
+
 def test_heading_text_can_change_without_changing_explicit_anchor():
     before = build_srd.assign_anchor_ids("## 动作掷骰 {#action-check}", "## Action Roll {#action-check}")
     after = build_srd.assign_anchor_ids("## 进行动作检定 {#action-check}", "## Make an Action Check {#action-check}")

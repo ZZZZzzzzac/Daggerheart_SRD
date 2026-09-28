@@ -240,8 +240,11 @@
     if (dialog?.open) dialog.close();
   }
 
-  async function ensureSearchIndex() {
-    if (!state.search) state.search = await loadJson(body.dataset.searchIndex);
+  function ensureSearchIndex() {
+    if (!state.search) state.search = loadJson(body.dataset.searchIndex).catch((error) => {
+      state.search = null;
+      throw error;
+    });
     return state.search;
   }
 
@@ -254,32 +257,52 @@
     return `${start ? "…" : ""}${source.slice(start, end)}${end < source.length ? "…" : ""}`;
   }
 
+  let searchRequest = 0;
   async function runSearch() {
+    const request = ++searchRequest;
     const input = document.getElementById("search-input");
     const results = document.getElementById("search-results");
     const hint = document.getElementById("search-hint");
     const query = window.SrdSearch.normalize(input.value);
+    const language = state.searchLanguage;
     results.replaceChildren();
     if (!query) {
       hint.textContent = state.searchLanguage === "zh" ? "输入文字后开始搜索" : "Type to search";
       return;
     }
+    hint.textContent = language === "zh" ? "正在搜索中英文…" : "Searching both languages…";
     try {
       const index = await ensureSearchIndex();
-      const matches = window.SrdSearch.search(index.records, query, state.searchLanguage, 50);
-      hint.textContent = state.searchLanguage === "zh" ? `找到 ${matches.length} 个小节` : `${matches.length} sections found`;
-      matches.forEach(({ record }) => {
+      if (request !== searchRequest) return;
+      const matches = window.SrdSearch.search(index.records, query, language, 50);
+      hint.textContent = matches.length
+        ? (language === "zh" ? `找到 ${matches.length} 个结果` : `${matches.length} results found`)
+        : (language === "zh" ? "中英文均未找到匹配结果，请尝试其他关键词。" : "No matches in either language. Try another keyword.");
+      matches.forEach(({ record, sourceRecord, chapterOnly }) => {
         const item = node("li", "search-result");
         const link = node("a");
-        link.href = pageUrl(record.path, record.anchor);
-        link.addEventListener("click", () => closeDialog("search-dialog"));
+        link.href = pageUrl(record.path, chapterOnly ? "" : record.anchor);
+        link.addEventListener("click", () => {
+          setLanguage(language);
+          closeDialog("search-dialog");
+        });
         const meta = node("div", "search-result-meta");
         meta.append(node("span", "", record.pageTitle));
-        link.append(meta, node("h3", "", record.heading), node("p", "", snippetFor(record.body, query)));
+        if (sourceRecord.language !== language) {
+          const label = language === "zh" ? "匹配原文" : "Matched Chinese translation";
+          meta.append(node("span", "search-result-origin", label));
+          if (chapterOnly) meta.append(node("span", "", language === "zh" ? "定位到中文章节" : "Opens English chapter"));
+        }
+        link.append(meta, node("h3", "", record.heading));
+        if (record.body) link.append(node("p", "", snippetFor(record.body, query)));
+        if (sourceRecord.language !== language) {
+          link.append(node("p", "search-result-source", `${language === "zh" ? "原文" : "Chinese"}：${sourceRecord.heading}`));
+        }
         item.append(link);
         results.append(item);
       });
     } catch (error) {
+      if (request !== searchRequest) return;
       hint.textContent = state.searchLanguage === "zh" ? "搜索资料加载失败" : "Search index failed to load";
     }
   }
@@ -347,6 +370,7 @@
       state.searchLanguage = state.language;
       document.getElementById("search-language").textContent = state.searchLanguage === "zh" ? "中文" : "EN";
       openDialog("search-dialog");
+      runSearch();
       requestAnimationFrame(() => document.getElementById("search-input")?.focus());
     });
     document.getElementById("search-input")?.addEventListener("input", runSearch);

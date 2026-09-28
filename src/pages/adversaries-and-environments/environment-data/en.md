@@ -1,9 +1,9 @@
 
-## ENVIRONMENT STAT BLOCKS BY TIER {#environment-stat-blocks-by-tier}
+## ENVIRONMENT STAT BLOCKS BY TIER {#section-environment-stat-blocks-by-tier}
 
 This section contains the following stat blocks.
 
-#### **TIER 1 (LEVEL 1)** {#tier-1-level-1}
+#### **TIER 1 (LEVEL 1)** {#section-tier-1-overview}
 
 - Abandoned Grove (Exploration)
 - Ambushed (Event)
@@ -14,41 +14,41 @@ This section contains the following stat blocks.
 - Outpost Town (Social)
 - Raging River (Traversal)
 
-#### **TIER 2 (LEVELS 2–4)** {#tier-2-levels-24}
+#### **TIER 2 (LEVELS 2–4)** {#section-tier-2-overview}
 
 - Cult Ritual (Event)
 - Hallowed Temple (Social)
 - Haunted City (Exploration)
 - Mountain Pass (Traversal)
 
-#### **TIER 3 (LEVELS 5–7)** {#tier-3-levels-57}
+#### **TIER 3 (LEVELS 5–7)** {#section-tier-3-overview}
 
 - Burning Heart of the Woods (Exploration)
 - Castle Siege (Event)
 - Pitched Battle (Event)
 
-#### **TIER 4 (LEVELS 8–10)** {#tier-4-levels-810}
+#### **TIER 4 (LEVELS 8–10)** {#section-tier-4-overview}
 
 - Chaos Realm (Traversal)
 - Divine Usurpation (Event)
 - Imperial Court (Social)
 - Necromancer's Ossuary (Exploration)
 
-#### TIER 1 ENVIRONMENTS (LEVEL 1) {#tier-1-environments-level-1}
+#### TIER 1 ENVIRONMENTS (LEVEL 1) {#section-tier-1}
 
 <!-- environment: abandoned-grove | Abandoned Grove -->
 
-#### ABANDONED GROVE {#abandoned-grove}
+#### ABANDONED GROVE {#section-environment-abandoned-grove}
 
-##### *Tier 1 Exploration* {#tier-1-exploration}
+##### *Tier 1 Exploration* {#section-environment-abandoned-grove-role}
 
 *A former druidic grove lying fallow and fully reclaimed by nature.* **Impulses:** Draw in the curious, echo the past
 
-#### **Difficulty:** 11 {#difficulty-11}
+#### **Difficulty:** 11 {#section-environment-abandoned-grove-difficulty}
 
 **Potential Adversaries:** Beasts (Bear, Dire Wolf, Glass Snake), Grove Guardians (Minor Treant, Sylvan Soldier, Young Dryad)
 
-#### **FEATURES** {#features}
+#### **FEATURES** {#section-environment-abandoned-grove-features}
 
 - *Overgrown Battlefi eld Passive:* There has been a battle here. A PC can make an Instinct Roll to identify evidence of that fi ght. On a success with Hope, learn all three pieces of information below. On a success with Fear, learn two. On a failure, a PC can mark a Stress to learn one and gain advantage on the next action roll to investigate this environment. A PC with an appropriate background or Experience can learn an additional detail and ask a follow-up question about the scene and get a truthful (if not always complete) answer.
 - Traces of a battle (broken weapons and branches, gouges in the ground) litter the ground.
@@ -73,15 +73,15 @@ This section contains the following stat blocks.
 
 <!-- environment: ambushed | Ambushed -->
 
-#### AMBUSHED {#ambushed}
+#### AMBUSHED {#section-environment-ambushed}
 
-##### *Tier 1 Event* {#tier-1-event}
+##### *Tier 1 Event* {#section-environment-ambushed-role}
 
 *An ambush is set to catch an unsuspecting party off -guard.* **Impulses:** Overwhelm, scatter, surround
 
 **Difficulty:** Special (see "Relative Strength") **Potential Adversaries:** Any
 
-#### **FEATURES** {#features-2}
+#### **FEATURES** {#section-environment-ambushed-features}
 
 *Relative Strength - Passive:* The Difficulty of this environment equals that of the adversary with the highest Difficulty. *Who cues the ambush? What makes it clear they're in charge?*
 
@@ -93,9 +93,9 @@ This section contains the following stat blocks.
 
 <!-- environment: ambushers | Ambushers -->
 
-#### AMBUSHERS {#ambushers}
+#### AMBUSHERS {#section-environment-ambushers}
 
-##### *Tier 1 Event* {#tier-1-event-2}
+##### *Tier 1 Event* {#section-environment-ambushers-role}
 
 *An ambush is set by the PCs to catch unsuspecting adversaries off -guard.*
 
@@ -103,7 +103,7 @@ This section contains the following stat blocks.
 
 **Difficulty:** Special (see "Relative Strength") **Potential Adversaries:** Any
 
-#### **FEATURES** {#features-3}
+#### **FEATURES** {#section-environment-ambushers-features}
 
 - *Relative Strength Passive:* The Difficulty of this environment equals that of the adversary with the highest Difficulty. *Which adversary is the least prepared? Which one is the most?*
 - *Where Did They Come From? Reaction:* When a PC starts the ambush on unsuspecting adversaries, you lose 2 Fear and the fi rst attack roll a PC makes has advantage.
@@ -114,19 +114,19 @@ This section contains the following stat blocks.
 
 <!-- environment: bustling-marketplace | Bustling Marketplace -->
 
-#### BUSTLING MARKETPLACE {#bustling-marketplace}
+#### BUSTLING MARKETPLACE {#section-environment-bustling-marketplace}
 
-##### *Tier 1 Social* {#tier-1-social}
+##### *Tier 1 Social* {#section-environment-bustling-marketplace-role}
 
 *The economic heart of the settlement, with local artisans, traveling merchants, and patrons across social classes.*
 
 **Impulses:** Buy low, and sell high, tempt and tantalize with wares from near and far
 
-#### **Difficulty:** 10 {#difficulty-10}
+#### **Difficulty:** 10 {#section-environment-bustling-marketplace-difficulty}
 
 **Potential Adversaries:** Guards (Bladed Guard, Head Guard), Masked Thief, Merchant
 
-#### **FEATURES** {#features-4}
+#### **FEATURES** {#section-environment-bustling-marketplace-features}
 
 - *Tip the Scales Passive:* PCs can gain advantage on a Presence Roll by off ering a handful of gold as part of the interaction. *Will any coin be accepted, or only local currency? How overt are the PCs in off ering this bribe?*
 - *Unexpected Find Action:* Reveal to the PCs that one of the merchants has something they want or need, such as food from their home, a rare book, magical components, a dubious treasure map, or a magical key.
@@ -143,17 +143,17 @@ This section contains the following stat blocks.
 
 <!-- environment: cliffside-ascent | Cliffside Ascent -->
 
-#### CLIFFSIDE ASCENT {#cliffside-ascent}
+#### CLIFFSIDE ASCENT {#section-environment-cliffside-ascent}
 
-##### *Tier 1 Traversal* {#tier-1-traversal}
+##### *Tier 1 Traversal* {#section-environment-cliffside-ascent-role}
 
 *A steep, rocky cliff side tall enough to make traversal dangerous.* **Impulses:** Cast the unready down to a rocky doom, draw people in with promise of what lies at the top
 
-#### **Difficulty:** 12 {#difficulty-12}
+#### **Difficulty:** 12 {#section-environment-cliffside-ascent-difficulty}
 
 **Potential Adversaries:** Construct, Deeproot Defender, Giant Scorpion, Glass Snake
 
-#### **FEATURES** {#features-5}
+#### **FEATURES** {#section-environment-cliffside-ascent-features}
 
 *The Climb - Passive:* Climbing up the cliff side uses a Progress Countdown (12). It ticks down according to the following criteria when the PCs make an action roll to climb:
 
@@ -177,17 +177,17 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: local-tavern | Local Tavern -->
 
-#### LOCAL TAVERN {#local-tavern}
+#### LOCAL TAVERN {#section-environment-local-tavern}
 
-##### *Tier 1 Social* {#tier-1-social-2}
+##### *Tier 1 Social* {#section-environment-local-tavern-role}
 
 *A lively tavern that serves as the social hub for its town.* **Impulses:** Provide opportunities for adventurers, nurture community
 
-#### **Difficulty:** 10 {#difficulty-10-2}
+#### **Difficulty:** 10 {#section-environment-local-tavern-difficulty}
 
 **Potential Adversaries:** Guards (Bladed Guard, Head Guard), Mercenaries (Harrier, Sellsword, Spellblade, Weaponmaster), Merchant
 
-#### **FEATURES** {#features-6}
+#### **FEATURES** {#section-environment-local-tavern-features}
 
 - *What's the Talk of the Town? Passive:* A PC can ask the bartender, staff , or patrons about local events, rumors, and potential work with a Presence Roll. On a success, they can pick two of the below details to learn—or three if they critically succeed. On a failure, they can pick one and mark a Stress as the local carries on about something irrelevant.
 	- A fascinating rumor with a connection to a PC's background
@@ -215,19 +215,19 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: outpost-town | Outpost Town -->
 
-#### OUTPOST TOWN {#outpost-town}
+#### OUTPOST TOWN {#section-environment-outpost-town}
 
-##### *Tier 1 Social* {#tier-1-social-3}
+##### *Tier 1 Social* {#section-environment-outpost-town-role}
 
 *A small town on the outskirts of a nation or region, close to a dungeon, tombs, or other adventuring destinations.*
 
 **Impulses:** Drive the desperate to certain doom, profi t off of ragged hope
 
-#### **Difficulty:** 12 {#difficulty-12-2}
+#### **Difficulty:** 12 {#section-environment-outpost-town-difficulty}
 
 **Potential Adversaries:** Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper), Masked Thief, Merchant
 
-#### **FEATURES** {#features-7}
+#### **FEATURES** {#section-environment-outpost-town-features}
 
 *Rumors Abound - Passive:* Gossip is the fastest-traveling currency in the realm. A PC can inquire about major events by making a Presence Roll. What they learn depends on the outcome of their roll, based on the following criteria:
 
@@ -258,19 +258,19 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: raging-river | Raging River -->
 
-#### RAGING RIVER {#raging-river}
+#### RAGING RIVER {#section-environment-raging-river}
 
-##### *Tier 1 Traversal* {#tier-1-traversal-2}
+##### *Tier 1 Traversal* {#section-environment-raging-river-role}
 
 *A swift-moving river without a bridge crossing, deep enough to sweep away most people.*
 
 **Impulses:** Bar crossing, carry away the unready, divide the land
 
-#### **Difficulty:** 10 {#difficulty-10-3}
+#### **Difficulty:** 10 {#section-environment-raging-river-difficulty}
 
 **Potential Adversaries:** Beasts (Bear, Glass Snake), Jagged Knife Bandits (Hexer, Kneebreaker, Lackey, Lieutenant, Shadow, Sniper)
 
-#### **FEATURES** {#features-8}
+#### **FEATURES** {#section-environment-raging-river-features}
 
 *Dangerous Crossing - Passive:* Crossing the river requires the party to complete a Progress Countdown (4). A PC who rolls a failure with Fear is immediately targeted by the "Undertow" action without requiring a Fear to be spent on the feature. *Have any of the PCs forded rivers like this before? Are any of them afraid of drowning?*
 
@@ -284,21 +284,21 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- /environment -->
 
-#### TIER 2 ENVIRONMENTS (LEVELS 2-4) {#tier-2-environments-levels-2-4}
+#### TIER 2 ENVIRONMENTS (LEVELS 2-4) {#section-tier-2}
 
 <!-- environment: cult-ritual | Cult Ritual -->
 
-#### CULT RITUAL {#cult-ritual}
+#### CULT RITUAL {#section-environment-cult-ritual}
 
-##### *Tier 2 Event* {#tier-2-event}
+##### *Tier 2 Event* {#section-environment-cult-ritual-role}
 
 *A Fallen cult assembles around a sigil of the defeated gods and a bonfi re that burns a sickly shade of green.* **Impulses:** Profane the land, unite the Mortal Realm with the Circles Below
 
-#### **Difficulty:** 14 {#difficulty-14}
+#### **Difficulty:** 14 {#section-environment-cult-ritual-difficulty}
 
 **Potential Adversaries:** Cult of the Fallen (Cult Adept, Cult Fang, Cult Initiate, Secret-Keeper)
 
-#### **FEATURES** {#features-9}
+#### **FEATURES** {#section-environment-cult-ritual-features}
 
 *Desecrated Ground - Passive:* Cultists dedicated this place to the Fallen Gods, and their foul infl uence seeps into it. Reduce the PCs' Hope Die to a **d10** while in this environment. The desecration can be removed with a Progress Countdown (6). *How do the PCs fi rst notice that something is wrong about this place? What fears resurface while hope is kept at bay?*
 
@@ -320,19 +320,19 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: hallowed-temple | Hallowed Temple -->
 
-#### HALLOWED TEMPLE {#hallowed-temple}
+#### HALLOWED TEMPLE {#section-environment-hallowed-temple}
 
-##### *Tier 2 Social* {#tier-2-social}
+##### *Tier 2 Social* {#section-environment-hallowed-temple-role}
 
 *A bustling but well-kept temple that provides healing and hosts regular services, overseen by a priest or seraph.*
 
 **Impulses:** Connect the Mortal Realm with the Hallows Above, display the power of the divine, provide aid and succor to the faithful
 
-#### **Difficulty:** 13 {#difficulty-13}
+#### **Difficulty:** 13 {#section-environment-hallowed-temple-difficulty}
 
 **Potential Adversaries:** Guards (Archer Guard, Bladed Guard, Head Guard)
 
-#### **FEATURES** {#features-10}
+#### **FEATURES** {#section-environment-hallowed-temple-features}
 
 *A Place of Healing - Passive:* A PC who takes a rest in the Hallowed Temple automatically clears all HP.
 
@@ -356,17 +356,17 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: haunted-city | Haunted City -->
 
-#### HAUNTED CITY {#haunted-city}
+#### HAUNTED CITY {#section-environment-haunted-city}
 
-##### *Tier 2 Exploration* {#tier-2-exploration}
+##### *Tier 2 Exploration* {#section-environment-haunted-city-role}
 
 *An abandoned city populated by the restless spirits of eras past.* **Impulses:** Misdirect and disorient, replay apocalypses both public and personal
 
-#### **Difficulty:** 14 {#difficulty-14-2}
+#### **Difficulty:** 14 {#section-environment-haunted-city-difficulty}
 
 **Potential Adversaries:** Ghosts (Spectral Archer, Spectral Captain, Spectral Guardian), ghostly versions of other adversaries (see "Ghostly Form")
 
-#### **FEATURES** {#features-11}
+#### **FEATURES** {#section-environment-haunted-city-features}
 
 *Buried Knowledge - Passive:* The city has countless mysteries to unfold. A PC who seeks knowledge about the fallen city can make an Instinct or Knowledge Roll to learn about this place and discover (potentially haunted) loot.
 
@@ -388,19 +388,19 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: mountain-pass | Mountain Pass -->
 
-#### MOUNTAIN PASS {#mountain-pass}
+#### MOUNTAIN PASS {#section-environment-mountain-pass}
 
-##### *Tier 2 Traversal* {#tier-2-traversal}
+##### *Tier 2 Traversal* {#section-environment-mountain-pass-role}
 
 *Stony peaks that pierce the clouds, with a twisting path winding its way up and over through many switchbacks.*
 
 **Impulses:** Exact a chilling toll in supplies and stamina, reveal magical tampering, slow down travel
 
-#### **Difficulty:** 15 {#difficulty-15}
+#### **Difficulty:** 15 {#section-environment-mountain-pass-difficulty}
 
 **Potential Adversaries:** Beasts (Bear, Giant Eagle, Glass Snake), Chaos Skull, Minotaur Wrecker, Mortal Hunter
 
-#### **FEATURES** {#features-12}
+#### **FEATURES** {#section-environment-mountain-pass-features}
 
 *Engraved Sigils - Passive:* Large markings and engravings have been made in the mountainside. A PC with a relevant background or Experience identifi es them as weather magic increasing the power of the icy winds. A PC who succeeds on a Knowledge Roll can recall information about the sigils, potential information about their creators, and the knowledge of how to dispel them. If a PC critically succeeds, they recognize that the sigils are of a style created by ridgeborne enchanters and they gain advantage on a roll to dispel the sigils.
 
@@ -418,21 +418,21 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- /environment -->
 
-#### TIER 3 ENVIRONMENTS (LEVELS 5-7) {#tier-3-environments-levels-5-7}
+#### TIER 3 ENVIRONMENTS (LEVELS 5-7) {#section-tier-3}
 
 <!-- environment: burning-heart-of-the-woods | Burning Heart Of The Woods -->
 
-#### BURNING HEART OF THE WOODS {#burning-heart-of-the-woods}
+#### BURNING HEART OF THE WOODS {#section-environment-burning-heart-of-the-woods}
 
-##### *Tier 3 Exploration* {#tier-3-exploration}
+##### *Tier 3 Exploration* {#section-environment-burning-heart-of-the-woods-role}
 
 *Thick indigo ash fi lls the air around a towering moss-covered tree that burns eternally with fl ames a sickly shade of blue.* **Impulses:** Beat out an uncanny rhythm for all to follow, corrupt the woods
 
-#### **Difficulty:** 16 {#difficulty-16}
+#### **Difficulty:** 16 {#section-environment-burning-heart-of-the-woods-difficulty}
 
 **Potential Adversaries:** Beasts (Bear, Glass Snake), Elementals (Elemental Spark), Verdant Defenders (Dryad, Oak Treant, Stag Knight)
 
-#### **FEATURES** {#features-13}
+#### **FEATURES** {#section-environment-burning-heart-of-the-woods-features}
 
 *Chaos Magic Locus - Passive:* When a PC makes a Spellcast Roll, they must roll two Fear Dice and take the higher result. *What does it feel like to work magic in this chaos-touched place? What do you fear will happen if you lose control of the spell?*
 
@@ -460,19 +460,19 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: castle-siege | Castle Siege -->
 
-#### CASTLE SIEGE {#castle-siege}
+#### CASTLE SIEGE {#section-environment-castle-siege}
 
-##### *Tier 3 Event* {#tier-3-event}
+##### *Tier 3 Event* {#section-environment-castle-siege-role}
 
 *An active siege with an attacking force fi ghting to gain entry to a fortifi ed castle.*
 
 **Impulses:** Bleed out the will to fi ght, breach the walls, build tension
 
-#### **Difficulty:** 17 {#difficulty-17}
+#### **Difficulty:** 17 {#section-environment-castle-siege-difficulty}
 
 **Potential Adversaries:** Mercenaries (Harrier, Sellsword, Spellblade, Weaponmaster), Noble Forces (Archer Squadron, Conscript, Elite Soldier, Knight of the Realm)
 
-#### **FEATURES** {#features-14}
+#### **FEATURES** {#section-environment-castle-siege-features}
 
 *Secret Entrance - Passive:* A PC can fi nd or recall a secret way into the castle with a successful Instinct or Knowledge Roll.
 
@@ -497,17 +497,17 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: pitched-battle | Pitched Battle -->
 
-#### PITCHED BATTLE {#pitched-battle}
+#### PITCHED BATTLE {#section-environment-pitched-battle}
 
-##### *Tier 3 Event* {#tier-3-event-2}
+##### *Tier 3 Event* {#section-environment-pitched-battle-role}
 
 *A massive combat between two large groups of armed combatants.* **Impulses:** Seize people, land, and wealth, spill blood for greed and glory
 
-#### **Difficulty:** 17 {#difficulty-17-2}
+#### **Difficulty:** 17 {#section-environment-pitched-battle-difficulty}
 
 **Potential Adversaries:** Mercenaries (Sellsword, Harrier, Spellblade, Weaponmaster), Noble Forces (Archer Squadron, Conscript, Elite Soldier, Knight of the Realm)
 
-#### **FEATURES** {#features-15}
+#### **FEATURES** {#section-environment-pitched-battle-features}
 
 *Adrift on a Sea of Steel - Passive:* Traversing a battlefi eld during an active combat is extremely dangerous. A PC must succeed on an Agility Roll to move at all, and can only go up to Close range on a success. If an adversary is within Melee range of them, they must mark a Stress to make an Agility Roll to move.
 
@@ -524,29 +524,29 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- /environment -->
 
-#### TIER 4 ENVIRONMENTS (LEVELS 8-10) {#tier-4-environments-levels-8-10}
+#### TIER 4 ENVIRONMENTS (LEVELS 8-10) {#section-tier-4}
 
 <!-- environment: chaos-realm | Chaos Realm -->
 
-#### CHAOS REALM {#chaos-realm}
+#### CHAOS REALM {#section-environment-chaos-realm}
 
-##### *Tier 4 Traversal* {#tier-4-traversal}
+##### *Tier 4 Traversal* {#section-environment-chaos-realm-role}
 
 *An otherworldly space where the laws of reality are unstable and dangerous.*
 
 **Impulses:** Annihilate certainty, consume power, defy logic
 
-#### **Difficulty:** 20 {#difficulty-20}
+#### **Difficulty:** 20 {#section-environment-chaos-realm-difficulty}
 
 **Potential Adversaries:** Outer Realms Monstrosities (Abomination, Corruptor, Thrall)
 
-#### **FEATURES** {#features-16}
+#### **FEATURES** {#section-environment-chaos-realm-features}
 
 *Impossible Architecture - Passive:* Up is down, down is right, right is starward. Gravity and directionality themselves are in fl ux, and any attempt to move through this realm is an odyssey unto itself, requiring a Progress Countdown (8). On a failure, a PC must mark a Stress in addition to the roll's other consequences.
 
 *What does it feel like to move in a space so alien to the Mortal Realm? What landmark or point do you fi xate on to maintain your balance? What bizarre landmarks do you traverse on your journey?*
 
-#### *Everything You Are This Place Will Take from You - Action:* {#everything-you-are-this-place-will-take-from-you-action}
+#### *Everything You Are This Place Will Take from You - Action:* {#section-environment-chaos-realm-everything-you-are}
 
 *Countdown (Loop d)*. Activate the countdown. When it triggers, all PCs must succeed on a Presence Reaction Roll or their highest trait is temporarily reduced by **1d4** unless they mark a number of Stress equal to its value. Any lost trait points are regained if the PC critically succeeds or escapes the Chaos Realm.
 
@@ -564,19 +564,19 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: divine-usurpation | Divine Usurpation -->
 
-#### DIVINE USURPATION {#divine-usurpation}
+#### DIVINE USURPATION {#section-environment-divine-usurpation}
 
-##### *Tier 4 Event* {#tier-4-event}
+##### *Tier 4 Event* {#section-environment-divine-usurpation-role}
 
 *A massive ritual designed to breach the gates of the Hallows Above and unseat the New Gods themselves.*
 
 **Impulses:** Collect power, overawe, silence dissent
 
-#### **Difficulty:** 20 {#difficulty-20-2}
+#### **Difficulty:** 20 {#section-environment-divine-usurpation-difficulty}
 
 **Potential Adversaries:** Arch-Necromancer, Fallen Shock Troops, Mortal Hunter, Oracle of Doom, Perfected Zombie
 
-#### **FEATURES** {#features-17}
+#### **FEATURES** {#section-environment-divine-usurpation-features}
 
 *Final Preparations - Passive:* When the environment fi rst takes the spotlight, designate one adversary as the Usurper seeking to overthrow the gods. Activate a Long-Term Countdown (8) as the Usurper assembles what they need to conduct the ritual. When it triggers, spotlight this environment to use the "Beginning of the End" feature. While this environment remains in play, you can hold up to 15 Fear.
 
@@ -606,19 +606,19 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: imperial-court | Imperial Court -->
 
-#### IMPERIAL COURT {#imperial-court}
+#### IMPERIAL COURT {#section-environment-imperial-court}
 
-##### *Tier 4 Social* {#tier-4-social}
+##### *Tier 4 Social* {#section-environment-imperial-court-role}
 
 *The majestic domain of a powerful empire, lavishly appointed with stolen treasures.*
 
 **Impulses:** Justify and perpetuate imperial rule, seduce rivals with promises of power and comfort
 
-#### **Difficulty:** 20 {#difficulty-20-3}
+#### **Difficulty:** 20 {#section-environment-imperial-court-difficulty}
 
 **Potential Adversaries:** Bladed Guard, Courtesan, Knight of the Realm, Monarch, Spy
 
-#### **FEATURES** {#features-18}
+#### **FEATURES** {#section-environment-imperial-court-features}
 
 *All Roads Lead Here - Passive:* While in the Imperial Court, a PC has disadvantage on Presence Rolls made to take actions that don't fi t the imperial way of life or support the empire's dominance.
 
@@ -644,17 +644,17 @@ When the countdown triggers, the party has made it to the top of the cliff .
 
 <!-- environment: necromancer-s-ossuary | Necromancer'S Ossuary -->
 
-#### NECROMANCER'S OSSUARY {#necromancer-s-ossuary}
+#### NECROMANCER'S OSSUARY {#section-environment-necromancer-s-ossuary}
 
-##### *Tier 4 Exploration* {#tier-4-exploration}
+##### *Tier 4 Exploration* {#section-environment-necromancer-s-ossuary-role}
 
 *A dusty crypt with a library, twisting corridors, and abundant sarcophagi, spattered with the blood of ill-fated invaders.* **Impulses:** Confound intruders, delve into secrets best left buried, manifest unlife, unleash a tide of undead
 
-#### **Difficulty:** 19 {#difficulty-19}
+#### **Difficulty:** 19 {#section-environment-necromancer-s-ossuary-difficulty}
 
 **Potential Adversaries:** Arch-Necromancer's Host (Perfected Zombie, Zombie Legion)
 
-#### **FEATURES** {#features-19}
+#### **FEATURES** {#section-environment-necromancer-s-ossuary-features}
 
 *No Place for the Living - Passive:* A feature or action that clears HP requires spending a Hope to use. If it already costs Hope, a PC must spend an additional Hope.
 

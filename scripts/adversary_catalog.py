@@ -70,13 +70,22 @@ def generate(project, prepared, site_pages, search_records, kind="adversary"):
     for lang in ("zh", "en"):
         outside = re.sub(r'<article class="stat-card"[^>]*>[\s\S]*?</article>', '', rendered[lang])
         anchors = re.findall(r'data-anchor="([^"]+)"', outside)
+        legacy_targets = dict(re.findall(r'data-legacy-anchor="([^"]+)" data-target-anchor="([^"]+)"', outside))
+
+        def anchor_span(anchor):
+            # 目录重组后仍保留别名目标，让旧链接先归一化再切换语言。
+            attrs = f'data-anchor="{anchor}"' + (f' id="{anchor}"' if lang == 'zh' else '')
+            if anchor in legacy_targets:
+                attrs += f' data-legacy-anchor="{anchor}" data-target-anchor="{legacy_targets[anchor]}"'
+            return f'<span {attrs}></span>'
+
         for heading in source['rendered']['headings'][lang]:
             tier_match = re.match(r'(?:位阶|TIER)\s*([1-4])', heading['title'])
             if tier_match and heading['anchor'] in anchors:
                 anchor = heading['anchor']
-                tier_anchors[tier_match[1]].append(f'<span class="lang-{lang} srd-language"><span data-anchor="{anchor}"' + (f' id="{anchor}"' if lang == 'zh' else '') + '></span></span>')
+                tier_anchors[tier_match[1]].append(f'<span class="lang-{lang} srd-language">{anchor_span(anchor)}</span>')
                 anchors.remove(anchor)
-        output.append(f'<div class="lang-{lang} srd-language legacy-anchors">' + ''.join(f'<span data-anchor="{anchor}"' + (f' id="{anchor}"' if lang == 'zh' else '') + '></span>' for anchor in anchors) + '</div>')
+        output.append(f'<div class="lang-{lang} srd-language legacy-anchors">' + ''.join(anchor_span(anchor) for anchor in anchors) + '</div>')
     for tier, cards in groups.items():
         output.append(f'<section class="adversary-tier-group" data-tier-group="{tier}">{"".join(tier_anchors[tier])}<h2 class="tier-heading"><span class="lang-zh">位阶 {tier}</span><span class="lang-en">Tier {tier}</span><small>{["1", "2–4", "5–7", "8–10"][int(tier)-1]} <span class="lang-zh">级</span><span class="lang-en">level(s)</span></small><span class="tier-count">{len(cards)}</span></h2><div class="adversary-grid">' + '\n'.join(cards) + '</div></section>')
     path = project / "content" / source_path / "index.md"

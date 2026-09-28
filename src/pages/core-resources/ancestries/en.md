@@ -209,11 +209,11 @@ Families within the world of Daggerheart are as unique as the peoples and cultur
 
 If you decide that your character is a descendant of multiple ancestries and you want to mechanically represent that in the game, use the steps below:
 
-#### 1. **Determine Ancestry Combination** {#1-determine-ancestry-combination} {#1-determine-ancestry-combination-1-determine-ancestry-combination} {#1-determine-ancestry-combination-1-determine-ancestry-combination-1-determine-ancestry-combination-1-determine-ancestry-combination}
+#### 1. **Determine Ancestry Combination** {#step-1-determine-ancestry-combination}
 
 When you choose an ancestry at character creation, write down how your character identifies themself in the Heritage section of your character sheet. For example, if your character is descended from both goblins and orcs, you could use a hybridized term, such as "goblin-orc," to describe your ancestry, list only the ancestry you more closely identify with (e.g., just "goblin" or just "orc"), or invent a new term, such as "toothling."
 
-#### 2. **Choose Ancestry Features** {#2-choose-ancestry-features} {#2-choose-ancestry-features-2-choose-ancestry-features} {#2-choose-ancestry-features-2-choose-ancestry-features-2-choose-ancestry-features-2-choose-ancestry-features}
+#### 2. **Choose Ancestry Features** {#step-2-choose-ancestry-features}
 
 Work with your GM to choose two features from the ancestries in your character's lineage. You must choose the first feature from one ancestry and the second from another. Write both down on a notecard you can keep with your other cards or next to your character sheet.
 

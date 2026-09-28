@@ -204,11 +204,11 @@
 
 如果你决定你的角色是多种族的融合，并且希望在游戏的机制中也体现这一点，请参照以下步骤：
 
-#### 第一步：确定种族组合 {#1-determine-ancestry-combination} {#1-determine-ancestry-combination-1-determine-ancestry-combination} {#1-determine-ancestry-combination-1-determine-ancestry-combination-1-determine-ancestry-combination-1-determine-ancestry-combination}
+#### 第一步：确定种族组合 {#step-1-determine-ancestry-combination}
 
 在创建角色并选择种族时，请在角色卡的“传承”部分写下你的角色如何认同自己的种族。如果你同时拥有哥布林和兽人血统，你可以使用“哥布林-兽人”这样的混合术语描述你的种族，也可以只写下你更认同的种族（例如，只写“哥布林”或只写“兽人”），或者创造一个新术语，比如“牙裔”。
 
-#### 第二步：选择种族特性 {#2-choose-ancestry-features} {#2-choose-ancestry-features-2-choose-ancestry-features} {#2-choose-ancestry-features-2-choose-ancestry-features-2-choose-ancestry-features-2-choose-ancestry-features}
+#### 第二步：选择种族特性 {#step-2-choose-ancestry-features}
 
 与游戏主持人共同商讨，从你混合种族的特性中选择两个组合。你必须从一个种族中选择第一个特性，从另一个种族中选择第二个特性。将这两个特性写在一张可以放在你其他卡牌旁边或角色卡旁边的便笺上。
 

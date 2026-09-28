@@ -144,7 +144,8 @@ def test_feedback_form_reference_survives_async_submit():
     assert "const button = form.querySelector" in submit
     assert "form.reset();" in submit
     assert "event.currentTarget.reset();" not in submit
-    assert 'js/app.js?v=20260927-anchors' in template
+    assert 'js/app.js?v=20260928-search' in template
+    assert 'js/search-core.js?v=20260928-search' in template
 
 
 def test_feedback_inbox_separates_unread_state_and_aligns_controls():
@@ -185,7 +186,7 @@ def test_site_css_and_editor_modules_use_current_cache_version():
     editor_script = (PROJECT_DIR / "static" / "edit" / "editor.js").read_text(encoding="utf-8")
     worker = (PROJECT_DIR / "static" / "edit" / "preview-worker.mjs").read_text(encoding="utf-8")
 
-    assert 'css/site.css?v=20260926f' in base
+    assert 'css/site.css?v=20260928-search' in base
     assert 'css/site.css?v=20260926f' in editor
     assert 'editor.js?v=20260927-domain-cards' in editor
     assert 'preview-worker.mjs?v=20260927-domain-cards' in editor_script

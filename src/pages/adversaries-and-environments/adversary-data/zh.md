@@ -1,12 +1,12 @@
-## 按位阶划分的敌人 {#adversaries-by-tier}
+## 按位阶划分的敌人 {#section-adversaries-by-tier}
 
-## 位阶 **1** 敌人（**1** 级） {#tier-1-level-1}
+## 位阶 **1** 敌人（**1** 级） {#section-tier-1}
 
 <!-- adversary: jagged-knife-bandit | Jagged Knife Bandit -->
 
-#### 锯齿刀盗贼 {#tier-2-levels-24}
+#### 锯齿刀盗贼 {#section-adversary-jagged-knife-bandit}
 
-##### *位阶 **1** 标准* {#tier-3-levels-57}
+##### *位阶 **1** 标准* {#section-adversary-jagged-knife-bandit-role}
 
 *身披斗篷、佩戴帮派标志性刀具的狡猾罪犯。*  
 **动机与战术：** 逃跑、获利、偷窃、投掷烟雾弹  
@@ -14,7 +14,7 @@
 **攻击：** +1 | **匕首：** 近战 | 1d8+1 物理  
 **经历：** 盗贼+2  
 
-#### **特性** {#tier-4-levels-810}
+#### **特性** {#section-adversary-jagged-knife-bandit-features}
 
 - *如履平地 - 被动：* 锯齿刀盗贼攀爬起来和奔跑一样轻松。
 - *居高临下 - 被动：* 当锯齿刀盗贼从一个目标上方进行普通攻击并成功时，其造成 1d10+1 的物理伤害而非普通伤害。
@@ -23,16 +23,16 @@
 
 <!-- adversary: zombie-pack | Zombie Pack -->
 
-#### 丧尸群 {#tier-1-adversaries-level-1}
+#### 丧尸群 {#section-adversary-zombie-pack}
 
-##### *位阶 **1** 集群 （2/生命点）* {#acid-burrower}
+##### *位阶 **1** 集群 （2/生命点）* {#section-adversary-zombie-pack-role}
 
 *一群蹒跚的尸体，本能地聚集在一起移动。*  
 **动机与战术：** 吞噬血肉，饥饿，撕咬  
 **难度：** 8 | **阈值：** 6/12 | **生命点：** 6 | **压力点：** 3  
 **攻击：** −1 | **啃咬：** 近战 | 1d10+2 物理  
 
-#### **特性** {#tier-solo}
+#### **特性** {#section-adversary-zombie-pack-features}
 
 - *集群 - 被动：* 当丧尸群已标记一半或更多的生命点时，其普通攻击改为造成 1d4+2 物理伤害。
 - *挟制 - 反应：* 当丧尸群因近战范围内的攻击而标记生命点时，你可以**标记 1 压力点**对攻击者进行一次普通攻击。
@@ -41,9 +41,9 @@
 
 <!-- adversary: head-guard | Head Guard -->
 
-#### 警卫队长 {#features}
+#### 警卫队长 {#section-adversary-head-guard}
 
-##### *位阶 **1** 头目* {#bear}
+##### *位阶 **1** 头目* {#section-adversary-head-guard-role}
 
 *一位手持钉头锤、挂着哨子、声如洪钟的老练警卫。*  
 **动机与战术：** 逮捕，封锁，压制目标，追求荣耀  
@@ -51,7 +51,7 @@
 **攻击：** +4 | **钉头锤：** 近战 | 1d10+4 物理  
 **经历：** 指挥官+2，本地知识+2  
 
-#### **特性** {#tier-bruiser}
+#### **特性** {#section-adversary-head-guard-features}
 
 - *集结警卫 - 动作：* **花费 2 恐惧点**，聚焦警卫队长及2d4名远距离范围内的盟友。
 - *听我号令 - 反应：* 倒计时（5），当警卫队长首次被聚焦时，启动倒计时。当玩家角色进行攻击掷骰时，倒计时推进。触发时，所有远距离范围内的持弓警卫对自身射程内最近目标发动具有优势的普通攻击。若多名持弓警卫命中同一目标，伤害叠加。
@@ -61,9 +61,9 @@
 
 <!-- adversary: briarwhip | Briarwhip -->
 
-#### 荆棘鞭 {#features-2}
+#### 荆棘鞭 {#section-adversary-briarwhip}
 
-##### *位阶 **1** 头目* {#cave-ogre}
+##### *位阶 **1** 头目* {#section-adversary-briarwhip-role}
 
 *一位狡猾精明的游侠，承担着最危险的任务。*  
 **动机与战术：** 探索、计划、保护、偷窃  
@@ -71,7 +71,7 @@
 **攻击：** +3 | **淬毒荆棘鞭：** 近程 | 1d10+2 物理  
 **经历：** 隐藏+2，威吓+2，追踪+3  
 
-#### **特性** {#tier-solo-2}
+#### **特性** {#section-adversary-briarwhip-features}
 
 - *愈战愈强 - 被动：* 当荆棘鞭的攻击导致目标标记生命点时，荆棘鞭的难度获得 +1 加值，直到其标记 1 点或更多生命点。
 - *丛中荆棘 - 动作：* **花费 1 恐惧点**，聚焦至多 1d4 个远距离范围内的盟友。他们移动到近距离范围内的掩体中，直到他们下次攻击后或一名玩家角色成功进行本能掷骰找到他们之前，他们都处于隐藏状态。
@@ -81,9 +81,9 @@
 
 <!-- adversary: giant-rat | Giant Rat -->
 
-#### 巨鼠 {#features-3}
+#### 巨鼠 {#section-adversary-giant-rat}
 
-##### *位阶 **1** 杂兵* {#construct}
+##### *位阶 **1** 杂兵* {#section-adversary-giant-rat-role}
 
 *一种大小如猫的啮齿动物，擅长觅食与生存。*  
 **动机与战术：** 挖掘、饥饿、觅食、消耗  
@@ -91,7 +91,7 @@
 **攻击：** -4 | **爪击：** 近战 | 1 物理  
 **经历：** 敏锐感知+3  
 
-#### **特性** {#tier-solo-3}
+#### **特性** {#section-adversary-giant-rat-features}
 
 - *杂兵 - 被动：* 巨鼠在受到任何伤害时都会立即被击败。玩家角色每对巨鼠造成 3 点伤害，则在该次攻击的范围内额外再击败一个能够命中的杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**选择一个目标，并聚焦所有在目标近距离范围内的巨鼠。当这些杂兵移动至目标的近战范围时，进行一次共享的攻击掷骰。若成功，每只巨鼠造成 1 点物理伤害，将伤害合并计算。
@@ -100,9 +100,9 @@
 
 <!-- adversary: jagged-knife-shadow | Jagged Knife Shadow -->
 
-#### 锯齿刀影子 {#features-4}
+#### 锯齿刀影子 {#section-adversary-jagged-knife-shadow}
 
-##### *位阶 **1** 潜伏* {#courtier}
+##### *位阶 **1** 潜伏* {#section-adversary-jagged-knife-shadow-role}
 
 *一名身手敏捷的无赖，手持利刃，善于运用暗影魔法孤立目标。*  
 **动机与战术：** 伏击、隐蔽、分割、获利  
@@ -110,7 +110,7 @@
 **攻击：** +1 | **匕首：** 近战 | 1d4+4 物理  
 **经历：** 入侵+3  
 
-#### **特性** {#tier-social}
+#### **特性** {#section-adversary-jagged-knife-shadow-features}
 
 - *背刺 - 被动：* 当锯齿刀影子在具有优势的普通攻击中命中目标时，将造成1d6+6点物理伤害而非普通伤害。
 - *隐匿无踪 - 动作：* 进入 隐藏 状态直至下次攻击。通过此特性在处于 隐藏 状态下发动的攻击具有优势。
@@ -119,9 +119,9 @@
 
 <!-- adversary: merchant | Merchant -->
 
-#### 商人 {#features-5}
+#### 商人 {#section-adversary-merchant}
 
-##### *位阶 **1** 社交* {#deeproot-defender}
+##### *位阶 **1** 社交* {#section-adversary-merchant-role}
 
 *一个衣着考究的商人，对金钱利益有着敏锐的嗅觉。*  
 **动机与战术：** 低买高卖、创造需求、抬高价格、追求利益  
@@ -129,7 +129,7 @@
 **攻击：** −4 | **棍棒：** 近战 | 1d4+1 物理  
 **经历：** 伶牙俐齿+3  
 
-#### **特性** {#tier-bruiser-2}
+#### **特性** {#section-adversary-merchant-features}
 
 - *优先待遇 - 被动：* 玩家角色在对抗商人进行的风度掷骰中成功时，购买商品可获得折扣。玩家角色在对抗商人进行的风度掷骰中失败时，必须支付更多金币，并且在将来再次对抗商人进行风度掷骰时处于劣势。
 - *敷衍了事 - 被动：* 当玩家角色在对抗商人进行的风度掷骰中掷出 14 或更低时，他们必须**标记 1 压力点**。
@@ -138,9 +138,9 @@
 
 <!-- adversary: village-elder | Village Elder -->
 
-#### 村庄长者 {#features-6}
+#### 村庄长者 {#section-adversary-village-elder}
 
-##### *位阶 **1** 社交* {#dire-wolf}
+##### *位阶 **1** 社交* {#section-adversary-village-elder-role}
 
 *一位森林村落的长者，能唤起自然魔法以庇护其族人。*  
 **动机与战术：** 照料社区、裁断是非、柔声细语、维护传统  
@@ -148,7 +148,7 @@
 **攻击：** −2 | **匕首：** 近战 | 1d4+2 物理  
 **经历：** 历史+2，自然之友+3，社区支柱+3  
 
-#### **特性** {#tier-skulk}
+#### **特性** {#section-adversary-village-elder-features}
 
 - *老成持重 - 被动：* 所有对长老进行欺瞒的动作掷骰都具有劣势。
 - *无礼不容 - 动作：* **标记 1 压力点**，禁止长老的任何盟友在接下来的 2d6 天内向一个目标或其盟友出售物品或提供任何好处。
@@ -158,9 +158,9 @@
 
 <!-- adversary: bladed-guard | Bladed Guard -->
 
-#### 持刃警卫 {#features-7}
+#### 持刃警卫 {#section-adversary-bladed-guard}
 
-##### *位阶 **1** 标准* {#giant-mosquitoes}
+##### *位阶 **1** 标准* {#section-adversary-bladed-guard-role}
 
 *一名身披盔甲、手持剑盾的卫兵，盾面涂有所处城镇的代表色。*  
 **动机与战术：** 逮捕、封锁、熬过今日、压制目标  
@@ -168,7 +168,7 @@
 **攻击：** +1 | **长剑：** 近战 | 1d6+1 物理  
 **经历：** 本地知识+3  
 
-#### **特性** {#tier-horde-hp}
+#### **特性** {#section-adversary-bladed-guard-features}
 
 - *盾墙 - 被动：* 试图移动到持刃警卫邻近范围内的生物必须成功进行一次敏捷掷骰。若有其他持刃警卫与其并列站立，且每名持刃警卫均在另一名持刃警卫的近战范围内，则将持刃警卫的总人数加入到掷骰的难度中。
 - *拘押 - 动作：* 对邻近范围内的目标进行一次攻击。成功时，**标记 1 压力点**以使目标处于 *束缚* 状态，直到其通过成功的攻击、灵巧掷骰或力量掷骰挣脱为止。
@@ -177,9 +177,9 @@
 
 <!-- adversary: forest-druid | Forest Druid -->
 
-#### 森林德鲁伊 {#features-8}
+#### 森林德鲁伊 {#section-adversary-forest-druid}
 
-##### *位阶 **1** 辅助* {#giant-rat}
+##### *位阶 **1** 辅助* {#section-adversary-forest-druid-role}
 
 *一位能够与野兽与树叶对话的隐居漫游者。*  
 **动机与战术：** 呼唤自然，不留痕迹，不惜一切代价保护森林。  
@@ -187,7 +187,7 @@
 **攻击：** +0 | **橡木杖：** 近战 | 1d4+2 魔法  
 **经历：** 动物知识+2，地形知识+3  
 
-#### **特性** {#tier-minion}
+#### **特性** {#section-adversary-forest-druid-features}
 
 - *幽谷宁静 - 动作：* **标记 1 压力点**，结束一个法术的效果，或清除一个影响森林德鲁伊或其在邻近范围内可见的盟友的任何状态。
 - *震耳低语 - 动作：* **标记 1 压力点**，呼唤藏匿树冠中的强风。近距离范围内的一个目标必须进行一次成功的本能反应掷骰，否则呼啸的风会充满他们的耳朵。目标仅能听到风声，且必须**标记 1 压力点**，并且在其**清除 1 压力点**之前处于 *脆弱* 状态。
@@ -197,9 +197,9 @@
 
 <!-- adversary: acid-burrower | Acid Burrower -->
 
-#### 酸液掘地者 {#features-9}
+#### 酸液掘地者 {#section-adversary-acid-burrower}
 
-##### *位阶 **1** 独狼* {#giant-scorpion}
+##### *位阶 **1** 独狼* {#section-adversary-acid-burrower-role}
 
 *一只马匹大小的昆虫，具备掘地利爪与酸性血液。*  
 **动机与战术：** 掘地、拖走、进食、重新定位  
@@ -207,7 +207,7 @@
 **攻击：** +3 | **爪击：** 邻近 | 1d12+2 物理  
 **经历：** 震动感知+2  
 
-#### **特性** {#tier-bruiser-3}
+#### **特性** {#section-adversary-acid-burrower-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，此敌人可以至多被聚焦 3 次。像往常一样花费恐惧点来聚焦。
 - *破土而出 - 动作：* **标记 1 压力点**使酸液掘地者从地面中猛然冲出。邻近范围内的所有生物必须进行一次成功的敏捷反应掷骰，否则将被击倒，且在下次行动前处于 *脆弱* 状态。
@@ -218,9 +218,9 @@
 
 <!-- adversary: bear | Bear -->
 
-#### 熊 {#features-10}
+#### 熊 {#section-adversary-bear}
 
-##### *位阶 **1** 斗士* {#glass-snake}
+##### *位阶 **1** 斗士* {#section-adversary-bear-role}
 
 *一只毛皮厚实、爪子强有力的巨熊。*  
 **动机与战术：** 攀爬、保卫领地、猛击、追踪  
@@ -228,7 +228,7 @@
 **攻击：** +1 | **爪击：** 近战 | 1d8+3 物理  
 **经历：** 伏击者+3，敏锐感知+2  
 
-#### **特性** {#tier-standard}
+#### **特性** {#section-adversary-bear-features}
 
 - *压倒性力量 - 被动：* 被熊的普通攻击中且标记生命点的目标会被击退至邻近范围。
 - *啃咬 - 动作：* **标记 1 压力点**对近战范围内的一个目标进行一次攻击。成功时，造成 3d4+10 点物理伤害，并且使目标处于 *束缚* 状态，直到其进行一次成功的力量掷骰挣脱。
@@ -238,9 +238,9 @@
 
 <!-- adversary: cave-ogre | Cave Ogre -->
 
-#### 洞穴食人魔 {#features-11}
+#### 洞穴食人魔 {#section-adversary-cave-ogre}
 
-##### *位阶 **1** 独狼* {#harrier}
+##### *位阶 **1** 独狼* {#section-adversary-cave-ogre-role}
 
 *一个巨大的类人生物，视一切知性生物为食物。*  
 **动机与战术：** 咬掉头颅、进食、撕扯肢体、践踏、投掷敌人  
@@ -248,7 +248,7 @@
 **攻击：** +1 | **木棒：** 邻近 | 1d10+2 物理  
 **经历：** 投掷+2  
 
-#### **特性** {#tier-standard-2}
+#### **特性** {#section-adversary-cave-ogre-features}
 
 - *蓄力 - 被动：* 你必须**花费 1 恐惧点**来聚焦食人魔。在被聚焦期间，其可以对范围内所有目标进行普通攻击。
 - *碎骨者 - 被动：* 食人魔的攻击造成直接伤害。
@@ -259,16 +259,16 @@
 
 <!-- adversary: construct | Construct -->
 
-#### 构装体 {#features-12}
+#### 构装体 {#section-adversary-construct}
 
-##### *位阶 **1** 独狼* {#archer-guard}
+##### *位阶 **1** 独狼* {#section-adversary-construct-role}
 
 *一个由石头和钢铁组成的人形生物，由魔法组装并赋予生命。*  
 **动机与战术：** 破坏环境、为创造者服务、粉碎目标、践踏群体  
 **难度：** 13 | **阈值：** 7/15 | **生命点：** 9 | **压力点：** 4  
 **攻击：** +4 | **拳击猛砸：** 近战 | 1d20 物理  
 
-#### **特性** {#tier-ranged}
+#### **特性** {#section-adversary-construct-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，此敌人可以至多被聚焦 2 次。像往常一样花费恐惧点来聚焦。
 - *脆弱结构 - 被动：* 当构装体因物理伤害标记生命点时，其必须额外**标记 1 生命点**。
@@ -280,9 +280,9 @@
 
 <!-- adversary: courtier | Courtier -->
 
-#### 宫廷侍臣 {#features-13}
+#### 宫廷侍臣 {#section-adversary-courtier}
 
-##### *位阶 **1** 社交* {#bladed-guard}
+##### *位阶 **1** 社交* {#section-adversary-courtier-role}
 
 *一个野心勃勃、衣着张扬的社交名流。*  
 **动机与战术：** 抹黑、博取好感、周旋、筹谋  
@@ -290,7 +290,7 @@
 **攻击：** −4 | **匕首：** 近战 | 1d4+2 物理  
 **经历：** 社交名流+3  
 
-#### **特性** {#tier-standard-3}
+#### **特性** {#section-adversary-courtier-features}
 
 - *嘲讽 - 动作：* **标记 1 压力点**出言嘲讽并迫使近距离范围内的一个目标进行一次风度反应掷骰 （14），以查看其是否能挽回颜面。如果失败，目标必须**标记 2 压力点**并处于 *脆弱* 状态直到场景结束。
 - *替罪羊 - 动作：* **花费 1 恐惧点**并指定一个玩家角色为目标。宫廷侍臣对一群人或某个显赫人物进行游说，让他们相信目标是他们当前冲突或不幸的根源。
@@ -299,9 +299,9 @@
 
 <!-- adversary: deeproot-defender | Deeproot Defender -->
 
-#### 深根守卫 {#features-14}
+#### 深根守卫 {#section-adversary-deeproot-defender}
 
-##### *位阶 **1** 斗士* {#head-guard}
+##### *位阶 **1** 斗士* {#section-adversary-deeproot-defender-role}
 
 *一个体格壮硕、由植物构成躯体的人形生物，身上长着缠绕藤蔓。*  
 **动机与战术：** 伏击、抓住、保护、猛击  
@@ -309,7 +309,7 @@
 **攻击：** +2 | **藤蔓：** 近距离 | 1d8+3 物理  
 **经历：** 巨大+3  
 
-#### **特性** {#tier-leader}
+#### **特性** {#section-adversary-deeproot-defender-features}
 
 - *震地猛击 - 动作：* 猛击地面，将邻近范围内的所有目标击退至远距离范围。每个因此被击退的目标必须**标记 1 压力点**。
 - *擒拿拖拽 - 动作：* 对近距离范围内的一个目标进行一次攻击。成功时，**花费 1 恐惧点**将其拉入近战范围，造成 1d6+2 点物理伤害，并使其处于 *束缚* 状态，直到深根守卫受到严重伤害。
@@ -318,9 +318,9 @@
 
 <!-- adversary: dire-wolf | Dire Wolf -->
 
-#### 恐狼 {#features-15}
+#### 恐狼 {#section-adversary-dire-wolf}
 
-##### *位阶 **1** 潜伏* {#jagged-knife-bandit}
+##### *位阶 **1** 潜伏* {#section-adversary-dire-wolf-role}
 
 *一只利齿森然的大型狼，鲜少独自出现。*  
 **动机与战术：** 保卫领地、骚扰、保护族群、包围、尾随  
@@ -328,7 +328,7 @@
 **攻击：** +2 | **爪击：** 近战 | 1d6+2 物理  
 **经历：** 敏锐感知+3  
 
-#### **特性** {#tier-standard-4}
+#### **特性** {#section-adversary-dire-wolf-features}
 
 - *群体战术 - 被动：* 如果恐狼进行一次成功的普通攻击，且另一个恐狼在目标的近战范围内，则造成 1d6+5 点物理伤害，而非其普通伤害，并且你**获得 1 恐惧点**。
 - *蹒跚打击 - 动作：* **标记 1 压力点**，对近战范围内的一个目标进行一次攻击。成功时，造成 3d4+10 点直接物理伤害，并使其处于脆弱状态，直到其恢复至少 1 生命点。
@@ -337,9 +337,9 @@
 
 <!-- adversary: giant-mosquitoes | Giant Mosquitoes -->
 
-#### 巨蚊群 {#features-16}
+#### 巨蚊群 {#section-adversary-giant-mosquitoes}
 
-##### *位阶 **1** 集群（5/生命点）* {#jagged-knife-hexer}
+##### *位阶 **1** 集群（5/生命点）* {#section-adversary-giant-mosquitoes-role}
 
 *数十只拳头大小的蚊子，成群飞行为求自保。*  
 **动机与战术：** 飞走、烦扰、吸血  
@@ -347,7 +347,7 @@
 **攻击：** -2 | **口器：** 近战 | 1d8+3 物理  
 **经历：** 伪装+2  
 
-#### **特性** {#tier-support}
+#### **特性** {#section-adversary-giant-mosquitoes-features}
 
 - *集群 - 被动：* 当巨蚊群已标记一半或更多的生命点时，其普通攻击改为造成  1d4+1点物理伤害。
 - *飞行 - 被动：* 飞行时，巨蚊群的难度获得 +2 加值。
@@ -357,9 +357,9 @@
 
 <!-- adversary: giant-scorpion | Giant Scorpion -->
 
-#### 巨蝎 {#features-17}
+#### 巨蝎 {#section-adversary-giant-scorpion}
 
-##### *位阶 **1** 斗士* {#jagged-knife-kneebreaker}
+##### *位阶 **1** 斗士* {#section-adversary-giant-scorpion-role}
 
 *一只人类大小的昆虫，长有撕裂的螯和带刺的尾巴。*  
 **动机与战术：** 伏击、进食、缠斗、下毒  
@@ -367,7 +367,7 @@
 **攻击：** +1 | **螯：** 近战 | 1d12+2 物理  
 **经历：** 伪装+2  
 
-#### **特性** {#tier-bruiser-4}
+#### **特性** {#section-adversary-giant-scorpion-features}
 
 - *双重打击 - 动作：* **标记 1 压力点**对近战范围内的两个目标进行一次普通攻击。
 - *剧毒尾刺 - 动作：* 对一个邻近范围内的目标进行一次攻击。成功时，**花费 1 恐惧点**造成 1d4+4 物理伤害并使其直到下次休息或知识掷骰成功（16）前处于中毒状态。处于中毒状态时，目标在进行动作掷骰前必须掷一个 d6。结果为 4 或更低时，其必须**标记 1 压力点**。
@@ -377,16 +377,16 @@
 
 <!-- adversary: glass-snake | Glass Snake -->
 
-#### 玻璃蛇 {#features-18}
+#### 玻璃蛇 {#section-adversary-glass-snake}
 
-##### *位阶 **1** 标准* {#jagged-knife-lackey}
+##### *位阶 **1** 标准* {#section-adversary-glass-snake-role}
 
 *一条晶莹剔透的大蛇，长着巨大的蛇首，所经之处皆留下一串玻璃碎片。*  
 **动机与战术：** 攀爬、进食、保持距离、恐吓  
 **难度：** 14 | **阈值：** 6/10 | **生命点：** 5 | **压力点：** 3  
 **攻击：** +2 | **玻璃獠牙：** 邻近 | 1d8+2 物理  
 
-#### **特性** {#tier-minion-2}
+#### **特性** {#section-adversary-glass-snake-features}
 
 - *碎甲鳞片 - 被动：* 在近战范围内对玻璃蛇进行一次成功的攻击时，攻击者必须**标记 1 护甲槽**，且不获得其效果（其仍然可以使用护甲来减少伤害）。如果无法标记护甲槽，其必须额外**标记 1 生命点**。
 - *盘旋之蛇 - 动作：* **标记 1 压力点**对邻近范围内的所有目标进行一次攻击。被玻璃蛇成功命中的目标受到 1d6+1 物理伤害。
@@ -396,9 +396,9 @@
 
 <!-- adversary: harrier | Harrier -->
 
-#### 扰敌者 {#features-19}
+#### 扰敌者 {#section-adversary-harrier}
 
-##### *位阶 **1** 标准* {#jagged-knife-lieutenant}
+##### *位阶 **1** 标准* {#section-adversary-harrier-role}
 
 *手持标枪的敏捷战士。*  
 **动机与战术：** 侧袭、骚扰、游击、获利  
@@ -406,7 +406,7 @@
 **攻击：** +1 | **标枪：** 近距离 | 1d6+2 物理  
 **经历：** 伪装+2  
 
-#### **特性** {#tier-leader-2}
+#### **特性** {#section-adversary-harrier-features}
 
 - *保持距离 - 被动：* 在进行一次普通攻击后，扰敌者可以移动至远距离范围内的任意位置。
 - *撤退回击 - 反应：* 当一个生物移动到近战范围内进行攻击时，你可以在攻击掷骰之前**标记 1 压力点**，移动到近距离范围内的任何位置，并对该生物进行一次攻击。成功时，造成 1d10+2 物理伤害。
@@ -415,9 +415,9 @@
 
 <!-- adversary: archer-guard | Archer Guard -->
 
-#### 持弓警卫 {#features-20}
+#### 持弓警卫 {#section-adversary-archer-guard}
 
-##### *位阶 **1** 远程* {#jagged-knife-shadow}
+##### *位阶 **1** 远程* {#section-adversary-archer-guard-role}
 
 *一名高大的卫兵，配备长弓和箭袋，箭上插有所处城镇代表色的箭羽。*  
 **动机与战术：** 逮捕、封锁城门、熬过今日、压制目标  
@@ -425,7 +425,7 @@
 **攻击：** +1 | **长弓：** 远距离 | 1d8+3 物理  
 **经历：** 本地知识+3  
 
-#### **特性** {#tier-skulk-2}
+#### **特性** {#section-adversary-archer-guard-features}
 
 - *蹒跚射击 - 动作：* 对远距离范围内的目标进行一次攻击。成功时，**标记 1 压力点**，造成 1d12+3 物理伤害。如果目标因此次攻击而标记生命点，则其在清除至少 1 生命点之前，进行敏捷掷骰时具有劣势。
 
@@ -433,9 +433,9 @@
 
 <!-- adversary: jagged-knife-hexer | Jagged Knife Hexer -->
 
-#### 锯齿刀咒术师 {#features-21}
+#### 锯齿刀咒术师 {#section-adversary-jagged-knife-hexer}
 
-##### *位阶 **1** 辅助* {#jagged-knife-sniper}
+##### *位阶 **1** 辅助* {#section-adversary-jagged-knife-hexer-role}
 
 *一名身披缀满魔法器具斗篷的持杖匪徒，擅长用诅咒折磨敌人。*  
 **动机与战术：** 指挥、施咒、获利  
@@ -443,7 +443,7 @@
 **攻击：** +2 | **法杖：** 远距离 | 1d6+2 魔法  
 **经历：** 魔法知识+2  
 
-#### **特性** {#tier-ranged-2}
+#### **特性** {#section-adversary-jagged-knife-hexer-features}
 
 - *诅咒 - 动作：* 选择远距离范围内的一个目标，使其暂时处于 *诅咒* 状态。当处于 *诅咒* 状态的目标掷出希望结果时，锯齿刀咒术师可**标记 1 压力点**，使其改为掷出恐惧结果。
 - *混沌涌动 - 动作：* 对邻近范围内至多三个目标发动攻击。**标记 1 压力点**后，可对每个被咒术师成功命中的目标造成2d6+3点魔法伤害。
@@ -452,9 +452,9 @@
 
 <!-- adversary: jagged-knife-kneebreaker | Jagged Knife Kneebreaker -->
 
-#### 锯齿刀碎膝者 {#features-22}
+#### 锯齿刀碎膝者 {#section-adversary-jagged-knife-kneebreaker}
 
-##### *位阶 **1** 斗士* {#merchant}
+##### *位阶 **1** 斗士* {#section-adversary-jagged-knife-kneebreaker-role}
 
 *一名手持巨棒的威猛斗士。*  
 **动机与战术：** 缠斗、威吓、获利、偷窃  
@@ -462,7 +462,7 @@
 **攻击：** −3 | **木棒：** 近战 | 1d4+6 物理  
 **经历：** 盗贼+2，展露威胁+3  
 
-#### **特性** {#tier-social-2}
+#### **特性** {#section-adversary-jagged-knife-kneebreaker-features}
 
 - *我逮住他们了 - 被动：* 被锯齿刀碎膝者 *束缚* 的生物，在遭受其他敌人的攻击时将承受双倍伤害。
 - *压制目标 - 动作：* 对近战范围内的一个目标发动一次攻击。若成功命中，目标不会受到伤害但会处于 *束缚* 和 *脆弱* 状态。目标可通过成功的力量掷骰来挣脱（同时清除两种状态），或当锯齿刀碎膝者受到重度及以上伤害时自动获得自由。
@@ -471,9 +471,9 @@
 
 <!-- adversary: jagged-knife-lackey | Jagged Knife Lackey -->
 
-#### 锯齿刀喽啰 {#features-23}
+#### 锯齿刀喽啰 {#section-adversary-jagged-knife-lackey}
 
-##### *位阶 **1** 杂兵* {#minor-chaos-elemental}
+##### *位阶 **1** 杂兵* {#section-adversary-jagged-knife-lackey-role}
 
 *一个穿着朴素、手持小匕首的盗贼，渴望证明自己。*  
 **动机与战术：** 逃跑、牟利、投掷烟雾弹  
@@ -481,7 +481,7 @@
 **攻击：** −2 | **匕首：** 近战 | 2 物理  
 **经历：** 盗贼+2  
 
-#### **特性** {#tier-solo-4}
+#### **特性** {#section-adversary-jagged-knife-lackey-features}
 
 - *杂兵 - 被动：* 当锯齿刀喽啰受到任何伤害时，其即被击败。玩家角色每对锯齿刀喽啰造成 3 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有锯齿刀喽啰。将这些杂兵移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个锯齿刀喽啰造成 2 点物理伤害。将这些伤害合并计算。
@@ -490,9 +490,9 @@
 
 <!-- adversary: jagged-knife-lieutenant | Jagged Knife Lieutenant -->
 
-#### 锯齿刀队长 {#features-24}
+#### 锯齿刀队长 {#section-adversary-jagged-knife-lieutenant}
 
-##### *位阶 **1** 头目* {#minor-fire-elemental}
+##### *位阶 **1** 头目* {#section-adversary-jagged-knife-lieutenant-role}
 
 *一位经验丰富的强盗，身着优质皮甲，嗓音洪亮，目光狡黠。*  
 **动机与战术：** 霸凌、指挥、获利、增援  
@@ -500,7 +500,7 @@
 **攻击：** +2 | **标枪：** 近距离 | 1d8+3 物理  
 **经历：** 本地知识+2  
 
-#### **特性** {#tier-solo-5}
+#### **特性** {#section-adversary-jagged-knife-lieutenant-features}
 
 - *战术大师 - 动作：* 当你聚焦锯齿刀队长时，**标记 1 压力点**，可额外聚焦近距离范围内的两名盟友。
 - *后援不断 - 动作：* 召唤三名“锯齿刀喽啰”，他们出现在远距离范围内。
@@ -511,9 +511,9 @@
 
 <!-- adversary: jagged-knife-sniper | Jagged Knife Sniper -->
 
-#### 锯齿刀狙击手 {#features-25}
+#### 锯齿刀狙击手 {#section-adversary-jagged-knife-sniper}
 
-##### *位阶 **1** 远程* {#minor-demon}
+##### *位阶 **1** 远程* {#section-adversary-jagged-knife-sniper-role}
 
 *一名瘦长的强盗，手持短弓，从掩体后发起攻击。*  
 **动机与战术：** 伏击、隐藏、获利、重新部署  
@@ -521,7 +521,7 @@
 **攻击：** −1 | **短弓：** 远距离 | 1d10+2 物理  
 **经历：** 潜行+2  
 
-#### **特性** {#tier-solo-6}
+#### **特性** {#section-adversary-jagged-knife-sniper-features}
 
 - *未见之击 - 被动：* 如果锯齿刀狙击手在对目标进行成功的普通攻击时处于 *隐藏* 状态，造成 1d10+4 点物理伤害而非普通伤害。
 
@@ -529,16 +529,16 @@
 
 <!-- adversary: minor-chaos-elemental | Minor Chaos Elemental -->
 
-#### 小型混沌元素 {#minor-treant}
+#### 小型混沌元素 {#section-adversary-minor-chaos-elemental}
 
-##### *位阶 **1** 独狼* {#tier-minion-3}
+##### *位阶 **1** 独狼* {#section-adversary-minor-chaos-elemental-role}
 
 *一团闪烁不定的、无法控制的魔法元素。*  
 **动机与战术：** 迷惑、破坏稳定、变形  
 **难度：** 14 | **阈值：** 7/14 | **生命点：** 7 | **压力点：** 3  
 **攻击：** +3 | **扭曲爆破：** 近距离 | 1d12+6 魔法  
 
-#### **特性** {#features-26}
+#### **特性** {#section-adversary-minor-chaos-elemental-features}
 
 - *奥术形态 - 被动：* 元素具有魔法伤害抗性。
 - *致病洪流 - 动作：* **标记 1 生命点**，迫使近距离范围内的所有目标**标记 1 压力点**并处于 *脆弱* 状态，直到其下次休息或**恢复 1 生命点**。
@@ -550,16 +550,16 @@
 
 <!-- adversary: minor-fire-elemental | Minor Fire Elemental -->
 
-#### 小型火元素 {#green-ooze}
+#### 小型火元素 {#section-adversary-minor-fire-elemental}
 
-##### *位阶 **1** 独狼* {#tier-skulk-3}
+##### *位阶 **1** 独狼* {#section-adversary-minor-fire-elemental-role}
 
 *一团如篝火般大小的活体火焰。*  
 **动机与战术：** 包围敌人、增大体型、威吓、纵火  
 **难度：** 13 | **阈值：** 7/15 | **生命点：** 9 | **压力点：** 3  
 **攻击：** +3 | **元素爆破：** 远距离 | 1d10+4 魔法  
 
-#### **特性** {#features-27}
+#### **特性** {#section-adversary-minor-fire-elemental-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，此敌人可以至多被聚焦 2 次。像往常一样花费恐惧点来聚焦。
 - *焦土 - 动作：* **标记 1 压力点**，选择远距离范围内的任意一点。该点邻近范围内的地面立即燃起火焰。此区域内的所有生物必须进行一次敏捷反应掷骰。失败的目标受到火焰造成的 2d8 点魔法伤害。成功的目标受到一半伤害。
@@ -571,16 +571,16 @@
 
 <!-- adversary: minor-demon | Minor Demon -->
 
-#### 小型恶魔 {#tiny-green-ooze}
+#### 小型恶魔 {#section-adversary-minor-demon}
 
-##### *位阶 **1** 独狼* {#tier-skulk-4}
+##### *位阶 **1** 独狼* {#section-adversary-minor-demon-role}
 
 *来自轮回下界的深红生物，对一切凡世生灵怀有怒火。*  
 **动机与战术：** 行动无常，围堵目标，以痛苦为乐，折磨  
 **难度：** 14 | **阈值：** 8/15 | **生命点：** 8 | **压力点：** 4  
 **攻击：** +3 | **利爪：** 近战 | 1d8+6 物理  
 
-#### **特性** {#features-28}
+#### **特性** {#section-adversary-minor-demon-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，此敌人可以至多被聚焦 2 次。像往常一样花费恐惧点来聚焦。
 - *万物皆陨 - 被动：* 当一个玩家角色在小型恶魔的近距离范围内掷出恐惧失败时，其失去 1 希望点。
@@ -592,16 +592,16 @@
 
 <!-- adversary: minor-treant | Minor Treant -->
 
-#### 小型树人 {#red-ooze}
+#### 小型树人 {#section-adversary-minor-treant}
 
-##### *位阶 **1** 杂兵* {#tier-skulk-5}
+##### *位阶 **1** 杂兵* {#section-adversary-minor-treant-role}
 
 *一株能移动的树苗，起身保卫自己的森林。*  
 **动机与战术：** 粉碎、制服、保护  
 **难度：** 10 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** −2 | **利爪树枝：** 近战 | 4 物理  
 
-#### **特性** {#features-29}
+#### **特性** {#section-adversary-minor-treant-features}
 
 - *杂兵 - 被动：* 当小型树人受到任何伤害时，其即被击败。玩家角色每对小型树人造成 5 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有小型树人。将这些小型树人移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个小型树人造成 4 点伤害。将这些伤害合并计算。
@@ -610,9 +610,9 @@
 
 <!-- adversary: green-ooze | Green Ooze -->
 
-#### 绿色软泥怪 {#tiny-red-ooze}
+#### 绿色软泥怪 {#section-adversary-green-ooze}
 
-##### *位阶 **1** 潜伏* {#tier-skulk-6}
+##### *位阶 **1** 潜伏* {#section-adversary-green-ooze-role}
 
 *一团蠕动的半透明绿色粘液团块。*  
 **动机与战术：** 伪装、吞噬并繁殖、悄悄靠近、吞没  
@@ -620,7 +620,7 @@
 **攻击：** +1 | **软泥附肢：** 近战 | 1d6+1 魔法  
 **经历：** 伪装+3  
 
-#### **特性** {#features-30}
+#### **特性** {#section-adversary-green-ooze-features}
 
 - *迟缓 - 被动：* 当你聚焦绿色软泥怪，且其数据块上没有指示物时，它无法立即行动。在其数据块上放置一个标记，并描述它正在准备做什么。当你聚焦软泥怪，且其数据块上有指示物时，移除指示物，它才可以行动。
 - *酸性形态 - 被动：* 当绿色软泥怪攻击成功时，目标必须**标记 1 护甲槽**，且不获得其效果（其仍然可以使用护甲来减少伤害）。如果目标无法标记护甲槽，则必须额外**标记 1 生命点**。
@@ -631,16 +631,16 @@
 
 <!-- adversary: tiny-green-ooze | Tiny Green Ooze -->
 
-#### 微型绿色软泥怪 {#petty-noble}
+#### 微型绿色软泥怪 {#section-adversary-tiny-green-ooze}
 
-##### *位阶 **1** 潜伏* {#tier-social-3}
+##### *位阶 **1** 潜伏* {#section-adversary-tiny-green-ooze-role}
 
 *一小团蠕动的半透明绿色粘液团块。*  
 **动机与战术：** 伪装、悄悄靠近  
 **难度：** 14 | **阈值：** 4/无 | **生命点：** 2 | **压力点：** 1  
 **攻击：** -1 | **软泥附肢：** 近战 | 1d4+1 魔法  
 
-#### **特性** {#pirate-captain}
+#### **特性** {#section-adversary-tiny-green-ooze-features}
 
 - *酸性形态 - 被动：* 当微型绿色软泥怪攻击成功时，目标必须**标记 1 护甲槽**，且不获得其效果（其仍然可以使用护甲来减少伤害）。如果目标无法标记护甲槽，则必须额外**标记 1 生命点**。
 
@@ -648,9 +648,9 @@
 
 <!-- adversary: red-ooze | Red Ooze -->
 
-#### 红色软泥怪 {#tier-leader-3}
+#### 红色软泥怪 {#section-adversary-red-ooze}
 
-##### *位阶 **1** 潜伏* {#features-31}
+##### *位阶 **1** 潜伏* {#section-adversary-red-ooze-role}
 
 *一团燃烧着的蠕动半透明红色粘液团块。*  
 **动机与战术：** 伪装、吞噬并繁殖、点燃、纵火  
@@ -658,7 +658,7 @@
 **攻击：** +1 | **软泥附肢：** 近战 | 1d8+3 魔法  
 **经历：** 伪装+3  
 
-#### **特性** {#pirate-raiders}
+#### **特性** {#section-adversary-red-ooze-features}
 
 - *蔓延之火 - 被动：* 红色软泥怪只能在邻近范围内进行正常移动。它会点燃任何接触到的易燃物体。
 - *点燃 - 动作：* 对邻近范围内的一个目标进行攻击。成功时，目标受到 1d8 魔法伤害并处于 *点燃* 状态，直到成功进行灵巧掷骰（14）将其扑灭。处于 *点燃* 状态时，目标在进行动作掷骰时受到 1d4 魔法伤害。
@@ -668,16 +668,16 @@
 
 <!-- adversary: tiny-red-ooze | Tiny Red Ooze -->
 
-#### 微型红色软泥怪 {#tier-horde-hp-2}
+#### 微型红色软泥怪 {#section-adversary-tiny-red-ooze}
 
-##### *位阶 **1** 潜伏* {#features-32}
+##### *位阶 **1** 潜伏* {#section-adversary-tiny-red-ooze-role}
 
 *一小团燃烧着的蠕动半透明红色粘液团块。*  
 **动机与战术：** 燃烧、伪装  
 **难度：** 11 | **阈值：** 5/无 | **生命点：** 2 | **压力点：** 1  
 **攻击：** −1 | **软泥附肢：** 近战 | 1d4+2 魔法  
 
-#### **特性** {#pirate-tough}
+#### **特性** {#section-adversary-tiny-red-ooze-features}
 
 - *燃烧 - 反应：* 当近战范围内的生物对微型红色软泥怪造成伤害时，其受到 1d6 点直接魔法伤害。
 
@@ -685,9 +685,9 @@
 
 <!-- adversary: petty-noble | Petty Noble -->
 
-#### 低阶贵族 {#tier-bruiser-5}
+#### 低阶贵族 {#section-adversary-petty-noble}
 
-##### *位阶 **1** 社交* {#features-33}
+##### *位阶 **1** 社交* {#section-adversary-petty-noble-role}
 
 *一位衣着华贵、珠光宝气且浑身散发着傲慢气息的贵族。*  
 **动机与战术：** 滥用权力、搜集资源、调动杂兵  
@@ -695,7 +695,7 @@
 **攻击：** −3 | **细剑：** 近战 | 1d6+1 物理  
 **经历：** 贵族+3  
 
-#### **特性** {#sellsword}
+#### **特性** {#section-adversary-petty-noble-features}
 
 - *我的地盘我做主 - 被动：* 在该贵族的领地上针对该贵族进行的所有社交动作均处于劣势。
 - *卫兵，拿下他们！ - 动作：* 每场景一次，**标记 1 压力点**以召唤 1d4 名持刃警卫，出现在远距离范围，执行贵族的意志。
@@ -705,9 +705,9 @@
 
 <!-- adversary: pirate-captain | Pirate Captain -->
 
-#### 海盗船长 {#tier-minion-4}
+#### 海盗船长 {#section-adversary-pirate-captain}
 
-##### *位阶 **1** 头目* {#features-34}
+##### *位阶 **1** 头目* {#section-adversary-pirate-captain-role}
 
 *一位头戴华丽帽子，魅力非凡的海盗，热衷于劫掠与掠夺。*  
 **动机与战术：** 指挥、逼人走跳板、劫掠、突袭  
@@ -715,7 +715,7 @@
 **攻击：** +4 | **弯刀：** 近战 | 1d12+2 物理  
 **经历：** 指挥官+2，水手+3  
 
-#### **特性** {#skeleton-archer}
+#### **特性** {#section-adversary-pirate-captain-features}
 
 - *豪侠气概 - 被动：* 当海盗船长在近战范围内受到攻击，并标记 2 或更少生命点时，攻击者必须**标记 1 压力点**。
 - *增援 - 动作：* 每场景一次，**标记 1 压力点**以召唤一支海盗劫掠者集群，他们出现在远距离范围位置。
@@ -726,9 +726,9 @@
 
 <!-- adversary: pirate-raiders | Pirate Raiders -->
 
-#### 海盗劫掠者 {#tier-ranged-3}
+#### 海盗劫掠者 {#section-adversary-pirate-raiders}
 
-##### *位阶 **1** 集群（3/生命点）* {#features-35}
+##### *位阶 **1** 集群（3/生命点）* {#section-adversary-pirate-raiders-role}
 
 *成群结队的海上恶徒，如狼群般肆虐横行。*  
 **动机与战术：** 围攻、劫掠、突袭  
@@ -736,7 +736,7 @@
 **攻击：** +1 | **弯刀：** 近战 | 1d8+2 物理  
 **经历：** 水手+3  
 
-#### **特性** {#skeleton-dredge}
+#### **特性** {#section-adversary-pirate-raiders-features}
 
 - *集群 - 被动：* 当海盗劫掠者已标记一半或更多的生命点时，其普通攻击改为造成 1d4+1 点物理伤害。
 - *豪侠气概 - 被动：* 当海盗劫掠者在近战范围内受到攻击，并标记 2 或更少生命点时，攻击者必须**标记 1 压力点**。
@@ -745,9 +745,9 @@
 
 <!-- adversary: pirate-tough | Pirate Tough -->
 
-#### 海盗打手 {#tier-minion-5}
+#### 海盗打手 {#section-adversary-pirate-tough}
 
-##### *位阶 **1** 斗士* {#skeleton-knight}
+##### *位阶 **1** 斗士* {#section-adversary-pirate-tough-role}
 
 *一个肌肉发达、满身纹身、拳头有甜瓜大小的海盗。*  
 **动机与战术：** 劫掠、突袭、重击、胁迫  
@@ -755,7 +755,7 @@
 **攻击：** +1 | **巨拳：** 近战 | 2d6 物理  
 **经历：** 水手+2  
 
-#### **特性** {#tier-bruiser-6}
+#### **特性** {#section-adversary-pirate-tough-features}
 
 - *豪侠气概 - 被动：* 当海盗打手在近战范围内受到攻击，并标记 2 或更少生命点时，攻击者必须**标记 1 压力点**。
 - *清理甲板 - 动作：* 对邻近范围内的一个目标进行一次攻击。成功时，**标记 1 压力点**并移动到目标的近战范围内，造成 3d4 点物理伤害并将目标击退至近距离范围。
@@ -764,16 +764,16 @@
 
 <!-- adversary: sellsword | Sellsword -->
 
-#### 雇佣剑客 {#features-36}
+#### 雇佣剑客 {#section-adversary-sellsword}
 
-##### *位阶 **1** 杂兵* {#skeleton-warrior}
+##### *位阶 **1** 杂兵* {#section-adversary-sellsword-role}
 
 *全副武装的佣兵正在赌上自己的运气。*  
 **动机与战术：** 冲锋、砍伤、制服、获利  
 **难度：** 10 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** +3 | **长剑：** 近战 | 3 物理  
 
-#### **特性** {#tier-standard-5}
+#### **特性** {#section-adversary-sellsword-features}
 
 - *杂兵 - 被动：* 当雇佣剑客受到任何伤害时，其即被击败。玩家角色每对雇佣剑客造成 4 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有雇佣剑客。将这些雇佣剑客移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个雇佣剑客造成 3 点伤害。将这些伤害合并计算。
@@ -782,16 +782,16 @@
 
 <!-- adversary: skeleton-archer | Skeleton Archer -->
 
-#### 骷髅弓手 {#features-37}
+#### 骷髅弓手 {#section-adversary-skeleton-archer}
 
-##### *位阶 **1** 远程* {#spellblade}
+##### *位阶 **1** 远程* {#section-adversary-skeleton-archer-role}
 
 *一个脆弱的骷髅，带着一把短弓和箭。*  
 **动机与战术：** 射穿分心的目标、装死、偷窃皮肤  
 **难度：** 9 | **阈值：** 4/7 | **生命点：** 3 | **压力点：** 2  
 **攻击：** +2 | **短弓：** 远距离 | 1d8+1 物理  
 
-#### **特性** {#tier-leader-4}
+#### **特性** {#section-adversary-skeleton-archer-features}
 
 - *机会主义者 - 被动：* 当两个或更多敌人位于一个生物的邻近范围内时，骷髅弓手对该生物造成的所有伤害翻倍。
 - *致命射击 - 动作：* 对远距离范围内一个处于 *脆弱* 状态的目标进行一次攻击。成功时，**标记 1 压力点**，造成 3d4+8 点物理伤害。
@@ -800,16 +800,16 @@
 
 <!-- adversary: skeleton-dredge | Skeleton Dredge -->
 
-#### 破土骷髅 {#features-38}
+#### 破土骷髅 {#section-adversary-skeleton-dredge}
 
-##### *位阶 **1** 杂兵* {#swarm-of-rats}
+##### *位阶 **1** 杂兵* {#section-adversary-skeleton-dredge-role}
 
 *一堆喀啦作响的骨头。*  
 **动机与战术：** 散架、压制、装死、偷窃皮肤  
 **难度：** 8 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** −1 | **骨爪：** 近战 | 1 物理  
 
-#### **特性** {#tier-horde-hp-3}
+#### **特性** {#section-adversary-skeleton-dredge-features}
 
 - *杂兵 - 被动：* 当破土骷髅受到任何伤害时，其即被击败。玩家角色每对破土骷髅造成 4 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有破土骷髅。将这些破土骷髅移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个破土骷髅造成 1 点伤害。将这些伤害合并计算。
@@ -818,16 +818,16 @@
 
 <!-- adversary: skeleton-knight | Skeleton Knight -->
 
-#### 骷髅骑士 {#features-39}
+#### 骷髅骑士 {#section-adversary-skeleton-knight}
 
-##### *位阶 **1** 斗士* {#sylvan-soldier}
+##### *位阶 **1** 斗士* {#section-adversary-skeleton-knight-role}
 
 *一个身披重甲、手持巨刃的大型骷髅。*  
 **动机与战术：** 斩杀生者、偷窃皮肤、大肆破坏  
 **难度：** 13 | **阈值：** 7/13 | **生命点：** 5 | **压力点：** 2  
 **攻击：** +2 | **生锈巨剑：** 近战 | 1d10+2 物理  
 
-#### **特性** {#tier-standard-6}
+#### **特性** {#section-adversary-skeleton-knight-features}
 
 - *惊怖 - 被动：* 当骷髅骑士成功攻击时，所有近距离范围内的玩家角色失去 1 希望点，而你**获得 1 恐惧点**。
 - *斩骨 - 动作：* **标记 1 压力点**，对邻近范围内的所有目标进行一次攻击。骷髅骑士成功攻击的目标受到 1d8+2 点物理伤害，并且必须**标记 1 压力点**。
@@ -837,16 +837,16 @@
 
 <!-- adversary: skeleton-warrior | Skeleton Warrior -->
 
-#### 骷髅战士 {#features-40}
+#### 骷髅战士 {#section-adversary-skeleton-warrior}
 
-##### *位阶 **1** 标准* {#tangle-bramble-swarm}
+##### *位阶 **1** 标准* {#section-adversary-skeleton-warrior-role}
 
 *一个浑身沾土、手持生锈刀刃的骷髅。*  
 **动机与战术：** 装死、围攻、偷窃皮肤  
 **难度：** 10 | **阈值：** 4/8 | **生命点：** 3 | **压力点：** 2  
 **攻击：** +0 | **剑：** 近战 | 1d6+2 物理  
 
-#### **特性** {#tier-horde-hp-4}
+#### **特性** {#section-adversary-skeleton-warrior-features}
 
 - *仅剩枯骨 - 被动：* 骷髅战士对物理伤害具有抗性。
 - *不会死透 - 反应：* 当骷髅战士被击败时，你可以聚焦它并投掷一个 d6。结果为 6 时，如果战场上还有其他敌人，骷髅战士将重组并移除所有已标记的生命点。
@@ -855,9 +855,9 @@
 
 <!-- adversary: spellblade | Spellblade -->
 
-#### 咒剑士 {#tangle-bramble}
+#### 咒剑士 {#section-adversary-spellblade}
 
-##### *位阶 **1** 头目* {#tier-minion-6}
+##### *位阶 **1** 头目* {#section-adversary-spellblade-role}
 
 *一个将剑术与魔法结合、造成致命效果的雇佣兵。*  
 **动机与战术：** 冲击、指挥、忍耐  
@@ -865,7 +865,7 @@
 **攻击：** +3 | **强化长剑：** 近战 | 1d8+4 物理魔法  
 **经历：** 魔法知识+2  
 
-#### **特性** {#features-41}
+#### **特性** {#section-adversary-spellblade-features}
 
 - *奥术锋刃 - 被动：* 咒剑士普通攻击造成的伤害同时视为物理和魔法伤害。
 - *压制冲击 - 动作：* **标记 1 压力点**并选择远距离范围内的一组目标。所有目标必须在敏捷反应掷骰中成功，否则受到 1d8+2 点魔法伤害。每有一个目标因此次攻击标记生命点，你**获得 1 恐惧点**。
@@ -876,16 +876,16 @@
 
 <!-- adversary: swarm-of-rats | Swarm Of Rats -->
 
-#### 鼠群 {#weaponmaster}
+#### 鼠群 {#section-adversary-swarm-of-rats}
 
-##### *位阶 **1** 集群 （10/生命点）* {#tier-bruiser-7}
+##### *位阶 **1** 集群 （10/生命点）* {#section-adversary-swarm-of-rats-role}
 
 *一群普通的啮齿动物如同贪婪的浪潮般协同移动，形成令人毛骨悚然的群体。*  
 **动机与战术：** 吞噬、遮蔽、集群  
 **难度：** 10 | **阈值：** 6/10 | **生命点：** 6 | **压力点：** 2  
 **攻击：** −3 | **爪击：** 近战 | 1d8+2 物理  
 
-#### **特性** {#features-42}
+#### **特性** {#section-adversary-swarm-of-rats-features}
 
 - *集群 - 被动：* 当鼠群已标记一半或更多的生命点时，其普通攻击改为造成 1d4+1 点物理伤害。
 - *扑面而来 - 被动：* 近战范围内的所有目标在攻击鼠群以外的目标时处于劣势。
@@ -894,9 +894,9 @@
 
 <!-- adversary: sylvan-soldier | Sylvan Soldier -->
 
-#### 木族战士 {#young-dryad}
+#### 木族战士 {#section-adversary-sylvan-soldier}
 
-##### *位阶 **1** 标准* {#tier-leader-5}
+##### *位阶 **1** 标准* {#section-adversary-sylvan-soldier-role}
 
 *一名仙灵战士，身披树叶和树皮制成的盔甲。*  
 **动机与战术：** 伏击、隐藏、支付、保护、尾随  
@@ -904,7 +904,7 @@
 **攻击：** +0 | **镰刀：** 近战 | 1d8+1 物理  
 **经历：** 追踪者+2  
 
-#### **特性** {#features-43}
+#### **特性** {#section-adversary-sylvan-soldier-features}
 
 - *群体战术 - 被动：* 如果木族战士进行一次成功的普通攻击，且另一个木族战士在目标的近战范围内，则造成 1d8+5 点物理伤害，而非其普通伤害，并且你**获得 1 恐惧点**。
 - *森林掌控 - 动作：* **花费 1 恐惧点**来拉倒近距离范围内的一棵树。被树击中的生物必须在敏捷反应掷骰（15）中成功，否则受到 1d10 点物理伤害。
@@ -914,9 +914,9 @@
 
 <!-- adversary: tangle-bramble-swarm | Tangle Bramble Swarm -->
 
-#### 荆蔓纠结群 {#brawny-zombie}
+#### 荆蔓纠结群 {#section-adversary-tangle-bramble-swarm}
 
-##### *位阶 **1** 集群 （3/生命点）* {#tier-bruiser-8}
+##### *位阶 **1** 集群 （3/生命点）* {#section-adversary-tangle-bramble-swarm-role}
 
 *一团活化的、吸血的风滚草，每株都有一个大葫芦那么大。*  
 **动机与战术：** 消化、擒缚、固定  
@@ -924,7 +924,7 @@
 **攻击：** +0 | **荆棘：** 近战 | 1d6+3 物理  
 **经历：** 伪装+2  
 
-#### **特性** {#features-44}
+#### **特性** {#section-adversary-tangle-bramble-swarm-features}
 
 - *集群 - 被动：* 当荆蔓纠结群已标记一半或更多的生命点时，其普通攻击改为造成 1d4+2 点物理伤害。
 - *压碎 - 动作：* **标记 1 压力点**对拥有 3 个或更多荆棘指示物的一个目标造成 2d6+8 点直接物理伤害。
@@ -934,16 +934,16 @@
 
 <!-- adversary: tangle-bramble | Tangle Bramble -->
 
-#### 荆蔓纠结体 {#patchwork-zombie-hulk}
+#### 荆蔓纠结体 {#section-adversary-tangle-bramble}
 
-##### *位阶 **1** 杂兵* {#tier-solo-7}
+##### *位阶 **1** 杂兵* {#section-adversary-tangle-bramble-role}
 
 *一株活化的吸血风滚草。*  
 **动机与战术：** 合并、吸取、擒缚  
 **难度：** 11 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** -1 | **荆棘：** 近战 | 2 物理  
 
-#### **特性** {#features-45}
+#### **特性** {#section-adversary-tangle-bramble-features}
 
 - *杂兵 - 被动：* 当荆蔓纠结体受到任何伤害时，其即被击败。玩家角色每对荆蔓纠结体造成 4 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有荆蔓纠结体。将这些荆蔓纠结体移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个荆蔓纠结体造成 2 点物理伤害。将这些伤害合并计算。
@@ -953,16 +953,16 @@
 
 <!-- adversary: weaponmaster | Weaponmaster -->
 
-#### 武器大师 {#rotted-zombie}
+#### 武器大师 {#section-adversary-weaponmaster}
 
-##### *位阶 **1** 斗士* {#tier-minion-7}
+##### *位阶 **1** 斗士* {#section-adversary-weaponmaster-role}
 
 *一位挥舞着比自身大两倍的剑的武器大师。*  
 **动机与战术：** 先发制人，瞄准最弱者，威吓  
 **难度：** 14 | **阈值：** 8/15 | **生命点：** 6 | **压力点：** 3  
 **攻击：** +2 | **双手大剑：** 邻近 | 1d12+2 物理  
 
-#### **特性** {#features-46}
+#### **特性** {#section-adversary-weaponmaster-features}
 
 - *嘲讽打击 - 动作：* 对一个目标进行普通攻击。成功时，**标记 1 压力点**使目标直到下次成功攻击前处于 *嘲讽* 状态。处于 *嘲讽* 状态的目标攻击除武器大师以外的目标具有劣势。
 - *肾上腺素爆发 - 动作：* 每场景一次，**花费 1 恐惧点**以**恢复 2 生命点**和**清除 2 压力点**。
@@ -972,9 +972,9 @@
 
 <!-- adversary: young-dryad | Young Dryad -->
 
-#### 幼年树精 {#shambling-zombie}
+#### 幼年树精 {#section-adversary-young-dryad}
 
-##### *位阶 **1** 头目* {#tier-standard-7}
+##### *位阶 **1** 头目* {#section-adversary-young-dryad-role}
 
 *一位傲慢的树人，领导着森林的防御。*  
 **动机与战术：** 指挥、培育、修剪不受欢迎者  
@@ -982,7 +982,7 @@
 **攻击：** +0 | **镰刀：** 近战 | 1d8+5 物理  
 **经历：** 领导力+3  
 
-#### **特性** {#features-47}
+#### **特性** {#section-adversary-young-dryad-features}
 
 - *森林之声 - 动作：* **标记 1 压力点**聚焦1d4个盟友，在不移动的情况下攻击同一个目标。成功时，它们的攻击造成一半伤害。
 - *荆棘牢笼 - 动作：* **花费 1 恐惧点**在邻近范围内的一个目标周围形成一个牢笼，并使其处于 *束缚* 状态，直到其通过成功的力量掷骰获得自由。当一个生物对牢笼进行动作掷骰时，其必须**标记 1 压力点**。
@@ -992,9 +992,9 @@
 
 <!-- adversary: brawny-zombie | Brawny Zombie -->
 
-#### 蛮力丧尸 {#tier-2-adversaries-levels-2-4}
+#### 蛮力丧尸 {#section-adversary-brawny-zombie}
 
-##### *位阶 **1** 斗士* {#archer-squadron}
+##### *位阶 **1** 斗士* {#section-adversary-brawny-zombie-role}
 
 *一具庞大的尸体，腐烂肿胀，充满怒意。*  
 **动机与战术：** 碾碎、摧毁、抛洒碎石、猛撞  
@@ -1002,7 +1002,7 @@
 **攻击：** +2 | **猛撞：** 邻近 | 1d12+3 物理  
 **经历：** 附带伤害+2，投掷+4  
 
-#### **特性** {#tier-horde-hp-5}
+#### **特性** {#section-adversary-brawny-zombie-features}
 
 - *迟缓 - 被动：* 当你聚焦蛮力丧尸，且其数据块上没有指示物时，它无法立即行动。在它的数据块上放置一个标记，并描述它正在准备做什么。当你聚焦蛮力丧尸，且其数据块上有指示物时，移除指示物，它才可以行动。
 - *撕裂 - 动作：* 对蛮力丧尸已处于 *束缚* 状态的一个目标进行一次具有优势的普通攻击。成功时，攻击造成直接伤害。
@@ -1012,9 +1012,9 @@
 
 <!-- adversary: patchwork-zombie-hulk | Patchwork Zombie Hulk -->
 
-#### 拼接尸魔 {#features-48}
+#### 拼接尸魔 {#section-adversary-patchwork-zombie-hulk}
 
-##### *位阶 **1** 独狼* {#apprentice-assassin}
+##### *位阶 **1** 独狼* {#section-adversary-patchwork-zombie-hulk-role}
 
 *由无数尸体拼接而成的巨大集合体，如同一个整体般行动，四肢如躯干般粗大，拳头有成年半身人般大小。*  
 **动机与战术：** 吸收尸体、乱舞、饥饿、恐吓  
@@ -1022,7 +1022,7 @@
 **攻击：** +4 | **多条手臂：** 邻近 | 1d20 物理  
 **经历：** 威吓+2，撕碎物体+2  
 
-#### **特性** {#tier-minion-8}
+#### **特性** {#section-adversary-patchwork-zombie-hulk-features}
 
 - *易毁 - 被动：* 当拼接尸魔受到重度或更严重的伤害时，其额外**标记 1 生命点**。
 - *肢体乱舞 - 被动：* 当拼接尸魔进行普通攻击时，其可以攻击邻近范围内的所有目标。
@@ -1033,16 +1033,16 @@
 
 <!-- adversary: rotted-zombie | Rotted Zombie -->
 
-#### 腐烂丧尸 {#features-49}
+#### 腐烂丧尸 {#section-adversary-rotted-zombie}
 
-##### *位阶 **1** 杂兵* {#zombie-pack}
+##### *位阶 **1** 杂兵* {#section-adversary-rotted-zombie-role}
 
 *一具腐烂的尸体，蹒跚着逼近猎物。*  
 **动机与战术：** 啃食血肉、饥饿、撕咬、包围  
 **难度：** 8 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** −3 | **啃咬：** 近战 | 2 物理  
 
-#### **特性** {#tier-horde-hp-6}
+#### **特性** {#section-adversary-rotted-zombie-features}
 
 - *杂兵 - 被动：* 当腐烂丧尸受到任何伤害时，其即被击败。玩家角色每对腐烂丧尸造成 3 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有腐烂丧尸。将这些腐烂丧尸移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个腐烂丧尸造成 2 点伤害。将这些伤害合并计算。
@@ -1051,29 +1051,29 @@
 
 <!-- adversary: shambling-zombie | Shambling Zombie -->
 
-#### 蹒跚丧尸 {#features-50}
+#### 蹒跚丧尸 {#section-adversary-shambling-zombie}
 
-##### *位阶 **1** 标准* {#assassin-poisoner}
+##### *位阶 **1** 标准* {#section-adversary-shambling-zombie-role}
 
 *一具摇摇晃晃、只受饥饿驱使的活尸。*  
 **动机与战术：** 吞食、饥渴、围攻敌人、撕碎血肉  
 **难度：** 10 | **阈值：** 4/6 | **生命点：** 4 | **压力点：** 1  
 **攻击：** +0 | **啃咬：** 近战 | 1d6+1 物理  
 
-#### **特性** {#tier-skulk-7}
+#### **特性** {#section-adversary-shambling-zombie-features}
 
 - *难以招架 - 被动：* 当蹒跚丧尸在某个生物的近战范围内，且至少有一只其他丧尸在该生物的近距离范围内时，所有以该生物为目标的攻击具有优势。
 - *骇人 - 被动：* 目标因蹒跚丧尸的攻击而标记生命点时，也必须**标记 1 压力点**。
 
 <!-- /adversary -->
 
-## 位阶 **2** 敌人（等级 **2–4**） {#features-51}
+## 位阶 **2** 敌人（等级 **2–4**） {#section-tier-2}
 
 <!-- adversary: minotaur-wrecker | Minotaur Wrecker -->
 
-#### 牛头人破坏者 {#master-assassin}
+#### 牛头人破坏者 {#section-adversary-minotaur-wrecker}
 
-##### *位阶 **2** 斗士* {#tier-leader-6}
+##### *位阶 **2** 斗士* {#section-adversary-minotaur-wrecker-role}
 
 *一个脾气暴躁的巨大牛头费尔博格。*  
 **动机与战术：** 吞噬，角撞，导航，压制，追击  
@@ -1081,7 +1081,7 @@
 **攻击：** +2 | **战斧：** 邻近 | 2d8+5 物理  
 **经历：** 导航+2  
 
-#### **特性** {#battle-box}
+#### **特性** {#section-adversary-minotaur-wrecker-features}
 
 - *蓄力 - 被动：* 你必须**花费 1 恐惧点**来聚焦牛头人破坏者。当被聚焦时，其可以对范围内所有目标进行普通攻击。
 - *蛮牛冲撞 - 动作：* **标记 1 压力点**以冲撞通过近距离范围内的一个群体，并对牛头人破坏者路径上的所有目标进行攻击。牛头人破坏者成功攻击的目标受到 2d6+8 点物理伤害，并被击退至极远范围。如果目标因被击退而撞到固体物体或另一个生物，他们会额外受到 1d6 点伤害（合并伤害）。
@@ -1091,9 +1091,9 @@
 
 <!-- adversary: war-wizard | War Wizard -->
 
-#### 战争法师 {#tier-solo-8}
+#### 战争法师 {#section-adversary-war-wizard}
 
-##### *位阶 **2** 远程* {#features-52}
+##### *位阶 **2** 远程* {#section-adversary-war-wizard-role}
 
 *一名精通破坏魔法、久经沙场的法师。*  
 **动机与战术：** 研发新法术，追求力量，打破阵型  
@@ -1101,7 +1101,7 @@
 **攻击：** +4 | **法杖：** 远距离 | 2d10+4 魔法  
 **经历：** 魔法学识+2，策略+2  
 
-#### **特性** {#chaos-skull}
+#### **特性** {#section-adversary-war-wizard-features}
 
 - *战斗传送 - 被动：* 在进行普通攻击之前或之后，你可以**标记 1 压力点**以传送到远距离范围内的一个位置。
 - *刷新防护球 - 动作：* **标记 1 压力点**以刷新战争法师的“防护球”反应。
@@ -1113,9 +1113,9 @@
 
 <!-- adversary: icewaste-hunter | Icewaste Hunter -->
 
-#### 冰荒猎人 {#tier-ranged-4}
+#### 冰荒猎人 {#section-adversary-icewaste-hunter}
 
-##### *位阶 **2** 远程* {#features-53}
+##### *位阶 **2** 远程* {#section-adversary-icewaste-hunter-role}
 
 *一位在冰原中狩猎危险猎物的求生者。*  
 **动机与战术：** 狩猎、忍耐、救援、追踪  
@@ -1123,7 +1123,7 @@
 **攻击：** +3 | **长弓：** 远 | 2d12+6 物理  
 **经历：** 导航+2，生存者+3  
 
-#### **特性** {#conscript}
+#### **特性** {#section-adversary-icewaste-hunter-features}
 
 - *稳固瞄准 - 被动：* **标记 1 压力点**使冰荒猎人的下一次攻击获得优势。
 - *雪盲陷阱 - 动作：* **花费 1 恐惧点**以选择近距离范围内的一个群体。所有目标必须成功进行敏捷反应掷骰，否则将被困在陷阱中，处于 *脆弱* 状态，其在直到成功进行一次力量或灵巧（14）掷骰来逃脱。当被困在此陷阱中的目标进行动作掷骰时，你**获得 1 恐惧点**。
@@ -1133,9 +1133,9 @@
 
 <!-- adversary: glitterwyrm | Glitterwyrm -->
 
-#### 晶辉龙 {#tier-minion-9}
+#### 晶辉龙 {#section-adversary-glitterwyrm}
 
-##### *位阶 **2** 潜伏* {#features-54}
+##### *位阶 **2** 潜伏* {#section-adversary-glitterwyrm-role}
 
 *一条覆盖着镜面冰鳞的飞龙。*  
 **动机与战术：** 伏击、采食、冬眠、游击  
@@ -1143,7 +1143,7 @@
 **攻击：** +2 | **撕咬：** 邻近 | 2d8+3 物理  
 **经历：** 空中掠食者+2，敏锐视觉+3  
 
-#### **特性** {#courtesan}
+#### **特性** {#section-adversary-glitterwyrm-features}
 
 - *极地翼种 - 被动：* 在飞行时，晶辉龙可以移动至远距离范围。
 - *反射鳞片 - 被动：* 不处于晶辉龙邻近范围内的生物对其攻击具有劣势。
@@ -1154,16 +1154,16 @@
 
 <!-- adversary: juvenile-flickerfly | Juvenile Flickerfly -->
 
-#### 幼年闪光蜓 {#tier-social-4}
+#### 幼年闪光蜓 {#section-adversary-juvenile-flickerfly}
 
-##### *位阶 **2** 独狼* {#features-55}
+##### *位阶 **2** 独狼* {#section-adversary-juvenile-flickerfly-role}
 
 *一只大小跟马匹相近、拥有彩虹鳞片和晶莹翅膀、飞行速度快到肉眼难以捕捉的昆虫。*  
 **动机与战术：** 收集闪亮物品、狩猎、俯冲袭击  
 **难度：** 14 | **阈值：** 13/26 | **生命点：** 10 | **压力点：** 5  
 **攻击：** +3 | **翅膀斩击：** 邻近 | 2d10+4 物理  
 
-#### **特性** {#cult-adept}
+#### **特性** {#section-adversary-juvenile-flickerfly-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，此敌人可以至多被聚焦 3 次。像往常一样花费恐惧点来聚焦。
 - *非凡精准 - 被动：* 在幼年闪光蜓攻击之前，掷一个 d6。结果为4或更高时，目标在对抗此次攻击时闪避值减半。
@@ -1174,16 +1174,16 @@
 
 <!-- adversary: malefacted-giant | Malefacted Giant -->
 
-#### 恶堕巨像 {#tier-support-2}
+#### 恶堕巨像 {#section-adversary-malefacted-giant}
 
-##### *位阶 **2** 独狼* {#cult-fang}
+##### *位阶 **2** 独狼* {#section-adversary-malefacted-giant-role}
 
 *一个由扭曲金属与熔化血肉以非自然方式融合而成的巨型类人生物。*  
 **动机与战术：** 收集秘密，撕裂现实，逆转命运  
 **难度：** 15 | **阈值：** 16/26 | **生命点：** 10 | **压力点：** 5  
 **攻击：** +3 | **扭动肢体：** 近距离 | 2d12+4 物理  
 
-#### **特性** {#tier-skulk-8}
+#### **特性** {#section-adversary-malefacted-giant-features}
 
 - *终焉显现 - 被动：* 在玩家角色进行会影响恶堕巨像的动作掷骰前，必须先进行一次知识反应掷骰。失败时，玩家角色失去 1 希望点。成功时，玩家角色永久不受此特性影响。
 - *虚空之嚎 - 动作：* **花费 1 恐惧点**释放一次心灵尖啸。近距离范围内的所有目标必须在一次风度反应掷骰中成功，否则受到 3d10 点直接魔法伤害并**标记 1 压力点**。
@@ -1195,9 +1195,9 @@
 
 <!-- adversary: cult-adept | Cult Adept -->
 
-#### 邪教门徒 {#features-56}
+#### 邪教门徒 {#section-adversary-cult-adept}
 
-##### *位阶 **2** 辅助* {#cult-initiate}
+##### *位阶 **2** 辅助* {#section-adversary-cult-adept-role}
 
 *一位操纵暗影与恐惧的老练法师。*  
 **动机与战术：** 祈求恩宠、阻碍敌人、揭示知识  
@@ -1205,7 +1205,7 @@
 **攻击：** +2 | **印符法杖：** 远距离 | 2d4+3 魔法  
 **经历：** 堕落学识+2，仪式法术+2  
 
-#### **特性** {#tier-minion-10}
+#### **特性** {#section-adversary-cult-adept-features}
 
 - *虚弱冲击 - 动作：* **花费 1 恐惧点**对范围内的一个目标进行普通攻击。成功时，目标必须**标记 1 压力点**。
 - *堕影护幕 - 动作：* **标记 1 压力点**将近距离范围内的一名盟友包裹在护幕之中，使其处于 *保护* 状态，直到邪教信徒标记最后一个生命点。处于 *保护* 状态时，目标对所有伤害具有抗性。
@@ -1216,16 +1216,16 @@
 
 <!-- adversary: archer-squadron | Archer Squadron -->
 
-#### 弓箭手小队 {#features-57}
+#### 弓箭手小队 {#section-adversary-archer-squadron}
 
-##### *位阶 **2** 集群 （2/生命点）* {#demonic-hound-pack}
+##### *位阶 **2** 集群 （2/生命点）* {#section-adversary-archer-squadron-role}
 
 *一群训练有素、手持巨弓的弓箭手。*  
 **动机与战术：** 紧密配合、生存、齐射  
 **难度：** 13 | **阈值：** 8/16 | **生命点：** 4 | **压力点：** 3  
 **攻击：** +0 | **长弓：** 远距离 | 2d6+3 物理  
 
-#### **特性** {#tier-horde-hp-7}
+#### **特性** {#section-adversary-archer-squadron-features}
 
 - *集群 - 被动：* 当弓箭手小队已标记一半或更多的生命点时，其普通攻击改为造成1d6+3 物理伤害。
 - *集火齐射 - 动作：* **花费 1 恐惧点**指定远距离范围内的一个点。对该点近距离范围内的所有目标进行一次具有优势的攻击。弓箭手小队成功命中的目标受到 1d10+4 物理伤害。
@@ -1235,9 +1235,9 @@
 
 <!-- adversary: apprentice-assassin | Apprentice Assassin -->
 
-#### 刺客学徒 {#features-58}
+#### 刺客学徒 {#section-adversary-apprentice-assassin}
 
-##### *位阶 **2** 杂兵* {#electric-eels}
+##### *位阶 **2** 杂兵* {#section-adversary-apprentice-assassin-role}
 
 *渴望证明自己的年轻学徒。*  
 **动机与战术：** 鲁莽行事、杀戮、证明价值、炫耀  
@@ -1245,7 +1245,7 @@
 **攻击：** -1 | **飞刀：** 邻近 | 4 物理  
 **经历：** 入侵+2  
 
-#### **特性** {#tier-horde-hp-8}
+#### **特性** {#section-adversary-apprentice-assassin-features}
 
 - *杂兵 - 被动：* 当刺客学徒受到任何伤害时，其即被击败。玩家角色每对刺客学徒造成 6 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有刺客学徒。将这些刺客学徒移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个刺客学徒造成 4 点伤害。将这些伤害合并计算。
@@ -1254,9 +1254,9 @@
 
 <!-- adversary: assassin-poisoner | Assassin Poisoner -->
 
-#### 刺客毒师 {#features-59}
+#### 刺客毒师 {#section-adversary-assassin-poisoner}
 
-##### *位阶 **2** 潜伏* {#elite-soldier}
+##### *位阶 **2** 潜伏* {#section-adversary-assassin-poisoner-role}
 
 *一个狡猾的恶棍，精通毒药和伏击。*  
 **动机与战术：** 预判、收取报酬、杀戮、污染食物和水源  
@@ -1264,7 +1264,7 @@
 **攻击：** +3 | **淬毒飞刀：** 近距离 | 2d8+1 物理  
 **经历：** 侵入+2  
 
-#### **特性** {#tier-standard-8}
+#### **特性** {#section-adversary-assassin-poisoner-features}
 
 - *碎牙毒素 - 被动：* 被刺客毒师攻击而标记生命点的目标，直到清除生命点前会持续处于 *脆弱* 状态。
 - *出其不意 - 被动：* 如果刺客毒师处于 *隐藏* 状态，其攻击具有优势。
@@ -1274,9 +1274,9 @@
 
 <!-- adversary: master-assassin | Master Assassin -->
 
-#### 刺客大师 {#features-60}
+#### 刺客大师 {#section-adversary-master-assassin}
 
-##### *位阶 **2** 头目* {#failed-experiment}
+##### *位阶 **2** 头目* {#section-adversary-master-assassin-role}
 
 *一名久经沙场的杀手，嗓音阴沉，刀刃致命。*  
 **动机与战术：** 伏击、生还、杀戮、为所有情况做准备  
@@ -1284,7 +1284,7 @@
 **攻击：** +5 | **锯齿匕首：** 近距离 | 2d10+2 物理  
 **经历：** 指挥+3，入侵+3  
 
-#### **特性** {#tier-standard-9}
+#### **特性** {#section-adversary-master-assassin-features}
 
 - *出其不意 - 被动：* 如果刺客大师处于 *隐藏* 状态，攻击造成直接伤害。
 - *协同打击 - 动作：* **标记 1 压力点**以聚焦数量等同于刺客大师未标记压力点的其他刺客。
@@ -1295,9 +1295,9 @@
 
 <!-- adversary: battle-box | Battle Box -->
 
-#### 战斗匣 {#giant-beastmaster}
+#### 战斗匣 {#section-adversary-battle-box}
 
-##### *位阶 **2** 独狼* {#tier-leader-7}
+##### *位阶 **2** 独狼* {#section-adversary-battle-box-role}
 
 *一个立方体构造体，六个面上各有一个不同的符文。*  
 **动机与战术：** 改变战术、践踏敌人、伪装潜伏  
@@ -1305,7 +1305,7 @@
 **攻击：** +2 | **猛击：** 近战 | 2d6+3 物理  
 **经历：** 伪装+2  
 
-#### **特性** {#features-61}
+#### **特性** {#section-adversary-battle-box-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，此敌人可以至多被聚焦 2 次。像往常一样花费恐惧点来聚焦。
 - *随机战术 - 动作：* **标记 1 压力点**并掷一个 d6。
@@ -1323,16 +1323,16 @@
 
 <!-- adversary: chaos-skull | Chaos Skull -->
 
-#### 混沌颅骨 {#giant-brawler}
+#### 混沌颅骨 {#section-adversary-chaos-skull}
 
-##### *位阶 **2** 远程* {#tier-bruiser-9}
+##### *位阶 **2** 远程* {#section-adversary-chaos-skull-role}
 
 *一一颗漂浮的类人生物头骨，由闪烁的魔力驱动着行动。*  
 **动机与战术：** 怪笑、吞噬魔法、为创造者服务  
 **难度：** 15 | **阈值：** 8/16 | **生命点：** 5 | **压力点：** 4  
 **攻击：** +2 | **能量冲击：** 近距离 | 2d8+3 魔法  
 
-#### **特性** {#features-62}
+#### **特性** {#section-adversary-chaos-skull-features}
 
 - *悬浮 - 被动：* 混沌颅骨悬浮在地面数尺之上，无法处于 *束缚* 状态。
 - *防护结界 - 被动：* 混沌颅骨对魔法伤害具有抗性。
@@ -1343,16 +1343,16 @@
 
 <!-- adversary: conscript | Conscript -->
 
-#### 应征兵 {#giant-recruit}
+#### 应征兵 {#section-adversary-conscript}
 
-##### *位阶 **2** 杂兵* {#tier-minion-11}
+##### *位阶 **2** 杂兵* {#section-adversary-conscript-role}
 
 *一名训练不足、被强征入伍的平民。*  
 **动机与战术：** 服从命令，围攻，生存  
 **难度：** 12 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** +0 | **长矛：** 邻近 | 6 物理  
 
-#### **特性** {#features-63}
+#### **特性** {#section-adversary-conscript-features}
 
 - *杂兵 - 被动：* 当应征兵受到任何伤害时，其即被击败。玩家角色每对应征兵造成 6 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有应征兵。将这些应征兵移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个应征兵造成 4 点伤害。将这些伤害合并计算。
@@ -1361,9 +1361,9 @@
 
 <!-- adversary: courtesan | Courtesan -->
 
-#### 交际花 {#giant-eagle}
+#### 交际花 {#section-adversary-courtesan}
 
-##### *位阶 **2** 社交* {#tier-skulk-9}
+##### *位阶 **2** 社交* {#section-adversary-courtesan-role}
 
 *一位技艺娴熟的操纵者和社交艺术大师。*  
 **动机与战术：** 诱惑，周旋，拉拢赞助人  
@@ -1371,7 +1371,7 @@
 **攻击：** -3 | **匕首：** 近战 | 1d4+3 物理  
 **经历：** 操纵+3，社交名流+3  
 
-#### **特性** {#features-64}
+#### **特性** {#section-adversary-courtesan-features}
 
 - *灼热凝视 - 反应：* 当一个近距离范围内的玩家角色进行风度掷骰时，你可以**标记 1 压力点**投去一瞥以审视其结果。如果目标失败，其必须**标记 2 压力点**并处于 *脆弱* 状态，直到场景结束或其在对抗交际花的社交动作中成功。如果目标成功，其必须**标记 1 压力点**。
 
@@ -1379,16 +1379,16 @@
 
 <!-- adversary: cult-fang | Cult Fang -->
 
-#### 邪教爪牙 {#gorgon}
+#### 邪教爪牙 {#section-adversary-cult-fang}
 
-##### *位阶 **2** 潜伏* {#tier-solo-9}
+##### *位阶 **2** 潜伏* {#section-adversary-cult-fang-role}
 
 *一名转变为邪教徒的职业杀手。*  
 **动机与战术：** 俘获祭品，孤立猎物，向上爬升  
 **难度：** 15 | **阈值：** 9/17 | **生命点：** 4 | **压力点：** 4  
 **攻击：** +2 | **长刀：** 近战 | 2d8+4 物理  
 
-#### **特性** {#features-65}
+#### **特性** {#section-adversary-cult-fang-features}
 
 - *暗影之拥 - 被动：* 邪教爪牙可以在垂直表面攀爬和行走。**标记 1 压力点**以从远距离范围内的一处阴影移动到另一处阴影。
 - *孤立无援 - 动作：* **标记 1 压力点**令近战范围内的一个目标进行一次本能反应掷骰。失败时，目标必须**标记 2 压力点**，并与邪教爪牙一起传送到远距离范围内的一处阴影中，使其暂时处于 *脆弱* 状态。成功时，目标必须**标记 1 压力点**。
@@ -1397,16 +1397,16 @@
 
 <!-- adversary: cult-initiate | Cult Initiate -->
 
-#### 邪教学徒 {#juvenile-flickerfly}
+#### 邪教学徒 {#section-adversary-cult-initiate}
 
-##### *位阶 **2** 杂兵* {#tier-solo-10}
+##### *位阶 **2** 杂兵* {#section-adversary-cult-initiate-role}
 
 *身着简朴长袍的低阶邪教徒，渴望获得力量。*  
 **动机与战术：** 服从命令，获取力量，追求禁忌知识  
 **难度：** 13 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** +0 | **仪式匕首：** 近战 | 5 物理  
 
-#### **特性** {#features-66}
+#### **特性** {#section-adversary-cult-initiate-features}
 
 - *杂兵 - 被动：* 当邪教学徒受到任何伤害时，其即被击败。玩家角色每对邪教学徒造成 6 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有邪教学徒。将这些邪教学徒移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个邪教学徒造成 5 点伤害。将这些伤害合并计算。
@@ -1415,9 +1415,9 @@
 
 <!-- adversary: demonic-hound-pack | Demonic Hound Pack -->
 
-#### 恶魔猎犬群 {#knight-of-the-realm}
+#### 恶魔猎犬群 {#section-adversary-demonic-hound-pack}
 
-##### *位阶 **2** 集群（1/生命点）* {#tier-leader-8}
+##### *位阶 **2** 集群（1/生命点）* {#section-adversary-demonic-hound-pack-role}
 
 *体内燃着地狱之火的怪异猎犬。*  
 **动机与战术：** 制造恐惧，吞噬血肉，取悦主人  
@@ -1425,7 +1425,7 @@
 **攻击：** +0 | **爪牙：** 近战 | 2d8+2 物理  
 **经历：** 气味追踪+3  
 
-#### **特性** {#features-67}
+#### **特性** {#section-adversary-demonic-hound-pack-features}
 
 - *集群 - 被动：* 当恶魔猎犬群已标记一半或更多的生命点时，其普通攻击改为造成 2d4+1 点物理伤害。
 - *恐惧嚎叫 - 动作：* **标记 1 压力点**，使邻近范围内的所有目标失去 1 希望点。如果目标无法失去希望点，则改为**标记 2 压力点**。
@@ -1435,16 +1435,16 @@
 
 <!-- adversary: electric-eels | Electric Eels -->
 
-#### 电鳗群 {#masked-thief}
+#### 电鳗群 {#section-adversary-electric-eels}
 
-##### *位阶 **2** 集群（2/生命点）* {#tier-skulk-10}
+##### *位阶 **2** 集群（2/生命点）* {#section-adversary-electric-eels-role}
 
 *一群围攻目标并释放电击的鳗鱼。*  
 **动机与战术：** 躲避大型掠食者、电击猎物、撕裂  
 **难度：** 14 | **阈值：** 10/20 | **生命点：** 5 | **压力点：** 3  
 **攻击：** +0 | **电击撕咬：** 近战 | 2d6+4 物理  
 
-#### **特性** {#features-68}
+#### **特性** {#section-adversary-electric-eels-features}
 
 - *集群 - 被动：* 当电鳗群已标记一半或更多的生命点时，其普通攻击改为造成 2d4+1 点物理伤害。
 - *麻痹电击 - 动作：* **标记 1 压力点**，对邻近范围内的所有目标进行一次普通攻击。每有一个标记生命点的目标，你**获得 1 恐惧点**。
@@ -1453,16 +1453,16 @@
 
 <!-- adversary: elite-soldier | Elite Soldier -->
 
-#### 精锐士兵 {#merchant-baron}
+#### 精锐士兵 {#section-adversary-elite-soldier}
 
-##### *位阶 **2** 标准* {#tier-social-5}
+##### *位阶 **2** 标准* {#section-adversary-elite-soldier-role}
 
 *一位身披护甲的侍从或有战斗经验的平民，渴望晋升地。*  
 **动机与战术：** 赢得荣耀，维持秩序，结交盟友  
 **难度：** 15 | **阈值：** 9/18 | **生命点：** 4 | **压力点：** 3  
 **攻击：** +1 | **长矛：** 邻近 | 2d8+4 物理  
 
-#### **特性** {#minotaur-wrecker}
+#### **特性** {#section-adversary-elite-soldier-features}
 
 - *增援 - 动作：* **标记 1 压力点**，移动至一名盟友的近战范围内，并对一个邻近范围内的目标进行一次普通攻击。若成功，造成 2d10+2 点物理伤害，且该盟友可以**清除 1 压力点**。
 - *附庸忠诚 - 反应：* 当精锐士兵处于一名将要受到伤害的骑士或其他贵族的邻近范围内，你可以**标记 1 压力点**，移动其至目标近战范围内，并代替承受伤害。
@@ -1471,9 +1471,9 @@
 
 <!-- adversary: failed-experiment | Failed Experiment -->
 
-#### 失败实验体 {#tier-bruiser-10}
+#### 失败实验体 {#section-adversary-failed-experiment}
 
-##### *位阶 **2** 标准* {#features-69}
+##### *位阶 **2** 标准* {#section-adversary-failed-experiment-role}
 
 *一次失败的死灵魔法实验，造就了这具扭曲怪异的畸形体。*  
 **动机与战术：** 吞食，狩猎，追踪  
@@ -1481,7 +1481,7 @@
 **攻击：** +1 | **撕咬和爪击：** 近战 | 2d6+5 物理  
 **经历：** 模仿者+3  
 
-#### **特性** {#mortal-hunter}
+#### **特性** {#section-adversary-failed-experiment-features}
 
 - *扭曲韧性 - 被动：* 失败实验体对物理伤害具有抗性。
 - *镇压 - 被动：* 当失败实验体攻击的目标的邻近范围内有其他敌对生物时，失败实验体造成双倍伤害。
@@ -1491,9 +1491,9 @@
 
 <!-- adversary: giant-beastmaster | Giant Beastmaster -->
 
-#### 巨人驯兽师 {#tier-leader-9}
+#### 巨人驯兽师 {#section-adversary-giant-beastmaster}
 
-##### *位阶 **2** 头目* {#features-70}
+##### *位阶 **2** 头目* {#section-adversary-giant-beastmaster-role}
 
 *身披皮革，手持长鞭和巨弓的战士。*  
 **动机与战术：** 指挥，谋生，机动，压制目标，保护同伴动物  
@@ -1501,7 +1501,7 @@
 **攻击：** +2 | **长弓：** 远距离 | 2d8+4 物理  
 **经历：** 驯兽+3  
 
-#### **特性** {#royal-advisor}
+#### **特性** {#section-adversary-giant-beastmaster-features}
 
 - *一心同体 - 被动：* 当巨人驯兽师被聚焦时，你可以同时聚焦一个目前在其控制下的位阶1动物敌人。
 - *定身打击 - 动作：* 对一个目标进行一次普通攻击。成功时，你可以**标记 1 压力点**将其压制在附近的平面上。被压制的目标处于 *束缚* 状态，直到其成功通过一次灵巧或力量掷骰以挣脱。
@@ -1511,9 +1511,9 @@
 
 <!-- adversary: giant-brawler | Giant Brawler -->
 
-#### 巨人斗士 {#tier-social-6}
+#### 巨人斗士 {#section-adversary-giant-brawler}
 
-##### *位阶 **2** 斗士* {#features-71}
+##### *位阶 **2** 斗士* {#section-adversary-giant-brawler-role}
 
 *一名异常强壮的巨人，挥舞着比人类还大的战锤。*  
 **动机与战术：** 谋生，制服，猛撞，击倒  
@@ -1521,7 +1521,7 @@
 **攻击：** +2 | **战锤：** 邻近 | 2d12+3 物理  
 **经历：** 侵入+2  
 
-#### **特性** {#secret-keeper}
+#### **特性** {#section-adversary-giant-brawler-features}
 
 - *破阵冲撞 - 动作：* **标记 1 压力点**，使巨人斗士冲向近距离范围内某个可以合理摧毁的无生命物体（如墙壁、推车或市场摊位），并摧毁它。该物体邻近范围内的所有目标必须成功通过一次敏捷反应掷骰，否则会受到来自物体的残骸碎片造成的2d4+3点物理伤害。
 - *血腥报复 - 反应：* 当巨人斗士被邻近范围内的一次攻击中标记 2 或更多的生命点时，你可以对攻击者进行一次普通攻击。成功时，巨人斗士造成的物理伤害为2d6+15，而不是其普通伤害。
@@ -1531,16 +1531,16 @@
 
 <!-- adversary: giant-recruit | Giant Recruit -->
 
-#### 巨人新兵 {#tier-leader-10}
+#### 巨人新兵 {#section-adversary-giant-recruit}
 
-##### *位阶 **2** 杂兵* {#features-72}
+##### *位阶 **2** 杂兵* {#section-adversary-giant-recruit-role}
 
 *一个穿着借来的盔甲的巨人战士。*  
 **动机与战术：** 殴打，谋生，制服，恐吓  
 **难度：** 13 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 2  
 **攻击：** +1 | **战锤：** 邻近 | 5 物理  
 
-#### **特性** {#shark}
+#### **特性** {#section-adversary-giant-recruit-features}
 
 - *杂兵 - 被动：* 当巨人新兵受到任何伤害时，其即被击败。玩家角色每对巨人新兵造成 7 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有巨人新兵。将这些小巨人新兵移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个巨人新兵造成 5 点伤害。将这些伤害合并计算。
@@ -1549,16 +1549,16 @@
 
 <!-- adversary: giant-eagle | Giant Eagle -->
 
-#### 巨鹰 {#tier-bruiser-11}
+#### 巨鹰 {#section-adversary-giant-eagle}
 
-##### *位阶 **2** 潜伏* {#features-73}
+##### *位阶 **2** 潜伏* {#section-adversary-giant-eagle-role}
 
 *一只利爪染血的巨型猛禽。*  
 **动机与战术：** 捕食猎物，保持机动，果断出击  
 **难度：** 14 | **阈值：** 8/19 | **生命点：** 4 | **压力点：** 4  
 **攻击：** +1 | **爪与喙：** 邻近 | 2d6+3 物理  
 
-#### **特性** {#siren}
+#### **特性** {#section-adversary-giant-eagle-features}
 
 - *飞行 - 被动：* 飞行时，巨鹰的难度获得 +3 加值。
 - *致命俯冲 - 动作：* **标记 1 压力点**，攻击一个远距离范围内的目标。成功时，造成 2d10+2 物理伤害，并将目标击倒，使其在下次行动之前处于 *脆弱* 状态。
@@ -1569,9 +1569,9 @@
 
 <!-- adversary: gorgon | Gorgon -->
 
-#### 戈尔贡 {#tier-skulk-11}
+#### 戈尔贡 {#section-adversary-gorgon}
 
-##### *位阶 **2** 独狼* {#features-74}
+##### *位阶 **2** 独狼* {#section-adversary-gorgon-role}
 
 *一名蛇首鳞身的类人生物，手持镀金长弓，对其安宁被打扰而愤怒不已。*  
 **动机与战术：** 逼入死角，游击，石化，追求复仇  
@@ -1579,7 +1579,7 @@
 **攻击：** +4 | **烈日短弓：** 远距离 | 2d20+3 魔法  
 **经历：** 隐匿+3  
 
-#### **特性** {#spectral-archer}
+#### **特性** {#section-adversary-gorgon-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，此敌人可以至多被聚焦 2 次。像往常一样花费恐惧点来聚焦。
 - *烈日箭 - 被动：* 当戈耳贡进行一次成功的普通攻击时，目标处于 *发光* 状态直到场景结束，且无法处于 *隐藏* 状态。对处于 * 发光* 状态的目标进行攻击掷骰具有优势。
@@ -1591,9 +1591,9 @@
 
 <!-- adversary: knight-of-the-realm | Knight Of The Realm -->
 
-#### 王国骑士 {#tier-ranged-5}
+#### 王国骑士 {#section-adversary-knight-of-the-realm}
 
-##### *位阶 **2** 头目* {#features-75}
+##### *位阶 **2** 头目* {#section-adversary-knight-of-the-realm-role}
 
 *一位身披重甲、骑乘强大战马的功勋卓著的士兵。*  
 **动机与战术：** 冲锋践踏、追求荣耀、展现威严  
@@ -1601,7 +1601,7 @@
 **攻击：** +4 | **长剑：** 近战 | 2d10+4 物理  
 **经历：** 古代知识+3，上流社会+2，战术+2  
 
-#### **特性** {#spectral-captain}
+#### **特性** {#section-adversary-knight-of-the-realm-features}
 
 - *骑士之姿 - 被动：* 当王国骑士骑乘坐骑时，其难度获得 +2 加值。当其受到严重伤害时，会从坐骑上摔落，并失去此加值，直至下次被聚焦。
 - *重甲护身 - 被动：* 当王国骑士受到物理伤害时，减少 3 点伤害。
@@ -1612,9 +1612,9 @@
 
 <!-- adversary: masked-thief | Masked Thief -->
 
-#### 蒙面盗贼 {#tier-leader-11}
+#### 蒙面盗贼 {#section-adversary-masked-thief}
 
-##### *位阶 **2** 潜伏* {#features-76}
+##### *位阶 **2** 潜伏* {#section-adversary-masked-thief-role}
 
 *一个狡猾的盗贼，身手敏捷，擅长戏剧性的表演。*  
 **动机与战术：** 躲避、隐藏、窃取、获利  
@@ -1622,7 +1622,7 @@
 **攻击：** +3 | **单刃剑：** 近战 | 2d8+3 物理  
 **经历：** 特技+3  
 
-#### **特性** {#spectral-guardian}
+#### **特性** {#section-adversary-masked-thief-features}
 
 - *快手 - 动作：* 对一个近战范围内的目标进行一次攻击。成功时，造成 1d8+2 物理伤害，且蒙面盗贼从目标的物品栏中偷取一件物品或消耗品。
 - *逃脱计划 - 动作：* **标记 1 压力点**，揭示蒙面盗贼在战场任意位置设置的一个陷阱。陷阱邻近范围内的所有目标必须进行一次成功的敏捷反应掷骰（13），否则会被拽离地面并倒挂起来。目标会处于 *束缚* 和 *脆弱* 状态，直到其进行一次成功的灵巧或力量掷骰（13）以挣脱，结束两种状态。
@@ -1631,9 +1631,9 @@
 
 <!-- adversary: merchant-baron | Merchant Baron -->
 
-#### 商业大亨 {#tier-standard-10}
+#### 商业大亨 {#section-adversary-merchant-baron}
 
-##### *位阶 **2** 社交* {#features-77}
+##### *位阶 **2** 社交* {#section-adversary-merchant-baron-role}
 
 *一位成功的商人，麾下拥有庞大的产业。*  
 **动机与战术：** 滥用权力、收集资源、调动杂兵  
@@ -1641,7 +1641,7 @@
 **攻击：** −2 | **刺剑：** 近战 | 1d6+2 物理  
 **经历：** 贵族+2，贸易+2  
 
-#### **特性** {#spy}
+#### **特性** {#section-adversary-merchant-baron-features}
 
 - *人皆有价 - 动作：* **花费 1 恐惧点**，向一个目标提出一个伴随风险的交易，承诺给予其渴望或所需之物。如果对玩家角色使用，其必须进行一次风度反应掷骰（17）。失败时，其必须**标记 2 压力点**或接受交易。
 - *雇佣最好的打手 - 动作：* 每场景一次，**标记 1 压力点**，召唤 1d4+1 个位阶1 敌人出现在远距离范围内，以执行商业大亨的意志。
@@ -1650,9 +1650,9 @@
 
 <!-- adversary: mortal-hunter | Mortal Hunter -->
 
-#### 命定猎手 {#tier-social-7}
+#### 命定猎手 {#section-adversary-mortal-hunter}
 
-##### *位阶 **2** 头目* {#features-78}
+##### *位阶 **2** 头目* {#section-adversary-mortal-hunter-role}
 
 *一个身穿厚重皮衣的亡灵，眼神锐利，举止随意而残忍。*  
 **动机与战术：** 吞食、狩猎、追踪  
@@ -1660,7 +1660,7 @@
 **攻击：** +5 | **撕裂血肉：** 邻近 | 2d12+1 物理  
 **经历：** 寻血+3  
 
-#### **特性** {#stonewraith}
+#### **特性** {#section-adversary-mortal-hunter-features}
 
 - *惊怖 - 被动：* 当命定猎手成功攻击时，所有远距离范围内的玩家角色失去 1 希望点，而你**获得 1 恐惧点**。
 - *死亡锁定 - 动作：* **花费 1 恐惧点**诅咒一个邻近范围内的目标，使其处于 *死亡锁定* 状态，直到场景结束。命定猎手对处于死亡锁定状态的目标进行的攻击将造成直接伤害。命定猎手一次只能维持一个 *死亡锁定*。
@@ -1671,9 +1671,9 @@
 
 <!-- adversary: royal-advisor | Royal Advisor -->
 
-#### 皇家顾问 {#tier-skulk-12}
+#### 皇家顾问 {#section-adversary-royal-advisor}
 
-##### *位阶 **2** 社交* {#features-79}
+##### *位阶 **2** 社交* {#section-adversary-royal-advisor-role}
 
 *一位能接触到当地贵族的高阶朝臣。*  
 **动机与战术：** 祈求恩宠，伪造证据，筹谋  
@@ -1681,7 +1681,7 @@
 **攻击：** −3 | **魔杖：** 远距离 | 1d4+3 物理  
 **经历：** 行政+3,朝臣+3  
 
-#### **特性** {#war-wizard}
+#### **特性** {#section-adversary-royal-advisor-features}
 
 - *毁灭性反驳 - 被动：* 对皇家顾问进行动作掷骰时，掷骰结果小于17的玩家角色必须**标记 1 压力点**。
 - *倾耳密语 - 动作：* **标记 1 压力点**，用低语影响近战范围内的一名非玩家角色。该目标在某件事上的看法会倾向于皇家顾问的偏好，除非这与目标的动机直接冲突。
@@ -1691,9 +1691,9 @@
 
 <!-- adversary: secret-keeper | Secret-Keeper -->
 
-#### 守密人 {#tier-ranged-6}
+#### 守密人 {#section-adversary-secret-keeper}
 
-##### *位阶 **2** 头目* {#features-80}
+##### *位阶 **2** 头目* {#section-adversary-secret-keeper-role}
 
 *与堕落之神有直接联系的秘密头目。*  
 **动机与战术：** 积聚强大力量，密谋，发号施令  
@@ -1701,7 +1701,7 @@
 **攻击：** +3 | **符文法杖：** 远距离 | 2d12 魔法  
 **经历：** 胁迫+2,堕落学识+2  
 
-#### **特性** {#tier-3-adversaries-levels-5-7}
+#### **特性** {#section-adversary-secret-keeper-features}
 
 - *机不可失 - 动作：* **花费 2 恐惧点**，使1d4个盟友获得聚焦。其在以这种方式被聚焦时进行的攻击造成一半伤害。
 - *吾主旨意 - 反应：* 当你使一个远距离范围内的盟友获得聚焦时，**标记 1 压力点**以**获得 1 恐惧点**。
@@ -1712,9 +1712,9 @@
 
 <!-- adversary: shark | Shark -->
 
-#### 鲨鱼 {#adult-flickerfly}
+#### 鲨鱼 {#section-adversary-shark}
 
-##### *位阶 **2** 斗士* {#tier-solo-11}
+##### *位阶 **2** 斗士* {#section-adversary-shark-role}
 
 *一种大型水生捕食者，总是在移动。*  
 **动机与战术：** 寻找鲜血，隔离猎物，攻击弱者  
@@ -1722,7 +1722,7 @@
 **攻击：** +2 | **利齿巨口：** 邻近 | 2d12+1 物理  
 **经历：** 嗅觉+3  
 
-#### **特性** {#features-81}
+#### **特性** {#section-adversary-shark-features}
 
 - *惊怖 - 被动：* 当鲨鱼成功攻击时，所有远距离范围内的玩家角色失去 1 希望点，而你**获得 1 恐惧点**。
 - *撕裂之咬 - 被动：* 当鲨鱼成功攻击时，目标必须**标记 1 护甲槽**，且不获得其效果（其仍然可以使用护甲来减少伤害）。如果其无法标记护甲槽，必须额外**标记 1 生命点**。
@@ -1732,9 +1732,9 @@
 
 <!-- adversary: siren | Siren -->
 
-#### 塞壬海妖 {#demon-of-avarice}
+#### 塞壬海妖 {#section-adversary-siren}
 
-##### *位阶 **2** 潜伏* {#tier-support-3}
+##### *位阶 **2** 潜伏* {#section-adversary-siren-role}
 
 *一名半鱼人，拥有闪光的鳞片与难以抗拒的嗓音。*  
 **动机与战术：** 吞噬，引诱猎物，用歌声制服  
@@ -1742,7 +1742,7 @@
 **攻击：** +2 | **扩张颚咬：** 近战 | 2d6+3 物理  
 **经历：** 歌唱曲目+3  
 
-#### **特性** {#demon-of-despair}
+#### **特性** {#section-adversary-siren-features}
 
 - *俘获人心 - 被动：* 如果塞壬海妖对一个因其歌声而处于 *迷醉* 状态的目标进行普通攻击，攻击造成 2d10+1 点伤害，而不是普通伤害。
 - *魅惑之歌 - 动作：* **花费 1 恐惧点**唱出一首影响近距离范围内的所有目标的歌曲。目标必须进行一次成功的本能反应掷骰，否则会处于 *迷醉* 状态，直到其**标记 2 压力点**。目标近距离范围内的任一塞壬海妖可以**标记 1 压力点**，使该反应掷骰的难度增加+1。在目标处于 *迷醉* 状态期间，目标无法行动且处于 *脆弱* 状态。
@@ -1751,9 +1751,9 @@
 
 <!-- adversary: spectral-archer | Spectral Archer -->
 
-#### 幽灵弓箭手 {#tier-skulk-13}
+#### 幽灵弓箭手 {#section-adversary-spectral-archer}
 
-##### *位阶 **2** 远程* {#features-82}
+##### *位阶 **2** 远程* {#section-adversary-spectral-archer-role}
 
 *一名手持灵弓的幽灵战士，在其守护之人仍受威胁时无法安息。*  
 **动机与战术：** 穿过实体，远离混战，重演旧日战役  
@@ -1761,7 +1761,7 @@
 **攻击：** +3 | **长弓：** 远距离 | 2d10+2 物理  
 **经历：** 古代知识+2  
 
-#### **特性** {#demon-of-hubris}
+#### **特性** {#section-adversary-spectral-archer-features}
 
 - *幽灵 - 被动：* 幽灵弓箭手对物理伤害具有抗性。**标记 1 压力点**以穿过某个实体移动至近距离范围。
 - *挑选目标 - 动作：* **花费 1 恐惧点**对一名远距离范围内的、且位于至少两名其他玩家角色邻近范围内的玩家角色进行攻击。成功时，目标受到 2d8+12 点物理伤害。
@@ -1770,9 +1770,9 @@
 
 <!-- adversary: spectral-captain | Spectral Captain -->
 
-#### 幽灵队长 {#tier-leader-12}
+#### 幽灵队长 {#section-adversary-spectral-captain}
 
-##### *位阶 **2** 头目* {#features-83}
+##### *位阶 **2** 头目* {#section-adversary-spectral-captain-role}
 
 *一位率领亡灵军队的幽灵指挥官。*  
 **动机与战术：** 穿过实体，集结部队，重温旧日战役  
@@ -1780,7 +1780,7 @@
 **攻击：** +3 | **长弓：** 远距离 | 2d10+3 物理  
 **经历：** 古代知识+3  
 
-#### **特性** {#demon-of-jealousy}
+#### **特性** {#section-adversary-spectral-captain-features}
 
 - *幽灵 - 被动：* 幽灵队长对物理伤害具有抗性。**标记 1 压力点**以穿过某个实体移动至近距离范围。
 - *无尽之战 - 动作：* **花费 2 恐惧点**将至多 1d4+1 个已被击败的幽灵盟友以未标记生命点或压力点的状态返回至其首次出现的战场位置。
@@ -1791,9 +1791,9 @@
 
 <!-- adversary: spectral-guardian | Spectral Guardian -->
 
-#### 幽灵守护者 {#tier-ranged-7}
+#### 幽灵守护者 {#section-adversary-spectral-guardian}
 
-##### *位阶 **2** 标准* {#features-84}
+##### *位阶 **2** 标准* {#section-adversary-spectral-guardian-role}
 
 *一位手持长矛和利剑，被职责束缚的幽灵战士。*  
 **动机与战术：** 穿过实体，保护宝藏，重温旧日战役  
@@ -1801,7 +1801,7 @@
 **攻击：** +1 | **长矛：** 邻近 | 2d8+1 物理  
 **经历：** 古代知识+2  
 
-#### **特性** {#demon-of-wrath}
+#### **特性** {#section-adversary-spectral-guardian-features}
 
 - *幽灵 - 被动：* 幽灵守护者对物理伤害具有抗性。**标记 1 压力点**以穿过某个实体移动至近距离范围。
 - *墓刃 - 动作：* **花费 1 恐惧点**对一个邻近范围内的目标进行一次攻击。成功时，造成 2d10+6 点物理伤害，且目标必须**标记 1 压力点**。
@@ -1810,9 +1810,9 @@
 
 <!-- adversary: spy | Spy -->
 
-#### 间谍 {#tier-bruiser-12}
+#### 间谍 {#section-adversary-spy}
 
-##### *位阶 **2** 社交* {#features-85}
+##### *位阶 **2** 社交* {#section-adversary-spy-role}
 
 *一位擅长间谍活动的能手，总能出现在最适合偷听秘密的地方。*  
 **动机与战术：** 伺机脱身、伪装外貌、窃听情报  
@@ -1820,7 +1820,7 @@
 **攻击：** −2 | **匕首：** 近战 | 2d6+3 物理  
 **经历：** 间谍活动+3  
 
-#### **特性** {#dire-bat}
+#### **特性** {#section-adversary-spy-features}
 
 - *收集秘密 - 动作：* **花费 1 恐惧点**来描述间谍如何得知场景中某位玩家角色的一个秘密。
 - *梁上君子 - 反应：* 当某位玩家角色或团队正在讨论敏感话题时，你可以**标记 1 压力点**来揭示间谍出现在场景中，正在观察他们。如果间谍成功逃离场景并向某人报告其发现，你**获得 1d4 恐惧点**。
@@ -1829,9 +1829,9 @@
 
 <!-- adversary: stonewraith | Stonewraith -->
 
-#### 石影兽 {#tier-skulk-14}
+#### 石影兽 {#section-adversary-stonewraith}
 
-##### *位阶 **2** 潜伏* {#features-86}
+##### *位阶 **2** 潜伏* {#section-adversary-stonewraith-role}
 
 *潜行的猎手，如同伏击的美洲豹，拥有板岩灰的石质身体。*  
 **动机与战术：** 保卫领地，隔离猎物，跟踪  
@@ -1839,7 +1839,7 @@
 **攻击：** +3 | **啃咬与利爪：** 近战 | 2d8+6 物理  
 **经历：** 岩石感知+3  
 
-#### **特性** {#dryad}
+#### **特性** {#section-adversary-stonewraith-features}
 
 - *石行者 - 被动：* 石影兽可以如同穿过空气般轻松地穿过石头和泥土。当身处石头或泥土中时，其处于 *隐藏* 状态并免疫所有伤害。
 - *岩石伏击 - 动作：* 在处于 *隐藏* 状态时，**标记 1 压力点**以跃至一个邻近范围内的目标的近战范围内。目标必须进行一次成功的敏捷或本能反应掷骰（15），否则将受到 2d8 点物理伤害并暂时处于 *束缚* 状态。
@@ -1850,29 +1850,29 @@
 
 <!-- adversary: vault-guardian-gaoler | Vault Guardian Gaoler -->
 
-#### 宝库守卫典狱长 {#tier-leader-13}
+#### 宝库守卫典狱长 {#section-adversary-vault-guardian-gaoler}
 
-##### *位阶 **2** 辅助* {#features-87}
+##### *位阶 **2** 辅助* {#section-adversary-vault-guardian-gaoler-role}
 
 *一个方正、布满灰尘的构装体，躯干上有着厚重的金属摆门。*  
 **动机与战术：** 搬走、困住、保护、猛击  
 **难度：** 16 | **阈值：** 19/33 | **生命点：** 5 | **压力点：** 3  
 **攻击：** +2 | **躯体猛击：** 邻近 | 3d6+2 物理  
 
-#### **特性** {#elemental-spark}
+#### **特性** {#section-adversary-vault-guardian-gaoler-features}
 
 - *格挡之盾 - 被动：* 宝库守卫典狱长近战范围内的生物对其进行攻击掷骰时具有劣势。被困在宝库守卫典狱长体内的生物免疫此特性。
 - *封锁囚禁 - 动作：* **标记 1 压力点**对邻近范围内的目标进行一次攻击。成功时，目标会被囚禁在狱卒体内处于 *束缚* 状态，直到通过一次成功的力量掷骰（18）成功逃脱。处于 *束缚* 状态的目标只能攻击宝库守卫典狱长。
 
 <!-- /adversary -->
 
-## 位阶 **3** 敌人（等级 **5–7**） {#tier-minion-12}
+## 位阶 **3** 敌人（等级 **5–7**） {#section-tier-3}
 
 <!-- adversary: dire-wight | Dire Wight -->
 
-#### 恐尸 {#features-88}
+#### 恐尸 {#section-adversary-dire-wight}
 
-##### *位阶 **3** 斗士* {#greater-earth-elemental}
+##### *位阶 **3** 斗士* {#section-adversary-dire-wight-role}
 
 *一头领地意识极强的不死食人魔。*  
 **动机与战术：** 杀戮，服从，保护，恐吓  
@@ -1880,7 +1880,7 @@
 **攻击：** +2 | **尖牙利爪：** 邻近 | 3d12+5 物理  
 **经历：** 投掷+3  
 
-#### **特性** {#tier-bruiser-13}
+#### **特性** {#section-adversary-dire-wight-features}
 
 - *悚然一挥 - 动作：* **花费 1 恐惧点**，迫使邻近范围内的所有目标**标记 1 压力点**，然后对目标进行攻击。成功命中的目标受到 3d10+1 点物理伤害。
 - *皮开肉绽 - 反应：* 当尸鬼受到损伤或更严重的伤害时，你可以**标记 1 压力点**，迫使邻近范围内的所有目标进行一次风度反应掷骰。失败的目标失去 1 希望点并被击退至近距离范围。
@@ -1889,16 +1889,16 @@
 
 <!-- adversary: covetous-miners | Covetous Miners -->
 
-#### 贪婪矿工 {#features-89}
+#### 贪婪矿工 {#section-adversary-covetous-miners}
 
-##### *位阶 **3** 集群 （5/生命点）* {#greater-water-elemental}
+##### *位阶 **3** 集群 （5/生命点）* {#section-adversary-covetous-miners-role}
 
 *一群被永不满足的贪婪所困的幽魂矿工。*  
 **动机与战术：** 获得自由，获取财富，偿还债务  
 **难度：** 16 | **阈值：** 15/25 | **生命点：** 6 | **压力点：** 3  
 **攻击：** +1 | **灵魂鹤嘴镐：** 近战 | 3d12+10 魔法  
 
-#### **特性** {#tier-support-4}
+#### **特性** {#section-adversary-covetous-miners-features}
 
 - *集群 - 被动：* 当矿工标记了其生命点的一半或更多时，其普通攻击改为造成 3d6+5 魔法伤害。
 - *见钱眼红 - 动作：* **标记 1 压力点**，对邻近范围内的所有携带金币的目标进行一次具有优势的普通攻击。
@@ -1907,16 +1907,16 @@
 
 <!-- adversary: idolizing-imp | Idolizing Imp -->
 
-#### 崇拜魔仆 {#huge-green-ooze}
+#### 崇拜魔仆 {#section-adversary-idolizing-imp}
 
-##### *位阶 **3** 杂兵* {#tier-skulk-15}
+##### *位阶 **3** 杂兵* {#section-adversary-idolizing-imp-role}
 
 *一位卑躬屈膝向其主子致敬的恶魔。*  
 **动机与战术：** 防御、欺骗、崇拜  
 **难度：** 17 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** +0 | **利爪：** 近战 | 7点 物理  
 
-#### **特性** {#features-90}
+#### **特性** {#section-adversary-idolizing-imp-features}
 
 - *杂兵 - 被动：* 魔仆受到任何伤害时即被击败。玩家角色攻击对魔仆每造成 8 点伤害，则额外击败攻击成功范围内的一名仆从。
 - *集体攻击 - 动作：* **花费 1 恐惧点**选择一个目标，并聚焦所有在其近距离范围内的崇拜魔仆。这些杂兵移动至目标的近战范围，并进行一次共享的攻击掷骰。成功时，每只魔仆造成 7 点物理伤害。将这些伤害叠加计算。
@@ -1925,9 +1925,9 @@
 
 <!-- adversary: adult-flickerfly | Adult Flickerfly -->
 
-#### 成年闪光蜓 {#hydra}
+#### 成年闪光蜓 {#section-adversary-adult-flickerfly}
 
-##### *位阶 **3** 独狼* {#features-91}
+##### *位阶 **3** 独狼* {#section-adversary-adult-flickerfly-role}
 
 *一只体型如大型房屋般大小的有翼昆虫，拥有彩虹色的鳞片和快到无法追踪的翅膀。*  
 **动机与战术：** 收集闪亮物品、狩猎、筑巢、俯冲袭击  
@@ -1935,7 +1935,7 @@
 **攻击：** +3 | **翼斩：** 邻近 | 3d20 物理  
 **经历：** 无  
 
-#### **特性** {#monarch}
+#### **特性** {#section-adversary-adult-flickerfly-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，此敌人可以至多被聚焦 4 次。像往常一样花费恐惧点来聚焦。
 - *从不失手 - 被动：* 当成年闪光蜓攻击时，目标在对抗此次攻击时闪避值减半。
@@ -1949,9 +1949,9 @@
 
 <!-- adversary: demon-of-avarice | Demon Of Avarice -->
 
-#### 贪婪恶魔 {#tier-social-8}
+#### 贪婪恶魔 {#section-adversary-demon-of-avarice}
 
-##### *位阶 **3** 辅助* {#features-92}
+##### *位阶 **3** 辅助* {#section-adversary-demon-of-avarice-role}
 
 *身着华丽斗篷的怪兽，头顶环形犄角，犄角上镶嵌着珍宝。*  
 **动机与战术：** 吞噬、助长贪婪、挑拨离间  
@@ -1959,7 +1959,7 @@
 **攻击：** +2 | **饥饿巨口：** 近战 | 3d6+5 物理  
 **经历：** 操弄+3  
 
-#### **特性** {#stag-knight}
+#### **特性** {#section-adversary-demon-of-avarice-features}
 
 - *金钱开道 - 被动：* 对恶魔的攻击会获得劣势，除非除非攻击者花费 1 把金币。该恶魔初始拥有与玩家角色数量相等把数的金币。当一个目标因恶魔的普通攻击而损失生命点时，他可以花费 1 把金币来取代标记生命点（每点生命点 1 把）。此特性中由玩家角色花费的每把金币，都会添加给恶魔。
 - *财额盈满 - 被动：* 为恶魔的攻击掷骰添加等同于其拥有金币把数的加值。
@@ -1969,9 +1969,9 @@
 
 <!-- adversary: demon-of-despair | Demon Of Despair -->
 
-#### 绝望恶魔 {#tier-standard-11}
+#### 绝望恶魔 {#section-adversary-demon-of-despair}
 
-##### *位阶 **3** 潜伏* {#features-93}
+##### *位阶 **3** 潜伏* {#section-adversary-demon-of-despair-role}
 
 *一个身披斗篷的恶魔生物，拥有修长的四肢，不断渗出阴影。*  
 **动机与战术：** 让恐惧蔓延、隐藏在阴影中、动摇决心  
@@ -1979,7 +1979,7 @@
 **攻击：** +3 | **瘴气之箭：** 远距离 | 3d6+1 魔法  
 **经历：** 操弄+3  
 
-#### **特性** {#oak-treant}
+#### **特性** {#section-adversary-demon-of-despair-features}
 
 - *绝望深渊 - 被动：* 恶魔对拥有 0 希望点的玩家角色造成双倍伤害。
 - *挣扎无用 - 动作：* **花费 1 恐惧点**来压制远距离范围内所有玩家角色的灵魂。所有受影响的目标将用 d8 替换其希望骰，直到掷出希望成功或下一次休息。
@@ -1990,9 +1990,9 @@
 
 <!-- adversary: demon-of-hubris | Demon Of Hubris -->
 
-#### 傲慢恶魔 {#tier-bruiser-14}
+#### 傲慢恶魔 {#section-adversary-demon-of-hubris}
 
-##### *位阶 **3** 头目* {#features-94}
+##### *位阶 **3** 头目* {#section-adversary-demon-of-hubris-role}
 
 *一个完美无瑕却残忍无比的恶魔，手持闪闪发光的长矛，身着优雅的长袍。*  
 **动机与战术：** 居高临下、宣布提前胜利、证明优越性  
@@ -2000,7 +2000,7 @@
 **攻击：** +4 | **完美长矛：** 邻近 | 3d10 物理  
 **经历：** 操弄+2  
 
-#### **特性** {#treant-sapling}
+#### **特性** {#section-adversary-demon-of-hubris-features}
 
 - *惊怖 - 被动：* 当恶魔成功攻击时，所有远距离范围内的玩家角色失去 1 希望点，而你**获得 1 恐惧点**。
 - *孤注一掷 - 被动：* 当远距离范围内一名玩家角色掷骰失败，其可以选择重掷其恐惧骰，并采用新的结果。如果仍然失败，则必须**标记 2 压力点**且恶魔**清除 1 压力点**。
@@ -2012,9 +2012,9 @@
 
 <!-- adversary: demon-of-jealousy | Demon Of Jealousy -->
 
-#### 嫉妒恶魔 {#tier-minion-13}
+#### 嫉妒恶魔 {#section-adversary-demon-of-jealousy}
 
-##### *位阶 **3** 远程* {#features-95}
+##### *位阶 **3** 远程* {#section-adversary-demon-of-jealousy-role}
 
 *一个反复无常的生物，拥有细长的四肢和永不满足的欲望。*  
 **动机与战术：** 介入他人成功、侵占他人财产、心怀怨恨  
@@ -2022,7 +2022,7 @@
 **攻击：** +4 | **心灵突击：** 远距离 | 3d8+3 魔法  
 **经历：** 操弄+3  
 
-#### **特性** {#head-vampire}
+#### **特性** {#section-adversary-demon-of-jealousy-features}
 
 - *无庇心智 - 被动：* 恶魔的普通攻击造成直接伤害。
 - *我的回合 - 反应：* 当恶魔因一次攻击标记生命点时，花费等同于恶魔标记的生命点的恐惧点，使攻击者也标记相同数值的生命点。
@@ -2033,9 +2033,9 @@
 
 <!-- adversary: demon-of-wrath | Demon Of Wrath -->
 
-#### 愤怒恶魔 {#tier-leader-14}
+#### 愤怒恶魔 {#section-adversary-demon-of-wrath}
 
-##### *位阶 **3** 斗士* {#features-96}
+##### *位阶 **3** 斗士* {#section-adversary-demon-of-wrath-role}
 
 *一个体型庞大的恶魔，拥有巨石般大小的拳头，被无尽的愤怒驱使。*  
 **动机与战术：** 助长怒火、震慑对手、大肆破坏  
@@ -2043,7 +2043,7 @@
 **攻击：** +3 | **拳头：** 邻近 | 3d8+1 魔法  
 **经历：** 威吓+2  
 
-#### **特性** {#vampire}
+#### **特性** {#section-adversary-demon-of-wrath-features}
 
 - *愤怒不熄 - 被动：* 恶魔的攻击造成直接伤害。
 - *战斗欲望 - 动作：* **花费 1 恐惧点**以使远距离范围内所有玩家角色热血沸腾。受影响角色将使用一枚 d20 作为其恐惧骰，直到场景结束。
@@ -2054,9 +2054,9 @@
 
 <!-- adversary: dire-bat | Dire Bat -->
 
-#### 巨型蝙蝠 {#tier-standard-12}
+#### 巨型蝙蝠 {#section-adversary-dire-bat}
 
-##### *位阶 **3** 潜伏* {#features-97}
+##### *位阶 **3** 潜伏* {#section-adversary-dire-bat-role}
 
 *一种翼展宽大的宠物，对其吸血鬼主人无限忠诚。*  
 **动机与战术：** 俯冲轰炸、隐藏、保护首领  
@@ -2064,7 +2064,7 @@
 **攻击：** +2 | **爪牙：** 近战 | 2d6+7 物理  
 **经历：** 嗜血+3  
 
-#### **特性** {#vault-guardian-gaoler}
+#### **特性** {#section-adversary-dire-bat-features}
 
 - *飞行 - 被动：* 在飞行时，巨型蝙蝠的难度获得+3的加值。
 - *尖啸 - 动作：* **标记 1 压力点**以向巨型蝙蝠前方远距离范围内的所有目标发出高频尖啸。这些目标必须**标记 1d4 压力点**。
@@ -2074,9 +2074,9 @@
 
 <!-- adversary: dryad | Dryad -->
 
-#### 树精 {#tier-support-5}
+#### 树精 {#section-adversary-dryad}
 
-##### *位阶 **3** 头目* {#vault-guardian-sentinel}
+##### *位阶 **3** 头目* {#section-adversary-dryad-role}
 
 *一个以人形树木形态存在的自然精灵。*  
 **动机与战术：** 指挥、栽培、驱逐、保护森林  
@@ -2084,7 +2084,7 @@
 **攻击：** +4 | **枯木短弓：** 远距离 | 3d10+1 物理  
 **经历：** 森林知识+4  
 
-#### **特性** {#tier-bruiser-15}
+#### **特性** {#section-adversary-dryad-features}
 
 - *荆棘丛 - 动作：* **标记 1 压力点**以指定远距离范围内的一个点。在目标点近距离范围内创造一片荆棘丛。该区域内的所有目标在其行动时会受到 2d6+2 点物理伤害。目标必须进行一次灵巧掷骰并成功，或者通过攻击对树精造成超过20点伤害才能离开该区域。
 - *生长树苗 - 动作：* **花费 1 恐惧点**以生长三个树人幼苗杂兵，它们出现在近距离范围内并立即获得聚焦。
@@ -2094,16 +2094,16 @@
 
 <!-- adversary: elemental-spark | Elemental Spark -->
 
-#### 元素火花 {#features-98}
+#### 元素火花 {#section-adversary-elemental-spark}
 
-##### *位阶 **3** 杂兵* {#vault-guardian-turret}
+##### *位阶 **3** 杂兵* {#section-adversary-elemental-spark-role}
 
 *一团炽热的元素火焰微粒。*  
 **动机与战术：** 冲击、吞噬、聚集成团  
 **难度：** 15 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** +0 | **火焰爆发：** 近距离 | 5 魔法  
 
-#### **特性** {#tier-ranged-8}
+#### **特性** {#section-adversary-elemental-spark-features}
 
 - *杂兵 - 被动：* 当元素火花受到任何伤害时，其即被击败。玩家角色每对元素火花造成 9 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有元素火花。将这些元素火花移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个元素火花造成 5 点物理伤害。将这些伤害合并计算。
@@ -2112,16 +2112,16 @@
 
 <!-- adversary: greater-earth-elemental | Greater Earth Elemental -->
 
-#### 高阶土元素 {#features-99}
+#### 高阶土元素 {#section-adversary-greater-earth-elemental}
 
-##### *位阶 **3** 斗士* {#young-ice-dragon}
+##### *位阶 **3** 斗士* {#section-adversary-greater-earth-elemental-role}
 
 *由巨石和尘土组成的活体山崩，如同房屋般巨大。*  
 **动机与战术：** 雪崩、击倒、重击  
 **难度：** 17 | **阈值：** 22/40 | **生命点：** 10 | **压力点：** 4  
 **攻击：** +7 | **巨石之拳：** 邻近 | 3d10+1 物理  
 
-#### **特性** {#tier-solo-12}
+#### **特性** {#section-adversary-greater-earth-elemental-features}
 
 - *迟缓 - 被动：* 当你聚焦高阶土元素，且其数据块上没有指示物时，它无法立即行动。在它的数据块上放置一个标记，并描述它正在准备做什么。当你聚焦高阶土元素，且其数据块上有指示物时，移除指示物，它才可以行动。
 - *粉碎打击 - 被动：* 当高阶土元素成功攻击时，目标必须**标记 1 护甲槽**，但不能获得其益处（其仍然可以使用护甲来减少伤害）。如果目标无法标记护甲槽，则必须额外**标记 1 生命点**。
@@ -2133,16 +2133,16 @@
 
 <!-- adversary: greater-water-elemental | Greater Water Elemental -->
 
-#### 高阶水元素 {#features-100}
+#### 高阶水元素 {#section-adversary-greater-water-elemental}
 
-##### *位阶 **3** 辅助* {#tier-4-adversaries-levels-8-10}
+##### *位阶 **3** 辅助* {#section-adversary-greater-water-elemental-role}
 
 *一道巨大的活体波浪，向敌人汹涌扑去。*  
 **动机与战术：** 洪水、驱散、淹没  
 **难度：** 17 | **阈值：** 17/34 | **生命点：** 5 | **压力点：** 5  
 **攻击：** +3 | **巨浪：** 邻近 | 3d4+1 魔法  
 
-#### **特性** {#arch-necromancer}
+#### **特性** {#section-adversary-greater-water-elemental-features}
 
 - *水流喷射 - 动作：* **标记 1 压力点**攻击邻近范围内的一个目标。成功时，造成 2d4+7 点物理伤害，且目标的下一次动作具有劣势。失败时，目标必须**标记 1 压力点**。
 - *溺毙拥抱 - 动作：* **花费 1 恐惧点**对邻近范围内的所有目标进行攻击。元素生物成功攻击的目标会因为溺水而处于 *束缚* 和 *脆弱* 状态。目标可以通过成功的力量或本能掷骰挣脱，以结束这两种状态。
@@ -2152,9 +2152,9 @@
 
 <!-- adversary: huge-green-ooze | Huge Green Ooze -->
 
-#### 巨型绿色软泥怪 {#tier-leader-15}
+#### 巨型绿色软泥怪 {#section-adversary-huge-green-ooze}
 
-##### *位阶 **3** 潜伏* {#features-101}
+##### *位阶 **3** 潜伏* {#section-adversary-huge-green-ooze-role}
 
 *一个比大多数人类都高的半透明绿色酸液堆。*  
 **动机与战术：** 伪装、悄悄靠近、吞没、繁殖  
@@ -2162,7 +2162,7 @@
 **攻击：** +3 | **软泥触肢：** 近战 | 3d8+1 魔法  
 **经历：** 融入+3  
 
-#### **特性** {#fallen-shock-troop}
+#### **特性** {#section-adversary-huge-green-ooze-features}
 
 - *迟缓 - 被动：* 当你聚焦巨型绿色软泥怪，且其数据块上没有指示物时，它无法立即行动。在它的数据块上放置一个标记，并描述它正在准备做什么。当你聚焦巨型绿色软泥怪，且其数据块上有指示物时，移除指示物，它才可以行动。
 - *酸性形态 - 被动：* 当巨型绿色软泥怪攻击成功时，目标必须**标记 1 护甲槽**，且不获得其效果（其仍然可以使用护甲来减少伤害）。如果目标无法标记护甲槽，则必须额外**标记 1 生命点**。
@@ -2173,16 +2173,16 @@
 
 <!-- adversary: hydra | Hydra -->
 
-#### 多头蛇 {#tier-minion-14}
+#### 多头蛇 {#section-adversary-hydra}
 
-##### *位阶 **3** 独狼* {#features-102}
+##### *位阶 **3** 独狼* {#section-adversary-hydra-role}
 
 *一种四足有鳞的野兽，长着多个长颈头颅，每个头都长满了骇人的獠牙。*  
 **动机与战术：** 吞食、再生、恐吓  
 **难度：** 18 | **阈值：** 19/35 | **生命点：** 10 | **压力点：** 5  
 **攻击：** +3 | **撕咬：** 近距离 | 2d12+2 物理  
 
-#### **特性** {#fallen-sorcerer}
+#### **特性** {#section-adversary-hydra-features}
 
 - *多头威胁 - 被动：* 多头蛇开始时有三个头，最多可以拥有五个头。当多头蛇受到重度或更重的伤害时，它会失去一个头。
 - *无情 - 被动：* 在每个游戏主持人轮次中，多头蛇可以至多被聚焦 X 次，其中 X 是多头蛇的头数。像往常一样花费恐惧点来聚焦。
@@ -2194,9 +2194,9 @@
 
 <!-- adversary: monarch | Monarch -->
 
-#### 君主 {#tier-support-6}
+#### 君主 {#section-adversary-monarch}
 
-##### *位阶 **3** 社交* {#features-103}
+##### *位阶 **3** 社交* {#section-adversary-monarch-role}
 
 *统治一个国家的至高君主，身披传统赋予的特权，在其领土内拥有无与伦比的力量。*  
 **动机与战术：** 控制封臣、消灭对手、铸造传奇  
@@ -2204,7 +2204,7 @@
 **攻击：** +0 | **战锤：** 近战 | 3d6+3 物理  
 **经历：** 历史+3，贵族身份+3  
 
-#### **特性** {#fallen-warlord-realm-breaker}
+#### **特性** {#section-adversary-monarch-features}
 
 - *处死他们！ - 动作：* 为每位玩家角色**花费 1 恐惧点**，使队伍因真实或想象的罪行而被判有罪。玩家角色在风度掷骰中成功可以要求进行比武审判或其他特殊形式的审判。
 - *王冠卫队 - 动作：* 每场景一次，**标记 1 压力点**召唤六个 位阶3 杂兵，他们出现在近距离范围内执行君主的旨意。
@@ -2214,9 +2214,9 @@
 
 <!-- adversary: stag-knight | Stag Knight -->
 
-#### 雄鹿骑士 {#tier-solo-13}
+#### 雄鹿骑士 {#section-adversary-stag-knight}
 
-##### *位阶 **3** 标准* {#features-104}
+##### *位阶 **3** 标准* {#section-adversary-stag-knight-role}
 
 *一位身披危险荆棘制成的盔甲，长着巨大、雄伟鹿角的骑士。*  
 **动机与战术：** 孤立、机动、保卫森林、清除不受欢迎者  
@@ -2224,7 +2224,7 @@
 **攻击：** +3 | **荆棘剑：** 近战 | 3d8+3 物理  
 **经历：** 森林知识+3  
 
-#### **特性** {#fallen-warlord-undefeated-champion}
+#### **特性** {#section-adversary-stag-knight-features}
 
 - *自上方而来 - 被动：* 当骑士自目标上方发起的普通攻击成功时，造成的物理伤害为 3d12+3，而非普通伤害。
 - *森林之刃 - 动作：* **花费 1 恐惧点**，对邻近范围内的所有目标进行攻击。骑士成功攻击的目标将受到等同于 3d4 + 目标的重度伤害阈值的物理伤害。
@@ -2234,9 +2234,9 @@
 
 <!-- adversary: oak-treant | Oak Treant -->
 
-#### 橡木树人 {#tier-solo-14}
+#### 橡木树人 {#section-adversary-oak-treant}
 
-##### *位阶 **3** 斗士* {#features-105}
+##### *位阶 **3** 斗士* {#section-adversary-oak-treant-role}
 
 *一棵坚固的活化古树。*  
 **动机与战术：** 隐于视野、保护森林、扎根、挥舞树枝  
@@ -2244,7 +2244,7 @@
 **攻击：** +2 | **树枝：** 邻近 | 3d8+2 物理  
 **经历：** 森林知识+3  
 
-#### **特性** {#hallowed-archer}
+#### **特性** {#section-adversary-oak-treant-features}
 
 - *只是一棵树 - 被动：* 在橡木树人发动战斗中的首次攻击前，或处于 *隐藏* 状态后，它与普通树木毫无区别。该伪装效果将持续至其下次行动，或当某位玩家角色成功通过本能掷骰时识破其真身。
 - *种子弹幕 - 动作：* **标记 1 压力点**，对近距离范围内的最多三个目标进行攻击，用巨大的橡子猛击他们。橡木树人成功攻击的目标将受到 2d10+5 点物理伤害。
@@ -2254,16 +2254,16 @@
 
 <!-- adversary: treant-sapling | Treant Sapling -->
 
-#### 树人幼苗 {#tier-ranged-9}
+#### 树人幼苗 {#section-adversary-treant-sapling}
 
-##### *位阶 **3** 杂兵* {#features-106}
+##### *位阶 **3** 杂兵* {#section-adversary-treant-sapling-role}
 
 *一棵小型、有感知能力的树木幼苗。*  
 **动机与战术：** 融入环境、保护森林、猛击、包围  
 **难度：** 14 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** +0 | **树枝：** 近战 | 8 物理  
 
-#### **特性** {#hallowed-soldier}
+#### **特性** {#section-adversary-treant-sapling-features}
 
 - *杂兵 - 被动：* 当树人幼苗受到任何伤害时，其即被击败。玩家角色每对树人幼苗造成 6 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**，选择一个目标，并聚焦目标近距离范围内的所有树人幼苗。将这些树人幼苗移动到目标的近战范围内，并进行一次共享攻击掷骰。成功时，每个树人幼苗造成 8 点物理伤害。将这些伤害合并计算。
@@ -2272,9 +2272,9 @@
 
 <!-- adversary: head-vampire | Head Vampire -->
 
-#### 吸血鬼首领 {#tier-minion-15}
+#### 吸血鬼首领 {#section-adversary-head-vampire}
 
-##### *位阶 **3** 头目* {#features-107}
+##### *位阶 **3** 头目* {#section-adversary-head-vampire-role}
 
 *一位身着贵族华服的迷人亡灵。*  
 **动机与战术：** 创造奴仆、魅惑、指挥、飞行、威吓  
@@ -2282,7 +2282,7 @@
 **攻击：** +5 | **细剑：** 近战 | 2d20+4 物理  
 **经历：** 贵族+3  
 
-#### **特性** {#high-seraph}
+#### **特性** {#section-adversary-head-vampire-features}
 
 - *惊怖 - 被动：* 当吸血鬼成功攻击时，所有远距离范围内的玩家角色失去 1 希望点，而你**获得 1 恐惧点**。
 - *注视吾眼 - 被动：* 进入吸血鬼近战范围的生物必须进行一次本能反应掷骰。失败时，你**获得 1d4 恐惧点**。
@@ -2294,9 +2294,9 @@
 
 <!-- adversary: vampire | Vampire -->
 
-#### 吸血鬼 {#tier-leader-16}
+#### 吸血鬼 {#section-adversary-vampire}
 
-##### *位阶 **3** 标准* {#kraken}
+##### *位阶 **3** 标准* {#section-adversary-vampire-role}
 
 *一个拥有智力的亡灵，嘴唇上沾满鲜血，嘴角带着掠食者的微笑。*  
 **动机与战术：** 咬噬、魅惑、欺瞒、进食、威吓  
@@ -2304,7 +2304,7 @@
 **攻击：** +3 | **细剑：** 近战 | 3d8 物理  
 **经历：** 野性猎手+3  
 
-#### **特性** {#tier-solo-15}
+#### **特性** {#section-adversary-vampire-features}
 
 - *吸血咬噬 - 动作：* 对近战范围内的一个目标进行一次攻击。成功时，造成 5d4 近战伤害。因此次攻击标记生命点的目标，失去 1 希望点且必须**标记 1 压力点**。吸血鬼随后**恢复 1 生命点**值。
 - *迷雾形态 - 反应：* 当吸血鬼受到物理伤害时，你可以**花费 1 恐惧点**只承受一半伤害。
@@ -2313,16 +2313,16 @@
 
 <!-- adversary: vault-guardian-sentinel | Vault Guardian Sentinel -->
 
-#### 宝库守卫哨兵 {#features-108}
+#### 宝库守卫哨兵 {#section-adversary-vault-guardian-sentinel}
 
-##### *位阶 **3** 斗士* {#oracle-of-doom}
+##### *位阶 **3** 斗士* {#section-adversary-vault-guardian-sentinel-role}
 
 *一个布满灰尘的金色构装体，有着方正的肢体和一只巨大的钉头锤作为手。*  
 **动机与战术：** 不惜一切代价破坏、清除、保护  
 **难度：** 17 | **阈值：** 21/40 | **生命点：** 6 | **压力点：** 3  
 **攻击：** +3 | **充能钉头锤：** 邻近 | 2d12+1 物理  
 
-#### **特性** {#tier-solo-16}
+#### **特性** {#section-adversary-vault-guardian-sentinel-features}
 
 - *动能猛击 - 被动：* 受到宝库守卫哨兵普通攻击伤害的目标会被击退至邻近范围。
 - *围困压制 - 动作：* **标记 1 压力点**选择一个邻近范围内的目标进行围困。当该目标处于宝库守卫哨兵的邻近范围内时，其攻击掷骰具有劣势。宝库守卫哨兵一次只能围困一个目标。
@@ -2333,16 +2333,16 @@
 
 <!-- adversary: vault-guardian-turret | Vault Guardian Turret -->
 
-#### 宝库守卫炮台 {#features-109}
+#### 宝库守卫炮台 {#section-adversary-vault-guardian-turret}
 
-##### *位阶 **3** 远程* {#outer-realms-abomination}
+##### *位阶 **3** 远程* {#section-adversary-vault-guardian-turret-role}
 
 *一座巨大的活动炮台，拥有加固装甲和十二条活塞驱动的机械腿。*  
 **动机与战术：** 集中火力、锁定、标记、保护  
 **难度：** 16 | **阈值：** 20/32 | **生命点：** 5 | **压力点：** 4  
 **攻击：** +3 | **魔导炮：** 远距离 | 3d10+3 魔法  
 
-#### **特性** {#tier-bruiser-16}
+#### **特性** {#section-adversary-vault-guardian-turret-features}
 
 - *慢速射击 - 被动：* 当你聚焦宝库守卫炮台且其数据块上没有指示物时，其无法进行普通攻击。在其数据块放置一个指示物，并描述其正在准备做什么。当你聚焦宝库守卫炮台且其数据块上有指示物时，移除指示物，其可以进行攻击。
 - *标记目标 - 动作：* **花费 1 恐惧点**以 *标记*远距离范围内的一个目标，直到宝库守卫炮台被摧毁或被标记的目标处于 *隐藏* 状态。当目标处于 *标记* 状态时，其闪避值减半。
@@ -2353,9 +2353,9 @@
 
 <!-- adversary: young-ice-dragon | Young Ice Dragon -->
 
-#### 青年冰龙 {#features-110}
+#### 青年冰龙 {#section-adversary-young-ice-dragon}
 
-##### *位阶 **3** 独狼* {#outer-realms-corrupter}
+##### *位阶 **3** 独狼* {#section-adversary-young-ice-dragon-role}
 
 *一条冰川蓝色的巨龙，拥有四条强健的肢体和带霜的翅膀。*  
 **动机与战术：** 雪崩、保卫巢穴、飞行、冰冻、护卫所有物、撕咬  
@@ -2363,7 +2363,7 @@
 **攻击：** +7 | **啃咬与利爪：** 近距离 | 4d10 物理  
 **经历：** 护卫所有物+3  
 
-#### **特性** {#tier-support-7}
+#### **特性** {#section-adversary-young-ice-dragon-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，青年冰龙可以至多被聚焦 3 次。像往常一样花费恐惧点来聚焦。
 - *撕裂与碾碎 - 被动：* 如果受到青年冰龙伤害的目标没有标记护甲槽来减少伤害，其必须**标记 1 压力点**。
@@ -2375,13 +2375,13 @@
 
 <!-- /adversary -->
 
-## 位阶 **4** 敌人（等级 **8–10**） {#features-111}
+## 位阶 **4** 敌人（等级 **8–10**） {#section-tier-4}
 
 <!-- adversary: bladedance-jester | Bladedance Jester -->
 
-#### 刃舞小丑 {#outer-realms-thrall}
+#### 刃舞小丑 {#section-adversary-bladedance-jester}
 
-##### *位阶 **4** 标准* {#tier-minion-16}
+##### *位阶 **4** 标准* {#section-adversary-bladedance-jester-role}
 
 *一名身姿轻盈、与异界之舞共鸣的马戏表演者。*  
 **动机与战术：** 领舞，娱乐，诱离  
@@ -2389,7 +2389,7 @@
 **攻击：** +3 | **链刃环：** 邻近 | 4d8+5 物理  
 **经历：** 喜剧+2，舞蹈+3  
 
-#### **特性** {#features-112}
+#### **特性** {#section-adversary-bladedance-jester-features}
 
 - *与我共舞 - 动作：* 对邻近范围内的一个目标进行一次攻击。成功时，目标必须通过一次敏捷反应掷骰，否则将被拉到刃舞小丑的近战范围内，并且当其下次移动时，你**获得 1 恐惧点**。
 - *无声断奏 - 反应：* 当刃舞小丑受到伤害时，你可以**标记 1 压力点**来减少 3d6 点伤害。然后刃舞小丑可以移动到近距离范围内的任意一点。
@@ -2398,9 +2398,9 @@
 
 <!-- adversary: arch-necromancer | Arch-Necromancer -->
 
-#### 至高死灵师 {#volcanic-dragon-obsidian-predator}
+#### 至高死灵师 {#section-adversary-arch-necromancer}
 
-##### *位阶 **4** 头目* {#features-113}
+##### *位阶 **4** 头目* {#section-adversary-arch-necromancer-role}
 
 *身披破烂法袍的衰朽魔法师*  
 **动机与战术：** 腐蚀，枯化，及时撤退，改日再战  
@@ -2408,7 +2408,7 @@
 **攻击：** +6 | **黯能爆裂：** 远距离 | 4d12+8 魔法  
 **经历：** 禁忌学识+3，千年智识+3  
 
-#### **特性** {#volcanic-dragon-molten-scourge}
+#### **特性** {#section-adversary-arch-necromancer-features}
 
 - *死骸之舞 - 动作：* **标记 1 压力点**以聚焦**1d4**名盟友。以此法被聚焦的盟友的攻击仅会造成一半伤害，你也可以**花费 1 恐惧点**改为造成全部伤害。
 - *衰朽光束 - 动作：* **标记 2 压力点**以令远距离范围内的所有目标进行一次力量反应掷骰。失败者受**2d20+12**点魔法伤害且你**获得 1 恐惧点**。成功则仅受半额伤害。*标记 2或更多 生命点*的生物还必须再 **标记 2 压力点**，且处于 *脆弱* 状态，直至骰出希望结果。
@@ -2420,16 +2420,16 @@
 
 <!-- adversary: fallen-shock-troop | Fallen Shock Troop -->
 
-#### 堕天突击兵 {#tier-solo-17}
+#### 堕天突击兵 {#section-adversary-fallen-shock-troop}
 
-##### *位阶 **4** 杂兵* {#volcanic-dragon-ashen-tyrant}
+##### *位阶 **4** 杂兵* {#section-adversary-fallen-shock-troop-role}
 
 *身缠诅咒的亡魂，被那陨天之神的意志所缚*  
 **动机与战术：** 粉碎，支配，得到救赎，惩戒  
 **难度：** 18 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** +2 | **受咒之斧：** 邻近 | 12 物理  
 
-#### **特性** {#tier-solo-18}
+#### **特性** {#section-adversary-fallen-shock-troop-features}
 
 - *杂兵 - 被动：* 当堕天突击兵受到任何伤害时，其即被击败。玩家角色每对堕天突击兵造成 12 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *毁灭灵光 - 被动：* 当一位玩家角色因堕天突击兵的一次攻击而标记生命点时，将失去 1 希望点。
@@ -2439,9 +2439,9 @@
 
 <!-- adversary: fallen-sorcerer | Fallen Sorcerer -->
 
-#### 堕天术士 {#features-114}
+#### 堕天术士 {#section-adversary-fallen-sorcerer}
 
-##### *位阶 **4** 辅助* {#perfected-zombie}
+##### *位阶 **4** 辅助* {#section-adversary-fallen-sorcerer-role}
 
 *被生前所缔结的契约束缚的强大魔法师*  
 **动机与战术：** 获取，心碎，支配，折磨  
@@ -2449,7 +2449,7 @@
 **攻击：** +4 | **腐化法杖：** 远距离 | 4d6+10 魔法  
 **经历：** 远古学识+2  
 
-#### **特性** {#tier-bruiser-17}
+#### **特性** {#section-adversary-fallen-sorcerer-features}
 
 - *焚天业火 - 动作：* **花费 1 恐惧点**释放毁灭万物的业火风暴，对近距离内的所有目标发动一次攻击。堕天术士对被攻击成功的目标造成 2d10+6 点直接魔法伤害。
 - *编织噩梦 - 动作：* **标记 1 压力点**将远距离范围内的一个生物以其内心深处最害怕的事物形成的幻象所缚。目标在被缚期间处于 **束缚** 和 **脆弱** 状态。目标可以通过成功的本能掷骰挣脱，以结束这两种状态。
@@ -2460,9 +2460,9 @@
 
 <!-- adversary: fallen-warlord-realm-breaker | Fallen Warlord:Realm-Breaker -->
 
-#### 堕天战神：破域者 {#features-115}
+#### 堕天战神：破域者 {#section-adversary-fallen-warlord-realm-breaker}
 
-##### *位阶 **4** 独狼* {#zombie-legion}
+##### *位阶 **4** 独狼* {#section-adversary-fallen-warlord-realm-breaker-role}
 
 *一位堕落之神，沉沦于怨念与愤恨之中，无数英灵殁于其锋。*  
 **动机与战术：** 腐蚀，支配，惩戒，攻破弱点  
@@ -2470,7 +2470,7 @@
 **攻击：** +7 | **棘刃长鞭：** 近距离 | 4d8+7 物理  
 **经历：** 征服+3，历史+2，威吓+3  
 
-#### **特性** {#tier-horde-hp-9}
+#### **特性** {#section-adversary-fallen-warlord-realm-breaker-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，破域者可以至多被聚焦 2 次。像往常一样花费恐惧点来聚焦。
 - *恨火之铠 - 被动：* 破域者受到伤害时将其数值降低2d10。
@@ -2483,16 +2483,16 @@
 
 <!-- adversary: fallen-warlord-undefeated-champion | Fallen Warlord:Undefeated Champion -->
 
-#### 堕天战神：无败冠军 {#features-116}
+#### 堕天战神：无败冠军 {#section-adversary-fallen-warlord-undefeated-champion}
 
-##### *位阶 **4** 独狼* {#adversary-fallen-warlord-undefeated-champion-role}
+##### *位阶 **4** 独狼* {#section-adversary-fallen-warlord-undefeated-champion-role}
 
 *最令尘世畏惧，也只能在其面前堕入恐惧。*  
 **动机与战术：** 无情赐死，惩叛罚逆，不惜代价取胜  
 **难度：** 18 | **阈值：** 35/58 | **生命点：** 11 | **压力点：** 5  
 **攻击：** +8 | **殁心剑：** 邻近 | 4d12+13 物理  
 
-#### **特性** {#section-383}
+#### **特性** {#section-adversary-fallen-warlord-undefeated-champion-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，无败冠军可以至多被聚焦 3 次。像往常一样花费恐惧点来聚焦。
 - *残破甲胄 - 被动：* 无败冠军受到伤害时将其数值降低1d10。
@@ -2508,16 +2508,16 @@
 
 <!-- adversary: hallowed-archer | Hallowed Archer -->
 
-#### 圣化弓手 {#section-384}
+#### 圣化弓手 {#section-adversary-hallowed-archer}
 
-##### *位阶 **4** 远程* {#adversary-hallowed-archer-role}
+##### *位阶 **4** 远程* {#section-adversary-hallowed-archer-role}
 
 *手执祝圣之弓的灵体军士。*  
 **动机与战术：** 集火，服从，重新部署，齐射  
 **难度：** 19 | **阈值：** 25/45 | **生命点：** 3 | **压力点：** 2  
 **攻击：** +4 | **祝圣长弓：** 远距离 | 4d8+8 物理  
 
-#### **特性** {#section-386}
+#### **特性** {#section-adversary-hallowed-archer-features}
 
 - *惩罪者 - 被动：* 圣化弓手对被上位神使标记为罪人的目标造成双倍伤害。
 - *至圣箭雨 - 动作：* **标记 1 压力点**对至多3个目标发动一次普通攻击。
@@ -2528,16 +2528,16 @@
 
 <!-- adversary: hallowed-soldier | Hallowed Soldier -->
 
-#### 圣化士兵 {#section-387}
+#### 圣化士兵 {#section-adversary-hallowed-soldier}
 
-##### *位阶 **4** 杂兵* {#adversary-hallowed-soldier-role}
+##### *位阶 **4** 杂兵* {#section-adversary-hallowed-soldier-role}
 
 *高举至圣兵刃的虔信圣灵。*  
 **动机与战术：** 服从，智取，惩戒，集群  
 **难度：** 18 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 2  
 **攻击：** +2 | **剑与盾：** 近战 | 10 物理  
 
-#### **特性** {#section-389}
+#### **特性** {#section-adversary-hallowed-soldier-features}
 
 - *杂兵 - 被动：* 当圣化士兵受到任何伤害时，其即被击败。玩家角色每对圣化士兵造成 13 点伤害，则在攻击能够成功命中的范围内额外击败一个杂兵。
 - *至圣之翼 - 被动：* 当圣化士兵飞行时，**花费 1 恐惧点**即可在执行一项动作前移动至多至远距离范围，而非近距离范围。
@@ -2549,9 +2549,9 @@
 
 <!-- adversary: high-seraph | High Seraph -->
 
-#### 上位神使 {#section-390}
+#### 上位神使 {#section-adversary-high-seraph}
 
-##### *位阶 **4** 头目* {#adversary-high-seraph-role}
+##### *位阶 **4** 头目* {#section-adversary-high-seraph-role}
 
 *圣洁的勇者，统领着执行神祇之志的圣化军团。*  
 **动机与战术：** 执行教条，飞行，宣告审判，惩戒重击  
@@ -2559,7 +2559,7 @@
 **攻击：** +8 | **圣剑：** 邻近 | 4d10+10 物理  
 **经历：** 神圣学识+3  
 
-#### **特性** {#section-392}
+#### **特性** {#section-adversary-high-seraph-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，上位神使可以至多被聚焦 2 次。像往常一样花费恐惧点来聚焦。
 - *至圣之翼 - 被动：* 当上位神使飞行时，**花费 1 恐惧点**即可在执行一项动作前移动至多至远距离范围，而非近距离范围。
@@ -2573,9 +2573,9 @@
 
 <!-- adversary: kraken | Kraken -->
 
-#### 克拉肯 {#section-393}
+#### 克拉肯 {#section-adversary-kraken}
 
-##### *位阶 **4** 独狼* {#adversary-kraken-role}
+##### *位阶 **4** 独狼* {#section-adversary-kraken-role}
 
 *一种传奇海怪，生着遍布吸盘的触手与怖人的巨颚，就连最大的帆船都无法与其身形相匹。*  
 **动机与战术：** 吞噬，粉碎，淹没，缠斗  
@@ -2583,7 +2583,7 @@
 **攻击：** +7 | **触腕：** 近距离 | 4d12+10 物理  
 **经历：** 游泳+3  
 
-#### **特性** {#section-395}
+#### **特性** {#section-adversary-kraken-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，克拉肯可以至多被聚焦 3 次。像往常一样花费恐惧点来聚焦。
 - *触腕狂舞 - 被动：* 若克拉肯标记的生命点数量小于等于7，其在发动普通攻击时即可同时指定两个位于射程内的目标。
@@ -2597,9 +2597,9 @@
 
 <!-- adversary: oracle-of-doom | Oracle Of Doom -->
 
-#### 末日神谕者 {#section-396}
+#### 末日神谕者 {#section-adversary-oracle-of-doom}
 
-##### *位阶 **4** 独狼* {#adversary-oracle-of-doom-role}
+##### *位阶 **4** 独狼* {#section-adversary-oracle-of-doom-role}
 
 *身姿高大的不朽者，命运伟岸的化身。深陷诅咒之中，所见皆为末日。*  
 **动机与战术：** 改变环境，谴罪，心碎，丢弃  
@@ -2607,7 +2607,7 @@
 **攻击：** +8 | **精神攻击：** 远距离 | 4d8+9 魔法  
 **经历：** 无尽知识+4  
 
-#### **特性** {#section-398}
+#### **特性** {#section-adversary-oracle-of-doom-features}
 
 - *惊怖 - 被动：* 当末日神谕者成功攻击时，所有远距离范围内的玩家角色失去 1 希望点，而你**获得 1 恐惧点**。
 - *巨物威压 - 被动：* 位于末日神谕者极远范围内的生物掷骰失败时，必须**标记 1 压力点**。
@@ -2622,16 +2622,16 @@
 
 <!-- adversary: outer-realms-abomination | Outer Realms Abomination -->
 
-#### 异界憎恶体 {#section-399}
+#### 异界憎恶体 {#section-adversary-outer-realms-abomination}
 
-##### *位阶 **4** 斗士* {#adversary-outer-realms-abomination-role}
+##### *位阶 **4** 斗士* {#section-adversary-outer-realms-abomination-role}
 
 *不断蠕变、不可名状的混沌生命体。*  
 **动机与战术：** 摧毁，吞食，侵蚀  
 **难度：** 19 | **阈值：** 35/71 | **生命点：** 7 | **压力点：** 5  
 **攻击：** +2d4 | **巨量伪足：** 邻近 | 4d6+13 魔法  
 
-#### **特性** {#section-401}
+#### **特性** {#section-adversary-outer-realms-abomination-features}
 
 - *混沌形体 - 被动：* 当异界憎恶体攻击时，掷骰2d4并将其作为该次攻击的调整值。
 - *迷惘之物 - 被动：* 当一个目标受到异界憎恶体的伤害时，其必须进行一次本能反应掷骰。若失败，则其下次动作掷骰具有劣势，且你**获得 1 恐惧点**。
@@ -2644,16 +2644,16 @@
 
 <!-- adversary: outer-realms-corrupter | Outer Realms Corrupter -->
 
-#### 异界腐曜体 {#section-402}
+#### 异界腐曜体 {#section-adversary-outer-realms-corrupter}
 
-##### *位阶 **4** 辅助* {#adversary-outer-realms-corrupter-role}
+##### *位阶 **4** 辅助* {#section-adversary-outer-realms-corrupter-role}
 
 *由繁彩幻光交织而成、不停变化着的无形之物。*  
 **动机与战术：** 蛊惑，转移注意，制服  
 **难度：** 19 | **阈值：** 27/47 | **生命点：** 4 | **压力点：** 3  
 **攻击：** +7 | **腐蚀伪足：** 邻近 | 4d8+5 魔法  
 
-#### **特性** {#section-404}
+#### **特性** {#section-adversary-outer-realms-corrupter-features}
 
 - *意志摧毁之触 - 被动：* 当一名玩家角色因异界腐曜体而受到伤害时，其还会失去1希望点。
 - *现实残渣洪流 - 动作：* **标记 1 压力点**将被其吞噬消化过的现实残渣滓喷涌向近距离范围内的所有目标。目标必须成功通过一次知识反应掷骰，否则**标记 2 压力点**。
@@ -2664,16 +2664,16 @@
 
 <!-- adversary: outer-realms-thrall | Outer Realms Thrall -->
 
-#### 异界仆从 {#section-405}
+#### 异界仆从 {#section-adversary-outer-realms-thrall}
 
-##### *位阶 **4** 杂兵* {#adversary-outer-realms-thrall-role}
+##### *位阶 **4** 杂兵* {#section-adversary-outer-realms-thrall-role}
 
 *被剥离了记忆与个性，勉强保留着人型外形的生命体。*  
 **动机与战术：** 破坏，憎恨，迷惘，威吓  
 **难度：** 17 | **阈值：** 无/无 | **生命点：** 1 | **压力点：** 1  
 **攻击：** +3 | **爪与牙：** 邻近 | 11 物理  
 
-#### **特性** {#section-407}
+#### **特性** {#section-adversary-outer-realms-thrall-features}
 
 - *杂兵 - 被动：* 异界仆从在受到任何伤害时都将立即被击败。玩家角色每对异界仆从造成13点伤害，即可在该次攻击的范围内额外再击败一个能够命中的杂兵。
 - *群体攻击 - 动作：* **花费 1 恐惧点**选择一个目标，并聚焦所有在目标近距离范围内的异界仆从。当这些杂兵移动至目标的近战范围时，进行一次共享的攻击掷骰。若成功，每个异界仆从造成11点物理伤害，将伤害合并计算。
@@ -2684,9 +2684,9 @@
 
 <!-- adversary: volcanic-dragon-obsidian-predator | Volcanic Dragon:Obsidian Predator -->
 
-#### 火山巨龙：黑曜猎手 {#section-408}
+#### 火山巨龙：黑曜猎手 {#section-adversary-volcanic-dragon-obsidian-predator}
 
-##### *位阶 **4** 独狼* {#adversary-volcanic-dragon-obsidian-predator-role}
+##### *位阶 **4** 独狼* {#section-adversary-volcanic-dragon-obsidian-predator-role}
 
 *巨翼遮天，黑鳞覆体，锐爪开山，巨型骇兽。*  
 **动机与战术：** 保卫巢穴，俯冲轰炸，飞行，狩猎，威吓  
@@ -2694,7 +2694,7 @@
 **攻击：** +8 | **黑曜利爪：** 近距离 | 4d10+4 物理  
 **经历：** 空中猎杀+5  
 
-#### **特性** {#section-410}
+#### **特性** {#section-adversary-volcanic-dragon-obsidian-predator-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，黑曜猎手可以至多被聚焦 2 次。像往常一样花费恐惧点来聚焦。
 - *飞行 - 被动：* 飞行时，黑曜猎手的难度获得 +3 加值。
@@ -2709,9 +2709,9 @@
 
 <!-- adversary: volcanic-dragon-molten-scourge | Volcanic Dragon:Molten Scourge -->
 
-#### 火山巨龙：熔炎天灾 {#section-411}
+#### 火山巨龙：熔炎天灾 {#section-adversary-volcanic-dragon-molten-scourge}
 
-##### *位阶 **4** 独狼* {#adversary-volcanic-dragon-molten-scourge-role}
+##### *位阶 **4** 独狼* {#section-adversary-volcanic-dragon-molten-scourge-role}
 
 *伤痕令巨龙狂怒，其躯体化作熔融的岩浆。*  
 **动机与战术：** 挥洒熔岩，焚化，驱逐入侵者，重新部署  
@@ -2719,7 +2719,7 @@
 **攻击：** +9 | **熔岩利爪：** 近距离 | 4d12+4 物理  
 **经历：** 空中猎杀+5  
 
-#### **特性** {#section-413}
+#### **特性** {#section-adversary-volcanic-dragon-molten-scourge-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，熔岩天灾可以至多被聚焦 3 次。像往常一样花费恐惧点来聚焦。
 - *崩裂龙鳞 - 被动：* 当熔炎天灾受到伤害时，掷出等同于其标记生命点数量的d6。每掷出一次4或更高的结果，你**获得 1 恐惧点**。
@@ -2735,9 +2735,9 @@
 
 <!-- adversary: volcanic-dragon-ashen-tyrant | Volcanic Dragon:Ashen Tyrant -->
 
-#### 火山巨龙：暴君余烬 {#section-414}
+#### 火山巨龙：暴君余烬 {#section-adversary-volcanic-dragon-ashen-tyrant}
 
-##### *位阶 **4** 独狼* {#adversary-volcanic-dragon-ashen-tyrant-role}
+##### *位阶 **4** 独狼* {#section-adversary-volcanic-dragon-ashen-tyrant-role}
 
 *从没有敌人对巨龙造成过如此严重的伤痕。岩浆凝结，巨龙的残躯如同它昔日消灭的那些敌人一般化作灰烬。*  
 **动机与战术：** 窒息，飞行，威吓，你死我亡  
@@ -2745,7 +2745,7 @@
 **攻击：** +10 | **爪与牙：** 近距离 | 4d12+15 物理  
 **经历：** 空中猎杀+5  
 
-#### **特性** {#section-416}
+#### **特性** {#section-adversary-volcanic-dragon-ashen-tyrant-features}
 
 - *无情 - 被动：* 在每个游戏主持人轮次中，余烬暴君可以至多被聚焦 4 次。像往常一样花费恐惧点来聚焦。
 - *绝境反扑 - 被动：* **标记 1 压力点**以无需消耗恐惧点地聚焦余烬暴君。
@@ -2761,16 +2761,16 @@
 
 <!-- adversary: perfected-zombie | Perfected Zombie -->
 
-#### 完化丧尸 {#section-417}
+#### 完化丧尸 {#section-adversary-perfected-zombie}
 
-##### *位阶 **4** 斗士* {#adversary-perfected-zombie-role}
+##### *位阶 **4** 斗士* {#section-adversary-perfected-zombie-role}
 
 *高大、健硕，承载着魔法注入的力量与技能的丧尸。*  
 **动机与战术：** 吞噬，猎捕，残害，恐吓  
 **难度：** 20 | **阈值：** 40/70 | **生命点：** 9 | **压力点：** 4  
 **攻击：** +4 | **巨斧：** 邻近 | 4d12+15 物理  
 
-#### **特性** {#section-419}
+#### **特性** {#section-adversary-perfected-zombie-features}
 
 - *惊怖 - 被动：* 当完化僵尸成功攻击时，所有远距离范围内的玩家角色失去 1 希望点，而你**获得 1 恐惧点**。
 - *恐惧威仪 - 被动：* 玩家角色无法消耗希望点对完化丧尸使用特性。
@@ -2783,16 +2783,16 @@
 
 <!-- adversary: zombie-legion | Zombie Legion -->
 
-#### 丧尸军团 {#section-420}
+#### 丧尸军团 {#section-adversary-zombie-legion}
 
-##### *位阶 **4** 集群（3/生命点）* {#adversary-zombie-legion-role}
+##### *位阶 **4** 集群（3/生命点）* {#section-adversary-zombie-legion-role}
 
 *群聚的不死生物，血肉虽腐，但力量依旧。*  
 **动机与战术：** 吞食大脑，撕开血肉，包围敌人  
 **难度：** 17 | **阈值：** 25/45 | **生命点：** 8 | **压力点：** 5  
 **攻击：** +2 | **触手：** 近战 | 4d6+10 物理  
 
-#### **特性** {#section-422}
+#### **特性** {#section-adversary-zombie-legion-features}
 
 - *集群 - 被动：* 当丧尸军团已标记一半或更多的生命点时，其普通攻击改为造成2d6+5点物理伤害。
 - *坚韧 - 被动：* 丧尸军团具有对物理伤害的抗性。

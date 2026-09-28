@@ -84,6 +84,10 @@ python scripts/preview_server.py
 
 每条仅包含中文名、中文解释和跳转链接；解释及链接可留空，由人工维护，不设置审核流程。目录下方可关闭提示。维护协议见 [docs/glossary.md](docs/glossary.md)。
 
+中英文小节通过同页的显式锚点对应，不依赖标题顺序或层级；旧链接兼容和双语搜索索引验证见 [docs/section-alignment.md](docs/section-alignment.md)。
+
+站内搜索同时匹配中文和英文，按所选阅读语言显示结果。中文结果由英文命中时标注“匹配原文”；没有对应中文小节时明确提示并定位到中文章节。
+
 ## 在线编辑器
 
 `/SRD/edit/` 提供在线编辑功能：

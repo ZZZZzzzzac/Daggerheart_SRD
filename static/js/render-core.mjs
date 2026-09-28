@@ -213,7 +213,8 @@ function createMarkdownRenderer() {
     const aliases = Object.entries(legacyAnchors[environment.pagePath]?.[environment.language] || {})
       .filter(([, target]) => target === anchor)
       .map(([old, target]) => `<span${environment.language === "zh" ? ` id="${old}"` : ""} data-anchor="${old}" data-legacy-anchor="${old}" data-target-anchor="${target}" aria-hidden="true"></span>`).join("");
-    return aliases + renderer.renderToken(tokens, index, {});
+    // 别名放在标题内，避免打断资料卡对标题和位阶行的识别。
+    return renderer.renderToken(tokens, index, {}) + aliases;
   };
   md.renderer.rules.softbreak = (_tokens, _index, _options, environment) => (
     environment.preserveSoftbreaks ? "<br>\n" : "\n"
