@@ -2,6 +2,7 @@ import { renderEnvironments } from './environment-core.mjs';
 import { legacyAnchors } from './legacy-anchors.mjs';
 import MarkdownIt from "../vendor/markdown-it.mjs?v=15.0.1-browser";
 import { renderAdversaries } from "./adversary-core.mjs?v=20260927k";
+import { equipmentRoot, equipmentKinds, renderEquipmentPair } from './equipment-core.mjs?v=20260928-loot';
 
 
 const HEADING_RE = /^(#{1,6})\s+(.+?)\s*$/gm;
@@ -317,13 +318,15 @@ export function renderPair(zhMarkdown, enMarkdown, options = {}) {
     zh: extractHeadings(zhMarkdown).map((heading, index) => ({ ...heading, anchor: anchors.zh[index] })),
     en: extractHeadings(enMarkdown).map((heading, index) => ({ ...heading, anchor: anchors.en[index] })),
   };
+  const html = {
+    zh: renderMarkdown(zhMarkdown, anchors.zh, "zh", options),
+    en: renderMarkdown(enMarkdown, anchors.en, "en", options),
+  };
+  const equipmentKind = options.pagePath?.startsWith(equipmentRoot + '/') ? options.pagePath.slice(equipmentRoot.length + 1) : '';
   return {
     anchors,
     headings,
-    html: {
-      zh: renderMarkdown(zhMarkdown, anchors.zh, "zh", options),
-      en: renderMarkdown(enMarkdown, anchors.en, "en", options),
-    },
+    html: equipmentKinds.includes(equipmentKind) ? renderEquipmentPair(html, equipmentKind) : html,
   };
 }
 

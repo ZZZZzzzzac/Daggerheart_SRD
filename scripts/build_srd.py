@@ -19,6 +19,7 @@ import yaml
 from validate_site import ValidationError, validate_site
 import adversary_catalog
 import domain_catalog
+import equipment_catalog
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -419,11 +420,20 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         search_records.extend(section_records(en_text, en_anchors, page["title"]["en"], path, "en"))
 
     try:
+        equipment_catalog.generate(project_dir, prepared_pages, search_records)
         domain_catalog.generate(project_dir, prepared_pages, search_records)
         adversary_catalog.generate(project_dir, prepared_pages, site_pages, search_records)
         adversary_catalog.generate(project_dir, prepared_pages, site_pages, search_records, "environment")
     except (ValueError, KeyError) as exc:
-        raise BuildError(f"敌人资料库生成失败: {exc}") from exc
+        raise BuildError(f"资料库生成失败: {exc}") from exc
+
+    # 轮椅规则已并入装备，旧页面仅用于跳转，不进入目录和搜索索引。
+    if any(page["path"] == "core-mechanics/equipment" for page in site_pages):
+        redirect_dir = content_dir / "core-mechanics" / "combat-wheelchair"
+        redirect_dir.mkdir(parents=True, exist_ok=True)
+        (redirect_dir / "index.md").write_text(
+            '---\ntitle: "战斗轮椅"\nlayout: "wheelchair-redirect"\n---\n', encoding="utf-8"
+        )
 
     tree: list[dict] = []
     for item in manifest.get("pages", []):

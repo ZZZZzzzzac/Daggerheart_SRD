@@ -7,6 +7,9 @@
   <meta name="theme-color" content="#f4efe5">
   <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
   <link rel="stylesheet" href="{{ "css/site.css?v=20260928-search" | relURL }}">
+  {{ with .Params.srd_path }}{{ if hasPrefix . "core-mechanics/equipment/" }}
+  <link rel="stylesheet" href="{{ "css/equipment.css?v=20260928-compact" | relURL }}">
+  {{ end }}{{ end }}
 </head>
 <body data-base-url="{{ "" | relURL }}" data-site-index="{{ "generated/site-index.json" | relURL }}" data-search-index="{{ "generated/search-index.json" | relURL }}">
   <header class="site-header">
@@ -78,7 +81,10 @@
   </dialog>
 
   <script src="{{ "js/search-core.js?v=20260928-search" | relURL }}" defer></script>
-  <script src="{{ "js/app.js?v=20260928-search" | relURL }}" defer></script>
+  <script src="{{ "js/app.js?v=20260928-equipment" | relURL }}" defer></script>
+  {{ with .Params.srd_path }}{{ if hasPrefix . "core-mechanics/equipment/" }}
+  <script type="module" src="{{ "js/equipment-table.mjs?v=20260928-loot" | relURL }}"></script>
+  {{ end }}{{ end }}
   <script src="{{ "js/terms.js?v=20260926f" | relURL }}" defer></script>
 </body>
 </html>

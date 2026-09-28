@@ -170,7 +170,7 @@ html[data-theme="dark"] .stat-content .stat-attack { background: #641f1d; }
 .catalog-filters input:focus { outline: 2px solid var(--accent-wash); outline-offset: 1px; border-color: var(--accent); }
 .filter-dropdown > summary { list-style: none; display: flex; align-items: center; gap: .3rem; }
 .filter-dropdown > summary::-webkit-details-marker { display: none; }
-.filter-dropdown > summary::after { content: '⌄'; margin-left: auto; color: var(--ink-soft); }
+.filter-dropdown > summary::after { content: ''; display:block; flex:0 0 16px; width:16px; height:16px; margin-left:auto; background:currentColor; color:var(--ink-soft); mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat; }
 .filter-dropdown[open] > summary { background: var(--paper-deep); }
 .filter-dropdown .filter-chips { border-radius: .8rem; padding: .45rem; }
 .catalog-filters .filter-chips button { border-radius: .45rem; }

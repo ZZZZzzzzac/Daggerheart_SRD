@@ -1,4 +1,4 @@
-import { renderPair } from "../js/render-core.mjs?v=20260927-domain-cards";
+import { renderPair } from "../js/render-core.mjs?v=20260928-loot";
 
 
 self.addEventListener("message", (event) => {

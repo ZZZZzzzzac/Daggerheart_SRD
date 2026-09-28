@@ -1,0 +1,11 @@
+{{ define "main" }}
+<p><a id="wheelchair-destination" href="{{ "core-mechanics/equipment/" | relURL }}#combat-wheelchair">战斗轮椅已并入装备表格 / Combat wheelchair rules are now in Equipment Tables</a></p>
+<script>
+  const destination = new URL(document.getElementById('wheelchair-destination').href);
+  const oldAnchor = location.hash.slice(1);
+  const sections = ['action-and-movement', 'consequences', 'evasion', 'burden', 'choosing-your-model', 'light-frame-models', 'heavy-frame-models', 'arcane-frame-models'];
+  destination.hash = sections.includes(oldAnchor) ? `wheelchair-${oldAnchor}` : 'combat-wheelchair';
+  destination.search = location.search;
+  location.replace(destination.href);
+</script>
+{{ end }}

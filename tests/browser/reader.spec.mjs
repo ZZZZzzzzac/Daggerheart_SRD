@@ -47,7 +47,7 @@ test("mobile contents drawer opens and closes", async ({ page }) => {
 
 
 test("equipment table renders adjacent bold spans and Chinese punctuation", async ({ page }) => {
-  await page.goto("/SRD/core-mechanics/equipment/");
+  await page.goto("/SRD/core-mechanics/equipment/primary-weapons/");
 
   const swift = page.locator("td", { hasText: "迅捷：标记 1 压力点" }).first();
   await expect(swift).not.toContainText("**");
@@ -64,7 +64,7 @@ test("equipment table renders adjacent bold spans and Chinese punctuation", asyn
 
 
 test("equipment table keeps short leading-column values on one line", async ({ page }) => {
-  await page.goto("/SRD/core-mechanics/equipment/");
+  await page.goto("/SRD/core-mechanics/equipment/primary-weapons/");
 
   const lineCount = async (locator) => locator.evaluate((element) => {
     const range = document.createRange();
@@ -75,43 +75,19 @@ test("equipment table keeps short leading-column values on one line", async ({ p
   });
 
   const row = page.locator("tr", { hasText: "传奇阔剑" }).first();
-  expect(await lineCount(page.locator("th", { hasText: "属性" }).first())).toBe(1);
-  expect(await lineCount(page.locator("th", { hasText: "负荷" }).first())).toBe(1);
-  for (let column = 0; column < 5; column += 1) {
-    expect(await lineCount(row.locator("td").nth(column))).toBe(1);
+  expect(await lineCount(page.locator('th[data-column="trait"] .equipment-sort-button > span').first())).toBe(1);
+  expect(await lineCount(page.locator('th[data-column="burden"] .equipment-sort-button > span').first())).toBe(1);
+  for (const column of ['tier','type','trait','range','damage','burden']) {
+    expect(await lineCount(row.locator(`td[data-column="${column}"]`))).toBe(1);
   }
 
+  await page.goto("/SRD/core-mechanics/equipment/armor/");
   const armorRow = page.locator("tr", { hasText: "传奇填充布甲" }).first();
-  const thresholdCell = armorRow.locator("td").nth(1);
+  const thresholdCell = armorRow.locator('td[data-column="thresholds"]');
   expect(await lineCount(thresholdCell)).toBe(1);
-  expect((await thresholdCell.boundingBox()).width).toBeGreaterThanOrEqual(99);
-
-  const tableMetrics = await page.locator(".article-body .srd-language.lang-zh table").evaluateAll((tables) => tables.map((table) => ({
-    columnCount: table.tHead.rows[0].cells.length,
-    widths: [...table.tHead.rows[0].cells].map((cell) => Math.round(cell.getBoundingClientRect().width)),
-    dataLineCounts: [...table.tBodies[0].rows].flatMap((tableRow) => [...tableRow.cells].map((cell, column) => {
-      const range = document.createRange();
-      range.selectNodeContents(cell);
-      return {
-        column,
-        lines: new Set([...range.getClientRects()].filter((rect) => rect.width > 0).map((rect) => Math.round(rect.top))).size,
-      };
-    })),
-  })));
-  for (const columnCount of [6, 4]) {
-    const sameKind = tableMetrics.filter((table) => table.columnCount === columnCount);
-    const expectedWidths = sameKind[0].widths;
-    sameKind.forEach((table) => expect(table.widths).toEqual(expectedWidths));
-    const nowrapColumns = columnCount === 6 ? new Set([1, 2, 3, 4]) : new Set([1, 2]);
-    sameKind.forEach((table) => {
-      table.dataLineCounts.filter(({ column }) => nowrapColumns.has(column)).forEach(({ lines }) => expect(lines).toBe(1));
-    });
-  }
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.reload();
-  const fitsMobileViewport = await page.locator(".table-scroll").first().evaluate(
-    (wrapper) => wrapper.scrollWidth <= wrapper.clientWidth + 1,
-  );
-  expect(fitsMobileViewport).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  expect(await page.locator('.equipment-scroll').first().evaluate(el => el.scrollWidth > el.clientWidth)).toBe(true);
 });

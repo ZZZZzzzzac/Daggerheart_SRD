@@ -22,9 +22,20 @@ pages:
   - path: core-mechanics
     title: {zh: "核心机制", en: "Core Mechanics"}
   - path: core-mechanics/equipment
-    title: {zh: "装备表格", en: "Equipment Tables"}
-  - path: core-mechanics/combat-wheelchair
-    title: {zh: "战斗轮椅", en: "Combat Wheelchair"}
+    title: {zh: "装备", en: "Equipment"}
+    subs:
+      - path: core-mechanics/equipment
+        title: {zh: "装备规则", en: "Equipment Rules"}
+      - path: core-mechanics/equipment/primary-weapons
+        title: {zh: "主武器", en: "Primary Weapons"}
+      - path: core-mechanics/equipment/secondary-weapons
+        title: {zh: "副武器", en: "Secondary Weapons"}
+      - path: core-mechanics/equipment/armor
+        title: {zh: "护甲", en: "Armor"}
+      - path: core-mechanics/equipment/items
+        title: {zh: "物品", en: "Items"}
+      - path: core-mechanics/equipment/consumables
+        title: {zh: "消耗品", en: "Consumables"}
   - path: running-a-game
     title: {zh: "运作一场游戏", en: "Running a Game"}
   - path: adversaries-and-environments

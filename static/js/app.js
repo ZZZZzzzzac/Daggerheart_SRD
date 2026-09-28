@@ -52,6 +52,12 @@
     let hash;
     try { hash = decodeURIComponent(location.hash.slice(1)); } catch (_) { return null; }
     const target = document.getElementById(hash);
+    if (target?.dataset.equipmentPath) {
+      const destination = new URL(pageUrl(target.dataset.equipmentPath, hash), location.href);
+      destination.search = location.search;
+      location.replace(destination.href);
+      return null;
+    }
     if (target?.dataset.targetAnchor) {
       const canonical = target.dataset.targetAnchor;
       history.replaceState(null, "", `${location.pathname}${location.search}#${encodeURIComponent(canonical)}`);

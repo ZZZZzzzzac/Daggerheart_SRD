@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "node --test tests/adversary_search.test.mjs tests/render_core.test.mjs tests/search_core.test.js tests/glossary_core.test.mjs tests/section_alignment.test.mjs",
+    "test": "node --test tests/adversary_search.test.mjs tests/render_core.test.mjs tests/search_core.test.js tests/glossary_core.test.mjs tests/section_alignment.test.mjs tests/equipment_core.test.mjs",
     "test:e2e": "playwright test"
   },
   "devDependencies": {
