@@ -1,4 +1,4 @@
-import { renderPair } from "../js/render-core.mjs?v=20260928-loot";
+import { renderPair } from "../js/render-core.mjs?v=20260930-emphasis";
 
 
 self.addEventListener("message", (event) => {

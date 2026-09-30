@@ -1,8 +1,54 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 
 import { renderPair } from "../static/js/render-core.mjs";
+
+test("Chinese punctuation at emphasis boundaries supports adjacent Chinese text", () => {
+  for (const [source, expected] of [
+    ['前文**“重点”**后文', '前文<strong>“重点”</strong>后文'],
+    ['前文*（说明）*后文', '前文<em>（说明）</em>后文'],
+    ['前文**重点。**后文', '前文<strong>重点。</strong>后文'],
+    ['前文***“重点”***后文', '前文<em><strong>“重点”</strong></em>后文'],
+    ['前文__“重点”__后文', '前文<strong>“重点”</strong>后文'],
+    ['前文**“*重点*”**后文', '前文<strong>“<em>重点</em>”</strong>后文'],
+    ['**敏捷**（用于冲刺）', '<strong>敏捷</strong>（用于冲刺）'],
+    ['成功时，**标记 1 压力点**以生效。', '成功时，<strong>标记 1 压力点</strong>以生效。'],
+    ['***誓绝仇敌：*****花费 2 希望点**来', '<em><strong>誓绝仇敌：</strong></em><strong>花费 2 希望点</strong>来'],
+  ]) {
+    assert.equal(renderPair(source, '').html.zh.trim(), `<p>${expected}</p>`);
+  }
+});
+
+test("emphasis extension preserves code, escaping, links and English boundaries", () => {
+  const source = '前文`**“代码”**`后文，前文\\*（原样）\\*后文，[前文**“链接”**后文](https://example.com)';
+  const html = renderPair(source, '').html.zh;
+  assert.match(html, /<code>\*\*“代码”\*\*<\/code>/);
+  assert.match(html, /前文\*（原样）\*后文/);
+  assert.match(html, /<a href="https:\/\/example.com">前文<strong>“链接”<\/strong>后文<\/a>/);
+  assert.equal(renderPair('', 'word**“quoted”**word').html.en.trim(), '<p>word**“quoted”**word</p>');
+  assert.equal(renderPair('***', '').html.zh.trim(), '<hr>');
+});
+
+test("campaign class introduction renders as a complete italic paragraph", () => {
+  const source = readFileSync(new URL('../src/pages/campaign-frames/zh.md', import.meta.url), 'utf8');
+  const html = renderPair(source, '', { pagePath: 'campaign-frames' }).html.zh;
+  assert.match(html, /<p><em>所有职业都可用[^<]+<\/em><\/p>/);
+});
+
+test("Chinese pages do not expose broken emphasis markers", () => {
+  const root = new URL('../src/pages/', import.meta.url);
+  for (const entry of readdirSync(root, { recursive: true })) {
+    const path = entry.replaceAll('\\', '/');
+    if (!path.endsWith('/zh.md')) continue;
+    const zh = readFileSync(new URL(path, root), 'utf8');
+    const en = readFileSync(new URL(path.replace(/zh.md$/, 'en.md'), root), 'utf8');
+    const html = renderPair(zh, en, { pagePath: path.slice(0, -6) }).html.zh;
+    // 龙息茶的骰子公式中，星号表示乘法。
+    const text = html.replace(/<[^>]*>/g, '').replaceAll('熟练值*d20', '熟练值×d20');
+    assert.ok(!text.includes('*'), `${path} 存在未渲染的强调标记`);
+  }
+});
 
 test("Markdown term exclusions hide markers and keep inline formatting", () => {
   const source = "[[!压力点与**脆弱**]]，压力点。";

@@ -155,7 +155,8 @@ function applyMakeup(markdown) {
 
 function normalizeBoldBoundaries(markdown) {
   return markdown
-    .replace(/\*\*\*\*/g, `**${BOLD_BOUNDARY}**`)
+    .replace(/(?<!\*)\*{4}(?!\*)/g, `**${BOLD_BOUNDARY}**`)
+    .replace(/(\*{3}[^*\n]+\*{3})(?=\*{2}[^*])/g, `$1${BOLD_BOUNDARY}`)
     .replace(
       /(\*\*[^*\n|]+[：；，。！？]\*\*)(?=[\p{L}\p{N}])/gu,
       `$1${BOLD_BOUNDARY}`,
@@ -170,6 +171,31 @@ function prepareHeadings(markdown) {
 
 function createMarkdownRenderer() {
   const md = new MarkdownIt({ html: true, linkify: false, typographer: false });
+  // 中文通常不以空格分词，允许紧邻汉字的标点作为强调内容的边界。
+  // 仅扩展分隔符识别，配对、嵌套及转义仍交给 Markdown 的原有规则。
+  md.inline.ruler.before("emphasis", "chinese_emphasis", (state, silent) => {
+    const marker = state.src[state.pos];
+    if (silent || (marker !== "*" && marker !== "_")) return false;
+    const scanned = state.scanDelims(state.pos, marker === "*");
+    const before = [...state.src.slice(Math.max(0, state.pos - 2), state.pos)].at(-1) ?? "";
+    const after = String.fromCodePoint(state.src.codePointAt(state.pos + scanned.length) ?? 32);
+    const opens = !scanned.can_open && /\p{Script=Han}/u.test(before) && /[\p{Ps}\p{Pi}]/u.test(after);
+    const closes = !scanned.can_close && /[\p{Pe}\p{Pf}\p{Po}]/u.test(before) && before !== "*" && /\p{Script=Han}/u.test(after);
+    if (!opens && !closes) return false;
+    for (let index = 0; index < scanned.length; index += 1) {
+      state.push("text", "", 0).content = marker;
+      state.delimiters.push({
+        marker: marker.charCodeAt(0),
+        length: scanned.length,
+        token: state.tokens.length - 1,
+        end: -1,
+        open: scanned.can_open || opens,
+        close: scanned.can_close || closes,
+      });
+    }
+    state.pos += scanned.length;
+    return true;
+  });
   md.inline.ruler.before("link", "no_glossary", (state, silent) => {
     if (!state.src.startsWith("[[!", state.pos)) return false;
     const end = state.src.indexOf("]]", state.pos + 3);
