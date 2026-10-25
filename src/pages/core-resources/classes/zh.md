@@ -100,7 +100,7 @@
 - 恐惧叶 Fear Leaf - 在此次攻击中，你额外造成等同于你恐惧骰结果的伤害。
 - 死骸荆 Corpse Thorn - 目标的反应掷骰具有劣势，直到场景结束。
 
-**蝰蛇佑 Adder’s Blessing：** 你对毒药及其他毒素效果免疫。
+**蝰蛇赐福 Adder’s Blessing：** 你对毒药及其他毒素效果免疫。
 
 #### 背景问题 {#section-poisonersguild-background-questions}
 
