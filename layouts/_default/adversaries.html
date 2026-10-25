@@ -1,5 +1,5 @@
 {{ define "main" }}
-<link rel="stylesheet" href="{{ "css/adversaries.css?v=20260928-controls" | relURL }}">
+<link rel="stylesheet" href="{{ "css/adversaries.css?v=20261025-nested-lists" | relURL }}">
 <article class="srd-article adversary-catalog" data-page-path="{{ .Params.srd_path }}" data-page-title-zh="{{ .Title }}" data-page-title-en="{{ .Params.title_en }}" data-catalog-kind="{{ .Params.catalog_kind }}">
   <nav class="breadcrumbs" id="breadcrumbs" aria-label="当前位置"></nav>
   <header class="catalog-heading" id="top">
@@ -27,5 +27,5 @@
   <div class="article-tools"><button class="text-button" id="feedback-button" type="button"><span class="lang-zh">报告本页问题</span><span class="lang-en">Report an issue</span></button></div>
   <nav class="page-sequence" id="page-sequence" aria-label="前后页"></nav>
 </article>
-<script type="module" src="{{ "js/adversaries.mjs?v=20260927m" | relURL }}"></script>
+<script type="module" src="{{ "js/adversaries.mjs?v=20261024-srd2" | relURL }}"></script>
 {{ end }}

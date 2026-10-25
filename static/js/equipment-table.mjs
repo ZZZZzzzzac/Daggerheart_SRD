@@ -1,4 +1,4 @@
-import { compareEquipment, normalizeEquipment } from './equipment-core.mjs?v=20260928-loot';
+import { compareEquipment, normalizeEquipment } from './equipment-core.mjs?v=20261024-static-equipment';
 
 const catalogs = [...document.querySelectorAll('.equipment-catalog')].map(element => ({
   element, language:element.dataset.language,

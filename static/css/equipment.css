@@ -1,4 +1,4 @@
-.srd-article:has(.equipment-catalog) { width:min(100%,94rem); padding-inline:clamp(1.1rem,3vw,3rem); }
+.srd-article:has(.equipment-catalog, .equipment-static) { width:min(100%,94rem); padding-inline:clamp(1.1rem,3vw,3rem); }
 .equipment-toolbar { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:.55rem 1rem; margin:1rem 0 .6rem; }
 .equipment-sort-summary { flex-basis:100%; }
 .equipment-toolbar[hidden], .equipment-empty[hidden] { display:none; }
@@ -62,3 +62,9 @@
   .equipment-catalog[data-query-only="true"] th[data-column="roll"] { width:4.5rem; }
   .equipment-catalog[data-query-only="true"] td[data-column="feature"] { min-width:0; }
 }
+
+/* Inline tables share the catalog surface while keeping surrounding prose readable. */
+.srd-article:has(.equipment-static) .article-body > .srd-language > :not(.equipment-scroll) { max-width:var(--reading-width); }
+.equipment-static { margin:1.8rem 0 2.2rem; }
+.article-body .equipment-static th { padding:.65rem; }
+.equipment-static td[data-column="name"] { font-weight:650; }

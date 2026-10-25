@@ -52,8 +52,9 @@
     let hash;
     try { hash = decodeURIComponent(location.hash.slice(1)); } catch (_) { return null; }
     const target = document.getElementById(hash);
-    if (target?.dataset.equipmentPath) {
-      const destination = new URL(pageUrl(target.dataset.equipmentPath, hash), location.href);
+    const movedPath = target?.dataset.pagePath || target?.dataset.equipmentPath;
+    if (movedPath) {
+      const destination = new URL(pageUrl(movedPath, target.dataset.targetAnchor || hash), location.href);
       destination.search = location.search;
       location.replace(destination.href);
       return null;

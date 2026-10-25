@@ -4,6 +4,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { renderPair } from '../static/js/render-core.mjs';
 import { legacyAnchors } from '../static/js/legacy-anchors.mjs';
 
+const pageRedirects = JSON.parse(readFileSync(new URL('../data/page-redirects.json', import.meta.url), 'utf8'));
 const pages = new URL('../src/pages/', import.meta.url);
 const paths = readdirSync(pages, { recursive: true }).filter(p => /[\\/]zh\.md$/.test(p)).map(p => p.replaceAll('\\', '/').slice(0, -6));
 const results = new Map(paths.map(path => [path, renderPair(...['zh', 'en'].map(lang => readFileSync(new URL(`${path}/${lang}.md`, pages), 'utf8')), { pagePath: path })]));
@@ -13,15 +14,15 @@ test('同一小节锚点连接正确的双语内容，不受额外标题影响',
     ['core-resources/domains', '利刃', 'BLADE'],
     ['core-resources/classes', '德鲁伊', 'DRUID'],
     ['running-a-game', '游戏主持人实践', 'GM PRACTICES'],
-    ['core-resources/classes', '基础特性', 'FOUNDATION FEATURE'],
+    ['core-resources/classes', '基础特性', 'FOUNDATION FEATURES'],
     ['core-resources/classes', '法师', 'WIZARD'],
     ['core-resources/domains', '奥术', 'ARCANA'],
-    ['campaign-frames', '秽野之息', 'The Witherwild'],
+
     ['running-a-game', '分阶段战斗', 'PHASED BATTLES'],
     ['running-a-game', '1d12 目标', '1d12 Objective'],
   ]) {
     const result = results.get(path);
-    const chinese = result.headings.zh.find(h => h.title === zh);
+    const chinese = result.headings.zh.find(h => (h.title === zh || h.title.startsWith(zh + ' ')));
     const english = result.headings.en.find(h => h.title === en);
     assert.ok(chinese && english, path);
     assert.equal(chinese.anchor, english.anchor, `${path}: ${zh} ↔ ${en}`);
@@ -38,8 +39,14 @@ test('全站小节都有显式唯一锚点，旧链接不会覆盖新锚点或�
         assert.equal((h.raw.match(/\{#/g) || []).length, 1, h.raw);
       }
       for (const [old, target] of Object.entries(legacyAnchors[path]?.[lang] || {})) {
+        const moved = pageRedirects[path]?.[lang]?.[old];
+        if (moved) {
+          assert.equal(moved.anchor, target, `${path}: ${old} 改变旧链接含义`);
+          assert.ok(results.get(moved.path)?.html[lang].includes(`data-anchor="${target}"`), `${path}: ${old} 分页目标不存在`);
+          continue;
+        }
         assert.ok(!anchors.has(old), `${path}: ${old} 覆盖新锚点`);
-        assert.ok(anchors.has(target), `${path}: ${old} 目标不存在`);
+        assert.ok(anchors.has(target) || result.html[lang].includes(`data-anchor="${target}"`), `${path}: ${old} 目标不存在`);
         assert.ok(result.html[lang].includes(`data-legacy-anchor="${old}" data-target-anchor="${target}"`), `${path}: ${old} 别名丢失`);
       }
     }
@@ -65,12 +72,19 @@ test('敌人与环境卡内标题按卡片身份配对，不依赖卡片顺序',
 
 test('单语独有标题保留独立身份，不与其他语言无关小节配对', () => {
   for (const [path, language, anchor] of [
-    ['core-resources/domains', 'zh', 'section-loadout-and-vault'],
-    ['core-resources/classes', 'en', 'section-spellcast-trait'],
+        ['core-resources/classes', 'en', 'section-spellcast-trait'],
     ['running-a-game', 'en', 'section-examples'],
   ]) {
     const result = results.get(path);
     assert.ok(result.anchors[language].includes(anchor));
     assert.ok(!result.anchors[language === 'zh' ? 'en' : 'zh'].includes(anchor));
+  }
+});
+
+test('战役分页保留双语页首锚点，正文不重复页面标题', () => {
+  const result = results.get('campaign-frames/the-witherwild');
+  for (const language of ['zh', 'en']) {
+    assert.match(result.html[language], /<span[^>]*data-anchor="section-the-witherwild"[^>]*><\/span>/);
+    assert.ok(!result.headings[language].some(h => h.anchor === 'section-the-witherwild'));
   }
 });

@@ -4,6 +4,16 @@ import { readFileSync, readdirSync } from "node:fs";
 
 import { renderPair } from "../static/js/render-core.mjs";
 
+test('SRD 2.0 renders all domain cards even without heading icons', () => {
+  const sources = ['zh', 'en'].map(lang => readFileSync(new URL(`../src/pages/domain-cards/${lang}.md`, import.meta.url), 'utf8').replace(/<img[^>]*>/g, ''));
+  const result = renderPair(...sources, {pagePath:'domain-cards'});
+  for (const lang of ['zh', 'en']) {
+    assert.equal((result.html[lang].match(/class="domain-card stat-card"/g) || []).length, 210);
+    assert.equal((result.html[lang].match(/class="domain-section"/g) || []).length, 10);
+    assert.equal((result.html[lang].match(new RegExp(`data-domain="${lang === 'zh' ? '恐怖' : 'Dread'}"`, 'g')) || []).length, 21);
+  }
+});
+
 test("Chinese punctuation at emphasis boundaries supports adjacent Chinese text", () => {
   for (const [source, expected] of [
     ['前文**“重点”**后文', '前文<strong>“重点”</strong>后文'],
@@ -20,6 +30,14 @@ test("Chinese punctuation at emphasis boundaries supports adjacent Chinese text"
   }
 });
 
+test('SRD 2.0 resource phrases preserve feature emphasis and metadata hard breaks', () => {
+  const source = '- *能力 - 动作：* 花费 1 希望点，使目标移动。\n\n**1 级 奥术 法术 回想费用：0**  \n标记 1 压力点来施法。';
+  const html = renderPair(source, '').html.zh;
+  assert.match(html, /<em>能力 - 动作：<\/em> <strong>花费 1 希望点<\/strong>/);
+  assert.match(html, /回想费用：0<\/strong><br>\n<strong>标记 1 压力点<\/strong>/);
+  assert.ok(!html.replace(/<[^>]+>/g, '').includes('*'));
+});
+
 test("emphasis extension preserves code, escaping, links and English boundaries", () => {
   const source = '前文`**“代码”**`后文，前文\\*（原样）\\*后文，[前文**“链接”**后文](https://example.com)';
   const html = renderPair(source, '').html.zh;
@@ -31,7 +49,7 @@ test("emphasis extension preserves code, escaping, links and English boundaries"
 });
 
 test("campaign class introduction renders as a complete italic paragraph", () => {
-  const source = readFileSync(new URL('../src/pages/campaign-frames/zh.md', import.meta.url), 'utf8');
+  const source = readFileSync(new URL('../src/pages/campaign-frames/the-witherwild/zh.md', import.meta.url), 'utf8');
   const html = renderPair(source, '', { pagePath: 'campaign-frames' }).html.zh;
   assert.match(html, /<p><em>所有职业都可用[^<]+<\/em><\/p>/);
 });

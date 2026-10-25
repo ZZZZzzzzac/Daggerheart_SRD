@@ -108,8 +108,8 @@ def test_rendered_tables_keep_table_layout_inside_width_wrapper():
     markdown = "| 名称 | 阈值 | 护甲值 | 特性 |\n| --- | --- | --- | --- |\n| 皮甲 | 6 / 13 | 3 | 灵活 |"
     rendered = build_srd.render_preview(markdown, "zh")
 
-    assert '<div class="table-scroll" role="region">' in rendered
-    assert "<table>" in rendered
+    assert '<div class="equipment-scroll equipment-static" role="region"' in rendered
+    assert '<table class="equipment-table"' in rendered
     assert "</table></div>" in rendered
 
 

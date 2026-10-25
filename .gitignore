@@ -12,3 +12,4 @@ var/
 node_modules/
 playwright-report/
 test-results/
+/CREDENTIALS.local.md

@@ -1,0 +1,1452 @@
+{
+  "campaign-frames": {
+    "zh": {
+      "section-seaborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-seaborne"
+      },
+      "section-distinctions": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-distinctions"
+      },
+      "section-clanks": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-clanks"
+      },
+      "section-paint-the-world-in-contrast": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-paint-the-world-in-contrast"
+      },
+      "section-make-the-invasion-personal": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-make-the-invasion-personal"
+      },
+      "section-offer-alternatives-to-violence": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-offer-alternatives-to-violence"
+      },
+      "section-the-pitch": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-pitch"
+      },
+      "section-havenites-and-the-serpent-s-sickness": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-havenites-and-the-serpent-s-sickness"
+      },
+      "section-wanderborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-wanderborne"
+      },
+      "section-corruption-from-the-witherwild": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-corruption-from-the-witherwild"
+      },
+      "section-galapa-and-ribbets": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-galapa-and-ribbets"
+      },
+      "section-ancestries": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-ancestries"
+      },
+      "section-show-them-true-danger": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-show-them-true-danger"
+      },
+      "section-communities": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-communities"
+      },
+      "section-syndicate-rogue": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-syndicate-rogue"
+      },
+      "section-ridgeborne-underborne-and-wildborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-ridgeborne-underborne-and-wildborne"
+      },
+      "section-warriors-and-wizards": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-warriors-and-wizards"
+      },
+      "section-session-zero-questions": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-session-zero-questions"
+      },
+      "section-druids-rangers-and-sorcerers": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-druids-rangers-and-sorcerers"
+      },
+      "section-themes": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-themes"
+      },
+      "section-vengeance-guardian": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-vengeance-guardian"
+      },
+      "section-classes": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-classes"
+      },
+      "section-the-witherwild": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-witherwild"
+      },
+      "section-gm-principles": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-gm-principles"
+      },
+      "section-the-serpent-s-sickness": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-serpent-s-sickness"
+      },
+      "section-embrace-vulnerability": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-embrace-vulnerability"
+      },
+      "section-treat-death-with-importance": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-treat-death-with-importance"
+      },
+      "section-the-gods-of-fanewick": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-gods-of-fanewick"
+      },
+      "section-the-witherwild-2": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-witherwild-2"
+      },
+      "section-campaign-mechanics": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-campaign-mechanics"
+      },
+      "section-the-weeks-of-day-and-night": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-weeks-of-day-and-night"
+      },
+      "section-the-inciting-incident": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-inciting-incident"
+      },
+      "section-loreborne-and-highborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-loreborne-and-highborne"
+      },
+      "section-player-principles": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-player-principles"
+      },
+      "section-overview": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-overview"
+      },
+      "section-orderborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-orderborne"
+      },
+      "section-create-multidimensional-allies-and-adversaries": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-create-multidimensional-allies-and-adversaries"
+      },
+      "section-tone-feel": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-tone-feel"
+      },
+      "section-touchstones": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-touchstones"
+      },
+      "section-lady-s-veil": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-lady-s-veil"
+      },
+      "section-slyborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-slyborne"
+      },
+      "section-fungril": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-fungril"
+      },
+      "section-drakona-fauns-firbolgs-and-infernis": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-drakona-fauns-firbolgs-and-infernis"
+      },
+      "section-relationships": {
+        "path": "campaign-frames/faction-tracking",
+        "anchor": "section-relationships"
+      },
+      "section-faction-tracking": {
+        "path": "campaign-frames/faction-tracking",
+        "anchor": "section-faction-tracking"
+      },
+      "section-faction-cards": {
+        "path": "campaign-frames/faction-tracking",
+        "anchor": "section-faction-cards"
+      },
+      "section-primary-magic-weapons-1": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-primary-magic-weapons-1"
+      },
+      "section-armor": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-armor"
+      },
+      "section-everyday-hero-starting-equipment": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-everyday-hero-starting-equipment"
+      },
+      "section-objective-countdowns": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-objective-countdowns"
+      },
+      "section-supplemental-campaign-mechanics": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-supplemental-campaign-mechanics"
+      },
+      "section-everyday-hero-starting-equipment-1": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-everyday-hero-starting-equipment-1"
+      },
+      "section-primary-magic-weapons-1-2": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-primary-magic-weapons-1-2"
+      },
+      "section-armor-1": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-armor-1"
+      },
+      "section-primary-magic-weapons": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-primary-magic-weapons"
+      },
+      "section-recording-the-recipe": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-recording-the-recipe"
+      },
+      "section-harvesting-ingredients": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-harvesting-ingredients"
+      },
+      "section-profile": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-profile"
+      },
+      "section-preparing-the-dish": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-preparing-the-dish"
+      },
+      "section-ingredients-flavors": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-ingredients-flavors"
+      },
+      "section-restaurants": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-restaurants"
+      },
+      "section-advanced-feasting": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-advanced-feasting"
+      },
+      "section-feature": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-feature"
+      },
+      "section-feasts": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-feasts"
+      },
+      "section-quick-ingredient-generator": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-quick-ingredient-generator"
+      },
+      "section-make-a-feast": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-make-a-feast"
+      },
+      "section-eating-the-meal": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-eating-the-meal"
+      },
+      "section-determining-a-meal-s-rating": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-determining-a-meal-s-rating"
+      },
+      "section-sacred-bonfires-torches": {
+        "path": "campaign-frames/grimdark-campaigns",
+        "anchor": "section-sacred-bonfires-torches"
+      },
+      "section-grimdark-campaigns": {
+        "path": "campaign-frames/grimdark-campaigns",
+        "anchor": "section-grimdark-campaigns"
+      },
+      "section-shadow-touched": {
+        "path": "campaign-frames/grimdark-campaigns",
+        "anchor": "section-shadow-touched"
+      },
+      "section-upgrades": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-upgrades"
+      },
+      "section-adversaries-easy-fight-standard-fight-difficult-fight-very-difficult-fight": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-adversaries-easy-fight-standard-fight-difficult-fight-very-difficult-fight"
+      },
+      "section-tech-link": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-tech-link"
+      },
+      "section-relics": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-relics"
+      },
+      "section-tech-based-campaigns": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-tech-based-campaigns"
+      },
+      "section-buying-and-selling-scrap": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-buying-and-selling-scrap"
+      },
+      "section-crafting-trading": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-crafting-trading"
+      },
+      "section-iconic-weapons-other-tools": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-iconic-weapons-other-tools"
+      },
+      "section-gathering-scrap": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-gathering-scrap"
+      },
+      "section-tech-damage": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-tech-damage"
+      },
+      "section-converting-gold-to-credits": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-converting-gold-to-credits"
+      },
+      "section-crafting-with-scrap": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-crafting-with-scrap"
+      },
+      "section-iconic-weapons": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-iconic-weapons"
+      },
+      "section-secondary-weapons-part-4": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-secondary-weapons-part-4"
+      },
+      "section-weapons-loot-1": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-weapons-loot-1"
+      },
+      "section-weapons-loot": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-weapons-loot"
+      },
+      "section-secondary-weapons-1": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-secondary-weapons-1"
+      },
+      "section-secondary-weapons-2": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-secondary-weapons-2"
+      },
+      "section-secondary-weapons-4": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-secondary-weapons-4"
+      },
+      "section-weapons-loot-4": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-weapons-loot-4"
+      },
+      "section-secondary-weapons-3": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-secondary-weapons-3"
+      },
+      "section-weapons-loot-2": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-weapons-loot-2"
+      },
+      "section-secondary-weapons": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-secondary-weapons"
+      },
+      "section-weapons-loot-3": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-weapons-loot-3"
+      },
+      "section-western-campaigns": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-western-campaigns"
+      },
+      "section-effects": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-effects"
+      },
+      "section-colossal-adversaries": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-colossal-adversaries"
+      },
+      "section-using-a-colossus-in-battle": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-using-a-colossus-in-battle"
+      },
+      "section-running-colossus-fights": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-running-colossus-fights"
+      },
+      "section-teamwork": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-teamwork"
+      },
+      "section-leveling-up": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-leveling-up"
+      },
+      "section-adjacent-segments": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-adjacent-segments"
+      },
+      "section-moving-pcs-around-a-colossus": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-moving-pcs-around-a-colossus"
+      },
+      "section-scale": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-scale"
+      },
+      "section-using-traits-for-flight": {
+        "path": "campaign-frames/floating-magic-school-campaigns",
+        "anchor": "section-using-traits-for-flight"
+      },
+      "section-flight": {
+        "path": "campaign-frames/floating-magic-school-campaigns",
+        "anchor": "section-flight"
+      },
+      "section-floating-magic-school-campaigns": {
+        "path": "campaign-frames/floating-magic-school-campaigns",
+        "anchor": "section-floating-magic-school-campaigns"
+      },
+      "section-less-lethal-campaigns": {
+        "path": "campaign-frames/less-lethal-campaigns",
+        "anchor": "section-less-lethal-campaigns"
+      },
+      "section-curses": {
+        "path": "campaign-frames/fairy-tale-campaigns",
+        "anchor": "section-curses"
+      },
+      "section-building-villains-collaboratively": {
+        "path": "campaign-frames/fairy-tale-campaigns",
+        "anchor": "section-building-villains-collaboratively"
+      },
+      "section-fairy-tale-campaigns": {
+        "path": "campaign-frames/fairy-tale-campaigns",
+        "anchor": "section-fairy-tale-campaigns"
+      },
+      "section-transforming-adversaries": {
+        "path": "campaign-frames/fairy-tale-campaigns",
+        "anchor": "section-transforming-adversaries"
+      },
+      "section-transformations": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-transformations"
+      },
+      "section-werewolf": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-werewolf"
+      },
+      "section-monster-hunting-campaigns": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-monster-hunting-campaigns"
+      },
+      "section-monster-hunting-equipment-4": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-monster-hunting-equipment-4"
+      },
+      "section-liminal-clues": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-liminal-clues"
+      },
+      "section-reanimated": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-reanimated"
+      },
+      "section-monster-hunting-equipment": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-monster-hunting-equipment"
+      },
+      "section-secondary-weapons-5-4": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-secondary-weapons-5-4"
+      },
+      "section-secondary-weapons-5-2": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-secondary-weapons-5-2"
+      },
+      "section-armor-2-1": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-armor-2-1"
+      },
+      "section-secondary-weapons-5-1": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-secondary-weapons-5-1"
+      },
+      "section-monster-hunting-equipment-1": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-monster-hunting-equipment-1"
+      },
+      "section-vampire": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-vampire"
+      },
+      "section-secondary-weapons-5": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-secondary-weapons-5"
+      },
+      "section-armor-2-4": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-armor-2-4"
+      },
+      "section-armor-2": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-armor-2"
+      },
+      "section-secondary-weapons-5-3": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-secondary-weapons-5-3"
+      },
+      "section-the-hunt": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-the-hunt"
+      },
+      "section-armor-2-2": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-armor-2-2"
+      },
+      "section-monster-hunting-equipment-2": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-monster-hunting-equipment-2"
+      },
+      "section-armor-2-3": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-armor-2-3"
+      },
+      "section-monster-hunting-equipment-3": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-monster-hunting-equipment-3"
+      },
+      "section-making-a-monster": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-making-a-monster"
+      },
+      "section-preparing-the-gm-s-key-map": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-preparing-the-gm-s-key-map"
+      },
+      "section-hex-maps": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-hex-maps"
+      },
+      "section-hex-crawl-campaigns": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-hex-crawl-campaigns"
+      },
+      "section-resources-resting": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-resources-resting"
+      },
+      "section-tracking-the-party-s-location": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-tracking-the-party-s-location"
+      },
+      "section-encounter-rolls": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-encounter-rolls"
+      },
+      "section-endurance-countdowns-optional": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-endurance-countdowns-optional"
+      },
+      "section-travel-days": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-travel-days"
+      },
+      "section-traveling-over-water": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-traveling-over-water"
+      },
+      "section-filling-wilderness-hexes": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-filling-wilderness-hexes"
+      },
+      "section-the-hex-crawl": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-the-hex-crawl"
+      },
+      "section-doom-tracks": {
+        "path": "campaign-frames/doom-tracks",
+        "anchor": "section-doom-tracks"
+      },
+      "section-habitat-based-features": {
+        "path": "campaign-frames/habitat-based-features",
+        "anchor": "section-habitat-based-features"
+      },
+      "complexity-rating": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-witherwild"
+      },
+      "the-pitch": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-pitch"
+      },
+      "tone-feel": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-tone-feel"
+      },
+      "themes": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-themes"
+      },
+      "touchstones": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-touchstones"
+      },
+      "overview": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-overview"
+      },
+      "communities": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-communities"
+      },
+      "loreborne-and-highborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-loreborne-and-highborne"
+      },
+      "ridgeborne-underborne-and-wildborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-ridgeborne-underborne-and-wildborne"
+      },
+      "orderborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-orderborne"
+      },
+      "slyborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-slyborne"
+      },
+      "seaborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-seaborne"
+      },
+      "wanderborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-wanderborne"
+      },
+      "ancestries": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-ancestries"
+      },
+      "clanks": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-clanks"
+      },
+      "fungril": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-fungril"
+      },
+      "drakona-fauns-firbolgs-and-infernis": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-drakona-fauns-firbolgs-and-infernis"
+      },
+      "galapa-and-ribbets": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-galapa-and-ribbets"
+      },
+      "havenites-and-the-serpent-s-sickness": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-havenites-and-the-serpent-s-sickness"
+      },
+      "classes": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-classes"
+      },
+      "druids-rangers-and-sorcerers": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-druids-rangers-and-sorcerers"
+      },
+      "warriors-and-wizards": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-warriors-and-wizards"
+      },
+      "vengeance-guardian": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-vengeance-guardian"
+      },
+      "syndicate-rogue": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-syndicate-rogue"
+      },
+      "player-principles": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-player-principles"
+      },
+      "make-the-invasion-personal": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-make-the-invasion-personal"
+      },
+      "treat-death-with-importance": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-treat-death-with-importance"
+      },
+      "embrace-vulnerability": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-embrace-vulnerability"
+      },
+      "gm-principles": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-gm-principles"
+      },
+      "paint-the-world-in-contrast": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-paint-the-world-in-contrast"
+      },
+      "show-them-true-danger": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-show-them-true-danger"
+      },
+      "offer-alternatives-to-violence": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-offer-alternatives-to-violence"
+      },
+      "create-multidimensional-allies-and-adversaries": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-create-multidimensional-allies-and-adversaries"
+      },
+      "distinctions": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-distinctions"
+      },
+      "the-weeks-of-day-and-night": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-weeks-of-day-and-night"
+      },
+      "the-serpent-s-sickness": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-serpent-s-sickness"
+      },
+      "lady-s-veil": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-lady-s-veil"
+      },
+      "the-witherwild-2": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-witherwild-2"
+      },
+      "the-gods-of-fanewick": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-gods-of-fanewick"
+      },
+      "the-inciting-incident": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-inciting-incident"
+      },
+      "campaign-mechanics": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-campaign-mechanics"
+      },
+      "corruption-from-the-witherwild": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-corruption-from-the-witherwild"
+      },
+      "session-zero-questions": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-session-zero-questions"
+      }
+    },
+    "en": {
+      "section-seaborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-seaborne"
+      },
+      "section-distinctions": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-distinctions"
+      },
+      "section-clanks": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-clanks"
+      },
+      "section-paint-the-world-in-contrast": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-paint-the-world-in-contrast"
+      },
+      "section-make-the-invasion-personal": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-make-the-invasion-personal"
+      },
+      "section-offer-alternatives-to-violence": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-offer-alternatives-to-violence"
+      },
+      "section-the-pitch": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-pitch"
+      },
+      "section-wanderborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-wanderborne"
+      },
+      "section-corruption-from-the-witherwild": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-corruption-from-the-witherwild"
+      },
+      "section-galapa-and-ribbets": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-galapa-and-ribbets"
+      },
+      "section-ancestries": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-ancestries"
+      },
+      "section-show-them-true-danger": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-show-them-true-danger"
+      },
+      "section-communities": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-communities"
+      },
+      "section-syndicate-rogue": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-syndicate-rogue"
+      },
+      "section-ridgeborne-underborne-and-wildborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-ridgeborne-underborne-and-wildborne"
+      },
+      "section-warriors-and-wizards": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-warriors-and-wizards"
+      },
+      "section-session-zero-questions": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-session-zero-questions"
+      },
+      "section-druids-rangers-and-sorcerers": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-druids-rangers-and-sorcerers"
+      },
+      "section-themes": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-themes"
+      },
+      "section-vengeance-guardian": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-vengeance-guardian"
+      },
+      "section-classes": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-classes"
+      },
+      "section-the-witherwild": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-witherwild"
+      },
+      "section-gm-principles": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-gm-principles"
+      },
+      "section-the-serpent-s-sickness": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-serpent-s-sickness"
+      },
+      "section-embrace-vulnerability": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-embrace-vulnerability"
+      },
+      "section-havenites-and-the-serpent-s-sickness": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-havenites-and-the-serpent-s-sickness"
+      },
+      "section-treat-death-with-importance": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-treat-death-with-importance"
+      },
+      "section-the-gods-of-fanewick": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-gods-of-fanewick"
+      },
+      "section-the-witherwild-2": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-witherwild-2"
+      },
+      "section-campaign-mechanics": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-campaign-mechanics"
+      },
+      "section-the-weeks-of-day-and-night": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-weeks-of-day-and-night"
+      },
+      "section-the-inciting-incident": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-inciting-incident"
+      },
+      "section-loreborne-and-highborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-loreborne-and-highborne"
+      },
+      "section-player-principles": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-player-principles"
+      },
+      "section-overview": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-overview"
+      },
+      "section-orderborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-orderborne"
+      },
+      "section-create-multidimensional-allies-and-adversaries": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-create-multidimensional-allies-and-adversaries"
+      },
+      "section-tone-feel": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-tone-feel"
+      },
+      "section-touchstones": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-touchstones"
+      },
+      "section-lady-s-veil": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-lady-s-veil"
+      },
+      "section-slyborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-slyborne"
+      },
+      "section-fungril": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-fungril"
+      },
+      "section-complexity-rating": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-complexity-rating"
+      },
+      "section-drakona-fauns-firbolgs-and-infernis": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-drakona-fauns-firbolgs-and-infernis"
+      },
+      "section-relationships": {
+        "path": "campaign-frames/faction-tracking",
+        "anchor": "section-relationships"
+      },
+      "section-faction-tracking": {
+        "path": "campaign-frames/faction-tracking",
+        "anchor": "section-faction-tracking"
+      },
+      "section-faction-cards": {
+        "path": "campaign-frames/faction-tracking",
+        "anchor": "section-faction-cards"
+      },
+      "section-armor": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-armor"
+      },
+      "section-everyday-hero-starting-equipment": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-everyday-hero-starting-equipment"
+      },
+      "section-objective-countdowns": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-objective-countdowns"
+      },
+      "section-supplemental-campaign-mechanics": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-supplemental-campaign-mechanics"
+      },
+      "section-primary-magic-weapons": {
+        "path": "campaign-frames/supplemental-campaign-mechanics",
+        "anchor": "section-primary-magic-weapons"
+      },
+      "section-recording-the-recipe": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-recording-the-recipe"
+      },
+      "section-harvesting-ingredients": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-harvesting-ingredients"
+      },
+      "section-profile": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-profile"
+      },
+      "section-preparing-the-dish": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-preparing-the-dish"
+      },
+      "section-ingredients-flavors": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-ingredients-flavors"
+      },
+      "section-restaurants": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-restaurants"
+      },
+      "section-advanced-feasting": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-advanced-feasting"
+      },
+      "section-feature": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-feature"
+      },
+      "section-feasts": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-feasts"
+      },
+      "section-quick-ingredient-generator": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-quick-ingredient-generator"
+      },
+      "section-make-a-feast": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-make-a-feast"
+      },
+      "section-eating-the-meal": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-eating-the-meal"
+      },
+      "section-determining-a-meal-s-rating": {
+        "path": "campaign-frames/feasts",
+        "anchor": "section-determining-a-meal-s-rating"
+      },
+      "section-sacred-bonfires-torches": {
+        "path": "campaign-frames/grimdark-campaigns",
+        "anchor": "section-sacred-bonfires-torches"
+      },
+      "section-grimdark-campaigns": {
+        "path": "campaign-frames/grimdark-campaigns",
+        "anchor": "section-grimdark-campaigns"
+      },
+      "section-shadow-touched": {
+        "path": "campaign-frames/grimdark-campaigns",
+        "anchor": "section-shadow-touched"
+      },
+      "section-upgrades": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-upgrades"
+      },
+      "section-adversaries-easy-fight-standard-fight-difficult-fight-very-difficult-fight": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-adversaries-easy-fight-standard-fight-difficult-fight-very-difficult-fight"
+      },
+      "section-tech-link": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-tech-link"
+      },
+      "section-relics": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-relics"
+      },
+      "section-tech-based-campaigns": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-tech-based-campaigns"
+      },
+      "section-buying-and-selling-scrap": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-buying-and-selling-scrap"
+      },
+      "section-crafting-trading": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-crafting-trading"
+      },
+      "section-iconic-weapons-other-tools": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-iconic-weapons-other-tools"
+      },
+      "section-gathering-scrap": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-gathering-scrap"
+      },
+      "section-tech-damage": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-tech-damage"
+      },
+      "section-converting-gold-to-credits": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-converting-gold-to-credits"
+      },
+      "section-crafting-with-scrap": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-crafting-with-scrap"
+      },
+      "section-iconic-weapons": {
+        "path": "campaign-frames/tech-based-campaigns",
+        "anchor": "section-iconic-weapons"
+      },
+      "section-western-campaigns": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-western-campaigns"
+      },
+      "section-secondary-weapons": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-secondary-weapons"
+      },
+      "section-weapons-loot": {
+        "path": "campaign-frames/western-campaigns",
+        "anchor": "section-weapons-loot"
+      },
+      "section-effects": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-effects"
+      },
+      "section-colossal-adversaries": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-colossal-adversaries"
+      },
+      "section-using-a-colossus-in-battle": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-using-a-colossus-in-battle"
+      },
+      "section-running-colossus-fights": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-running-colossus-fights"
+      },
+      "section-teamwork": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-teamwork"
+      },
+      "section-leveling-up": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-leveling-up"
+      },
+      "section-adjacent-segments": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-adjacent-segments"
+      },
+      "section-moving-pcs-around-a-colossus": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-moving-pcs-around-a-colossus"
+      },
+      "section-scale": {
+        "path": "campaign-frames/colossal-adversaries",
+        "anchor": "section-scale"
+      },
+      "section-using-traits-for-flight": {
+        "path": "campaign-frames/floating-magic-school-campaigns",
+        "anchor": "section-using-traits-for-flight"
+      },
+      "section-flight": {
+        "path": "campaign-frames/floating-magic-school-campaigns",
+        "anchor": "section-flight"
+      },
+      "section-floating-magic-school-campaigns": {
+        "path": "campaign-frames/floating-magic-school-campaigns",
+        "anchor": "section-floating-magic-school-campaigns"
+      },
+      "section-less-lethal-campaigns": {
+        "path": "campaign-frames/less-lethal-campaigns",
+        "anchor": "section-less-lethal-campaigns"
+      },
+      "section-curses": {
+        "path": "campaign-frames/fairy-tale-campaigns",
+        "anchor": "section-curses"
+      },
+      "section-building-villains-collaboratively": {
+        "path": "campaign-frames/fairy-tale-campaigns",
+        "anchor": "section-building-villains-collaboratively"
+      },
+      "section-fairy-tale-campaigns": {
+        "path": "campaign-frames/fairy-tale-campaigns",
+        "anchor": "section-fairy-tale-campaigns"
+      },
+      "section-transforming-adversaries": {
+        "path": "campaign-frames/fairy-tale-campaigns",
+        "anchor": "section-transforming-adversaries"
+      },
+      "section-secondary-weapons-5": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-secondary-weapons-5"
+      },
+      "section-transformations": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-transformations"
+      },
+      "section-werewolf": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-werewolf"
+      },
+      "section-monster-hunting-campaigns": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-monster-hunting-campaigns"
+      },
+      "section-armor-2": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-armor-2"
+      },
+      "section-liminal-clues": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-liminal-clues"
+      },
+      "section-reanimated": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-reanimated"
+      },
+      "section-monster-hunting-equipment": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-monster-hunting-equipment"
+      },
+      "section-the-hunt": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-the-hunt"
+      },
+      "section-vampire": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-vampire"
+      },
+      "section-making-a-monster": {
+        "path": "campaign-frames/monster-hunting-campaigns",
+        "anchor": "section-making-a-monster"
+      },
+      "section-preparing-the-gm-s-key-map": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-preparing-the-gm-s-key-map"
+      },
+      "section-hex-maps": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-hex-maps"
+      },
+      "section-hex-crawl-campaigns": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-hex-crawl-campaigns"
+      },
+      "section-resources-resting": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-resources-resting"
+      },
+      "section-tracking-the-party-s-location": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-tracking-the-party-s-location"
+      },
+      "section-encounter-rolls": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-encounter-rolls"
+      },
+      "section-endurance-countdowns-optional": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-endurance-countdowns-optional"
+      },
+      "section-travel-days": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-travel-days"
+      },
+      "section-traveling-over-water": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-traveling-over-water"
+      },
+      "section-filling-wilderness-hexes": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-filling-wilderness-hexes"
+      },
+      "section-the-hex-crawl": {
+        "path": "campaign-frames/hex-crawl-campaigns",
+        "anchor": "section-the-hex-crawl"
+      },
+      "section-doom-tracks": {
+        "path": "campaign-frames/doom-tracks",
+        "anchor": "section-doom-tracks"
+      },
+      "section-habitat-based-features": {
+        "path": "campaign-frames/habitat-based-features",
+        "anchor": "section-habitat-based-features"
+      },
+      "the-witherwild": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-witherwild"
+      },
+      "complexity-rating": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-complexity-rating"
+      },
+      "the-pitch": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-pitch"
+      },
+      "tone-feel": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-tone-feel"
+      },
+      "themes": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-themes"
+      },
+      "touchstones": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-touchstones"
+      },
+      "overview": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-overview"
+      },
+      "communities": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-communities"
+      },
+      "loreborne-and-highborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-loreborne-and-highborne"
+      },
+      "ridgeborne-underborne-and-wildborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-ridgeborne-underborne-and-wildborne"
+      },
+      "orderborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-orderborne"
+      },
+      "slyborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-slyborne"
+      },
+      "seaborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-seaborne"
+      },
+      "wanderborne": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-wanderborne"
+      },
+      "ancestries": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-ancestries"
+      },
+      "clanks": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-clanks"
+      },
+      "fungril": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-fungril"
+      },
+      "drakona-fauns-firbolgs-and-infernis": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-drakona-fauns-firbolgs-and-infernis"
+      },
+      "galapa-and-ribbets": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-galapa-and-ribbets"
+      },
+      "havenites-and-the-serpent-s-sickness": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-havenites-and-the-serpent-s-sickness"
+      },
+      "classes": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-classes"
+      },
+      "druids-rangers-and-sorcerers": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-druids-rangers-and-sorcerers"
+      },
+      "warriors-and-wizards": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-warriors-and-wizards"
+      },
+      "vengeance-guardian": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-vengeance-guardian"
+      },
+      "syndicate-rogue": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-syndicate-rogue"
+      },
+      "player-principles": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-player-principles"
+      },
+      "make-the-invasion-personal": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-make-the-invasion-personal"
+      },
+      "treat-death-with-importance": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-treat-death-with-importance"
+      },
+      "embrace-vulnerability": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-embrace-vulnerability"
+      },
+      "gm-principles": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-gm-principles"
+      },
+      "paint-the-world-in-contrast": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-paint-the-world-in-contrast"
+      },
+      "show-them-true-danger": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-show-them-true-danger"
+      },
+      "offer-alternatives-to-violence": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-offer-alternatives-to-violence"
+      },
+      "create-multidimensional-allies-and-adversaries": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-create-multidimensional-allies-and-adversaries"
+      },
+      "distinctions": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-distinctions"
+      },
+      "the-weeks-of-day-and-night": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-weeks-of-day-and-night"
+      },
+      "the-serpent-s-sickness": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-serpent-s-sickness"
+      },
+      "lady-s-veil": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-lady-s-veil"
+      },
+      "the-witherwild-2": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-witherwild-2"
+      },
+      "the-gods-of-fanewick": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-gods-of-fanewick"
+      },
+      "the-inciting-incident": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-the-inciting-incident"
+      },
+      "campaign-mechanics": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-campaign-mechanics"
+      },
+      "corruption-from-the-witherwild": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-corruption-from-the-witherwild"
+      },
+      "session-zero-questions": {
+        "path": "campaign-frames/the-witherwild",
+        "anchor": "section-session-zero-questions"
+      }
+    }
+  }
+}

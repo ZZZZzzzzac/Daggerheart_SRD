@@ -8,7 +8,7 @@ async function selectFilter(page, key, value) {
 
 test('combined filters, bilingual names, view, language and reset', async ({page}) => {
   await page.goto('/SRD/adversaries-and-environments/adversary-data/');
-  await expect(page.locator('#catalog-count')).toHaveText('139 / 139 个敌人');
+  await expect(page.locator('#catalog-count')).toHaveText('274 / 274 个敌人');
   const toolTops = await page.locator('#catalog-filters > *').evaluateAll(elements => elements.map(element => Math.round(element.getBoundingClientRect().top)));
   expect(new Set(toolTops).size).toBe(1);
   await expect(page.getByText('主持人工具 / 敌人', {exact: true})).toHaveCount(0);
@@ -25,14 +25,14 @@ test('combined filters, bilingual names, view, language and reset', async ({page
   await page.locator('#adversary-view').press('ArrowLeft');
   await page.locator('#adversary-jagged-knife-bandit').screenshot({path: 'test-results/adversary-card.png'});
   await page.locator('#language-button').click();
-  await expect(page.locator('#catalog-count')).toHaveText('1 / 139 adversaries');
+  await expect(page.locator('#catalog-count')).toHaveText('1 / 274 adversaries');
   await expect(page.locator('#adversary-query')).toHaveValue('锯齿刀');
   await page.reload();
   await expect(page.locator('.adversary:visible')).toHaveCount(1);
   await page.locator('#adversary-query').fill('no such creature');
   await expect(page.locator('#catalog-empty')).toBeVisible();
   await page.locator('button[type=reset]').click();
-  await expect(page.locator('.adversary:visible')).toHaveCount(139);
+  await expect(page.locator('.adversary:visible')).toHaveCount(274);
   await page.locator('#adversary-query').fill('  bEaR  ');
   await expect(page.locator('#adversary-bear')).toBeVisible();
 });
@@ -40,17 +40,23 @@ test('combined filters, bilingual names, view, language and reset', async ({page
 test.describe('Markdown editor', () => {
   test.use({httpCredentials: {username: 'admin', password: 'playwright'}});
   test('edit existing Markdown, preview the card and publish the same source', async ({page}) => {
+    test.setTimeout(90_000);
     let publication;
     await page.route('**/SRD/api/save', async route => {
       publication = route.request().postDataJSON();
       await route.fulfill({json: {versions: Object.fromEntries(publication.changes.map(item => [item.path, 'next'])), gitSync: {status: 'synced'}}});
     });
     await page.goto('/SRD/edit/?path=adversaries-and-environments/adversary-data');
-    await expect(page.locator('#preview .stat-card')).toHaveCount(139);
+    await expect(page.locator('#preview .stat-card')).toHaveCount(274);
     const textarea = page.locator('#editor-textarea');
     const original = await textarea.inputValue();
     expect(original).toContain('<!-- adversary: jagged-knife-bandit |');
-    await textarea.fill(original.replace('**难度：** 12', '**难度：** 27').replace('锯齿刀盗贼攀爬起来和奔跑一样轻松。', '编辑器同步验证。'));
+    const edited = original.replace(/(<!-- adversary: jagged-knife-bandit \|[\s\S]*?<!-- \/adversary -->)/, block => block.replace('**难度：** 12', '**难度：** 27')).replace('锯齿刀盗贼攀爬起来和奔跑一样轻松。', '编辑器同步验证。');
+    // Set the large document without selecting its entire text in Chromium.
+    await textarea.evaluate((element, content) => {
+      element.value = content;
+      element.dispatchEvent(new Event('input', {bubbles:true}));
+    }, edited);
     const card = page.locator('#preview [data-card-id="jagged-knife-bandit"]');
     await expect(card).toHaveAttribute('data-difficulty', '27');
     await expect(card).toContainText('编辑器同步验证。');
@@ -86,12 +92,12 @@ test('mobile layout, missing English fallback, home and search entry', async ({p
   await page.locator('#adversary-query').fill('Briarwhip');
   await page.locator('#adversary-view').press('ArrowLeft');
   await page.locator('#language-button').click();
-  await expect(page.locator('.adversary:visible .adversary-notice')).toBeVisible();
+  await expect(page.locator('.adversary:visible .lang-en .adversary-notice').filter({hasText:'English source unavailable'})).toBeVisible();
   await page.locator('#theme-button').click();
   await expect(page.locator('.adversary:visible')).toHaveCount(1);
   await page.screenshot({path: 'test-results/adversaries-mobile.png', fullPage: true});
   const search = await (await page.request.get('/SRD/generated/search-index.json')).json();
-  expect(search.records.filter(record => record.path === 'adversaries-and-environments/adversary-data')).toHaveLength(278);
+  expect(search.records.filter(record => record.path === 'adversaries-and-environments/adversary-data')).toHaveLength(548);
 });
 
 test('site search opens the complete catalog entry', async ({page}) => {
@@ -126,14 +132,14 @@ test('tier and type selections combine as OR within each group and survive reloa
   await selectFilter(page, 'tier', '1');
   expect(await page.locator('.adversary:visible').evaluateAll(cards => cards.every(card => card.dataset.tier === '2'))).toBe(true);
   await page.locator('button[type=reset]').click();
-  await expect(page.locator('.adversary:visible')).toHaveCount(139);
+  await expect(page.locator('.adversary:visible')).toHaveCount(274);
 });
 
 test('compact strips show canonical stats and hover preview remains readable', async ({page}) => {
   await page.goto('/SRD/adversaries-and-environments/adversary-data/?view=list&tier=1');
   const card = page.locator('#adversary-bear');
   await expect(card.locator('.compact-stats')).toContainText('难 14');
-  await expect(card.locator('.compact-stats')).toContainText('阈 9/17');
+  await expect(card.locator('.compact-stats')).toContainText(/阈 9\s*\/\s*17/);
   await expect(card.locator('.compact-stats')).toContainText('命 7');
   await expect(card.locator('.compact-stats')).toContainText('压 2');
   const full = card.locator('.lang-zh');
@@ -251,4 +257,29 @@ test('phrase search ignores spacing and highlights inline glossary text', async 
   await page.screenshot({path: 'test-results/adversary-search-highlight.png'});
   await query.fill('');
   await expect(page.locator('#adversary-results mark')).toHaveCount(0);
+});
+
+
+test.describe('adversary feature name styles', () => {
+  test.use({httpCredentials: {username: 'admin', password: 'playwright'}});
+  for (const target of ['catalog', 'editor']) {
+    test(`${target} preserves feature name styles in loose lists`, async ({page}) => {
+      await page.goto(target === 'catalog'
+        ? '/SRD/adversaries-and-environments/adversary-data/'
+        : '/SRD/edit/?path=adversaries-and-environments/adversary-data');
+      const names = page.locator(target === 'catalog'
+        ? '.lang-zh .stat-features em.no-glossary'
+        : '#preview .stat-features em.no-glossary');
+      await expect(names.first()).toBeAttached();
+      expect(await names.count()).toBeGreaterThan(500);
+      for (const [theme, color] of [['light', 'rgb(100, 31, 29)'], ['dark', 'rgb(215, 147, 128)']]) {
+        await page.evaluate(value => document.documentElement.dataset.theme = value, theme);
+        const styles = await names.evaluateAll(elements => elements.map(element => {
+          const style = getComputedStyle(element);
+          return {weight: style.fontWeight, style: style.fontStyle, color: style.color};
+        }));
+        expect(styles.every(style => style.weight === '750' && style.style === 'normal' && style.color === color)).toBe(true);
+      }
+    });
+  }
 });

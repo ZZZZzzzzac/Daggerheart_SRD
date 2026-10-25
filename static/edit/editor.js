@@ -21,7 +21,7 @@
   const publishDialog = document.getElementById("publish-dialog");
   const publishForm = document.getElementById("publish-form");
   const publishName = document.getElementById("publish-name");
-  const previewWorker = new Worker("preview-worker.mjs?v=20260930-emphasis", { type: "module" });
+  const previewWorker = new Worker("preview-worker.mjs?v=20261025-safe-makeup", { type: "module" });
 
   function readSetting(key, fallback) {
     try { return localStorage.getItem(key) || fallback; } catch (_) { return fallback; }
@@ -297,7 +297,7 @@
     state.previewFallbackTimer = setTimeout(async () => {
       if (sequence !== state.previewSequence) return;
       try {
-        const { renderPair } = await import("../js/render-core.mjs?v=20260930-emphasis");
+        const { renderPair } = await import("../js/render-core.mjs?v=20261025-safe-makeup");
         applyPreviewResult(sequence, renderPair(zh.content, en.content, { pagePath: state.slug }).html[state.language]);
       } catch (error) {
         document.getElementById("preview-status").textContent = `预览失败：${error.message}`;

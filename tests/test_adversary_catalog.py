@@ -26,7 +26,7 @@ def test_complete_markdown_content_survives_card_rendering(sources):
     rendered = build_srd.render_pairs([sources])[0]
     unmarked = {lang: re.sub(r"<!-- /?adversary[^\n]*-->", "", text) for lang, text in sources.items()}
     original = build_srd.render_pairs([unmarked])[0]
-    for language, expected in (("zh", 139), ("en", 129)):
+    for language, expected in (("zh", 274), ("en", 264)):
         cards = catalog.cards_from_html(rendered["html"][language])
         assert len(cards) == expected
         assert Counter(text_only(rendered["html"][language])) == Counter(text_only(original["html"][language]))
@@ -38,7 +38,7 @@ def test_complete_markdown_content_survives_card_rendering(sources):
 
 def test_editor_and_build_render_updated_fields_from_markdown(sources):
     changed = dict(sources)
-    changed['zh'] = changed['zh'].replace('**难度：** 12', '**难度：** 27', 1).replace('锯齿刀盗贼攀爬起来和奔跑一样轻松。', '同步测试：攀爬能力已更新。')
+    changed['zh'] = re.sub(r'(<!-- adversary: jagged-knife-bandit \| [\s\S]*?<!-- /adversary -->)', lambda m: m[0].replace('**难度：** 12', '**难度：** 27').replace('锯齿刀盗贼攀爬起来和奔跑一样轻松。', '同步测试：攀爬能力已更新。'), changed['zh'])
     result = build_srd.render_pairs([changed])[0]
     bandit = catalog.cards_from_html(result['html']['zh'])['jagged-knife-bandit']
     assert bandit['attrs']['data-difficulty'] == '27'
@@ -80,5 +80,5 @@ def test_editor_can_insert_chinese_card_without_editing_english(sources):
 '''
     changed['zh'] = extra + sources['zh']
     result = build_srd.render_pairs([changed])[0]
-    assert len(catalog.cards_from_html(result['html']['zh'])) == 140
-    assert len(catalog.cards_from_html(result['html']['en'])) == 129
+    assert len(catalog.cards_from_html(result['html']['zh'])) == 275
+    assert len(catalog.cards_from_html(result['html']['en'])) == 264

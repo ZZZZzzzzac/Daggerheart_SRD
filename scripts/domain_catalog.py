@@ -2,7 +2,7 @@
 import html
 import re
 
-DOMAINS = dict(zip('arcana blade bone codex grace midnight sage splendor valor'.split(), '奥术 利刃 骸骨 典籍 优雅 午夜 贤者 辉耀 勇气'.split()))
+DOMAINS = dict(zip('arcana blade bone codex dread grace midnight sage splendor valor'.split(), '奥术 利刃 骸骨 典籍 恐怖 优雅 午夜 贤者 辉耀 勇气'.split()))
 
 
 def generate(project, prepared, search_records):
@@ -17,6 +17,8 @@ def generate(project, prepared, search_records):
             body = match[2]
             heading = re.search(r'<h4[^>]*data-anchor="([^"]+)"[^>]*>([\s\S]*?)</h4>', body)
             entries[heading[1]] = (attrs, body, html.unescape(re.sub(r'<[^>]*>', '', heading[2])))
+        if not entries and re.search(r'<h4\b', text):
+            raise ValueError(f'领域卡 {lang} 正文存在卡牌标题，但未生成任何资料卡')
         versions[lang] = entries
     if set(versions['zh']) != set(versions['en']):
         raise ValueError('领域卡中英文锚点不一致')

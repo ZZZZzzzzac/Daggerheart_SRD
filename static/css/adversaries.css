@@ -117,7 +117,7 @@
 .stat-card .stat-content h4 { display: flex; align-items: center; gap: .5rem; border: 0; color: var(--card-red); padding-top: 0; }
 .stat-content h4::after { content: ''; height: 2px; flex: 1; background: #b88a57; }
 .stat-content li, .stat-content h4 ~ p { padding: .55rem .65rem; margin: .4rem 0; background: var(--card-panel); border: 1px solid var(--card-line); border-radius: 3px; }
-.stat-content li > em:first-child, .stat-content h4 ~ p > em:first-child { color: var(--card-red); font-weight: 750; font-style: normal; }
+.stat-content li > em:first-child, .stat-content h4 ~ p > em:first-child, .stat-card .stat-features em.no-glossary { color: var(--card-red); font-weight: 750; font-style: normal; }
 .adversary-preview .preview-close { color: #fff4df; }
 html[data-theme="dark"] .stat-card { --card-heading-bg: #251a14; --card-heading-ink: #fff4df; --card-heading-muted: #d8ba91; --card-bone: #29231e; --card-panel: #352c23; --card-line: #65503c; --card-ink: #eee4d0; --card-red: #d79380; border-color: #826647; }
 html[data-theme="dark"] .stat-content > p:first-child, html[data-theme="dark"] .stat-values > span > strong { color: #cfbda7; }
@@ -218,3 +218,9 @@ html[data-theme="dark"] .environment-question { color: #c8b59b; }
 :is(.domain-entry, .domain-card.stat-card) .stat-content ul ul { list-style-type: circle; }
 :is(.domain-entry, .domain-card.stat-card) .stat-content li { display: list-item; padding: 0; margin: .3rem 0; border: 0; border-radius: 0; background: transparent; }
 :is(.domain-entry, .domain-card.stat-card) .stat-content li > em:first-child { font-weight: inherit; font-style: italic; color: inherit; }
+
+/* Lists inside an ability remain ordinary bullets, not additional panels. */
+.stat-features li ul { list-style: disc outside; padding-left: 1.4rem; margin: .5rem 0; }
+.stat-features li ol { list-style: decimal outside; padding-left: 1.4rem; margin: .5rem 0; }
+.stat-features li li { display: list-item; padding: 0; margin: .25rem 0; border: 0; border-radius: 0; background: transparent; }
+.stat-features li li > em:first-child { color: inherit; font-weight: inherit; font-style: italic; }

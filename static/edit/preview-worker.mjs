@@ -1,4 +1,4 @@
-import { renderPair } from "../js/render-core.mjs?v=20260930-emphasis";
+import { renderPair } from "../js/render-core.mjs?v=20261025-safe-makeup";
 
 
 self.addEventListener("message", (event) => {

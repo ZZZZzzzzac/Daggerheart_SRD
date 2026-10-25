@@ -20,6 +20,7 @@ from validate_site import ValidationError, validate_site
 import adversary_catalog
 import domain_catalog
 import equipment_catalog
+import page_redirects
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -420,6 +421,7 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         search_records.extend(section_records(en_text, en_anchors, page["title"]["en"], path, "en"))
 
     try:
+        page_redirects.generate(project_dir, prepared_pages)
         equipment_catalog.generate(project_dir, prepared_pages, search_records)
         domain_catalog.generate(project_dir, prepared_pages, search_records)
         adversary_catalog.generate(project_dir, prepared_pages, site_pages, search_records)

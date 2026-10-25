@@ -95,7 +95,7 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 ### 代理服务器
 
 `scripts/proxy_server.py` — 零外部依赖，纯 Python stdlib HTTP 服务器：
-- 监听 `127.0.0.1:5000`，由 nginx `proxy_pass` 暴露为 `/SRD/api/`
+- 监听 `127.0.0.1:5002`，由 nginx `proxy_pass` 暴露为 `/SRD/api/`
 - 端点：`GET /api/page-list`、`GET /api/get-file`、`POST /api/save`
 - `/api/save` 只接受现有 `src/pages/` 页面，并执行冲突检查与候选构建
 - `/api/feedback` 接收公开文字反馈，`/api/admin/feedback` 管理 SQLite 收件箱
@@ -104,9 +104,11 @@ python scripts/build_srd.py   # md → Hugo content → 静态页输出到 publi
 
 ### 服务端配置
 
-**systemd**：`/etc/systemd/system/proxy_server.service`
+**systemd**：`/etc/systemd/system/srd-production.service`
 ```
-ExecStart=/usr/bin/python3 /var/www/SRD/scripts/proxy_server.py
+User=srd
+WorkingDirectory=/srv/srd-production
+ExecStart=/srv/bandwagon-preview/venv/bin/python /srv/srd-production/scripts/proxy_server.py
 ```
 
 **nginx**：使用 `scripts/nginx_proxy_snippet.conf`。公开反馈接口不要求登录；编辑器、反馈后台、发布接口和管理接口统一使用公用密码。
@@ -117,30 +119,9 @@ ExecStart=/usr/bin/python3 /var/www/SRD/scripts/proxy_server.py
 
 ## 服务器
 
-**Daggerheart_Tools**（151.145.76.60, VM.Standard.E2.1.Micro, 1C1G）
+生产站运行在搬瓦工 `192.243.116.94` 的 `/srv/srd-production`，服务用户 `srd`，systemd 单元 `srd-production.service`。Nginx 提供 `public/` 静态文件并反代回环端口 5002。连接与现役配置以同级 `Daggerheart_VPS/servers/bandwagon-192.243.116.94/AGENTS.md` 为准；旧 Oracle 入口已退役。
 
-现状负载：
-- 内存 956M，已用 ~19%，可用 616M
-- 磁盘 45G，已用 9%
-- CPU load 0.00
-
-当前方案（静态页 + 客户端搜索 + 编辑器服务端代理）Micro 绰绰有余。
-需要升配的信号：自建后端数据库、WebSocket 协同、服务端渲染。
-
-### 部署方式
-内容更新走在线编辑器，代码更新手动部署：
-- 运行 `./deploy.ps1`（Win）或 `./deploy.sh`（Linux）推送代码到 GitHub
-- SSH 到服务器手动 `git pull` 拉取代码更新
-- `public/` 不再提交 git，服务器自行构建
-
-### 三台 VPS
-| 服务器 | IP | 用途 |
-|--------|----|------|
-| SillyTavern | 140.245.85.33 | ST 酒馆 + SealChat + SealDice |
-| API | 161.33.207.162 | MetaAPI AI 中转 |
-| Daggerheart_Tools | 151.145.76.60 | daggerheart.cn 所有工具 + SRD |
-
-所有服务器用户 `ubuntu`，SSH 密钥在 `~/.ssh/authorized_keys`。
+代码发布：先推送 GitHub，再以 `srd` 用户拉取并在候选目录完整构建。确认生产目录没有新编辑后快进代码，替换构建产物并重启 `srd-production.service`，验证两个域名的阅读页和受保护接口。保留上一版站点以便恢复；`var/feedback.db`、运行配置及凭据不随代码覆盖。无需修改 Nginx 配置。
 
 ## 大版本内容导入
 

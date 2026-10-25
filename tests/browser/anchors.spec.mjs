@@ -28,7 +28,7 @@ test("legacy experience link resolves correctly and new English headings share i
 test("旧领域链接保留原中文目的地，切换语言后仍是同一领域", async ({ page }) => {
   await page.goto('/SRD/core-resources/domains/#arcana');
   await expect(page).toHaveURL(/#section-blade$/);
-  await expect(page.locator('#section-blade')).toHaveText('利刃');
+  await expect(page.locator('#section-blade')).toHaveText('利刃 BLADE');
   await page.locator('#language-button').click();
   await expect(page.locator('#section-blade')).toHaveText('BLADE');
 });
@@ -39,7 +39,7 @@ test("英文职业链接切到中文后仍定位职业，不落到错位的职�
   await expect(page).toHaveURL(/#section-druid$/);
   await expect(page.locator('#section-druid')).toHaveText('DRUID');
   await page.locator('#language-button').click();
-  await expect(page.locator('#section-druid')).toHaveText('德鲁伊');
+  await expect(page.locator('#section-druid')).toHaveText('德鲁伊 DRUID');
 });
 
 test("旧环境位阶链接在目录重组后仍能归一化并切换语言", async ({ page }) => {

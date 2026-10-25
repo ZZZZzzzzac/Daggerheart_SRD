@@ -45,7 +45,7 @@ def generate(project, prepared, site_pages, search_records, kind="adversary"):
             stats.append(f'<span title="{html.escape(difficulty, quote=True)}"><small>难</small> {short}</span>')
             role = {'traversal': '险境', 'exploration': '探索', 'event': '事件', 'social': '社交'}[attrs['data-type']]
         else:
-            for label, short, pattern in [('难度', '难', r'难度[：:]\s*(\d+)'), ('阈值', '阈', r'阈值[：:]\s*([\d无/—– -]+)'), ('生命点', '命', r'生命点[：:]\s*(\d+)'), ('压力点', '压', r'压力点[：:]\s*(\d+)')]:
+            for label, short, pattern in [('难度', '难', r'难度[：:]\s*(\d+)'), ('阈值', '阈', r'阈值[：:]\s*([\d无/—– -]+)'), ('生命点', '命', r'生命点[：:]\s*(\d+)'), ('压力点', '压', r'压力点[：:]\s*(\d+|无|—)')]:
                 match = re.search(pattern, plain)
                 if not match:
                     raise ValueError(f'{key} 缺少{label}')

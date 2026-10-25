@@ -4,7 +4,16 @@ import { readFileSync } from 'node:fs';
 import { renderPair } from '../static/js/render-core.mjs';
 import { compareEquipment } from '../static/js/equipment-core.mjs';
 
-for (const [kind,count] of [['primary-weapons',155],['secondary-weapons',37],['armor',34]]) {
+test('loot roll identity includes source while retaining old core links', () => {
+  const source = '## Items {#items}\n\n### Core {#loot-group-core}\n\n| Roll | Name | Effect |\n| --- | --- | --- |\n| 01 | Core item | A |\n\n### Extra {#loot-group-additional}\n\n| Roll | Name | Effect |\n| --- | --- | --- |\n| 01 | New item | B |';
+  const result = renderPair(source, source, {pagePath:'core-mechanics/equipment/items'});
+  assert.match(result.html.zh, /id="items-01"/);
+  assert.match(result.html.zh, /id="items-additional-01"/);
+  const duplicate = source.replace('| 01 | New item | B |', '| 01 | New item | B |\n| 01 | Duplicate | C |');
+  assert.throws(()=>renderPair(duplicate, source, {pagePath:'core-mechanics/equipment/items'}), /物品编号重复/);
+});
+
+for (const [kind,count] of [['primary-weapons',230],['secondary-weapons',73],['armor',69]]) {
   test(`${kind} 保留所有双语装备、原小节锚点和格式，空表行不算装备`, () => {
     const path = `core-mechanics/equipment/${kind}`;
     const source = ['zh','en'].map(lang => readFileSync(new URL(`../src/pages/${path}/${lang}.md`,import.meta.url),'utf8'));
@@ -25,13 +34,13 @@ for (const [kind,count] of [['primary-weapons',155],['secondary-weapons',37],['a
       if (kind === 'primary-weapons') assert.match(result.html.en, /data-column="type"[^>]*>Physical \/ Magic<\/td>/);
     }
     if (kind==='primary-weapons') {
-      assert.match(result.html.zh, /data-search="阔剑broadsword"/);
-      assert.match(result.html.zh, /<strong>迅捷：<\/strong>/);
+      assert.match(result.html.zh, /data-search="阔剑broadswordbroadsword"/);
+      assert.match(result.html.zh, /迅捷 Quick：/);
       const broken = source[1].replace(/\| Broadsword[^\n]*\n/, '');
       assert.throws(() => renderPair(source[0],broken,{pagePath:path}),/中英文装备表条目/);
     }
     if (kind==='armor') {
-      const edited = source[0].replace(/(\| \*\*填充布甲\*\* \| 5 \/ 11 \|\s*)3/, '$19');
+      const edited = source[0].replace(/(\| 填充布甲 Gambeson Armor \| 5 \/ 11 \|\s*)3/, '$19');
       assert.notEqual(edited, source[0]);
       const preview = renderPair(edited, source[1], {pagePath:path});
       assert.match(preview.html.zh, /data-column="armor" data-value="9"/);
@@ -51,15 +60,15 @@ test('排序按实际数字、骰面与射程远近，而非字符串顺序', ()
 });
 
 for (const kind of ['items','consumables']) {
-  test(`${kind} 按掷骰编号关联全部 60 条，所有表头均为查询`,()=>{
+  test(`${kind} 按掷骰编号关联核心与扩展各 60 条，所有表头均为查询`,()=>{
     const path=`core-mechanics/equipment/${kind}`;
     const sources=['zh','en'].map(lang=>readFileSync(new URL(`../src/pages/${path}/${lang}.md`,import.meta.url),'utf8'));
     const result=renderPair(...sources,{pagePath:path});
     for(const lang of ['zh','en']) {
       const ids=[...result.html[lang].matchAll(/<tr data-anchor="([^"]+)"/g)].map(m=>m[1]);
-      assert.deepEqual(ids,Array.from({length:60},(_,i)=>`${kind}-${String(i+1).padStart(2,'0')}`));
+      assert.deepEqual(ids,['','additional-'].flatMap(group=>Array.from({length:60},(_,i)=>`${kind}-${group}${String(i+1).padStart(2,'0')}`)));
       assert.doesNotMatch(result.html[lang],/data-filter="choices"/);
-      assert.equal((result.html[lang].match(/data-filter="text"/g)||[]).length,3);
+      assert.equal((result.html[lang].match(/data-filter="text"/g)||[]).length,4);
     }
     if(kind==='items') assert.match(result.html.zh,/id="items-22"[^>]*>[\s\S]*?壁虎手套/);
   });

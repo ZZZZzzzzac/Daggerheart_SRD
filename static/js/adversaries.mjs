@@ -7,7 +7,7 @@ const controls = Object.fromEntries(['query', 'tier', 'type', 'view'].map(key =>
 const environment = document.querySelector('[data-catalog-kind]')?.dataset.catalogKind === 'environment';
 const domain = document.querySelector('[data-catalog-kind]')?.dataset.catalogKind === 'domain';
 const levels = domain ? Array.from({length: 10}, (_, i) => String(i + 1)) : ['1', '2', '3', '4'];
-const roles = domain ? {arcana: '奥术', blade: '利刃', bone: '骸骨', codex: '典籍', grace: '优雅', midnight: '午夜', sage: '贤者', splendor: '辉耀', valor: '勇气'} : environment ? environmentTypes : {bruiser: '斗士', horde: '集群', leader: '头目', minion: '杂兵', ranged: '远程', skulk: '潜伏', social: '社交', solo: '独狼', standard: '标准', support: '辅助'};
+const roles = domain ? {arcana: '奥术', blade: '利刃', bone: '骸骨', codex: '典籍', dread: '恐怖', grace: '优雅', midnight: '午夜', sage: '贤者', splendor: '辉耀', valor: '勇气'} : environment ? environmentTypes : {bruiser: '斗士', horde: '集群', leader: '头目', minion: '杂兵', ranged: '远程', skulk: '潜伏', social: '社交', solo: '独狼', standard: '标准', support: '辅助'};
 if (domain) for (const key of ['cardtype', 'recall']) controls[key] = document.querySelector(`#adversary-${key}`);
 const defaults = {query: '', tier: '', type: '', view: 'full', ...(domain ? {cardtype: '', recall: ''} : {})};
 let state = {...defaults};

@@ -4,6 +4,8 @@
 
 在线地址：https://daggerheart.cn/SRD/
 
+当前正文为 SRD 2.0，中英文迁移范围及核验记录见 [2026-10-24 迁移记录](docs/srd2-migration-2026-10-24.md)。
+
 ## 目录结构
 
 ```
@@ -76,7 +78,7 @@ python scripts/preview_server.py
 ./deploy.sh    # Linux（构建 + 推送代码到 GitHub）
 ```
 
-服务器端自行构建 `public/`，代码更新需手动 SSH 到服务器 `git pull`。
+当前生产目录为搬瓦工服务器的 `/srv/srd-production`，运行用户为 `srd`，服务为 `srd-production.service`。先在候选目录完整构建，再快进生产代码并替换 `public/`、重启服务；保留 `var/feedback.db` 和私有配置。连接及服务器配置以同级 `Daggerheart_VPS` 仓库的当前说明为准。
 
 ## 术语提示
 
@@ -128,7 +130,7 @@ Python 测试覆盖构建、批量发布、版本冲突、反馈收件箱和数�
 ## 大版本内容导入
 
 日常构建只读取本仓库中的 `src/pages/`，不依赖外部仓库。导入新的完整 SRD 版本时，以下原始资料位于同级的 `DaggerHeart_CN` 仓库：
-- `DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/paratranz/DH-SRD-1.0-June-26-2025.md.json` — 翻译数据
+- `DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/source/SRD/DH_SRD_2_2026_08_25.md.json` — 翻译数据
 - `DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/data/adversaries.json` — 敌人数据
 - `DaggerHeart_CN/projects/Daggerheart-Core-Rulebook/data/environments.json` — 环境数据
 

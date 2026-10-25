@@ -2,7 +2,7 @@
 
 原入口 `/SRD/adversaries-and-environments/environment-data/` 直接呈现环境卡片。
 正文仍来自 `src/pages/adversaries-and-environments/environment-data/{zh,en}.md`。
-19 个中文环境均有英文参考。双语配对只依赖正文中的稳定 ID；构建不依赖外部翻译仓库。
+47 个中文环境均有英文参考。双语配对只依赖正文中的稳定 ID；构建不依赖外部翻译仓库。
 
 ```markdown
 <!-- environment: raging-river | Raging River -->

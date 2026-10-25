@@ -61,7 +61,7 @@ test('索引延迟加载时连续输入、清空只显示最新查询，并且�
   await expect(page.locator('#search-results li')).toHaveCount(0);
   await expect(page.locator('#search-hint')).toHaveText('输入文字后开始搜索');
   await page.locator('#search-input').fill('Druid');
-  await expect(page.locator('#search-results h3').first()).toHaveText('德鲁伊');
+  await expect(page.locator('#search-results h3').first()).toHaveText('德鲁伊 DRUID');
   expect(count).toBe(1);
   await page.locator('#search-input').fill('zzzz-no-such-rule');
   await expect(page.locator('#search-hint')).toContainText('中英文均未找到');

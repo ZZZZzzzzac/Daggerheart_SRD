@@ -22,12 +22,12 @@ def test_equipment_children_have_bilingual_item_search_and_legacy_destinations(t
     (tmp_path / 'data/glossary.md').write_text('# 术语表\n', encoding='utf-8')
     build_srd.generate_site(tmp_path)
     index = json.loads((tmp_path / 'static/generated/search-index.json').read_text(encoding='utf-8'))['records']
-    for kind, count in [('primary-weapons', 155), ('secondary-weapons', 37), ('armor', 34), ('items', 60), ('consumables', 60)]:
+    for kind, count in [('primary-weapons', 230), ('secondary-weapons', 73), ('armor', 69), ('items', 120), ('consumables', 120)]:
         rows = [r for r in index if r['path'] == source + '/' + kind]
         zh = {r['anchor']: r for r in rows if r['language'] == 'zh'}
         en = {r['anchor']: r for r in rows if r['language'] == 'en'}
         assert len(zh) == count and zh.keys() == en.keys()
-    name = next(r for r in index if r['path'].endswith('/primary-weapons') and r['heading'] == '阔剑')
+    name = next(r for r in index if r['path'].endswith('/primary-weapons') and r['heading'] == '阔剑 Broadsword')
     assert name['anchor'] == 'gear-tier-1-broadsword'
     parent = (tmp_path / 'content' / source / '_index.md').read_text(encoding='utf-8')
     assert 'data-anchor="magic-weapons" id="magic-weapons" data-equipment-path="core-mechanics/equipment/primary-weapons"' in parent

@@ -1,8 +1,9 @@
+import { transformProse, formatResourcePhrases, replaceKeywords } from './makeup-core.mjs?v=20261025-safe-makeup';
 import { renderEnvironments } from './environment-core.mjs';
 import { legacyAnchors } from './legacy-anchors.mjs';
 import MarkdownIt from "../vendor/markdown-it.mjs?v=15.0.1-browser";
 import { renderAdversaries } from "./adversary-core.mjs?v=20260927k";
-import { equipmentRoot, equipmentKinds, renderEquipmentPair } from './equipment-core.mjs?v=20260928-loot';
+import { equipmentRoot, equipmentKinds, renderEquipmentPair, renderStaticEquipmentTables } from './equipment-core.mjs?v=20261024-static-equipment';
 
 
 const HEADING_RE = /^(#{1,6})\s+(.+?)\s*$/gm;
@@ -93,32 +94,6 @@ function assignAnchorIds(zhMarkdown, enMarkdown) {
 }
 
 
-function formatResourcePhrases(markdown) {
-  const verbs = "恢复|回复|标记|清除|移除|获得|花费|消耗|失去|承受";
-  const resources = "(?:生命|希望|压力|恐惧|绝望|恩宠|专注)(?:点)?|护甲(?:槽)?";
-  const amount = "\\d{1,2}d\\d{1,2}|\\d{1,2}|[一二三四五六]";
-  let text = markdown.replace(
-    new RegExp(`(${verbs})\\s*\\*\\*\\s*(${amount})\\s*\\*\\*\\s*\\*\\*\\s*(${resources})\\s*\\*\\*`, "g"),
-    "**$1 $2 $3**",
-  );
-  text = text.replace(
-    new RegExp(`(${verbs})\\s*\\*\\*\\s*(${amount})\\s*\\*\\*\\s*(${resources})`, "g"),
-    "**$1 $2 $3**",
-  );
-  return text.replace(
-    new RegExp(`\\*{0,2}\\s*(${verbs})\\s*(${amount})\\s*(?:点|个)?\\s*(${resources})\\s*\\*{0,2}`, "g"),
-    (_, rawAction, rawAmount, rawResource) => {
-      const action = { 回复: "恢复", 移除: "清除", 消耗: "花费" }[rawAction] ?? rawAction;
-      const number = { 一: "1", 二: "2", 三: "3", 四: "4", 五: "5", 六: "6" }[rawAmount] ?? rawAmount;
-      let resource = rawResource === "绝望" ? "恐惧" : rawResource;
-      if (resource.includes("护甲")) resource = resource.endsWith("槽") ? resource : `${resource}槽`;
-      else if (!resource.endsWith("点")) resource = `${resource}点`;
-      return `**${action} ${number} ${resource}**`;
-    },
-  );
-}
-
-
 function boldNumbersAndDice(markdown) {
   return markdown.split("**").map((part, index) => {
     if (index % 2) return part;
@@ -137,19 +112,12 @@ function boldNumbersAndDice(markdown) {
 
 
 function applyMakeup(markdown) {
-  return markdown.split("\n\n").map((paragraph) => {
-    let text = paragraph
-      .replace(/!\[\]\(_page.*?\)/g, "")
-      .replace(/\(\(\+\+[^)]*\)\)/g, "")
-      .replace(/\(\([^)]*\)\)/g, "")
-      .replace(/<span.*?><\/span>/gs, "");
-    text = formatResourcePhrases(text);
+  return transformProse(markdown, (prose) => {
+    let text = formatResourcePhrases(replaceKeywords(prose));
     text = boldNumbersAndDice(text);
     text = text.replace(/(?<=[一-龥,.，。])\*[一-龥]{1,5}\*(?=[一-龥,.，。])/g, (match) => ` ${match} `);
-    return text
-      .replace(/(?<![A-Za-z(（])PC(?![A-Za-z)）])/g, "玩家角色")
-      .replace(/(?<![A-Za-z(（])GM(?![A-Za-z)）])/g, "游戏主持人");
-  }).join("\n\n");
+    return replaceKeywords(text);
+  });
 }
 
 
@@ -282,7 +250,9 @@ function renderSageBlocks(markdown, language, options) {
 
 function renderDomainCards(html) {
   return html.split(/(?=<h2\b)/).map((section) => {
-    if (!/^<h2\b[^>]*>[\s\S]*?class="domain-icon"[^>]*>[\s\S]*?<\/h2>/.test(section)) return section;
+    // Card identity comes from the domain anchor; an icon is optional decoration.
+    if (!/^<h2\b[^>]*data-anchor="[a-z]+-domain"/.test(section) &&
+        !/^<h2\b[^>]*>[\s\S]*?class="domain-icon"[^>]*>[\s\S]*?<\/h2>/.test(section)) return section;
     const match = section.match(/^(<h2\b[^>]*>[\s\S]*?<\/h2>\s*)([\s\S]*)$/);
     if (!match) return section;
     const cards = match[2].replace(
@@ -322,6 +292,16 @@ function renderMarkdown(markdown, anchorIds, language, options = {}) {
     preserveSoftbreaks: options.pagePath === "domain-cards",
   });
   html = sage.restore(html);
+  // Some old subsections are now fields inside a larger SRD 2.0 block.
+  // Keep aliases to their explicit field markers as well as heading targets.
+  for (const [old, target] of Object.entries(legacyAnchors[options.pagePath]?.[language] || {})) {
+    if (html.includes(`data-legacy-anchor="${old}"`)) continue;
+    const marker = new RegExp(`<span\\b[^>]*data-anchor="${target}"[^>]*><\\/span>`);
+    if (marker.test(html)) {
+      const alias = `<span${language === 'zh' ? ` id="${old}"` : ''} data-anchor="${old}" data-legacy-anchor="${old}" data-target-anchor="${target}" aria-hidden="true"></span>`;
+      html = html.replace(marker, match => match + alias);
+    }
+  }
   html = html.replaceAll(BOLD_BOUNDARY, "");
   html = html.replace(
     /(<table\b[^>]*>[\s\S]*?<\/table>)/g,
@@ -352,7 +332,7 @@ export function renderPair(zhMarkdown, enMarkdown, options = {}) {
   return {
     anchors,
     headings,
-    html: equipmentKinds.includes(equipmentKind) ? renderEquipmentPair(html, equipmentKind) : html,
+    html: equipmentKinds.includes(equipmentKind) ? renderEquipmentPair(html, equipmentKind) : Object.fromEntries(['zh', 'en'].map(lang => [lang, renderStaticEquipmentTables(html[lang], lang)])),
   };
 }
 

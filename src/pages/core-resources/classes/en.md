@@ -1,49 +1,227 @@
-
-A **class** is a role-based archetype that determines a PC's:
-
-- **Access to Domains:** Each class grants access to two domains; players choose cards from these domains during character creation and when leveling up.
-- **Starting Evasion and Hit Points (HP)**
-- **Starting Items**
-- **Class Feature(s)**
-- **Class Hope Feature,** a class feature that costs 3 Hope to activate.
-
-There are 9 classes in the Daggerheart core materials: Bard, Druid, Guardian, Ranger, Rogue, Seraph, Sorcerer, Warrior, and Wizard.
+A class is a role-based archetype that determines a PC’s:
+- Access to Domains: Each class grants access to two
+domains; players choose cards from these domains during
+character creation and when leveling up.
+- Starting Evasion and Hit Points (HP)
+- Starting Items
+- Class Feature(s)
+- Class Hope Feature,  a class feature that costs 3 Hope to
+activate.
+Please note that the Daggerheart Core Set includes only the
+following nine classes: Bard, Druid, Guardian, Ranger, Rogue,
+Seraph, Sorcerer, Warrior, and Wizard.
 
 #### SUBCLASSES {#section-subclasses}
 
-Each class is divided into two **subclasses,** each of which further defines and highlights one aspect of its class archetype. Your chosen subclass grants the following:
+Each class is divided into two subclasses, each of which
+further defines and highlights one aspect of its class
+archetype. Your chosen subclass can grant the following:
+- Spellcast Trait: This is the trait used on all Spellcast rolls.
+- Foundation Feature: This is a unique starting feature that
+establishes the identity and strengths of the subclass.
+You gain your chosen subclass's Foundation at character
+creation.
+- Specialization Feature: This is an advanced feature that
+can be gained on level up. For some subclasses, the
+specialization feature grants a new ability; for others,
+it expands or enhances a feature you already acquired
+through a class or subclass.
+- Mastery Feature: The mastery feature is a subclass’s most
+powerful feature, which can be gained at higher levels.
+For some subclasses, the mastery feature unlocks an
+extraordinary new ability; for others, it’s the impressive
+culmination of their subclass’s core feature.
+When you acquire a Foundation, Specialization, or Mastery,
+take its card for use as a reference during play.
 
-- Spellcast Trait: the trait used on all Spellcast rolls.
-- Foundation Feature: a unique starting feature that establishes the identity and strengths of the subclass.
-- Specialization Feature: an advanced feature that can be gained on level up. For some subclasses, the specialization feature grants a new ability; for others, it expands or enhances a feature you already acquired through a class or subclass.
-- Mastery Feature: The mastery feature is a subclass's most powerful feature, which can be gained at higher levels. For some subclasses, the mastery feature unlocks an extraordinary new ability; for others, it's the impressive culmination of their subclass's core feature.
+# ASSASSIN {#section-assassin}
 
-The Daggerheart core set includes cards detailing each foundation, specialization, and mastery feature. When you acquire one of these features, take its card for use as a reference during play.
+Assassins are masters at inflicting deadly injuries with
+precise strikes. Unlike those who wield violence as only a
+means to an end, assassins approach death as a profession.
+Many members of this class believe theirs is a worthy, if
+not sacred, trade, and some join guilds to hone their craft,
+define their beliefs, and earn money. People from all walks
+of life hire assassins for their skills: powerful rulers looking
+to avoid all-out war, business leaders seeking to eliminate
+the competition, and even average people hoping to settle a
+grudge. Often, an assassin is the last resort for killing those
+previously believed to be unkillable. While some of these
+deadly professionals will destroy anyone in their path for the
+right reasons or the right price, others hold strict moral codes
+or personal rules that dictate their targets. Those who end up
+the target of an assassin should count themselves among the
+dead
+DOMAINS – Blade & Midnight
+STARTING EVASION – 12
+STARTING HIT POINTS – 5
+CLASS ITEMS – A list of names with several marked off or
+a rusted blade inscribed with an insignia
+
+#### ASSASSIN’S HOPE FEATURE {#section-assassin-assassin-s-hope-feature}
+
+Deadly Determination: Spend 3 Hope to clear 2 Stress.
+
+#### CLASS FEATURES {#section-assassin-class-feature}
+
+Marked for Death: On a successful weapon attack, you can
+mark a Stress to make the target Marked for Death. When
+you deal damage to a target you’ve Marked for Death, add a
+number of d4s  equal to your tier to the damage roll.
+You can have only one adversary Marked for Death at a
+time. This condition lasts until you take a rest, the current
+adversary Marked for Death is defeated, or the GM spends
+a number of Fear equal to your tier to clear it.
+Get In & Get Out: Spend a Hope to ask the GM for a quick
+or inconspicuous way into or out of a place you can see.
+The next roll you make that acts on this information has
+advantage.
+
+#### ASSASSIN SUBCLASSES {#section-assassin-assassin-subclasses}
+
+Choose either the Executioners Guild or Poisoners Guild
+subclass.
+
+### EXECUTIONERS GUILD {#section-executioners-guild}
+
+Play the Executioners Guild if you want to strike down your
+targets with lethal precision.
+
+#### SPELLCAST TRAIT {#section-executioners-guild-spellcast-trait}
+
+Agility
+
+#### FOUNDATION FEATURES {#section-executioners-guild-foundation-features}
+
+First Strike: The first time in a scene you succeed on an
+attack, you deal double damage.
+Ambush: Your “Marked for Death” feature uses d6s  instead
+of d4s.
+
+#### SPECIALIZATION FEATURES {#section-executioners-guild-specialization-features}
+
+Death Strike: When you deal Severe damage to a creature,
+you can mark a Stress to force them to mark an additional
+Hit Point.
+Scorpion’s Poise: You gain a +2 bonus to your Evasion
+against attacks made by a creature you’ve Marked for
+Death.
+
+#### MASTERY FEATURES {#section-executioners-guild-mastery-features}
+
+True Strike: Once per long rest when you fail an attack, you
+can spend a Hope to make it a success instead.
+Backstab: Your “Marked for Death” feature uses d8s
+instead of d6s.
+
+### POISONERS GUILD {#section-poisoners-guild}
+
+Play the Poisoners Guild if you want to debilitate your targets
+with punishing afflictions.
+
+#### SPELLCAST TRAIT {#section-poisoners-guild-spellcast-trait}
+
+Knowledge
+
+#### FOUNDATION FEATURE {#section-poisoners-guild-foundation-features}
+
+Toxic Concoctions: Mark a Stress to place 1d4+1  tokens on
+this card. When you make a successful weapon attack, you
+can spend a token to afflict the target with a poison. You
+know these poisons:
+  - Ghost Petal: The target becomes temporarily Vulnerable.
+  - Grave Spore: The target must also mark a Stress.
+  - Leech Weed: You deal an extra 1d6  damage on this
+attack.
+When you take a long rest, clear all unspent tokens.
+
+#### SPECIALIZATION FEATURES {#section-poisoners-guild-specialization-features}
+
+Poison Compendium: You also know these poisons:
+  - Midnight Vine: The target has disadvantage on attack
+rolls until it marks a Stress to clear this condition.
+  - Gorgon Root: The target becomes temporarily
+Restrained.
+Twin Fang: When you afflict a target Marked for Death with
+a poison you know, you can spend an additional token to
+also inflict the effect of a second poison you know.
+
+#### MASTERY FEATURES {#section-poisoners-guild-mastery-features}
+
+Venomancer: You also know these poisons:
+  - Blight Seed: The target gains a −3 penalty to their
+damage thresholds until the end of the scene. This
+effect can’t stack.
+  - Fear Leaf: You deal extra damage equal to the result of
+your Fear Die on this attack.
+  - Corpse Thorn: The target gains disadvantage on reaction
+rolls until the end of the scene.
+Adder’s Blessing: You are immune to poisons and other
+toxins.
+
+#### BACKGROUND QUESTIONS {#section-poisonersguild-background-questions}
+
+Answer any of the following background questions. You can
+also create your own questions.
+- You once killed someone you were close to. What
+happened, and how did it change you?
+- What organization trained you in the art of killing, and
+how did you become a member?
+- Throughout your career, one target has eluded you.
+Who are they, and how have they slipped through
+your fingers?
+
+#### CONNECTIONS {#section-poisonersguild-connections}
+
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- I’ve killed someone for you. Who were they?
+- How did you save me when I was on the brink of
+death? What have I promised you as repayment?
+- What secret about myself did I tell you, and how did
+it change your view of me?
 
 # BARD {#section-bard}
 
-Bards are the most charismatic people in all the realms. Members of this class are masters of captivation and specialize in a variety of performance types, including singing, playing musical instruments, weaving tales, or telling jokes. Whether performing for an audience or speaking to an individual, bards thrive in social situations. Members of this profession bond and train at schools or guilds, but a current of egotism runs through those of the bardic persuasion. While they may be the most likely class to bring people together, a bard of ill temper can just as easily tear a party apart.
+Bards are the most charismatic people in all the realms.
+Members of this class are masters of captivation and
+specialize in a variety of performance types, including singing,
+playing musical instruments, weaving tales, or telling jokes.
+Whether performing for an audience or speaking to an
+individual, bards thrive in social situations. Members of this
+profession bond and train at schools or guilds, but a current
+of egotism runs through those of the bardic persuasion. While
+they may be the most likely class to bring people together, a
+bard of ill temper can just as easily tear a party apart.
+DOMAINS – Grace & Codex
+STARTING EVASION – 10
+STARTING HIT POINTS – 5
+CLASS ITEMS – A romance novel or a letter never opened
 
-- **Domains: Grace & Codex**
-- **Starting Evasion: 10**
-- **Starting Hit Points: 5**
-- **Class Items: A romance novel or a letter never opened**
+#### BARD’S HOPE FEATURE {#section-bard-s-hope-feature}
 
-#### **BARD'S HOPE FEATURE** {#section-bard-s-hope-feature}
+Make a Scene: Spend 3 Hope to temporarily Distract a
+target within Close range, giving them a -2 penalty to their
+Difficulty.
 
-*Make a Scene:* **Spend 3 Hope** to temporarily Distract a target within Close range, giving them a -2 penalty to their Difficulty.
+#### CLASS FEATURE {#section-class-feature}
 
-#### **CLASS FEATURE** {#section-class-feature}
-
-*Rally:* Once per session, describe how you rally the party and give yourself and each of your allies a Rally Die. At level 1, your Rally Die is a **d6**. A PC can spend their Rally Die to roll it, adding the result to their action roll, reaction roll, damage roll, or to clear a number of Stress equal to the result. At the end of each session, clear all unspent Rally Dice. At level 5, your Rally Die increases to a **d8**.
+Rally: Once per session, describe how you rally the party
+and give yourself and each of your allies a Rally Die. At level
+1, your Rally Die is a d6 . A PC can spend their Rally Die to
+roll it, adding the result to their action roll, reaction roll,
+damage roll, or to clear a number of Stress equal to the
+result. At the end of each session, clear all unspent Rally
+Dice. At level 5, your Rally Die increases to a d8 .
 
 #### BARD SUBCLASSES {#section-bard-subclasses}
 
-*Choose either the Troubadour or Wordsmith subclass.*
+Choose either the Troubadour or Wordsmith subclass.
 
 ### TROUBADOUR {#section-troubadour}
 
-Play the Troubadour if you want to play music to bolster your allies.
+Play the Troubadour if you want to play music to bolster your
+allies.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait}
 
@@ -51,23 +229,32 @@ Presence
 
 #### FOUNDATION FEATURE {#section-foundation-feature}
 
-*Gifted Performer:* You can play three different types of songs, once each per long rest; describe how you perform for others to gain the listed benefit:
-
-- *Relaxing Song:* You and all allies within Close range clear a Hit Point.
-- *Epic Song:* Make a target within Close range temporarily *Vulnerable.*
-- *Heartbreaking Song:* You and all allies within Close range gain a Hope.
+Gifted Performer: You can play three different types of
+songs, once each per long rest; describe how you perform
+for others to gain the listed benefit:
+  - Relaxing Song: You and all allies within Close range clear
+a Hit Point.
+  - Epic Song: Make a target within Close range temporarily
+Vulnerable.
+  - Heartbreaking Song: You and all allies within Close
+range gain a Hope.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature}
 
-*Maestro.* Your rallying songs steel the courage of those who listen. When you give a Rally Die to an ally, they can gain a Hope or clear a Stress.
+Maestro. Your rallying songs steel the courage of those who
+listen. When you give a Rally Die to an ally, they can gain a
+Hope or clear a Stress.
 
 #### MASTERY FEATURE {#section-mastery-feature}
 
-*Virtuoso.* You are among the greatest of your craft and your skill is boundless. You can perform each of your "Gifted Performer" feature's songs twice per long rest.
+Virtuoso. You are among the greatest of your craft and your
+skill is boundless. You can perform each of your “Gifted
+Performer” feature’s songs twice per long rest.
 
 ### WORDSMITH {#section-wordsmith}
 
-Play the Wordsmith if you want to use clever wordplay and captivate crowds.
+Play the Wordsmith if you want to use clever wordplay and
+captivate crowds.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-2}
 
@@ -75,64 +262,345 @@ Presence
 
 #### FOUNDATION FEATURES {#section-foundation-features}
 
-*Rousing Speech:* Once per long rest, you can give a heartfelt, inspiring speech. All allies within Far range clear 2 Stress.
-
-*Heart of a Poet:* After you make an action roll to impress, persuade, or offend someone, you can **spend a Hope** to add a **d4** to the roll.
+Rousing Speech: Once per long rest, you can give a
+heartfelt, inspiring speech. All allies within Far range clear
+2 Stress.
+Heart of a Poet: After you make an action roll to impress,
+persuade, or offend someone, you can spend a Hope to
+add a d4  to the roll.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-2}
 
-*Eloquent.* Your moving words boost morale. Once per session, when you encourage an ally, you can do one of the following:
-
-- Allow them to find a mundane object or tool they need.
-- Help an Ally without spending Hope.
-- Give them an additional downtime move during their next rest.
+Eloquent. Your moving words boost morale. Once per
+session, when you encourage an ally, you can do one of the
+following:
+  - Allow them to find a mundane object or tool they need.
+  - Help an Ally without spending Hope.
+  - Give them an additional downtime move during their
+next rest.
 
 #### MASTERY FEATURE {#section-mastery-feature-2}
 
-*Epic Poetry.* Your Rally Die increases to a **d10.** Additionally, when you Help an Ally, you can narrate the moment as if you were writing the tale of their heroism in a memoir. When you do, roll a **d10** as your advantage die.
+Epic Poetry.  Your Rally Die increases to a d10. Additionally,
+when you Help an Ally, you can narrate the moment as
+if you were writing the tale of their heroism in a memoir.
+When you do, roll a d10 as your advantage die.
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions}
+#### BACKGROUND QUESTIONS {#section-background-questions}
 
-*Answer any of the following background questions. You can also create your own questions.*
-
-- Who from your community taught you to have such confidence in yourself?
-- You were in love once. Who did you adore, and how did they hurt you?
-- You've always looked up to another bard. Who are they, and why do you idolize them?
+Answer any of the following background questions. You can
+also create your own questions.
+- Who from your community taught you to have such
+confidence in yourself?
+- You were in love once. Who did you adore, and how
+did they hurt you?
+- You’ve always looked up to another bard. Who are
+they, and why do you idolize them?
 
 #### CONNECTIONS {#section-connections}
 
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
-- What made you realize we were going to be such good friends?
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- What made you realize we were going to be such
+good friends?
 - What do I do that annoys you?
 - Why do you grab my hand at night?
 
+# BRAWLER {#section-brawler}
+
+Experts in unarmed combat, brawlers hone their bodies into
+lethal weapons. Whether they learned from formal training,
+studied with a mentor, or picked up their skills one fight at a
+time, the process is always rigorous as brawlers develop their
+body and mind to work as one. Brawlers are valued for their
+power and versatility and typically join a party or a cause when
+the need or desire arises. Because a brawler’s body is their
+strongest weapon, they typically seek out new challenges or
+consistent sparring partners so they can maintain their skills
+and add new techniques to their repertoire. Though they might
+appear unassuming to those accustomed to foes who are
+armed to the teeth, brawlers often accomplish more with bare
+knuckles than an average soldier with a sword.
+DOMAINS – Valor & Bone
+STARTING EVASION – 10
+STARTING HIT POINTS – 6
+CLASS ITEMS – Hand wraps from a mentor or a book
+about your secret hobby
+
+#### BRAWLER’S HOPE FEATURE {#section-brawler-brawler-s-hope-feature}
+
+Square Up: Spend 3 Hope to intimidate a target within
+Close range, making them temporarily Vulnerable.
+
+#### CLASS FEATURES {#section-brawler-class-feature}
+
+I Am the Weapon: Your barehanded attacks are as strong
+as any blade. You have a primary weapon called Brawler’s
+Strike equipped while you have no other Active Weapons.
+It uses a trait of your choice, has Melee range, and deals
+d8+d6  physical damage using your Proficiency (both the
+d8 and d6 scale off your Proficiency). While this weapon is
+active, you gain a +1 bonus to your Evasion.
+Combo Strike: After rolling damage on a successful attack
+with a Melee weapon, you can mark a Stress to start a
+combo strike. When you do, roll your Combo Die and note
+the result, then continue rolling your Combo Die until the
+result of your latest roll is lower than the roll that preceded
+it. You deal extra damage equal to the total of all rolled
+Combo Die results on this attack. The results can’t be
+modified by any means.
+Your Combo Die starts as a d4 . Once per tier, you
+can increase your Combo Die by one step as a level
+advancement option.
+
+#### BRAWLER SUBCLASSES {#section-brawler-brawler-subclasses}
+
+Choose either the Juggernaut or Martial Artist subclass.
+
+### JUGGERNAUT {#section-juggernaut}
+
+Play the Juggernaut if you want to pulverize your opponents
+with crushing blows.
+
+#### FOUNDATION FEATURES {#section-juggernaut-foundation-features}
+
+Rugged: Gain a permanent +3 bonus to your Severe damage
+threshold.
+Overwhelm: When you succeed on an attack against a
+target, you can spend a Hope to throw the target within
+Close range or to force them to mark a Stress.
+
+#### SPECIALIZATION FEATURES {#section-juggernaut-specialization-features}
+
+Surrounded: When you make an attack with a Melee
+weapon, you can spend any number of Hope to target an
+equal number of additional creatures within Melee range.
+Eye for an Eye: Once per rest when an adversary within
+Melee range forces you to mark any number of Hit Points,
+you can mark a Stress to force them to mark the same
+number of Hit Points.
+
+#### MASTERY FEATURE {#section-juggernaut-mastery-features}
+
+Pummeljoy: When you critically succeed on a Melee
+weapon attack, you gain an additional Hope, clear an
+additional Stress, and gain a +1 bonus to your Proficiency
+for that attack.
+Not Done Yet: When you take Severe damage, you can gain
+a Hope or clear a Stress.
+
+### MARTIAL ARTIST {#section-martial-artist}
+
+Play the Martial Artist if you want to use a variety of fighting
+styles to eliminate your foes.
+
+#### FOUNDATION FEATURE {#section-martial-artist-foundation-features}
+
+Stance Fighter: You can channel your inner resolve to shift
+into martial stances that grant you special benefits in
+combat.
+Take the Martial Stances sheet and choose two martial
+stances from Tier 1. Each time you level up your character,
+choose an additional stance from your tier or lower.
+
+#### SPECIALIZATION FEATURES {#section-martial-artist-specialization-features}
+
+Keen Defenses: When you’re targeted by an attack, you
+can spend a Focus to gain a bonus to your Evasion equal to
+your tier against the attack.
+Focus Cannon: Spend a Focus to make an Instinct Roll
+against an adversary within Far range. On a success, deal
+d20+3  magic damage using your Proficiency.
+
+#### MASTERY FEATURE {#section-martial-artist-mastery-features}
+
+Limit Breaker: Once per rest, you can perform an
+unbelievable feat of athletic prowess, such as running
+across water, leaping between distant rooftops, or scaling a
+building without needing to roll. When you do, gain a Hope
+and clear a Stress.
+Flow State: You can mark a Stress instead of spending a
+Focus to shift into a different stance. Additionally, you can
+spend a Focus instead of marking a Stress to start a combo
+strike.
+
+#### BACKGROUND QUESTIONS {#section-martialartist-background-questions}
+
+Answer any of the following background questions. You can
+also create your own questions.
+- Where did you spend time during your formative
+years that taught you, directly or indirectly, how to
+fight in the style you use?
+- What organization has vowed to kill you on sight, and
+what did you do to invoke their ire?
+- Who did you recently lose a fight to that you’re
+desperate for a rematch against?
+
+#### CONNECTIONS {#section-martialartist-connections}
+
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- What is one thing we’re both afraid of?
+- What do I rely on you for during our travels? How do
+you feel about it?
+- I still haven’t forgiven you for something you said to
+me. What was it, and why did you say it?
+
+### MARTIAL STANCES {#section-martialartist-martial-stances}
+
+When you choose the Martial Artist subclass, take the Martial
+Stances sheet to track which stances your character knows.
+You can also track which stance you have active and your
+current Focus.
+
+#### STANCES {#section-martialartist-stances}
+
+Stances are special body positionings that enable Martial
+Artists to attack, react, or defend in combat. Each stance
+grants your character a different ability, bonus, or feature
+while active.
+You choose two stances from Tier 1 when you first take the
+Martial Artist’s subclass foundation card. Mark the circle
+next to each to indicate that your character knows and has
+access to them. Mark a new stance from your tier or below
+each time you gain a level.
+
+#### FOCUS {#section-martialartist-focus}
+
+Focus represents your character’s poise, clarity, and
+control. Once per rest during a moment of calm, you can
+clear your mind and refocus your martial instincts. Clear
+your Focus track, then roll a number of d6s  equal to your
+Instinct and gain Focus equal to the highest result rolled.
+You can hold a maximum of 6 Focus.
+
+#### SHIFTING INTO STANCES {#section-martialartist-shifting-into-stances}
+
+You can spend a Focus to shift into a martial stance and
+gain its effects. You can shift only into stances you’ve
+marked as known. When you shift into a stance, it’s
+considered your active stance until you drop out of it.
+You can’t shift into or have more than one active stance at
+a time. Until you shift into a stance, you are not considered
+to be in a stance or to have an active stance.
+
+#### DROPPING OUT OF STANCES {#section-martialartist-dropping-out-of-stances}
+
+If you are already in a stance when you shift into a different
+stance, you automatically drop out of the previously active
+stance. You also drop out of your active stance when you
+take Severe damage or mark your last Hit Point. Otherwise,
+you drop out of your active stance at the end of the scene.
+When you drop out of a stance, you lose any ongoing
+benefits it provides.
+
+#### STANCE FEATURES {#section-martialartist-stance-features}
+
+The following section lists all martial stances by tier.
+
+#### TIER 1 {#section-tier-1}
+
+Favored: Gain a bonus to damage rolls equal to a trait of
+your choice.
+Invigorating: On a successful attack, roll a d4 . On a result
+of 4, gain a Focus.
+Quick: When you make an attack, you can spend a Focus or
+mark a Stress to target another creature within range with
+that attack.
+Reliable: Gain a +1 bonus to your attack rolls.
+
+#### TIER 2 {#section-tier-2}
+
+Aggressive: Gain a −1 penalty to your Evasion. On a
+successful attack, roll an additional damage die and discard
+the lowest result.
+Anchored: Gain a +2 bonus to your damage thresholds.
+While in this stance, you can’t be moved against your will.
+Defensive: Attack rolls targeting you from within Melee
+range have disadvantage unless the attacker marks a
+Stress to negate the disadvantage.
+Otherworldly: On a successful attack, you can deal physical
+or magic damage.
+
+#### TIER 3 {#section-tier-3}
+
+Grappling: On a successful attack within Melee range, you
+can spend a Focus or mark a Stress to temporarily Restrain
+the target or throw the target up to Close range.
+Scary: On a successful attack, the target must mark a
+Stress.
+Stable: You can spend a Focus instead of an Armor Slot to
+reduce damage.
+Vigilant: When you are targeted by an attack, you can mark
+a Stress to gain a d6  bonus to your Evasion against the
+attack.
+
+#### TIER 4 {#section-tier-4}
+
+Crushing: When you deal Severe damage, you can spend a
+Hope to force the target to mark an additional Hit Point.
+Exacting: When you roll a 1 on a damage die, you can treat
+it as the highest value on the die instead.
+Honed: Spend a Focus before you make an attack roll to
+gain a +1 bonus to your Proficiency for that attack.
+Isolating: Gain advantage on attack rolls when there are
+no other creatures within Very Close range of you or your
+target.
+
 # DRUID {#section-druid}
 
-Becoming a druid is more than an occupation; it's a calling for those who wish to learn from and protect the magic of the wilderness. While one might underestimate a gentle druid who practices the often-quiet work of cultivating flora, druids who channel the untamed forces of nature are terrifying to behold. Druids cultivate their abilities in small groups, often connected by a specific ethos or locale, but some choose to work alone. Through years of study and dedication, druids can learn to transform into beasts and shape nature itself.
+Becoming a druid is more than an occupation; it’s a calling for
+those who wish to learn from and protect the magic of the
+wilderness. While one might underestimate a gentle druid who
+practices the often-quiet work of cultivating flora, druids who
+channel the untamed forces of nature are terrifying to behold.
+Druids cultivate their abilities in small groups, often connected
+by a specific ethos or locale, but some choose to work alone.
+Through years of study and dedication, druids can learn to
+transform into beasts and shape nature itself.
+DOMAINS – Sage & Arcana
+STARTING EVASION – 10
+STARTING HIT POINTS – 6
+CLASS ITEMS – A small bag of rocks and bones or a
+strange pendant found in the dirt
 
-- **Domains: Sage & Arcana**
-- **Starting Evasion: 10**
-- **Starting Hit Points: 6**
-- **Class Items: A small bag of rocks and bones or a strange pendant found in the dirt**
+#### DRUID’S HOPE FEATURE {#section-druid-s-hope-feature}
 
-#### DRUID'S HOPE FEATURE {#section-druid-s-hope-feature}
+Evolution: Spend 3 Hope to transform into a Beastform
+without marking a Stress. When you do, choose one trait to
+raise by +1 until you drop out of that Beastform.
 
-*Evolution:* **Spend 3 Hope** to transform into a Beastform without marking a Stress. When you do, choose one trait to raise by +1 until you drop out of that Beastform.
+#### CLASS FEATURES {#section-class-feature-2}
 
-#### CLASS FEATURE {#section-class-feature-2}
-
-*Beastform:* Mark a Stress to magically transform into a creature of your tier or lower from the Beastform list. You can drop out of this form at any time. While transformed, you can't use weapons or cast spells from domain cards, but you can still use other features or abilities you have access to. Spells you cast before you transform stay active and last for their normal duration, and you can talk and communicate as normal. Additionally, you gain the Beastform's features, add their Evasion bonus to your Evasion, and use the trait specified in their statistics for your attack. While you're in a Beastform, your armor becomes part of your body and you mark Armor Slots as usual; when you drop out of a Beastform, those marked Armor Slots remain marked. If you mark your last Hit Point, you automatically drop out of this form.
-
-**Wildtouch:** You can perform harmless, subtle effects that involve nature—such as causing a flower to rapidly grow, summoning a slight gust of wind, or starting a campfire at will.
+Beastform: Mark a Stress to magically transform into a
+creature of your tier or lower from the Beastform list. You
+can drop out of this form at any time. While transformed,
+you can’t use weapons or cast spells from domain cards,
+but you can still use other features or abilities you have
+access to. Spells you cast before you transform stay
+active and last for their normal duration, and you can talk
+and communicate as normal. Additionally, you gain the
+Beastform’s features, add their Evasion bonus to your
+Evasion, and use the trait specified in their statistics for
+your attack. While you’re in a Beastform, your armor
+becomes part of your body and you mark Armor Slots as
+usual; when you drop out of a Beastform, those marked
+Armor Slots remain marked. If you mark your last Hit Point,
+you automatically drop out of this form.
+Wildtouch: You can perform harmless, subtle effects that
+involve nature—such as causing a flower to rapidly grow,
+summoning a slight gust of wind, or starting a campfire—
+at will.
 
 #### DRUID SUBCLASSES {#section-druid-subclasses}
 
-*Choose either the Warden of the Elements or Warden of Renewal subclass.*
+Choose either the Warden of the Elements or Warden of
+Renewal subclass.
 
 ### WARDEN OF THE ELEMENTS {#section-warden-of-the-elements}
 
-Play the Warden of the Elements if you want to embody the natural elements of the wild.
+Play the Warden of the Elements if you want to embody the
+natural elements of the wild.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-3}
 
@@ -140,34 +608,50 @@ Instinct
 
 #### FOUNDATION FEATURE {#section-foundation-feature-2}
 
-*Elemental Incarnation:* Mark a Stress to Channel one of the following elements until you take Severe damage or until your next rest:
-
-- *Fire:* When an adversary within Melee range deals damage to you, they take **1d10** magic damage.
-- *Earth:* Gain a bonus to your damage thresholds equal to your Proficiency.
-- *Water:* When you deal damage to an adversary within Melee range, all other adversaries within Very Close range must mark a Stress.
-- *Air:* You can hover, gaining advantage on Agility Rolls.
+Elemental Incarnation: Mark a Stress to Channel one of the
+following elements until you take Severe damage or until
+your next rest:
+  - Fire: When an adversary within Melee range deals
+damage to you, they take  1d10  magic damage.
+  - Earth: Gain a bonus to your damage thresholds equal to
+your Proficiency.
+  - Water: When you deal damage to an adversary within
+Melee range, all other adversaries within Very Close
+range must mark a Stress.
+  - Air: You can hover, gaining advantage on Agility Rolls.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-3}
 
-*Elemental Aura:* Once per rest while Channeling, you can assume an aura matching your element. The aura affects targets within Close range until your Channeling ends.
-
-- *Fire:* When an adversary marks 1 or more Hit Points, they must also mark a Stress.
-- *Earth:* Your allies gain a +1 bonus to Strength.
-- *Water:* When an adversary deals damage to you, you can **mark a Stress** to move them anywhere within Very Close range of where they are.
-- *Air:* When you or an ally takes damage from an attack beyond Melee range, reduce the damage by **1d8**.
+Elemental Aura: Once per rest while Channeling, you can
+assume an aura matching your element. The aura affects
+targets within Close range until your Channeling ends.
+  - Fire: When an adversary marks 1 or more Hit Points,
+they must also mark a Stress.
+  - Earth: Your allies gain a +1 bonus to Strength.
+  - Water: When an adversary deals damage to you, you
+can mark a Stress to move them anywhere within Very
+Close range of where they are.
+  - Air: When you or an ally takes damage from an attack
+beyond Melee range, reduce the damage by 1d8 .
 
 #### MASTERY FEATURE {#section-mastery-feature-3}
 
-*Elemental Dominion:* You further embody your element. While Channeling, you gain the following benefit:
-
-- *Fire:* You gain a +1 bonus to your Proficiency for attacks and spells that deal damage.
-- *Earth:* When you would mark Hit Points, roll a **d6** per Hit Point marked. For each result of 6, reduce the number of Hit Points you mark by 1.
-- *Water:* When an attack against you succeeds, you can **mark a Stress** to make the attacker temporarily Vulnerable.
-- *Air:* You gain a +1 bonus to your Evasion and can fly.
+Elemental Dominion: You further embody your element.
+While Channeling, you gain the following benefit:
+  - Fire: You gain a +1 bonus to your Proficiency for attacks
+and spells that deal damage.
+  - Earth: When you would mark Hit Points, roll a  d6  per Hit
+Point marked. For each result of 6, reduce the number of
+Hit Points you mark by 1.
+  - Water: When an attack against you succeeds, you
+can mark a Stress to make the attacker temporarily
+Vulnerable.
+  - Air: You gain a +1 bonus to your Evasion and can fly.
 
 ### WARDEN OF RENEWAL {#section-warden-of-renewal}
 
-*Play the Warden of Renewal if you want to use powerful magic to heal your party.*
+Play the Warden of Renewal if you want to use powerful magic
+to heal your party.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-4}
 
@@ -175,453 +659,574 @@ Instinct
 
 #### FOUNDATION FEATURES {#section-foundation-features-2}
 
-*Clarity of Nature:* Once per long rest, you can create a space of natural serenity within Close range. When you spend a few minutes resting within the space, clear Stress equal to your Instinct, distributed as you choose between you and your allies.
-
-*Regeneration:* Touch a creature and **spend 3 Hope.** That creature clears **1d4** Hit Points.
+Clarity of Nature: Once per long rest, you can create a
+space of natural serenity within Close range. When you
+spend a few minutes resting within the space, clear Stress
+equal to your Instinct, distributed as you choose between
+you and your allies.
+Regeneration: Touch a creature and spend 3 Hope.  That
+creature clears 1d4  Hit Points.
 
 #### SPECIALIZATION FEATURES {#section-specialization-features}
 
-*Regenerative Reach:* You can target creatures within Very Close range with your "Regeneration" feature.
-
-*Warden's Protection:* Once per long rest, **spend 2 Hope** to clear 2 Hit Points on **1d4** allies within Close range.
+Regenerative Reach: You can target creatures within Very
+Close range with your “Regeneration” feature.
+Warden’s Protection: Once per long rest, spend 2 Hope to
+clear 2 Hit Points on 1d4  allies within Close range.
 
 #### MASTERY FEATURE {#section-mastery-feature-4}
 
-*Defender:* Your animal transformation embodies a healing guardian spirit. When you're in Beastform and an ally within Close range marks 2 or more Hit Points, you can **mark a Stress** to reduce the number of Hit Points they mark by 1.
+Defender: Your animal transformation embodies a healing
+guardian spirit. When you’re in Beastform and an ally within
+Close range marks 2 or more Hit Points, you can mark a
+Stress to reduce the number of Hit Points they mark by 1.
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions-2}
+#### BACKGROUND QUESTIONS {#section-background-questions-2}
 
-*Answer any of the following background questions. You can also create your own questions.*
+Answer any of the following background questions. You can
+also create your own questions.
+- Why was the community you grew up in so reliant on
+nature and its creatures?
+- Who was the first wild animal you bonded with? Why
+did your bond end?
+- Who has been trying to hunt you down? What do
+they want from you?
 
-- Why was the community you grew up in so reliant on nature and its creatures?
-- Who was the first wild animal you bonded with? Why did your bond end?
-- Who has been trying to hunt you down? What do they want from you?
+#### CONNECTIONS {#section-connections-2}
 
-#### **CONNECTIONS** {#section-connections-2}
-
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
-- What did you confide in me that makes me leap into danger for you every time?
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- What did you confide in me that makes me leap into
+danger for you every time?
 - What animal do I say you remind me of?
 - What affectionate nickname have you given me?
 
-## BEASTFORM OPTIONS {#section-beastform-options}
+### BEASTFORM OPTIONS {#section-beastform-options}
 
-When you use your "Beastform" feature, choose a creature category of your tier or lower. At the GM's discretion, you can describe yourself transforming into any animal that reasonably fits into that category.
+When you use your “Beastform” feature, choose a creature
+category of your tier or lower. At the GM’s discretion, you can
+describe yourself transforming into any animal that reasonably
+fits into that category.
+Beastform categories are divided by tier. Each entry includes
+the following details:
+- Creature Category: Each category’s name describes the
+common role or behavior of creatures in that category
+(such as Agile Scout). This name is followed by a few
+examples of animals that fit in that category (in this
+example, fox, mouse, and weasel).
+- Character Trait: While transformed, you gain a bonus to
+the listed trait. For example, while transformed into an
+Agile Scout, you gain a +1 bonus to your Agility. When this
+form drops, you lose this bonus.
+- Attack Rolls: When you make an attack while transformed,
+you use the creature’s listed range, trait, and damage dice,
+but you use your Proficiency. For example, as an Agile
+Scout, you can attack a target within Melee range using
+your Agility. On a success, you deal d4 physical damage
+using your Proficiency.
+- Evasion: While transformed, you add the creature’s
+Evasion bonus to your normal Evasion. For example, if your
+Evasion is usually 8 and your Beastform says “Evasion +2,”
+your Evasion becomes 10 while you’re in that form.
+- Advantages: Your form makes you especially suited to
+certain actions. When you make an action or reaction
+roll related to one of the verbs listed for that creature
+category, you gain advantage on that roll. For example,
+an Agile Scout gains advantage on rolls made to sneak
+around, search for objects or creatures, and related
+activities.
+- Features: Each form includes unique features. For
+example, an Agile Scout excels at silent, dexterous
+movement—but they’re also fragile, making you more
+likely to drop out of Beastform.
 
-Beastform categories are divided by tier. Each entry includes the following details:
-
-- **Creature Category:** Each category's name describes the common role or behavior of creatures in that category (such as Agile Scout). This name is followed by a few examples of animals that fit in that category (in this example, fox, mouse, and weasel).
-- **Character Trait:** While transformed, you gain a bonus to the listed trait. For example, while transformed into an Agile Scout, you gain a +1 bonus to your Agility. When this form drops, you lose this bonus.
-- **Attack Rolls:** When you make an attack while transformed, you use the creature's listed range, trait, and damage dice, but you use your Proficiency. For example, as an Agile Scout, you can attack a target within Melee range using your Agility. On a success, you deal d4 physical damage using your Proficiency.
-- **Evasion:** While transformed, you add the creature's Evasion bonus to your normal Evasion. For example, if your Evasion is usually 8 and your Beastform says "Evasion +2," your Evasion becomes 10 while you're in that form.
-- **Advantages:** Your form makes you especially suited to certain actions. When you make an action or reaction roll related to one of the verbs listed for that creature category, you gain advantage on that roll. For example, an Agile Scout gains advantage on rolls made to sneak around, search for objects or creatures, and related activities.
-- **Features:** Each form includes unique features. For example, an Agile Scout excels at silent, dexterous movement—but they're also fragile, making you more likely to drop out of Beastform.
-
-#### TIER 1 {#section-tier-1}
+#### TIER 1 {#section-wardenofrenewal-tier-1}
 
 #### AGILE SCOUT {#section-agile-scout}
 
 (Fox, Mouse, Weasel, etc.)
-
-*Agility +1 | Evasion +2 Melee Agility d4 phy*
-
-**Gain advantage on:** deceive, locate, sneak
-
-*Agile:* Your movement is silent, and you can **spend a Hope** to move up to Far range without rolling.
-
-*Fragile:* When you take Major or greater damage, you drop out of Beastform.
+Agility +1 | Evasion +2
+Melee Agility d4 phy
+Gain advantage on: deceive, locate, sneak
+Agile: Your movement is silent, and you can spend a Hope to
+move up to Far range without rolling.
+Fragile: When you take Major or greater damage, you drop out
+of Beastform.
 
 #### HOUSEHOLD FRIEND {#section-household-friend}
 
 (Cat, Dog, Rabbit, etc.)
-
-*Instinct +1 | Evasion +2 Melee Instinct d6 phy*
-
-**Gain advantage on:** climb, locate, protect
-
-*Companion:* When you Help an Ally, you can roll a **d8** as your advantage die.
-
-*Fragile:* When you take Major or greater damage, you drop out of Beastform.
+Instinct +1 | Evasion +2
+Melee Instinct d6 phy
+Gain advantage on: climb, locate, protect
+Companion: When you Help an Ally, you can roll a d8  as your
+advantage die.
+Fragile: When you take Major or greater damage, you drop out
+of Beastform.
 
 #### NIMBLE GRAZER {#section-nimble-grazer}
 
 (Deer, Gazelle, Goat, etc.)
-
-*Agility +1 | Evasion +3 Melee Agility d6 phy*
-
-**Gain advantage on:** leap, sneak, sprint
-
-*Elusive Prey:* When an attack roll against you would succeed, you can **mark a Stress** and roll a **d4.** Add the result to your Evasion against this attack.
-
-*Fragile:* When you take Major or greater damage, you drop out of Beastform.
+Agility +1 | Evasion +3
+Melee Agility d6 phy
+Gain advantage on: leap, sneak, sprint
+Elusive Prey: When an attack roll against you would succeed,
+you can mark a Stress and roll a d4.  Add the result to your
+Evasion against this attack.
+Fragile: When you take Major or greater damage, you drop out
+of Beastform.
 
 #### PACK PREDATOR {#section-pack-predator}
 
 (Coyote, Hyena, Wolf, etc.)
+Strength +2 | Evasion +1
+Melee Strength d8+2 phy
+Gain advantage on: attack, sprint, track
+Hobbling Strike: When you succeed on an attack against a
+target within Melee range, you can mark a Stress to make the
+target temporarily Vulnerable.
+Pack Hunting: When you succeed on an attack against the
+same target as an ally who acts immediately before you, add a
+d8  to your damage roll.
 
-*Strength +2 | Evasion +1 Melee Strength d8+2 phy*
-
-**Gain advantage on:** attack, sprint, track
-
-*Hobbling Strike:* When you succeed on an attack against a target within Melee range, you can **mark a Stress** to make the target temporarily Vulnerable.
-
-*Pack Hunting:* When you succeed on an attack against the same target as an ally who acts immediately before you, add a **d8** to your damage roll.
-
-#### **AQUATIC SCOUT** {#section-aquatic-scout}
+#### AQUATIC SCOUT {#section-aquatic-scout}
 
 (Eel, Fish, Octopus, etc.)
+Agility +1 | Evasion +2
+Melee Agility d4 phy
+Gain advantage on: navigate, sneak, swim
+Aquatic: You can breathe and move naturally underwater.
+Fragile: When you take Major or greater damage, you drop out
+of Beastform.
 
-*Agility +1 | Evasion +2 Melee Agility d4 phy*
-
-**Gain advantage on:** navigate, sneak, swim
-
-*Aquatic:* You can breathe and move naturally underwater.
-
-*Fragile:* When you take Major or greater damage, you drop out of Beastform.
-
-#### **STALKING ARACHNID** {#section-stalking-arachnid}
+#### STALKING ARACHNID {#section-stalking-arachnid}
 
 (Tarantula, Wolf Spider, etc.)
+Finesse +1 | Evasion +2
+Melee Finesse d6+1 phy
+Gain advantage on: attack, climb, sneak
+Venomous Bite: When you succeed on an attack against a
+target within Melee range, the target becomes temporarily
+Poisoned. A Poisoned creature takes 1d10  direct physical
+damage each time they act.
+Webslinger: You can create a strong web material useful for
+both adventuring and battle. The web is resilient enough to
+support one creature. You can temporarily Restrain a target
+within Close range by succeeding on a Finesse Roll against
+them.
 
-*Finesse +1 | Evasion +2 Melee Finesse d6+1 phy*
+#### TIER 2 {#section-stalkingarachnid-tier-2}
 
-**Gain advantage on:** attack, climb, sneak
-
-*Venomous Bite:* When you succeed on an attack against a target within Melee range, the target becomes temporarily *Poisoned*. A *Poisoned* creature takes **1d10** direct physical damage each time they act.
-
-*Webslinger:* You can create a strong web material useful for both adventuring and battle. The web is resilient enough to support one creature. You can temporarily *Restrain* a target within Close range by succeeding on a Finesse Roll against them.
-
-#### TIER 2 {#section-tier-2}
-
-#### **ARMORED SENTRY** {#section-armored-sentry}
+#### ARMORED SENTRY {#section-armored-sentry}
 
 (Armadillo, Pangolin, Turtle, etc.)
+Strength +1 | Evasion +1
+Melee Strength d8+2 phy
+Gain advantage on: dig, locate, protect
+Armored Shell: Your hardened exterior gives you resistance to
+physical damage. Additionally, mark an Armor Slot to retract
+into your shell. While in your shell, physical damage is reduced
+by a number equal to your Armor Score (after applying
+resistance), but you can’t perform other actions without
+leaving this form.
+Cannonball: Mark a Stress to allow an ally to throw or launch
+you at an adversary. To do so, the ally makes an attack roll
+using Agility or Strength (their choice) against a target within
+Close range. On a success, the adversary takes d12+2 physical
+damage using the thrower’s Proficiency. You can spend a
+Hope to target an additional adversary within Very Close range
+of the first. The second target takes half the damage dealt to
+the first target.
 
-*Strength +1 | Evasion +1 Melee Strength d8+2 phy*
-
-**Gain advantage on:** dig, locate, protect
-
-*Armored Shell:* Your hardened exterior gives you resistance to physical damage. Additionally, **mark an Armor Slot** to retract into your shell. While in your shell, physical damage is reduced by a number equal to your Armor Score (after applying resistance), but you can't perform other actions without leaving this form.
-
-*Cannonball:* **Mark a Stress** to allow an ally to throw or launch you at an adversary. To do so, the ally makes an attack roll using Agility or Strength (their choice) against a target within Close range. On a success, the adversary takes **d12+2** physical damage using the thrower's Proficiency. You can **spend a Hope** to target an additional adversary within Very Close range of the first. The second target takes half the damage dealt to the first target.
-
-#### **POWERFUL BEAST** {#section-powerful-beast}
+#### POWERFUL BEAST {#section-powerful-beast}
 
 (Bear, Bull, Moose, etc.)
+Strength +3 | Evasion +1
+Melee Strength d10+4 phy
+Gain advantage on: navigate, protect, scare
+Rampage: When you roll a 1 on a damage die, you can roll a
+d10  and add the result to the damage roll. Additionally, before
+you make an attack roll, you can mark a Stress to gain a +1
+bonus to your Proficiency for that attack.
+Thick Hide: You gain a +2 bonus to your damage thresholds.
 
-*Strength +1 | Evasion +3 Melee Strength d10+4 phy*
-
-**Gain advantage on:** navigate, protect, scare
-
-*Rampage:* When you roll a 1 on a damage die, you can roll a **d10** and add the result to the damage roll. Additionally, before you make an attack roll, you can **mark a Stress** to gain a +1 bonus to your Proficiency for that attack.
-
-*Thick Hide:* You gain a +2 bonus to your damage thresholds.
-
-#### **MIGHTY STRIDER** {#section-mighty-strider}
+#### MIGHTY STRIDER {#section-mighty-strider}
 
 (Camel, Horse, Zebra, etc.)
+Agility +1 | Evasion +2
+Melee Agility d8+1 phy
+Gain advantage on: leap, navigate, sprint
+Carrier: You can carry up to two willing allies with you when
+you move.
+Trample: Mark a Stress to move up to Close range in a
+straight line and make an attack against all targets within
+Melee range of the line. Targets you succeed against take d8+1
+physical damage using your Proficiency and are temporarily
+Vulnerable.
 
-*Agility +1 | Evasion +2 Melee Agility d8+1 phy*
-
-**Gain advantage on:** leap, navigate, sprint
-
-*Carrier:* You can carry up to two willing allies with you when you move.
-
-*Trample:* **Mark a Stress** to move up to Close range in a straight line and make an attack against all targets within Melee range of the line. Targets you succeed against take **d8+1** physical damage using your Proficiency and are temporarily Vulnerable.
-
-#### **STRIKING SERPENT** {#section-striking-serpent}
+#### STRIKING SERPENT {#section-striking-serpent}
 
 (Cobra, Rattlesnake, Viper, etc.)
+Finesse +1 | Evasion +2
+Very Close Finesse d8+4 phy
+Gain advantage on: climb, deceive, sprint
+Venomous Strike: Make an attack against any number of
+targets within Very Close range. On a success, a target is
+temporarily Poisoned. A Poisoned creature takes 1d10  direct
+physical damage each time they act.
+Warning Hiss: Mark a Stress to force any number of targets
+within Melee range to move back to Very Close range.
 
-*Finesse +1 | Evasion +2 Very Close Finesse d8+4 phy*
-
-**Gain advantage on:** climb, deceive, sprint
-
-*Venomous Strike:* Make an attack against any number of targets within Very Close range. On a success, a target is temporarily Poisoned. A Poisoned creature takes 1d10 direct physical damage each time they act.
-
-*Warning Hiss***: Mark a Stress t**o force any number of targets within Melee range to move back to Very Close range.
-
-#### **POUNCING PREDATOR** {#section-pouncing-predator}
+#### POUNCING PREDATOR {#section-pouncing-predator}
 
 (Cheetah, Lion, Panther, etc.)
+Instinct +1 | Evasion +3
+Melee Instinct d8+6 phy
+Gain advantage on: attack, climb, sneak
+Fleet: Spend a Hope to move up to Far range without rolling.
+Takedown: Mark a Stress to move into Melee range of a target
+and make an attack roll against them. On a success, you gain
+a +2 bonus to your Proficiency for this attack and the target
+must mark a Stress.
 
-*Instinct +1 | Evasion +3 Melee Instinct d8+6 phy*
-
-**Gain advantage on:** attack, climb, sneak
-
-*Fleet:* **Spend a Hope** to move up to Far range without rolling.
-
-*Takedown:* **Mark a Stress** to move into Melee range of a target and make an attack roll against them. On a success, you gain a +2 bonus to your Proficiency for this attack and the target must mark a Stress.
-
-#### **WINGED BEAST** {#section-winged-beast}
+#### WINGED BEAST {#section-winged-beast}
 
 (Hawk, Owl, Raven, etc.)
+Finesse +1 | Evasion +3
+Melee Finesse d4+2 phy
+Gain advantage on: deceive, locate, scare
+Bird’s-Eye View: You can fly at will. Once per rest while you
+are airborne, you can ask the GM a question about the scene
+below you without needing to roll. The first time a character
+makes a roll to act on this information, they gain advantage on
+the roll.
+Hollow Bones: You gain a −2 penalty to your damage
+thresholds.
 
-*Finesse +1 | Evasion +3 Melee Finesse d4+2 phy*
+#### TIER 3 {#section-wingedbeast-tier-3}
 
-**Gain advantage on:** deceive, locate, scare
-
-*Bird's-Eye View:* You can fly at will. Once per rest while you are airborne, you can ask the GM a question about the scene below you without needing to roll. The first time a character makes a roll to act on this information, they gain advantage on the roll.
-
-*Hollow Bones:* You gain a −2 penalty to your damage thresholds.
-
-#### **GREAT PREDATOR** {#section-great-predator}
+#### GREAT PREDATOR {#section-great-predator}
 
 (Dire Wolf, Velociraptor, Sabertooth Tiger, etc.)
+Strength +2 | Evasion +2
+Melee Strength d12+8 phy
+Gain advantage on: attack, sneak, sprint
+Carrier: You can carry up to two willing allies with you when
+you move.
+Vicious Maul: When you succeed on an attack against a target,
+you can spend a Hope to make them temporarily Vulnerable
+and gain a +1 bonus to your Proficiency for this attack.
 
-*Strength +2 | Evasion +2 Melee Strength d12+8 phy*
-
-**Gain advantage on:** attack, sneak, sprint
-
-*Carrier:* You can carry up to two willing allies with you when you move.
-
-*Vicious Maul:* When you succeed on an attack against a target, you can **spend a Hope** to make them temporarily *Vulnerable* and gain a +1 bonus to your Proficiency for this attack.
-
-#### **MIGHTY LIZARD** {#section-mighty-lizard}
+#### MIGHTY LIZARD {#section-mighty-lizard}
 
 (Alligator, Crocodile, Gila Monster, etc.)
+Instinct +2 | Evasion +1
+Melee Instinct d10+7 phy
+Gain advantage on: attack, sneak, track
+Physical Defense: You gain a +3 bonus to your damage
+thresholds.
+Snapping Strike: When you succeed on an attack against a
+target within Melee range, you can spend a Hope to clamp
+that opponent in your jaws, making them temporarily
+Restrained and Vulnerable.
 
-*Instinct +2 | Evasion +1 Melee Instinct d10+7 phy*
-
-**Gain advantage on:** attack, sneak, track
-
-*Physical Defense:* You gain a +3 bonus to your damage thresholds.
-
-*Snapping Strike:* When you succeed on an attack against a target within Melee range, you can **spend a Hope** to clamp that opponent in your jaws, making them temporarily *Restrained* and *Vulnerable.*
-
-#### **GREAT WINGED BEAST** {#section-great-winged-beast}
+#### GREAT WINGED BEAST {#section-great-winged-beast}
 
 (Giant Eagle, Falcon, etc.)
+Finesse +2 | Evasion +3
+Melee Finesse d8+6 phy
+Gain advantage on: deceive, distract, locate
+Bird’s-Eye View: You can fly at will. Once per rest while you
+are airborne, you can ask the GM a question about the scene
+below you without needing to roll. The first time a character
+makes a roll to act on this information, they gain advantage on
+the roll.
+Carrier: You can carry up to two willing allies with you when
+you move.
 
-*Finesse +2 | Evasion +3 Melee Finesse d8+6 phy*
-
-**Gain advantage on:** deceive, distract, locate
-
-*Bird's-Eye View:* You can fly at will. Once per rest while you are airborne, you can ask the GM a question about the scene below you without needing to roll. The first time a character makes a roll to act on this information, they gain advantage on the roll.
-
-*Carrier:* You can carry up to two willing allies with you when you move.
-
-#### **AQUATIC PREDATOR** {#section-aquatic-predator}
+#### AQUATIC PREDATOR {#section-aquatic-predator}
 
 (Dolphin, Orca, Shark, etc.)
+Agility +2 | Evasion +4
+Melee Agility d10+6 phy
+Gain advantage on: attack, swim, track
+Aquatic: You can breathe and move naturally underwater.
+Vicious Maul: When you succeed on an attack against a target,
+you can spend a Hope to make them Vulnerable and gain a +1
+bonus to your Proficiency for this attack.
 
-*Agility +2 | Evasion +4 Melee Agility d10+6 phy*
-
-**Gain advantage on:** attack, swim, track
-
-*Aquatic:* You can breathe and move naturally underwater.
-
-*Vicious Maul:* When you succeed on an attack against a target, you can **spend a Hope** to make them *Vulnerable* and gain a +1 bonus to your Proficiency for this attack.
-
-#### **LEGENDARY BEAST** {#section-legendary-beast}
+#### LEGENDARY BEAST {#section-legendary-beast}
 
 (Upgraded Tier 1 Options)
-
-*Evolved:* Pick a Tier 1 Beastform option and become a larger, more powerful version of that creature. While you're in this form, you retain all traits and features from the original form and gain the following bonuses:
-
+Evolved: Pick a Tier 1 Beastform option and become a larger,
+more powerful version of that creature. While you’re in this
+form, you retain all traits and features from the original form
+and gain the following bonuses:
 - A +6 bonus to damage rolls
 - A +1 bonus to the trait used by this form
 - A +2 bonus to Evasion
 
-#### **LEGENDARY HYBRID** {#section-legendary-hybrid}
+#### LEGENDARY HYBRID {#section-legendary-hybrid}
 
 (Griffon, Sphinx, etc.)
+Strength +2 | Evasion +3
+Melee Strength d10+8 phy
+Hybrid Features: To transform into this creature, mark an
+additional Stress. Choose any two Beastform options from
+Tiers 1–2. Choose a total of four advantages and two features
+from those options.
 
-*Strength +2 | Evasion +3 Melee Strength d10+8 phy*
+#### TIER 4 {#section-legendaryhybrid-tier-4}
 
-*Hybrid Features:* To transform into this creature, **mark an additional Stress.** Choose any two Beastform options from Tiers 1–2. Choose a total of four advantages and two features from those options.
-
-#### TIER 4 {#section-tier-4}
-
-#### **MASSIVE BEHEMOTH** {#section-massive-behemoth}
+#### MASSIVE BEHEMOTH {#section-massive-behemoth}
 
 (Elephant, Mammoth, Rhinoceros, etc.)
+Strength +3 | Evasion +1
+Melee Strength d12+12 phy
+Gain advantage on: locate, protect, scare, sprint
+Carrier: You can carry up to four willing allies with you when
+you move.
+Demolish: Spend a Hope to move up to Far range in a straight
+line and make an attack against all targets within Melee range
+of the line. Targets you succeed against take d8+10 physical
+damage using your Proficiency and are temporarily Vulnerable.
+Undaunted: You gain a +2 bonus to all your damage
+thresholds.
 
-*Strength +3 | Evasion +1 Melee Strength d12+12 phy*
-
-**Gain advantage on:** locate, protect, scare, sprint
-
-*Carrier:* You can carry up to four willing allies with you when you move.
-
-*Demolish:* **Spend a Hope** to move up to Far range in a straight line and make an attack against all targets within Melee range of the line. Targets you succeed against take **d8+10** physical damage using your Proficiency and are temporarily *Vulnerable.*
-
-*Undaunted:* You gain a +2 bonus to all your damage thresholds.
-
-#### **TERRIBLE LIZARD** {#section-terrible-lizard}
+#### TERRIBLE LIZARD {#section-terrible-lizard}
 
 (Brachiosaurus, Tyrannosaurus, etc.)
+Strength +3 | Evasion +2
+Melee Strength d12+10 phy
+Gain advantage on: attack, deceive, scare, track
+Devastating Strikes: When you deal Severe damage to a target
+within Melee range, you can mark a Stress to force them to
+mark an additional Hit Point.
+Massive Stride: You can move up to Far range without rolling.
+You ignore rough terain (at the GM’s discretion) due to your
+size.
 
-*Strength +3 | Evasion +2 Melee Strength d12+10 phy*
-
-**Gain advantage on:** attack, deceive, scare, track
-
-*Devastating Strikes:* When you deal Severe damage to a target within Melee range, you can **mark a Stress** to force them to mark an additional Hit Point.
-
-*Massive Stride:* You can move up to Far range without rolling. You ignore rough terain (at the GM's discretion) due to your size.
-
-#### **MYTHIC AERIAL HUNTER** {#section-mythic-aerial-hunter}
+#### MYTHIC AERIAL HUNTER {#section-mythic-aerial-hunter}
 
 (Dragon, Pterodactyl, Roc, Wyvern, etc.)
+Finesse +3 | Evasion +4
+Melee Finesse d10+11 phy
+Gain advantage on: attack, deceive, locate, navigate
+Carrier: You can carry up to three willing allies with you when
+you move.
+Deadly Raptor: You can fly at will and move up to Far range
+as part of your action. When you move in a straight line into
+Melee range of a target from at least Close range and make an
+attack against that target in the same action, you can reroll all
+damage dice that rolled a result lower than your Proficiency.
 
-*Finesse +3 | Evasion +4 Melee Finesse d10+11 phy*
-
-**Gain advantage on:** attack, deceive, locate, navigate
-
-*Carrier:* You can carry up to three willing allies with you when you move.
-
-*Deadly Raptor:* You can fly at will and move up to Far range as part of your action. When you move in a straight line into Melee range of a target from at least Close range and make an attack against that target in the same action, you can reroll all damage dice that rolled a result lower than your Proficiency.
-
-#### **EPIC AQUATIC BEAST** {#section-epic-aquatic-beast}
+#### EPIC AQUATIC BEAST {#section-epic-aquatic-beast}
 
 (Giant Squid, Whale, etc.)
+Agility +3 | Evasion +3
+Melee Agility d10+10 phy
+Gain advantage on: locate, protect, scare, track
+Ocean Master: You can breathe and move naturally
+underwater. When you succeed on an attack against a target
+within Melee range, you can temporarily Restrain them.
+Unyielding: When you would mark an Armor Slot, roll a d6.  On
+a result of 5 or higher, reduce the severity by one threshold
+without marking an Armor Slot.
 
-*Agility +3 | Evasion +3 Melee Agility d10+10 phy*
-
-**Gain advantage on:** locate, protect, scare, track
-
-*Ocean Master:* You can breathe and move naturally underwater. When you succeed on an attack against a target within Melee range, you can temporarily Restrain them.
-
-*Unyielding:* When you would mark an Armor Slot, roll a **d6.** On a result of 5 or higher, reduce the severity by one threshold without marking an Armor Slot.
-
-#### **MYTHIC BEAST** {#section-mythic-beast}
+#### MYTHIC BEAST {#section-mythic-beast}
 
 (Upgraded Tier 1 or Tier 2 Options)
-
-*Evolved:* Pick a Tier 1 or Tier 2 Beastform option and become a larger, more powerful version of that creature. While you're in this form, you retain all traits and features from the original form and gain the following bonuses:
-
+Evolved: Pick a Tier 1 or Tier 2 Beastform option and become
+a larger, more powerful version of that creature. While you’re
+in this form, you retain all traits and features from the original
+form and gain the following bonuses:
 - A +9 bonus to damage rolls
 - A +2 bonus to the trait used by this form
 - A +3 bonus to Evasion
-- Your damage die increases by one size (d6 becomes d8, d8 becomes d10, etc.)
+- Your damage die increases by one size (d6 becomes d8, d8
+becomes d10, etc.)
 
-#### **MYTHIC HYBRID** {#section-mythic-hybrid}
+#### MYTHIC HYBRID {#section-mythic-hybrid}
 
 (Chimera, Cockatrice, Manticore, etc.)
-
-*Strength +3 | Evasion +2 Strength Melee d12+10 phy*
-
-*Hybrid Features:* To transform into this creature, **mark 2 additional Stress.** Choose any three Beastform options from Tiers 1-3. Choose a total of five advantages and three features from those options.
+Strength +3 | Evasion +2
+Strength Melee d12+10 phy
+Hybrid Features: To transform into this creature, mark 2
+additional Stress. Choose any three Beastform options from
+Tiers 1-3. Choose a total of five advantages and three features
+from those options.
 
 # GUARDIAN {#section-guardian}
 
-The title of guardian represents an array of martial professions, speaking more to their moral compass and unshakeable fortitude than the means by which they fight. While many guardians join groups of militants for either a country or cause, they're more likely to follow those few they truly care for, majority be damned. Guardians are known for fighting with remarkable ferocity even against overwhelming odds, defending their cohort above all else. Woe betide those who harm the ally of a guardian, as the guardian will answer this injury in kind.
+The title of guardian represents an array of martial
+professions, speaking more to their moral compass and
+unshakeable fortitude than the means by which they fight.
+While many guardians join groups of militants for either a
+country or cause, they’re more likely to follow those few they
+truly care for, majority be damned. Guardians are known for
+fighting with remarkable ferocity even against overwhelming
+odds, defending their cohort above all else. Woe betide those
+who harm the ally of a guardian, as the guardian will answer
+this injury in kind.
+DOMAINS – Valor & Blade
+STARTING EVASION – 9
+STARTING HIT POINTS – 7
+CLASS ITEMS – A totem from your mentor or a secret key
 
-**DOMAINS -** Valor and Blade
+#### GUARDIAN’S HOPE FEATURE {#section-guardian-s-hope-feature}
 
-**STARTING EVASION -** 9
+Frontline Tank: Spend 3 Hope to clear 2 Armor Slots.
 
-**Starting Hit Points: 7**
+#### CLASS FEATURE {#section-class-feature-3}
 
-**CLASS ITEMS -** A totem from your mentor or a secret key
-
-#### **GUARDIAN'S HOPE FEATURE** {#section-guardian-s-hope-feature}
-
-*Frontline Tank:* **Spend 3 Hope** to clear 2 Armor Slots.
-
-#### **CLASS FEATURE** {#section-class-feature-3}
-
-*Unstoppable:* Once per long rest, you can become *Unstoppable.* You gain an Unstoppable Die. At level 1, your Unstoppable Die is a **d4.** Place it on your character sheet in the space provided, starting with the 1 value facing up. After you make a damage roll that deals 1 or more Hit Points to a target, increase the Unstoppable Die value by one. When the die's value would exceed its maximum value or when the scene ends, remove the die and drop out of Unstoppable. At level 5, your *Unstoppable* Die increases to a **d6.**
-
+Unstoppable: Once per long rest, you can become
+Unstoppable.  You gain an Unstoppable Die. At level 1, your
+Unstoppable Die is a d4. Place it on your character sheet
+in the space provided, starting with the 1 value facing up.
+After you make a damage roll that deals 1 or more Hit
+Points to a target, increase the Unstoppable Die value by
+one. When the die’s value would exceed its maximum value
+or when the scene ends, remove the die and drop out of
+Unstoppable. At level 5, your Unstoppable Die increases to
+a d6.
 While Unstoppable, you gain the following benefits:
-
-- You reduce the severity of physical damage by one threshold (Severe to Major, Major to Minor, Minor to None).
-- You add the current value of the Unstoppable Die to your damage roll.
-- You can't be Restrained or Vulnerable.
-
-*Tip: If your Unstoppable Die is a d4 and the 4 is currently facing up, you remove the die the next time you would increase it. However, if your Unstoppable Die has increased to a d6 and the 4 is currently facing up, you'll turn it to 5 the next time you would increase it. In this case, you'll remove the die after you would need to increase it higher than 6.*
+  - You reduce the severity of physical damage by one
+threshold (Severe to Major, Major to Minor, Minor to
+None).
+  - You add the current value of the Unstoppable Die to
+your damage roll.
+  - You can’t be Restrained or Vulnerable.
+Tip: If your Unstoppable Die is a d4 and the 4 is
+currently facing up, you remove the die the next time
+you would increase it. However, if your Unstoppable Die
+has increased to a d6 and the 4 is currently facing up,
+you’ll turn it to 5 the next time you would increase it. In
+this case, you’ll remove the die after you would need to
+increase it higher than 6.
 
 #### GUARDIAN SUBCLASSES {#section-guardian-subclasses}
 
-*Choose either the Stalwart or Vengeance subclass.*
+Choose either the Stalwart or Vengeance subclass.
 
 ### STALWART {#section-stalwart}
 
-Play the Stalwart if you want to take heavy blows and keep fighting.
+Play the Stalwart if you want to take heavy blows and keep
+fighting.
 
 #### FOUNDATION FEATURES {#section-foundation-features-3}
 
-*Unwavering:* Gain a permanent +1 bonus to your damage thresholds.
-
-*Iron Will:* When you take physical damage, you can **mark an additional Armor Slot** to reduce the severity.
+Unwavering: Gain a permanent +1 bonus to your damage
+thresholds.
+Iron Will: When you take physical damage, you can mark an
+additional Armor Slot to reduce the severity.
 
 #### SPECIALIZATION FEATURES {#section-specialization-features-2}
 
-*Unrelenting:* Gain a permanent +2 bonus to your damage thresholds.
+Unrelenting: Gain a permanent +2 bonus to your damage
+thresholds.
+Partners-in-Arms:  When an ally within Very Close range
+takes damage, you can mark an Armor Slot to reduce the
+severity by one threshold.
 
-*Partners-in-Arms:* When an ally within Very Close range takes damage, you can **mark an Armor Slot** to reduce the severity by one threshold.
+#### MASTERY FEATURES {#section-mastery-features}
 
-#### **MASTERY FEATURES** {#section-mastery-features}
-
-*Undaunted:* Gain a permanent +3 bonus to your damage thresholds.
-
-*Loyal Protector:* When an ally within Close range has 2 or fewer Hit Points and would take damage, you can **mark a Stress** to sprint to their side and take the damage instead.
+Undaunted: Gain a permanent +3 bonus to your damage
+thresholds.
+Loyal Protector: When an ally within Close range has 2 or
+fewer Hit Points and would take damage, you can mark a
+Stress to sprint to their side and take the damage instead.
 
 ### VENGEANCE {#section-vengeance}
 
-Play the Vengeance if you want to strike down enemies who harm you or your allies.
+Play the Vengeance if you want to strike down enemies who
+harm you or your allies.
 
 #### FOUNDATION FEATURES {#section-foundation-features-4}
 
-*At Ease:* Gain an additional Stress slot.
-
-*Revenge:* When an adversary within Melee range succeeds on an attack against you, you can **mark 2 Stress** to force the attacker to mark a Hit Point.
+At Ease: Gain an additional Stress slot.
+Revenge: When an adversary within Melee range succeeds
+on an attack against you, you can mark 2 Stress to force
+the attacker to mark a Hit Point.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-4}
 
-*Act of Reprisal:* When an adversary damages an ally within Melee range, you gain a +1 bonus to your Proficiency for the next successful attack you make against that adversary.
+Act of Reprisal: When an adversary damages an ally within
+Melee range, you gain a +1 bonus to your Proficiency for
+the next successful attack you make against that adversary.
 
 #### MASTERY FEATURE {#section-mastery-feature-5}
 
-*Nemesis:* **Spend 2 Hope** to *Prioritize* an adversary until your next rest. When you make an attack against your *Prioritized* adversary, you can swap the results of your Hope and Fear Dice. You can only *Prioritize* one adversary at a time.
+Nemesis: Spend 2 Hope to Prioritize an adversary until your
+next rest. When you make an attack against your Prioritized
+adversary, you can swap the results of your Hope and Fear
+Dice. You can only Prioritize one adversary at a time.
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions-3}
+#### BACKGROUND QUESTIONS {#section-background-questions-3}
 
-*Answer any of the following background questions. You can also create your own questions.*
+Answer any of the following background questions. You can
+also create your own questions.
+- Who from your community did you fail to protect,
+and why do you still think of them?
+- You’ve been tasked with protecting something
+important and delivering it somewhere dangerous.
+What is it, and where does it need to go?
+- You consider an aspect of yourself to be a weakness.
+What is it, and how has it affected you?
 
-- Who from your community did you fail to protect, and why do you still think of them?
-- You've been tasked with protecting something important and delivering it somewhere dangerous. What is it, and where does it need to go?
-- You consider an aspect of yourself to be a weakness. What is it, and how has it affected you?
+#### CONNECTIONS {#section-connections-3}
 
-#### **CONNECTIONS** {#section-connections-3}
-
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
 - How did I save your life the first time we met?
-- What small gift did you give me that you notice I always carry with me?
-- What lie have you told me about yourself that I absolutely believe?
+- What small gift did you give me that you notice I
+always carry with me?
+- What lie have you told me about yourself that I
+absolutely believe?
 
 # RANGER {#section-ranger}
 
-Rangers are highly skilled hunters who, despite their martial abilities, rarely lend their skills to an army. Through mastery of the body and a deep understanding of the wilderness, rangers become sly tacticians, pursuing their quarry with cunning and patience. Many rangers track and fight alongside an animal companion with whom they've forged a powerful spiritual bond. By honing their skills in the wild, rangers become expert trackers, as likely to ensnare their foes in a trap as they are to assail them head-on.
+Rangers are highly skilled hunters who, despite their martial
+abilities, rarely lend their skills to an army. Through mastery of
+the body and a deep understanding of the wilderness, rangers
+become sly tacticians, pursuing their quarry with cunning and
+patience. Many rangers track and fight alongside an animal
+companion with whom they’ve forged a powerful spiritual
+bond. By honing their skills in the wild, rangers become expert
+trackers, as likely to ensnare their foes in a trap as they are to
+assail them head-on.
+DOMAINS – Bone & Sage
+STARTING EVASION – 12
+STARTING HIT POINTS – 6
+CLASS ITEMS – A trophy from your first kill or a seemingly
+broken compass
 
-**DOMAINS -** Bone & Sage
+#### RANGER’S HOPE FEATURE {#section-ranger-s-hope-feature}
 
-**STARTING EVASION -** 12
+Hold Them Off: Spend 3 Hope when you succeed on an
+attack with a weapon to use that same roll against two
+additional adversaries within range of the attack.
 
-**Starting Hit Points: 6**
+#### CLASS FEATURE {#section-class-feature-4}
 
-**CLASS ITEMS -** A trophy from your first kill or a seemingly broken compass
-
-#### **RANGER'S HOPE FEATURE** {#section-ranger-s-hope-feature}
-
-*Hold Them Off:* **Spend 3 Hope** when you succeed on an attack with a weapon to use that same roll against two additional adversaries within range of the attack.
-
-#### **CLASS FEATURE** {#section-class-feature-4}
-
-**Ranger's Focus: Spend a Hope** and make an attack against a target. On a success, deal your attack's normal damage and temporarily make the attack's target your *Focus*. Until this feature ends or you make a different creature your Focus, you gain the following benefits against your *Focus:*
-
-- You know precisely what direction they are in.
-- When you deal damage to them, they must mark a Stress.
-- When you fail an attack against them, you can end your Ranger's Focus feature to reroll your Duality Dice.
+Ranger’s Focus: Spend a Hope and make an attack against
+a target. On a success, deal your attack’s normal damage
+and temporarily make the attack’s target your Focus. Until
+this feature ends or you make a different creature your
+Focus, you gain the following benefits against your Focus:
+  - You know precisely what direction they are in.
+  - When you deal damage to them, they must mark a
+Stress.
+  - When you fail an attack against them, you can end your
+Ranger’s Focus feature to reroll your Duality Dice.
 
 #### RANGER SUBCLASSES {#section-ranger-subclasses}
 
-*Choose either the Beastbound or Wayfinder subclass.*
+Choose either the Beastbound or Wayfinder subclass.
 
 ### BEASTBOUND {#section-beastbound}
 
-Play the Beastbound if you want to form a deep bond with an animal ally.
+Play the Beastbound if you want to form a deep bond with an
+animal ally.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-5}
 
@@ -629,25 +1234,35 @@ Agility
 
 #### FOUNDATION FEATURE {#section-foundation-feature-3}
 
-*Companion:* You have an animal companion of your choice (at the GM's discretion). They stay by your side unless you tell them otherwise.
-
-Take the Ranger Companion sheet. When you level up your character, choose a level-up option for your companion from this sheet as well.
+Companion: You have an animal companion of your choice
+(at the GM’s discretion). They stay by your side unless you
+tell them otherwise.
+Take the Ranger Companion sheet. When you level up your
+character, choose a level-up option for your companion
+from this sheet as well.
 
 #### SPECIALIZATION FEATURES {#section-specialization-features-3}
 
-*Expert Training:* Choose an additional level-up option for your companion.
+Expert Training: Choose an additional level-up option for
+your companion.
+Battle-Bonded: When an adversary attacks you while
+they’re within your companion’s Melee range, you gain a +2
+bonus to your Evasion against the attack.
 
-*Battle-Bonded:* When an adversary attacks you while they're within your companion's Melee range, you gain a +2 bonus to your Evasion against the attack.
+#### MASTERY FEATURES {#section-mastery-features-2}
 
-#### **MASTERY FEATURES** {#section-mastery-features-2}
-
-*Advanced Training:* Choose two additional level-up options for your companion.
-
-*Loyal Friend:* Once per long rest, when the damage from an attack would mark your companion's last Stress or your last Hit Point and you're within Close range of each other, you or your companion can rush to the other's side and take that damage instead.
+Advanced Training: Choose two additional level-up options
+for your companion.
+Loyal Friend: Once per long rest, when the damage from
+an attack would mark your companion’s last Stress or your
+last Hit Point and you’re within Close range of each other,
+you or your companion can rush to the other’s side and take
+that damage instead.
 
 ### WAYFINDER {#section-wayfinder}
 
-Play the Wayfinder if you want to hunt your prey and strike with deadly force.
+Play the Wayfinder if you want to hunt your prey and strike
+with deadly force.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-6}
 
@@ -655,124 +1270,196 @@ Agility
 
 #### FOUNDATION FEATURES {#section-foundation-features-5}
 
-*Ruthless Predator:* When you make a damage roll, you can **mark a Stress** to gain a +1 bonus to your Proficiency. Additionally, when you deal Severe damage to an adversary, they must mark a Stress.
-
-*Path Forward:* When you're traveling to a place you've previously visited or you carry an object that has been at the location before, you can identify the shortest, most direct path to your destination.
+Ruthless Predator: When you make a damage roll, you
+can mark a Stress to gain a +1 bonus to your Proficiency.
+Additionally, when you deal Severe damage to an
+adversary, they must mark a Stress.
+Path Forward: When you’re traveling to a place you’ve
+previously visited or you carry an object that has been at
+the location before, you can identify the shortest, most
+direct path to your destination.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-5}
 
-*Elusive Predator:* When your Focus makes an attack against you, you gain a +2 bonus to your Evasion against the attack.
+Elusive Predator: When your Focus makes an attack against
+you, you gain a +2 bonus to your Evasion against the attack.
 
 #### MASTERY FEATURE {#section-mastery-feature-6}
 
-*Apex Predator:* Before you make an attack roll against your Focus, you can **spend a Hope.** On a successful attack, you remove a Fear from the GM's Fear pool.
+Apex Predator: Before you make an attack roll against your
+Focus, you can spend a Hope. On a successful attack, you
+remove a Fear from the GM’s Fear pool.
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions-4}
+#### BACKGROUND QUESTIONS {#section-background-questions-4}
 
-*Answer any of the following background questions. You can also create your own questions.*
-
-- A terrible creature hurt your community, and you've vowed to hunt them down. What are they, and what unique trail or sign do they leave behind?
-- Your first kill almost killed you, too. What was it, and what part of you was never the same after that event?
-- You've traveled many dangerous lands, but what is the one place you refuse to go?
+Answer any of the following background questions. You can
+also create your own questions.
+- A terrible creature hurt your community, and you’ve
+vowed to hunt them down. What are they, and what
+unique trail or sign do they leave behind?
+- Your first kill almost killed you, too. What was it,
+and what part of you was never the same after that
+event?
+- You’ve traveled many dangerous lands, but what is
+the one place you refuse to go?
 
 #### CONNECTIONS {#section-connections-4}
 
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
 - What friendly competition do we have?
-- Why do you act differently when we're alone than when others are around?
-- What threat have you asked me to watch for, and why are you worried about it?
+- Why do you act differently when we’re alone than
+when others are around?
+- What threat have you asked me to watch for, and
+why are you worried about it?
 
 #### RANGER COMPANION {#section-ranger-companion}
 
-When you choose the Beastbound Ranger subclass, take a companion sheet. This sheet is for tracking important information about your character's companion and can be tucked beneath the right side of your character sheet for ease of viewing.
+When you choose the Beastbound Ranger subclass, take
+a companion sheet. This sheet is for tracking important
+information about your character’s companion and can be
+tucked beneath the right side of your character sheet for ease
+of viewing.
 
-**STEP 1: Name Your Companion**
+#### STEP 1:  NAME YOUR COMPANION {#section-wayfinder-step-1-name-your-companion}
 
-Work with the GM to decide what kind of animal you have as your companion. Give them a name and add a picture of them to the companion sheet.
+Work with the GM to decide what kind of animal you have
+as your companion. Give them a name and add a picture of
+them to the companion sheet.
 
-**STEP 2: Write Their Evasion**
+#### STEP 2:  WRITE THEIR EVASION {#section-wayfinder-step-2-write-their-evasion}
 
 Fill in their Evasion, which starts at 10.
 
-**STEP 3: Choose Their Companion Experience**
+#### STEP 3:  CHOOSE THEIR COMPANION EXPERIENCE {#section-wayfinder-step-3-choose-their-companion-experience}
 
-Create two Experiences for your companion based on their training and the history you have together.
+Create two Experiences for your companion based on their
+training and the history you have together.
+Start with +2 in both Experiences. Whenever you gain a
+new Experience, your companion also gains one. All new
+Experiences start at +2.
+Example Companion Experiences
+Bold Distraction, Expert Climber, Fetch, Friendly, Guardian
+of the Forest, Horrifying, Intimidating, Loyal Until the
+End, Navigation, Nimble, Nobody Left Behind, On High
+Alert, Protective, Royal Companion, Scout, Service Animal,
+Trusted Mount, Vigilant, We Always Find Them, You Can’t
+Hit What You Can’t Find
 
-Start with +2 in both Experiences. Whenever you gain a new Experience, your companion also gains one. All new Experiences start at +2.
+#### STEP 4: CHOOSE THEIR ATTACK AND RECORD DAMAGE DIE {#section-wayfinder-step-4-choose-their-attack-and-record-damage-die}
 
-**Example Companion Experiences**
+Finally, describe your companion’s method of dealing
+damage (their standard attack) and record it in the “Attack
+& Damage” section. At level 1, your companion’s damage
+die is a d6 and their range is Melee. Choose whether they
+deal physical or magic damage.
 
-*Bold Distraction, Expert Climber, Fetch, Friendly, Guardian of the Forest, Horrifying, Intimidating, Loyal Until the End, Navigation, Nimble, Nobody Left Behind, On High Alert, Protective, Royal Companion, Scout, Service Animal, Trusted Mount, Vigilant, We Always Find Them, You Can't Hit What You Can't Find*
+#### WORKING WITH YOUR COMPANION {#section-wayfinder-working-with-your-companion}
 
-**STEP 4: Choose Their Attack and Record Damage Die**
+The following sections will run you through the basics of
+working with your companion.
 
-Finally, describe your companion's method of dealing damage (their standard attack) and record it in the "Attack & Damage" section. At level 1, your companion's damage die is a d6 and their range is Melee.
+#### USING SPELLCAST ROLLS, HOPE, AND EXPERIENCES {#section-wayfinder-using-spellcast-rolls-hope-and-experiences}
 
-**Working with Your Companion**
+Make a Spellcast Roll to connect with your companion and
+command them to take action. Spend a Hope to add an
+applicable Companion Experience to the roll. On a success
+with Hope, if your next action builds on their success, you gain
+advantage on the roll.
 
-The following sections will run you through the basics of working with your companion.
+#### ATTACKING WITH YOUR COMPANION {#section-wayfinder-attacking-with-your-companion}
 
-**Using Spellcast Rolls, Hope, and Experiences**
+When you command your companion to attack, they gain any
+benefits that would normally only apply to you (such as the
+effects of “Ranger’s Focus”). On a success, their damage roll
+uses your Proficiency and their damage die.
 
-Make a Spellcast Roll to connect with your companion and command them to take action. Spend a Hope to add an applicable Companion Experience to the roll. On a success with Hope, if your next action builds on their success, you gain advantage on the roll.
+#### TAKING DAMAGE AS STRESS {#section-wayfinder-taking-damage-as-stress}
 
-**Attacking with Your Companion**
+- When your companion would take any amount of damage,
+they mark a Stress. When they mark their last Stress,
+they drop out of the scene (by hiding, fleeing, or a similar
+action). They remain unavailable until the start of your next
+long rest, where they return with 1 Stress cleared.
+- When you choose a downtime move that clears Stress
+on yourself, your companion clears an equal number of
+Stress.
 
-When you command your companion to attack, they gain any benefits that would normally only apply to you (such as the effects of "Ranger's Focus"). On a success, their damage roll uses your Proficiency and their damage die.
+#### LEVELING UP YOUR COMPANION {#section-wayfinder-leveling-up-your-companion}
 
-**Taking Damage as Stress**
-
-- When your companion would take any amount of damage, they mark a Stress. When they mark their last Stress, they drop out of the scene (by hiding, fleeing, or a similar action). They remain unavailable until the start of your next long rest, where they return with 1 Stress cleared.
-- When you choose a downtime move that clears Stress on yourself, your companion clears an equal number of Stress.
-
-**Leveling Up Your Companion**
-
-When your character levels up, choose one available option for your companion from the following list and mark it on your sheet:
-
-- *Intelligent:* Your companion gains a permanent +1 bonus to a Companion Experience of your choice.
-- *Light in the Dark:* Use this as an additional Hope slot your character can mark.
-- *Creature Comfort:* Once per rest, when you take time during a quiet moment to give your companion love and attention, you can gain a Hope or you can both clear a Stress.
-- *Armored:* When your companion takes damage, you can **mark one of your Armor Slots** instead of marking one of their Stress.
-- *Vicious:* Increase your companion's damage dice or range by one step (d6 to d8, Close to Far, etc.).
-- *Resilient:* Your companion gains an additional Stress slot.
-- *Bonded:* When you mark your last Hit Point, your companion rushes to your side to comfort you. Roll a number of **d6s** equal to the unmarked Stress slots they have and mark them. If any roll a 6, your companion helps you up. Clear your last Hit Point and return to the scene.
-- *Aware:* Your companion gains a permanent +2 bonus to their Evasion.
+When your character levels up, choose one available option
+for your companion from the following list and mark it on your
+sheet:
+- Intelligent: Your companion gains a permanent +1 bonus
+to a Companion Experience of your choice.
+- Light in the Dark: Use this as an additional Hope slot your
+character can mark.
+- Creature Comfort: Once per rest, when you take time
+during a quiet moment to give your companion love and
+attention, you can gain a Hope or you can both clear a
+Stress.
+- Armored: When your companion takes damage, you can
+mark one of your Armor Slots instead of marking one of
+their Stress.
+- Vicious: Increase your companion’s damage dice or range
+by one step (d6 to d8, Close to Far, etc.).
+- Resilient: Your companion gains an additional Stress slot.
+- Bonded: When you mark your last Hit Point, your
+companion rushes to your side to comfort you. Roll a
+number of d6s equal to the unmarked Stress slots they
+have and mark them. If any roll a 6, your companion helps
+you up. Clear your last Hit Point and return to the scene.
+- Aware: Your companion gains a permanent +2 bonus to
+their Evasion.
 
 # ROGUE {#section-rogue}
 
-Rogues are scoundrels, often in both attitude and practice. Broadly known as liars and thieves, the best among this class move through the world anonymously. Utilizing their sharp wits and blades, rogues trick their foes through social manipulation as easily as breaking locks, climbing through windows, or dealing underhanded blows. These masters of magical craft manipulate shadow and movement, adding an array of useful and deadly tools to their repertoire. Rogues frequently establish guilds to meet future accomplices, hire out jobs, and hone secret skills, proving that there's honor among thieves for those who know where to look.
+Rogues are scoundrels, often in both attitude and practice.
+Broadly known as liars and thieves, the best among this
+class move through the world anonymously. Utilizing their
+sharp wits and blades, rogues trick their foes through social
+manipulation as easily as breaking locks, climbing through
+windows, or dealing underhanded blows. These masters of
+magical craft manipulate shadow and movement, adding an
+array of useful and deadly tools to their repertoire. Rogues
+frequently establish guilds to meet future accomplices, hire
+out jobs, and hone secret skills, proving that there’s honor
+among thieves for those who know where to look.
+DOMAINS – Midnight & Grace
+STARTING EVASION – 12
+STARTING HIT POINTS – 6
+CLASS ITEMS – A set of forgery tools or a grappling hook
 
-**Domains: Midnight & Grace**
+#### ROGUE’S HOPE FEATURE {#section-rogue-s-hope-feature}
 
-**Starting Evasion: 12**
+Rogue’s Dodge: Spend 3 Hope to gain a +2 bonus to your
+Evasion until the next time an attack succeeds against you.
+Otherwise, this bonus lasts until your next rest.
 
-**Starting Hit Points: 6**
+#### CLASS FEATURES {#section-class-feature-5}
 
-**CLASS ITEMS -** A set of forgery tools or a grappling hook
-
-#### **ROGUE'S HOPE FEATURE** {#section-rogue-s-hope-feature}
-
-*Rogue's Dodge:* **Spend 3 Hope** to gain a +2 bonus to your Evasion until the next time an attack succeeds against you. Otherwise, this bonus lasts until your next rest.
-
-#### CLASS FEATURE {#section-class-feature-5}
-
-*Cloaked:* Any time you would be *Hidden,* you are instead *Cloaked.* In addition to the benefits of the *Hidden* condition, while *Cloaked* you remain unseen if you are stationary when an adversary moves to where they would normally see you. After you make an attack or end a move within line of sight of an adversary, you are no longer *Cloaked*.
-
-*Sneak Attack:* When you succeed on an attack while Cloaked or while an ally is within Melee range of your target, add a number of **d6s** equal to your tier to your damage roll.
-
-- Level 1 Tier 1
-- Levels 2–4 Tier 2
-- Levels 5–7 Tier 3
-- Levels 8–10 Tier 4
+Cloaked: Any time you would be Hidden,  you are instead
+Cloaked.  In addition to the benefits of the Hidden condition,
+while Cloaked you remain unseen if you are stationary when
+an adversary moves to where they would normally see you.
+After you make an attack or end a move within line of sight
+of an adversary, you are no longer Cloaked.
+Sneak Attack: When you succeed on an attack while
+Cloaked or while an ally is within Melee range of your target,
+add a number of d6s  equal to your tier to your damage roll.
+- Level 1 → Tier 1
+- Levels 2–4 → Tier 2
+- Levels 5–7 → Tier 3
+- Levels 8–10 → Tier 4
 
 #### ROGUE SUBCLASSES {#section-rogue-subclasses}
 
-*Choose either the Nightwalker or Syndicate subclass.*
+Choose either the Nightwalker or Syndicate subclass.
 
 ### NIGHTWALKER {#section-nightwalker}
 
-Play the Nightwalker if you want to manipulate shadows to maneuver through the environment.
+Play the Nightwalker if you want to manipulate shadows to
+maneuver through the environment.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-7}
 
@@ -780,23 +1467,39 @@ Finesse
 
 #### FOUNDATION FEATURE {#section-foundation-feature-4}
 
-*Shadow Stepper:* You can move from shadow to shadow. When you move into an area of darkness or a shadow cast by another creature or object, you can **mark a Stress** to disappear from where you are and reappear inside another shadow within Far range. When you reappear, you are *Cloaked.*
+Shadow Stepper: You can move from shadow to shadow.
+When you move into an area of darkness or a shadow cast
+by another creature or object, you can mark a Stress to
+disappear from where you are and reappear inside another
+shadow within Far range. When you reappear, you are
+Cloaked.
 
 #### SPECIALIZATION FEATURES {#section-specialization-features-4}
 
-*Dark Cloud:* Make a **Spellcast Roll (15).** On a success, create a temporary dark cloud that covers any area within Close range. Anyone in this cloud can't see outside of it, and anyone outside of it can't see in. You're considered Cloaked from any adversary for whom the cloud blocks line of sight.
+Dark Cloud: Make a Spellcast Roll (15).  On a success,
+create a temporary dark cloud that covers any area within
+Close range. Anyone in this cloud can’t see outside of it,
+and anyone outside of it can’t see in. You’re considered
+Cloaked from any adversary for whom the cloud blocks line
+of sight.
+Adrenaline: While you're Vulnerable, add your level to your
+damage rolls.
 
-*Adrenaline:* While you're *Vulnerable,* add your level to your damage rolls.
+#### MASTERY FEATURES {#section-mastery-features-3}
 
-#### **MASTERY FEATURES** {#section-mastery-features-3}
-
-*Fleeting Shadow:* Gain a permanent +1 bonus to your Evasion. You can use your "Shadow Stepper" feature to move within Very Far range.
-
-*Vanishing Act:* **Mark a Stress** to become *Cloaked* at any time. When *Cloaked* from this feature, you automatically clear the Restrained condition if you have it. You remain *Cloaked* in this way until you roll with Fear or until your next rest.
+Fleeting Shadow: Gain a permanent +1 bonus to your
+Evasion. You can use your “Shadow Stepper” feature to
+move within Very Far range.
+Vanishing Act: Mark a Stress to become Cloaked at any
+time. When Cloaked from this feature, you automatically
+clear the Restrained condition if you have it. You remain
+Cloaked in this way until you roll with Fear or until your next
+rest.
 
 ### SYNDICATE {#section-syndicate}
 
-Play the Syndicate if you want to have a web of contacts everywhere you go.
+Play the Syndicate if you want to have a web of contacts
+everywhere you go.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-8}
 
@@ -804,72 +1507,106 @@ Finesse
 
 #### FOUNDATION FEATURE {#section-foundation-feature-5}
 
-*Well-Connected:* When you arrive in a prominent town or environment, you know somebody who calls this place home. Give them a name, note how you think they could be useful, and choose one fact from the following list:
-
-- They owe me a favor, but they'll be hard to find.
-- They're going to ask for something in exchange.
-- They're always in a great deal of trouble.
-- We used to be together. It's a long story.
-- We didn't part on great terms.
+Well-Connected: When you arrive in a prominent town or
+environment, you know somebody who calls this place
+home. Give them a name, note how you think they could be
+useful, and choose one fact from the following list:
+  - They owe me a favor, but they’ll be hard to find.
+  - They’re going to ask for something in exchange.
+  - They’re always in a great deal of trouble.
+  - We used to be together. It’s a long story.
+  - We didn’t part on great terms.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-6}
 
-*Contacts Everywhere:* Once per session, you can briefly call on a shady contact. Choose one of the following benefits and describe what brought them here to help you in this moment:
-
-- They provide 1 handful of gold, a unique tool, or a mundane object that the situation requires.
-- On your next action roll, their help provides a +3 bonus to the result of your Hope or Fear Die.
-- The next time you deal damage, they snipe from the shadows, adding 2d8 to your damage roll.
+Contacts Everywhere: Once per session, you can briefly call
+on a shady contact. Choose one of the following benefits
+and describe what brought them here to help you in this
+moment:
+  - They provide 1 handful of gold, a unique tool, or a
+mundane object that the situation requires.
+  - On your next action roll, their help provides a +3 bonus
+to the result of your Hope or Fear Die.
+  - The next time you deal damage, they snipe from the
+shadows, adding 2d8  to your damage roll.
 
 #### MASTERY FEATURE {#section-mastery-feature-7}
 
-*Reliable Backup:* You can use your "Contacts Everywhere" feature three times per session. The following options are added to the list of benefits you can choose from when you use that feature:
+Reliable Backup: You can use your “Contacts Everywhere”
+feature three times per session. The following options are
+added to the list of benefits you can choose from when you
+use that feature:
+  - When you mark 1 or more Hit Points, they can rush out
+to shield you, reducing the Hit Points marked by 1.
+  - When you make a Presence Roll in conversation, they
+back you up. You can roll a d20  as your Hope Die.
 
-- When you mark 1 or more Hit Points, they can rush out to shield you, reducing the Hit Points marked by 1.
-- When you make a Presence Roll in conversation, they back you up. You can roll a d20 as your Hope Die.
+#### BACKGROUND QUESTIONS {#section-background-questions-5}
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions-5}
-
-*Answer any of the following background questions. You can also create your own questions.*
-
-- What did you get caught doing that got you exiled from your home community?
-- You used to have a different life, but you've tried to leave it behind. Who from your past is still chasing you?
-- Who from your past were you most sad to say goodbye to?
+Answer any of the following background questions. You can
+also create your own questions.
+- What did you get caught doing that got you exiled
+from your home community?
+- You used to have a different life, but you’ve tried to
+leave it behind. Who from your past is still chasing
+you?
+- Who from your past were you most sad to say
+goodbye to?
 
 #### CONNECTIONS {#section-connections-5}
 
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
-- What did I recently convince you to do that got us both in trouble?
-- What have I discovered about your past that I hold secret from the others?
-- Who do you know from my past, and how have they influenced your feelings about me?
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- What did I recently convince you to do that got us
+both in trouble?
+- What have I discovered about your past that I hold
+secret from the others?
+- Who do you know from my past, and how have they
+influenced your feelings about me?
 
 # SERAPH {#section-seraph}
 
-Seraphs are divine fighters and healers imbued with sacred purpose. A wide array of deities exist within the realms, and thus numerous kinds of seraphs are appointed by these gods. Their ethos traditionally aligns with the domain or goals of their god, such as defending the weak, exacting vengeance, protecting a land or artifact, or upholding a particular faith. Some seraphs ally themselves with an army or locale, much to the satisfaction of their rulers, but other crusaders fight in opposition to the follies of the Mortal Realm. It is better to be a seraph's ally than their enemy, as they are terrifying foes to those who defy their purpose.
+Seraphs are divine fighters and healers imbued with sacred
+purpose. A wide array of deities exist within the realms, and
+thus numerous kinds of seraphs are appointed by these gods.
+Their ethos traditionally aligns with the domain or goals of
+their god, such as defending the weak, exacting vengeance,
+protecting a land or artifact, or upholding a particular faith.
+Some seraphs ally themselves with an army or locale, much
+to the satisfaction of their rulers, but other crusaders fight in
+opposition to the follies of the Mortal Realm. It is better to be
+a seraph’s ally than their enemy, as they are terrifying foes to
+those who defy their purpose.
+DOMAINS – Splendor & Valor
+STARTING EVASION – 9
+STARTING HIT POINTS – 7
+CLASS ITEMS – A bundle of offerings or a sigil of your god
 
-**DOMAINS -** Splendor & Valor
+#### SERAPH’S HOPE FEATURE {#section-seraph-s-hope-feature}
 
-**STARTING EVASION -** 9
+Life Support: Spend 3 Hope to clear a Hit Point on an ally
+within Close range.
 
-**Starting Hit Points: 7**
+#### CLASS FEATURE {#section-class-feature-6}
 
-**CLASS ITEMS -** A bundle of offerings or a sigil of your god
-
-#### **SERAPH'S HOPE FEATURE** {#section-seraph-s-hope-feature}
-
-*Life Support:* **Spend 3 Hope** to clear a Hit Point on an ally within Close range.
-
-#### **CLASS FEATURE** {#section-class-feature-6}
-
-*Prayer Dice:* At the beginning of each session, roll a number of **d4s** equal to your subclass's Spellcast trait and place them on your character sheet in the space provided. These are your Prayer Dice. You can spend any number of Prayer Dice to aid yourself or an ally within Far range. You can use a spent die's value to reduce incoming damage, add to a roll's result after the roll is made, or gain Hope equal to the result. At the end of each session, clear all unspent Prayer Dice.
+Prayer Dice: At the beginning of each session, roll a number
+of d4s equal to your subclass’s Spellcast trait and place
+them on your character sheet in the space provided. These
+are your Prayer Dice. You can spend any number of Prayer
+Dice to aid yourself or an ally within Far range. You can use
+a spent die’s value to reduce incoming damage, add to a
+roll’s result after the roll is made, or gain Hope equal to the
+result. At the end of each session, clear all unspent Prayer
+Dice.
 
 #### SERAPH SUBCLASSES {#section-seraph-subclasses}
 
-*Choose either the Divine Wielder or Winged Sentinel subclass.*
+Choose either the Divine Wielder or Winged Sentinel subclass.
 
 ### DIVINE WIELDER {#section-divine-wielder}
 
-Play the Divine Wielder if you want to dominate the battlefield with a legendary weapon.
+Play the Divine Wielder if you want to dominate the battlefield
+with a legendary weapon.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-9}
 
@@ -877,21 +1614,32 @@ Strength
 
 #### FOUNDATION FEATURES {#section-foundation-features-6}
 
-*Spirit Weapon:* When you have an equipped weapon with a range of Melee or Very Close, it can fly from your hand to attack an adversary within Close range and then return to you. You can **mark a Stress** to target an additional adversary within range with the same attack roll.
-
-*Sparing Touch:* Once per long rest, touch a creature and clear 2 Hit Points or 2 Stress from them.
+Spirit Weapon: When you have an equipped weapon with
+a range of Melee or Very Close, it can fly from your hand
+to attack an adversary within Close range and then return
+to you. You can mark a Stress to target an additional
+adversary within range with the same attack roll.
+Sparing Touch: Once per long rest, touch a creature and
+clear 2 Hit Points or 2 Stress from them.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-7}
 
-*Devout:* When you roll your Prayer Dice, you can roll an additional die and discard the lowest result. Additionally, you can use your "Sparing Touch" feature twice instead of once per long rest.
+Devout: When you roll your Prayer Dice, you can roll an
+additional die and discard the lowest result. Additionally,
+you can use your “Sparing Touch” feature twice instead of
+once per long rest.
 
 #### MASTERY FEATURE {#section-mastery-feature-8}
 
-*Sacred Resonance:* When you roll damage for your "Spirit Weapon" feature, if any of the die results match, double the value of each matching die. For example, if you roll two 5s, they count as two 10s.
+Sacred Resonance: When you roll damage for your “Spirit
+Weapon” feature, if any of the die results match, double the
+value of each matching die. For example, if you roll two 5s,
+they count as two 10s.
 
 ### WINGED SENTINEL {#section-winged-sentinel}
 
-Play the Winged Sentinel if you want to take flight and strike crushing blows from the sky.
+Play the Winged Sentinel if you want to take flight and strike
+crushing blows from the sky.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-10}
 
@@ -899,71 +1647,99 @@ Strength
 
 #### FOUNDATION FEATURE {#section-foundation-feature-6}
 
-*Wings of Light:* You can fly. While flying, you can do the following:
-
-- **Mark a Stress** to pick up and carry another willing creature approximately your size or smaller.
-- **Spend a Hope** to deal an extra **1d8** damage on a successful attack.
+Wings of Light: You can fly. While flying, you can do the
+following:
+- Mark a Stress to pick up and carry another willing creature
+approximately your size or smaller.
+- Spend a Hope to deal an extra 1d8  damage on a
+successful attack.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-8}
 
-*Ethereal Visage:* Your supernatural visage strikes awe and fear. While flying, you have advantage on Presence Rolls. When you succeed with Hope on a Presence Roll, you can remove a Fear from the GM's Fear pool instead of gaining Hope.
+Ethereal Visage: Your supernatural visage strikes awe and fear.
+While flying, you have advantage on Presence Rolls. When you
+succeed with Hope on a Presence Roll, you can remove a Fear
+from the GM’s Fear pool instead of gaining Hope.
 
-#### **MASTERY FEATURES** {#section-mastery-features-4}
+#### MASTERY FEATURES {#section-mastery-features-4}
 
-*Ascendant:* Gain a permanent +4 bonus to your Severe damage threshold.
+Ascendant: Gain a permanent +4 bonus to your Severe
+damage threshold.
+Power of the Gods: While flying, you deal an extra 1d12
+damage instead of 1d8 from your “Wings of Light” feature.
 
-*Power of the Gods:* While flying, you deal an extra **1d12**  damage instead of 1d8 from your "Wings of Light" feature.
+#### BACKGROUND QUESTIONS {#section-background-questions-6}
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions-6}
+Answer any of the following background questions. You can
+also create your own questions.
+- Which god did you devote yourself to? What
+incredible feat did they perform for you in a moment
+of desperation?
+- How did your appearance change after taking your
+oath?
+- In what strange or unique way do you communicate
+with your god?
 
-*Answer any of the following background questions. You can also create your own questions.*
+#### CONNECTIONS {#section-connections-6}
 
-- Which god did you devote yourself to? What incredible feat did they perform for you in a moment of desperation?
-- How did your appearance change after taking your oath?
-- In what strange or unique way do you communicate with your god?
-
-#### **CONNECTIONS** {#section-connections-6}
-
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
-- What promise did you make me agree to, should you die on the battlefield?
-- Why do you ask me so many questions about my god?
-- You've told me to protect one member of our party above all others, even yourself. Who are they and why?
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- What promise did you make me agree to, should you
+die on the battlefield?
+- Why do you ask me so many questions about my
+god?
+- You’ve told me to protect one member of our party
+above all others, even yourself. Who are they and
+why?
 
 # SORCERER {#section-sorcerer}
 
-Not all innate magic users choose to hone their craft, but those who do can become powerful sorcerers. The gifts of these wielders are passed down through families, even if the family is unaware of or reluctant to practice them. A sorcerer's abilities can range from the elemental to the illusionary and beyond, and many practitioners band together into collectives based on their talents. The act of becoming a formidable sorcerer is not the practice of acquiring power, but learning to cultivate and control the power one already possesses. The magic of a misguided or undisciplined sorcerer is a dangerous force indeed.
+<span data-anchor="section-domains-arcana-midnight"></span>
 
-#### **DOMAINS -** Arcana & Midnight {#section-domains-arcana-midnight}
+Not all innate magic users choose to hone their craft, but
+those who do can become powerful sorcerers. The gifts of
+these wielders are passed down through families, even if the
+family is unaware of or reluctant to practice them. A sorcerer’s
+abilities can range from the elemental to the illusionary and
+beyond, and many practitioners band together into collectives
+based on their talents. The act of becoming a formidable
+sorcerer is not the practice of acquiring power, but learning
+to cultivate and control the power one already possesses. The
+magic of a misguided or undisciplined sorcerer is a dangerous
+force indeed.
+DOMAINS –  Arcana & Midnight
+STARTING EVASION – 10
+STARTING HIT POINTS – 6
+CLASS ITEMS –  A whispering orb or a family heirloom
 
-**Starting Evasion: 10**
+#### SORCERER’S HOPE FEATURE {#section-sorcerer-s-hope-feature}
 
-**Starting Hit Points: 6**
+Volatile Magic: Spend 3 Hope to reroll any number of your
+damage dice on an attack that deals magic damage.
 
-**CLASS ITEMS -** A whispering orb or a family heirloom
+#### CLASS FEATURES {#section-class-feature-7}
 
-#### **SORCERER'S HOPE FEATURE** {#section-sorcerer-s-hope-feature}
-
-*Volatile Magic:* **Spend 3 Hope** to reroll any number of your damage dice on an attack that deals magic damage.
-
-#### CLASS FEATURE {#section-class-feature-7}
-
-*Arcane Sense:* You can sense the presence of magical people and objects within Close range.
-
-*Minor Illusion:* Make a **Spellcast Roll (10).** On a success, you create a minor visual illusion no larger than yourself within Close range. This illusion is convincing to anyone at Close range or farther.
-
-*Channel Raw Power:* Once per long rest, you can place a domain card from your loadout into your vault and choose to either:
-
-- Gain Hope equal to the level of the card.
-- Enhance a spell that deals damage, gaining a bonus to your damage roll equal to twice the level of the card.
+Arcane Sense: You can sense the presence of magical
+people and objects within Close range.
+Minor Illusion: Make a Spellcast Roll (10). On a success,
+you create a minor visual illusion no larger than yourself
+within Close range. This illusion is convincing to anyone at
+Close range or farther.
+Channel Raw Power: Once per long rest, you can place a
+domain card from your loadout into your vault and choose
+to either:
+  - Gain Hope equal to the level of the card.
+  - Enhance a spell that deals damage, gaining a bonus to
+your damage roll equal to twice the level of the card.
 
 #### SORCERER SUBCLASSES {#section-sorcerer-subclasses}
 
-*Choose either the Elemental Origin or Primal Origin subclass.*
+Choose either the Elemental Origin or Primal Origin subclass.
 
 ### ELEMENTAL ORIGIN {#section-elemental-origin}
 
-Play the Elemental Origin if you want to channel raw magic to take the shape of a particular element.
+Play the Elemental Origin if you want to channel raw magic to
+take the shape of a particular element.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-11}
 
@@ -971,26 +1747,37 @@ Instinct
 
 #### FOUNDATION FEATURE {#section-foundation-feature-7}
 
-*Elementalist:* Choose one of the following elements at character creation: air, earth, fire, lightning, water.
-
-You can shape this element into harmless effects. Additionally, **spend a Hope** and describe how your control over this element helps an action roll you're about to make, then either gain a +2 bonus to the roll or a +3 bonus to the roll's damage.
+Elementalist: Choose one of the following elements at
+character creation: air, earth, fire, lightning, water.
+You can shape this element into harmless effects.
+Additionally, spend a Hope and describe how your control
+over this element helps an action roll you’re about to make,
+then either gain a +2 bonus to the roll or a +3 bonus to the
+roll’s damage.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-9}
 
-*Natural Evasion:* You can call forth your element to protect you from harm. When an attack roll against you succeeds, you can **mark a Stress** and describe how you use your element to defend you. When you do, roll a **d6** and add its result to your Evasion against the attack.
+Natural Evasion: You can call forth your element to protect
+you from harm. When an attack roll against you succeeds,
+you can mark a Stress and describe how you use your
+element to defend you. When you do, roll a d6  and add its
+result to your Evasion against the attack.
 
 #### MASTERY FEATURE {#section-mastery-feature-9}
 
-*Transcendence:* Once per long rest, you can transform into a physical manifestation of your element. When you do, describe your transformation and choose two of the following benefits to gain until your next rest:
-
-- +4 bonus to your Severe threshold
-- +1 bonus to a character trait of your choice
-- +1 bonus to your Proficiency
-- +2 bonus to your Evasion
+Transcendence: Once per long rest, you can transform
+into a physical manifestation of your element. When you
+do, describe your transformation and choose two of the
+following benefits to gain until your next rest:
+  - +4 bonus to your Severe threshold
+  - +1 bonus to a character trait of your choice
+  - +1 bonus to your Proficiency
+  - +2 bonus to your Evasion
 
 ### PRIMAL ORIGIN {#section-primal-origin}
 
-Play the Primal Origin if you want to extend the versatility of your spells in powerful ways.
+Play the Primal Origin if you want to extend the versatility of
+your spells in powerful ways.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-12}
 
@@ -998,148 +1785,586 @@ Instinct
 
 #### FOUNDATION FEATURE {#section-foundation-feature-8}
 
-*Manipulate Magic:* Your primal origin allows you to modify the essence of magic itself. After you cast a spell or make an attack using a weapon that deals magic damage, you can **mark a Stress** to do one of the following:
-
-- Extend the spell or attack's reach by one range
-- Gain a +2 bonus to the action roll's result
-- Double a damage die of your choice
-- Hit an additional target within range
+Manipulate Magic: Your primal origin allows you to modify
+the essence of magic itself. After you cast a spell or make
+an attack using a weapon that deals magic damage, you
+can mark a Stress to do one of the following:
+  - Extend the spell or attack’s reach by one range
+  - Gain a +2 bonus to the action roll’s result
+  - Double a damage die of your choice
+  - Hit an additional target within range
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-10}
 
-*Enchanted Aid:* You can enhance the magic of others with your essence. When you Help an Ally with a Spellcast Roll, you can roll a **d8** as your advantage die. Once per long rest, after an ally has made a Spellcast Roll with your help, you can swap the results of their Duality Dice.
+Enchanted Aid: You can enhance the magic of others with
+your essence. When you Help an Ally with a Spellcast Roll,
+you can roll a d8  as your advantage die. Once per long rest,
+after an ally has made a Spellcast Roll with your help, you
+can swap the results of their Duality Dice.
 
 #### MASTERY FEATURE {#section-mastery-feature-10}
 
-*Arcane Charge:* You can gather magical energy to enhance your capabilities. When you take magic damage, you become Charged. Alternatively, you can spend 2 Hope to become Charged. When you successfully make an attack that deals magic damage while Charged, you can clear your Charge to either gain a +10 bonus to the damage roll or gain a +3 bonus to the Difficulty of a reaction roll the spell causes the target to make. You stop being Charged at your next long rest.
+Arcane Charge: You can gather magical energy to enhance
+your capabilities. When you take magic damage, you
+become Charged. Alternatively, you can spend 2 Hope to
+become Charged. When you successfully make an attack
+that deals magic damage while Charged, you can clear your
+Charge to either gain a +10 bonus to the damage roll or
+gain a +3 bonus to the Difficulty of a reaction roll the spell
+causes the target to make. You stop being Charged at your
+next long rest.
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions-7}
+#### BACKGROUND QUESTIONS {#section-background-questions-7}
 
-*Answer any of the following background questions. You can also create your own questions.*
-
-- What did you do that made the people in your community wary of you?
-- What mentor taught you to control your untamed magic, and why are they no longer able to guide you?
-- You have a deep fear you hide from everyone. What is it, and why does it scare you?
+Answer any of the following background questions. You can
+also create your own questions.
+- What did you do that made the people in your
+community wary of you?
+- What mentor taught you to control your untamed
+magic, and why are they no longer able to guide you?
+- You have a deep fear you hide from everyone. What is
+it, and why does it scare you?
 
 #### CONNECTIONS {#section-connections-7}
 
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
 - Why do you trust me so deeply?
 - What did I do that makes you cautious around me?
 - Why do we keep our shared past a secret?
 
+# WARLOCK {#section-warlock}
+
+Those who’ve traded their lives—or perhaps even their
+souls—to an otherworldly patron in exchange for incredible
+power are known as warlocks. Often, these mortals have
+reached a point of desperation that leads them to make this
+sacrifice: they hope to protect themselves or a loved one,
+aid their community, seek vengeance, increase their status,
+or otherwise further their ambitions. The powerful entities
+they entreat are as varied as the warlocks themselves: gods,
+spirits, demons, or other beings unknown to even the mortal
+who makes the pact. The entities each have their own sphere
+of influence that defines their otherworldly power, and those
+that collect souls are rarely known for their benevolence. Thus,
+a warlock’s power is defined by the relationship they maintain
+with their benefactor. Despite their terrifying magic, warlocks
+might find that someone or something else is pulling their
+strings.
+DOMAINS – Dread & Grace
+STARTING EVASION – 11
+STARTING HIT POINTS – 5
+CLASS ITEMS – A carving that symbolizes your patron or
+a ring you can’t remove
+
+#### WARLOCK’S HOPE FEATURE {#section-warlock-warlock-s-hope-feature}
+
+Patron’s Boon: When you fail a roll, you can spend 3 Hope
+to reroll with advantage.
+
+#### CLASS FEATURES {#section-warlock-class-feature}
+
+Patron’s Pact: You have committed yourself to a
+supernatural entity —such as a god, fae, or demon—in
+exchange for power. Write their name on your character
+sheet, then work with your GM to determine their sphere of
+influence (such as Nature, Chaos, Wisdom, Mischief, Love,
+War, Justice, or Death). Before making an action roll that
+relates to your patron’s sphere of influence, you can spend
+a Favor to call upon their aid, rolling your Patron Die and
+adding its result to the total. Your Patron Die starts at a d6
+and increases to a d8  at level 5.
+Favor: You start with 3 Favor. You can use a downtime
+move to show tribute to your patron. Describe how and
+gain Favor equal to your Spellcast trait. Additionally, when
+you succeed on an action roll with Hope, you can choose to
+gain a Favor instead of a Hope.
+Note: The maximum Favor you can hold at one time is 6.
+
+#### SPHERE OF INFLUENCE EXAMPLES {#section-warlock-sphere-of-influence-examples}
+
+When building a warlock, choose their patron’s sphere of
+influence from the list below or work with the GM to make
+your own.
+Ambition
+Artists
+Chaos
+Darkness
+Death
+Gamblers
+Honor
+Justice
+Leaders
+Love
+Mercy
+Mischief
+Nature
+Protectors
+Revenge
+Scholars
+Secrets
+Soldiers
+Strength
+Travelers
+Tricksters
+Truth
+War
+Wisdom
+
+#### WARLOCK SUBCLASSES {#section-warlock-warlock-subclasses}
+
+Choose either the Pact of the Endless or Pact of the Wrathful
+subclass.
+
+### PACT OF THE ENDLESS {#section-pact-of-the-endless}
+
+Play the Pact of the Endless if you want to stand strong
+against enemies and avoid death.
+
+#### SPELLCAST TRAIT {#section-pact-of-the-endless-spellcast-trait}
+
+Presence
+
+#### FOUNDATION FEATURES {#section-foundation-feature-9}
+
+Patron’s Mantle: Spend a Favor to cloak yourself in a
+terrifying aspect of your Patron that lasts until you take
+Severe damage or the scene ends. While this effect is
+active, you gain a bonus to your damage thresholds equal
+to your tier and have advantage on action rolls to intimidate
+a target.
+Deathless Embrace: Once per rest, spend any number
+of Favor to roll an equal number of Patron Dice. For each
+result of 4 or higher, clear a Hit Point.
+
+#### SPECIALIZATION FEATURES {#section-pact-of-the-endless-specialization-features}
+
+Harrowing Invocation: When an adversary targets you or
+an ally within Very Close range with an attack, you can
+spend a Favor to give them disadvantage on the roll. If the
+adversary fails the roll, they must also mark a Stress.
+Damage Sink: Once per rest, you can spend a Favor to
+halve incoming damage.
+
+#### MASTERY FEATURES {#section-pact-of-the-endless-mastery-features}
+
+Dark Aegis: Once per long rest when you would take
+damage, you can spend a Favor instead of marking Hit
+Points.
+Draining Bane: When an adversary targets you or an ally
+within Very Close range with an attack, you can spend
+a Favor to Drain them. When you do, they must mark a
+Stress, and you can clear a Stress. While Drained, the
+target uses a d12  instead of a d20 for attack rolls (including
+for advantage or disadvantage) until they fail a roll.
+
+### PACT OF THE WRATHFUL {#section-pact-of-the-wrathful}
+
+Play the Pact of the Wrathful if you want to destroy those who
+act against you.
+
+#### SPELLCAST TRAIT {#section-pact-of-the-wrathful-spellcast-trait}
+
+Presence
+
+#### FOUNDATION FEATURES {#section-pact-of-the-wrathful-foundation-features}
+
+Patron’s Fury: Spend a Favor to imbue your attacks with
+your Patron’s power until you deal Severe damage or the
+scene ends. When you roll damage while this effect is
+active, you also roll a number of Patron Dice equal to your
+tier and add their total to the damage dealt.
+Deadly Vengeance: When you mark any number of Hit
+Points from an attack, you can spend a Favor to roll an
+equal number of Patron Dice. For each result of 4 or higher,
+the attacker marks a Hit Point.
+
+#### SPECIALIZATION FEATURES {#section-pact-of-the-wrathful-specialization-features}
+
+Menacing Reach: Spend a Favor to increase the range of
+your primary weapon by one step (such as Melee to Very
+Close or Very Close to Close) to a maximum of Very Far
+range. This effect ends when you make a successful attack
+with that weapon.
+Diminish My Foes: When you succeed with Hope on an
+action roll against a target, you can spend any number
+of Favor to force the target to mark an equal number of
+Stress.
+
+#### MASTERY FEATURES {#section-pact-of-the-wrathful-mastery-features}
+
+Fearsome Attack: Spend a Favor to reroll any number of
+your damage dice. You can continue spending Favor to use
+this feature on the same damage roll.
+Otherworldly Ire: Once per rest when you take damage, you
+can spend any number of Favor to roll that many Patron
+Dice and target a number of creatures within Close range
+equal to the highest result. Each target must mark a Hit
+Point.
+
+#### BACKGROUND QUESTIONS {#section-pactofthewrathful-background-questions}
+
+Answer any of the following background questions. You can
+also create your own questions.
+- Who from your community shunned you after you
+made a pact with your patron?
+- What desperate situation led you to pledge your life
+to your patron?
+- Your patron has given you one task you must
+accomplish above all else. What is it, and why does it
+worry you?
+
+#### CONNECTIONS {#section-pactofthewrathful-connections}
+
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- Why do you think I confide in you about what my
+patron says and does?
+- Our relationship has changed since you saw me show
+tribute to my patron. What did you see, and how has
+it affected you?
+- I once did something very foolish, and you’ve never
+let me live it down. What was it?
+
 # WARRIOR {#section-warrior}
 
-Becoming a warrior requires years, often a lifetime, of training and dedication to the mastery of weapons and violence. While many who seek to fight hone only their strength, warriors understand the importance of an agile body and mind, making them some of the most sought-after fighters across the realms. Frequently, warriors find employment within an army, a band of mercenaries, or even a royal guard, but their potential is wasted in any position where they cannot continue to improve and expand their skills. Warriors are known to have a favored weapon; to come between them and their blade would be a grievous mistake.
+Becoming a warrior requires years, often a lifetime, of training
+and dedication to the mastery of weapons and violence. While
+many who seek to fight hone only their strength, warriors
+understand the importance of an agile body and mind,
+making them some of the most sought-after fighters across
+the realms. Frequently, warriors find employment within an
+army, a band of mercenaries, or even a royal guard, but their
+potential is wasted in any position where they cannot continue
+to improve and expand their skills. Warriors are known to have
+a favored weapon; to come between them and their blade
+would be a grievous mistake.
+DOMAINS – Blade & Bone
+STARTING EVASION – 11
+STARTING HIT POINTS – 6
+CLASS ITEMS – The drawing of a lover or a sharpening
+stone
 
-**DOMAINS -** Blade & Bone
+#### WARRIOR’S HOPE FEATURE {#section-warrior-s-hope-feature}
 
-**STARTING EVASION -** 11
+No Mercy: Spend 3 Hope to gain a +1 bonus to your attack
+rolls until your next rest.
 
-**Starting Hit Points: 6**
+#### CLASS FEATURES {#section-class-feature-8}
 
-**CLASS ITEMS -** The drawing of a lover or a sharpening stone
-
-#### **WARRIOR'S HOPE FEATURE** {#section-warrior-s-hope-feature}
-
-*No Mercy:* **Spend 3 Hope** to gain a +1 bonus to your attack rolls until your next rest.
-
-#### CLASS FEATURE {#section-class-feature-8}
-
-*Attack of Opportunity:* If an adversary within Melee range attempts to leave that range, make a reaction roll using a trait of your choice against their Difficulty. Choose one effect on a success, or two if you critically succeed:
-
-- They can't move from where they are.
-- You deal damage to them equal to your primary weapon's damage.
-- You move with them.
-
-*Combat Training:* You ignore burden when equipping weapons. When you deal physical damage, you gain a bonus to your damage roll equal to your level.
+Attack of Opportunity: If an adversary within Melee range
+attempts to leave that range, make a reaction roll using
+a trait of your choice against their Difficulty. Choose one
+effect on a success, or two if you critically succeed:
+  - They can’t move from where they are.
+  - You deal damage to them equal to your primary
+weapon’s damage.
+  - You move with them.
+Combat Training: You ignore burden when equipping
+weapons. When you deal physical damage, you gain a
+bonus to your damage roll equal to your level.
 
 #### WARRIOR SUBCLASSES {#section-warrior-subclasses}
 
-*Choose either the Call of the Brave or Call of the Slayer subclass.*
+Choose either the Call of the Brave or Call of the Slayer
+subclass.
 
 ### CALL OF THE BRAVE {#section-call-of-the-brave}
 
-Play the Call of the Brave if you want to use the might of your enemies to fuel your own power.
+Play the Call of the Brave if you want to use the might of your
+enemies to fuel your own power.
 
 #### FOUNDATION FEATURES {#section-foundation-features-7}
 
-*Courage:* When you fail a roll with Fear, you gain a Hope.
-
-*Battle Ritual:* Once per long rest, before you attempt something incredibly dangerous or face off against a foe who clearly outmatches you, describe what ritual you perform or preparations you make. When you do, clear 2 Stress and gain 2 Hope.
+Courage: When you fail a roll with Fear, you gain a Hope.
+Battle Ritual: Once per long rest, before you attempt
+something incredibly dangerous or face off against a foe
+who clearly outmatches you, describe what ritual you
+perform or preparations you make. When you do, clear 2
+Stress and gain 2 Hope.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-11}
 
-*Rise to the Challenge:* You are vigilant in the face of mounting danger. While you have 2 or fewer Hit Points unmarked, you can roll a **d20** as your Hope Die.
+Rise to the Challenge: You are vigilant in the face of
+mounting danger. While you have 2 or fewer Hit Points
+unmarked, you can roll a d20  as your Hope Die.
 
 #### MASTERY FEATURE {#section-mastery-feature-11}
 
-*Camaraderie:* Your unwavering bravery is a rallying point for your allies. You can initiate a Tag Team Roll one additional time per session. Additionally, when an ally initiates a Tag Team Roll with you, they only need to spend 2 Hope to do so.
+Camaraderie: Your unwavering bravery is a rallying
+point for your allies. You can initiate a Tag Team Roll one
+additional time per session. Additionally, when an ally
+initiates a Tag Team Roll with you, they only need to spend
+2 Hope to do so.
 
 ### CALL OF THE SLAYER {#section-call-of-the-slayer}
 
-Play the Call of the Slayer if you want to strike down adversaries with immense force.
+Play the Call of the Slayer if you want to strike down
+adversaries with immense force.
 
-#### FOUNDATION FEATURE {#section-foundation-feature-9}
+#### FOUNDATION FEATURE {#section-call-of-the-slayer-foundation-features}
 
-*Slayer:* You gain a pool of dice called Slayer Dice. On a roll with Hope, you can place a **d6** on this card instead of gaining a Hope, adding the die to the pool. You can store a number of Slayer Dice equal to your Proficiency. When you make an attack roll or damage roll, you can spend any number of these Slayer Dice, rolling them and adding their result to the roll. At the end of each session, clear any unspent Slayer Dice on this card and gain a Hope per die cleared.
+Slayer: You gain a pool of dice called Slayer Dice. On a
+roll with Hope, you can place a d6 on this card instead of
+gaining a Hope, adding the die to the pool. You can store
+a number of Slayer Dice equal to your Proficiency. When
+you make an attack roll or damage roll, you can spend
+any number of these Slayer Dice, rolling them and adding
+their result to the roll. At the end of each session, clear any
+unspent Slayer Dice on this card and gain a Hope per die
+cleared.
 
 #### SPECIALIZATION FEATURE {#section-specialization-feature-12}
 
-*Weapon Specialist:* You can wield multiple weapons with dangerous ease. When you succeed on an attack, you can **spend a Hope** to add one of the damage dice from your secondary weapon to the damage roll. Additionally, once per long rest when you roll your Slayer Dice, reroll any 1s.
+Weapon Specialist: You can wield multiple weapons with
+dangerous ease. When you succeed on an attack, you can
+spend a Hope to add one of the damage dice from your
+secondary weapon to the damage roll. Additionally, once
+per long rest when you roll your Slayer Dice, reroll any 1s.
 
 #### MASTERY FEATURE {#section-mastery-feature-12}
 
-*Martial Preparation:* You're an inspirational warrior to all who travel with you. Your party gains access to the Martial Preparation downtime move. To use this move during a rest, describe how you instruct and train with your party. You and each ally who chooses this downtime move gain a **d6** Slayer Die. A PC with a Slayer Die can spend it to roll the die and add the result to an attack or damage roll of their choice.
+Martial Preparation: You’re an inspirational warrior to all
+who travel with you. Your party gains access to the Martial
+Preparation downtime move. To use this move during a
+rest, describe how you instruct and train with your party.
+You and each ally who chooses this downtime move gain a
+d6 Slayer Die. A PC with a Slayer Die can spend it to roll the
+die and add the result to an attack or damage roll of their
+choice.
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions-8}
+#### BACKGROUND QUESTIONS {#section-background-questions-8}
 
-*Answer any of the following background questions. You can also create your own questions.*
+Answer any of the following background questions. You can
+also create your own questions.
+- Who taught you to fight, and why did they stay
+behind when you left home?
+- Somebody defeated you in battle years ago and left
+you to die. Who was it, and how did they betray you?
 
-- Who taught you to fight, and why did they stay behind when you left home?
-- Somebody defeated you in battle years ago and left you to die. Who was it, and how did they betray you?
-- What legendary place have you always wanted to visit, and why is it so special?
+- What legendary place have you always wanted to
+visit, and why is it so special?
 
 #### CONNECTIONS {#section-connections-8}
 
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
-- We knew each other long before this party came together. How?
-- What mundane task do you usually help me with off the battlefield?
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- We knew each other long before this party came
+together. How?
+- What mundane task do you usually help me with off
+the battlefield?
 - What fear am I helping you overcome?
+
+# WITCH {#section-witch}
+
+Witches are magical practitioners who commune with the
+forces of nature and entities from realms beyond. These
+spellcasters call forth power through craft, combining
+the tangible and ephemeral by casting spells, murmuring
+incantations, creating talismans, weaving illusions, and
+maintaining other personalized practices. They can protect
+their allies and harm their enemies by invoking powerful forces
+beyond themselves—supernatural beings such as ancestors,
+deities, or aspects of nature. Often, their magical knowledge is
+passed down from these entities or through many generations
+of practitioners who gather in small groups known as covens.
+Witches are frequently feared and misunderstood, as their
+methods can appear mysterious, strange, and even macabre
+to the uninitiated. Whichever path they walk, a witch treads
+the boundary between light and shadow without fear.
+DOMAINS – Sage & Dread
+STARTING EVASION – 10
+STARTING HIT POINTS – 6
+CLASS ITEMS – A small, harmless pet or a scrying stone
+
+#### WITCH’S HOPE FEATURE {#section-witch-witch-s-hope-feature}
+
+Witch’s Charm: When you or an ally within Far range fails
+an action roll, you can spend 3 Hope to change it into a
+success with Fear instead.
+
+#### CLASS FEATURES {#section-class-feature-9}
+
+Hex: Mark a Stress to temporarily Hex a target within
+Far range. While Hexed, the target gains a penalty to
+their damage rolls and Difficulty equal to your tier. The
+maximum number of creatures you can Hex at one time is
+equal to your Spellcast trait.
+Commune: Once per long rest during a moment of calm,
+you can commune with an ancestor, a deity, a spirit, or
+an otherworldly being. Ask them a question, then roll a
+number of d6s  equal to your Spellcast trait. Choose one of
+the results and reference the chart below for the effect.
+Roll Effect
+1–3 You taste a flavor, smell a scent, or feel a
+sensation relevant to the answer.
+4–5 You hear sounds or see a vision relevant to the
+answer.
+6 You psychically experience a scene relevant to
+the answer as if you were there.
+
+#### WITCH SUBCLASSES {#section-witch-witch-subclasses}
+
+Choose either the Hedge or Moon subclass.
+
+### HEDGE {#section-hedge}
+
+Play the Hedge if you want to use your craft to empower
+yourself and your party.
+
+#### SPELLCAST TRAIT {#section-hedge-spellcast-trait}
+
+Knowledge
+
+#### FOUNDATION FEATURES {#section-hedge-foundation-features}
+
+Herbal Remedies: When you or an ally in the scene clears
+1 or more Hit Points or Stress as the result of using a
+consumable, increase the number cleared by 1.
+Enchanted Talisman: Once per rest, you can imbue a small
+item with your protective essence. Spend any number
+of Hope to place an equal number of tokens on this card.
+When the person holding the talisman takes damage,
+spend a token to reduce the number of Hit Points they
+mark by one. Clear all tokens from this card when you take
+a rest.
+
+#### SPECIALIZATION FEATURES {#section-hedge-specialization-features}
+
+Walk Between Worlds: During a moment of calm, make
+a Spellcast Roll (13) . Once per rest on a success, you
+can mark a Stress to step beyond the veil of death and
+converse with any nearby spirits. Place a number of tokens
+equal to your Spellcast trait on this card and remove one
+each time a spirit answers a question. When the last token
+is removed or at the end of the scene, you return to the
+Mortal Realm in the same spot you left it.
+Vexing Malison: You have advantage on attacks against
+Hexed creatures.
+
+#### MASTERY FEATURES {#section-hedge-mastery-features}
+
+Circle of Power: Once per rest, mark a circle on the ground
+outlining a Very Close area around you, and place a number
+of tokens equal to your Spellcast trait on this card. While
+within this circle, you and your allies gain a +2 bonus to
+damage thresholds, attack rolls, and Evasion. Remove a
+token each time you or an ally within the circle makes an
+action roll or evades an attack. This spell lasts until the last
+token is removed or you exit the circle.
+
+### MOON {#section-moon}
+
+Play the Moon if you want to embody celestial power to
+amplify your magic.
+
+#### SPELLCAST TRAIT {#section-moon-spellcast-trait}
+
+Instinct
+
+#### FOUNDATION FEATURES {#section-moon-foundation-features}
+
+Night’s Glamour: Make a Spellcast Roll (13)  to Glamour
+yourself in a bewitching facade. While Glamoured, you have
+advantage on rolls that leverage your illusory appearance.
+Additionally, adversaries within Close range must mark a
+Stress to attack you.
+Unless you mark a Stress to maintain your Glamour, it
+drops when you mark a Hit Point or deal damage.
+
+#### SPECIALIZATION FEATURES {#section-moon-specialization-features}
+
+Moonbeam: Once per session, you can conjure a column of
+moonlight that illuminates the area within Close range until
+the end of the scene. While bathed in this moonlight, you
+and your allies gain a +1 bonus to Spellcast Rolls and can
+see through illusions.
+Ire of Pale Light: When a Hexed creature within Very Far
+range fails an attack, they must mark a Stress.
+
+#### MASTERY FEATURES {#section-moon-mastery-features}
+
+Lunar Phases: At the beginning of each session, roll a d6
+and place it on this card. You gain the matching effect until
+the end of session.
+Roll Phase Effect
+1 New Spend a Hope to negate Minor damage.
+2 – 3 Waxing +2  to damage rolls
+4 Full +3  to damage thresholds
+5 – 6 Waning +1  to Evasion
+Once per rest, you can spend a Hope to increase the
+value of this die by one. If you increase the value of a 6, it
+becomes a 1.
+
+#### BACKGROUND QUESTIONS {#section-background-questions-9}
+
+Answer any of the following background questions. You can
+also create your own questions.
+- Who from your community feared your magical
+craft? What rumor did they spread about you, and
+what truth did it contain?
+- You once used your power to help someone in a dire
+situation. Who were they, and why did they come to
+you?
+- Your magic once opened a door best left closed. Who
+or what was on the other side?
+
+#### CONNECTIONS {#section-connections-9}
+
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- What unique ritual or practice have I taught you that
+we now perform together?
+- I once appeared to you in a dream and shared a vision
+of the future. What did I tell you?
+- What do you typically come to me for advice about?
 
 # WIZARD {#section-wizard}
 
-Whether through an institution or individual study, those known as wizards acquire and hone immense magical power over years of learning using a variety of tools, including books, stones, potions, and herbs. Some wizards dedicate their lives to mastering a particular school of magic, while others learn from a wide variety of disciplines. Many wizards become wise and powerful figures in their communities, advising rulers, providing medicines and healing, and even leading war councils. While these mages all work toward the common goal of collecting magical knowledge, wizards often have the most conflict within their own ranks, as the acquisition, keeping, and sharing of powerful secrets is a topic of intense debate that has resulted in innumerable deaths.
+Whether through an institution or individual study, those
+known as wizards acquire and hone immense magical power
+over years of learning using a variety of tools, including books,
+stones, potions, and herbs. Some wizards dedicate their lives
+to mastering a particular school of magic, while others learn
+from a wide variety of disciplines. Many wizards become
+wise and powerful figures in their communities, advising
+rulers, providing medicines and healing, and even leading war
+councils. While these mages all work toward the common goal
+of collecting magical knowledge, wizards often have the most
+conflict within their own ranks, as the acquisition, keeping,
+and sharing of powerful secrets is a topic of intense debate
+that has resulted in innumerable deaths.
+DOMAINS – Codex & Splendor
+STARTING EVASION – 11
+STARTING HIT POINTS – 5
+CLASS ITEMS – A book you’re trying to translate or a tiny,
+harmless elemental pet
 
-**DOMAINS -** Codex & Splendor
+#### WIZARD’S HOPE FEATURE {#section-wizard-s-hope-feature}
 
-**STARTING EVASION -** 11
+Not This Time: Spend 3 Hope to force an adversary within
+Far range to reroll an attack or damage roll.
 
-**Starting Hit Points: 5**
+#### CLASS FEATURES {#section-wizard-class-feature}
 
-**CLASS ITEMS -** A book you're trying to translate or a tiny, harmless elemental pet
-
-#### **WIZARD'S HOPE FEATURE** {#section-wizard-s-hope-feature}
-
-*Not This Time:* **Spend 3 Hope** to force an adversary within Far range to reroll an attack or damage roll.
-
-#### CLASS FEATURE {#section-class-feature-9}
-
-*Prestidigitation:* You can perform harmless, subtle magical effects at will. For example, you can change an object's color, create a smell, light a candle, cause a tiny object to float, illuminate a room, or repair a small object.
-
-*Strange Patterns:* Choose a number between 1 and 12. When you roll that number on a Duality Die, gain a Hope or clear a Stress.
-
+Prestidigitation: You can perform harmless, subtle magical
+effects at will. For example, you can change an object’s
+color, create a smell, light a candle, cause a tiny object to
+float, illuminate a room, or repair a small object.
+Strange Patterns: Choose a number between 1 and 12.
+When you roll that number on a Duality Die, gain a Hope or
+clear a Stress.
 You can change this number when you take a long rest.
 
 #### WIZARD SUBCLASSES {#section-wizard-subclasses}
 
-*Choose either the School of Knowledge or School of War subclass.*
+Choose either the School of Knowledge or School of War
+subclass.
 
 ### SCHOOL OF KNOWLEDGE {#section-school-of-knowledge}
 
-Play the School of Knowledge if you want a keen understanding of the world around you.
+Play the School of Knowledge if you want a keen
+understanding of the world around you.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-13}
 
@@ -1147,25 +2372,31 @@ Knowledge
 
 #### FOUNDATION FEATURES {#section-foundation-features-8}
 
-*Prepared:* Take an additional domain card of your level or lower from a domain you have access to.
-
-*Adept:* When you Utilize an Experience, you can **mark a Stress** instead of spending a Hope. If you do, double your Experience modifier for that roll.
+Prepared: Take an additional domain card of your level or
+lower from a domain you have access to.
+Adept: When you Utilize an Experience, you can mark a
+Stress instead of spending a Hope. If you do, double your
+Experience modifier for that roll.
 
 #### SPECIALIZATION FEATURES {#section-specialization-features-5}
 
-*Accomplished:* Take an additional domain card of your level or lower from a domain you have access to.
+Accomplished: Take an additional domain card of your level
+or lower from a domain you have access to.
+Perfect Recall: Once per rest, when you recall a domain
+card in your vault, you can reduce its Recall Cost by 1.
 
-*Perfect Recall:* Once per rest, when you recall a domain card in your vault, you can reduce its Recall Cost by 1.
+#### MASTERY FEATURES {#section-mastery-features-5}
 
-#### **MASTERY FEATURES** {#section-mastery-features-5}
-
-*Brilliant:* Take an additional domain card of your level or lower from a domain you have access to.
-
-*Honed Expertise:* When you use an Experience, roll a **d6.** On a result of 5 or higher, you can use it without spending Hope.
+Brilliant: Take an additional domain card of your level or
+lower from a domain you have access to.
+Honed Expertise: When you use an Experience, roll a d6.
+On a result of 5 or higher, you can use it without spending
+Hope.
 
 ### SCHOOL OF WAR {#section-school-of-war}
 
-Play the School of War if you want to utilize trained magic for violence.
+Play the School of War if you want to utilize trained magic for
+violence.
 
 #### SPELLCAST TRAIT {#section-spellcast-trait-14}
 
@@ -1173,34 +2404,47 @@ Knowledge
 
 #### FOUNDATION FEATURES {#section-foundation-features-9}
 
-*Battlemage:* You've focused your studies on becoming an unconquerable force on the battlefield. Gain an additional Hit Point slot.
-
-*Face Your Fear:* When you succeed with Fear on an attack roll, you deal an extra **1d10** magic damage.
+Battlemage: You’ve focused your studies on becoming an
+unconquerable force on the battlefield. Gain an additional
+Hit Point slot.
+Face Your Fear: When you succeed with Fear on an attack
+roll, you deal an extra  1d10  magic damage.
 
 #### SPECIALIZATION FEATURES {#section-specialization-features-6}
 
-*Conjure Shield:* You can maintain a protective barrier of magic. While you have at least 2 Hope, you add your Proficiency to your Evasion.
+Conjure Shield: You can maintain a protective barrier
+of magic. While you have at least 2 Hope, you add your
+Proficiency to your Evasion.
+Fueled by Fear: The extra magic damage from your “Face
+Your Fear” feature increases to 2d10 .
 
-*Fueled by Fear:* The extra magic damage from your "Face Your Fear" feature increases to 2d10.
+#### MASTERY FEATURES {#section-mastery-features-6}
 
-#### **MASTERY FEATURES** {#section-mastery-features-6}
+Thrive in Chaos: When you succeed on an attack, you can
+mark a Stress after rolling damage to force the target to
+mark an additional Hit Point.
+Have No Fear: The extra magic damage from your “Face
+Your Fear” feature increases to 3d10.
 
-*Thrive in Chaos:* When you succeed on an attack, you can **mark a Stress** after rolling damage to force the target to mark an additional Hit Point.
+#### BACKGROUND QUESTIONS {#section-schoolofwar-background-questions}
 
-*Have No Fear:* The extra magic damage from your "Face Your Fear" feature increases to **3d10.**
+Answer any of the following background questions. You can
+also create your own questions.
+- What responsibilities did your community once count
+on you for? How did you let them down?
+- You’ve spent your life searching for a book or object
+of great significance. What is it, and why is it so
+important to you?
+- You have a powerful rival. Who are they, and why are
+you so determined to defeat them?
 
-#### **BACKGROUND QUESTIONS** {#section-background-questions-9}
+#### CONNECTIONS {#section-schoolofwar-connections}
 
-*Answer any of the following background questions. You can also create your own questions.* 
-
-- What responsibilities did your community once count on you for? How did you let them down?
-- You've spent your life searching for a book or object of great significance. What is it, and why is it so important to you?
-- You have a powerful rival. Who are they, and why are you so determined to defeat them?
-
-#### CONNECTIONS {#section-connections-9}
-
-*Ask your fellow players one of the following questions for their character to answer, or create your own questions.*
-
-- What favor have I asked of you that you're not sure you can fulfill?
-- What weird hobby or strange fascination do we both share?
-- What secret about yourself have you entrusted only to me?
+Ask your fellow players one of the following questions for
+their character to answer, or create your own questions.
+- What favor have I asked of you that you’re not sure
+you can fulfill?
+- What weird hobby or strange fascination do we both
+share?
+- What secret about yourself have you entrusted only
+to me?

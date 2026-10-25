@@ -2,7 +2,7 @@
 
 ## 版本命名
 
-`data/srd.yaml` 的 `version` 是对外可见且写入每条反馈的内容版本。格式为 `srd-<上游版本>`；当前正文来自标题注明的 System Reference Document 1.0，因此版本为 `srd-1.0`。
+`data/srd.yaml` 的 `version` 是对外可见且写入每条反馈的内容版本。格式为 `srd-<上游版本>`；当前正文来自标题注明的 System Reference Document 2.0，因此版本为 `srd-2.0`。
 
 同一上游 SRD 版本内的翻译校订不改变该值，具体修改由反馈时间与 Git 历史定位。整体导入新的上游 SRD 时，必须在同一个变更中更新该值。构建会拒绝空值和 `current` 占位值。
 
@@ -11,8 +11,8 @@
 大版本首次通过生产验收后，在实际部署的提交上创建同名注释 tag，并推送 tag：
 
 ```bash
-git tag -a srd-v1.0 -m "Daggerheart SRD 1.0 production archive"
-git push origin srd-v1.0
+git tag -a srd-v2.0 -m "Daggerheart SRD 2.0 production archive"
+git push origin srd-v2.0
 ```
 
 随后在 GitHub 以该 tag 创建 Release，至少记录正文来源、发布日期、构建命令和验收结果。tag 必须指向已经部署并验收的提交，而不是导入前或尚未上线的提交。

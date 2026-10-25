@@ -49,17 +49,17 @@ test("mobile contents drawer opens and closes", async ({ page }) => {
 test("equipment table renders adjacent bold spans and Chinese punctuation", async ({ page }) => {
   await page.goto("/SRD/core-mechanics/equipment/primary-weapons/");
 
-  const swift = page.locator("td", { hasText: "迅捷：标记 1 压力点" }).first();
+  const swift = page.locator("td", { hasText: "迅捷 Quick：" }).first();
   await expect(swift).not.toContainText("**");
-  await expect(swift.locator("strong")).toHaveCount(2);
+  await expect(swift.locator("strong")).toContainText(["标记 1 压力点"]);
 
-  const cumbersome = page.locator("td", { hasText: "繁琐：灵巧" }).first();
+  const cumbersome = page.locator("td", { hasText: "笨重 Cumbersome：灵巧" }).first();
   await expect(cumbersome).not.toContainText("**");
-  await expect(cumbersome.locator("strong").first()).toHaveText("繁琐：");
+  await expect(cumbersome).toContainText("−1");
 
-  const brutal = page.locator("td", { hasText: "残暴：伤害骰" }).first();
+  const brutal = page.locator("td", { hasText: "残暴 Brutal：" }).first();
   await expect(brutal).not.toContainText("**");
-  await expect(brutal.locator("strong").first()).toHaveText("残暴：");
+  await expect(brutal).toContainText("伤害骰");
 });
 
 

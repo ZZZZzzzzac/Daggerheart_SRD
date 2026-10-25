@@ -2,7 +2,7 @@ import {test, expect} from '@playwright/test';
 test('domain catalog filters, highlights, switch and preview', async ({page}) => {
   await page.goto('/SRD/domain-cards/');
   await expect(page.locator('#catalog-filters')).toBeVisible();
-  expect(await page.locator('.adversary').count()).toBe(189);
+  await expect(page.locator('.adversary')).toHaveCount(210);
   await page.locator('[data-filter=type] summary').click();
   await page.locator('#adversary-type button[data-value=arcana]').click();
   await page.locator('#adversary-type button[data-value=blade]').click();
@@ -38,7 +38,7 @@ test.describe('domain editor', () => {
   test.use({httpCredentials: {username:'admin',password:'playwright'}});
   test('Markdown edits update card metadata and content', async ({page}) => {
     await page.goto('/SRD/edit/?path=domain-cards');
-    await expect(page.locator('#preview .domain-card')).toHaveCount(189);
+    await expect(page.locator('#preview .domain-card')).toHaveCount(210);
     const editor = page.locator('#editor-textarea');
     await editor.fill((await editor.inputValue()).replace('回想费用：0', '回想费用：3'));
     await expect(page.locator('#preview .domain-card').first()).toHaveAttribute('data-recall','3');

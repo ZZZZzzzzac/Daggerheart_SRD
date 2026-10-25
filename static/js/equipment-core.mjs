@@ -112,7 +112,10 @@ function renderLootPair(html,kind) {
     const firstTable = html[lang].indexOf('<div class="table-scroll"');
     if (firstTable<0) throw new Error(`物品页面缺少表格：${kind}`);
     const rows = new Map();
-    for (const table of html[lang].matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/g)) {
+    let group = 'core';
+    for (const token of html[lang].matchAll(/<h[1-6]\b[^>]*data-anchor="loot-group-([a-z-]+)"[^>]*>[\s\S]*?<\/h[1-6]>|<table\b[^>]*>([\s\S]*?)<\/table>/g)) {
+      if (token[1]) { group = token[1]; continue; }
+      const table = [token[0], token[2]];
       for (const row of table[1].matchAll(/<tr>([\s\S]*?)<\/tr>/g)) {
         const cells = [...row[1].matchAll(/<td\b[^>]*>([\s\S]*?)<\/td>/g)].map(m=>m[1]);
         // 英文原文有左右并列的三列表格，以及空的占位列；按掷骰编号配对。
@@ -120,27 +123,58 @@ function renderLootPair(html,kind) {
           if (![cells[i],cells[i+1],cells[i+2]].some(plain)) continue;
           const roll = plain(cells[i]);
           if (!/^\d+$/.test(roll) || !plain(cells[i+1])) throw new Error(`物品编号或名称无效：${kind} ${roll}`);
-          const key = Number(roll);
+          const key = `${group}:${Number(roll)}`;
           if (rows.has(key)) throw new Error(`物品编号重复：${kind} ${key}`);
-          rows.set(key,{roll:escape(roll),name:cells[i+1],feature:cells[i+2]});
+          rows.set(key,{roll:escape(roll),name:cells[i+1],feature:cells[i+2],group,source:group==='core'?(lang==='zh'?'核心规则':'Core Rules'):(lang==='zh'?'希望与恐惧':'Hope & Fear')});
         }
       }
     }
     parsed[lang] = {intro:html[lang].slice(0,firstTable),rows};
   }
   if (parsed.zh.rows.size!==parsed.en.rows.size || [...parsed.zh.rows.keys()].some(key=>!parsed.en.rows.has(key))) throw new Error(`中英文物品编号不一致：${kind}`);
-  const columns=['name','roll','feature'];
-  const labels={zh:{name:'名称',roll:'掷骰编号',feature:'效果'},en:{name:'Name',roll:'Roll',feature:'Effect'}};
+  const grouped = new Set([...parsed.zh.rows.values()].map(r=>r.group)).size>1;
+  const columns=grouped?['name','source','roll','feature']:['name','roll','feature'];
+  const labels={zh:{name:'名称',roll:'掷骰编号',feature:'效果',source:'来源'},en:{name:'Name',roll:'Roll',feature:'Effect',source:'Source'}};
   return Object.fromEntries(['zh','en'].map(lang=>{
-    const rows=[...parsed[lang].rows].sort((a,b)=>a[0]-b[0]).map(([key,values])=>{
-      const id=`${kind}-${String(key).padStart(2,'0')}`;
+    const rows=[...parsed[lang].rows].sort((a,b)=>(a[1].group==='core'?0:1)-(b[1].group==='core'?0:1)||Number(a[1].roll)-Number(b[1].roll)).map(([key,values])=>{
+      const id=`${kind}-${values.group==='core'?'':values.group+'-'}${String(values.roll).padStart(2,'0')}`;
       const cells=columns.map(column=>{
         const search=normalizeEquipment(plain(parsed.zh.rows.get(key)[column])+' '+plain(parsed.en.rows.get(key)[column]));
-        const value=column==='roll'?String(key):plain(parsed.en.rows.get(key)[column]);
+        const value=column==='roll'?String(Number(values.roll)):plain(parsed.en.rows.get(key)[column]);
         return `<td data-column="${column}" data-value="${escape(value)}" data-search="${escape(search)}">${column==='name'?`<a href="#${id}">${values[column]}</a>`:values[column]}</td>`;
       }).join('');
       return `<tr data-anchor="${id}"${lang==='zh'?` id="${id}"`:''}>${cells}</tr>`;
     });
     return [lang,catalogHTML(parsed[lang].intro,rows,columns,labels[lang],lang,true)];
   }));
+}
+
+// Inline weapon and armor tables retain their content and grouping, without controls.
+export function renderStaticEquipmentTables(html, language) {
+  const aliases = {
+    '名称':'name', 'name':'name', '位阶':'tier', 'tier':'tier',
+    '类型':'category', 'type':'category', '属性':'trait', 'trait':'trait',
+    '范围':'range', '距离':'range', 'range':'range', '伤害':'damage', 'damage':'damage',
+    '负荷':'burden', 'burden':'burden', '特性':'feature', 'feature':'feature',
+    '阈值':'thresholds', 'thresholds':'thresholds', 'base thresholds':'thresholds',
+    '重度伤害阈值':'major-threshold', '严重伤害阈值':'severe-threshold',
+    '护甲值':'armor', 'armor score':'armor', 'base score':'armor',
+  };
+  return html.replace(/<div class="table-scroll" role="region">(<table\b[^>]*>[\s\S]*?<\/table>)<\/div>/g, (original, table) => {
+    const header = table.match(/<thead>([\s\S]*?)<\/thead>/)?.[1] || '';
+    const columns = [...header.matchAll(/<th\b[^>]*>([\s\S]*?)<\/th>/g)].map(cell => aliases[plain(cell[1]).toLowerCase()]);
+    if (columns[0] !== 'name' || columns.some(key => !key) || !columns.includes('feature') ||
+        !(columns.includes('damage') && columns.includes('burden') || columns.includes('armor'))) return original;
+    const decorated = table.replace('<table>', '<table class="equipment-table">').replace(/<tr>([\s\S]*?)<\/tr>/g, (row, content) => {
+      const cells = [...content.matchAll(/<(th|td)\b([^>]*)>([\s\S]*?)<\/\1>/g)];
+      if (cells.length !== columns.length) return row;
+      return '<tr>' + cells.map((cell, index) => {
+        const key = columns[index];
+        // English source tables sometimes list four tiers in the same numeric cell.
+        const value = ['damage','thresholds','armor'].includes(key) ? cell[3].replace(/\s+(?=Tier [1-4]:)/g, '<br>') : cell[3];
+        return `<${cell[1]}${cell[2]}${cell[1] === 'th' ? ' scope="col"' : ''} data-column="${key}">${value}</${cell[1]}>`;
+      }).join('') + '</tr>';
+    });
+    return `<div class="equipment-scroll equipment-static" role="region" aria-label="${language === 'zh' ? '装备表格，可横向滚动' : 'Equipment table, scroll horizontally'}" tabindex="0">${decorated}</div>`;
+  });
 }
