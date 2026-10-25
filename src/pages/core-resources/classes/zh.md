@@ -139,7 +139,7 @@
 
 #### 吟游诗人子职业 {#section-bard-subclasses}
 
-*选择__游唱乐手__或__言文巧匠__子职业。*
+*选择游唱乐手或言文巧匠子职业。*
 
 
 
@@ -384,7 +384,7 @@
 
 #### 德鲁伊子职业 {#section-druid-subclasses}
 
-*选择__元素结社__或__复兴结社__子职业。*
+*选择元素结社或复兴结社子职业。*
 
 
 ### 元素结社 WARDEN OF THE ELEMENTS {#section-warden-of-the-elements}
@@ -760,7 +760,7 @@
 
 #### 守护者子职业 {#section-guardian-subclasses}
 
-*选择__坚毅铁卫__或__复仇战卫__子职业。*
+*选择坚毅铁卫或复仇战卫子职业。*
 
 ### 坚毅铁卫 STALWART {#section-stalwart}
 
@@ -844,7 +844,7 @@
 
 #### 游侠子职业 {#section-ranger-subclasses}
 
-*选择__驯兽大师__或__寻路斥候__子职业。*
+*选择驯兽大师或寻路斥候子职业。*
 
 ### 驯兽大师 BEASTBOUND {#section-beastbound}
 
@@ -987,7 +987,7 @@
 
 #### 游荡者子职业 {#section-rogue-subclasses}
 
-*选择__黑夜行者__或__帮派豪杰__子职业。*
+*选择黑夜行者或帮派豪杰子职业。*
 
 ### 黑夜行者 NIGHTWALKER {#section-nightwalker}
 
@@ -1074,7 +1074,7 @@
 
 #### 神使的子职业 {#section-seraph-subclasses}
 
-*选择__神兵驭者__或__翔翼哨兵__子职业。*
+*选择神兵驭者或翔翼哨兵子职业。*
 
 ### 神兵驭者 DIVINE WIELDER {#section-divine-wielder}
 
@@ -1159,7 +1159,7 @@
 
 #### 术士子职业 {#section-sorcerer-subclasses}
 
-*选择__元素起源__或__原初起源__子职业。*
+*选择元素起源或原初起源子职业。*
 
 ### 元素起源 ELEMENTAL ORIGIN {#section-elemental-origin}
 
@@ -1364,7 +1364,7 @@
 
 #### 战士子职业 {#section-warrior-subclasses}
 
-*选择__勇气呼唤__或__屠戮呼唤__子职业。*
+*选择勇气呼唤或屠戮呼唤子职业。*
 
 ### 勇气呼唤 CALL OF THE BRAVE {#section-call-of-the-brave}
 
