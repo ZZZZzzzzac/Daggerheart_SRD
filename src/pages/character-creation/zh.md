@@ -2,7 +2,7 @@
 
 注：你可以在创建角色流程中的任意阶段填写角色的姓名、人称代词与角色描述细节等信息。
 
-## 第一步：选择一个职业与子职业。 {#step-1-choose-a-class-and-subclass}
+## 第一步：选择一个职业与子职业 {#step-1-choose-a-class-and-subclass}
 
  **选择一个职业与子职业**
 
