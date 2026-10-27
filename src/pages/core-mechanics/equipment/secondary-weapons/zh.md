@@ -7,15 +7,15 @@
 | 名称 | 属性 | 距离 | 伤害 | 负荷 | 特性 |
 | --- | --- | --- | --- | --- | --- |
 | 手斧 Hatchet | 敏捷 | 近战 | d8 物理 | 单手 | 追击 Follow-Up：用主武器成功攻击近战范围内的目标后，你可以标记 1 压力点，使本次攻击的熟练值获得 +1 加值。 |
-| 短剑 Shortsword | 敏捷 | 近战 | d8 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +2 加值。 |
-| 副手黄铜指虎 Offhand Brass Knuckles | 力量 | 近战 | d8 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +2 加值。 |
+| 短剑 Shortsword | 敏捷 | 近战 | d8 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +2 加值。 |
+| 副手黄铜指虎 Offhand Brass Knuckles | 力量 | 近战 | d8 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +2 加值。 |
 | 圆盾 Round Shield | 力量 | 近战 | d4 物理 | 单手 | 保护 Protective：护甲值 +1。 |
 | 塔盾 Tower Shield | 力量 | 近战 | d6 物理 | 单手 | 壁垒 Barrier：护甲值 +2；闪避值 −1。 |
-| 小匕首 Small Dagger | 灵巧 | 近战 | d8 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +2 加值。 |
+| 小匕首 Small Dagger | 灵巧 | 近战 | d8 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +2 加值。 |
 | 飞刀 Throwing Knives | 灵巧 | 近战 | d8 物理 | 单手 | 储备 Stockpiled：你可以使用灵巧进行攻击掷骰，将此武器投向近距离范围内的目标。无需回收，因为你手边总有另一把。 |
 | 战斗斗篷 Fighting Cloak | 风度 | 近战 | d4 物理 | 单手 | 衬垫 Padded：伤害阈值 +2。 |
 | 符文盾 Rune Shield | 知识 | 近战 | d4 魔法 | 单手 | 保护 Protective：护甲值 +1。 |
-| 聚焦符文 Focus Runes | 本能 | 邻近 | d6 魔法 | 单手 | 专注 Focused：用主武器攻击邻近范围内的目标时，伤害骰获得 +1 加值。 |
+| 聚焦符文 Focus Runes | 本能 | 邻近 | d6 魔法 | 单手 | 专注 Focused：用主武器攻击邻近范围内的目标时，伤害掷骰获得 +1 加值。 |
 | 鞭子 Whip | 风度 | 邻近 | d6 物理 | 单手 | 鞭笞 Startling：标记 1 压力点并甩响鞭子，迫使近战范围内的所有敌人退至近距离范围。 |
 | 抓钩 Grappler | 灵巧 | 近距离 | d6 物理 | 单手 | 出钩 Hooked：攻击成功时，你可以将目标拉至近战范围内。 |
 | 手弩 Hand Crossbow | 灵巧 | 远距离 | d6+1 物理 | 单手 | — |
@@ -25,15 +25,15 @@
 | 名称 | 属性 | 距离 | 伤害 | 负荷 | 特性 |
 | --- | --- | --- | --- | --- | --- |
 | 改良手斧 Improved Hatchet | 敏捷 | 近战 | d8+2 物理 | 单手 | 追击 Follow-Up：用主武器成功攻击近战范围内的目标后，你可以标记 1 压力点，使本次攻击的熟练值获得 +1 加值。 |
-| 改良短剑 Improved Shortsword | 敏捷 | 近战 | d8+2 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +3 加值。 |
-| 改良副手黄铜指虎 Improved Offhand Brass Knuckles | 力量 | 近战 | d8+2 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +3 加值。 |
+| 改良短剑 Improved Shortsword | 敏捷 | 近战 | d8+2 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +3 加值。 |
+| 改良副手黄铜指虎 Improved Offhand Brass Knuckles | 力量 | 近战 | d8+2 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +3 加值。 |
 | 改良圆盾 Improved Round Shield | 力量 | 近战 | d4+2 物理 | 单手 | 保护 Protective：护甲值 +2。 |
 | 改良塔盾 Improved Tower Shield | 力量 | 近战 | d6+2 物理 | 单手 | 壁垒 Barrier：护甲值 +3；闪避值 −1。 |
-| 改良小匕首 Improved Small Dagger | 灵巧 | 近战 | d8+2 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +3 加值。 |
+| 改良小匕首 Improved Small Dagger | 灵巧 | 近战 | d8+2 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +3 加值。 |
 | 改良投掷飞刀 Improved Throwing Knives | 灵巧 | 近战 | d8+2 物理 | 单手 | 储备 Stockpiled：你可以使用灵巧进行攻击掷骰，将此武器投向近距离范围内的目标。无需回收，因为你手边总有另一把。 |
 | 改良战斗斗篷 Improved Fighting Cloak | 风度 | 近战 | d4+2 物理 | 单手 | 衬垫 Padded：伤害阈值 +3。 |
 | 改良符文盾 Improved Rune Shield | 知识 | 近战 | d4+2 魔法 | 单手 | 保护 Protective：护甲值 +2。 |
-| 改良聚焦符文 Improved Focus Runes | 本能 | 邻近 | d6+2 魔法 | 单手 | 专注 Focused：用主武器攻击邻近范围内的目标时，伤害骰获得 +1 加值。 |
+| 改良聚焦符文 Improved Focus Runes | 本能 | 邻近 | d6+2 魔法 | 单手 | 专注 Focused：用主武器攻击邻近范围内的目标时，伤害掷骰获得 +1 加值。 |
 | 改良鞭子 Improved Whip | 风度 | 邻近 | d6+2 物理 | 单手 | 鞭笞 Startling：标记 1 压力点并甩响鞭子，迫使近战范围内的所有敌人退至近距离范围。 |
 | 改良抓钩 Improved Grappler | 灵巧 | 近距离 | d6+2 物理 | 单手 | 出钩 Hooked：攻击成功时，你可以将目标拉至近战范围内。 |
 | 改良手弩 Improved Hand Crossbow | 灵巧 | 远距离 | d6+3 物理 | 单手 | — |
@@ -50,15 +50,15 @@
 | 名称 | 属性 | 距离 | 伤害 | 负荷 | 特性 |
 | --- | --- | --- | --- | --- | --- |
 | 高级手斧 Advanced Hatchet | 敏捷 | 近战 | d8+4 物理 | 单手 | 追击 Follow-Up：用主武器成功攻击近战范围内的目标后，你可以标记 1 压力点，使本次攻击的熟练值获得 +1 加值。 |
-| 高级短剑 Advanced Shortsword | 敏捷 | 近战 | d8+4 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +4 加值。 |
-| 高级副手黄铜指虎 Advanced Offhand Brass Knuckles | 力量 | 近战 | d8+4 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +4 加值。 |
+| 高级短剑 Advanced Shortsword | 敏捷 | 近战 | d8+4 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +4 加值。 |
+| 高级副手黄铜指虎 Advanced Offhand Brass Knuckles | 力量 | 近战 | d8+4 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +4 加值。 |
 | 高级圆盾 Advanced Round Shield | 力量 | 近战 | d4+4 物理 | 单手 | 保护 Protective：护甲值 +3。 |
 | 高级塔盾 Advanced Tower Shield | 力量 | 近战 | d6+4 物理 | 单手 | 壁垒 Barrier：护甲值 +4；闪避值 −1。 |
-| 高级小匕首 Advanced Small Dagger | 灵巧 | 近战 | d8+4 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +4 加值。 |
+| 高级小匕首 Advanced Small Dagger | 灵巧 | 近战 | d8+4 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +4 加值。 |
 | 高级飞刀 Advanced Throwing Knives | 灵巧 | 近战 | d8+4 物理 | 单手 | 储备 Stockpiled：你可以使用灵巧进行攻击掷骰，将此武器投向近距离范围内的目标。无需回收，因为你手边总有另一把。 |
 | 高级战斗斗篷 Advanced Fighting Cloak | 风度 | 近战 | d4+4 物理 | 单手 | 衬垫 Padded：伤害阈值 +4。 |
 | 高级符文盾 Advanced Rune Shield | 知识 | 近战 | d4+4 魔法 | 单手 | 保护 Protective：护甲值 +3。 |
-| 高级聚焦符文 Advanced Focus Runes | 本能 | 邻近 | d6+4 魔法 | 单手 | 专注 Focused：用主武器攻击邻近范围内的目标时，伤害骰获得 +1 加值。 |
+| 高级聚焦符文 Advanced Focus Runes | 本能 | 邻近 | d6+4 魔法 | 单手 | 专注 Focused：用主武器攻击邻近范围内的目标时，伤害掷骰获得 +1 加值。 |
 | 高级鞭子 Advanced Whip | 风度 | 邻近 | d6+4 物理 | 单手 | 鞭笞 Startling：标记 1 压力点并甩响鞭子，迫使近战范围内的所有敌人退至近距离范围。 |
 | 高级抓钩 Advanced Grappler | 灵巧 | 近距离 | d6+4 物理 | 单手 | 出钩 Hooked：攻击成功时，你可以将目标拉至近战范围内。 |
 | 高级手弩 Advanced Hand Crossbow | 灵巧 | 远距离 | d6+5 物理 | 单手 | — |
@@ -75,15 +75,15 @@
 | 名称 | 属性 | 距离 | 伤害 | 负荷 | 特性 |
 | --- | --- | --- | --- | --- | --- |
 | 传奇手斧 Legendary Hatchet | 敏捷 | 近战 | d8+6 物理 | 单手 | 追击 Follow-Up：用主武器成功攻击近战范围内的目标后，你可以标记 1 压力点，使本次攻击的熟练值获得 +1 加值。 |
-| 传奇短剑 Legendary Shortsword | 敏捷 | 近战 | d8+6 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +5 加值。 |
-| 传奇副手黄铜指虎 Legendary Offhand Brass Knuckles | 力量 | 近战 | d8+6 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +5 加值。 |
+| 传奇短剑 Legendary Shortsword | 敏捷 | 近战 | d8+6 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +5 加值。 |
+| 传奇副手黄铜指虎 Legendary Offhand Brass Knuckles | 力量 | 近战 | d8+6 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +5 加值。 |
 | 传奇圆盾 Legendary Round Shield | 力量 | 近战 | d4+6 物理 | 单手 | 保护 Protective：护甲值 +4。 |
 | 传奇塔盾 Legendary Tower Shield | 力量 | 近战 | d6+6 物理 | 单手 | 壁垒 Barrier：护甲值 +5；闪避值 −1。 |
-| 传奇小匕首 Legendary Small Dagger | 灵巧 | 近战 | d8+6 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害骰获得 +5 加值。 |
+| 传奇小匕首 Legendary Small Dagger | 灵巧 | 近战 | d8+6 物理 | 单手 | 双持 Paired：用主武器攻击近战范围内的目标时，伤害掷骰获得 +5 加值。 |
 | 传奇投掷飞刀 Legendary Throwing Knives | 灵巧 | 近战 | d8+6 物理 | 单手 | 储备 Stockpiled：你可以使用灵巧进行攻击掷骰，将此武器投向近距离范围内的目标。无需回收，因为你手边总有另一把。 |
 | 传奇战斗斗篷 Legendary Fighting Cloak | 风度 | 近战 | d4+6 物理 | 单手 | 衬垫 Padded：伤害阈值 +5。 |
 | 传奇符文盾 Legendary Rune Shield | 知识 | 近战 | d4+6 魔法 | 单手 | 保护 Protective：护甲值 +4。 |
-| 传奇聚焦符文 Legendary Focus Runes | 本能 | 邻近 | d6+6 魔法 | 单手 | 专注 Focused：用主武器攻击邻近范围内的目标时，伤害骰获得 +1 加值。 |
+| 传奇聚焦符文 Legendary Focus Runes | 本能 | 邻近 | d6+6 魔法 | 单手 | 专注 Focused：用主武器攻击邻近范围内的目标时，伤害掷骰获得 +1 加值。 |
 | 传奇鞭子 Legendary Whip | 风度 | 邻近 | d6+6 物理 | 单手 | 鞭笞 Startling：标记 1 压力点并甩响鞭子，迫使近战范围内的所有敌人退至近距离范围。 |
 | 传奇抓钩 Legendary Grappler | 灵巧 | 近距离 | d6+6 物理 | 单手 | 出钩 Hooked：攻击成功时，你可以将目标拉至近战范围内。 |
 | 传奇手弩 Legendary Hand Crossbow | 灵巧 | 远距离 | d6+7 物理 | 单手 | — |
@@ -91,6 +91,6 @@
 | 拳爪 Knuckle Claws | 力量 | 近战 | d6+8 物理 | 单手 | 加倍 Double Up：当你使用主武器攻击时，你可以对近战范围内的另一个目标造成伤害。 |
 | 虚空针 Void Needle | 灵巧 | 近战 | d4+6 物理 | 单手 | 反转 Inverted：当你使用武器的攻击掷出恐惧结果时，获得 1 希望点。 |
 | 回响利刃 Echo Blade | 风度 | 近战 | d4+6 魔法 | 单手 | 加倍 Doubled Up：当你使用主武器攻击成功时，你可以对近战范围内的另一个目标造成伤害。 |
-| 莫比乌斯之球 Möbius Orb | 知识 | 近战 | d8+6 魔法 | 单手 | 递归 Recursive：当你掷骰一枚伤害骰掷出最大值时，额外掷骰一枚伤害骰，并将骰值加入本次伤害骰。此特性可反复触发。 |
+| 莫比乌斯之球 Möbius Orb | 知识 | 近战 | d8+6 魔法 | 单手 | 递归 Recursive：当你的一枚伤害骰掷出最大值时，额外掷出一枚伤害骰，并将骰值加入本次伤害骰。此特性可反复触发。 |
 | 引物碎片 Primer Shard | 本能 | 邻近 | d4 物理 | 单手 | 锁定 Locked On：攻击成功时，你的下一次对抗相同目标的主武器攻击自动成功。 |
 | 黑血触须 Blackblood Tendril | 本能 | 近距离 | d6+8 魔法 | 单手 | 剧毒 Poisonous：若一个目标因你掷出恐惧结果的攻击而标记 任意数量的 生命点，其须标记 等量的 压力点。 |
