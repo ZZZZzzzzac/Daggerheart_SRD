@@ -16,7 +16,7 @@
 - 战役的特殊机制
 - 需要在“第零场”讨论的问题
 
-*不同战役框架的地图详见核心规则书附录或 www.daggerheart.com/downloads 。*
+*不同战役框架的地图详见核心规则书附录或 www.daggerheart.com/downloads。*
 
 选择主题阅读：
 

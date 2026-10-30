@@ -34,7 +34,7 @@
 
 #### 负荷 {#burden}
 
-武器的**负荷** 表示装备时占用的**手的数量** 。你的角色最大负荷为两只手。
+武器的**负荷** 表示装备时占用的**手的数量**。你的角色最大负荷为两只手。
 
 #### 特性 {#feature}
 
@@ -59,9 +59,9 @@
 
 战利品是队伍获得的消耗品或可重复使用的物品。
 
-## <span></span>主武器表格 {#primary-weapon-tables}
+## 主武器表格 {#primary-weapon-tables}
 
-[<span></span>主武器表格](/SRD/core-mechanics/equipment/primary-weapons/)
+[主武器表格](/SRD/core-mechanics/equipment/primary-weapons/)
 
 ## 副武器表 {#secondary-weapon-tables}
 
