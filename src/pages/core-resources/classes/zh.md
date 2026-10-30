@@ -1531,7 +1531,7 @@
 
 #### 法师子职业 {#section-wizard-subclasses}
 
-*选择__知识学派__或__战争学派__子职业。*
+*选择知识学派或战争学派子职业。*
 
 ### 知识学派 SCHOOL OF KNOWLEDGE {#section-school-of-knowledge}
 
