@@ -213,10 +213,16 @@ def align(para: dict[str, dict], pages: dict[str, str]) -> dict:
 
     site_norms = {u["norm"] for u in site_units}
     para_norms = {u["norm"] for u in para_units}
+    # 「然后将此卡牌永久放入你的宝库」这类套话在多张卡里重复，靠句子本身无法判定归属，
+    # 任一侧重复出现就拒绝自动配对，只报告。
+    para_count = Counter(u["norm"] for u in para_units)
+    site_count = Counter(u["norm"] for u in site_units)
 
     site_by_head: dict[str, list[dict]] = {}
+    site_by_norm: dict[str, list[dict]] = {}
     for u in site_units:
         site_by_head.setdefault(u["norm"][:2], []).append(u)
+        site_by_norm.setdefault(u["norm"], []).append(u)
     para_by_head: dict[str, list[dict]] = {}
     for u in para_units:
         para_by_head.setdefault(u["norm"][:2], []).append(u)
@@ -229,6 +235,8 @@ def align(para: dict[str, dict], pages: dict[str, str]) -> dict:
             if abs(len(cand["norm"]) - len(unit["norm"])) > max(16, len(unit["norm"]) * 0.5):
                 continue
             if not same_numbers(unit["norm"], cand["norm"]):
+                continue
+            if para_count[unit["norm"]] > 1 or site_count[cand["norm"]] > 1:
                 continue
             ratio = difflib.SequenceMatcher(None, unit["norm"], cand["norm"]).ratio()
             if ratio >= RATIO:
@@ -243,10 +251,19 @@ def align(para: dict[str, dict], pages: dict[str, str]) -> dict:
     identical, rewritten, para_only = [], [], []
     used_site: set[int] = set()
     for u in para_units:
-        if u["norm"] in site_norms:
+        # 一句 Para 只认一个站点句：先按完全一致一对一配掉，免得同一句又去模糊配对别处
+        free = [c for c in site_by_norm.get(u["norm"], []) if id(c) not in used_site]
+        if free:
+            used_site.add(id(free[0]))
             identical.append(u)
             continue
         hit = best(u, site_by_head, used_site)
+        if hit and u["norm"] in site_norms:
+            # 站点里存在完全相同的句子，只是已被别的词条占用：这不是改写，
+            # 而是同一句套话在两边重复出现，不能拿来判定「谁改了」。
+            hit = None
+        if hit and len(u["norm"]) < 20 and para_count[u["norm"]] != site_count[hit[1]["norm"]]:
+            hit = None                      # 短套话在两侧数量不等，无法判定归属
         if hit:
             ratio, cand = hit
             used_site.add(id(cand))
@@ -263,6 +280,8 @@ def align(para: dict[str, dict], pages: dict[str, str]) -> dict:
         if any(id(u) == id(x["site"]) for x in rewritten):
             continue
         hit = best(u, para_by_head, used_para)
+        if hit and len(u["norm"]) < 20 and site_count[u["norm"]] != para_count[hit[1]["norm"]]:
+            hit = None
         if hit:
             ratio, cand = hit
             used_para.add(id(cand))
@@ -271,8 +290,13 @@ def align(para: dict[str, dict], pages: dict[str, str]) -> dict:
         else:
             site_only.append(u)
 
+    # 同一 (key, 句子) 若已按完全一致配对，就不能再算改写：重复套话会在两边各出现多次
+    ident_pairs = {(u["key"], u["norm"]) for u in identical}
+    rewritten = [x for x in rewritten if (x["key"], x["para"]["norm"]) not in ident_pairs]
+
+    dup_site = sum(1 for n, c in site_count.items() if c > 1)
     return {"identical": identical, "rewritten": rewritten,
-            "paraOnly": para_only, "siteOnly": site_only}
+            "paraOnly": para_only, "siteOnly": site_only, "dupSite": dup_site}
 
 
 # ---------------------------------------------------------------- 基线
@@ -517,6 +541,7 @@ def build_payload(para, pages, results, split) -> dict:
             "改写句": len(results["rewritten"]),
             "仅 ParaTranz 有": len(results["paraOnly"]),
             "仅站点有": len(results["siteOnly"]),
+            "重复套话(不自动配对)": results.get("dupSite", 0),
             "待写入站点": len(split["toSite"]),
             "待写入 ParaTranz": len(split["toPara"]),
             "冲突": len(split["conflicts"]),
@@ -588,13 +613,14 @@ def cmd_apply(args) -> int:
         for t in touched:
             print("  ", t)
 
-    # 写回后重算一遍并推进基线，让下次 check 从新状态出发
+    # 写回后重算：仍用写回前的基线判定，确认待办已清空，然后才推进基线
     s2 = para_session()
     para2 = fetch_para(s2)
     pages2 = load_site(Path(args.site))
     results2 = align(para2, pages2)
-    base2 = advance_baseline(para2, pages2, results2)
-    split2 = classify(results2, base2)
+    split2 = classify(results2, base)
+    if not (split2["conflicts"] or split2["toSite"] or split2["toPara"]):
+        advance_baseline(para2, pages2, results2)
     payload = build_payload(para2, pages2, results2, split2)
     write_reports(payload)
     print(json.dumps(payload["counts"], ensure_ascii=False))

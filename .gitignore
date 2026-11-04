@@ -10,6 +10,7 @@ hugo.exe
 static/edit/config.token.js
 static/generated/
 var/
+data/para-sync/logs/
 node_modules/
 playwright-report/
 test-results/
