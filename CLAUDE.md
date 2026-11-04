@@ -29,9 +29,10 @@ Daggerheart_SRD/
 │   └── scores.json
 ├── scripts/             # 构建、导入、校验与服务端运行脚本
 │   ├── build_srd.py
+│   ├── sync_para.py     # 与 ParaTranz 的双向文本同步
 │   ├── proxy_server.py  # GitHub API 代理（零依赖，纯 stdlib）
 │   └── proxy_server.service  # systemd 单元文件模板
-├── data/                # 唯一章节清单 + 专用规则术语表
+├── data/                # 唯一章节清单 + 专用规则术语表 + para-sync 状态
 ├── layouts/             # Hugo 模板
 ├── static/              # 阅读端、编辑器、反馈后台、图片
 ├── tests/               # Python、Node.js 与浏览器测试
@@ -136,6 +137,32 @@ ExecStart=/srv/bandwagon-preview/venv/bin/python /srv/srd-production/scripts/pro
 ```
 
 预期 `DaggerHeart_CN` 与本仓库同级目录。脚本中的路径均为相对路径。
+
+## ParaTranz 双向同步
+
+`scripts/sync_para.py` 维护本站与 ParaTranz 项目 14448（`SRD/DH_SRD_2_2026_08_25.md.json` = 3347716、
+`SRD/DH_SRD_2_Equipment_Items.json` = 3409913）的文本一致性，两边互为主源。
+
+判定用**基线**（`data/para-sync/baseline.json`，句子归一化后的哈希）做三方合并，不看 ParaTranz 的
+`updatedAt`——整包导入会把它刷成最新，2026-10-30 就是因此把人工修订冲回了站点的旧文本。
+
+- 只有一边偏离基线 → 那边是改动方，同步到另一边
+- 两边都偏离基线 → 冲突，进 `data/para-sync/conflicts.jsonl`，等人工裁决
+- 只存在于一边的句子（本站表格化内容、「站点补充：非SRD2.0条目」的敌人、ParaTranz 独有段落）只计数不写
+
+```bash
+python scripts/sync_para.py check              # 只读；0=干净，1=有冲突或待同步
+python scripts/sync_para.py check --json       # 结构化结果输出到 stdout
+python scripts/sync_para.py apply --to-site    # ParaTranz 的改动写进本站（改 md 并 commit）
+python scripts/sync_para.py apply --to-para    # 本站的改动写回 ParaTranz（PUT /strings，保 stage）
+python scripts/sync_para.py snapshot           # 人工裁决后重建基线
+```
+
+安全阀：相似度 ≥ 0.90、骰子与数值必须完全一致、最优与次优匹配差距 ≥ 0.03（否则视为歧义不配对）、
+单句自动替换 ≤ 24 字符。写回后回读校验归一化文本必须一致。
+
+定时巡查读 `data/para-sync/latest.json`（`counts` / `pending` / `conflicts`）。`check` 幂等，同一条冲突
+不会重复记。token 依次取环境变量 `PARATRANZ_TOKEN`、本仓库 `.env`、同级 `DaggerHeart_CN/.env`。
 
 ## 授权
 

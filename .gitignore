@@ -4,6 +4,7 @@ Daggerheart-HTML-SRD-release/
 *.hugo_build.lock
 __pycache__/
 *.pyc
+.env
 hugo.exe
 .claude/
 static/edit/config.token.js
