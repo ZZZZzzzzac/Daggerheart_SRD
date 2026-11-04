@@ -464,6 +464,7 @@ def write_reports(payload: dict) -> None:
     LATEST_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
     lines = [f"# ParaTranz ↔ SRD 站 同步检查 {payload['generatedAt']}", "",
+             f"- 待裁决冲突：{len(payload['conflicts'])} 条（明细见 conflicts.jsonl，解决后自动消失）", "",
              "| 项 | 数量 |", "| --- | --- |"]
     for k, v in payload["counts"].items():
         lines.append(f"| {k} | {v} |")
@@ -491,24 +492,29 @@ def write_reports(payload: dict) -> None:
         old.unlink(missing_ok=True)
 
 
-def record_conflicts(items: list[dict]) -> None:
-    """按 signature 去重追加，避免每次 check 都重复记同一条冲突。"""
-    if not items:
-        return
+def write_conflicts(items: list[dict]) -> None:
+    """conflicts.jsonl 是「当前未解决冲突」的快照，不是追加日志。
+
+    冲突解决后这次重写会把它去掉，服务器上的巡查只要看这个文件是否为空。
+    firstSeenAt 从上一版沿用，用来判断哪条拖得最久。
+    """
     CONFLICTS.parent.mkdir(parents=True, exist_ok=True)
-    seen: set[str] = set()
+    first: dict[str, str] = {}
     if CONFLICTS.is_file():
         for line in CONFLICTS.read_text(encoding="utf-8").splitlines():
             try:
-                seen.add(json.loads(line)["signature"])
+                rec = json.loads(line)
+                first[rec["signature"]] = rec.get("firstSeenAt") or now()
             except (ValueError, KeyError):
                 continue
-    fresh = [c for c in items if c["signature"] not in seen]
-    if not fresh:
-        return
-    with CONFLICTS.open("a", encoding="utf-8") as fh:
-        for c in fresh:
-            fh.write(json.dumps(c, ensure_ascii=False) + "\n")
+    stamp = now()
+    lines = []
+    for c in items:
+        rec = dict(c)
+        rec["firstSeenAt"] = first.get(c["signature"], stamp)
+        rec["lastSeenAt"] = stamp
+        lines.append(json.dumps(rec, ensure_ascii=False))
+    CONFLICTS.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
 
 
 def serialize(results: dict) -> dict:
@@ -574,7 +580,7 @@ def cmd_check(args) -> int:
     split = classify(results, base)
     payload = build_payload(para, pages, results, split)
     write_reports(payload)
-    record_conflicts(payload["conflicts"])
+    write_conflicts(payload["conflicts"])
     if args.json:
         print(json.dumps(payload, ensure_ascii=False, indent=1))
     else:

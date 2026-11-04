@@ -147,7 +147,8 @@ ExecStart=/srv/bandwagon-preview/venv/bin/python /srv/srd-production/scripts/pro
 `updatedAt`——整包导入会把它刷成最新，2026-10-30 就是因此把人工修订冲回了站点的旧文本。
 
 - 只有一边偏离基线 → 那边是改动方，同步到另一边
-- 两边都偏离基线 → 冲突，进 `data/para-sync/conflicts.jsonl`，等人工裁决
+- 两边都偏离基线 → 冲突，写进 `data/para-sync/conflicts.jsonl`。这份文件是**当前未解决冲突的快照**，
+  裁决完下次 `check` 会自动把它去掉，所以「文件非空」就等于「还有待裁决的冲突」
 - 只存在于一边的句子（本站表格化内容、「站点补充：非SRD2.0条目」的敌人、ParaTranz 独有段落）只计数不写
 
 ```bash
@@ -161,8 +162,13 @@ python scripts/sync_para.py snapshot           # 人工裁决后重建基线
 安全阀：相似度 ≥ 0.90、骰子与数值必须完全一致、最优与次优匹配差距 ≥ 0.03（否则视为歧义不配对）、
 单句自动替换 ≤ 24 字符。写回后回读校验归一化文本必须一致。
 
-定时巡查读 `data/para-sync/latest.json`（`counts` / `pending` / `conflicts`）。`check` 幂等，同一条冲突
-不会重复记。token 依次取环境变量 `PARATRANZ_TOKEN`、本仓库 `.env`、同级 `DaggerHeart_CN/.env`。
+定时巡查分两处：
+
+- **有 token 的机器**（本地）定时跑 `check`，把 `data/para-sync/` 一起提交推送。
+- **服务器上的巡查只读文件**：`data/para-sync/conflicts.jsonl` 非空即有未裁决冲突，
+  `data/para-sync/latest.json` 的 `generatedAt` 用来判断这份检查有多旧。不需要 token，不需要联网。
+
+`check` 幂等。token 依次取环境变量 `PARATRANZ_TOKEN`、本仓库 `.env`、同级 `DaggerHeart_CN/.env`。
 
 ## 授权
 
