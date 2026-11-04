@@ -35,7 +35,7 @@ import re
 import subprocess
 import sys
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -44,7 +44,7 @@ from dotenv import load_dotenv
 REPO = Path(__file__).resolve().parents[1]      # 本仓库根
 SYNC_DIR = REPO / "data/para-sync"
 BASELINE = SYNC_DIR / "baseline.json"
-CONFLICTS = SYNC_DIR / "conflicts.jsonl"
+CONFLICTS = SYNC_DIR / "conflicts.md"
 LATEST_JSON = SYNC_DIR / "latest.json"
 LATEST_MD = SYNC_DIR / "latest.md"
 LOG_DIR = SYNC_DIR / "logs"
@@ -492,29 +492,69 @@ def write_reports(payload: dict) -> None:
         old.unlink(missing_ok=True)
 
 
-def write_conflicts(items: list[dict]) -> None:
-    """conflicts.jsonl 是「当前未解决冲突」的快照，不是追加日志。
+def local_stamp(iso: str) -> str:
+    """UTC 的 ISO 时间 → 本地时间，带 UTC±N 标注。"""
+    dt = datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone()
+    offset = int((dt.utcoffset() or timedelta(0)).total_seconds() // 3600)
+    return dt.strftime("%Y-%m-%d %H:%M") + f" (UTC{offset:+d})"
 
-    冲突解决后这次重写会把它去掉，服务器上的巡查只要看这个文件是否为空。
+
+CONFLICT_HEADER = """<!-- 巡查说明：每小时读一次本文件，按下面五条处理。
+
+1. 「未解决冲突」为 0 条 → 一句话报平安，不要展开。
+2. 有条目 → 逐条报：词条 key、页面:行号、首次发现时间、ParaTranz 侧与站点侧原文。
+   首次发现越早越优先，先报拖得最久的。
+3. 看「最近一次检查」的时间戳：距今超过 24 小时说明生产端停摆，
+   这比冲突本身更优先，必须先提醒。
+4. 读不到本文件 → 报「冲突列表读取失败」+ 原始错误，不要当成没有冲突。
+5. 不要修改本文件，不要跑同步脚本，冲突由人工裁决。
+   「待同步」那两行只是顺带汇报，不需要你处理。
+-->
+"""
+
+
+def write_conflicts(payload: dict) -> None:
+    """conflicts.md 是「当前未解决冲突」的快照，顶上带巡查说明。
+
+    冲突裁决完，下次 check 重写时就会消失，文件里「0 条」即为干净。
     firstSeenAt 从上一版沿用，用来判断哪条拖得最久。
     """
-    CONFLICTS.parent.mkdir(parents=True, exist_ok=True)
+    SYNC_DIR.mkdir(parents=True, exist_ok=True)
     first: dict[str, str] = {}
     if CONFLICTS.is_file():
         for line in CONFLICTS.read_text(encoding="utf-8").splitlines():
-            try:
-                rec = json.loads(line)
-                first[rec["signature"]] = rec.get("firstSeenAt") or now()
-            except (ValueError, KeyError):
+            if line.startswith("- 首次发现：") or not line.startswith("### "):
                 continue
-    stamp = now()
-    lines = []
-    for c in items:
-        rec = dict(c)
-        rec["firstSeenAt"] = first.get(c["signature"], stamp)
-        rec["lastSeenAt"] = stamp
-        lines.append(json.dumps(rec, ensure_ascii=False))
-    CONFLICTS.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+    # 从上一版 md 里回收 firstSeenAt（按 key+页面+行号匹配）
+    old_first: dict[tuple, str] = {}
+    if CONFLICTS.is_file():
+        cur_key = None
+        for line in CONFLICTS.read_text(encoding="utf-8").splitlines():
+            if line.startswith("### "):
+                cur_key = line[4:].strip()
+            elif cur_key and line.startswith("- 首次发现："):
+                old_first[cur_key] = line.split("：", 1)[1].strip()
+
+    stamp = payload["generatedAt"]
+    counts = payload["counts"]
+    lines = ["# SRD 站 ↔ ParaTranz 待裁决冲突", "", CONFLICT_HEADER,
+             f"最近一次检查：{local_stamp(stamp)}",
+             f"未解决冲突：{len(payload['conflicts'])} 条",
+             f"待同步：写入站点 {counts.get('待写入站点', 0)} 条 / 写回 ParaTranz {counts.get('待写入 ParaTranz', 0)} 条",
+             "", "## 未解决冲突", ""]
+    if not payload["conflicts"]:
+        lines.append("无。")
+    else:
+        for i, c in enumerate(payload["conflicts"], 1):
+            title = f"{c['key']} @ {c['page']}:{c['siteLine']}"
+            label = f"{i}. {title}"
+            seen = old_first.get(title, local_stamp(stamp))
+            lines += [f"### {label}",
+                      f"- 首次发现：{seen}",
+                      f"- ParaTranz：{c['para']}",
+                      f"- 站点：{c['site']}",
+                      ""]
+    CONFLICTS.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def serialize(results: dict) -> dict:
@@ -580,7 +620,7 @@ def cmd_check(args) -> int:
     split = classify(results, base)
     payload = build_payload(para, pages, results, split)
     write_reports(payload)
-    write_conflicts(payload["conflicts"])
+    write_conflicts(payload)
     if args.json:
         print(json.dumps(payload, ensure_ascii=False, indent=1))
     else:
