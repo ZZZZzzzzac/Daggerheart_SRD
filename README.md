@@ -80,6 +80,8 @@ python scripts/preview_server.py
 
 当前生产目录为搬瓦工服务器的 `/srv/srd-production`，运行用户为 `srd`，服务为 `srd-production.service`。先在候选目录完整构建，再快进生产代码并替换 `public/`、重启服务；保留 `var/feedback.db` 和私有配置。连接及服务器配置以同级 `Daggerheart_VPS` 仓库的当前说明为准。
 
+GitHub 是唯一事实源：本机与服务器都以 `origin/master` 为基准，服务器用 GitHub Deploy Key（`/srv/srd-credentials/id_ed25519`）双向拉取与推送。网页编辑器发布后自动 commit 并推回 GitHub；代码改动则先推 GitHub，再在服务器 `git pull`。
+
 ## 术语提示
 
 正文中的核心规则术语支持悬停、键盘聚焦或手机点击查看中文名称和解释。`data/glossary.md` 保存人工维护的术语，按类别分组，全部参与匹配。可在 `/SRD/edit/?path=glossary` 新增、修改或删除条目，切换 Markdown 编辑，并通过“保存并发布”直接更新网站。

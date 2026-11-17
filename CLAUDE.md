@@ -124,6 +124,10 @@ ExecStart=/srv/bandwagon-preview/venv/bin/python /srv/srd-production/scripts/pro
 
 代码发布：先推送 GitHub，再以 `srd` 用户拉取并在候选目录完整构建。确认生产目录没有新编辑后快进代码，替换构建产物并重启 `srd-production.service`，验证两个域名的阅读页和受保护接口。保留上一版站点以便恢复；`var/feedback.db`、运行配置及凭据不随代码覆盖。无需修改 Nginx 配置。
 
+GitHub 是唯一事实源，服务器和本机都应能双向同步：服务器仓库的推送凭据是 GitHub Deploy Key，私钥放在 `/srv/srd-credentials/id_ed25519`（同目录 `known_hosts`），由仓库本地配置 `core.sshCommand` 指定，只传路径不读密钥正文。排查同步时可核验：`sudo -u srd ssh -T git@github.com` 应返回 `Hi ZZZZzzzzac/Daggerheart_SRD!`，`sudo -u srd git -C /srv/srd-production fetch origin` 与 `git push --dry-run` 均不带错误。
+
+2026-11-17 曾出现同步中断：GitHub 上登记的旧 `Server Deploy` 公钥与服务器现用密钥不一致，导致 10-31 之后服务器的 fetch / push 全部失败（编辑器发布仍照常，只是不再回到 GitHub）。已注册服务器当前公钥并删除旧密钥；变更 deploy key 后必须同时验证拉取和推送，不能只看 `push --dry-run`。
+
 ## 大版本内容导入
 
 日常构建只读取本仓库中的 `src/pages/`，不依赖外部仓库。导入新的完整 SRD 版本时使用以下外部资料：
