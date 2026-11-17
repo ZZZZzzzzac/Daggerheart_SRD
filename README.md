@@ -92,6 +92,21 @@ python scripts/preview_server.py
 
 “装备”目录下的主武器、副武器和护甲各有独立查询页，支持表头排序、多列筛选和双语名称查找；物品、消耗品各有独立表格，所有列使用文字查询。维护方式见 [docs/equipment-tables.md](docs/equipment-tables.md)。战斗轮椅位于装备规则页末尾。
 
+## Markdown 导出
+
+阅读页顶栏的「导出 MD」按钮直接下载 `daggerheart-srd-md.zip`，内容为整站的纯 Markdown 文本：
+
+```
+Daggerheart-SRD-MD/
+├── README.md          # 版本、来源、授权与章节清单
+├── zh/complete.md     # 全部中文章节合并版
+├── zh/chapters/       # 单章文件，文件名前的编号即站内目录顺序
+├── en/complete.md
+└── en/chapters/
+```
+
+导出包在构建时由 `scripts/build_srd.py` 写入 `static/generated/export/`（已 gitignore，随每次构建刷新），线上地址为 `/SRD/generated/export/daggerheart-srd-md.zip`，无需改动 nginx。内容取自 `src/pages/` 的源 Markdown：站点专用的锚点标记、术语链接和敌人数据注释会被移除，站内链接改写为线上地址，页面标题作为一级标题，章内小节保留源稿的从属关系并连续映射为二级及以下，表格与强调保持原样。相同内容重复构建得到字节一致的压缩包。
+
 ## 在线编辑器
 
 `/SRD/edit/` 提供在线编辑功能：
@@ -117,7 +132,7 @@ npm test
 npm run test:e2e
 ```
 
-Python 测试覆盖构建、批量发布、版本冲突、反馈收件箱和数据库备份；Node 测试覆盖共享渲染核心与本地搜索；Playwright 使用本机 Chrome 覆盖目录、搜索、语言、主题和移动端抽屉。没有 Chrome 的环境可先运行 `npx playwright install chromium`，再设置 `PLAYWRIGHT_CHANNEL=chromium`。
+Python 测试覆盖构建、批量发布、版本冲突、反馈收件箱和数据库备份；Node 测试覆盖共享渲染核心与本地搜索；Playwright 使用本机 Chrome 覆盖目录、搜索、语言、主题、移动端抽屉和 Markdown 导出下载。没有 Chrome 的环境可先运行 `npx playwright install chromium`，再设置 `PLAYWRIGHT_CHANNEL=chromium`。
 
 ## 协作流程
 

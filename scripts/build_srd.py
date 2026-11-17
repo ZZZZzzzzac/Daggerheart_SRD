@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Iterator
 import html
+import io
 import json
 import os
 import re
 import shutil
 import subprocess
 import sys
+import zipfile
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -29,6 +32,19 @@ RENDER_CORE_CLI = SCRIPT_DIR / "render_core_cli.mjs"
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*$", re.MULTILINE)
 EXPLICIT_ID_RE = re.compile(r"\s+\{#([a-zA-Z][\w-]*)\}\s*$")
 TAG_RE = re.compile(r"<[^>]+>")
+EXPORT_ZIP_NAME = "daggerheart-srd-md.zip"
+EXPORT_ARCHIVE_ROOT = "Daggerheart-SRD-MD"
+# 导出文件里写的授权声明与站点地址；config.yaml 缺少 baseURL 时用这个地址。
+EXPORT_LICENSE = (
+    "© 2025 Critical Role LLC. 依据 Darrington Press 社群游戏授权条款"
+    "（https://www.darringtonpress.com/license）发布，视为 Public Game Content。"
+)
+EXPORT_SITE_URL = "https://daggerheart.cn/SRD/"
+ANCHOR_SPAN_LINE_RE = re.compile(r'^[ \t]*<span\b[^>]*data-anchor="[^"]*"[^>]*>[ \t]*</span>[ \t]*$', re.MULTILINE)
+CARD_MARKER_LINE_RE = re.compile(r'^[ \t]*<!--[ \t]*/?[ \t]*(?:adversary|environment)\b[^>]*-->[ \t]*$', re.MULTILINE)
+INLINE_NO_GLOSSARY_RE = re.compile(r'\[\[!(.*?)\]\]', re.DOTALL)
+IMAGE_TAG_RE = re.compile(r'<img\b[^>]*>', re.IGNORECASE)
+PARAGRAPH_LINE_RE = re.compile(r'^[ \t]*<p\b[^>]*>(.*?)</p>[ \t]*$', re.MULTILINE)
 
 
 class BuildError(RuntimeError):
@@ -322,6 +338,210 @@ srd_path: ""
     (content_dir / "_index.md").write_text(home, encoding="utf-8")
 
 
+FENCE_PREFIXES = ("```", "~~~")
+
+
+def _scanned_lines(lines: list[str]) -> Iterator[tuple[int, str, bool]]:
+    """Yield (index, line, in_fence); 代码围栏里的行不参与标题与链接改写。"""
+    in_fence = False
+    for index, line in enumerate(lines):
+        if line.lstrip().startswith(FENCE_PREFIXES):
+            in_fence = not in_fence
+            yield index, line, True
+            continue
+        yield index, line, in_fence
+
+
+def _strip_no_glossary_fences(lines: list[str]) -> None:
+    """`::: no-glossary` 只给本站渲染器看，导出时连同配对的 `:::` 一起去掉。"""
+    depth = 0
+    for index, line, in_fence in _scanned_lines(lines):
+        if in_fence:
+            continue
+        stripped = line.strip()
+        if stripped == "::: no-glossary":
+            depth += 1
+            lines[index] = ""
+        elif stripped == ":::" and depth:
+            depth -= 1
+            lines[index] = ""
+
+
+def clean_export_markdown(markdown_text: str) -> str:
+    """Strip site-only markup so the exported file is plain Markdown."""
+    value = INLINE_NO_GLOSSARY_RE.sub(r"\1", markdown_text)
+    value = ANCHOR_SPAN_LINE_RE.sub("", value)
+    value = CARD_MARKER_LINE_RE.sub("", value)
+    value = PARAGRAPH_LINE_RE.sub(r"\1", value)
+    value = IMAGE_TAG_RE.sub("", value)
+    # 显式锚点只有本站渲染器认得，导出时去掉，标题只留文字。
+    value = re.sub(r"^(#{1,6}[ \t]+.*?)[ \t]*\{#[a-zA-Z][\w-]*\}", r"\1", value, flags=re.MULTILINE)
+    lines = value.split("\n")
+    _strip_no_glossary_fences(lines)
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(lines)).strip()
+
+
+def _export_headings(lines: list[str]) -> list[tuple[int, int, str]]:
+    headings: list[tuple[int, int, str]] = []
+    for index, line, in_fence in _scanned_lines(lines):
+        if in_fence:
+            continue
+        match = HEADING_RE.match(line)
+        if match:
+            headings.append((index, len(match.group(1)), _clean_heading(match.group(2))))
+    return headings
+
+
+def normalize_export_headings(markdown_text: str, page_title: str) -> str:
+    """Drop a repeated page title and level the remaining sections continuously."""
+    lines = markdown_text.split("\n")
+    headings = _export_headings(lines)
+    if headings and headings[0][2].casefold() == page_title.strip().casefold():
+        del lines[headings[0][0]]
+        headings = _export_headings(lines)
+    if not headings:
+        return "\n".join(lines)
+    # 源稿混用了 # 与 ##/###/####：按出现过的层级排序后连续映射到 2、3、4…，
+    # 既保留原有从属关系，也不会把同级小节拆成父子。
+    mapping = {
+        level: min(2 + rank, 6)
+        for rank, level in enumerate(sorted({level for _, level, _ in headings}))
+    }
+    for index, line, in_fence in _scanned_lines(lines):
+        if in_fence:
+            continue
+        match = HEADING_RE.match(line)
+        if match:
+            lines[index] = "#" * mapping[len(match.group(1))] + " " + match.group(2)
+    return "\n".join(lines)
+
+
+def page_markdown(page_title: str, markdown_text: str) -> str:
+    """Render one chapter: the page title becomes the only level-1 heading."""
+    body = normalize_export_headings(clean_export_markdown(markdown_text), page_title)
+    body = re.sub(r"\n{3,}", "\n\n", body).strip()
+    return f"# {page_title}\n\n{body}\n" if body else f"# {page_title}\n"
+
+
+def absolutize_export_links(markdown_text: str, site_url: str) -> str:
+    """Rewrite site-absolute links so they still work outside the site."""
+    base = site_url.rstrip("/")
+    prefix = urlparse(site_url).path.rstrip("/")
+    if not prefix:
+        # 站点部署在根路径时无法区分站内链接，保持原样。
+        return markdown_text
+    lines = markdown_text.split("\n")
+    for index, line, in_fence in _scanned_lines(lines):
+        if in_fence or "](" not in line:
+            continue
+        lines[index] = line.replace(f"]({prefix}/", f"]({base}/").replace(f"]({prefix})", f"]({base}/)")
+    return "\n".join(lines)
+
+
+def _export_complete_markdown(language: str, version: str, site_url: str, body: str) -> str:
+    if language == "zh":
+        title = "匕首之心系统参考文档"
+        meta = f"版本 {version} ｜ 来源 {site_url}"
+        note = "本文件把站内全部章节按目录顺序合并为一份 Markdown 文档；每章也可在 chapters/ 目录单独取用。"
+    else:
+        title = "Daggerheart System Reference Document"
+        meta = f"Version {version} | Source {site_url}"
+        note = "This file merges every chapter of the site into one Markdown document in contents order; each chapter is also available separately in the chapters/ directory."
+    return f"# {title}\n\n{meta}\n\n{note}\n\n{EXPORT_LICENSE}\n\n{body}\n"
+
+
+def _export_readme(version: str, site_url: str, chapters: dict[str, list[tuple[str, str, str]]]) -> str:
+    lines = [
+        "# 匕首之心 SRD · Markdown 导出",
+        "",
+        f"- 版本：{version}",
+        f"- 来源：{site_url}",
+        f"- 授权：{EXPORT_LICENSE}",
+        "",
+        "## 内容结构",
+        "",
+        "```",
+        f"{EXPORT_ARCHIVE_ROOT}/",
+        "├── README.md",
+        "├── zh/",
+        "│   ├── complete.md          # 全部中文章节合并版",
+        "│   └── chapters/            # 按站内目录顺序的章节文件",
+        "└── en/",
+        "    ├── complete.md          # 全部英文章节合并版",
+        "    └── chapters/",
+        "```",
+        "",
+        "说明：",
+        "",
+        "- 章节文件名前的数字是站内目录顺序，中英文编号一一对应。",
+        "- 每章以页面标题作为一级标题，章内小节依次顺延，最浅的小节为二级标题。",
+        "- 站点专用的锚点标记、术语链接和敌人数据注释已移除，正文为纯 Markdown；表格、列表和强调保持原样。",
+        "",
+        "## English",
+        "",
+        "This archive contains the whole bilingual SRD as Markdown. `zh/complete.md` and `en/complete.md` hold every chapter, while `zh/chapters/` and `en/chapters/` hold the same chapters separately in site contents order.",
+        "",
+        "## 章节顺序 Chapters",
+        "",
+        "### 中文",
+        "",
+    ]
+    lines.extend(f"- `{filename}` {title}" for filename, title, _ in chapters["zh"])
+    lines.extend(["", "### English", ""])
+    lines.extend(f"- `{filename}` {title}" for filename, title, _ in chapters["en"])
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _write_zip_entry(archive: zipfile.ZipFile, name: str, text: str) -> None:
+    # 固定时间戳，相同内容每次构建出的压缩包字节一致。
+    info = zipfile.ZipInfo(name, date_time=(1980, 1, 1, 0, 0, 0))
+    info.compress_type = zipfile.ZIP_DEFLATED
+    info.create_system = 3  # 固定宿主标识，Windows 与 Linux 构建字节一致
+    info.external_attr = 0o644 << 16
+    archive.writestr(info, text)
+
+
+def generate_markdown_export(
+    generated_dir: Path, version: str, site_url: str, prepared_pages: list[dict]
+) -> Path:
+    """Package the whole site as Markdown for the reader download button."""
+    chapters: dict[str, list[tuple[str, str, str]]] = {"zh": [], "en": []}
+    for language in ("zh", "en"):
+        for index, prepared in enumerate(prepared_pages, 1):
+            page = prepared["page"]
+            title = page["title"][language]
+            filename = f"{index:02d}-{page['path'].replace('/', '-')}.md"
+            chapters[language].append(
+                (
+                    filename,
+                    title,
+                    absolutize_export_links(
+                        page_markdown(title, prepared[f"{language}_text"]), site_url
+                    ),
+                )
+            )
+    target = generated_dir / "export" / EXPORT_ZIP_NAME
+    target.parent.mkdir(parents=True, exist_ok=True)
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w") as archive:
+        _write_zip_entry(archive, f"{EXPORT_ARCHIVE_ROOT}/README.md", _export_readme(version, site_url, chapters))
+        for language, entries in chapters.items():
+            body = "\n\n".join(text for _, _, text in entries)
+            _write_zip_entry(
+                archive,
+                f"{EXPORT_ARCHIVE_ROOT}/{language}/complete.md",
+                _export_complete_markdown(language, version, site_url, body),
+            )
+            for filename, _, text in entries:
+                _write_zip_entry(archive, f"{EXPORT_ARCHIVE_ROOT}/{language}/chapters/{filename}", text)
+    # 先写临时文件再替换，避免中断后留下截断的压缩包。
+    temporary = target.with_name(target.name + ".tmp")
+    temporary.write_bytes(buffer.getvalue())
+    os.replace(temporary, target)
+    return target
+
+
 def generate_site(project_dir: Path) -> tuple[Path, Path]:
     manifest_path = project_dir / "data" / "srd.yaml"
     pages_dir = project_dir / "src" / "pages"
@@ -375,6 +595,7 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
     else:
         config = {}
     base_path = urlparse(str((config or {}).get("baseURL", ""))).path
+    site_url = str((config or {}).get("baseURL", "")).strip() or EXPORT_SITE_URL
     site_pages: list[dict] = []
     search_records: list[dict] = []
     for position, prepared in enumerate(prepared_pages):
@@ -459,6 +680,8 @@ def generate_site(project_dir: Path) -> tuple[Path, Path]:
         json.dumps({"version": site_index["version"], "records": search_records}, ensure_ascii=False, separators=(",", ":")),
         encoding="utf-8",
     )
+    # 整站 Markdown 打包放在静态资源里，由阅读端“导出 MD”按钮直接下载。
+    generate_markdown_export(generated_dir, version, site_url, prepared_pages)
     return content_dir, generated_dir
 
 

@@ -91,3 +91,49 @@ test("equipment table keeps short leading-column values on one line", async ({ p
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect(await page.locator('.equipment-scroll').first().evaluate(el => el.scrollWidth > el.clientWidth)).toBe(true);
 });
+
+
+test("markdown export button downloads the whole-site archive", async ({ page }) => {
+  await page.goto("/SRD/introduction/");
+
+  const link = page.locator("#markdown-export");
+  await expect(link).toBeVisible();
+  await expect(link).toHaveAttribute("download", "daggerheart-srd-md.zip");
+
+  const response = await page.request.get(await link.getAttribute("href"));
+  expect(response.status()).toBe(200);
+  const body = await response.body();
+  expect(body.subarray(0, 2).toString()).toBe("PK");
+  expect(body.length).toBeGreaterThan(100_000);
+  // zip 中央目录里的文件名不压缩，能直接验证中英文章节都在包内。
+  const entries = [
+    "Daggerheart-SRD-MD/README.md",
+    "zh/complete.md",
+    "en/complete.md",
+    "zh/chapters/01-introduction.md",
+    "zh/chapters/37-appendix.md",
+  ];
+  for (const entry of entries) {
+    expect(body.includes(Buffer.from(entry))).toBe(true);
+  }
+});
+
+
+test("markdown export button keeps the mobile header on one row", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/SRD/introduction/");
+
+  await expect(page.locator("#markdown-export")).toBeVisible();
+  await expect(page.locator("#markdown-export .export-short")).toBeVisible();
+  await expect(page.locator("#markdown-export .export-full")).toBeHidden();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+
+  const rowTop = async (selector) => (await page.locator(selector).boundingBox()).y;
+  const [menuTop, exportTop, themeTop] = await Promise.all([
+    rowTop("#menu-button"),
+    rowTop("#markdown-export"),
+    rowTop("#theme-button"),
+  ]);
+  expect(Math.abs(menuTop - exportTop)).toBeLessThan(8);
+  expect(Math.abs(exportTop - themeTop)).toBeLessThan(8);
+});

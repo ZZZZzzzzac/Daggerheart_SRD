@@ -105,6 +105,9 @@ html[data-theme="dark"] .wordmark-mark-dark { display: block; }
 .search-symbol::after { content: ""; position: absolute; width: .42rem; height: 1.7px; right: -.34rem; bottom: -.12rem; background: currentColor; transform: rotate(45deg); transform-origin: left center; }
 .compact-button { min-width: 3.1rem; height: 2.25rem; padding: 0 .65rem; }
 .theme-button { font-size: 1.15rem; }
+.export-button { display: inline-flex; align-items: center; justify-content: center; color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
+.export-button:hover { color: var(--accent); }
+.export-short { display: none; }
 .menu-button { display: none; width: 2.3rem; height: 2.3rem; padding: .55rem; }
 .menu-button span { display: block; height: 1px; margin: .25rem 0; background: currentColor; }
 
@@ -330,6 +333,8 @@ dialog::backdrop { background: rgba(20, 18, 15, .56); backdrop-filter: blur(3px)
   .header-actions { padding: 0; }
   .search-button { min-width: auto; width: 2.3rem; height: 2.3rem; padding: .65rem; }
   .search-button .lang-zh, .search-button .lang-en, .search-button kbd { display: none !important; }
+  .export-button .export-full { display: none; }
+  .export-button .export-short { display: inline; }
   .site-sidebar { transform: translateX(-102%); transition: transform .22s ease; box-shadow: var(--shadow); }
   body.sidebar-open .site-sidebar { transform: translateX(0); }
   body.sidebar-open .sidebar-backdrop { position: fixed; z-index: 25; display: block; inset: var(--header-height) 0 0; background: rgba(20,18,15,.42); }
